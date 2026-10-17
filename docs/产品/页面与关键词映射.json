@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-10-17",
+  "domain": "https://fenbeiceshi.com",
+  "status": "planning-only",
+  "market": "中文优先，兼顾百度、必应和 Google；同时规划英文。",
+  "keywordEvidence": "全部为意图规划候选；未取得经验证的搜索量、难度或排名数据，非正式竞品审计结果。",
+  "implementationNote": "本文件不是可发布路由注册表。每种语言通过发布门槛后，才能进入应用的已发布内容数据；只渲染当前语言实际发布的关联目标。",
+  "localePolicy": {
+    "defaultLocale": "zh-CN",
+    "englishPrefix": "/en/",
+    "canonical": "每个已发布语言页面自引用规范地址。",
+    "hreflang": "仅真实对应且已发布的页面互相返回并包含自身；x-default 为该主题中文默认页。"
+  },
+  "functionalRoutes": [
+    {
+      "id": "records",
+      "paths": [
+        "/records/",
+        "/en/records/"
+      ],
+      "indexPolicy": "noindex",
+      "sitemap": false,
+      "purpose": "本机记录、删除与比较；私人记录不进入公共 URL。"
+    }
+  ],
+  "defaultIndexPolicy": "仅对已发布、返回 200、内容完整的规范页面开放索引；草稿和未实现页面不生成占位 URL。",
+  "priorityMeaning": {
+    "P0": "首批核心可用与基础解释",
+    "P1": "任务与独立工具扩展",
+    "P2": "按需求、语言或证据条件进一步扩展"
+  },
+  "pages": [
+    {
+      "id": "meter",
+      "kind": "tool",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/","wave":"P0","title":"在线分贝测试与噪音观察工具 - 分贝测试","h1":"在线分贝测试","keywords":["在线分贝测试","在线噪音测试","在线分贝仪","噪声测试在线"]},
+        "en": {"path":"/en/","wave":"P0","title":"Online Decibel Meter & Noise Observation Tool | fenbeiceshi.com","h1":"Online decibel meter","keywords":["online decibel meter","online sound level meter","noise meter online"]}
+      },
+      "intent": "立即使用浏览器观察环境声音。",
+      "uniqueValue": "真实麦克风状态、相对/估算口径、声音趋势和本机摘要记录共同完成一次任务。",
+      "sections": ["测量工作台与当前口径","方法、准确性与故障入口","已发布场景与精选知识"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["guide","calibration","phone-accuracy","microphone-help","room-noise"],
+      "publishGate": "测量状态、设备变化、停止释放、记录和隐私行为验证；示例与真实数据明确区分。",
+      "requiredEvidence": ["实际设备与浏览器测试","Web Audio 与 getUserMedia 一手资料","校准和统计口径说明"]
+    },
+    {
+      "id": "guide",
+      "kind": "guide",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/guide/","wave":"P0","title":"分贝测试使用指南：开始、结束与保存记录 - 分贝测试","h1":"如何使用分贝测试","keywords":["分贝测试使用方法","fenbeiceshi 使用指南"]},
+        "en": {"path":"/en/guide/","wave":"P0","title":"How to Use This Decibel Meter | fenbeiceshi.com","h1":"How to use this decibel meter","keywords":["fenbeiceshi decibel meter guide","how to use this decibel meter"]}
+      },
+      "intent": "了解本站已经实现的操作流程。",
+      "uniqueValue": "按本站真实状态说明开始、模式、结束和本机记录，承担产品手册职责。",
+      "sections": ["开始与权限","识别模式和异常","结束、保存、删除与复测"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["calibration","microphone-help","privacy","metrics"],
+      "publishGate": "逐步操作与实际版本一致；两种语言的截图和状态文字经过核对。",
+      "requiredEvidence": ["本站流程实测记录"]
+    },
+    {
+      "id": "calibration",
+      "kind": "guide",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/calibration/","wave":"P0","title":"分贝测试参考校准：方法与适用条件 - 分贝测试","h1":"参考校准与适用条件","keywords":["在线分贝测试校准","网页分贝仪参考校准"]},
+        "en": {"path":"/en/calibration/","wave":"P0","title":"Reference Calibration for This Decibel Meter | fenbeiceshi.com","h1":"Reference calibration and its limits","keywords":["calibrate online decibel meter","reference calibration sound meter"]}
+      },
+      "intent": "判断是否具备参考校准条件并进入实际流程。",
+      "uniqueValue": "说明参考设备、输入设置、保存关系与失效条件；不把默认偏移量当作校准。",
+      "sections": ["需要的参考条件","建立并保存对应关系","设备变化与误差边界"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["phone-accuracy","dbfs-spl","db-dba","guide"],
+      "publishGate": "参考校准功能实际可用；输入校验和设备/设置变化后失效机制已验证。",
+      "requiredEvidence": ["参考校准方法资料","校准有效性测试","设备处理设置实测"]
+    },
+    {
+      "id": "knowledge",
+      "kind": "hub",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/","wave":"P0","title":"声音知识与测量方法 - 分贝测试","h1":"声音知识与测量方法","keywords":["分贝知识","噪音测量基础"]},
+        "en": {"path":"/en/knowledge/","wave":"P0","title":"Sound Measurement Guides and Explanations | fenbeiceshi.com","h1":"Sound measurement guides","keywords":["sound measurement guides","decibel meter help"]}
+      },
+      "intent": "按问题找到相关解释和方法。",
+      "uniqueValue": "按开始使用、理解读数和进阶方法组织已发布内容，提供可抓取目录。",
+      "sections": ["入门与排查","读懂数值","已发布的进阶方法"],
+      "ctaTargetId": "guide",
+      "relatedIds": ["phone-accuracy","dbfs-spl","decibel-chart","microphone-help"],
+      "publishGate": "至少首批四篇基础内容已发布；只列当前语言可用条目。",
+      "requiredEvidence": ["已发布内容注册表"]
+    },
+    {
+      "id": "phone-accuracy",
+      "kind": "article",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/phone-decibel-accuracy/","wave":"P0","title":"手机测分贝准吗？设备、校准与使用边界 - 分贝测试","h1":"手机测分贝准吗？","keywords":["手机测分贝准吗","手机噪音测试准确吗","网页分贝仪准确吗"]},
+        "en": {"path":"/en/knowledge/phone-decibel-accuracy/","wave":"P0","title":"Are Phone Decibel Meters Accurate? | fenbeiceshi.com","h1":"Are phone decibel meters accurate?","keywords":["are phone decibel meters accurate","online decibel meter accuracy"]}
+      },
+      "intent": "判断手机或网页读数是否能用于当前目的。",
+      "uniqueValue": "区分同条件相对观察、参考校准估算和需要专业验证的任务。",
+      "sections": ["直接回答与可用范围","设备和音频处理差异","选择相对观察、校准或专业方法"],
+      "ctaTargetId": "calibration",
+      "relatedIds": ["meter","dbfs-spl","when-professional-meter"],
+      "publishGate": "引用的准确性结论保留具体产品和实验条件，不移植到本站；示例注明来源。",
+      "requiredEvidence": ["设备测量研究原文","CDC/NIOSH 特定应用的验证条件","本站能力核对"]
+    },
+    {
+      "id": "dbfs-spl",
+      "kind": "article",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"dBFS 与 dB SPL 有什么区别？为什么不能直接换算 - 分贝测试","h1":"dBFS 与 dB SPL 有什么区别？","keywords":["dBFS 是什么","dBFS 和 dB SPL 区别","dBFS 转 dB SPL"]},
+        "en": {"path":"/en/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"dBFS vs dB SPL: Why There Is No Universal Conversion | fenbeiceshi.com","h1":"dBFS vs dB SPL","keywords":["dBFS vs dB SPL","convert dBFS to SPL"]}
+      },
+      "intent": "理解相对数字电平与环境声压级的关系。",
+      "uniqueValue": "用输入链路示意解释参考量、增益与校准，不提供万能换算常数。",
+      "sections": ["两个参考量","为何读数不同","建立参考关系及其限制"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["calibration","phone-accuracy","db-dba"],
+      "publishGate": "术语、参考值和公式核验；示意图明确标注，不用虚拟数字冒充实测。",
+      "requiredEvidence": ["Web Audio 规范或文档","声学计量定义的一手资料"]
+    },
+    {
+      "id": "decibel-chart",
+      "kind": "article",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/","wave":"P0","title":"分贝对照表：常见声音有多大及比较条件 - 分贝测试","h1":"分贝对照表与比较条件","keywords":["分贝对照表","40 分贝有多大","50 分贝有多大","60 分贝有多大","70 分贝有多大"]},
+        "en": {"path":"/en/knowledge/decibel-chart/","wave":"P0","title":"Decibel Chart: Everyday Sounds and Their Context | fenbeiceshi.com","h1":"Decibel chart for everyday sounds","keywords":["decibel chart","how loud is 60 dB","common sound levels"]}
+      },
+      "intent": "建立常见声音量级的有条件参考。",
+      "uniqueValue": "同页表格和锚点回答数字长尾，说明距离、计权、环境和范围。",
+      "sections": ["参考表与来源","影响比较的条件","如何观察自己的环境"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["dbfs-spl","db-dba","phone-accuracy"],
+      "publishGate": "每组参考有来源和条件；不以播放器模拟真实分贝，不把未校准读数套表判定。",
+      "requiredEvidence": ["可追溯的声音参考资料","示例条件核对"]
+    },
+    {
+      "id": "microphone-help",
+      "kind": "article",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/microphone-permission/","wave":"P0","title":"网页麦克风打不开？分贝测试权限与故障排查 - 分贝测试","h1":"麦克风权限与故障排查","keywords":["网页麦克风打不开","分贝测试没反应","麦克风权限被拒绝"]},
+        "en": {"path":"/en/knowledge/microphone-permission/","wave":"P0","title":"Microphone Permission Denied? Fix Your Decibel Meter | fenbeiceshi.com","h1":"Microphone permission and troubleshooting","keywords":["microphone permission denied","decibel meter not working","browser microphone not working"]}
+      },
+      "intent": "根据失败原因恢复测量。",
+      "uniqueValue": "区分拒绝、等待、无设备、占用、安全上下文与站点策略，不按设备型号复制页面。",
+      "sections": ["按现象选择分支","浏览器与系统权限","重试和无法恢复时的说明"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["guide","privacy","microphone-system-audio"],
+      "publishGate": "错误分支在标明版本的实际环境核验；不保证所有内置浏览器支持。",
+      "requiredEvidence": ["getUserMedia 官方错误说明","目标浏览器实测","部署响应头核对"]
+    },
+    {
+      "id": "about",
+      "kind": "trust",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/about/","wave":"P0","title":"关于分贝测试：产品、方法与维护 - 分贝测试","h1":"关于分贝测试","keywords":["分贝测试 网站","fenbeiceshi"]},
+        "en": {"path":"/en/about/","wave":"P0","title":"About the Tool and Its Methods | fenbeiceshi.com","h1":"About this tool","keywords":["about fenbeiceshi"]}
+      },
+      "intent": "核实产品是谁维护、为什么做以及采用什么方法。",
+      "uniqueValue": "真实维护主体、方法入口和可用反馈渠道。",
+      "sections": ["产品目的","方法与能力范围","实际维护与反馈"],
+      "ctaTargetId": "guide",
+      "relatedIds": ["privacy","phone-accuracy","calibration"],
+      "publishGate": "维护主体与反馈渠道已确认可用；不填虚构资质、专家或评价。",
+      "requiredEvidence": ["真实维护信息","产品方法文档"]
+    },
+    {
+      "id": "privacy",
+      "kind": "trust",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {"path":"/privacy/","wave":"P0","title":"隐私与本机数据说明 - 分贝测试","h1":"隐私与本机数据","keywords":["分贝测试隐私","fenbeiceshi privacy"]},
+        "en": {"path":"/en/privacy/","wave":"P0","title":"Privacy and Local Data | fenbeiceshi.com","h1":"Privacy and local data","keywords":["fenbeiceshi privacy policy"]}
+      },
+      "intent": "理解麦克风、摘要记录和必要访问数据如何处理。",
+      "uniqueValue": "分别说明音频本机处理、本机记录、删除方式及实际启用的基础日志/统计。",
+      "sections": ["音频与权限","本机存储和删除","托管日志与实际统计"],
+      "ctaTargetId": "guide",
+      "relatedIds": ["about","microphone-help"],
+      "publishGate": "网络请求、音频生命周期、存储、日志和统计配置与文字一致；不把音频不上传写成完全无网络。",
+      "requiredEvidence": ["实际网络与存储检查","实际托管与统计配置"]
+    },
+    {
+      "id": "scenarios",
+      "kind": "hub",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/scenarios/","wave":"P1","title":"按场景观察环境噪音 - 分贝测试","h1":"选择你的观察场景","keywords":["环境噪音测试方法","噪音测量场景"]},
+        "en": {"path":"/en/scenarios/","wave":"P2","title":"Practical Noise Observation Scenarios | fenbeiceshi.com","h1":"Choose a noise observation scenario","keywords":["practical noise measurement methods"]}
+      },
+      "intent": "按实际任务找到条件和操作方法。",
+      "uniqueValue": "比较场景的目的、必要条件和限制，不重复堆放工具入口。",
+      "sections": ["房间环境","家电状态","开关窗比较"],
+      "ctaTargetId": "room-noise",
+      "relatedIds": ["room-noise","appliance-noise","window-comparison"],
+      "publishGate": "当前语言至少有两个独立可用场景；无占位条目。",
+      "requiredEvidence": ["已发布场景与交互验证"]
+    },
+    {
+      "id": "room-noise",
+      "kind": "scenario",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/scenarios/room-noise/","wave":"P1","title":"室内与卧室噪音怎么测？观察与复测方法 - 分贝测试","h1":"观察房间与卧室的环境声音","keywords":["室内噪音怎么测","卧室噪音测试","房间噪音测试"]},
+        "en": {"path":"/en/scenarios/room-noise/","wave":"P2","title":"How to Observe Noise in a Room | fenbeiceshi.com","h1":"Observe noise in your room","keywords":["how to measure room noise","bedroom noise measurement"]}
+      },
+      "intent": "固定位置和时段观察房间声音并复测。",
+      "uniqueValue": "位置、时段、干扰记录与测量组件共同组成可重复方法；卧室是方法分支。",
+      "sections": ["确定观察问题和固定条件","记录并完成一次观察","复测、比较及局限"],
+      "ctaTargetId": "room-noise",
+      "relatedIds": ["meter","calibration","phone-accuracy","window-comparison"],
+      "publishGate": "场景条件记录和测量入口实际可用；不承诺后台整夜测量或自动判超标。",
+      "requiredEvidence": ["场景方法实测","重复观察条件与产品能力核对"]
+    },
+    {
+      "id": "appliance-noise",
+      "kind": "scenario",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/scenarios/appliance-noise/","wave":"P1","title":"空调与风扇噪音怎么比较？家电观察方法 - 分贝测试","h1":"比较家电开关前后的声音","keywords":["空调噪音怎么测","风扇噪音测试","家电噪音比较"]},
+        "en": {"path":"/en/scenarios/appliance-noise/","wave":"P2","title":"Compare Appliance Noise Before and After Switching On | fenbeiceshi.com","h1":"Compare appliance noise","keywords":["measure air conditioner noise","fan noise measurement"]}
+      },
+      "intent": "比较同一条件下家电状态改变后的声音。",
+      "uniqueValue": "记录开关、距离、档位、背景与重复观察；不把简单读数相减当作家电独立声级。",
+      "sections": ["固定输入和环境条件","记录关闭与开启状态","重复比较和不确定因素"],
+      "ctaTargetId": "appliance-noise",
+      "relatedIds": ["room-noise","calibration","metrics","decibel-addition"],
+      "publishGate": "前后状态和比较交互可用；解释背景影响；不宣称符合产品声功率试验标准。",
+      "requiredEvidence": ["状态比较实测","声级与声功率定义资料"]
+    },
+    {
+      "id": "window-comparison",
+      "kind": "scenario",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/scenarios/window-noise-comparison/","wave":"P1","title":"关窗前后噪音怎么比较？同位置观察方法 - 分贝测试","h1":"比较开窗与关窗后的声音","keywords":["关窗降噪怎么测","窗户隔音怎么比较","关窗前后噪音对比"]},
+        "en": {"path":"/en/scenarios/window-noise-comparison/","wave":"P2","title":"Compare Noise with Windows Open and Closed | fenbeiceshi.com","h1":"Compare open and closed windows","keywords":["compare noise with windows open and closed","window noise reduction comparison"]}
+      },
+      "intent": "观察同位置开关窗后的变化。",
+      "uniqueValue": "固定位置、输入与观察条件，记录外部声源变化；不输出窗户专业隔声评级。",
+      "sections": ["固定比较条件","完成两个状态的观察","解释差异与条件变化"],
+      "ctaTargetId": "window-comparison",
+      "relatedIds": ["room-noise","calibration","phone-accuracy"],
+      "publishGate": "两组条件与记录可核对；不把读数差包装成实验室隔声性能。",
+      "requiredEvidence": ["前后比较实测","隔声指标与现场观察差异资料"]
+    },
+    {
+      "id": "db-dba",
+      "kind": "article",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/db-vs-dba/","wave":"P1","title":"dB 和 dBA 有什么区别？理解 A 计权 - 分贝测试","h1":"dB 与 dBA 的区别","keywords":["dB 和 dBA 区别","A 计权是什么"]},
+        "en": {"path":"/en/knowledge/db-vs-dba/","wave":"P1","title":"dB vs dBA: What A Weighting Means | fenbeiceshi.com","h1":"dB vs dBA and A weighting","keywords":["dB vs dBA","what is A weighting"]}
+      },
+      "intent": "理解频率计权与本站显示口径。",
+      "uniqueValue": "区分数字电平、声压级和计权；明确本站并未因校准自动具备 A 计权。",
+      "sections": ["术语区别","为什么需要计权","如何核对工具口径"],
+      "ctaTargetId": "calibration",
+      "relatedIds": ["dbfs-spl","decibel-chart","metrics"],
+      "publishGate": "引用定义与图示已核验；不宣称本站支持尚未实现的计权。",
+      "requiredEvidence": ["频率计权一手资料","本站功能与显示口径"]
+    },
+    {
+      "id": "metrics",
+      "kind": "article",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/sound-level-metrics/","wave":"P1","title":"最低、最高与平均分贝代表什么？ - 分贝测试","h1":"如何理解最低、最高与平均读数","keywords":["分贝平均值怎么算","最大分贝含义","Leq 是什么"]},
+        "en": {"path":"/en/knowledge/sound-level-metrics/","wave":"P1","title":"Average, Maximum and Leq: Reading Sound Metrics | fenbeiceshi.com","h1":"Understand sound level metrics","keywords":["average decibel level","Leq vs maximum","maximum vs peak sound level"]}
+      },
+      "intent": "判断统计值的计算方式与可比范围。",
+      "uniqueValue": "把采样窗口、时间范围、能量平均和专业峰值分开说明；与本站真实算法对应。",
+      "sections": ["本站显示了什么","平均和最大值的计算口径","如何比较记录"],
+      "ctaTargetId": "guide",
+      "relatedIds": ["meter","db-dba","decibel-addition"],
+      "publishGate": "算法、采样与单位有明确文档和测试；未实现指标只作定义，不装成工具能力。",
+      "requiredEvidence": ["声级统计定义与公式原文","本站算法和边界测试"]
+    },
+    {
+      "id": "microphone-system-audio",
+      "kind": "article",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/microphone-vs-system-audio/","wave":"P1","title":"网页测到的是环境声还是电脑声音？ - 分贝测试","h1":"麦克风输入与电脑内部声音","keywords":["网页能测电脑声音吗","麦克风测的是什么声音"]},
+        "en": {"path":"/en/knowledge/microphone-vs-system-audio/","wave":"P1","title":"Microphone vs System Audio Measurement | fenbeiceshi.com","h1":"Microphone input vs system audio","keywords":["microphone vs system audio measurement","can a decibel meter measure computer audio"]}
+      },
+      "intent": "确认当前输入来源，避免把麦克风数据当作系统音频响度。",
+      "uniqueValue": "用输入链路解释播放、拾音与内部音频的区别；为非适用需求给出明确说明。",
+      "sections": ["本站采集的来源","扬声器与麦克风的关系","当前能力与操作选择"],
+      "ctaTargetId": "microphone-help",
+      "relatedIds": ["guide","dbfs-spl","privacy"],
+      "publishGate": "与当前输入选择一致；未实现录音文件或系统音频分析时不提供虚假入口。",
+      "requiredEvidence": ["浏览器音频采集文档","实际输入流程测试"]
+    },
+    {
+      "id": "tools",
+      "kind": "hub",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/tools/","wave":"P1","title":"分贝测量与计算工具 - 分贝测试","h1":"分贝测量与计算工具","keywords":["分贝工具","噪音计算工具"]},
+        "en": {"path":"/en/tools/","wave":"P1","title":"Decibel Measurement and Calculation Tools | fenbeiceshi.com","h1":"Decibel tools","keywords":["decibel tools","sound level calculators"]}
+      },
+      "intent": "选择测量或数学计算等独立任务。",
+      "uniqueValue": "对比工具的输入、输出和适用条件；首页测量仪也作为正式工具入口。",
+      "sections": ["实时声音观察","分贝叠加计算","两类任务的适用条件"],
+      "ctaTargetId": "decibel-addition",
+      "relatedIds": ["meter","decibel-addition"],
+      "publishGate": "当前语言至少有两个实际可用的独立工具，包括首页测量工具；不发布空工具箱。",
+      "requiredEvidence": ["实际工具清单和可用性"]
+    },
+    {
+      "id": "decibel-addition",
+      "kind": "calculator",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {"path":"/tools/decibel-addition/","wave":"P1","title":"分贝叠加计算器：多个噪声源如何相加 - 分贝测试","h1":"分贝叠加计算器","keywords":["分贝叠加计算器","两个声音分贝相加","分贝叠加公式"]},
+        "en": {"path":"/en/tools/decibel-addition/","wave":"P1","title":"Decibel Addition Calculator | fenbeiceshi.com","h1":"Decibel addition calculator","keywords":["decibel addition calculator","add noise levels","combine decibels"]}
+      },
+      "intent": "在明确条件下计算多个声级的能量叠加。",
+      "uniqueValue": "多项输入、过程、结果与边界提示组成独立可复用工具；页面自身覆盖公式解释。",
+      "sections": ["输入条件和声级","结果与计算过程","示例、适用假设与限制"],
+      "ctaTargetId": "decibel-addition",
+      "relatedIds": ["meter","metrics","appliance-noise"],
+      "publishGate": "核验非相干声源等适用条件、公式、单位、极值、非法输入和数值稳定性；不代替现场测量。",
+      "requiredEvidence": ["声学能量叠加公式的一手来源，待研究","数学与输入边界测试"]
+    },
+    {
+      "id": "china-noise-standards",
+      "kind": "review-required-article",
+      "priority": "P2",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/china-noise-standards/","wave":"P2","title":"如何阅读中国环境噪声标准与适用范围 - 分贝测试","h1":"如何确认噪声标准的适用范围","keywords":["环境噪声标准怎么看","室内噪音多少算超标"]},
+        "en": null
+      },
+      "intent": "帮助中文用户查明应参考哪类现行标准及其条件。",
+      "uniqueValue": "先辨别地区、场所、时段、测量量与标准有效性，不用一个阈值回答所有情形。",
+      "sections": ["区分标准对象","核对有效原文和适用条件","何时需要合规检测"],
+      "ctaTargetId": "when-professional-meter",
+      "relatedIds": ["phone-accuracy","db-dba","when-professional-meter"],
+      "publishGate": "保持草稿，直到现行有效原文、法域、日期、方法和领域复核齐备；不声称浏览器结果能证明超标。",
+      "requiredEvidence": ["现行官方标准原文，待核验","适用地区和生效状态","相关领域复核"]
+    },
+    {
+      "id": "noise-exposure",
+      "kind": "review-required-article",
+      "priority": "P2",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/noise-exposure-and-hearing/","wave":"P2","title":"理解噪声暴露、持续时间与听力风险资料 - 分贝测试","h1":"如何理解噪声暴露资料","keywords":["噪声暴露时间","噪音与听力风险"]},
+        "en": {"path":"/en/knowledge/noise-exposure-and-hearing/","wave":"P2","title":"Understanding Noise Exposure Guidance | fenbeiceshi.com","h1":"Understand noise exposure guidance","keywords":["noise exposure duration","understanding noise exposure limits"]}
+      },
+      "intent": "理解权威暴露资料中的时长、指标与适用人群。",
+      "uniqueValue": "保留来源语境、指标与不确定性；不通过本站即时读数生成个人健康结论。",
+      "sections": ["资料针对谁和什么场景","时长与指标的关系","局限和专业评估入口"],
+      "ctaTargetId": "when-professional-meter",
+      "relatedIds": ["db-dba","metrics","when-professional-meter"],
+      "publishGate": "保持草稿，直到当前权威资料和相关领域复核完成；中文与英文分别核对适用语境。",
+      "requiredEvidence": ["公共卫生或职业机构现行原文，待核验","相关领域复核"]
+    },
+    {
+      "id": "when-professional-meter",
+      "kind": "article",
+      "priority": "P2",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/when-to-use-a-sound-level-meter/","wave":"P2","title":"什么时候需要专业声级计或噪声检测？ - 分贝测试","h1":"什么时候需要专业仪器与检测","keywords":["测噪音需要什么仪器","什么时候需要专业噪声检测"]},
+        "en": {"path":"/en/knowledge/when-to-use-a-sound-level-meter/","wave":"P2","title":"When Do You Need a Professional Sound Level Meter? | fenbeiceshi.com","h1":"When to use a professional sound level meter","keywords":["when to use a sound level meter","professional noise measurement requirements"]}
+      },
+      "intent": "根据用途判断普通观察和专业测量的边界。",
+      "uniqueValue": "从重复观察、设备验证到特定合规任务建立判断条件，不做无证据商品排名。",
+      "sections": ["先确认用途","需要的量与设备能力","联系适合的专业服务"],
+      "ctaTargetId": "phone-accuracy",
+      "relatedIds": ["phone-accuracy","calibration","china-noise-standards"],
+      "publishGate": "核验设备、方法和用途关系；法规相关例子完成适用范围复核，不伪装提供检测服务。",
+      "requiredEvidence": ["声学仪器和方法的一手资料","涉及合规用途时的当前依据"]
+    }
+  ]
+}

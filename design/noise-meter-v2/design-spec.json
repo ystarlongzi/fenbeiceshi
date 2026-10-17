@@ -1,0 +1,335 @@
+{
+  "version": "2.0",
+  "status": "分贝测试视觉改版稿，测量功能尚未实现",
+  "product": {
+    "positioning": "面向普通用户的环境声音测量与记录工具",
+    "primaryPlatform": "Web",
+    "responsiveTarget": "手机浏览器",
+    "primaryTask": "快速观察环境声音变化，记录同一设备与条件下的测量结果",
+    "representativeScenarios": [
+      "比较书房不同时间的环境声音",
+      "比较关窗前后的声音变化",
+      "观察家电开启前后的变化"
+    ],
+    "name": "分贝测试",
+    "domain": "fenbeiceshi.com"
+  },
+  "designSource": {
+    "fileKey": "gar8N5Qxmy8S7xktjLC2Da",
+    "url": "https://www.figma.com/design/gar8N5Qxmy8S7xktjLC2Da?node-id=7-87",
+    "pageId": "7:75",
+    "format": "Figma 原生可编辑文字、组件、变量、矢量和自动布局",
+    "frames": [
+      {
+        "id": "7:86",
+        "name": "分贝测试 V2 / Web / 开始",
+        "width": 1440,
+        "height": 1080,
+        "preview": "web-ready.png"
+      },
+      {
+        "id": "7:87",
+        "name": "分贝测试 V2 / Web / 测量中",
+        "width": 1440,
+        "height": 1080,
+        "preview": "web-live.png"
+      },
+      {
+        "id": "7:88",
+        "name": "分贝测试 V2 / Mobile Web / 开始",
+        "width": 390,
+        "height": 844,
+        "preview": "mobile-ready.png"
+      },
+      {
+        "id": "7:89",
+        "name": "分贝测试 V2 / Mobile Web / 测量中",
+        "width": 390,
+        "height": 844,
+        "preview": "mobile-live.png"
+      },
+      {
+        "id": "7:90",
+        "name": "分贝测试 V2 / Mobile Web / 测量结果",
+        "width": 390,
+        "height": 960,
+        "preview": "mobile-result.png"
+      },
+      {
+        "id": "7:91",
+        "name": "分贝测试 V2 / Mobile Web / 未校准测量",
+        "width": 390,
+        "height": 844,
+        "preview": "mobile-relative.png"
+      }
+    ]
+  },
+  "mvpScope": {
+    "proposedFeatures": [
+      "无需登录即可开始一轮测量",
+      "默认测量 1 分钟，可选择其他时长或自由测量",
+      "实时读数、声音趋势、最低值、最高值和有效时长",
+      "未校准时观察相对声级，参考校准后查看估算声级",
+      "暂停、继续、结束和保存部分结果",
+      "给记录添加场景、名称和手工声音备注",
+      "本地保存数值与趋势，查看和删除记录",
+      "同一设备、输入设置和校准口径下比较记录"
+    ],
+    "navigation": [
+      "实时测量",
+      "测量记录",
+      "声音指南"
+    ],
+    "secondaryEntry": "设备与校准",
+    "deferredFeatures": [
+      "跨设备云同步与账户系统",
+      "自动识别声音来源或识别说话内容",
+      "后台或整夜连续监测",
+      "专业声学报告、法规判定和健康风险评分",
+      "频谱分析、A/C/Z 计权及声学专业指标"
+    ]
+  },
+  "hierarchy": {
+    "primary": "当前状态与读数；开始状态优先找到开始操作，结果状态优先理解声音变化",
+    "necessarySupport": "估算或相对口径、测量时长、输入设备与数据质量问题",
+    "secondary": "趋势、最低值和最高值、场景备注",
+    "onDemand": "参考校准说明、测量方法、更多声音知识",
+    "desktopComposition": "测量模块使用浅色承载框架、深色内凹读数屏和独立统计带；右侧设置采用分段选择与字段控件；趋势图有独立标题、曲线与时间轴。",
+    "mobileComposition": "保持品牌、任务、测量、趋势、结束操作的顺序；测量模块内部区分状态、读数屏、口径与统计；390×844 视口内可到达主要测量操作。",
+    "containerReasons": [
+      "测量外框承载会话状态、读数屏与统计，明确一个完整测量对象。",
+      "深色内凹屏隔离实时信号，字号与对比度区分读数、单位、口径和刻度。",
+      "浅色统计带与主读数分区，通过功能图标、标签和数字建立组内层级。",
+      "时长分段选择、场景和输入设备字段提供可辨认的控件形态。",
+      "校准口径使用暖色提示区，与设置项和主操作区分。",
+      "趋势模块通过标题、曲线绘图区与时间轴分层。"
+    ]
+  },
+  "visualLanguage": {
+    "mood": "安静、清楚、具有仪器感的日常工具",
+    "palette": {
+      "canvas": "#F5F4EF",
+      "paper": "#FFFFFF",
+      "ink": "#202C28",
+      "muted": "#64716A",
+      "line": "#D9DFD6",
+      "forest": "#173F35",
+      "accent": "#28664F",
+      "mint": "#DDEBCF",
+      "onDark": "#F5F7EF",
+      "mutedDark": "#B4C7B9",
+      "lineDark": "#3C5B50",
+      "surfaceSoft": "#F1F5EF",
+      "surfaceWarm": "#FAF4E8",
+      "lime": "#D2E8B9",
+      "screen": "#163D34"
+    },
+    "typefaces": {
+      "interface": "Noto Sans SC",
+      "numbers": "Manrope"
+    },
+    "spacing": {
+      "tight": 8,
+      "group": 24,
+      "section": 40,
+      "desktopGutter": 64,
+      "mobileGutter": 24
+    },
+    "components": "复用按钮组件与 Lucide 图标实例，所有界面保留原生可编辑文字、矢量和自动布局；沿用本地品牌语义变量。",
+    "motionIntent": "读数采用稳定更新与等宽数字布局；曲线持续绘制，避免随每次读数反复缩放坐标轴；尊重减少动画偏好",
+    "depth": {
+      "raisedSurface": "0 8px 28px rgba(15,41,26,0.065)，辅以 1px 浅边界",
+      "insetDisplay": "读数屏使用轻微内阴影与独立边界",
+      "rule": "空间效果表达区域关系与控件状态，不为每个信息项重复添加卡片。"
+    },
+    "icons": {
+      "library": "Lucide",
+      "website": "https://lucide.dev/",
+      "repository": "https://github.com/lucide-icons/lucide",
+      "commit": "1ef60af944de207e0d5176905a0759ba12e6ee8d",
+      "assets": "icons/",
+      "licenseFile": "icons/LICENSE",
+      "sourceFile": "icons/source.json",
+      "names": [
+        "audio-lines",
+        "rotate-ccw-clock",
+        "book-open",
+        "sliders-horizontal",
+        "mic",
+        "timer",
+        "house",
+        "chevron-down",
+        "arrow-down",
+        "arrow-up",
+        "play",
+        "pause",
+        "square",
+        "shield-check",
+        "chart-line",
+        "save",
+        "rotate-ccw",
+        "arrow-left",
+        "circle-check"
+      ],
+      "style": "线性图标，设计实例描边为 1.75px，主要使用 14、16、18、20px 尺寸；品牌图形保留相同线性语言。",
+      "roles": {
+        "mic": "输入设备与测量状态",
+        "timer": "测量时长与有效时长",
+        "chart-line": "声音趋势与本轮观察",
+        "sliders-horizontal": "设置与校准",
+        "house": "场景",
+        "arrow-down": "最低值",
+        "arrow-up": "最高值",
+        "square": "结束测量",
+        "pause": "暂停",
+        "save": "保存记录",
+        "rotate-ccw": "再测一次",
+        "shield-check": "本机分析与原音处理说明"
+      },
+      "dependencyDecision": "仅引入所用官方静态 SVG，并固定来源提交与保留许可证；没有新增运行时包或传递依赖。"
+    }
+  },
+  "flows": [
+    {
+      "name": "首次测量",
+      "steps": [
+        "进入页面且不采集声音",
+        "确认时长与场景",
+        "点击开始并请求麦克风权限",
+        "检查输入可用性和测量口径",
+        "开始计时与显示数据",
+        "到时或主动结束",
+        "查看结果并决定是否保存"
+      ]
+    },
+    {
+      "name": "未校准测量",
+      "steps": [
+        "使用相对声级模式",
+        "主读数与趋势注明 dBFS 和未校准",
+        "可结束并保存相对记录",
+        "需要估算环境分贝时进入参考校准"
+      ]
+    },
+    {
+      "name": "参考校准",
+      "steps": [
+        "解释所需的可靠参考测量设备与一致的测量条件",
+        "选择当前输入设备",
+        "并置参考设备并观察稳定声音",
+        "输入参考读数并建立对应关系",
+        "保存设备、输入设置与校准信息",
+        "以校准后估算模式开始新一轮测量"
+      ],
+      "constraints": [
+        "不以环境音示例或随意指定的固定偏移量代替参考校准",
+        "更换输入设备或处理设置后重新确认口径",
+        "不将单点偏移视为全量程、全频率准确性验证"
+      ]
+    },
+    {
+      "name": "比较环境变化",
+      "steps": [
+        "保持相同设备、朝向、位置与输入设置",
+        "记录条件 A",
+        "修改一个环境条件并添加备注",
+        "记录条件 B",
+        "核对口径后比较曲线与统计信息"
+      ]
+    }
+  ],
+  "measurementContract": {
+    "uncalibrated": "以 dBFS 表示数字音频相对声级，不换算为环境声压级，不关联健康或法规阈值",
+    "referenceCalibrated": "在明确参考校准与采集设置的条件下显示估算声级，单位 dB，并持续展示估算口径；实际准确性仍需设备验证",
+    "weighting": "本版不声明 dBA、A 计权或专业声级计等级",
+    "noSignal": "尚未测量、无输入或中断时显示状态，不用 0 dB 代替缺失值",
+    "metrics": "最低和最高指有效采样区间内、已定义时间窗口的读数极值；不命名为未经实现的声学峰值指标",
+    "duration": "有效时长排除暂停与中断时段；曲线保留中断区间，不补造数据",
+    "averages": "本版界面未展示平均分贝；后续若增加等效声级，必须定义口径并在能量域计算，不直接对 dB 数字取算术平均",
+    "levelScale": "界面仪表范围为概念展示尺度，不代表设备已验证的测量量程",
+    "interpretation": "仅根据可验证的数据描述起伏、持续时间和同口径差异；不从读数自动推断具体声源",
+    "exampleData": "48.6、42.1、58.2、−33.4 及曲线均为设计示例，不是对当前用户环境的实际测量"
+  },
+  "privacyIntent": {
+    "capture": "用户点击开始后才请求与开启麦克风",
+    "processing": "首版计划在本机分析声音",
+    "storage": "默认仅保存用户主动保存的数值、趋势与备注，不保存原始音频",
+    "controls": "结束后释放麦克风；本地记录提供删除入口；不自动上传录音或申请位置权限"
+  },
+  "requiredStatesForImplementation": [
+    {
+      "state": "等待权限",
+      "behavior": "解释用途，等待用户选择，不假装已开始测量"
+    },
+    {
+      "state": "权限拒绝",
+      "behavior": "保留时长与场景配置，显示恢复步骤；不循环弹出权限请求"
+    },
+    {
+      "state": "输入不可用或设备断开",
+      "behavior": "停止累计有效时长，说明原因并提供重试"
+    },
+    {
+      "state": "静音或接近噪声底",
+      "behavior": "提示信号状态与能力限制，避免解释为真实的 0 dB"
+    },
+    {
+      "state": "过载或削波",
+      "behavior": "就近标记本段可信度问题，不继续给出正常准确读数的印象"
+    },
+    {
+      "state": "暂停或页面失活",
+      "behavior": "标记采集中断或暂停；未验证后台采集能力时不承诺持续测量"
+    },
+    {
+      "state": "保存失败",
+      "behavior": "保留当前结果，明确提示失败并允许重试"
+    },
+    {
+      "state": "空记录",
+      "behavior": "解释如何获得第一条记录，并提供开始测量入口"
+    }
+  ],
+  "research": [
+    {
+      "source": "CDC NIOSH Sound Level Meter App",
+      "url": "https://www.cdc.gov/niosh/noise/about/app.html",
+      "relevance": "设备、应用与校准条件影响测量验证；不能将其他应用的准确度直接承诺给本产品"
+    },
+    {
+      "source": "MDN getUserMedia",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia",
+      "relevance": "浏览器声音采集需要安全上下文与用户权限，并存在拒绝、无设备及设备不可读等状态"
+    },
+    {
+      "source": "MDN getFloatTimeDomainData",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/getFloatTimeDomainData",
+      "relevance": "Web Audio 提供的是数字 PCM 样本，不直接提供经过校准的环境声压级"
+    },
+    {
+      "source": "MDN MediaTrackConstraints",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackConstraints",
+      "relevance": "后续需验证自动增益、降噪、回声消除等采集处理设置的支持与实际应用情况"
+    }
+  ],
+  "validation": {
+    "completed": [
+      "检查六个 V2 画框的实际渲染与字体",
+      "修正结果页多行文字重叠",
+      "核对读数口径、刻度与时间轴",
+      "核实六个画框均包含域名且没有旧品牌文字",
+      "核实界面没有整页位图填充，原生文字与图标可编辑",
+      "核实主要操作在手机测量视口内可见",
+      "本地检查 JSON、PNG 完整性、尺寸、SVG 与文件引用"
+    ],
+    "notPerformed": [
+      "真实麦克风采集",
+      "设备准确度与校准验证",
+      "Web 响应式实现与跨浏览器测试",
+      "权限、键盘、后台中断和保存功能测试",
+      "小程序运行环境测试"
+    ],
+    "handoff": "后续开发先读取根目录 AGENTS.md 与 DESIGN_HIERARCHY.md；当前视觉依据为本文件和 Figma 的“分贝测试 / V2”页面。"
+  },
+  "previousDesign": "../noise-meter-v1/design-spec.json"
+}
