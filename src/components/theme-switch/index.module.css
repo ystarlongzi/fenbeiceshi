@@ -1,0 +1,58 @@
+.control {
+  position: relative;
+  display: inline-flex;
+}
+.button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-accent);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+.button:focus-visible {
+  background: var(--surface-hover);
+}
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    background: var(--surface-hover);
+    border-color: var(--line-accent);
+  }
+}
+.button:active {
+  background: var(--surface-pressed);
+}
+.sun {
+  display: none;
+}
+:global(:root[data-theme="dark"]) .moon {
+  display: none;
+}
+:global(:root[data-theme="dark"]) .sun {
+  display: block;
+}
+.notice {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 230px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px var(--shadow);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.8;
+}
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}

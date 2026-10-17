@@ -2,9 +2,9 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
   border: 1px solid var(--line);
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 8px 32px #1a382309;
+  border-radius: var(--sound-workbench-radius, 20px);
+  background: var(--surface);
+  box-shadow: 0 8px 32px var(--shadow);
   overflow: clip;
   scroll-margin-top: 88px;
 }
@@ -40,9 +40,9 @@
   display: flex;
   padding: 3px;
   gap: 2px;
-  border: 1px solid #e4e9e5;
+  border: 1px solid var(--line);
   border-radius: 7px;
-  background: #f4f7f4;
+  background: var(--surface-soft);
 }
 .views button {
   padding: 5px 11px;
@@ -53,9 +53,9 @@
   background: transparent;
 }
 .views button[aria-pressed="true"] {
-  background: #fff;
+  background: var(--surface);
   color: var(--brand);
-  box-shadow: 0 1px 3px #213b2315;
+  box-shadow: 0 1px 3px var(--shadow);
 }
 .fullscreen {
   display: inline-flex;
@@ -182,17 +182,17 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
-  background: #f3f7ed;
+  background: var(--surface-accent);
   border-radius: 7px;
   padding: 12px;
   margin: 14px 0 0;
   font-size: 13px;
   line-height: 1.7;
-  color: #466047;
+  color: var(--text-accent);
 }
 .announcements p[data-error="true"] {
-  color: #8b4935;
-  background: #fbf2ec;
+  color: var(--error);
+  background: var(--error-surface);
 }
 .announcements svg {
   flex: 0 0 auto;
@@ -227,13 +227,13 @@
   font-size: 11px;
   border-radius: 6px;
   padding: 8px 9px;
-  background: #fff;
+  background: var(--surface);
   color: var(--brand);
   border: 1px solid var(--line);
 }
 .resultActions button:disabled {
-  color: #829086;
-  background: #f7f9f7;
+  color: var(--text-soft);
+  background: var(--surface-soft);
 }
 .focused {
   --meter-height: 320px;
@@ -250,7 +250,7 @@
   border: 0;
   border-radius: 0;
   padding: 10px 24px 24px;
-  background: #eef3ee;
+  background: var(--surface-muted);
   width: 100%;
   height: 100dvh;
 }
@@ -262,7 +262,7 @@
   position: sticky;
   top: 0;
   z-index: 2;
-  background: #eef3ee;
+  background: var(--surface-muted);
   padding-block: 10px;
 }
 .focused .settingsSlot {
@@ -294,7 +294,7 @@
 }
 @media (max-width: 680px) {
   .workbench {
-    border-radius: 14px;
+    border-radius: var(--sound-workbench-radius, 14px);
   }
   .main {
     padding: 14px;

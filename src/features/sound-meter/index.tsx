@@ -15,6 +15,7 @@ import { useSoundMeter } from "./use-sound-meter";
 import { useFocusMode } from "./use-focus-mode";
 import { MeterDisplay } from "./meter-display";
 import { LevelScale } from "./level-scale";
+import { NoiseLevelReference } from "./noise-level-reference";
 import { SessionStats } from "./session-stats";
 import { SoundTrend } from "./sound-trend";
 import { MeterSettings } from "./meter-settings";
@@ -162,6 +163,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
             </p>
           ) : null}
           <LevelScale value={value} estimated={offset !== null} copy={copy} />
+          <NoiseLevelReference copy={copy} />
         </div>
         <div className={styles.announcements} aria-live="polite" aria-atomic="true">
           {focus.notice ? (

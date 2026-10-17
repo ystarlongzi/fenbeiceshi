@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "updated": "2026-10-17",
+  "scope": "site-theme",
+  "status": "local-implementation",
+  "baseline": "../home-hierarchy-v4/design-spec.json",
+  "verification": "../../docs/验证/亮暗主题验证.md",
+  "hierarchy": "沿用 V4 的模块关系，只调整颜色角色；仪表深绿读数面在两种主题中保持一致。",
+  "tokens": "globals.css 维护基础色与语义别名，CSS Modules 使用表面、正文、辅助文字、边界及状态变量；图表用组件变量表达真实与演示曲线。",
+  "control": "右上角月亮/太阳按钮，具有键盘焦点、双语名称和 aria-pressed；380px 以下收起品牌文字，为菜单、主题与语言入口保留空间。",
+  "initialAppearance": "同步脚本位于 body 的首个元素，在可见内容前应用有效偏好或系统外观；根节点只处理主题属性的水合差异。",
+  "preference": {
+    "default": "system",
+    "values": ["light", "dark"],
+    "storageKey": "fenbeiceshi:theme:v1",
+    "sync": "刷新、页面跳转、中英切换和同源标签页保持一致；手动偏好优先于系统变化。",
+    "storageFailure": "仍切换本次页面，保留错误上下文并提示不能记忆；读取受限时跟随系统。",
+    "privacy": "只保存一个外观值，与观察记录隔离，不上传。"
+  },
+  "screenshots": {
+    "desktopDark": "desktop-dark.jpg",
+    "desktopLight": "desktop-light.jpg",
+    "desktopDarkContent": "desktop-dark-content.jpg",
+    "articleDark": "article-dark.jpg",
+    "mobileDarkZh": "mobile-dark-zh.jpg",
+    "mobileDarkEn": "mobile-dark-en.jpg"
+  },
+  "icons": "icons/source.json"
+}

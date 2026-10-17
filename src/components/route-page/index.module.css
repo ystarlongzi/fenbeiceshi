@@ -6,7 +6,7 @@
 .records > p {
   font-size: 10px;
   letter-spacing: 0.08em;
-  color: #7a8d6a;
+  color: var(--text-accent);
   margin: 0 0 14px;
 }
 .records > h1 {

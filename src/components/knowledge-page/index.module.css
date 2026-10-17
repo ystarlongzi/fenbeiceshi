@@ -4,7 +4,7 @@
   padding-top: 46px;
 }
 .eyebrow {
-  color: #6e875f;
+  color: var(--text-accent);
   font-size: 10px;
   letter-spacing: 0.1em;
   margin: 0 0 15px;
@@ -34,11 +34,11 @@
   gap: 26px;
 }
 .links > a > span {
-  color: #95a588;
+  color: var(--text-soft);
   font: 12px var(--font-number);
 }
 .links > a > div > p:first-child {
-  color: #738966;
+  color: var(--text-accent);
   font-size: 9px;
   letter-spacing: 0.08em;
   margin: 0 0 9px;
@@ -67,7 +67,7 @@
   align-items: center;
   gap: 20px;
   padding: 26px;
-  background: #edf3e7;
+  background: var(--surface-accent);
   border-radius: 12px;
   margin-top: 35px;
 }

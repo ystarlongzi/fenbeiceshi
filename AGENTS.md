@@ -63,7 +63,9 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 - 本产品面向普通用户提供分贝与环境噪音测试，Web 优先并适配手机；当前界面名称为“分贝测试”，域名为 `fenbeiceshi.com`。
 - 当前设计依据为 [V3 实现规格](./design/noise-meter-v3/design-spec.json) 与实际界面截图；[V2 规格](./design/noise-meter-v2/design-spec.json) 及 Figma 画框保留为品牌、状态与早期设计依据，V1 作为历史方案保留。
+- 首页模块之间的关系以 [首页层级 V4](./design/home-hierarchy-v4/design-spec.json) 为准：测量与记录合组，方法为辅助引导，场景为同级对象，知识为阅读区域，FAQ 为按需收尾；测量状态及口径继续沿用 V3。
 - 功能图标采用 [Lucide](https://lucide.dev/)，用于说明操作与信息角色；统一描边与尺寸，不用图标替代必要文字，不为装饰给所有内容添加图标。项目设计目录保留所用 SVG、固定来源与许可证。
+- 亮暗主题以 [主题 V1](./design/theme-v1/design-spec.json) 为准：通用表面、文字、边界和状态使用 `globals.css` 的语义变量，组件专属映射留在相邻 CSS Modules；仪表深绿读数区保留固定配色。主题切换为独立客户端组件，正文与站点外壳保持服务端渲染；同步引导脚本放在可见内容之前，只在根节点处理主题属性的水合差异。默认跟随系统，手动偏好以独立版本化键保存，不能与测量记录混用。
 
 ## 工程营销、内容与实现入口
 

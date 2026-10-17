@@ -14,20 +14,22 @@ export function LevelScale({
   const min = estimated ? 0 : -100;
   const max = estimated ? 120 : 0;
   const values = estimated ? [0, 30, 60, 90, 120] : [-100, -75, -50, -25, 0];
+  const labels = estimated ? copy.estimateScaleLabels : copy.relativeScaleLabels;
+  const unit = estimated ? copy.estimateScaleUnit : copy.relativeScaleUnit;
   return (
-    <div className={styles.scale} aria-label={copy.scale}>
-      <div className={styles.ticks} aria-hidden="true">
+    <div className={styles.scale} role="group" aria-label={`${copy.scale} · ${unit}`}>
+      <div className={styles.ticks}>
         {values.map((tick, i) => (
           <span
             key={tick}
-            style={{ left: `${scalePosition(tick, min, max) * 100}%` }}
             data-edge={i === 0 ? "start" : i === values.length - 1 ? "end" : undefined}
           >
-            {tick}
+            <span className={styles.value}>{tick}</span>
+            <span className={styles.meaning}>{labels[i]}</span>
           </span>
         ))}
       </div>
-      <div className={styles.track}>
+      <div className={styles.track} aria-hidden="true">
         <span className={styles.band} />
         {value !== null ? (
           <span
@@ -36,11 +38,10 @@ export function LevelScale({
           />
         ) : null}
       </div>
-      <div className={styles.labels}>
-        <span>{copy.lower}</span>
-        <span>{copy.higher}</span>
-      </div>
-      <p>{estimated ? copy.estimateScaleHint : copy.scaleHint}</p>
+      <p>
+        <span className={styles.unit}>{unit}</span>{" "}
+        {estimated ? copy.estimateScaleHint : copy.scaleHint}
+      </p>
     </div>
   );
 }

@@ -1,14 +1,92 @@
 :root {
+  --color-white: #fff;
+  --color-sage-50: #f5f7f5;
+  --color-sage-75: #f8faf8;
+  --color-sage-100: #eef2ec;
+  --color-sage-150: #eaf0e4;
+  --color-sage-200: #e8eee2;
+  --color-sage-250: #e2e8e1;
+  --color-sage-300: #d5dfd2;
+  --color-sage-350: #c6d5bc;
+  --color-sage-500: #7b8d7d;
+  --color-sage-550: #6d7c72;
+  --color-sage-600: #596d5b;
+  --color-sage-700: #357555;
+  --color-sage-800: #20352b;
+  --color-forest-800: #293a23;
+  --color-forest-825: #213024;
+  --color-forest-850: #1b2b21;
+  --color-forest-875: #18261d;
+  --color-forest-900: #142019;
+  --color-forest-950: #101812;
+  --color-leaf-200: #e3eddf;
+  --color-leaf-350: #bdd7a6;
+  --color-leaf-400: #b6d890;
+  --color-leaf-500: #a2b2a2;
+  --color-leaf-600: #8ea38e;
   color-scheme: light;
-  --page: #f5f7f5;
-  --surface: #fff;
-  --ink: #20352b;
-  --muted: #6d7c72;
-  --brand: #357555;
-  --line: #e2e8e1;
+  --page: var(--color-sage-50);
+  --surface: var(--color-white);
+  --surface-soft: var(--color-sage-75);
+  --surface-muted: var(--color-sage-100);
+  --surface-accent: var(--color-sage-150);
+  --surface-feature: var(--color-sage-200);
+  --surface-hover: #e9f1e5;
+  --surface-pressed: #dfead9;
+  --ink: var(--color-sage-800);
+  --muted: var(--color-sage-550);
+  --text-body: var(--color-sage-600);
+  --text-soft: var(--color-sage-500);
+  --text-accent: #466e3f;
+  --brand: var(--color-sage-700);
+  --line: var(--color-sage-250);
+  --line-strong: var(--color-sage-300);
+  --line-accent: #cfddc5;
+  --decoration: var(--color-sage-350);
+  --header: #fafcf9ed;
+  --error: #8b4935;
+  --error-surface: #fbf2ec;
+  --warning: #876336;
+  --warning-surface: #f7f0e7;
+  --info: #4c7e9d;
+  --action-surface: #315d3e;
+  --action-ink: #f3f7ed;
+  --focus: #57886a;
+  --shadow: #1a382315;
   --font-body:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-number: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: var(--color-forest-950);
+  --surface: var(--color-forest-875);
+  --surface-soft: var(--color-forest-850);
+  --surface-muted: var(--color-forest-900);
+  --surface-accent: var(--color-forest-800);
+  --surface-feature: var(--color-forest-825);
+  --surface-hover: #30462a;
+  --surface-pressed: #3c5534;
+  --ink: var(--color-leaf-200);
+  --muted: var(--color-leaf-500);
+  --text-body: #b0bfaf;
+  --text-soft: var(--color-leaf-600);
+  --text-accent: var(--color-leaf-350);
+  --brand: var(--color-leaf-400);
+  --line: #304134;
+  --line-strong: #40553e;
+  --line-accent: #465e3e;
+  --decoration: #405738;
+  --header: #111b15f2;
+  --error: #e7af98;
+  --error-surface: #38251f;
+  --warning: #e2bd85;
+  --warning-surface: #332c20;
+  --info: #9bbfd4;
+  --action-surface: var(--color-leaf-400);
+  --action-ink: #1e2e1b;
+  --focus: var(--color-leaf-400);
+  --shadow: #00000030;
 }
 * {
   box-sizing: border-box;
@@ -53,7 +131,7 @@ summary {
   touch-action: manipulation;
 }
 :focus-visible {
-  outline: 2px solid #57886a;
+  outline: 2px solid var(--focus);
   outline-offset: 4px;
 }
 ::selection {

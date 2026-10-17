@@ -103,36 +103,38 @@ export function HomePage({ locale }: { locale: Locale }) {
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }}
       />
-      <section className={styles.hero}>
-        <div>
-          <p className={styles.eyebrow}>
-            <span />
-            {en ? "NO INSTALLATION · AUDIO STAYS LOCAL" : "免安装 · 音频本机处理"}
-          </p>
-          <h1>
-            {en ? "Online decibel meter" : "在线分贝测试"}
-            <span>{en ? "Sound, in context." : "看见声音的变化"}</span>
-          </h1>
-          <p className={styles.intro}>
-            {en
-              ? "Observe live input, follow a trend, and keep a summary with its conditions."
-              : "用麦克风观察实时电平与变化趋势，把本次条件和摘要一起留下。"}
-          </p>
+      <section className={styles.measurement} aria-labelledby="home-title">
+        <header className={styles.hero}>
+          <div>
+            <p className={styles.eyebrow}>
+              <span />
+              {en ? "NO INSTALLATION · AUDIO STAYS LOCAL" : "免安装 · 音频本机处理"}
+            </p>
+            <h1 id="home-title">
+              {en ? "Online decibel meter" : "在线分贝测试"}
+              <span>{en ? "Sound, in context." : "看见声音的变化"}</span>
+            </h1>
+            <p className={styles.intro}>
+              {en
+                ? "Observe live input, follow a trend, and keep a summary with its conditions."
+                : "用麦克风观察实时电平与变化趋势，把本次条件和摘要一起留下。"}
+            </p>
+          </div>
+          <Link className={styles.heroHelp} href={href("phone-accuracy", locale)}>
+            <Icon name="circle-alert" size={15} />
+            {en ? "How accurate is it?" : "手机测分贝，准吗？"}
+            <Icon name="arrow-right" size={14} />
+          </Link>
+        </header>
+        <SoundMeter locale={locale} />
+        <div className={styles.recordSection}>
+          <RecordsPanel locale={locale} compact />
         </div>
-        <Link className={styles.heroHelp} href={href("phone-accuracy", locale)}>
-          <Icon name="circle-alert" size={15} />
-          {en ? "How accurate is it?" : "手机测分贝，准吗？"}
-          <Icon name="arrow-right" size={14} />
-        </Link>
       </section>
-      <SoundMeter locale={locale} />
-      <div className={styles.recordSection}>
-        <RecordsPanel locale={locale} compact />
-      </div>
       <section className={styles.stepsSection}>
         <div>
-          <p className={styles.eyebrow}>{en ? "START HERE" : "从一次观察开始"}</p>
-          <h2>{en ? "Three steps to a useful observation" : "测一次，也为下次比较留好条件"}</h2>
+          <p className={styles.eyebrow}>{en ? "HOW TO USE" : "使用方法"}</p>
+          <h2>{en ? "Three steps to a useful observation" : "一次观察，做好这三步"}</h2>
           <Link href={href("guide", locale)}>
             {en ? "Read the guide" : "完整使用指南"}
             <Icon name="arrow-right" size={14} />
@@ -153,8 +155,8 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className={styles.scenesSection}>
         <div className={styles.sectionHeading}>
           <div>
-            <p className={styles.eyebrow}>{en ? "EVERYDAY QUESTIONS" : "从你在意的声音出发"}</p>
-            <h2>{en ? "A method for the question you have" : "让每次观察，都有明确的问题"}</h2>
+            <p className={styles.eyebrow}>{en ? "EVERYDAY SCENARIOS" : "日常场景"}</p>
+            <h2>{en ? "Start with the sound you care about" : "从你在意的声音开始"}</h2>
           </div>
           <p>
             {en
@@ -185,13 +187,14 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
       <section className={styles.knowledge}>
-        <div className={styles.sectionHeading}>
-          <div>
-            <p className={styles.eyebrow}>
-              {en ? "UNDERSTAND THE READING" : "读数之外，也读懂声音"}
-            </p>
-            <h2>{en ? "A little context goes a long way" : "先理解数字，再作判断"}</h2>
-          </div>
+        <div className={styles.knowledgeLead}>
+          <p className={styles.eyebrow}>{en ? "SOUND KNOWLEDGE" : "声音知识"}</p>
+          <h2>{en ? "Understand the reading before you decide" : "先读懂数字，\n再作判断"}</h2>
+          <p className={styles.sectionIntro}>
+            {en
+              ? "How accurate is the reading? What do the units mean? Start with the questions that help you use the tool."
+              : "读数有多准？不同单位意味着什么？从这些基础问题开始。"}
+          </p>
           <Link href={href("knowledge", locale)}>
             {en ? "All guides" : "全部声音知识"}
             <Icon name="arrow-right" size={15} />
@@ -211,45 +214,55 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
       <section className={styles.faq}>
-        <h2>{en ? "Before you begin" : "开始前，你可能还想知道"}</h2>
-        {(en
-          ? [
-              {
-                q: "Does it record or upload my audio?",
-                a: "No. Audio is processed in browser memory. Local summaries contain statistics and recent level trends, without audio.",
-              },
-              {
-                q: "Why does the default reading use dBFS?",
-                a: "A digital microphone signal is not automatically a calibrated sound pressure measurement. Relative dBFS makes that difference explicit. A reference enables a device-specific estimate.",
-              },
-              {
-                q: "Can I leave it running with the screen locked?",
-                a: "This version stops capture when the page leaves the foreground. It does not promise background or overnight monitoring.",
-              },
-            ]
-          : [
-              {
-                q: "会录音或上传我的声音吗？",
-                a: "不会。音频只在浏览器内存中计算。本机摘要包含统计和最近一段电平趋势，不包含原始声音。",
-              },
-              {
-                q: "为什么默认显示的是 dBFS？",
-                a: "数字麦克风输入不自动等于经过校准的环境声压级。dBFS 明确表示相对输入；具备参考条件后，可以建立设备专属的估算关系。",
-              },
-              {
-                q: "能在锁屏或后台一直测量吗？",
-                a: "首版在页面离开前台时停止采集并保留有效摘要，不承诺后台或整夜监测。",
-              },
-            ]
-        ).map((item) => (
-          <details key={item.q}>
-            <summary>
-              {item.q}
-              <Icon name="chevron-down" size={17} />
-            </summary>
-            <p>{item.a}</p>
-          </details>
-        ))}
+        <div className={styles.faqLead}>
+          <p className={styles.eyebrow}>{en ? "COMMON QUESTIONS" : "常见问题"}</p>
+          <h2>{en ? "Before you begin" : "开始前的几个问题"}</h2>
+          <p className={styles.sectionIntro}>
+            {en
+              ? "Audio privacy, reading units and the limits of background measurement."
+              : "先了解隐私、读数口径与后台测量限制。"}
+          </p>
+        </div>
+        <div className={styles.questions}>
+          {(en
+            ? [
+                {
+                  q: "Does it record or upload my audio?",
+                  a: "No. Audio is processed in browser memory. Local summaries contain statistics and recent level trends, without audio.",
+                },
+                {
+                  q: "Why does the default reading use dBFS?",
+                  a: "A digital microphone signal is not automatically a calibrated sound pressure measurement. Relative dBFS makes that difference explicit. A reference enables a device-specific estimate.",
+                },
+                {
+                  q: "Can I leave it running with the screen locked?",
+                  a: "This version stops capture when the page leaves the foreground. It does not promise background or overnight monitoring.",
+                },
+              ]
+            : [
+                {
+                  q: "会录音或上传我的声音吗？",
+                  a: "不会。音频只在浏览器内存中计算。本机摘要包含统计和最近一段电平趋势，不包含原始声音。",
+                },
+                {
+                  q: "为什么默认显示的是 dBFS？",
+                  a: "数字麦克风输入不自动等于经过校准的环境声压级。dBFS 明确表示相对输入；具备参考条件后，可以建立设备专属的估算关系。",
+                },
+                {
+                  q: "能在锁屏或后台一直测量吗？",
+                  a: "首版在页面离开前台时停止采集并保留有效摘要，不承诺后台或整夜监测。",
+                },
+              ]
+          ).map((item) => (
+            <details key={item.q}>
+              <summary>
+                {item.q}
+                <Icon name="chevron-down" size={17} />
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
       </section>
     </>
   );

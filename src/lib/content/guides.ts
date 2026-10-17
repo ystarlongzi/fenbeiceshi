@@ -236,6 +236,10 @@ export const guides: SiteContent[] = [
             "本机记录页可以逐条确认删除。清除浏览器中的本站数据也会删除摘要；请先导出你希望保留的结果。本机存储不可用或损坏时，工具会提示并保留已有数据，不静默覆盖。",
             "Confirm individual deletions on the local records page. Clearing this site's browser data also removes summaries, so export any you want to keep first. Unavailable or malformed storage is reported and existing data is not silently overwritten.",
           ),
+          t(
+            "手动选择的亮色或暗色主题会作为独立偏好保存在当前浏览器，仅用于恢复外观，不包含音频或观察摘要，也不上传至服务器。尚未选择时跟随系统外观；清除本站数据后会恢复这一默认行为。",
+            "Your chosen light or dark theme is stored as a separate preference in this browser to restore the appearance. It contains no audio or observation summaries and is not uploaded. Before you choose, the site follows your system appearance; clearing site data restores that default.",
+          ),
         ],
       },
       {

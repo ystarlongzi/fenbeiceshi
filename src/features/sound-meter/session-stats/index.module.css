@@ -8,7 +8,7 @@
   padding: 17px 15px 14px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: linear-gradient(150deg, #fff, #f7f9f8);
+  background: linear-gradient(150deg, var(--surface), var(--surface-soft));
   min-width: 0;
 }
 .label {
@@ -22,13 +22,13 @@
   color: var(--brand);
 }
 .stat[data-tone="blue"] .label svg {
-  color: #4c7e9d;
+  color: var(--info);
 }
 .stat[data-tone="amber"] .label svg {
-  color: #b08142;
+  color: var(--warning);
 }
 .stat[data-tone="neutral"] .label svg {
-  color: #718078;
+  color: var(--muted);
 }
 .result {
   display: flex;

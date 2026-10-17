@@ -2,6 +2,9 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Icon } from "../icon";
 import { LanguageSwitch } from "../language-switch";
+import { ThemeSwitch } from "../theme-switch";
+import { ThemeScript } from "../theme-switch/theme-script";
+import { NavigationLink } from "./navigation-link";
 import { href, sitePages } from "@/lib/routing/pages";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
@@ -9,15 +12,21 @@ import styles from "./index.module.css";
 export function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
   const english = locale === "en";
   const nav = [
-    { id: "meter", label: english ? "Measure" : "开始测量", optional: true },
-    { id: "knowledge", label: english ? "Guides" : "声音知识", optional: false },
-    { id: "guide", label: english ? "How to use" : "使用指南", optional: true },
-    { id: "records", label: english ? "Records" : "本机记录", optional: false },
-  ];
+    { id: "meter", label: english ? "Measure" : "开始测量", icon: "mic", optional: true },
+    { id: "knowledge", label: english ? "Guides" : "声音知识", icon: "book-open", optional: false },
+    {
+      id: "guide",
+      label: english ? "How to use" : "使用指南",
+      icon: "circle-check",
+      optional: true,
+    },
+    { id: "records", label: english ? "Records" : "本机记录", icon: "save", optional: false },
+  ] as const;
   const other = english ? "zh-CN" : "en";
   return (
-    <html lang={locale} data-scroll-behavior="smooth">
+    <html lang={locale} data-scroll-behavior="smooth" data-theme="light" suppressHydrationWarning>
       <body>
+        <ThemeScript />
         <a className={styles.skip} href="#main-content">
           {english ? "Skip to content" : "跳到主要内容"}
         </a>
@@ -31,7 +40,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
               <span className={styles.brandMark}>
                 <Icon name="audio-lines" size={22} />
               </span>
-              <span>
+              <span className={styles.brandText}>
                 <strong>{english ? "FenbeiCeshi" : "分贝测试"}</strong>
                 <small>fenbeiceshi.com</small>
               </span>
@@ -39,21 +48,25 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
             <div className={styles.navigation}>
               <nav aria-label={english ? "Main navigation" : "主导航"}>
                 {nav.map((item) => (
-                  <Link
+                  <NavigationLink
                     key={item.id}
                     className={item.optional ? styles.optionalNav : undefined}
                     href={href(item.id, locale)}
+                    exact={item.id === "meter"}
                   >
-                    {item.id === "records" ? <Icon name="save" size={14} /> : null}
+                    <Icon name={item.icon} size={15} />
                     {item.label}
-                  </Link>
+                  </NavigationLink>
                 ))}
               </nav>
-              <LanguageSwitch
-                locale={locale}
-                available={sitePages.map((page) => href(page.id, other))}
-                className={styles.language}
-              />
+              <div className={styles.utilities}>
+                <ThemeSwitch locale={locale} />
+                <LanguageSwitch
+                  locale={locale}
+                  available={sitePages.map((page) => href(page.id, other))}
+                  className={styles.language}
+                />
+              </div>
             </div>
           </div>
         </header>

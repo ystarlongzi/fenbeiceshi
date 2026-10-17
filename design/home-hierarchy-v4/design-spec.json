@@ -1,0 +1,83 @@
+{
+  "version": 4,
+  "scope": "homepage-module-hierarchy",
+  "updated": "2026-10-17",
+  "status": "local-implementation",
+  "baseline": "../noise-meter-v3/design-spec.json",
+  "source": "../../src/components/home-page/",
+  "verification": "../../docs/验证/首页层级调整验证.md",
+  "task": "优先完成一次声音观察，再按需要查看方法、场景、知识与常见问题。",
+  "diagnosis": [
+    "测量台与本机记录分离，结果与记录缺少归属关系。",
+    "工具后的模块共用浅底、相近标题与均匀留白，视觉权重过于接近。",
+    "知识列表和 FAQ 未建立清楚的阅读区域，缺少任务结束后的节奏变化。"
+  ],
+  "modules": [
+    {
+      "name": "测量与记录",
+      "role": "核心任务",
+      "layout": "沿用主仪表与设置的主辅布局；记录接到工作台底部，共用外部轮廓。",
+      "surface": "深绿读数面与白色工作表面",
+      "reason": "记录是测量完成后的延续，不再作为独立内容章节。"
+    },
+    {
+      "name": "使用方法",
+      "role": "必要支持",
+      "layout": "紧凑浅绿引导带；桌面三步横排，手机沿操作顺序纵排。",
+      "headingSize": "22px",
+      "reason": "说明如何开始，控制分量并靠近测量任务。"
+    },
+    {
+      "name": "日常场景",
+      "role": "按问题探索",
+      "layout": "更明确的区块标题与同级场景对象；图标、标题、条件和入口分组。",
+      "headingSize": "桌面 32px，手机 27px",
+      "surface": "相同浅绿对象表面",
+      "reason": "三个场景保持同级，不制造虚假推荐；与简短步骤区区分。"
+    },
+    {
+      "name": "声音知识",
+      "role": "延伸阅读",
+      "layout": "整幅白色阅读区域；桌面左导读右文章，手机先导读后列表。",
+      "headingSize": "桌面 30px，手机 27px",
+      "reason": "通过背景和版式表达从操作到理解的任务变化，不给每篇文章添加卡片。"
+    },
+    {
+      "name": "常见问题",
+      "role": "按需帮助",
+      "layout": "回到页面底色；桌面标题与问题主辅排列，手机顺序阅读。",
+      "headingSize": "桌面 24px，手机 22px",
+      "reason": "以较低权重收尾，继续使用原生 details 展开。"
+    }
+  ],
+  "constraints": [
+    "测量、校准、记录和音频生命周期沿用 V3，不添加依赖。",
+    "首页继续使用静态服务端组件；不把文章正文传入客户端。",
+    "颜色与 Lucide 图标延续现有系统；专属样式放在相邻 CSS Modules。",
+    "工作台通过局部 CSS 变量开放外部轮廓；全屏仍为直角观察表面。",
+    "保留首屏开始操作与中英实际路由；不增加空链接或候选页面。"
+  ],
+  "refinements": {
+    "navigation": "四个主菜单使用一致的 Lucide 图标与文字；手机保留现有菜单项，窄屏采用图标在上、文字在下的排布。悬停显示浅绿底与内侧细边界，图标随文字变色；键盘焦点保留外部轮廓，减少动画偏好下关闭过渡。",
+    "sectionHeading": "区块说明不设最大宽度，跟随父布局可用空间自然换行。",
+    "levelScale": "数字下直接显示每个点位的含义；默认 dBFS 说明显示下限、极低、较低、较高、满幅，参考校准后使用独立的估算 dB 说明。文字自然增高，五个点与色带的线性位置保持一致。",
+    "noiseReference": {
+      "interaction": "仪表内原生 details 按需展开；桌面横排，手机逐行对照，不显示当前读数标记。",
+      "meaning": "0、30、60、90、120 dB 分别给出听阈参考、耳语、交谈、吹风机或割草机、救护车警笛的粗略量级；不将未校准的 dBFS 与这些场景直接比较，不以颜色判定健康风险。",
+      "source": "https://stacks.cdc.gov/view/cdc/209822",
+      "checked": "2026-10-17"
+    },
+    "trendEmpty": "浅色网格承接图表语义，图标、标题和说明表达等待状态；有数据后显示实际图表，不绘制虚假历史。桌面最小高度 200px，手机 170px。"
+  },
+  "screenshots": {
+    "desktopOverview": "desktop-overview.jpg",
+    "desktopMethodsAndScenes": "desktop-methods-scenes.jpg",
+    "desktopKnowledgeAndFaq": "desktop-knowledge-faq.jpg",
+    "mobileOverview": "mobile-overview.jpg",
+    "navigationAndTrendDesktop": "nav-trend-desktop.jpg",
+    "navigationAndTrendMobile": "nav-trend-mobile.jpg",
+    "navigationHoverAndSectionHeading": "menu-hover-section-heading.jpg",
+    "levelScaleAndReferenceDesktop": "level-scale-reference-desktop.jpg",
+    "levelScaleAndReferenceMobile": "level-scale-reference-mobile.jpg"
+  }
+}

@@ -23,8 +23,8 @@
   font: 10px var(--font-number);
   border-radius: 4px;
   padding: 3px 6px;
-  background: #eaf0e5;
-  color: #6d8761;
+  background: var(--surface-accent);
+  color: var(--text-accent);
 }
 .heading p {
   font-size: 11px;
@@ -45,10 +45,10 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px dashed #d9e3d4;
+  border: 1px dashed var(--line-strong);
   border-radius: 9px;
   padding: 23px;
-  color: #7b8d72;
+  color: var(--muted);
 }
 .empty p {
   margin: 0;
@@ -104,7 +104,7 @@
   display: block;
   margin-top: 5px;
   font-size: 9px;
-  color: #84917d;
+  color: var(--text-soft);
   overflow-wrap: anywhere;
 }
 .mean {
@@ -113,7 +113,7 @@
 }
 .mean strong {
   font: 23px var(--font-number);
-  color: #426f47;
+  color: var(--text-accent);
   letter-spacing: -1px;
 }
 .mean > span {
@@ -124,7 +124,7 @@
 .mean > small {
   display: block;
   font-size: 9px;
-  color: #85917f;
+  color: var(--text-soft);
   margin-top: 5px;
 }
 .rowActions {
@@ -136,10 +136,10 @@
   height: 32px;
   display: grid;
   place-items: center;
-  border: 1px solid #dee6d8;
+  border: 1px solid var(--line);
   border-radius: 6px;
-  color: #6b8162;
-  background: #fff;
+  color: var(--text-accent);
+  background: var(--surface);
 }
 .compareHint {
   font-size: 10px;
@@ -155,14 +155,14 @@
 }
 .confirm span {
   font-size: 10px;
-  color: #8a6149;
+  color: var(--warning);
 }
 .confirm button {
-  border: 1px solid #e7ddd2;
+  border: 1px solid var(--line-accent);
   border-radius: 5px;
   padding: 6px;
-  color: #805d43;
-  background: #fffaf1;
+  color: var(--warning);
+  background: var(--warning-surface);
   font-size: 10px;
 }
 .notice {
@@ -170,8 +170,8 @@
   align-items: flex-start;
   gap: 10px;
   padding: 16px;
-  background: #f7f0e7;
-  color: #8b6b43;
+  background: var(--warning-surface);
+  color: var(--warning);
   font-size: 12px;
   line-height: 1.9;
   border-radius: 8px;
@@ -181,14 +181,14 @@
 }
 .comparison {
   margin-top: 25px;
-  border-left: 3px solid #7b9d60;
-  background: #edf3e6;
+  border-left: 3px solid var(--brand);
+  background: var(--surface-accent);
   padding: 23px;
 }
 .comparison > span {
   display: block;
   font-size: 12px;
-  color: #627b54;
+  color: var(--text-accent);
 }
 .comparison > strong {
   font: 36px var(--font-number);
@@ -203,7 +203,7 @@
 .comparison p {
   font-size: 12px;
   line-height: 1.9;
-  color: #718265;
+  color: var(--text-body);
   margin: 12px 0 0;
 }
 .compact .heading h2 {
@@ -214,7 +214,7 @@
 }
 .compact .empty {
   padding: 17px;
-  background: #f0f4ed80;
+  background: var(--surface-soft);
 }
 .compact .empty p {
   font-size: 11px;

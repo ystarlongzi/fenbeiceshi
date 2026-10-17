@@ -39,55 +39,83 @@ export function SoundTrend({
         <span>{demo ? copy.demoShort : copy.recent}</span>
       </div>
       <div className={styles.chart}>
-        <svg viewBox="0 0 700 166" role="img" aria-label={copy.trend}>
-          <defs>
-            <linearGradient id="trend-fill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={demo ? "#65949f" : "#5b9c7e"} stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#5b9c7e" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          {[0, 0.5, 1].map((fraction) => (
-            <g key={fraction}>
-              <line
-                x1="48"
-                x2="680"
-                y1={16 + fraction * 118}
-                y2={16 + fraction * 118}
-                stroke="#e5ebe7"
-                strokeDasharray="3 5"
+        {!points.length ? (
+          <div className={styles.empty}>
+            <span className={styles.emptyIcon}>
+              <Icon name="chart-line" size={21} />
+            </span>
+            <div className={styles.emptyText}>
+              <strong>{copy.trendEmptyTitle}</strong>
+              <p>{copy.trendEmpty}</p>
+            </div>
+          </div>
+        ) : (
+          <svg viewBox="0 0 700 166" role="img" aria-label={copy.trend}>
+            <defs>
+              <linearGradient id="trend-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="0%"
+                  stopColor={demo ? "var(--plot-demo)" : "var(--plot-line)"}
+                  stopOpacity="0.2"
+                />
+                <stop offset="100%" stopColor="var(--plot-line)" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            {[0, 0.5, 1].map((fraction) => (
+              <g key={fraction}>
+                <line
+                  x1="48"
+                  x2="680"
+                  y1={16 + fraction * 118}
+                  y2={16 + fraction * 118}
+                  stroke="var(--line)"
+                  strokeDasharray="3 5"
+                />
+                <text
+                  x="35"
+                  y={20 + fraction * 118}
+                  textAnchor="end"
+                  fontSize="10"
+                  fill="var(--muted)"
+                >
+                  {Math.round(max - fraction * (max - min))}
+                </text>
+              </g>
+            ))}
+            {coordinates.length > 1 ? (
+              <>
+                <path
+                  d={`${path} L${last?.x},134 L${coordinates[0].x},134 Z`}
+                  fill="url(#trend-fill)"
+                />
+                <path
+                  d={path}
+                  stroke={demo ? "var(--plot-demo)" : "var(--plot-line)"}
+                  strokeWidth="2"
+                  fill="none"
+                  strokeLinejoin="round"
+                />
+              </>
+            ) : null}
+            {last ? (
+              <circle
+                cx={last.x}
+                cy={last.y}
+                r="3"
+                fill={demo ? "var(--plot-demo)" : "var(--plot-line)"}
               />
-              <text x="35" y={20 + fraction * 118} textAnchor="end" fontSize="10" fill="#7a8a80">
-                {Math.round(max - fraction * (max - min))}
-              </text>
-            </g>
-          ))}
-          {coordinates.length > 1 ? (
-            <>
-              <path
-                d={`${path} L${last?.x},134 L${coordinates[0].x},134 Z`}
-                fill="url(#trend-fill)"
-              />
-              <path
-                d={path}
-                stroke={demo ? "#608997" : "#3c8665"}
-                strokeWidth="2"
-                fill="none"
-                strokeLinejoin="round"
-              />
-            </>
-          ) : null}
-          {last ? <circle cx={last.x} cy={last.y} r="3" fill="#3c8665" /> : null}
-          <text x="48" y="157" fontSize="10" fill="#7a8a80">
-            −60s
-          </text>
-          <text x="364" y="157" textAnchor="middle" fontSize="10" fill="#7a8a80">
-            −30s
-          </text>
-          <text x="680" y="157" textAnchor="end" fontSize="10" fill="#7a8a80">
-            {copy.now}
-          </text>
-        </svg>
-        {!points.length ? <p className={styles.empty}>{copy.trendEmpty}</p> : null}
+            ) : null}
+            <text x="48" y="157" fontSize="10" fill="var(--muted)">
+              −60s
+            </text>
+            <text x="364" y="157" textAnchor="middle" fontSize="10" fill="var(--muted)">
+              −30s
+            </text>
+            <text x="680" y="157" textAnchor="end" fontSize="10" fill="var(--muted)">
+              {copy.now}
+            </text>
+          </svg>
+        )}
       </div>
     </section>
   );

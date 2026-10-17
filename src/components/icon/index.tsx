@@ -24,7 +24,9 @@ export type IconName =
   | "arrow-right"
   | "circle-alert"
   | "x"
-  | "external-link";
+  | "external-link"
+  | "sun"
+  | "moon";
 
 export function Icon({
   name,

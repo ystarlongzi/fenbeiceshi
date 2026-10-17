@@ -1,6 +1,6 @@
 .header {
-  border-bottom: 1px solid #e0e6df;
-  background: #fafcf9ed;
+  border-bottom: 1px solid var(--line);
+  background: var(--header);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -40,7 +40,7 @@
 }
 .brand small {
   display: block;
-  color: #7e8e80;
+  color: var(--text-soft);
   font-size: 9px;
   letter-spacing: 0.08em;
   margin-top: 2px;
@@ -53,18 +53,23 @@
 .navigation nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 8px;
+}
+.utilities {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .navigation nav a {
   font-size: 12px;
-  color: #637567;
+  color: var(--muted);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding-block: 12px;
-}
-.navigation nav a:hover {
-  color: var(--brand);
+  min-height: 40px;
+  padding: 10px;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 .language {
   display: grid;
@@ -72,12 +77,44 @@
   min-width: 33px;
   min-height: 31px;
   padding-inline: 7px;
-  background: #fff;
-  border: 1px solid #dae3d8;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
   border-radius: 6px;
   font-size: 10px;
   font-weight: 650;
-  color: #527257;
+  color: var(--text-accent);
+}
+.navigation nav a,
+.language {
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+.navigation nav a:focus-visible,
+.language:focus-visible {
+  background: var(--surface-hover);
+  color: var(--text-accent);
+  box-shadow: inset 0 0 0 1px var(--line-accent);
+}
+@media (hover: hover) and (pointer: fine) {
+  .navigation nav a:hover,
+  .language:hover {
+    background: var(--surface-hover);
+    color: var(--text-accent);
+    box-shadow: inset 0 0 0 1px var(--line-accent);
+  }
+}
+.navigation nav a:active,
+.language:active {
+  background: var(--surface-pressed);
+  color: var(--text-accent);
+}
+.navigation nav a[aria-current] {
+  background: var(--surface-accent);
+  color: var(--brand);
+  font-weight: 650;
+  box-shadow: inset 0 -2px 0 var(--brand);
 }
 .content {
   max-width: 1240px;
@@ -86,7 +123,7 @@
 }
 .footer {
   border-top: 1px solid var(--line);
-  background: #eef2ec;
+  background: var(--surface-muted);
   margin-top: 68px;
   padding: 35px 32px 20px;
 }
@@ -123,7 +160,7 @@
   align-items: center;
   gap: 4px;
   font-size: 11px;
-  color: #607361;
+  color: var(--muted);
 }
 .footerInner nav a:hover {
   text-decoration: underline;
@@ -133,10 +170,10 @@
   max-width: 1176px;
   margin: 24px auto 0;
   padding-top: 17px;
-  border-top: 1px solid #dce4d8;
+  border-top: 1px solid var(--line);
   font-size: 10px;
   line-height: 1.8;
-  color: #687c68;
+  color: var(--muted);
 }
 .skip {
   position: fixed;
@@ -144,7 +181,7 @@
   top: -100px;
   z-index: 200;
   padding: 14px 20px;
-  background: white;
+  background: var(--surface);
   border: 2px solid var(--brand);
 }
 .skip:focus {
@@ -160,13 +197,14 @@
     gap: 16px;
   }
   .navigation nav {
-    gap: 17px;
+    gap: 8px;
   }
   .navigation nav .optionalNav {
     display: none;
   }
   .navigation nav a {
     font-size: 11px;
+    padding-inline: 6px;
   }
   .content {
     padding-inline: 20px;
@@ -202,19 +240,39 @@
     font-size: 8px;
   }
   .navigation {
-    gap: 13px;
+    gap: 11px;
   }
   .navigation nav {
-    gap: 13px;
+    gap: 4px;
   }
   .navigation nav a {
+    flex-direction: column;
+    justify-content: center;
+    min-width: 44px;
+    padding: 8px 4px;
     font-size: 10px;
+    line-height: 1.25;
     gap: 4px;
   }
   .navigation nav a svg {
-    display: none;
+    width: 15px;
+    height: 15px;
   }
   .content {
     padding-inline: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navigation nav a,
+  .language {
+    transition: none;
+  }
+}
+@media (max-width: 380px) {
+  .brandText {
+    display: none;
+  }
+  .utilities {
+    gap: 6px;
   }
 }

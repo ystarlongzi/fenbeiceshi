@@ -1,6 +1,6 @@
 .aside {
   height: 100%;
-  background: #f8faf8;
+  background: var(--surface-soft);
   border-left: 1px solid var(--line);
   padding: 26px 22px 20px;
 }
@@ -39,7 +39,7 @@
   font-weight: 600;
 }
 .settingGroup h3 svg {
-  color: #6f8577;
+  color: var(--muted);
 }
 .settingGroup p {
   font-size: 12px;
@@ -55,8 +55,8 @@
   font-family: inherit;
   color: var(--ink);
   font-size: 12px;
-  background: #fff;
-  border: 1px solid #dce4dc;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 6px;
   padding: 10px;
   outline-offset: 3px;
@@ -72,7 +72,7 @@
 }
 .settingGroup textarea::placeholder,
 .settingGroup input::placeholder {
-  color: #7c8c80;
+  color: var(--text-soft);
 }
 .settingGroup .inputLabel {
   font-size: 11px;
@@ -80,7 +80,7 @@
   overflow-wrap: anywhere;
 }
 .settingGroup .inputWarning {
-  color: #876336;
+  color: var(--warning);
 }
 .calibrationBadge {
   display: inline-flex;
@@ -88,12 +88,12 @@
   gap: 6px;
   padding: 5px 7px;
   border-radius: 4px;
-  background: #eef1e9;
-  color: #687457;
+  background: var(--surface-muted);
+  color: var(--text-accent);
   font-size: 11px;
 }
 .calibrationBadge[data-set="true"] {
-  background: #e6f1e9;
+  background: var(--surface-accent);
   color: var(--brand);
 }
 .calibrationBadge[data-set="true"] i {
@@ -107,9 +107,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 9px 10px;
-  border: 1px solid #d6e1d5;
+  border: 1px solid var(--line-strong);
   border-radius: 6px;
-  background: #fff;
+  background: var(--surface);
   font-size: 12px;
   color: var(--brand);
   cursor: pointer;
@@ -136,9 +136,9 @@
 .calibrationDetails button {
   padding: 9px 10px;
   width: 100%;
-  border: 1px solid #d4e2d2;
+  border: 1px solid var(--line-accent);
   border-radius: 6px;
-  background: #e7efdf;
+  background: var(--surface-accent);
   color: var(--brand);
   font-size: 12px;
 }

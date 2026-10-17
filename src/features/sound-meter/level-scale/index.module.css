@@ -2,20 +2,40 @@
   padding: 16px 2px 0;
 }
 .ticks {
-  position: relative;
-  height: 21px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding-bottom: 8px;
   font: 11px var(--font-number);
   color: #a4bcad;
 }
-.ticks span {
-  position: absolute;
-  transform: translateX(-50%);
+.ticks > span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  text-align: center;
 }
-.ticks span[data-edge="start"] {
-  transform: none;
+/* 五列保持自然高度，偏移第二、四列以对应色带的 25% 和 75% 位置。 */
+.ticks > span:nth-child(2) {
+  transform: translateX(-25%);
 }
-.ticks span[data-edge="end"] {
-  transform: translateX(-100%);
+.ticks > span:nth-child(4) {
+  transform: translateX(25%);
+}
+.ticks > span[data-edge="start"] {
+  text-align: left;
+}
+.ticks > span[data-edge="end"] {
+  text-align: right;
+}
+.value {
+  color: #caddc6;
+}
+.meaning {
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.35;
+  color: #bbcec1;
 }
 .track {
   height: 7px;
@@ -40,16 +60,14 @@
   background: white;
   box-shadow: 0 0 0 2px #193628;
 }
-.labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  margin-top: 8px;
-  color: #bbcec1;
-}
 .scale p {
   font-size: 11px;
-  line-height: 1.5;
-  margin: 9px 0 0;
+  line-height: 1.7;
+  margin: 10px 0 0;
   color: #a4bcad;
+}
+.unit {
+  color: #caddc6;
+  white-space: nowrap;
+  margin-right: 8px;
 }
