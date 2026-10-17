@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { activeCalibration, makeCalibration } from "../calibration/calibration.ts";
 import { CaptureSession } from "./capture.ts";
 import { addWindow, emptyStats } from "./level.ts";
+import { DEFAULT_ESTIMATE } from "./readings.ts";
 import type {
   Calibration,
   InputInfo,
@@ -109,6 +110,7 @@ export function useSoundMeter() {
           points: last.points,
           input: inputRef.current,
           calibration: activeCalibration(reference.current, inputRef.current.signature),
+          estimate: DEFAULT_ESTIMATE,
           note: noteRef.current,
           reason,
         });

@@ -6,6 +6,7 @@ import { Icon } from "@/components/icon";
 import { meterCopy } from "../copy";
 import type { Locale } from "../types";
 import type { useSoundMeter } from "../use-sound-meter";
+import { InputSignal } from "../input-signal";
 import styles from "./index.module.css";
 
 export function MeterSettings({
@@ -30,10 +31,13 @@ export function MeterSettings({
       </div>
       {meter.result ? <p className={styles.nextSettings}>{copy.nextSettings}</p> : null}
       <section className={styles.settingGroup}>
-        <h3>
-          <Icon name="mic" size={15} />
-          {copy.microphone}
-        </h3>
+        <div className={styles.inputHeading}>
+          <h3>
+            <Icon name="mic" size={15} />
+            {copy.microphone}
+          </h3>
+          <InputSignal frame={meter.frame} status={meter.status} copy={copy} />
+        </div>
         <label className={styles.srOnly} htmlFor="input-device">
           {copy.microphone}
         </label>

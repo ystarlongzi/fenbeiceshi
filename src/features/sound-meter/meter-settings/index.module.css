@@ -41,6 +41,17 @@
 .settingGroup h3 svg {
   color: var(--muted);
 }
+.inputHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.inputHeading h3 {
+  margin-bottom: 0;
+}
 .settingGroup p {
   font-size: 12px;
   line-height: 1.8;

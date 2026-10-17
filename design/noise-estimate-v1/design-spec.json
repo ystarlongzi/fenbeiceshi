@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "updated": "2026-10-18",
+  "status": "local-implementation",
+  "scope": "noise-estimate-and-input-signal",
+  "layoutBaseline": "../home-hierarchy-v4/design-spec.json",
+  "themeBaseline": "../theme-v1/design-spec.json",
+  "method": "../../docs/产品/噪音估算口径.md",
+  "verification": "../../docs/验证/噪音估算调整验证.md",
+  "priority": "主仪表、色带、趋势与统计统一表达估算噪音分贝；麦克风信号为辅助；参考校准可选且默认收起。",
+  "model": {
+    "id": "generic-rms-v1",
+    "offsetDb": 100,
+    "meaning": "未经跨设备声学精度验证的产品估算假设，不是通用 SPL 换算常数。",
+    "reference": "有效参考偏移替换通用偏移；原始信号不变。"
+  },
+  "scale": {
+    "ticks": [0, 30, 60, 90, 120],
+    "labels": ["微弱", "较安静", "日常声", "嘈杂", "极响"],
+    "unit": "dB · 估算",
+    "position": "线性位置；刻度范围不是已验证量程；数字不因超出轨道而被截断。"
+  },
+  "signal": "麦克风旁五根输入幅度柱，空闲和停止不亮，演示单独标记，过载同时有文字；不展示负分贝主刻度。",
+  "records": "版本 2 保留估算模型；历史相对记录保留原单位，比较按模型与输入隔离。",
+  "screenshots": {
+    "desktopReadyLight": "desktop-ready-light.jpg",
+    "desktopDemoLight": "desktop-demo-light.jpg",
+    "desktopDemoDark": "desktop-demo-dark.jpg",
+    "desktopTrendDark": "desktop-trend-dark.jpg",
+    "mobileReadyZh": "mobile-ready-zh.jpg",
+    "mobileReadyEn": "mobile-ready-en.jpg",
+    "mobileSignalZh": "mobile-signal-zh.jpg",
+    "mobileTrendEn": "mobile-trend-en.jpg"
+  },
+  "nonClaims": ["dBA", "认证声级测量", "安全判断", "量化准确度"]
+}

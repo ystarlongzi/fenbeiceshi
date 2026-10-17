@@ -63,7 +63,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 - 本产品面向普通用户提供分贝与环境噪音测试，Web 优先并适配手机；当前界面名称为“分贝测试”，域名为 `fenbeiceshi.com`。
 - 当前设计依据为 [V3 实现规格](./design/noise-meter-v3/design-spec.json) 与实际界面截图；[V2 规格](./design/noise-meter-v2/design-spec.json) 及 Figma 画框保留为品牌、状态与早期设计依据，V1 作为历史方案保留。
-- 首页模块之间的关系以 [首页层级 V4](./design/home-hierarchy-v4/design-spec.json) 为准：测量与记录合组，方法为辅助引导，场景为同级对象，知识为阅读区域，FAQ 为按需收尾；测量状态及口径继续沿用 V3。
+- 首页模块之间的关系以 [首页层级 V4](./design/home-hierarchy-v4/design-spec.json) 为准：测量与记录合组，方法为辅助引导，场景为同级对象，知识为阅读区域，FAQ 为按需收尾；测量状态沿用 V3；当前测量口径以 [噪音估算规格](./design/noise-estimate-v1/design-spec.json) 和 [噪音估算口径](./docs/产品/噪音估算口径.md) 为准，替代早期默认 dBFS 的决定。
 - 功能图标采用 [Lucide](https://lucide.dev/)，用于说明操作与信息角色；统一描边与尺寸，不用图标替代必要文字，不为装饰给所有内容添加图标。项目设计目录保留所用 SVG、固定来源与许可证。
 - 亮暗主题以 [主题 V1](./design/theme-v1/design-spec.json) 为准：通用表面、文字、边界和状态使用 `globals.css` 的语义变量，组件专属映射留在相邻 CSS Modules；仪表深绿读数区保留固定配色。主题切换为独立客户端组件，正文与站点外壳保持服务端渲染；同步引导脚本放在可见内容之前，只在根节点处理主题属性的水合差异。默认跟随系统，手动偏好以独立版本化键保存，不能与测量记录混用。
 
@@ -72,7 +72,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 处理站点结构、内容、SEO 或页面实现前，读取 [整站结构与 SEO 规划](./docs/产品/整站结构与SEO规划.md)、[页面与关键词映射](./docs/产品/页面与关键词映射.json) 和 [工程与部署参考](./docs/开发/工程与部署参考.md)；完整入口见 [文档索引](./docs/文档索引.md)。这些文件当前描述规划，不能将候选路由或拟定命令声称为已实现。
 - 中文根目录优先，同时规划 `/en/` 英文版；各语言独立完成内容与验证。只为实际发布、内容对应的页面生成互相返回的 hreflang，各页自 canonical，不生成缺失语言占位页。
 - 一个主要搜索意图对应一个页面；新增 URL 前确认现有归属与独有任务，不为近义词、城市、设备型号或逐个分贝数值批量生成同款页面。候选词不代表已验证搜索量或排名难度。
-- 核心答案、方法、来源和链接必须存在于构建 HTML；正文保持静态，麦克风与本机交互限制在必要的客户端子树。未校准使用 dBFS，参考校准后才展示估算声级；不得擅自宣称 dBA、法定检测或专业准确度。
+- 核心答案、方法、来源和链接必须存在于构建 HTML；正文保持静态，麦克风与本机交互限制在必要的客户端子树。默认提供明确标注未校准的通用估算噪音分贝；当前 generic-rms-v1 使用原始 RMS dBFS +100，仅为未经跨设备声学验证的产品假设。仪表、色带、趋势、统计、记录和导出复用 readings.ts 的同一转换，参考校准可选且替换通用偏移。原始信号只在麦克风旁作为辅助信号柱；不得擅自宣称 dBA、法定检测或专业准确度。新记录保留模型版本，历史相对记录保留原单位，禁止混比或重新解释旧值。
 - 首版已采用 Next.js App Router、TypeScript strict、npm、静态导出和 CSS Modules。`src/app` 管路由，`src/features` 按测量、校准与记录等职责组织，`src/components` 仅放确实共享的展示组件；`src/lib/content`、`routing`、`seo` 分别管理内容、发布语言与 SEO 派生数据，专属样式和测试靠近所属功能。
 - 当前应用的实际页面注册为 `src/lib/routing/pages.ts`，与候选关键词映射分开维护；已实现 22 个中英 URL，其中 20 个可索引，两个本机记录页 noindex。新增语言或路由必须有真实正文和可用操作。
 - `npm run check` 依次运行 format:check、lint、typecheck、test、test:content、build 和 test:export，本地与 CI 一致；lint 警告阻断，检查不自动改写。`npm run preview` 预览静态产物。新增依赖和检查配置遵循前述技能及聚焦变更要求。

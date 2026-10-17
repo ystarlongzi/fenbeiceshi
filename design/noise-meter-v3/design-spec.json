@@ -1,4 +1,5 @@
 {
+  "measurementSupersededBy": "../noise-estimate-v1/design-spec.json",
   "version": 3,
   "updated": "2026-10-17",
   "status": "local-implementation",

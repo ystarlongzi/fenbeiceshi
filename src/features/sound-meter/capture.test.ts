@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { CaptureSession } from "./capture.ts";
 import type { InputInfo, MeterFrame, StopReason } from "./types.ts";
+import { currentBasis, displayFrame } from "./readings.ts";
 
 async function withInput(
   run: (fixture: {
@@ -137,6 +138,7 @@ test("实际采集路径计算相对电平，结束只关闭一次音轨与上�
     step();
     assert.equal(frames.length, 1);
     assert.ok(Math.abs(frames[0].value + 20) < 0.0001);
+    assert.ok(Math.abs(displayFrame(frames[0], currentBasis()).value - 80) < 0.0001);
     assert.equal(frames[0].stats.count, 1);
     session.stop();
     session.stop();

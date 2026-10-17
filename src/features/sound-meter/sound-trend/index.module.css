@@ -36,13 +36,57 @@
 }
 .chart {
   --trend-height: 200px;
+  display: flow-root;
   min-height: var(--trend-height);
   margin-top: 14px;
 }
-.chart > svg {
+.plot {
+  position: relative;
+  height: calc(var(--trend-height) - 40px);
+  margin: 12px 8px 28px 36px;
+}
+.plot > svg {
   display: block;
   width: 100%;
-  min-height: var(--trend-height);
+  height: 100%;
+  overflow: visible;
+}
+.yAxis,
+.xAxis {
+  position: absolute;
+  color: var(--muted);
+  font: 10px/1.4 var(--font-number);
+}
+.yAxis {
+  left: -36px;
+  top: 0;
+  bottom: 0;
+  width: 27px;
+  text-align: right;
+}
+.yAxis span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.xAxis {
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  top: calc(100% + 11px);
+}
+.endpoint {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--plot-line);
+}
+.plot[data-demo="true"] .endpoint {
+  background: var(--plot-demo);
 }
 .empty {
   display: flex;

@@ -21,8 +21,8 @@ export const sitePages: SitePage[] = [
     kind: "home",
     title: dual("在线分贝测试与噪音观察工具", "Online Decibel Meter & Noise Observation Tool"),
     description: dual(
-      "使用麦克风观察声音变化，切换指针、数显与电平条，进入全屏并保存本机摘要。未校准显示相对 dBFS，参考校准后查看估算声级。",
-      "Observe sound changes, switch between dial, digital and level displays, use fullscreen and save local summaries. Relative dBFS by default; estimates require a reference.",
+      "使用麦克风查看估算噪音分贝，切换指针、数显与条形，进入全屏并保存本机摘要。默认通用估算，参考校准可选，设备差异会影响结果。",
+      "View estimated noise levels, switch between dial, digital and bar displays, use fullscreen and save local summaries. Generic estimates by default, with optional reference calibration and device-dependent results.",
     ),
     index: true,
   },

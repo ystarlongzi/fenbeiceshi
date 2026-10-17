@@ -14,13 +14,13 @@ export const articles: SiteContent[] = [
     id: "phone-accuracy",
     slug: "knowledge/phone-decibel-accuracy",
     kind: "article",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t(
       "手机测分贝准吗？先确认你要比较什么",
       "Are phone decibel meters accurate? Start with your purpose",
     ),
     description: t(
-      "了解手机麦克风、自动处理与参考校准的影响，区分相对声音观察、估算声级和专业检测。",
+      "了解手机麦克风、自动处理与参考校准的影响，区分通用噪音估算、参考校准和专业检测。",
       "Understand microphone differences, audio processing and reference calibration before using a phone or browser reading.",
     ),
     takeaway: t(
@@ -37,8 +37,8 @@ export const articles: SiteContent[] = [
             "Comparing an appliance on and off is a different task from checking compliance. The first needs repeatable conditions. The second also needs suitable instruments, methods and an applicable standard.",
           ),
           t(
-            "本站默认显示相对 RMS dBFS，适合观察输入变化。参考校准后，显示带明确标签的估算声级；这不会使浏览器成为认证声级计。",
-            "This tool defaults to relative RMS dBFS for observing input changes. A reference calibration enables a clearly labelled estimate. It does not certify the browser as a sound level meter.",
+            "本站默认显示标注未校准的通用估算噪音分贝，方便观察声音变化。这个通用映射尚未通过跨设备声学精度验证；可选参考校准能调整当前设备的偏移，但不会使浏览器成为认证声级计。",
+            "This tool defaults to a labelled, uncalibrated noise estimate for observing change. The generic mapping has not undergone cross-device acoustic accuracy validation. Optional reference calibration adjusts the offset for the active device, without certifying the browser as a sound level meter.",
           ),
         ],
       },
@@ -85,8 +85,8 @@ export const articles: SiteContent[] = [
         title: t("怎样选择下一步", "Choose your next step"),
         paragraphs: [
           t(
-            "只想观察变化，可以先使用相对模式，并固定条件。具备参考声级计时，可按校准方法建立估算关系。涉及法律、职业安全或健康决定时，应选择适合该用途的专业测量，不用此网页读数下结论。",
-            "For observing change, start with relative mode and fixed conditions. With a reference meter, follow the calibration guide to establish an estimate. For legal, occupational or health decisions, use an appropriate professional assessment.",
+            "只想观察变化，可以先使用通用估算，并固定条件。具备参考声级计时，可按校准方法调整当前设备的偏移。涉及法律、职业安全或健康决定时，应选择适合该用途的专业测量，不用此网页读数下结论。",
+            "For observing change, start with the generic estimate and fixed conditions. With a reference meter, follow the calibration guide to adjust the active device offset. For legal, occupational or health decisions, use an appropriate professional assessment.",
           ),
         ],
       },
@@ -104,10 +104,10 @@ export const articles: SiteContent[] = [
     id: "dbfs-spl",
     slug: "knowledge/dbfs-vs-db-spl",
     kind: "article",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t("dBFS 与 dB SPL：相同的 dB，不同的参考", "dBFS vs dB SPL: different reference points"),
     description: t(
-      "解释数字音频电平与环境声压级为什么不能直接换算，以及本站的相对模式和参考估算模式。",
+      "解释数字音频电平与环境声压级为什么不能直接换算，以及本站通用估算、参考校准与原始输入的关系。",
       "Learn why digital audio level cannot be universally converted to sound pressure level, and how this tool labels each mode.",
     ),
     takeaway: t(
@@ -138,15 +138,19 @@ export const articles: SiteContent[] = [
             "This tool uses 10 × log10(mean square energy), referenced to a full-scale sample amplitude of 1, labelled RMS dBFS. It does not use conventions that define a full-scale sine wave as 0.",
           ),
           t(
-            "在这个约定下，幅度为 1 的理想正弦约为 -3.01 dBFS。数字零输入的对数是负无穷，界面以下限 -100 dBFS 表示极低输入；这不意味着房间里没有声音。",
-            "With this convention, an ideal sine of amplitude 1 is about -3.01 dBFS. Digital zero has a logarithm of negative infinity. The display uses a -100 dBFS floor, which does not mean a room contains no sound.",
+            "在这个约定下，幅度为 1 的理想正弦约为 -3.01 dBFS。数字零输入的对数是负无穷，原始计算使用 -100 dBFS 下限；主界面换算后保留 ≤ 标记，并提示它不是房间的实际声学下限。",
+            "With this convention, an ideal sine of amplitude 1 is about -3.01 dBFS. Digital zero has a logarithm of negative infinity. Raw calculations use a -100 dBFS floor; the converted display retains a ≤ marker and explains that this is not the room's acoustic floor.",
           ),
         ],
       },
       {
         id: "estimate",
-        title: t("参考估算如何建立？", "Establishing a reference estimate"),
+        title: t("通用估算与参考校准", "Generic estimation and reference calibration"),
         paragraphs: [
+          t(
+            "本站默认通用模型为 generic-rms-v1：估算 dB = RMS dBFS + 100。例如原始 -40 dBFS 显示约 60 dB。100 是用于粗略显示的产品假设，不是设备灵敏度或通用声压换算常数，没有获得跨设备声学精度验证。仪表 0–120 的刻度也不代表经过验证的测量量程。",
+            "The default generic-rms-v1 model is estimated dB = RMS dBFS + 100: for example, -40 dBFS displays about 60 dB. The offset of 100 is a product assumption for rough display, not device sensitivity or a universal SPL conversion, and has no cross-device acoustic validation. The 0–120 dial is not a validated measurement range.",
+          ),
           t(
             "使用合适的参考声级计，在位置和声源保持稳定时，对照当前输入建立偏移。本站会保留参考值、来源、时间和输入设置。显示的估算值仍是设备专属的单点对应，不是 dBA 或认证测量。",
             "Use a suitable reference meter while position and source remain stable, then establish an offset for the active input. This tool keeps the reference, source, time and input settings. The estimate remains a device-specific single-point relationship, not dBA or a certified measurement.",
@@ -181,7 +185,7 @@ export const articles: SiteContent[] = [
     id: "decibel-chart",
     slug: "knowledge/decibel-chart",
     kind: "article",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t("分贝对照表：先看条件，再比较声音", "Decibel chart: compare the context too"),
     description: t(
       "用常见声音的参考量级理解分贝，同时核对距离、计权与测量条件，避免把 dBFS 直接套入环境分贝表。",
@@ -261,8 +265,8 @@ export const articles: SiteContent[] = [
         ),
         paragraphs: [
           t(
-            "本站刻度的颜色只帮助识别输入范围，不自动判定健康风险。网页播放一段声音，也不能保证你的扬声器在某个位置输出指定的环境分贝。需要声压级参考时，请使用合适的参考设备。",
-            "The colours on this tool help identify input range; they do not automatically classify health risk. Playing a sound on a webpage cannot guarantee a specified environmental level from your speakers. Use a suitable reference instrument when sound pressure is required.",
+            "本站主仪表和色带显示估算噪音分贝，颜色与文字仅帮助理解声音量级，不自动判定健康风险。通用估算有设备误差，也不能直接等同于表中的 dBA。网页播放一段声音，也不能保证你的扬声器在某个位置输出指定的环境分贝。需要声压级参考时，请使用合适的参考设备。",
+            "The main meter and scale show estimated noise. Colours and descriptions indicate approximate sound levels, not health risk. Generic estimates vary by device and are not equivalent to the dBA examples in the table. Playing a sound on a webpage cannot guarantee a specified environmental level from your speakers. Use a suitable reference instrument when sound pressure is required.",
           ),
         ],
       },
@@ -279,7 +283,7 @@ export const articles: SiteContent[] = [
     id: "microphone-help",
     slug: "knowledge/microphone-permission",
     kind: "article",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t(
       "麦克风打不开？按现象检查权限与输入",
       "Microphone not working? Check access and input",
@@ -325,6 +329,10 @@ export const articles: SiteContent[] = [
         id: "input",
         title: t("没有设备，或设备无法读取", "No input was found or it could not be read"),
         paragraphs: [
+          t(
+            "麦克风选择旁的小信号柱反映原始输入幅度，状态文字说明是否正在采集。信号柱很低不自动代表设备故障，也不等于房间安静；主仪表中的估算噪音分贝使用单独标注的估算口径。",
+            "The small bars beside Microphone reflect raw input amplitude, while the text indicates capture status. Low bars alone do not establish a device fault or a quiet room. The main noise estimate uses its separately labelled estimation scale.",
+          ),
           t(
             "确认麦克风已连接、未被系统禁用，并选中需要的输入。外接设备移除或浏览器记住了已经不存在的设备时，先选择默认麦克风重试。设备读取失败时，可结束其他正在占用麦克风的应用，再重新开始。",
             "Confirm the microphone is connected and enabled, and choose the intended input. If an external input was removed or the browser remembers an unavailable device, retry with the default microphone. Close other apps using it if the input cannot be read.",

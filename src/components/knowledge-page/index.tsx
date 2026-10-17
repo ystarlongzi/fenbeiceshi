@@ -47,8 +47,8 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
           <h2>{en ? "Ready to try?" : "准备好观察一次了？"}</h2>
           <p>
             {en
-              ? "The tool starts in relative mode. Try a demo first if you prefer."
-              : "工具从相对模式开始。也可以先体验演示，再决定是否打开麦克风。"}
+              ? "Start with a generic noise estimate. Reference calibration is optional, and you can try a demo first."
+              : "工具默认提供通用噪音估算，校准可选。也可以先体验演示，再决定是否打开麦克风。"}
           </p>
         </div>
         <Link href={href("meter", locale)}>

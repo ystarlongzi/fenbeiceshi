@@ -1,41 +1,36 @@
 import { Icon, type IconName } from "@/components/icon";
-import { averageLevel, formatDuration } from "../level.ts";
+import { formatDuration } from "../level.ts";
+import { formatReading, type NoiseFrame } from "../readings.ts";
 import type { MeterCopy } from "../copy.ts";
-import type { MeterFrame } from "../types.ts";
 import styles from "./index.module.css";
 
 export function SessionStats({
   frame,
-  offset,
   copy,
   demo = false,
 }: {
-  frame: MeterFrame | null;
-  offset: number | null;
+  frame: NoiseFrame | null;
   copy: MeterCopy;
   demo?: boolean;
 }) {
-  const average = frame ? averageLevel(frame.stats) : null;
-  const format = (value: number | null) =>
-    value === null ? "— —" : (value + (offset ?? 0)).toFixed(1).replace("-", "−");
   const items: { label: string; value: string; icon: IconName; tone: string; hint: string }[] = [
     {
       label: copy.minimum,
-      value: format(frame ? frame.stats.min : null),
+      value: formatReading(frame?.minimum ?? null, frame?.minimumAtFloor),
       icon: "arrow-down",
       tone: "blue",
       hint: copy.currentSession,
     },
     {
       label: copy.maximum,
-      value: format(frame ? frame.stats.max : null),
+      value: formatReading(frame?.maximum ?? null, frame?.maximumAtFloor),
       icon: "arrow-up",
       tone: "amber",
       hint: copy.currentSession,
     },
     {
       label: copy.average,
-      value: format(average),
+      value: formatReading(frame?.average ?? null, frame?.averageAtFloor),
       icon: "audio-lines",
       tone: "green",
       hint: copy.sampled,
@@ -58,7 +53,7 @@ export function SessionStats({
           </div>
           <div className={styles.result}>
             <strong>{item.value}</strong>
-            {i < 3 ? <span>{offset === null ? "dBFS" : "dB EST."}</span> : null}
+            {i < 3 ? <span>{copy.estimatedUnit}</span> : null}
           </div>
           <p>{item.hint}</p>
         </div>

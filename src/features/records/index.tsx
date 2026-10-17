@@ -4,7 +4,8 @@ import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { meterCopy } from "../sound-meter/copy";
-import { averageLevel, formatDuration } from "../sound-meter/level";
+import { formatDuration } from "../sound-meter/level";
+import { displayStats, formatReading, measurementBasis } from "../sound-meter/readings";
 import type { Locale, Measurement } from "../sound-meter/types";
 import {
   EMPTY_RECORDS,
@@ -103,8 +104,8 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
       ) : (
         <div className={styles.rows}>
           {records.map((record) => {
-            const offset = record.calibration?.offset ?? 0;
-            const mean = averageLevel(record.stats);
+            const basis = measurementBasis(record);
+            const stats = displayStats(record.stats, basis);
             return (
               <article key={record.id} className={styles.row}>
                 {!compact ? (
@@ -129,13 +130,17 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
                     <span>·</span>
                     {formatDuration(record.duration)}
                     <span>·</span>
-                    {record.calibration ? copy.calibrated : copy.relative}
+                    {basis.mode === "reference-estimate"
+                      ? copy.calibrated
+                      : basis.mode === "generic-estimate"
+                        ? copy.generic
+                        : copy.relative}
                   </p>
                   {!compact ? <small>{record.input.label}</small> : null}
                 </div>
                 <div className={styles.mean}>
-                  <strong>{mean === null ? "—" : (mean + offset).toFixed(1)}</strong>
-                  <span>{record.calibration ? "dB EST." : "dBFS"}</span>
+                  <strong>{formatReading(stats.average, stats.averageAtFloor)}</strong>
+                  <span>{basis.mode === "relative" ? "dBFS" : copy.estimatedUnit}</span>
                   <small>{copy.average}</small>
                 </div>
                 {!compact ? (

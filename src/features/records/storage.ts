@@ -1,5 +1,11 @@
 import type { Calibration, Measurement } from "../sound-meter/types.ts";
-import { averageLevel } from "../sound-meter/level.ts";
+import { DISPLAY_FLOOR } from "../sound-meter/level.ts";
+import {
+  DEFAULT_ESTIMATE,
+  displayLevel,
+  displayStats,
+  measurementBasis,
+} from "../sound-meter/readings.ts";
 
 export const RECORD_KEY = "fenbeiceshi:records:v1";
 const MAX_RECORDS = 30;
@@ -45,6 +51,10 @@ export function validMeasurement(value: unknown): value is Measurement {
     text(r.input.label, 200) &&
     text(r.input.signature, 1000) &&
     typeof r.input.processing === "boolean" &&
+    (r.estimate === undefined ||
+      (r.estimate !== null &&
+        r.estimate.id === DEFAULT_ESTIMATE.id &&
+        r.estimate.offset === DEFAULT_ESTIMATE.offset)) &&
     (r.calibration === null ||
       (validReference(r.calibration) && r.calibration.signature === r.input.signature)) &&
     Boolean(r.stats) &&
@@ -66,10 +76,11 @@ export function parseRecords(raw: string | null): RecordState {
   try {
     const data = JSON.parse(raw);
     if (
-      data.version !== 1 ||
+      (data.version !== 1 && data.version !== 2) ||
       !Array.isArray(data.records) ||
       data.records.length > MAX_RECORDS ||
-      !data.records.every(validMeasurement)
+      !data.records.every(validMeasurement) ||
+      (data.version === 1 && data.records.some((r: Measurement) => r.estimate !== undefined))
     )
       return { records: [], error: "corrupt" };
     if (new Set(data.records.map((r: Measurement) => r.id)).size !== data.records.length)
@@ -112,7 +123,7 @@ export function watchRecords(listener: () => void) {
 
 function writeRecords(records: Measurement[]): RecordError {
   try {
-    const raw = JSON.stringify({ version: 1, records });
+    const raw = JSON.stringify({ version: 2, records });
     if (raw.length > 1000000) return "saveError";
     localStorage.setItem(RECORD_KEY, raw);
     window.dispatchEvent(new Event("fenbei-records"));
@@ -138,29 +149,40 @@ export function deleteRecord(id: string): RecordError {
 }
 
 export function compareRecords(a: Measurement, b: Measurement): number | null {
+  const aBasis = measurementBasis(a);
+  const bBasis = measurementBasis(b);
   if (
     a.input.signature !== b.input.signature ||
-    (a.calibration?.offset ?? null) !== (b.calibration?.offset ?? null)
+    aBasis.model !== bBasis.model ||
+    aBasis.offset !== bBasis.offset
   )
     return null;
-  const aMean = averageLevel(a.stats);
-  const bMean = averageLevel(b.stats);
+  const aMean = displayStats(a.stats, aBasis).average;
+  const bMean = displayStats(b.stats, bBasis).average;
   return aMean !== null && bMean !== null ? bMean - aMean : null;
 }
 
 export function publicSummary(record: Measurement) {
-  const offset = record.calibration?.offset ?? 0;
+  if (!validMeasurement(record)) throw new RangeError("无法导出无效的观察记录。");
+  const basis = measurementBasis(record);
+  const stats = displayStats(record.stats, basis);
   return {
-    format: "fenbeiceshi-summary-v1",
+    format: "fenbeiceshi-summary-v2",
     startedAt: record.startedAt,
     durationMs: Math.round(record.duration),
-    mode: record.calibration ? "reference-estimate" : "relative",
-    unit: record.calibration ? "estimated dB SPL" : "dBFS RMS",
-    minimum: record.stats.min + offset,
-    maximum: record.stats.max + offset,
-    energyMean: (averageLevel(record.stats) ?? -100) + offset,
+    mode: basis.mode,
+    unit: basis.mode === "relative" ? "dBFS RMS" : "estimated dB",
+    model: { id: basis.model, offsetDb: basis.offset },
+    minimum: stats.minimum,
+    maximum: stats.maximum,
+    energyMean: stats.average,
+    limits: {
+      minimumAtInputFloor: stats.minimumAtFloor,
+      maximumAtInputFloor: stats.maximumAtFloor,
+      meanAtInputFloor: stats.averageAtFloor,
+    },
     sampledWindows: record.stats.count,
-    displayFloorDbfs: -100,
+    displayFloorDbfs: DISPLAY_FLOOR,
     inputLabel: record.input.label,
     conditions: record.note,
     endReason: record.reason,
@@ -173,10 +195,13 @@ export function publicSummary(record: Measurement) {
       : null,
     recentTrend: record.points.map((point) => ({
       timeMs: Math.round(point.time),
-      level: point.value + offset,
+      level: displayLevel(point.value, basis),
+      atInputFloor: point.value <= DISPLAY_FLOOR,
     })),
     notice:
-      "Sampled browser observation. No A weighting, certification, safety or compliance conclusion. No audio included.",
+      basis.mode === "generic-estimate"
+        ? "Uncalibrated generic RMS + 100 estimate; heuristic mapping, not validated acoustic accuracy. No A weighting, safety or compliance conclusion. No audio included."
+        : "Sampled browser observation. No A weighting, certification, safety or compliance conclusion. No audio included.",
   };
 }
 

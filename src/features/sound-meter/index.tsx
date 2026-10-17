@@ -19,6 +19,7 @@ import { NoiseLevelReference } from "./noise-level-reference";
 import { SessionStats } from "./session-stats";
 import { SoundTrend } from "./sound-trend";
 import { MeterSettings } from "./meter-settings";
+import { currentBasis, displayFrame, measurementBasis } from "./readings";
 import type { Locale, MeterView } from "./types";
 import styles from "./index.module.css";
 
@@ -34,12 +35,12 @@ export function SoundMeter({ locale }: { locale: Locale }) {
   const running = meter.status === "running";
   const requesting = meter.status === "requesting";
   const busy = running || demo || requesting;
-  const offset = meter.result
-    ? (meter.result.calibration?.offset ?? null)
-    : !demo && meter.calibration
-      ? meter.calibration.offset
-      : null;
-  const value = meter.frame ? meter.frame.value + (offset ?? 0) : null;
+  const basis = meter.result
+    ? measurementBasis(meter.result)
+    : currentBasis(demo ? null : meter.calibration);
+  const frame = meter.frame ? displayFrame(meter.frame, basis) : null;
+  const value = frame?.value ?? null;
+  const calibrated = basis.mode === "reference-estimate";
   const saved = Boolean(
     meter.result && records.records.some((record) => record.id === meter.result?.id),
   );
@@ -111,22 +112,22 @@ export function SoundMeter({ locale }: { locale: Locale }) {
         <div className={styles.surface} data-demo={demo}>
           <div className={styles.screenHeading}>
             <span className={styles.mode}>
-              {demo ? copy.demoShort : offset === null ? copy.relative : copy.estimate}
+              {demo ? copy.demoShort : calibrated ? copy.estimate : copy.generic}
             </span>
             <span className={styles.state} data-active={running || demo}>
               <i />
               {stateLabel}
             </span>
           </div>
-          <MeterDisplay
-            value={value}
-            estimated={offset !== null}
-            view={view}
-            copy={copy}
-            belowFloor={Boolean(meter.frame && meter.frame.value <= -100)}
-          />
+          <MeterDisplay value={value} view={view} copy={copy} belowFloor={frame?.belowFloor} />
           <p className={styles.modeHint}>
-            {demo ? copy.demoHint : offset === null ? copy.relativeHint : copy.estimateHint}
+            {demo
+              ? copy.demoHint
+              : frame?.belowFloor
+                ? copy.floor
+                : calibrated
+                  ? copy.estimateHint
+                  : copy.genericHint}
           </p>
           <div className={styles.controls}>
             {busy ? (
@@ -162,7 +163,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
               {copy.clipping}
             </p>
           ) : null}
-          <LevelScale value={value} estimated={offset !== null} copy={copy} />
+          <LevelScale value={value} copy={copy} />
           <NoiseLevelReference copy={copy} />
         </div>
         <div className={styles.announcements} aria-live="polite" aria-atomic="true">
@@ -182,8 +183,8 @@ export function SoundMeter({ locale }: { locale: Locale }) {
             </p>
           ) : null}
         </div>
-        <SessionStats frame={meter.frame} offset={offset} copy={copy} demo={demo} />
-        <SoundTrend points={meter.frame?.points || []} offset={offset} copy={copy} demo={demo} />
+        <SessionStats frame={frame} copy={copy} demo={demo} />
+        <SoundTrend points={frame?.points || []} copy={copy} demo={demo} />
         <div className={styles.resultActions}>
           <span>{demo ? copy.demoNoSave : meter.result ? copy.metadata : copy.resultHint}</span>
           <div>

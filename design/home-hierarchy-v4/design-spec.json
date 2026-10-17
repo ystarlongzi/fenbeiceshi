@@ -1,4 +1,5 @@
 {
+  "measurementSupersededBy": "../noise-estimate-v1/design-spec.json",
   "version": 4,
   "scope": "homepage-module-hierarchy",
   "updated": "2026-10-17",

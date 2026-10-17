@@ -5,7 +5,7 @@ export const guides: SiteContent[] = [
     id: "guide",
     slug: "guide",
     kind: "guide",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t("从一次观察开始", "Start with one observation"),
     description: t(
       "开始测量、切换仪表、进入全屏，以及结束后保存本机摘要的方法。",
@@ -31,8 +31,8 @@ export const guides: SiteContent[] = [
         title: t("02 先看口径，再看数字", "02 Check the mode before the number"),
         paragraphs: [
           t(
-            "默认是相对 RMS dBFS。它表示数字输入的幅度，不是环境声压级。具备合适参考设备时，可以建立本次页面内有效的参考关系，改看设备专属估算值。刻度和统计会使用同一口径。",
-            "The default is relative RMS dBFS, a digital input amplitude rather than environmental sound pressure. With a suitable reference device, establish an estimate for this page session. The dial, scale and statistics use the same mode.",
+            "默认显示通用估算噪音分贝，并标注未校准。仪表、色带、趋势、平均值和最大最小值使用同一套估算；设备差异可能造成明显偏差。具备参考声级计时，可选用参考校准，替换通用偏移。",
+            "The default is a generic noise estimate, labelled uncalibrated. The meter, colour scale, trend, mean, minimum and maximum share the same estimate. Device differences can cause substantial error. Optional reference calibration replaces the generic offset.",
           ),
         ],
       },
@@ -41,8 +41,8 @@ export const guides: SiteContent[] = [
         title: t("03 选择合适的观察方式", "03 Choose a display that suits the task"),
         paragraphs: [
           t(
-            "指针适合看变化方向，数显适合读数，电平条便于持续观察。切换显示不会重启采集。全屏观察会收起站点内容和侧栏，同时保留单位、结束操作、统计与趋势；可用退出按钮或 Esc 返回。",
-            "Use the dial to see direction, digital for reading, or the level bar for continued observation. Switching displays does not restart capture. Fullscreen keeps the mode, finish control, statistics and trend; use Exit fullscreen or Esc to return.",
+            "指针、数显和条形均显示估算噪音分贝。麦克风旁的小信号柱只反馈输入幅度与采集状态，不代表噪音级别。切换显示不会重启采集。全屏观察会收起站点内容和侧栏，同时保留单位、结束操作、统计与趋势；可用退出按钮或 Esc 返回。",
+            "The dial, digital display and bars all show estimated noise. The small signal bars next to Microphone indicate input amplitude and capture status, not environmental noise levels. Switching displays does not restart capture. Fullscreen keeps the mode, finish control, statistics and trend; use Exit fullscreen or Esc to return.",
           ),
           t(
             "不方便授权时，可以先体验演示。模拟数据始终带有演示标签，不进入本机测量记录，也不能作为测量摘要导出。",
@@ -59,8 +59,8 @@ export const guides: SiteContent[] = [
             "Note position, distance and appliance state before or during the observation. Finishing stops the microphone tracks. Save a local summary or export JSON with statistics, scale, context and the recent trend, without recorded audio.",
           ),
           t(
-            "记录最多保留最近 30 条，只在当前浏览器可见。比较记录时，输入设置和校准口径需要一致；条件仍需由你核对。均值差不是家电独立声级，也不是窗户的隔声性能。",
-            "Up to 30 recent records are kept in this browser. Comparisons require matching input settings and calibration, and you must also check the conditions. A mean difference is not an isolated appliance level or window insulation rating.",
+            "记录最多保留最近 30 条，只在当前浏览器可见。比较记录时，输入设置、估算模型和校准口径需要一致；旧版相对记录继续显示原来的 dBFS，不能与通用估算混比；条件仍需由你核对。均值差不是家电独立声级，也不是窗户的隔声性能。",
+            "Up to 30 recent records are kept in this browser. Comparisons require matching input settings, estimate models and calibration. Legacy relative records retain dBFS and cannot be mixed with generic estimates. You must also check the conditions. A mean difference is not an isolated appliance level or window insulation rating.",
           ),
         ],
       },
@@ -77,15 +77,15 @@ export const guides: SiteContent[] = [
     id: "calibration",
     slug: "calibration",
     kind: "guide",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t("建立一个有条件的声音参考", "Establish a sound reference, with its conditions"),
     description: t(
       "使用参考声级计建立单点估算关系，了解输入要求、有效条件和参考校准的限制。",
       "Establish a single-point estimate with a reference sound level meter and understand its input requirements and limits.",
     ),
     takeaway: t(
-      "参考校准建立的是当前输入与一个参考读数的关系。它不认证设备，也不自动实现 A 计权、频响补偿或法规测量。",
-      "Reference calibration relates the current input to one reference reading. It does not certify the device or implement A weighting, frequency correction or compliance measurement.",
+      "参考校准是可选操作。默认通用估算不要求参考设备；有参考声级计时，可以用当前输入与参考读数建立偏移，替换通用估算假设。它不认证设备，也不自动实现 A 计权、频响补偿或法规测量。",
+      "Reference calibration is optional. The default generic estimate does not require another device. A reference meter can establish an offset for the active input, replacing the generic assumption. This does not certify the device or implement A weighting, frequency correction or compliance measurement.",
     ),
     sections: [
       {
@@ -107,8 +107,8 @@ export const guides: SiteContent[] = [
             "Begin a real measurement and confirm a stable input without a full-scale warning. Open Reference calibration under Input & context, enter the reference reading and source, and set the reference. The accepted 20–120 dB range is an input constraint, not a validated measurement range.",
           ),
           t(
-            "估算值由当前 dBFS 加上参考偏移得到。该偏移会应用于本次输入的读数与窗口统计，结果明确标为估算 dB，而不是 dBA。参考值、来源和时间随摘要保留。",
-            "The estimate adds the reference offset to the current dBFS value. It also applies to window statistics for this input. The result is labelled estimated dB, not dBA, and summaries keep the reference, source and time.",
+            "估算值由当前 dBFS 加上参考偏移得到。参考偏移会替换通用模型的 +100，应用于本次输入的仪表、色带、趋势、统计、记录和导出；不会在通用偏移上再次叠加。结果明确标为估算 dB，而不是 dBA。参考值、来源和时间随摘要保留。",
+            "The estimate adds the reference offset to the current dBFS value. The reference offset replaces the generic +100 in the meter, scale, trend, statistics, records and exports; the two offsets are not added together. The result is labelled estimated dB, not dBA, and summaries keep the reference, source and time.",
           ),
         ],
       },
@@ -117,8 +117,8 @@ export const guides: SiteContent[] = [
         title: t("什么时候需要重新建立？", "When do you need a new reference?"),
         paragraphs: [
           t(
-            "首版参考关系仅在当前页面停留期间保留；刷新后回到相对模式。切换麦克风会清除参考，重新开始时也会核对输入与音频处理设置。即使设置看似一致，声源频谱、音量或系统自动处理变化仍可能影响估算。",
-            "The reference lasts only while this page remains open; refreshing returns to relative mode. Switching microphones clears it, and a new capture checks input and processing settings. Even matching settings cannot remove changes caused by source spectrum, level or system processing.",
+            "首版参考关系仅在当前页面停留期间保留；刷新后恢复通用估算。切换麦克风会清除参考，重新开始时也会核对输入与音频处理设置。即使设置看似一致，声源频谱、音量或系统自动处理变化仍可能影响估算。",
+            "The reference lasts only while this page remains open; refreshing restores the generic estimate. Switching microphones clears it, and a new capture checks input and processing settings. Even matching settings cannot remove changes caused by source spectrum, level or system processing.",
           ),
         ],
       },
@@ -127,8 +127,8 @@ export const guides: SiteContent[] = [
         title: t("一个偏移不能解决所有误差", "One offset cannot correct every error"),
         paragraphs: [
           t(
-            "单点关系不能验证整个频率和声级范围，也不能恢复削波信号。需要跨设备比较、标准测量、健康或法律判断时，请使用适合该任务的仪器和方法。你仍可以回到相对模式，继续观察同一输入的变化。",
-            "A single point does not validate every frequency or level, or restore clipped input. For comparisons across devices, standardized measurements or health and legal decisions, use suitable instruments and methods. Relative mode remains available for observing changes in one input.",
+            "单点关系不能验证整个频率和声级范围，也不能恢复削波信号。需要跨设备比较、标准测量、健康或法律判断时，请使用适合该任务的仪器和方法。你可以清除参考，恢复通用估算并继续观察同一输入的变化。",
+            "A single point does not validate every frequency or level, or restore clipped input. For comparisons across devices, standardized measurements or health and legal decisions, use suitable instruments and methods. Clear the reference to restore generic estimates and continue observing changes in one input.",
           ),
         ],
       },
@@ -149,7 +149,7 @@ export const guides: SiteContent[] = [
     id: "about",
     slug: "about",
     kind: "trust",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t("关于分贝测试", "About fenbeiceshi.com"),
     description: t(
       "分贝测试的产品目的、方法、能力范围与项目维护入口。",
@@ -165,8 +165,8 @@ export const guides: SiteContent[] = [
         title: t("为什么做这个工具", "Why this tool exists"),
         paragraphs: [
           t(
-            "当你在意房间、家电或工作位置的声音时，一个数字往往不够。分贝测试把相对读数、趋势、条件记录和本机摘要放在一起，让你可以在相同条件下再次观察。",
-            "When you care about a room, an appliance or a workspace, one number is rarely enough. This tool brings together relative levels, trends, context and local summaries for another observation under matching conditions.",
+            "当你在意房间、家电或工作位置的声音时，一个数字往往不够。分贝测试把估算噪音分贝、趋势、条件记录和本机摘要放在一起，让你可以在相同条件下再次观察。",
+            "When you care about a room, an appliance or a workspace, one number is rarely enough. This tool brings together estimated noise levels, trends, context and local summaries for another observation under matching conditions.",
           ),
         ],
       },
@@ -175,8 +175,8 @@ export const guides: SiteContent[] = [
         title: t("方法保持可解释", "Keep the method understandable"),
         paragraphs: [
           t(
-            "工具在浏览器本机处理麦克风输入，默认使用 RMS dBFS；具备参考条件后才切换到估算显示。声音知识区说明公式、来源与使用限制。它不是经认证的声级计，不提供法定检测或个人健康结论。",
-            "Microphone input is processed in your browser. RMS dBFS is the default, with an estimate available after reference calibration. The guides explain the calculations, sources and limits. This is not a certified meter or a legal or personal health assessment.",
+            "工具在浏览器本机处理麦克风输入，默认将 RMS dBFS 加上 100，提供标注未校准的粗略估算。这个通用偏移是产品假设，没有通过跨设备声学精度验证；可选参考校准会替换它。声音知识区说明公式、来源与使用限制。它不是经认证的声级计，不提供法定检测或个人健康结论。",
+            "Microphone input is processed in your browser. The default adds 100 to RMS dBFS for a labelled, uncalibrated estimate. This generic offset is a product assumption without cross-device acoustic validation. Optional reference calibration replaces it. The guides explain the calculations, sources and limits. This is not a certified meter or a legal or personal health assessment.",
           ),
         ],
       },
@@ -203,7 +203,7 @@ export const guides: SiteContent[] = [
     id: "privacy",
     slug: "privacy",
     kind: "trust",
-    updated: "2026-10-17",
+    updated: "2026-10-18",
     title: t("你的声音，留在你的设备上", "Your audio stays on your device"),
     description: t(
       "了解麦克风权限、音频本机处理、本机记录、参考校准和删除方式。",
@@ -229,8 +229,8 @@ export const guides: SiteContent[] = [
         title: t("本机摘要与删除", "Local summaries and deletion"),
         paragraphs: [
           t(
-            "保存操作使用当前浏览器的网站存储，最多保留最近 30 条摘要。摘要包括时间、时长、输入信息、采样统计、条件、最近一段趋势及已使用的参考信息，不包含音频。它们不会自动同步到其他浏览器或设备。",
-            "Saving uses this browser's site storage for up to 30 recent summaries: time, duration, input information, sampled statistics, conditions, recent trend and any reference used. No audio is included, and records do not automatically sync to another device or browser.",
+            "保存操作使用当前浏览器的网站存储，最多保留最近 30 条摘要。摘要包括时间、时长、输入信息、采样统计、条件、最近一段趋势、估算模型及已使用的参考信息，不包含音频。旧记录保留原口径，不会因版本更新被改写成估算分贝。它们不会自动同步到其他浏览器或设备。",
+            "Saving uses this browser's site storage for up to 30 recent summaries: time, duration, input information, sampled statistics, conditions, recent trend, estimate model and any reference used. Legacy records keep their original scale rather than being relabelled as estimates. No audio is included, and records do not automatically sync to another device or browser.",
           ),
           t(
             "本机记录页可以逐条确认删除。清除浏览器中的本站数据也会删除摘要；请先导出你希望保留的结果。本机存储不可用或损坏时，工具会提示并保留已有数据，不静默覆盖。",

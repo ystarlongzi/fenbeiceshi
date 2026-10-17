@@ -98,8 +98,8 @@ export function HomePage({ locale }: { locale: Locale }) {
           applicationCategory: "UtilitiesApplication",
           operatingSystem: "Web browser",
           description: en
-            ? "Relative RMS dBFS observation with optional reference-calibrated estimates. No raw audio uploads."
-            : "默认相对 RMS dBFS 的浏览器声音观察，支持参考校准估算，原始音频不上传。",
+            ? "Generic noise estimates with optional reference calibration. No raw audio uploads."
+            : "默认提供通用估算噪音分贝，参考校准可选，原始音频不上传。",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }}
       />
@@ -116,8 +116,8 @@ export function HomePage({ locale }: { locale: Locale }) {
             </h1>
             <p className={styles.intro}>
               {en
-                ? "Observe live input, follow a trend, and keep a summary with its conditions."
-                : "用麦克风观察实时电平与变化趋势，把本次条件和摘要一起留下。"}
+                ? "See estimated noise levels and trends, then keep a summary with its conditions."
+                : "用麦克风查看估算噪音分贝与变化趋势，把本次条件和摘要一起留下。"}
             </p>
           </div>
           <Link className={styles.heroHelp} href={href("phone-accuracy", locale)}>
@@ -231,8 +231,8 @@ export function HomePage({ locale }: { locale: Locale }) {
                   a: "No. Audio is processed in browser memory. Local summaries contain statistics and recent level trends, without audio.",
                 },
                 {
-                  q: "Why does the default reading use dBFS?",
-                  a: "A digital microphone signal is not automatically a calibrated sound pressure measurement. Relative dBFS makes that difference explicit. A reference enables a device-specific estimate.",
+                  q: "Do I need to calibrate before starting?",
+                  a: "No. The default is a generic, uncalibrated estimate. The meter, scale, trend and statistics use the same mapping. A reference meter can optionally adjust it for this device. Device differences still affect accuracy; this is not dBA or a certified measurement.",
                 },
                 {
                   q: "Can I leave it running with the screen locked?",
@@ -245,8 +245,8 @@ export function HomePage({ locale }: { locale: Locale }) {
                   a: "不会。音频只在浏览器内存中计算。本机摘要包含统计和最近一段电平趋势，不包含原始声音。",
                 },
                 {
-                  q: "为什么默认显示的是 dBFS？",
-                  a: "数字麦克风输入不自动等于经过校准的环境声压级。dBFS 明确表示相对输入；具备参考条件后，可以建立设备专属的估算关系。",
+                  q: "开始测量前，一定要先校准吗？",
+                  a: "不用。默认提供标注未校准的通用估算，仪表、色带、趋势和统计共用同一映射。有参考声级计时，可选用校准修正当前设备的偏移。设备差异仍会影响结果，它不是 dBA 或认证测量。",
                 },
                 {
                   q: "能在锁屏或后台一直测量吗？",

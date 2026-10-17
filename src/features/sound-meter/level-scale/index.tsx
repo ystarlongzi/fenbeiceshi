@@ -1,21 +1,14 @@
 import type { MeterCopy } from "../copy.ts";
 import { scalePosition } from "../level.ts";
+import { NOISE_MAX, NOISE_MIN } from "../readings.ts";
 import styles from "./index.module.css";
 
-export function LevelScale({
-  value,
-  estimated,
-  copy,
-}: {
-  value: number | null;
-  estimated: boolean;
-  copy: MeterCopy;
-}) {
-  const min = estimated ? 0 : -100;
-  const max = estimated ? 120 : 0;
-  const values = estimated ? [0, 30, 60, 90, 120] : [-100, -75, -50, -25, 0];
-  const labels = estimated ? copy.estimateScaleLabels : copy.relativeScaleLabels;
-  const unit = estimated ? copy.estimateScaleUnit : copy.relativeScaleUnit;
+export function LevelScale({ value, copy }: { value: number | null; copy: MeterCopy }) {
+  const min = NOISE_MIN;
+  const max = NOISE_MAX;
+  const values = [0, 30, 60, 90, 120];
+  const labels = copy.estimateScaleLabels;
+  const unit = copy.estimateScaleUnit;
   return (
     <div className={styles.scale} role="group" aria-label={`${copy.scale} · ${unit}`}>
       <div className={styles.ticks}>
@@ -39,8 +32,7 @@ export function LevelScale({
         ) : null}
       </div>
       <p>
-        <span className={styles.unit}>{unit}</span>{" "}
-        {estimated ? copy.estimateScaleHint : copy.scaleHint}
+        <span className={styles.unit}>{unit}</span> {copy.estimateScaleHint}
       </p>
     </div>
   );

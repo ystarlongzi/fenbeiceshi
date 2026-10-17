@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { scalePosition } from "../level.ts";
+import { formatReading, NOISE_MAX, NOISE_MIN } from "../readings.ts";
 import type { MeterCopy } from "../copy.ts";
 import type { MeterView } from "../types.ts";
 import styles from "./index.module.css";
@@ -14,31 +15,22 @@ function point(fraction: number, radius: number) {
 
 export function MeterDisplay({
   value,
-  estimated,
   view,
   copy,
   belowFloor = false,
 }: {
   value: number | null;
-  estimated: boolean;
   view: MeterView;
   copy: MeterCopy;
   belowFloor?: boolean;
 }) {
-  const min = estimated ? 0 : -100;
-  const max = estimated ? 120 : 0;
+  const min = NOISE_MIN;
+  const max = NOISE_MAX;
   const position = value === null ? null : scalePosition(value, min, max);
-  const divisions = estimated ? 30 : 25;
+  const divisions = 30;
   const ticks = Array.from({ length: divisions + 1 }, (_, i) => i / divisions);
-  const numeric =
-    value === null
-      ? "— —"
-      : belowFloor
-        ? value <= -100 && !estimated
-          ? "≤−100"
-          : `≤${value.toFixed(1).replace("-", "−")}`
-        : value.toFixed(1).replace("-", "−");
-  const unit = estimated ? "dB · EST." : "dBFS · RMS";
+  const numeric = formatReading(value, belowFloor);
+  const unit = copy.estimatedUnit;
   return (
     <div className={styles.display} data-view={view}>
       {view === "gauge" ? (
@@ -127,7 +119,7 @@ export function MeterDisplay({
         <output
           aria-live="off"
           className={styles.number}
-          aria-label={`${estimated ? copy.estimate : copy.relative}: ${numeric} ${unit}`}
+          aria-label={`${copy.noiseLevel}: ${numeric} ${unit}`}
         >
           {numeric}
         </output>

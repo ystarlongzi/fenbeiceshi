@@ -124,8 +124,8 @@ export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
               <strong>{en ? "Put the method into practice" : "带着这些条件，开始一次观察"}</strong>
               <p>
                 {en
-                  ? "Start with relative input, then add a reference when you have one."
-                  : "先看相对输入，具备条件时再建立参考。"}
+                  ? "Start with a noise estimate. Add reference calibration when available."
+                  : "先看估算噪音分贝，有条件时再选用参考校准。"}
               </p>
             </div>
             <Link href={`${href("meter", locale)}#measure`}>

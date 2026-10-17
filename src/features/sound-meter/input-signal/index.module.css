@@ -1,0 +1,45 @@
+.signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 17px;
+}
+.bars i {
+  width: 3px;
+  height: 4px;
+  border-radius: 1px;
+  background: var(--line-strong);
+}
+.bars i:nth-child(2) {
+  height: 7px;
+}
+.bars i:nth-child(3) {
+  height: 10px;
+}
+.bars i:nth-child(4) {
+  height: 13px;
+}
+.bars i:nth-child(5) {
+  height: 16px;
+}
+.bars i[data-on="true"] {
+  background: var(--brand);
+}
+.signal[data-demo="true"] .bars i[data-on="true"] {
+  background: var(--info);
+}
+.signal[data-clipped="true"] {
+  color: var(--warning);
+}
+.signal[data-clipped="true"] .bars i[data-on="true"] {
+  background: var(--warning);
+}

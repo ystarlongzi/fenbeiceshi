@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-17",
+  "updated": "2026-10-18",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "中文优先，兼顾百度、必应和 Google；同时规划英文。",
@@ -40,7 +40,7 @@
         "en": {"path":"/en/","wave":"P0","title":"Online Decibel Meter & Noise Observation Tool | fenbeiceshi.com","h1":"Online decibel meter","keywords":["online decibel meter","online sound level meter","noise meter online"]}
       },
       "intent": "立即使用浏览器观察环境声音。",
-      "uniqueValue": "真实麦克风状态、相对/估算口径、声音趋势和本机摘要记录共同完成一次任务。",
+      "uniqueValue": "估算噪音分贝、辅助输入信号、可选参考校准、同口径趋势和本机摘要共同完成一次任务。",
       "sections": ["测量工作台与当前口径","方法、准确性与故障入口","已发布场景与精选知识"],
       "ctaTargetId": "meter",
       "relatedIds": ["guide","calibration","phone-accuracy","microphone-help","room-noise"],
@@ -104,8 +104,8 @@
         "en": {"path":"/en/knowledge/phone-decibel-accuracy/","wave":"P0","title":"Are Phone Decibel Meters Accurate? | fenbeiceshi.com","h1":"Are phone decibel meters accurate?","keywords":["are phone decibel meters accurate","online decibel meter accuracy"]}
       },
       "intent": "判断手机或网页读数是否能用于当前目的。",
-      "uniqueValue": "区分同条件相对观察、参考校准估算和需要专业验证的任务。",
-      "sections": ["直接回答与可用范围","设备和音频处理差异","选择相对观察、校准或专业方法"],
+      "uniqueValue": "区分默认通用估算、可选参考校准和需要专业验证的任务。",
+      "sections": ["直接回答与可用范围","设备和音频处理差异","选择通用估算、校准或专业方法"],
       "ctaTargetId": "calibration",
       "relatedIds": ["meter","dbfs-spl","when-professional-meter"],
       "publishGate": "引用的准确性结论保留具体产品和实验条件，不移植到本站；示例注明来源。",
@@ -120,7 +120,7 @@
         "en": {"path":"/en/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"dBFS vs dB SPL: Why There Is No Universal Conversion | fenbeiceshi.com","h1":"dBFS vs dB SPL","keywords":["dBFS vs dB SPL","convert dBFS to SPL"]}
       },
       "intent": "理解相对数字电平与环境声压级的关系。",
-      "uniqueValue": "用输入链路示意解释参考量、增益与校准，不提供万能换算常数。",
+      "uniqueValue": "用输入链路解释参考量、增益、通用估算假设与参考校准，不把产品默认偏移当作万能换算常数。",
       "sections": ["两个参考量","为何读数不同","建立参考关系及其限制"],
       "ctaTargetId": "meter",
       "relatedIds": ["calibration","phone-accuracy","db-dba"],

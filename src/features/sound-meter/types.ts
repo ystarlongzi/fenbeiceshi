@@ -45,6 +45,12 @@ export interface Measurement {
   points: LevelPoint[];
   input: InputInfo;
   calibration: Calibration | null;
+  estimate?: EstimateModel;
   note: string;
   reason: StopReason;
+}
+
+export interface EstimateModel {
+  id: "generic-rms-v1";
+  offset: 100;
 }
