@@ -1,0 +1,55 @@
+.scale {
+  padding: 16px 2px 0;
+}
+.ticks {
+  position: relative;
+  height: 21px;
+  font: 11px var(--font-number);
+  color: #a4bcad;
+}
+.ticks span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+.ticks span[data-edge="start"] {
+  transform: none;
+}
+.ticks span[data-edge="end"] {
+  transform: translateX(-100%);
+}
+.track {
+  height: 7px;
+  position: relative;
+  border-radius: 5px;
+  background: #355344;
+}
+.band {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #416e58, #83b990 40%, #c9df97 75%, #dfa56d);
+  opacity: 0.8;
+}
+.marker {
+  position: absolute;
+  top: -5px;
+  height: 17px;
+  width: 3px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: white;
+  box-shadow: 0 0 0 2px #193628;
+}
+.labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-top: 8px;
+  color: #bbcec1;
+}
+.scale p {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 9px 0 0;
+  color: #a4bcad;
+}

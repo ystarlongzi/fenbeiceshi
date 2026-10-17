@@ -1,0 +1,96 @@
+{
+  "observedAt": "2026-10-17",
+  "method": "实际浏览器渲染、公开 DOM、指定模块和交互；不是流量或准确度审计。",
+  "desktopViewport": { "width": 1280, "height": 720 },
+  "mobileViewport": { "width": 390, "height": 844 },
+  "microphoneGranted": false,
+  "sites": [
+    {
+      "url": "https://freeonlinedecibelmeter.com/zh/",
+      "title": "免费在线分贝仪 – Free Online Decibel Meter",
+      "canonical": "https://freeonlinedecibelmeter.com/zh/",
+      "lang": "zh",
+      "alternateCountIncludingDefault": 18,
+      "observedJsonLd": ["WebApplication", "FAQPage"],
+      "displayOptions": [
+        "经典指针表盘",
+        "数码 LED 屏",
+        "音频波形 FFT",
+        "极简纯净",
+        "未来 HUD",
+        "Pulse Ring",
+        "Bar Graph",
+        "Pure Text"
+      ],
+      "tested": ["指针/数显切换", "全屏进入与按钮退出", "Esc 退出", "手机布局"],
+      "mobileStartButton": { "topInDocument": 465.09, "height": 42, "display": "数码 LED 屏" },
+      "issues": ["8 种选项与 5 种文案不一致", "未测量显示零值及环境安静", "全屏不显示统计带"],
+      "screenshots": ["竞品截图/free-style.jpg", "竞品截图/free-fullscreen.jpg"]
+    },
+    {
+      "url": "https://realtimesoundmeter.com/zh/",
+      "title": "在线分贝测量仪 – 免费实时噪音水平检测工具",
+      "canonical": "https://realtimesoundmeter.com/zh/",
+      "lang": "zh",
+      "alternateCountIncludingDefault": 17,
+      "observedJsonLd": ["FAQPage"],
+      "targetSelector": ".bottom-scale-section",
+      "scale": {
+        "width": 986,
+        "paddingTop": 20,
+        "labels": [0, 40, 70, 85, 100, 120],
+        "labelLeftOffsets": [0, 180.46, 369.65, 557.63, 746.64, 942.3],
+        "gradient": "green → blue → amber → red"
+      },
+      "mobileStartButton": { "topInDocument": 800.9, "height": 64.19 },
+      "issues": [
+        "标签间距近似相等，数值间距不等",
+        "未取数就显示安全状态",
+        "导航、操作与内容语言混杂"
+      ],
+      "screenshots": ["竞品截图/realtime-scale.jpg"]
+    },
+    {
+      "url": "https://onlinedecibelmeter.org/zh-CN",
+      "title": "在线分贝计 - 免费声音测量工具",
+      "canonical": "https://onlinedecibelmeter.org/zh-CN",
+      "lang": "zh-CN",
+      "alternateCountIncludingDefault": 6,
+      "observedJsonLd": ["WebSite", "WebPage"],
+      "tested": ["演示启动与停止", "演示未进入测量历史", "手机布局", "校准指南阅读"],
+      "observedColors": { "idleRing": "#e5e7eb", "estimateRing": "#2563eb", "waveform": "#6366f1" },
+      "mobileStartButton": { "topInDocument": 877, "height": 52 },
+      "issues": ["手机开始按钮位于初始视口下方", "运行状态仍保留点击开始的说明"],
+      "screenshots": ["竞品截图/org-estimate.jpg"]
+    },
+    {
+      "url": "https://www.toolkk.com/apps/noise-trace",
+      "title": "噪迹分贝仪 - 专业的噪声检测与分析",
+      "canonical": "https://www.toolkk.com/apps/noise-trace",
+      "lang": "zh",
+      "alternateCountIncludingDefault": 5,
+      "observedJsonLd": [],
+      "jsonLdCaveat": "本次渲染 DOM 未发现，不代表整个网站没有。",
+      "primaryAction": "跳到 App 下载区，非浏览器实时测量",
+      "targetClass": "mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4",
+      "cards": {
+        "desktopColumns": 4,
+        "mobileColumns": 1,
+        "gap": 16,
+        "padding": 24,
+        "minHeight": 210,
+        "mobileWidth": 350,
+        "roles": ["识别图标", "主要标题", "次级说明", "低对比背景编号"]
+      },
+      "screenshots": ["竞品截图/toolkk-scenes.jpg"]
+    }
+  ],
+  "notVerified": [
+    "真实音频测量与准确度",
+    "真实移动设备音频兼容",
+    "所有语言内容质量",
+    "隐私实现与网络传输",
+    "搜索量、排名和流量",
+    "App/小程序内的实际功能"
+  ]
+}

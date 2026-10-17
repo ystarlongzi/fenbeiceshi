@@ -3,6 +3,7 @@
 ## Global Context Reference
 
 <!-- 引入个人全局配置，保留已有上下文引用。 -->
+
 Include context from: @/Users/liucai/.codex/RTK.md
 
 ## 通用工程约束
@@ -61,7 +62,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 ## 当前产品与设计依据
 
 - 本产品面向普通用户提供分贝与环境噪音测试，Web 优先并适配手机；当前界面名称为“分贝测试”，域名为 `fenbeiceshi.com`。
-- 当前设计依据为 [design/noise-meter-v2/design-spec.json](./design/noise-meter-v2/design-spec.json) 及其中引用的 Figma V2 画框；V1 作为历史方案保留。
+- 当前设计依据为 [V3 实现规格](./design/noise-meter-v3/design-spec.json) 与实际界面截图；[V2 规格](./design/noise-meter-v2/design-spec.json) 及 Figma 画框保留为品牌、状态与早期设计依据，V1 作为历史方案保留。
 - 功能图标采用 [Lucide](https://lucide.dev/)，用于说明操作与信息角色；统一描边与尺寸，不用图标替代必要文字，不为装饰给所有内容添加图标。项目设计目录保留所用 SVG、固定来源与许可证。
 
 ## 工程营销、内容与实现入口
@@ -70,8 +71,17 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 中文根目录优先，同时规划 `/en/` 英文版；各语言独立完成内容与验证。只为实际发布、内容对应的页面生成互相返回的 hreflang，各页自 canonical，不生成缺失语言占位页。
 - 一个主要搜索意图对应一个页面；新增 URL 前确认现有归属与独有任务，不为近义词、城市、设备型号或逐个分贝数值批量生成同款页面。候选词不代表已验证搜索量或排名难度。
 - 核心答案、方法、来源和链接必须存在于构建 HTML；正文保持静态，麦克风与本机交互限制在必要的客户端子树。未校准使用 dBFS，参考校准后才展示估算声级；不得擅自宣称 dBA、法定检测或专业准确度。
-- 首版拟采用 Next.js App Router、TypeScript strict、npm、静态导出和 CSS Modules。`src/app` 管路由，`src/features` 按测量、校准与记录等职责组织，`src/components` 仅放确实共享的展示组件；`src/lib/content`、`routing`、`seo` 分别管理内容、发布语言与 SEO 派生数据，专属样式和测试靠近所属功能。
-- 首次功能实现前接入并确认 format:check、lint、typecheck、必要测试、内容检查和 build 入口，本地与 CI 一致；当前没有应用和 package.json，不能声称已运行这些命令。新增依赖、检查配置与功能实现遵循前述技能和聚焦变更要求。
+- 首版已采用 Next.js App Router、TypeScript strict、npm、静态导出和 CSS Modules。`src/app` 管路由，`src/features` 按测量、校准与记录等职责组织，`src/components` 仅放确实共享的展示组件；`src/lib/content`、`routing`、`seo` 分别管理内容、发布语言与 SEO 派生数据，专属样式和测试靠近所属功能。
+- 当前应用的实际页面注册为 `src/lib/routing/pages.ts`，与候选关键词映射分开维护；已实现 22 个中英 URL，其中 20 个可索引，两个本机记录页 noindex。新增语言或路由必须有真实正文和可用操作。
+- `npm run check` 依次运行 format:check、lint、typecheck、test、test:content、build 和 test:export，本地与 CI 一致；lint 警告阻断，检查不自动改写。`npm run preview` 预览静态产物。新增依赖和检查配置遵循前述技能及聚焦变更要求。
 - 部署参考屏幕测的静态产物、Nginx、原子切换与回滚方式；域名、根目录、证书、日志、CI 标识和 Cloudflare 凭据必须按本站隔离。参考脚本含屏幕测专属白名单，不得原样运行或删除路径防护来绕过校验。
 - 本站主文档必须允许同源麦克风请求，不能照搬屏幕测的 `microphone=()`；拟用 `microphone=(self)`，并验证 HTTPS、实际响应头及浏览器授权。音频本机处理与本机摘要存储的隐私承诺必须与实际实现一致。
 - 路由或内容调整后同步关键词归属、发布状态、语言关系、关联链接及文档；涉及健康、法规或标准时核验当前有效一手资料与适用范围，未完成复核的选题保持草稿。
+
+## 首版实施补充
+
+- 首次实现以 [竞品分析与设计决策](./docs/产品/竞品分析与设计决策.md) 和 [首版实现说明](./docs/产品/首版实现说明.md) 为本轮依据；V2 保留为状态与品牌基线，实际界面以已验证实现为准。
+- 目录、CSS Modules 和局部客户端职责遵循前述约定；三种仪表共用会话，全屏只改变观察模式。演示数据必须显著标记，不能保存、导出或充当真实测量。
+- 检查范围为当前应用、配置、脚本和新增工程文档；既有 V1/V2 设计资产与历史规划不因接入格式工具批量改写。格式范围与 CI 一致，并在忽略配置中明确。
+- UI 验证使用实际浏览器桌面与手机视口；真实麦克风、实际移动设备、生产服务器与 Cloudflare 的验证分别报告，不以模拟演示代替。
+- 实际命令、浏览器范围、依赖审计和未验证项见 [首版验证记录](./docs/验证/首版验证记录.md)；依赖升级时复核其中记录的开发工具链上游告警。

@@ -1,0 +1,58 @@
+{
+  "version": 3,
+  "updated": "2026-10-17",
+  "status": "local-implementation",
+  "domain": "fenbeiceshi.com",
+  "research": "../../docs/产品/竞品分析与设计决策.md",
+  "implementation": "../../docs/产品/首版实现说明.md",
+  "verification": "../../docs/验证/首版验证记录.md",
+  "sourceOfTruth": "../../src/features/sound-meter/",
+  "direction": {
+    "shell": "浅色内容外壳，深绿声音观察面；工具先于说明与内容入口",
+    "priority": "等待时突出开始；运行时突出读数、口径和变化；结束后突出结果与保存",
+    "surfaces": "工作区为操作集合；统计为同级指标；场景为独立对象；步骤与文章开放排版",
+    "insideModules": "图标与标签识别角色，读数和标题承载主信息，紧邻单位与说明；用间距连接相关信息",
+    "color": "中性等待、绿色工具身份、蓝色趋势与最低值、琥珀最高值和削波提醒；颜色不生成健康结论",
+    "icons": "固定来源 Lucide SVG；描边一致，必要操作保留文字或可访问名称"
+  },
+  "views": ["gauge", "digital", "bars"],
+  "states": ["idle", "requesting", "running", "demo", "finished", "error"],
+  "measurement": {
+    "default": "relative RMS dBFS",
+    "displayFloorDbfs": -100,
+    "referenceEstimate": "只在真实输入与参考关系有效时显示估算声级；不宣称 dBA",
+    "average": "采样窗口按能量平均，不是连续积分 LAeq",
+    "trend": "保留最近 60 秒，真实会话约每 500ms 取一个趋势点",
+    "demo": "显著标记的模拟数据；不访问麦克风，不保存或导出为测量记录",
+    "records": "本机版本化摘要，最多 30 条，不包含音频；导出移除内部设备标识"
+  },
+  "focusMode": {
+    "entry": "优先原生 Fullscreen API；不可用时页面内专注模式",
+    "keep": ["仪表样式", "状态与单位", "结束操作", "连续刻度", "统计", "趋势"],
+    "exit": ["退出按钮", "Escape"],
+    "session": "进入、退出及切换视图不重启会话"
+  },
+  "responsive": {
+    "desktop": "主观察台与设备设置为主辅两栏，统计四列",
+    "mobile": "先读数与操作，再统计、趋势和设置；统计两列；工具栏空间不足时换行",
+    "checkedViewports": ["1280x720", "1280x960", "390x844", "320x740"],
+    "limits": "视口模拟不等于真实移动设备的麦克风、触控或全屏兼容性验证"
+  },
+  "screenshots": {
+    "desktopReady": "desktop-ready.jpg",
+    "desktopGaugeDemo": "desktop-gauge-demo.jpg",
+    "desktopBarsDemo": "desktop-bars-demo.jpg",
+    "fullscreenDigitalDemo": "fullscreen-digital-demo.jpg",
+    "desktopScenes": "desktop-scenes.jpg",
+    "mobileReady": "mobile-ready.jpg",
+    "mobileGaugeDemo": "mobile-gauge-demo.jpg",
+    "mobileGuide": "mobile-guide.jpg",
+    "narrowEnglishReady": "narrow-en-ready.jpg"
+  },
+  "assets": {
+    "iconAdditions": "icons/source.json",
+    "iconBase": "../noise-meter-v2/icons/source.json",
+    "license": "../../public/lucide-LICENSE.txt"
+  },
+  "notImplemented": ["P1 独立场景页与计算器", "PDF 报告", "后台长时间监测", "生产部署"]
+}

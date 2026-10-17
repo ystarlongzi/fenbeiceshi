@@ -1,0 +1,126 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 46px;
+}
+.eyebrow {
+  color: #6e875f;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  margin: 0 0 15px;
+}
+.page > h1 {
+  font-size: clamp(28px, 4vw, 39px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin: 0;
+  line-height: 1.5;
+}
+.intro {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--muted);
+  max-width: 650px;
+  margin: 15px 0 38px;
+}
+.links {
+  border-top: 1px solid var(--line);
+}
+.links > a {
+  padding: 29px 8px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.links > a > span {
+  color: #95a588;
+  font: 12px var(--font-number);
+}
+.links > a > div > p:first-child {
+  color: #738966;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  margin: 0 0 9px;
+}
+.links h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 9px;
+  line-height: 1.6;
+}
+.links p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin: 0;
+}
+.links > a > svg {
+  margin-left: auto;
+  color: var(--brand);
+}
+.links > a:hover h2 {
+  color: var(--brand);
+}
+.help {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 26px;
+  background: #edf3e7;
+  border-radius: 12px;
+  margin-top: 35px;
+}
+.help > svg {
+  color: var(--brand);
+}
+.help h2 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.help p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin: 0;
+}
+.help a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--brand);
+  font-size: 12px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+@media (max-width: 680px) {
+  .page {
+    padding-top: 30px;
+  }
+  .intro {
+    font-size: 12px;
+    margin-bottom: 28px;
+  }
+  .links > a {
+    gap: 17px;
+    padding: 23px 2px;
+  }
+  .links h2 {
+    font-size: 17px;
+  }
+  .links p {
+    font-size: 11px;
+  }
+  .help {
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .help > div {
+    flex: 1;
+  }
+  .help a {
+    margin: 4px 0 0 34px;
+  }
+}

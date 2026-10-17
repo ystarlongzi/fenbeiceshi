@@ -1,0 +1,269 @@
+.panel {
+  width: 100%;
+}
+.heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 15px;
+}
+.heading h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.heading h2 > svg {
+  color: var(--brand);
+}
+.heading h2 > span {
+  font: 10px var(--font-number);
+  border-radius: 4px;
+  padding: 3px 6px;
+  background: #eaf0e5;
+  color: #6d8761;
+}
+.heading p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+.heading > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--brand);
+  font-size: 10px;
+  white-space: nowrap;
+  margin-top: 3px;
+}
+.empty {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px dashed #d9e3d4;
+  border-radius: 9px;
+  padding: 23px;
+  color: #7b8d72;
+}
+.empty p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.empty a {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--brand);
+}
+.rows {
+  border-top: 1px solid var(--line);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 21px 8px;
+  border-bottom: 1px solid var(--line);
+}
+.row input {
+  accent-color: var(--brand);
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+.recordContext {
+  min-width: 0;
+  flex: 1;
+}
+.recordContext > strong {
+  display: block;
+  font-weight: 550;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.recordContext > p {
+  font-size: 10px;
+  color: var(--muted);
+  margin: 6px 0 0;
+  line-height: 1.8;
+}
+.recordContext > p > span {
+  margin: 0 8px;
+}
+.recordContext > small {
+  display: block;
+  margin-top: 5px;
+  font-size: 9px;
+  color: #84917d;
+  overflow-wrap: anywhere;
+}
+.mean {
+  min-width: 100px;
+  text-align: right;
+}
+.mean strong {
+  font: 23px var(--font-number);
+  color: #426f47;
+  letter-spacing: -1px;
+}
+.mean > span {
+  font-size: 9px;
+  color: var(--muted);
+  margin-left: 4px;
+}
+.mean > small {
+  display: block;
+  font-size: 9px;
+  color: #85917f;
+  margin-top: 5px;
+}
+.rowActions {
+  display: flex;
+  gap: 9px;
+}
+.rowActions > button {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #dee6d8;
+  border-radius: 6px;
+  color: #6b8162;
+  background: #fff;
+}
+.compareHint {
+  font-size: 10px;
+  color: var(--muted);
+  padding-top: 4px;
+}
+.confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  max-width: 190px;
+}
+.confirm span {
+  font-size: 10px;
+  color: #8a6149;
+}
+.confirm button {
+  border: 1px solid #e7ddd2;
+  border-radius: 5px;
+  padding: 6px;
+  color: #805d43;
+  background: #fffaf1;
+  font-size: 10px;
+}
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px;
+  background: #f7f0e7;
+  color: #8b6b43;
+  font-size: 12px;
+  line-height: 1.9;
+  border-radius: 8px;
+}
+.notice svg {
+  margin-top: 3px;
+}
+.comparison {
+  margin-top: 25px;
+  border-left: 3px solid #7b9d60;
+  background: #edf3e6;
+  padding: 23px;
+}
+.comparison > span {
+  display: block;
+  font-size: 12px;
+  color: #627b54;
+}
+.comparison > strong {
+  font: 36px var(--font-number);
+  display: block;
+  margin-top: 15px;
+  color: var(--brand);
+}
+.comparison strong small {
+  font-size: 13px;
+  margin-left: 7px;
+}
+.comparison p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #718265;
+  margin: 12px 0 0;
+}
+.compact .heading h2 {
+  font-size: 12px;
+}
+.compact .heading p {
+  font-size: 10px;
+}
+.compact .empty {
+  padding: 17px;
+  background: #f0f4ed80;
+}
+.compact .empty p {
+  font-size: 11px;
+}
+@media (max-width: 680px) {
+  .heading {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .heading h2 {
+    font-size: 14px;
+  }
+  .heading p {
+    font-size: 10px;
+  }
+  .empty {
+    padding: 18px;
+    flex-wrap: wrap;
+  }
+  .empty p {
+    font-size: 11px;
+    flex: 1;
+  }
+  .empty a {
+    margin: 0 0 0 32px;
+  }
+  .row {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .recordContext {
+    flex-basis: 45%;
+  }
+  .mean {
+    min-width: 75px;
+  }
+  .mean strong {
+    font-size: 21px;
+  }
+  .recordContext > strong {
+    font-size: 12px;
+  }
+  .rowActions {
+    margin-left: 28px;
+  }
+  .compact .rowActions {
+    margin: 0;
+  }
+  .compact .heading {
+    flex-wrap: nowrap;
+  }
+}

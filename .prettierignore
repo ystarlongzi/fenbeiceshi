@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+coverage/
+package-lock.json
+next-env.d.ts
+public/icons.svg
+design/
+DESIGN_HIERARCHY.md
+docs/产品/整站结构与SEO规划.md
+docs/产品/页面与关键词映射.json
+docs/开发/工程与部署参考.md

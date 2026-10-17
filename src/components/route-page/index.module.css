@@ -1,0 +1,26 @@
+.records {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-top: 42px;
+}
+.records > p {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #7a8d6a;
+  margin: 0 0 14px;
+}
+.records > h1 {
+  font-size: clamp(27px, 4vw, 37px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+  margin: 0 0 35px;
+}
+@media (max-width: 680px) {
+  .records {
+    padding-top: 30px;
+  }
+  .records > h1 {
+    margin-bottom: 28px;
+  }
+}
