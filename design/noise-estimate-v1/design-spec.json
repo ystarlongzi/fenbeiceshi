@@ -15,10 +15,12 @@
     "reference": "有效参考偏移替换通用偏移；原始信号不变。"
   },
   "scale": {
-    "ticks": [0, 30, 60, 90, 120],
-    "labels": ["微弱", "较安静", "日常声", "嘈杂", "极响"],
+    "ticks": [0, 40, 70, 85, 100, 120],
+    "labels": ["微弱", "安静", "较响", "嘈杂", "很响", "极响"],
+    "reference": "https://realtimesoundmeter.com/zh/ 的 bottom-scale-section 六个数值节点；级别名称使用中性声音强弱描述。",
     "unit": "dB · 估算",
     "position": "线性位置；刻度范围不是已验证量程；数字不因超出轨道而被截断。",
+    "layout": "数字与说明按数值比例定位；440px 及以下工作区错开较长的英文说明，中文保持同行，字号保持固定 12px，容器随内容自然增高。颜色继续复用统一连续渐变。",
     "band": {
       "opacity": 1,
       "stops": [
@@ -77,7 +79,10 @@
     "desktopTrendPaletteLight": "desktop-trend-palette-light.jpg",
     "mobileTrendPaletteDark": "mobile-trend-palette-dark.jpg",
     "desktopTrendPaletteDemo": "desktop-trend-palette-demo.jpg",
-    "mobileTrendPaletteDemoEn": "mobile-trend-palette-demo-en.jpg"
+    "mobileTrendPaletteDemoEn": "mobile-trend-palette-demo-en.jpg",
+    "desktopSixTicks": "desktop-six-ticks.jpg",
+    "mobileSixTicksZh": "mobile-six-ticks-zh.jpg",
+    "mobileSixTicksEn": "mobile-six-ticks-en.jpg"
   },
   "nonClaims": ["dBA", "认证声级测量", "安全判断", "量化准确度"]
 }

@@ -1,4 +1,5 @@
-type ScaleLabels = [string, string, string, string, string];
+type ScaleLabels = [string, string, string, string, string, string];
+type ReferenceLabels = [string, string, string, string, string];
 
 const zh = {
   workspace: "噪音测量台",
@@ -50,7 +51,7 @@ const zh = {
   elapsedHint: "从开始采集起计时",
   sampled: "按采样能量计算",
   scale: "噪音级别参考刻度",
-  estimateScaleLabels: ["微弱", "较安静", "日常声", "嘈杂", "极响"] satisfies ScaleLabels,
+  estimateScaleLabels: ["微弱", "安静", "较响", "嘈杂", "很响", "极响"] satisfies ScaleLabels,
   estimateScaleUnit: "估算噪音 · dB",
   estimateScaleHint: "量级描述仅供参考，颜色不表示安全或超标结论。",
   noiseReference: "分贝（dB）噪音水平量表",
@@ -62,7 +63,7 @@ const zh = {
     "正常交谈",
     "吹风机 / 割草机",
     "救护车警笛",
-  ] satisfies ScaleLabels,
+  ] satisfies ReferenceLabels,
   noiseReferenceApproximate: "约",
   noiseReferenceNote: "示例不是安全阈值，颜色仅区分量级。",
   noiseReferenceSource: "CDC / NIOSH 参考资料",
@@ -187,7 +188,7 @@ const en: MeterCopy = {
   elapsedHint: "Time with active capture",
   sampled: "Calculated from sampled energy",
   scale: "Noise level reference scale",
-  estimateScaleLabels: ["Faint", "Quiet", "Everyday", "Loud", "Very loud"],
+  estimateScaleLabels: ["Faint", "Quiet", "Loud", "Noisy", "Very loud", "Extreme"],
   estimateScaleUnit: "Estimated noise · dB",
   estimateScaleHint: "Descriptions are approximate. Colours do not indicate safety or compliance.",
   noiseReference: "Decibel (dB) noise level chart",

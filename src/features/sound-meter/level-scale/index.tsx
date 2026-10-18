@@ -3,10 +3,11 @@ import { scalePosition } from "../level.ts";
 import { NOISE_MAX, NOISE_MIN } from "../readings.ts";
 import styles from "./index.module.css";
 
+const values = [0, 40, 70, 85, 100, 120];
+
 export function LevelScale({ value, copy }: { value: number | null; copy: MeterCopy }) {
   const min = NOISE_MIN;
   const max = NOISE_MAX;
-  const values = [0, 30, 60, 90, 120];
   const labels = copy.estimateScaleLabels;
   const unit = copy.estimateScaleUnit;
   return (
@@ -16,6 +17,7 @@ export function LevelScale({ value, copy }: { value: number | null; copy: MeterC
           <span
             key={tick}
             data-edge={i === 0 ? "start" : i === values.length - 1 ? "end" : undefined}
+            style={{ left: `${scalePosition(tick, min, max) * 100}%` }}
           >
             <span className={styles.value}>{tick}</span>
             <span className={styles.meaning}>{labels[i]}</span>

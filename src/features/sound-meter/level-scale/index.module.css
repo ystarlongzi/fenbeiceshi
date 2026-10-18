@@ -1,32 +1,35 @@
 .scale {
   padding: 16px 2px 0;
+  container-type: inline-size;
 }
 .ticks {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   padding-bottom: 8px;
   font: var(--font-size-caption) var(--font-number);
   color: #a4bcad;
 }
 .ticks > span {
+  grid-area: 1 / 1;
+  position: relative;
+  justify-self: start;
+  align-self: start;
   display: flex;
   flex-direction: column;
   gap: 5px;
   min-width: 0;
+  width: max-content;
+  max-width: 25%;
   text-align: center;
-}
-/* 五列保持自然高度，偏移第二、四列以对应色带的 25% 和 75% 位置。 */
-.ticks > span:nth-child(2) {
-  transform: translateX(-25%);
-}
-.ticks > span:nth-child(4) {
-  transform: translateX(25%);
+  transform: translateX(-50%);
 }
 .ticks > span[data-edge="start"] {
   text-align: left;
+  transform: none;
 }
 .ticks > span[data-edge="end"] {
   text-align: right;
+  transform: translateX(-100%);
 }
 .value {
   color: #caddc6;
@@ -69,4 +72,10 @@
   color: #caddc6;
   white-space: nowrap;
   margin-right: 8px;
+}
+/* 英文说明更长，窄工作区错开说明，保留数字位置与固定字号。 */
+@container (max-width: 440px) {
+  .ticks:lang(en) > span:nth-child(even) .meaning {
+    padding-top: 19px;
+  }
 }
