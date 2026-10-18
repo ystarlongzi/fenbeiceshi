@@ -29,7 +29,7 @@ npm run preview
 
 不要同时在同一端口运行 dev 与 preview。静态预览默认监听 `127.0.0.1:3100`，可用 `FENBEI_PREVIEW_PORT` 指定其他端口。它不是生产服务器。
 
-首批内容生成 20 个可索引的中英 URL；另有两个 noindex 本机记录功能页。正文在构建时生成，新增内容后需重新构建。GitHub Actions 使用同一个 check 入口；本机既有 Git hooks 配置不由初始化自动覆盖。
+首批内容生成 20 个可索引的中英 URL；另有两个 noindex 本机记录功能页。正文在构建时生成，新增内容后需重新构建。GitHub Actions 使用同一个 check 入口，`out/` 仅在当前 runner 完成校验，不上传 GitHub Artifacts；npm 缓存只用于依赖。后续生产发布采用同一 job 构建后直接 SSH 传输，回滚版本保留在服务器，具体边界见 [工程与部署参考](./docs/开发/工程与部署参考.md)。本机既有 Git hooks 配置不由初始化自动覆盖。
 
 ## 开发与设计依据
 
