@@ -215,6 +215,7 @@
   line-height: 1.8;
 }
 .sceneAction {
+  --link-arrow-shift: 0px;
   display: grid;
   place-items: center;
   height: 36px;
