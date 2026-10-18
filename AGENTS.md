@@ -76,6 +76,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 首版已采用 Next.js App Router、TypeScript strict、npm、静态导出和 CSS Modules。`src/app` 管路由，`src/features` 按测量、校准与记录等职责组织，`src/components` 仅放确实共享的展示组件；`src/lib/content`、`routing`、`seo` 分别管理内容、发布语言与 SEO 派生数据，专属样式和测试靠近所属功能。
 - 当前应用的实际页面注册为 `src/lib/routing/pages.ts`，与候选关键词映射分开维护；已实现 22 个中英 URL，其中 20 个可索引，两个本机记录页 noindex。新增语言或路由必须有真实正文和可用操作。
 - `npm run check` 依次运行 format:check、lint、typecheck、test、test:content、build 和 test:export，本地与 CI 一致；lint 警告阻断，检查不自动改写。`npm run preview` 预览静态产物。新增依赖和检查配置遵循前述技能及聚焦变更要求。
+- Actions 的 `out/` 仅作为当前 runner 的临时检查产物，不上传 GitHub Artifacts，也不通过跨 job 下载产物中转；`cache: npm` 只缓存依赖。后续生产发布在同一 runner/job 完成检查、构建、校验、打包与 SSH 传输，回滚版本保留在本站服务器的独立目录。当前尚未接入生产发布，不能将此约定描述为已部署能力。
 - 部署参考屏幕测的静态产物、Nginx、原子切换与回滚方式；域名、根目录、证书、日志、CI 标识和 Cloudflare 凭据必须按本站隔离。参考脚本含屏幕测专属白名单，不得原样运行或删除路径防护来绕过校验。
 - 本站主文档必须允许同源麦克风请求，不能照搬屏幕测的 `microphone=()`；拟用 `microphone=(self)`，并验证 HTTPS、实际响应头及浏览器授权。音频本机处理与本机摘要存储的隐私承诺必须与实际实现一致。
 - 路由或内容调整后同步关键词归属、发布状态、语言关系、关联链接及文档；涉及健康、法规或标准时核验当前有效一手资料与适用范围，未完成复核的选题保持草稿。

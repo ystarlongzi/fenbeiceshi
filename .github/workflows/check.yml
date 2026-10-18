@@ -14,4 +14,5 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      # out/ 只在当前 runner 校验；后续发布在同一 job 直接通过 SSH 传输，不上传 GitHub Artifacts。
       - run: npm run check
