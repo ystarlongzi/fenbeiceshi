@@ -1,11 +1,5 @@
 .trend {
-  --plot-line: #3c8665;
-  --plot-demo: #608997;
   margin-top: 24px;
-}
-:global(:root[data-theme="dark"]) .trend {
-  --plot-line: #8dc59f;
-  --plot-demo: #8ebcc8;
 }
 .heading {
   display: flex;
@@ -84,10 +78,7 @@
   height: 6px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  background: var(--plot-line);
-}
-.plot[data-demo="true"] .endpoint {
-  background: var(--plot-demo);
+  box-shadow: 0 0 0 2px var(--surface);
 }
 .empty {
   display: flex;

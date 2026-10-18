@@ -1,6 +1,8 @@
+import { useId } from "react";
 import { Icon } from "@/components/icon";
 import { scalePosition } from "../level.ts";
 import { NOISE_MAX, NOISE_MIN } from "../readings.ts";
+import { noiseColors, readingColor } from "../palette.ts";
 import type { MeterCopy } from "../copy.ts";
 import type { LevelPoint } from "../types.ts";
 import styles from "./index.module.css";
@@ -14,7 +16,9 @@ export function SoundTrend({
   copy: MeterCopy;
   demo: boolean;
 }) {
-  const end = points.at(-1)?.time ?? 0;
+  const gradientId = useId();
+  const latest = points.at(-1);
+  const end = latest?.time ?? 0;
   const min = NOISE_MIN;
   const max = NOISE_MAX;
   const coordinates = points.map((point) => ({
@@ -59,13 +63,21 @@ export function SoundTrend({
               aria-label={`${copy.trend} · ${copy.estimatedUnit}`}
             >
               <defs>
-                <linearGradient id="trend-fill" x1="0" y1="0" x2="0" y2="1">
-                  <stop
-                    offset="0%"
-                    stopColor={demo ? "var(--plot-demo)" : "var(--plot-line)"}
-                    stopOpacity="0.2"
-                  />
-                  <stop offset="100%" stopColor="var(--plot-line)" stopOpacity="0" />
+                <linearGradient
+                  id={gradientId}
+                  gradientUnits="userSpaceOnUse"
+                  x1="0"
+                  y1="118"
+                  x2="0"
+                  y2="0"
+                >
+                  {noiseColors.map((color, i) => (
+                    <stop
+                      key={color}
+                      offset={`${(i / (noiseColors.length - 1)) * 100}%`}
+                      stopColor={color}
+                    />
+                  ))}
                 </linearGradient>
               </defs>
               {[0, 0.5, 1].map((fraction) => (
@@ -84,12 +96,22 @@ export function SoundTrend({
                 <>
                   <path
                     d={`${path} L${last?.x},118 L${coordinates[0].x},118 Z`}
-                    fill="url(#trend-fill)"
+                    fill={`url(#${gradientId})`}
+                    fillOpacity="0.12"
                   />
                   <path
                     d={path}
-                    stroke={demo ? "var(--plot-demo)" : "var(--plot-line)"}
-                    strokeWidth="2"
+                    stroke="var(--ink)"
+                    strokeOpacity="0.3"
+                    strokeWidth="4"
+                    fill="none"
+                    strokeLinejoin="round"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                  <path
+                    d={path}
+                    stroke={`url(#${gradientId})`}
+                    strokeWidth="2.5"
                     fill="none"
                     strokeLinejoin="round"
                     vectorEffect="non-scaling-stroke"
@@ -113,7 +135,11 @@ export function SoundTrend({
               <span
                 className={styles.endpoint}
                 aria-hidden="true"
-                style={{ left: `${(last.x / 632) * 100}%`, top: `${(last.y / 118) * 100}%` }}
+                style={{
+                  left: `${(last.x / 632) * 100}%`,
+                  top: `${(last.y / 118) * 100}%`,
+                  background: readingColor(latest?.value ?? null),
+                }}
               />
             ) : null}
           </div>
