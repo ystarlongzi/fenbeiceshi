@@ -48,7 +48,7 @@
   background: var(--surface);
   box-shadow: 0 8px 24px var(--shadow);
   color: var(--ink);
-  font-size: 12px;
+  font-size: var(--font-size-caption);
   line-height: 1.8;
 }
 @media (prefers-reduced-motion: reduce) {

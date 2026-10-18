@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   padding-bottom: 8px;
-  font: 11px var(--font-number);
+  font: var(--font-size-caption) var(--font-number);
   color: #a4bcad;
 }
 .ticks > span {
@@ -33,7 +33,7 @@
 }
 .meaning {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: var(--font-size-caption);
   line-height: 1.35;
   color: #bbcec1;
 }
@@ -47,8 +47,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(90deg, #416e58, #83b990 40%, #c9df97 75%, #dfa56d);
-  opacity: 0.8;
+  background: var(--noise-gradient);
 }
 .marker {
   position: absolute;
@@ -61,7 +60,7 @@
   box-shadow: 0 0 0 2px #193628;
 }
 .scale p {
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   line-height: 1.7;
   margin: 10px 0 0;
   color: #a4bcad;

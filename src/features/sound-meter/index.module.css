@@ -1,4 +1,17 @@
 .workbench {
+  --noise-faint: #5da97c;
+  --noise-quiet: #a3c96b;
+  --noise-everyday: #e4cf5b;
+  --noise-loud: #ef9b4c;
+  --noise-very-loud: #ee6256;
+  --noise-gradient: linear-gradient(
+    90deg,
+    var(--noise-faint) 0%,
+    var(--noise-quiet) 25%,
+    var(--noise-everyday) 50%,
+    var(--noise-loud) 75%,
+    var(--noise-very-loud) 100%
+  );
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
   border: 1px solid var(--line);
@@ -14,13 +27,14 @@
 }
 .toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
   margin-bottom: 20px;
 }
 .toolbar h2 {
-  font-size: 14px;
+  font-size: var(--font-size-heading-sm);
   font-weight: 650;
   margin: 0;
   display: flex;
@@ -33,6 +47,8 @@
 }
 .toolbarActions {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   align-items: center;
   gap: 12px;
 }
@@ -46,7 +62,7 @@
 }
 .views button {
   padding: 5px 11px;
-  font-size: 12px;
+  font-size: var(--font-size-caption);
   color: var(--muted);
   border: 0;
   border-radius: 4px;
@@ -65,7 +81,7 @@
   color: var(--muted);
   background: transparent;
   padding: 7px 0 7px 7px;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
 }
 .surface {
   background: radial-gradient(ellipse at 50% 4%, #345140 0, #203c2e 46%, #193327 100%);
@@ -77,10 +93,11 @@
 }
 .screenHeading {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   letter-spacing: 0.02em;
 }
 .mode {
@@ -111,13 +128,14 @@
 }
 .modeHint {
   text-align: center;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   color: #b1c4b5;
   line-height: 1.6;
   margin: 0 0 17px;
 }
 .controls {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 14px;
@@ -129,9 +147,9 @@
   justify-content: center;
   gap: 8px;
   border-radius: 7px;
-  font-size: 13px;
+  font-size: var(--font-size-ui);
   min-height: 42px;
-  padding: 0 22px;
+  padding: 10px 22px;
   font-weight: 600;
 }
 .primary {
@@ -162,7 +180,7 @@
   gap: 6px;
   max-width: 210px;
   color: #b8cbb9;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   line-height: 1.6;
 }
 .signalWarning {
@@ -170,7 +188,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   color: #efcf97;
   margin: 12px 0 0;
 }
@@ -186,7 +204,7 @@
   border-radius: 7px;
   padding: 12px;
   margin: 14px 0 0;
-  font-size: 13px;
+  font-size: var(--font-size-ui);
   line-height: 1.7;
   color: var(--text-accent);
 }
@@ -203,6 +221,7 @@
 }
 .resultActions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
@@ -211,12 +230,14 @@
   margin-top: 18px;
 }
 .resultActions > span {
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   color: var(--muted);
   line-height: 1.7;
 }
 .resultActions > div {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: 8px;
   flex: 0 0 auto;
 }
@@ -224,7 +245,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   border-radius: 6px;
   padding: 8px 9px;
   background: var(--surface);
@@ -237,11 +258,10 @@
 }
 .focused {
   --meter-height: 320px;
-  --meter-dial-width: 580px;
   --meter-dial-height: 250px;
   --meter-overlap: -6px;
-  --meter-number-size: 96px;
-  --meter-digital-size: 134px;
+  --meter-number-size: 5.5rem;
+  --meter-digital-size: 5.5rem;
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -305,7 +325,6 @@
     flex-wrap: wrap;
   }
   .toolbar h2 {
-    font-size: 13px;
     gap: 6px;
   }
   .toolbar h2 svg {
@@ -317,7 +336,6 @@
   }
   .views button {
     padding: 5px 8px;
-    font-size: 11px;
     min-height: 28px;
   }
   .views {
@@ -333,14 +351,12 @@
   }
   .screenHeading {
     gap: 6px;
-    font-size: 10px;
   }
   .mode {
     padding: 4px 5px;
   }
   .modeHint {
     margin-bottom: 14px;
-    font-size: 11px;
     min-height: 30px;
   }
   .controls {
@@ -348,12 +364,10 @@
   }
   .controls button {
     min-height: 42px;
-    font-size: 13px;
     padding-inline: 16px;
   }
   .captureNote {
     max-width: 140px;
-    font-size: 10px;
   }
   .resultActions {
     flex-direction: column;
@@ -372,11 +386,8 @@
   }
   .focused {
     --meter-height: 230px;
-    --meter-dial-width: 410px;
     --meter-dial-height: 190px;
     --meter-overlap: -6px;
-    --meter-number-size: 58px;
-    --meter-digital-size: 84px;
     border-radius: 0;
     padding: 0 0 20px;
   }

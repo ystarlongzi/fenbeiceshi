@@ -3,7 +3,7 @@
   align-items: center;
   gap: 6px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: var(--font-size-caption);
   line-height: 1.4;
   white-space: nowrap;
 }

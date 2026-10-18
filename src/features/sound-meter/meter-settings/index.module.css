@@ -16,11 +16,11 @@
 }
 .asideTitle h2 {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--font-size-heading-sm);
   font-weight: 650;
 }
 .nextSettings {
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   line-height: 1.8;
   color: var(--muted);
   margin: -7px 0 20px;
@@ -35,7 +35,7 @@
   align-items: center;
   gap: 7px;
   margin: 0 0 12px;
-  font-size: 13px;
+  font-size: var(--font-size-ui);
   font-weight: 600;
 }
 .settingGroup h3 svg {
@@ -53,7 +53,7 @@
   margin-bottom: 0;
 }
 .settingGroup p {
-  font-size: 12px;
+  font-size: var(--font-size-caption);
   line-height: 1.8;
   color: var(--muted);
   margin: 9px 0 0;
@@ -65,7 +65,7 @@
   width: 100%;
   font-family: inherit;
   color: var(--ink);
-  font-size: 12px;
+  font-size: var(--font-size-body);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -86,11 +86,12 @@
   color: var(--text-soft);
 }
 .settingGroup .inputLabel {
-  font-size: 11px;
+  font-size: var(--font-size-caption);
   color: var(--brand);
   overflow-wrap: anywhere;
 }
 .settingGroup .inputWarning {
+  font-size: var(--font-size-ui);
   color: var(--warning);
 }
 .calibrationBadge {
@@ -101,7 +102,7 @@
   border-radius: 4px;
   background: var(--surface-muted);
   color: var(--text-accent);
-  font-size: 11px;
+  font-size: var(--font-size-ui);
 }
 .calibrationBadge[data-set="true"] {
   background: var(--surface-accent);
@@ -121,7 +122,7 @@
   border: 1px solid var(--line-strong);
   border-radius: 6px;
   background: var(--surface);
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   color: var(--brand);
   cursor: pointer;
   list-style: none;
@@ -137,7 +138,7 @@
 }
 .calibrationDetails label {
   display: block;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   color: var(--muted);
   margin-bottom: 10px;
 }
@@ -151,7 +152,7 @@
   border-radius: 6px;
   background: var(--surface-accent);
   color: var(--brand);
-  font-size: 12px;
+  font-size: var(--font-size-ui);
 }
 .calibrationDetails button:disabled {
   opacity: 0.6;
@@ -174,14 +175,14 @@
   align-items: center;
   gap: 5px;
   margin-top: 11px;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   color: var(--brand);
   border: 0;
   padding: 0;
   background: transparent;
 }
 .settingGroup .sessionOnly {
-  font-size: 11px;
+  font-size: var(--font-size-caption);
 }
 .privacy {
   display: flex;
@@ -195,11 +196,11 @@
   margin-top: 2px;
 }
 .privacy strong {
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   font-weight: 600;
 }
 .privacy p {
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   line-height: 1.8;
   margin: 6px 0;
   color: var(--muted);
@@ -208,7 +209,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
 }
 .srOnly {
   position: absolute;

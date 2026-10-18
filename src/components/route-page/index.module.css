@@ -4,13 +4,13 @@
   padding-top: 42px;
 }
 .records > p {
-  font-size: 10px;
+  font-size: var(--font-size-caption);
   letter-spacing: 0.08em;
   color: var(--text-accent);
   margin: 0 0 14px;
 }
 .records > h1 {
-  font-size: clamp(27px, 4vw, 37px);
+  font-size: var(--font-size-title);
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: -0.03em;

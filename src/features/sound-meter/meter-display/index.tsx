@@ -13,6 +13,40 @@ function point(fraction: number, radius: number) {
   };
 }
 
+const divisions = 30;
+const ticks = Array.from({ length: divisions + 1 }, (_, i) => i / divisions);
+const labels = ticks
+  .filter((_, i) => i % 5 === 0)
+  .map((fraction) => {
+    const label = point(fraction, 135);
+    return {
+      value: Math.round(NOISE_MIN + fraction * (NOISE_MAX - NOISE_MIN)),
+      left: `${(label.x / 480) * 100}%`,
+      top: `${(label.y / 250) * 100}%`,
+    };
+  });
+const paletteColors = [
+  "var(--noise-faint)",
+  "var(--noise-quiet)",
+  "var(--noise-everyday)",
+  "var(--noise-loud)",
+  "var(--noise-very-loud)",
+];
+const dialStops = paletteColors.map((color, i, colors) => ({
+  color,
+  // 弧线的刻度按角度等分，线性渐变的色点需换算到对应的横坐标。
+  offset: `${((1 - Math.cos((Math.PI * i) / (colors.length - 1))) / 2) * 100}%`,
+}));
+const barCount = 40;
+const barPositions = Array.from({ length: barCount }, (_, i) => `${(i / (barCount - 1)) * 100}%`);
+
+function readingColor(position: number) {
+  const colorPosition = position * (paletteColors.length - 1);
+  const index = Math.min(Math.floor(colorPosition), paletteColors.length - 2);
+  const mix = (colorPosition - index) * 100;
+  return `color-mix(in srgb, ${paletteColors[index]}, ${paletteColors[index + 1]} ${mix}%)`;
+}
+
 export function MeterDisplay({
   value,
   view,
@@ -27,88 +61,93 @@ export function MeterDisplay({
   const min = NOISE_MIN;
   const max = NOISE_MAX;
   const position = value === null ? null : scalePosition(value, min, max);
-  const divisions = 30;
-  const ticks = Array.from({ length: divisions + 1 }, (_, i) => i / divisions);
   const numeric = formatReading(value, belowFloor);
   const unit = copy.estimatedUnit;
   return (
     <div className={styles.display} data-view={view}>
       {view === "gauge" ? (
-        <svg className={styles.dial} viewBox="0 0 480 250" aria-hidden="true">
-          <defs>
-            <linearGradient id="dial-color">
-              <stop offset="0%" stopColor="#68a88e" />
-              <stop offset="65%" stopColor="#d1ef9b" />
-              <stop offset="100%" stopColor="#e5ad70" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M 54 218 A 186 186 0 0 1 426 218"
-            fill="none"
-            stroke="#345046"
-            strokeWidth="13"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 54 218 A 186 186 0 0 1 426 218"
-            fill="none"
-            stroke="url(#dial-color)"
-            strokeWidth="13"
-            strokeLinecap="round"
-            pathLength="100"
-            strokeDasharray={`${position === null ? 0 : position * 100} 100`}
-          />
-          {ticks.map((fraction, i) => {
-            const a = point(fraction, 165);
-            const b = point(fraction, i % 5 === 0 ? 151 : 158);
-            const label = point(fraction, 135);
-            return (
-              <g key={i}>
-                <line
-                  x1={a.x}
-                  y1={a.y}
-                  x2={b.x}
-                  y2={b.y}
-                  stroke={i % 5 === 0 ? "#a5bcb0" : "#526e60"}
-                  strokeWidth={i % 5 === 0 ? 2 : 1}
-                />
-                {i % 5 === 0 ? (
-                  <text
-                    x={label.x}
-                    y={label.y + 4}
-                    textAnchor="middle"
-                    fill="#b4c8be"
-                    fontSize="11"
-                  >
-                    {Math.round(min + fraction * (max - min))}
-                  </text>
-                ) : null}
-              </g>
-            );
-          })}
-          <g
-            className={styles.needle}
-            style={{ transform: `rotate(${position === null ? -90 : -90 + position * 180}deg)` }}
-          >
+        <div className={styles.dial} aria-hidden="true">
+          <svg viewBox="0 0 480 250">
+            <defs>
+              <linearGradient
+                id="dial-color"
+                gradientUnits="userSpaceOnUse"
+                x1="54"
+                y1="218"
+                x2="426"
+                y2="218"
+              >
+                {dialStops.map((stop) => (
+                  <stop key={stop.color} offset={stop.offset} stopColor={stop.color} />
+                ))}
+              </linearGradient>
+            </defs>
             <path
-              d="M 240 73 L 237 218 L 243 218 Z"
-              fill={value === null ? "#698578" : "#d7edbd"}
+              d="M 54 218 A 186 186 0 0 1 426 218"
+              fill="none"
+              stroke="url(#dial-color)"
+              strokeOpacity="0.45"
+              strokeWidth="13"
+              strokeLinecap="round"
             />
-            <circle cx="240" cy="218" r="8" fill="#bdd99c" />
-            <circle cx="240" cy="218" r="3" fill="#1c382b" />
-          </g>
-        </svg>
+            <path
+              d="M 54 218 A 186 186 0 0 1 426 218"
+              fill="none"
+              stroke="url(#dial-color)"
+              strokeWidth="13"
+              strokeLinecap="round"
+              pathLength="100"
+              strokeDasharray={`${position === null ? 0 : position * 100} 100`}
+            />
+            {ticks.map((fraction, i) => {
+              const a = point(fraction, 165);
+              const b = point(fraction, i % 5 === 0 ? 151 : 158);
+              return (
+                <g key={i}>
+                  <line
+                    x1={a.x}
+                    y1={a.y}
+                    x2={b.x}
+                    y2={b.y}
+                    stroke={i % 5 === 0 ? "#a5bcb0" : "#526e60"}
+                    strokeWidth={i % 5 === 0 ? 2 : 1}
+                  />
+                </g>
+              );
+            })}
+            <g
+              className={styles.needle}
+              style={{ transform: `rotate(${position === null ? -90 : -90 + position * 180}deg)` }}
+            >
+              <path
+                d="M 240 73 L 237 218 L 243 218 Z"
+                fill={value === null ? "#698578" : "#d7edbd"}
+              />
+              <circle cx="240" cy="218" r="8" fill="#bdd99c" />
+              <circle cx="240" cy="218" r="3" fill="#1c382b" />
+            </g>
+          </svg>
+          {labels.map((label) => (
+            <span
+              key={label.value}
+              className={styles.dialLabel}
+              style={{ left: label.left, top: label.top }}
+            >
+              {label.value}
+            </span>
+          ))}
+        </div>
       ) : view === "bars" ? (
-        <div className={styles.bars} aria-hidden="true">
-          {Array.from({ length: 40 }, (_, i) => (
+        <div
+          className={styles.bars}
+          aria-hidden="true"
+          style={{ "--bar-count": barCount } as CSSProperties}
+        >
+          {barPositions.map((backgroundPosition, i) => (
             <span
               key={i}
-              data-on={position !== null && i < Math.ceil(position * 40)}
-              style={
-                {
-                  "--bar-color": i > 34 ? "#e5ad70" : i > 24 ? "#d1ef9b" : "#86c9a4",
-                } as CSSProperties
-              }
+              data-on={position !== null && i < Math.ceil(position * barCount)}
+              style={{ "--bar-position": backgroundPosition } as CSSProperties}
             />
           ))}
         </div>
@@ -120,6 +159,11 @@ export function MeterDisplay({
           aria-live="off"
           className={styles.number}
           aria-label={`${copy.noiseLevel}: ${numeric} ${unit}`}
+          style={
+            position !== null
+              ? ({ "--reading-color": readingColor(position) } as CSSProperties)
+              : undefined
+          }
         >
           {numeric}
         </output>

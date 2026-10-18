@@ -41,7 +41,7 @@
 .brand small {
   display: block;
   color: var(--text-soft);
-  font-size: 9px;
+  font-size: var(--font-size-caption);
   letter-spacing: 0.08em;
   margin-top: 2px;
 }
@@ -61,7 +61,7 @@
   gap: 8px;
 }
 .navigation nav a {
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   color: var(--muted);
   display: inline-flex;
   align-items: center;
@@ -80,7 +80,7 @@
   background: var(--surface);
   border: 1px solid var(--line-strong);
   border-radius: 6px;
-  font-size: 10px;
+  font-size: var(--font-size-caption);
   font-weight: 650;
   color: var(--text-accent);
 }
@@ -135,16 +135,16 @@
   gap: 30px;
 }
 .footerInner strong {
-  font-size: 14px;
+  font-size: var(--font-size-ui);
 }
 .footerInner p {
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   line-height: 1.8;
   color: var(--muted);
   margin: 9px 0;
 }
 .footerInner small {
-  font-size: 10px;
+  font-size: var(--font-size-caption);
   color: var(--muted);
 }
 .footerInner nav {
@@ -159,7 +159,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   color: var(--muted);
 }
 .footerInner nav a:hover {
@@ -171,7 +171,7 @@
   margin: 24px auto 0;
   padding-top: 17px;
   border-top: 1px solid var(--line);
-  font-size: 10px;
+  font-size: var(--font-size-ui);
   line-height: 1.8;
   color: var(--muted);
 }
@@ -187,6 +187,11 @@
 .skip:focus {
   top: 10px;
 }
+@media (max-width: 1000px) {
+  .navigation nav .optionalNav {
+    display: none;
+  }
+}
 @media (max-width: 760px) {
   .headerInner {
     height: 66px;
@@ -199,11 +204,7 @@
   .navigation nav {
     gap: 8px;
   }
-  .navigation nav .optionalNav {
-    display: none;
-  }
   .navigation nav a {
-    font-size: 11px;
     padding-inline: 6px;
   }
   .content {
@@ -221,26 +222,26 @@
     justify-content: flex-start;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 520px) {
   .headerInner {
     padding-inline: 16px;
   }
   .brand {
-    gap: 8px;
+    gap: 6px;
+  }
+  .brand small {
+    letter-spacing: 0;
   }
   .brandMark {
     width: 30px;
     height: 30px;
     border-radius: 8px;
   }
-  .brand strong {
-    font-size: 15px;
-  }
-  .brand small {
-    font-size: 8px;
-  }
   .navigation {
-    gap: 11px;
+    gap: 6px;
+  }
+  .utilities {
+    gap: 6px;
   }
   .navigation nav {
     gap: 4px;
@@ -250,7 +251,6 @@
     justify-content: center;
     min-width: 44px;
     padding: 8px 4px;
-    font-size: 10px;
     line-height: 1.25;
     gap: 4px;
   }

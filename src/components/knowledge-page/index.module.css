@@ -5,19 +5,19 @@
 }
 .eyebrow {
   color: var(--text-accent);
-  font-size: 10px;
+  font-size: var(--font-size-caption);
   letter-spacing: 0.1em;
   margin: 0 0 15px;
 }
 .page > h1 {
-  font-size: clamp(28px, 4vw, 39px);
+  font-size: var(--font-size-title);
   font-weight: 600;
   letter-spacing: -0.04em;
   margin: 0;
   line-height: 1.5;
 }
 .intro {
-  font-size: 13px;
+  font-size: var(--font-size-body);
   line-height: 2;
   color: var(--muted);
   max-width: 650px;
@@ -35,22 +35,22 @@
 }
 .links > a > span {
   color: var(--text-soft);
-  font: 12px var(--font-number);
+  font: var(--font-size-caption) var(--font-number);
 }
 .links > a > div > p:first-child {
   color: var(--text-accent);
-  font-size: 9px;
+  font-size: var(--font-size-caption);
   letter-spacing: 0.08em;
   margin: 0 0 9px;
 }
 .links h2 {
-  font-size: 20px;
+  font-size: var(--font-size-heading-sm);
   font-weight: 600;
   margin: 0 0 9px;
   line-height: 1.6;
 }
 .links p {
-  font-size: 12px;
+  font-size: var(--font-size-body);
   color: var(--muted);
   line-height: 1.9;
   margin: 0;
@@ -75,12 +75,12 @@
   color: var(--brand);
 }
 .help h2 {
-  font-size: 16px;
+  font-size: var(--font-size-heading-sm);
   margin: 0 0 8px;
   font-weight: 600;
 }
 .help p {
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   color: var(--muted);
   line-height: 1.9;
   margin: 0;
@@ -90,7 +90,7 @@
   align-items: center;
   gap: 7px;
   color: var(--brand);
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   margin-left: auto;
   white-space: nowrap;
 }
@@ -99,18 +99,11 @@
     padding-top: 30px;
   }
   .intro {
-    font-size: 12px;
     margin-bottom: 28px;
   }
   .links > a {
     gap: 17px;
     padding: 23px 2px;
-  }
-  .links h2 {
-    font-size: 17px;
-  }
-  .links p {
-    font-size: 11px;
   }
   .help {
     padding: 20px;

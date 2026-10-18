@@ -1,0 +1,603 @@
+{
+  "base": [
+    {
+      "route": "/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 179
+    },
+    {
+      "route": "/guide/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 50
+    },
+    {
+      "route": "/records/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 25
+    },
+    {
+      "route": "/privacy/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 51
+    },
+    {
+      "route": "/calibration/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 50
+    },
+    {
+      "route": "/about/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 45
+    },
+    {
+      "route": "/knowledge/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 39
+    },
+    {
+      "route": "/knowledge/dbfs-vs-db-spl/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 55
+    },
+    {
+      "route": "/knowledge/microphone-permission/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 57
+    },
+    {
+      "route": "/knowledge/phone-decibel-accuracy/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 56
+    },
+    {
+      "route": "/knowledge/decibel-chart/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 63
+    },
+    {
+      "route": "/en/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 179
+    },
+    {
+      "route": "/en/guide/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 50
+    },
+    {
+      "route": "/en/records/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 25
+    },
+    {
+      "route": "/en/privacy/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 51
+    },
+    {
+      "route": "/en/calibration/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 50
+    },
+    {
+      "route": "/en/about/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 45
+    },
+    {
+      "route": "/en/knowledge/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 39
+    },
+    {
+      "route": "/en/knowledge/dbfs-vs-db-spl/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 55
+    },
+    {
+      "route": "/en/knowledge/microphone-permission/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 57
+    },
+    {
+      "route": "/en/knowledge/phone-decibel-accuracy/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 56
+    },
+    {
+      "route": "/en/knowledge/decibel-chart/",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 63
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 168
+    },
+    {
+      "route": "/guide/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 45
+    },
+    {
+      "route": "/records/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 21
+    },
+    {
+      "route": "/privacy/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 46
+    },
+    {
+      "route": "/calibration/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 45
+    },
+    {
+      "route": "/about/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 40
+    },
+    {
+      "route": "/knowledge/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 35
+    },
+    {
+      "route": "/knowledge/dbfs-vs-db-spl/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 50
+    },
+    {
+      "route": "/knowledge/microphone-permission/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 52
+    },
+    {
+      "route": "/knowledge/phone-decibel-accuracy/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 51
+    },
+    {
+      "route": "/knowledge/decibel-chart/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 58
+    },
+    {
+      "route": "/en/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 168
+    },
+    {
+      "route": "/en/guide/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 45
+    },
+    {
+      "route": "/en/records/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 21
+    },
+    {
+      "route": "/en/privacy/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 46
+    },
+    {
+      "route": "/en/calibration/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 45
+    },
+    {
+      "route": "/en/about/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 40
+    },
+    {
+      "route": "/en/knowledge/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 35
+    },
+    {
+      "route": "/en/knowledge/dbfs-vs-db-spl/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 50
+    },
+    {
+      "route": "/en/knowledge/microphone-permission/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 52
+    },
+    {
+      "route": "/en/knowledge/phone-decibel-accuracy/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 51
+    },
+    {
+      "route": "/en/knowledge/decibel-chart/",
+      "width": 320,
+      "scrollWidth": 320,
+      "min": 12,
+      "small": [],
+      "overflow": [],
+      "textElements": 58
+    }
+  ],
+  "additional": [
+    {
+      "route": "/",
+      "width": 390,
+      "scrollWidth": 390,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/",
+      "width": 390,
+      "scrollWidth": 390,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/knowledge/decibel-chart/",
+      "width": 390,
+      "scrollWidth": 390,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/knowledge/",
+      "width": 390,
+      "scrollWidth": 390,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/records/",
+      "width": 390,
+      "scrollWidth": 390,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 520,
+      "scrollWidth": 520,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/",
+      "width": 520,
+      "scrollWidth": 520,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/knowledge/decibel-chart/",
+      "width": 520,
+      "scrollWidth": 520,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/knowledge/",
+      "width": 520,
+      "scrollWidth": 520,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/records/",
+      "width": 520,
+      "scrollWidth": 520,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "scrollWidth": 768,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/",
+      "width": 768,
+      "scrollWidth": 768,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/knowledge/decibel-chart/",
+      "width": 768,
+      "scrollWidth": 768,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/knowledge/",
+      "width": 768,
+      "scrollWidth": 768,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/records/",
+      "width": 768,
+      "scrollWidth": 768,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/knowledge/decibel-chart/",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/knowledge/",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/records/",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/knowledge/decibel-chart/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/knowledge/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    },
+    {
+      "route": "/en/records/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "min": 12,
+      "small": [],
+      "overflow": []
+    }
+  ],
+  "fontDifferences": []
+}

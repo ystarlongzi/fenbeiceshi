@@ -3,6 +3,7 @@
 }
 .heading {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 25px;
@@ -10,7 +11,7 @@
 }
 .heading h2 {
   margin: 0;
-  font-size: 15px;
+  font-size: var(--font-size-heading-sm);
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -20,14 +21,14 @@
   color: var(--brand);
 }
 .heading h2 > span {
-  font: 10px var(--font-number);
+  font: var(--font-size-caption) var(--font-number);
   border-radius: 4px;
   padding: 3px 6px;
   background: var(--surface-accent);
   color: var(--text-accent);
 }
 .heading p {
-  font-size: 11px;
+  font-size: var(--font-size-ui);
   line-height: 1.9;
   color: var(--muted);
   margin: 8px 0 0;
@@ -37,7 +38,7 @@
   align-items: center;
   gap: 5px;
   color: var(--brand);
-  font-size: 10px;
+  font-size: var(--font-size-ui);
   white-space: nowrap;
   margin-top: 3px;
 }
@@ -52,7 +53,7 @@
 }
 .empty p {
   margin: 0;
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   line-height: 1.9;
 }
 .empty a {
@@ -60,7 +61,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   color: var(--brand);
 }
 .rows {
@@ -87,12 +88,12 @@
 .recordContext > strong {
   display: block;
   font-weight: 550;
-  font-size: 13px;
+  font-size: var(--font-size-body);
   overflow-wrap: anywhere;
   line-height: 1.7;
 }
 .recordContext > p {
-  font-size: 10px;
+  font-size: var(--font-size-caption);
   color: var(--muted);
   margin: 6px 0 0;
   line-height: 1.8;
@@ -103,7 +104,7 @@
 .recordContext > small {
   display: block;
   margin-top: 5px;
-  font-size: 9px;
+  font-size: var(--font-size-caption);
   color: var(--text-soft);
   overflow-wrap: anywhere;
 }
@@ -117,13 +118,13 @@
   letter-spacing: -1px;
 }
 .mean > span {
-  font-size: 9px;
+  font-size: var(--font-size-caption);
   color: var(--muted);
   margin-left: 4px;
 }
 .mean > small {
   display: block;
-  font-size: 9px;
+  font-size: var(--font-size-caption);
   color: var(--text-soft);
   margin-top: 5px;
 }
@@ -142,7 +143,7 @@
   background: var(--surface);
 }
 .compareHint {
-  font-size: 10px;
+  font-size: var(--font-size-ui);
   color: var(--muted);
   padding-top: 4px;
 }
@@ -154,7 +155,7 @@
   max-width: 190px;
 }
 .confirm span {
-  font-size: 10px;
+  font-size: var(--font-size-ui);
   color: var(--warning);
 }
 .confirm button {
@@ -163,7 +164,7 @@
   padding: 6px;
   color: var(--warning);
   background: var(--warning-surface);
-  font-size: 10px;
+  font-size: var(--font-size-ui);
 }
 .notice {
   display: flex;
@@ -172,7 +173,7 @@
   padding: 16px;
   background: var(--warning-surface);
   color: var(--warning);
-  font-size: 12px;
+  font-size: var(--font-size-ui);
   line-height: 1.9;
   border-radius: 8px;
 }
@@ -187,7 +188,7 @@
 }
 .comparison > span {
   display: block;
-  font-size: 12px;
+  font-size: var(--font-size-caption);
   color: var(--text-accent);
 }
 .comparison > strong {
@@ -197,45 +198,29 @@
   color: var(--brand);
 }
 .comparison strong small {
-  font-size: 13px;
+  font-size: var(--font-size-ui);
   margin-left: 7px;
 }
 .comparison p {
-  font-size: 12px;
+  font-size: var(--font-size-body);
   line-height: 1.9;
   color: var(--text-body);
   margin: 12px 0 0;
 }
-.compact .heading h2 {
-  font-size: 12px;
-}
-.compact .heading p {
-  font-size: 10px;
-}
 .compact .empty {
   padding: 17px;
   background: var(--surface-soft);
-}
-.compact .empty p {
-  font-size: 11px;
 }
 @media (max-width: 680px) {
   .heading {
     gap: 15px;
     flex-wrap: wrap;
   }
-  .heading h2 {
-    font-size: 14px;
-  }
-  .heading p {
-    font-size: 10px;
-  }
   .empty {
     padding: 18px;
     flex-wrap: wrap;
   }
   .empty p {
-    font-size: 11px;
     flex: 1;
   }
   .empty a {
@@ -251,19 +236,10 @@
   .mean {
     min-width: 75px;
   }
-  .mean strong {
-    font-size: 21px;
-  }
-  .recordContext > strong {
-    font-size: 12px;
-  }
   .rowActions {
     margin-left: 28px;
   }
   .compact .rowActions {
     margin: 0;
-  }
-  .compact .heading {
-    flex-wrap: nowrap;
   }
 }

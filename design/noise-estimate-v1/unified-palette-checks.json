@@ -1,0 +1,250 @@
+{
+  "kind": "static-component-preview",
+  "measurement": false,
+  "stops": [
+    {
+      "color": "rgb(93, 169, 124)",
+      "offset": "0%"
+    },
+    {
+      "color": "rgb(163, 201, 107)",
+      "offset": "14.64466094067262%"
+    },
+    {
+      "color": "rgb(228, 207, 91)",
+      "offset": "49.99999999999999%"
+    },
+    {
+      "color": "rgb(239, 155, 76)",
+      "offset": "85.35533905932738%"
+    },
+    {
+      "color": "rgb(238, 98, 86)",
+      "offset": "100%"
+    }
+  ],
+  "cases": [
+    {
+      "value": 0,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "activeBars": 0,
+      "activeOpacity": [],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "0 100"
+    },
+    {
+      "value": 30,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "activeBars": 10,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "25 100"
+    },
+    {
+      "value": 60,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "activeBars": 20,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "50 100"
+    },
+    {
+      "value": 90,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "activeBars": 30,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "75 100"
+    },
+    {
+      "value": 105,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "activeBars": 35,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "87.5 100"
+    },
+    {
+      "value": 120,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "activeBars": 40,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [],
+      "progress": "100 100"
+    },
+    {
+      "value": 0,
+      "width": 390,
+      "scrollWidth": 390,
+      "activeBars": 0,
+      "activeOpacity": [],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "0 100"
+    },
+    {
+      "value": 30,
+      "width": 390,
+      "scrollWidth": 390,
+      "activeBars": 10,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "25 100"
+    },
+    {
+      "value": 60,
+      "width": 390,
+      "scrollWidth": 390,
+      "activeBars": 20,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "50 100"
+    },
+    {
+      "value": 90,
+      "width": 390,
+      "scrollWidth": 390,
+      "activeBars": 30,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "75 100"
+    },
+    {
+      "value": 105,
+      "width": 390,
+      "scrollWidth": 390,
+      "activeBars": 35,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "87.5 100"
+    },
+    {
+      "value": 120,
+      "width": 390,
+      "scrollWidth": 390,
+      "activeBars": 40,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [],
+      "progress": "100 100"
+    },
+    {
+      "value": 0,
+      "width": 320,
+      "scrollWidth": 320,
+      "activeBars": 0,
+      "activeOpacity": [],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "0 100"
+    },
+    {
+      "value": 30,
+      "width": 320,
+      "scrollWidth": 320,
+      "activeBars": 10,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "25 100"
+    },
+    {
+      "value": 60,
+      "width": 320,
+      "scrollWidth": 320,
+      "activeBars": 20,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "50 100"
+    },
+    {
+      "value": 90,
+      "width": 320,
+      "scrollWidth": 320,
+      "activeBars": 30,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "75 100"
+    },
+    {
+      "value": 105,
+      "width": 320,
+      "scrollWidth": 320,
+      "activeBars": 35,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [
+        "0.45"
+      ],
+      "progress": "87.5 100"
+    },
+    {
+      "value": 120,
+      "width": 320,
+      "scrollWidth": 320,
+      "activeBars": 40,
+      "activeOpacity": [
+        "1"
+      ],
+      "inactiveOpacity": [],
+      "progress": "100 100"
+    }
+  ]
+}

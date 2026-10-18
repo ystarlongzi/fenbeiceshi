@@ -1,0 +1,230 @@
+[
+  {
+    "path": "/#measure",
+    "buttons": [
+      {
+        "size": "12px",
+        "text": "指针"
+      },
+      {
+        "size": "12px",
+        "text": "数显"
+      },
+      {
+        "size": "12px",
+        "text": "条形"
+      }
+    ],
+    "scrollWidth": 1280,
+    "settings": [
+      {
+        "size": "12px",
+        "text": "获得权限后，可查看并选择可用输入。运行中更换设备需先结束。"
+      },
+      {
+        "size": "12px",
+        "text": "无需校准即可查看估算。有参考声级计时，可对照稳定读数修正当前设备的偏移。"
+      },
+      {
+        "size": "12px",
+        "text": "参考关系仅在本次页面停留期间使用。"
+      },
+      {
+        "size": "12px",
+        "text": "记录位置和状态，方便下一次在相同条件下复测。"
+      }
+    ],
+    "small": [],
+    "width": 1280
+  },
+  {
+    "path": "/en/#measure",
+    "buttons": [
+      {
+        "size": "12px",
+        "text": "Dial"
+      },
+      {
+        "size": "12px",
+        "text": "Digital"
+      },
+      {
+        "size": "12px",
+        "text": "Bars"
+      }
+    ],
+    "scrollWidth": 1280,
+    "settings": [
+      {
+        "size": "12px",
+        "text": "Available inputs appear after permission. Finish before switching devices."
+      },
+      {
+        "size": "12px",
+        "text": "Start with a generic estimate. A reference meter can optionally adjust the offset for this device."
+      },
+      {
+        "size": "12px",
+        "text": "The reference is kept only while this page remains open."
+      },
+      {
+        "size": "12px",
+        "text": "Keep a note of position and conditions for repeat observations."
+      }
+    ],
+    "small": [],
+    "width": 1280
+  },
+  {
+    "path": "/#measure",
+    "buttons": [
+      {
+        "size": "12px",
+        "text": "指针"
+      },
+      {
+        "size": "12px",
+        "text": "数显"
+      },
+      {
+        "size": "12px",
+        "text": "条形"
+      }
+    ],
+    "scrollWidth": 390,
+    "settings": [
+      {
+        "size": "12px",
+        "text": "获得权限后，可查看并选择可用输入。运行中更换设备需先结束。"
+      },
+      {
+        "size": "12px",
+        "text": "无需校准即可查看估算。有参考声级计时，可对照稳定读数修正当前设备的偏移。"
+      },
+      {
+        "size": "12px",
+        "text": "参考关系仅在本次页面停留期间使用。"
+      },
+      {
+        "size": "12px",
+        "text": "记录位置和状态，方便下一次在相同条件下复测。"
+      }
+    ],
+    "small": [],
+    "width": 390
+  },
+  {
+    "path": "/en/#measure",
+    "buttons": [
+      {
+        "size": "12px",
+        "text": "Dial"
+      },
+      {
+        "size": "12px",
+        "text": "Digital"
+      },
+      {
+        "size": "12px",
+        "text": "Bars"
+      }
+    ],
+    "scrollWidth": 390,
+    "settings": [
+      {
+        "size": "12px",
+        "text": "Available inputs appear after permission. Finish before switching devices."
+      },
+      {
+        "size": "12px",
+        "text": "Start with a generic estimate. A reference meter can optionally adjust the offset for this device."
+      },
+      {
+        "size": "12px",
+        "text": "The reference is kept only while this page remains open."
+      },
+      {
+        "size": "12px",
+        "text": "Keep a note of position and conditions for repeat observations."
+      }
+    ],
+    "small": [],
+    "width": 390
+  },
+  {
+    "path": "/#measure",
+    "buttons": [
+      {
+        "size": "12px",
+        "text": "指针"
+      },
+      {
+        "size": "12px",
+        "text": "数显"
+      },
+      {
+        "size": "12px",
+        "text": "条形"
+      }
+    ],
+    "scrollWidth": 320,
+    "settings": [
+      {
+        "size": "12px",
+        "text": "获得权限后，可查看并选择可用输入。运行中更换设备需先结束。"
+      },
+      {
+        "size": "12px",
+        "text": "无需校准即可查看估算。有参考声级计时，可对照稳定读数修正当前设备的偏移。"
+      },
+      {
+        "size": "12px",
+        "text": "参考关系仅在本次页面停留期间使用。"
+      },
+      {
+        "size": "12px",
+        "text": "记录位置和状态，方便下一次在相同条件下复测。"
+      }
+    ],
+    "small": [],
+    "width": 320
+  },
+  {
+    "path": "/en/#measure",
+    "buttons": [
+      {
+        "size": "12px",
+        "text": "Dial"
+      },
+      {
+        "size": "12px",
+        "text": "Digital"
+      },
+      {
+        "size": "12px",
+        "text": "Bars"
+      }
+    ],
+    "scrollWidth": 320,
+    "settings": [
+      {
+        "size": "12px",
+        "text": "Available inputs appear after permission. Finish before switching devices."
+      },
+      {
+        "size": "12px",
+        "text": "Start with a generic estimate. A reference meter can optionally adjust the offset for this device."
+      },
+      {
+        "size": "12px",
+        "text": "The reference is kept only while this page remains open."
+      },
+      {
+        "size": "12px",
+        "text": "Keep a note of position and conditions for repeat observations."
+      }
+    ],
+    "small": [],
+    "width": 320
+  }
+]
