@@ -5,8 +5,10 @@
   padding-top: 18px;
 }
 .stat {
+  --stat-ink: color-mix(in srgb, var(--stat-color, var(--ink)) 55%, var(--ink));
   padding: 17px 15px 14px;
   border: 1px solid var(--line);
+  border-top: 2px solid var(--stat-color, var(--line));
   border-radius: 12px;
   background: linear-gradient(150deg, var(--surface), var(--surface-soft));
   min-width: 0;
@@ -19,31 +21,24 @@
   color: var(--muted);
 }
 .label svg {
-  color: var(--brand);
-}
-.stat[data-tone="blue"] .label svg {
-  color: var(--info);
-}
-.stat[data-tone="amber"] .label svg {
-  color: var(--warning);
-}
-.stat[data-tone="neutral"] .label svg {
-  color: var(--muted);
+  color: var(--stat-ink);
 }
 .result {
   display: flex;
   align-items: baseline;
   gap: 5px;
   margin-top: 12px;
-  flex-wrap: wrap;
 }
 .result strong {
+  white-space: nowrap;
   font: 500 25px/1 var(--font-number);
   font-variant-numeric: tabular-nums;
   letter-spacing: -1px;
-  color: var(--ink);
+  color: var(--stat-ink);
 }
 .result span {
+  flex: 0 0 auto;
+  white-space: nowrap;
   font-size: var(--font-size-caption);
   color: var(--muted);
 }

@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { scalePosition } from "../level.ts";
 import { formatReading, NOISE_MAX, NOISE_MIN } from "../readings.ts";
+import { noiseColors, readingColor } from "../palette.ts";
 import type { MeterCopy } from "../copy.ts";
 import type { MeterView } from "../types.ts";
 import styles from "./index.module.css";
@@ -25,27 +26,13 @@ const labels = ticks
       top: `${(label.y / 250) * 100}%`,
     };
   });
-const paletteColors = [
-  "var(--noise-faint)",
-  "var(--noise-quiet)",
-  "var(--noise-everyday)",
-  "var(--noise-loud)",
-  "var(--noise-very-loud)",
-];
-const dialStops = paletteColors.map((color, i, colors) => ({
+const dialStops = noiseColors.map((color, i, colors) => ({
   color,
   // 弧线的刻度按角度等分，线性渐变的色点需换算到对应的横坐标。
   offset: `${((1 - Math.cos((Math.PI * i) / (colors.length - 1))) / 2) * 100}%`,
 }));
 const barCount = 40;
 const barPositions = Array.from({ length: barCount }, (_, i) => `${(i / (barCount - 1)) * 100}%`);
-
-function readingColor(position: number) {
-  const colorPosition = position * (paletteColors.length - 1);
-  const index = Math.min(Math.floor(colorPosition), paletteColors.length - 2);
-  const mix = (colorPosition - index) * 100;
-  return `color-mix(in srgb, ${paletteColors[index]}, ${paletteColors[index + 1]} ${mix}%)`;
-}
 
 export function MeterDisplay({
   value,
@@ -159,11 +146,7 @@ export function MeterDisplay({
           aria-live="off"
           className={styles.number}
           aria-label={`${copy.noiseLevel}: ${numeric} ${unit}`}
-          style={
-            position !== null
-              ? ({ "--reading-color": readingColor(position) } as CSSProperties)
-              : undefined
-          }
+          style={{ "--reading-color": readingColor(value) } as CSSProperties}
         >
           {numeric}
         </output>

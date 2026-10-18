@@ -1,0 +1,350 @@
+{
+  "kind": "application-preview",
+  "measurement": false,
+  "cases": [
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/",
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "55.0",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "57.8",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "56.6",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/",
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/en/",
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "55.0",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "57.8",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "56.6",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/en/",
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "55.0",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "58.5",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "57.0",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "— —",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/en/",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "55.0",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "57.8",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "56.6",
+          "unit": "dB",
+          "unitFontSize": "12px",
+          "withinCard": true
+        },
+        {
+          "fontSize": "25px",
+          "hasEstimate": false,
+          "sameLine": true,
+          "text": "00:00",
+          "unit": null,
+          "unitFontSize": null,
+          "withinCard": true
+        }
+      ],
+      "path": "/en/",
+      "scrollWidth": 320,
+      "width": 320
+    }
+  ]
+}

@@ -1,0 +1,636 @@
+{
+  "kind": "static-component-preview",
+  "measurement": false,
+  "cases": [
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #a3c96b, #e4cf5b 0%)",
+          "border": "color(srgb 0.639216 0.788235 0.419608)",
+          "contrast": 3.9012116466369178,
+          "icon": "color(srgb 0.408039 0.527059 0.306667)",
+          "ink": "color(srgb 0.408039 0.527059 0.306667)",
+          "text": "30.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 66.66666666666666%)",
+          "border": "color(srgb 0.934641 0.458824 0.324183)",
+          "contrast": 5.424099414657391,
+          "icon": "color(srgb 0.570523 0.345882 0.254183)",
+          "ink": "color(srgb 0.570523 0.345882 0.254183)",
+          "text": "110.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 50%)",
+          "border": "color(srgb 0.915686 0.709804 0.327451)",
+          "contrast": 3.9296500893934656,
+          "icon": "color(srgb 0.560098 0.483922 0.25598)",
+          "ink": "color(srgb 0.560098 0.483922 0.25598)",
+          "text": "75.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.915686 0.709804 0.327451)",
+      "path": "/light/",
+      "scrollWidth": 1280,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #a3c96b, #e4cf5b 0%)",
+          "border": "color(srgb 0.639216 0.788235 0.419608)",
+          "contrast": 9.676651832098075,
+          "icon": "color(srgb 0.752157 0.851765 0.624314)",
+          "ink": "color(srgb 0.752157 0.851765 0.624314)",
+          "text": "30.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 66.66666666666666%)",
+          "border": "color(srgb 0.934641 0.458824 0.324183)",
+          "contrast": 7.574830271893364,
+          "icon": "color(srgb 0.914641 0.670588 0.57183)",
+          "ink": "color(srgb 0.914641 0.670588 0.57183)",
+          "text": "110.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 50%)",
+          "border": "color(srgb 0.915686 0.709804 0.327451)",
+          "contrast": 9.651428436026778,
+          "icon": "color(srgb 0.904216 0.808627 0.573627)",
+          "ink": "color(srgb 0.904216 0.808627 0.573627)",
+          "text": "75.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.915686 0.709804 0.327451)",
+      "path": "/dark/",
+      "scrollWidth": 1280,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "00:00",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "rgb(224, 239, 202)",
+      "path": "/empty/",
+      "scrollWidth": 1280,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "00:00",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "rgb(224, 239, 202)",
+      "path": "/dark-empty/",
+      "scrollWidth": 1280,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.894118 0.811765 0.356863)",
+      "path": "/yellow/",
+      "scrollWidth": 1280,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "120.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "120.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "120.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.933333 0.384314 0.337255)",
+      "path": "/red/",
+      "scrollWidth": 1280,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #5da97c, #a3c96b 0%)",
+          "border": "color(srgb 0.364706 0.662745 0.486275)",
+          "contrast": 5.129423725465845,
+          "icon": "color(srgb 0.257059 0.458039 0.343333)",
+          "ink": "color(srgb 0.257059 0.458039 0.343333)",
+          "text": "−10.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "140.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.894118 0.811765 0.356863)",
+      "path": "/range/",
+      "scrollWidth": 1280,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #a3c96b, #e4cf5b 0%)",
+          "border": "color(srgb 0.639216 0.788235 0.419608)",
+          "contrast": 3.9012116466369178,
+          "icon": "color(srgb 0.408039 0.527059 0.306667)",
+          "ink": "color(srgb 0.408039 0.527059 0.306667)",
+          "text": "30.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 66.66666666666666%)",
+          "border": "color(srgb 0.934641 0.458824 0.324183)",
+          "contrast": 5.424099414657391,
+          "icon": "color(srgb 0.570523 0.345882 0.254183)",
+          "ink": "color(srgb 0.570523 0.345882 0.254183)",
+          "text": "110.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 50%)",
+          "border": "color(srgb 0.915686 0.709804 0.327451)",
+          "contrast": 3.9296500893934656,
+          "icon": "color(srgb 0.560098 0.483922 0.25598)",
+          "ink": "color(srgb 0.560098 0.483922 0.25598)",
+          "text": "75.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.915686 0.709804 0.327451)",
+      "path": "/light/",
+      "scrollWidth": 320,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #a3c96b, #e4cf5b 0%)",
+          "border": "color(srgb 0.639216 0.788235 0.419608)",
+          "contrast": 9.676651832098075,
+          "icon": "color(srgb 0.752157 0.851765 0.624314)",
+          "ink": "color(srgb 0.752157 0.851765 0.624314)",
+          "text": "30.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 66.66666666666666%)",
+          "border": "color(srgb 0.934641 0.458824 0.324183)",
+          "contrast": 7.574830271893364,
+          "icon": "color(srgb 0.914641 0.670588 0.57183)",
+          "ink": "color(srgb 0.914641 0.670588 0.57183)",
+          "text": "110.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 50%)",
+          "border": "color(srgb 0.915686 0.709804 0.327451)",
+          "contrast": 9.651428436026778,
+          "icon": "color(srgb 0.904216 0.808627 0.573627)",
+          "ink": "color(srgb 0.904216 0.808627 0.573627)",
+          "text": "75.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.915686 0.709804 0.327451)",
+      "path": "/dark/",
+      "scrollWidth": 320,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "00:00",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "rgb(224, 239, 202)",
+      "path": "/empty/",
+      "scrollWidth": 320,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "— —",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(48, 65, 52)",
+          "contrast": 12.336629520101532,
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "ink": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "00:00",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "rgb(224, 239, 202)",
+      "path": "/dark-empty/",
+      "scrollWidth": 320,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.894118 0.811765 0.356863)",
+      "path": "/yellow/",
+      "scrollWidth": 320,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "120.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "120.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "120.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.933333 0.384314 0.337255)",
+      "path": "/red/",
+      "scrollWidth": 320,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "accent": "color-mix(in srgb, #5da97c, #a3c96b 0%)",
+          "border": "color(srgb 0.364706 0.662745 0.486275)",
+          "contrast": 5.129423725465845,
+          "icon": "color(srgb 0.257059 0.458039 0.343333)",
+          "ink": "color(srgb 0.257059 0.458039 0.343333)",
+          "text": "−10.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #ef9b4c, #ee6256 100%)",
+          "border": "color(srgb 0.933333 0.384314 0.337255)",
+          "contrast": 5.9369259147983655,
+          "icon": "color(srgb 0.569804 0.304902 0.261373)",
+          "ink": "color(srgb 0.569804 0.304902 0.261373)",
+          "text": "140.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "color-mix(in srgb, #e4cf5b, #ef9b4c 0%)",
+          "border": "color(srgb 0.894118 0.811765 0.356863)",
+          "contrast": 3.4419583400222487,
+          "icon": "color(srgb 0.548235 0.54 0.272157)",
+          "ink": "color(srgb 0.548235 0.54 0.272157)",
+          "text": "60.0",
+          "withinViewport": true
+        },
+        {
+          "accent": "",
+          "border": "rgb(226, 232, 225)",
+          "contrast": 12.469952890551223,
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "ink": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "01:01",
+          "withinViewport": true
+        }
+      ],
+      "mainColor": "color(srgb 0.894118 0.811765 0.356863)",
+      "path": "/range/",
+      "scrollWidth": 320,
+      "theme": "light",
+      "width": 320
+    }
+  ]
+}

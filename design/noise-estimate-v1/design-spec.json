@@ -34,13 +34,16 @@
   "meterPalette": {
     "source": "../../src/features/sound-meter/index.module.css",
     "definition": ".workbench 的 --noise-faint、--noise-quiet、--noise-everyday、--noise-loud、--noise-very-loud 和 --noise-gradient",
-    "colors": "复用 scale.band.stops，色带、仪表弧线、条形模式与三种模式的读数数字共用同一处颜色定义。",
+    "colors": "复用 scale.band.stops，色带、仪表弧线、条形模式、三种模式的读数数字与统计项共用同一处颜色定义。",
+    "mapping": "../../src/features/sound-meter/palette.ts",
     "inactiveOpacity": 0.45,
     "activeOpacity": 1,
     "dial": "SVG 色点按各圆弧刻度的横坐标投影设置，确保 30、60、90 的颜色与刻度对应。",
     "bars": "40 根条形连续采样同一渐变；点亮数量仍按统一读数位置计算。",
     "readout": "三种模式的数字按统一读数位置在相邻色点间以 sRGB 连续混色；无读数时保持中性色，超出刻度时沿用端点色但不截断数值。",
-    "digital": "数显模式的微弱光晕跟随文字颜色。"
+    "digital": "数显模式的微弱光晕跟随文字颜色。",
+    "statistics": "最低、最高与平均值按各自分贝着色，顶部 2px 细线使用原量级色；数字与图标以 55% 量级色混合 45% 主题正文色，确保浅色背景可读。有效时长和无数据项保持中性。",
+    "statisticsUnit": "统计卡片的分贝单位仅显示 dB，紧随数字同一行、基线对齐；中英文一致，有效时长不带分贝单位。"
   },
   "signal": "麦克风旁五根输入幅度柱，空闲和停止不亮，演示单独标记，过载同时有文字；不展示负分贝主刻度。",
   "records": "版本 2 保留估算模型；历史相对记录保留原单位，比较按模型与输入隔离。",
@@ -64,7 +67,12 @@
     "desktopDigitalDemo": "desktop-digital-demo.jpg",
     "mobileDigitalDemoEn": "mobile-digital-demo-en.jpg",
     "desktopAllModeReadouts120": "desktop-all-mode-readouts-120.jpg",
-    "mobileAllModeBarsDemo": "mobile-all-mode-bars-demo.jpg"
+    "mobileAllModeBarsDemo": "mobile-all-mode-bars-demo.jpg",
+    "desktopStatsColorsLight": "desktop-stats-colors-light.jpg",
+    "mobileStatsColorsDark": "mobile-stats-colors-dark.jpg",
+    "mobileStatsColorsLight": "mobile-stats-colors-light.jpg",
+    "mobileStatsDemoEn": "mobile-stats-demo-en.jpg",
+    "mobileStatsInlineUnit": "mobile-stats-inline-unit.jpg"
   },
   "nonClaims": ["dBA", "认证声级测量", "安全判断", "量化准确度"]
 }
