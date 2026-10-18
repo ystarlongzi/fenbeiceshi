@@ -1,5 +1,6 @@
 {
   "observedAt": "2026-10-17",
+  "updatedAt": "2026-10-18",
   "method": "实际浏览器渲染、公开 DOM、指定模块和交互；不是流量或准确度审计。",
   "desktopViewport": { "width": 1280, "height": 720 },
   "mobileViewport": { "width": 390, "height": 844 },
@@ -83,6 +84,70 @@
         "roles": ["识别图标", "主要标题", "次级说明", "低对比背景编号"]
       },
       "screenshots": ["竞品截图/toolkk-scenes.jpg"]
+    },
+    {
+      "observedAt": "2026-10-18",
+      "url": "https://realtimesoundmeter.org/cn/",
+      "note": "与 realtimesoundmeter.com/zh/ 分别观察，不混用两个域名的证据。",
+      "desktopViewport": { "width": 1280, "height": 720 },
+      "mobileViewport": { "width": 390, "height": 844 },
+      "microphoneGranted": false,
+      "tested": [
+        "声音等级条目点击",
+        "数值输入联动",
+        "滑块键盘步进",
+        "健康模块桌面与手机布局",
+        "手机重新加载",
+        "WHO 与 NIOSH 来源核对"
+      ],
+      "soundGuide": { "bands": 6, "interactiveControls": 0, "selectionFeedback": false },
+      "exposureCalculator": {
+        "inputId": "exposureDbInput",
+        "sliderId": "exposureDbRange",
+        "min": 40,
+        "max": 130,
+        "step": 0.5,
+        "displayedUnit": "dB",
+        "observedResults": [
+          { "input": 85, "result": "8 小时" },
+          { "input": 88, "result": "4 小时" },
+          { "input": 100, "result": "15 分钟" },
+          { "input": 110, "result": "1 分钟" },
+          { "input": 120, "result": "不到 1 分钟" },
+          { "input": 70, "result": "24+ 小时" },
+          { "input": 40, "result": "24+ 小时" }
+        ],
+        "keyboardRightFrom85": { "input": 85.5, "slider": 85.5, "result": "7.1 小时" },
+        "sliderHasAccessibleLabel": false,
+        "resultHasLiveRegion": false,
+        "durationBarWidthsPercent": { "85": 80, "100": 40 },
+        "barCaveat": "宽度为示意，未按真实时长比例绘制。"
+      },
+      "healthModule": {
+        "topics": ["听力", "压力情绪", "睡眠", "心血管", "认知注意力", "儿童学习发展"],
+        "desktopColumns": 3,
+        "desktopGap": 16,
+        "desktopCardWidthApprox": 379,
+        "mobileColumns": 1,
+        "mobileModuleWidth": 358,
+        "mobileModuleHeightApprox": 1390,
+        "paragraphFontSize": 12,
+        "mobileDocumentWidthAfterReload": 390,
+        "mobileFloatingStartButton": { "top": 772, "bottom": 828, "height": 56 },
+        "sourcePattern": "每卡外链，主要使用 WHO Europe 与 CDC/NIOSH；认知卡使用 HHF。"
+      },
+      "issues": [
+        "职业暴露模型标为普通 dB 与最大安全时长，适用条件容易被忽略",
+        "睡眠 40 dB 归纳遗漏卧室外全年夜间平均的来源语境",
+        "静态 70 不限时说明与计算器 24+ 小时需要区分模型和健康影响",
+        "手机固定开始按钮覆盖部分阅读内容",
+        "桌面切换手机后广告 iframe 曾保留 1200px 宽；手机重新加载后恢复"
+      ],
+      "screenshots": [
+        "竞品截图/realtime-org-exposure-desktop.png",
+        "竞品截图/realtime-org-health-desktop.png",
+        "竞品截图/realtime-org-health-mobile.png"
+      ]
     }
   ],
   "notVerified": [

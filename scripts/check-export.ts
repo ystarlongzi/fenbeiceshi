@@ -5,8 +5,17 @@ import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts
 import { text } from "../src/lib/content/types.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
+import { healthEffects, healthSources } from "../src/lib/content/health-effects.ts";
 
 const locales = ["zh-CN", "en"] as const;
+function escapeText(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#x27;");
+}
 const htmlByPath = new Map<string, string>();
 const titles = new Set<string>();
 for (const page of sitePages) {
@@ -27,6 +36,11 @@ for (const page of sitePages) {
     assert.match(html, /<meta name="description" content="[^"]+"/, path);
     const noindex = /<meta name="robots" content="[^"]*noindex/.test(html);
     assert.equal(noindex, !page.index, path);
+    if (page.id === "meter")
+      assert.ok(
+        html.includes(`href="${href("decibel-chart", locale)}#health"`),
+        `首页缺少健康导读：${path}`,
+      );
     const navigation = html.match(
       /<nav aria-label="(?:主导航|Main navigation)">([\s\S]*?)<\/nav>/,
     )?.[1];
@@ -57,10 +71,7 @@ for (const page of sitePages) {
     const content = contents.find((item) => item.id === page.id);
     if (content) {
       const visible = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
-      const excerpt = text(content.takeaway, locale)
-        .slice(0, 18)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;");
+      const excerpt = escapeText(text(content.takeaway, locale).slice(0, 18));
       assert.ok(visible.includes(excerpt), `核心答案不在静态正文：${path}`);
       for (const source of content.sources) assert.ok(visible.includes(source.url), path);
       const toc = visible.match(
@@ -85,6 +96,28 @@ for (const page of sitePages) {
           assert.ok(visible.includes(`id="${source.id}"`), path);
         assert.ok(visible.includes('id="sound-query"'), path);
         assert.ok(visible.includes('id="levels"') && visible.includes('id="exposure"'), path);
+        for (const id of [
+          "sound-level-input",
+          "sound-level-range",
+          "exposure-level-input",
+          "exposure-level-range",
+          "health",
+        ])
+          assert.ok(visible.includes(`id="${id}"`), `缺少交互或健康模块：${path} → ${id}`);
+        for (const effect of healthEffects) {
+          assert.ok(visible.includes(`data-health-id="${effect.id}"`), path);
+          assert.ok(
+            visible.includes(escapeText(text(effect.summary, locale))),
+            `健康摘要不在静态正文：${path}`,
+          );
+          assert.ok(
+            visible.includes(escapeText(text(effect.detail, locale))),
+            `展开内容不在静态正文：${path}`,
+          );
+          assert.ok(visible.includes(effect.source.url), path);
+        }
+        for (const source of Object.values(healthSources))
+          assert.ok(visible.includes(`id="${source.id}"`), path);
       }
     }
     for (const script of html.matchAll(

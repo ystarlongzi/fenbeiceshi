@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "updated": "2026-10-18",
+  "status": "local-implementation",
+  "routes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
+  "task": "通过分段与数值探索查找声音参考，理解职业暴露关系、一般健康影响与可采取的行动。",
+  "hierarchy": {
+    "primary": "七档选择与数值/名称/类别查询共享筛选，默认展示完整 31 项声音。",
+    "reading": "数值与实例 → 对数刻度 → 职业暴露参考 → 六类健康主题 → 比较方法与读数限制。",
+    "surfaces": "七档保留 V1 整行底色，以内描边及标记表示当前分段；数值输入与结果就近，健康主题为可独立阅读的双列对象，原生展开补充背景与行动。",
+    "mobile": "健康主题单列、摘要常驻、详情按需展开；固定字号，控件与长英文自然换行，无新增固定操作栏。"
+  },
+  "selection": {
+    "modes": ["全部", "分段", "单值"],
+    "range": [0, 160],
+    "step": 1,
+    "boundaries": "下限计入、上限不计入，末档含 160；跨档参考按范围交集匹配。",
+    "composition": "局部 Client Provider 共享分段和数值选择，文章通过 children 保持服务端渲染；名称与类别状态留在查询组件。",
+    "feedback": "分段选中、结果数量、有效筛选说明、清除分贝与重置全部；分段选择后聚焦结果，输入及拖动不自动跳页。"
+  },
+  "exposure": {
+    "input": "独立手动 85–100 整数 dBA",
+    "formulaMinutes": "480 * 2 ** ((85 - level) / 3)",
+    "scope": "NIOSH 职业暴露参考关系教学；不接入仪表估算，不计算个人安全倒计时；无效输入无结果。"
+  },
+  "health": {
+    "topics": ["听力与耳鸣", "睡眠与休息", "烦扰与压力", "长期心血管影响", "专注与学习表现", "儿童的学习环境"],
+    "sourceFile": "../../src/lib/content/health-effects.ts",
+    "rendering": "六类摘要、展开正文、行动及来源全部输出静态 HTML，使用原生 details，无客户端状态。",
+    "homeEntry": "首页声音知识区的简短导读，链接至现有对照页 #health。",
+    "scope": "公开资料的一般科普；保留指标、时段、人群和研究语境，不通过单次网页读数判断个人健康。"
+  },
+  "appearance": "复用 V1 七档亮暗背景配色；公共主题语义变量和固定字号不变，组件样式相邻维护。",
+  "verification": "../../docs/验证/分贝对照联动与健康模块验证.md",
+  "screenshots": {
+    "lookupDesktop": "lookup-desktop-zh.png",
+    "lookupDark": "lookup-desktop-dark-zh.png",
+    "healthDesktop": "health-desktop-zh.png",
+    "healthMobile": "health-mobile-zh.png",
+    "exposureMobile": "exposure-mobile-zh.png",
+    "healthEnglishDarkMobile": "health-mobile-dark-en.png"
+  }
+}

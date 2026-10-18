@@ -7,6 +7,7 @@ import {
   soundReferences,
   soundSources,
 } from "../src/lib/content/sound-references.ts";
+import { healthEffects, healthSources } from "../src/lib/content/health-effects.ts";
 
 const locales = ["zh-CN", "en"] as const;
 const ids = sitePages.map((page) => page.id);
@@ -67,9 +68,25 @@ for (const sound of soundReferences) {
   assert.ok(sound.name.zh && sound.name.en && sound.context.zh && sound.context.en, sound.id);
 }
 for (const band of soundBands) {
+  assert.ok(band.min >= 0 && band.max > band.min && band.max <= 160, band.range);
   assert.ok(
     band.examples.every((id) => soundIds.includes(id)),
     `分段示例缺失：${band.range}`,
+  );
+}
+assert.equal(soundBands[0].min, 0);
+assert.equal(soundBands.at(-1)?.max, 160);
+for (let index = 1; index < soundBands.length; index += 1)
+  assert.equal(soundBands[index - 1].max, soundBands[index].min, "分段必须连续");
+assert.equal(new Set(healthEffects.map((effect) => effect.id)).size, 6);
+for (const effect of healthEffects) {
+  for (const field of [effect.title, effect.summary, effect.detail, effect.action])
+    assert.ok(field.zh && field.en, `健康主题缺少双语内容：${effect.id}`);
+  assert.ok(
+    [...Object.values(soundSources), ...Object.values(healthSources)].some(
+      (source) => source.url === effect.source.url,
+    ),
+    effect.id,
   );
 }
 const sourceIds = Object.values(soundSources).map((source) => source.id);

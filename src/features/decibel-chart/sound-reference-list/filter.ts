@@ -11,10 +11,17 @@ export interface LookupSound extends Pick<
   sourceLabel: string;
 }
 
+export interface LevelRange {
+  min: number;
+  max: number;
+  includeMax: boolean;
+}
+
 export function filterSounds(
   sounds: LookupSound[],
   query: string,
   category: string,
+  range: LevelRange | null = null,
 ): LookupSound[] {
   const normalized = query.slice(0, 100).normalize("NFKC").trim().toLowerCase();
   const levelQuery = normalized.match(/^(\d+(?:\.\d+)?)\s*(db(?:a|\(a\))?|分贝)?$/u);
@@ -27,6 +34,11 @@ export function filterSounds(
   const tokens = normalized.split(/\s+/u);
   return sounds.filter((sound) => {
     if (category !== "all" && sound.category !== category) return false;
+    if (
+      range &&
+      (sound.max < range.min || (range.includeMax ? sound.min > range.max : sound.min >= range.max))
+    )
+      return false;
     if (!normalized) return true;
     if (value !== null) {
       return (

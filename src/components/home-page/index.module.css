@@ -293,6 +293,28 @@
 .articles {
   border-top: 1px solid var(--line-strong);
 }
+.healthGuide {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.healthGuide strong {
+  font-size: var(--font-size-body);
+  font-weight: 600;
+}
+.healthGuide p {
+  margin: 8px 0 12px;
+  color: var(--muted);
+  font-size: var(--font-size-body);
+  line-height: 1.8;
+}
+.healthGuide a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-ui);
+  color: var(--brand);
+}
 .articles > a {
   display: flex;
   align-items: center;

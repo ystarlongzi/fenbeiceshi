@@ -78,3 +78,42 @@ test("无结果和特殊字符作为普通文本处理", () => {
   assert.deepEqual(ids("<script>"), []);
   assert.deepEqual(ids("-40"), []);
 });
+
+test("分段按范围交集筛选，保留跨档条目并将交界单值归入后一档", () => {
+  const before60 = { min: 40, max: 60, includeMax: false };
+  assert.deepEqual(
+    filterSounds(sounds, "", "all", before60).map((sound) => sound.id),
+    ["fridge", "dishwasher"],
+  );
+  const after60 = { min: 60, max: 70, includeMax: false };
+  assert.deepEqual(
+    filterSounds(sounds, "", "all", after60).map((sound) => sound.id),
+    ["dishwasher", "conversation"],
+  );
+  assert.deepEqual(
+    filterSounds(sounds, "", "appliances", after60).map((sound) => sound.id),
+    ["dishwasher"],
+  );
+});
+
+test("单值探索与名称、来源单位和类别组合，清除分贝筛选后恢复原查询", () => {
+  const at60 = { min: 60, max: 60, includeMax: true };
+  assert.deepEqual(
+    filterSounds(sounds, "60 dB", "all", at60).map((sound) => sound.id),
+    ["dishwasher"],
+  );
+  assert.deepEqual(
+    filterSounds(sounds, "conversation", "all", at60).map((sound) => sound.id),
+    ["conversation"],
+  );
+  assert.deepEqual(filterSounds(sounds, "冰箱", "all", at60), []);
+  assert.deepEqual(
+    filterSounds(sounds, "冰箱", "all", null).map((sound) => sound.id),
+    ["fridge"],
+  );
+  const endpoint = [{ ...sounds[0], id: "endpoint", min: 160, max: 160 }];
+  assert.equal(
+    filterSounds(endpoint, "", "all", { min: 120, max: 160, includeMax: true }).length,
+    1,
+  );
+});

@@ -202,6 +202,18 @@ export function HomePage({ locale }: { locale: Locale }) {
             {en ? "All guides" : "全部声音知识"}
             <LinkArrow size={15} />
           </Link>
+          <div className={styles.healthGuide}>
+            <strong>{en ? "Noise & health" : "噪音与健康"}</strong>
+            <p>
+              {en
+                ? "Understand hearing, sleep and longer-term effects, with sources and practical actions."
+                : "了解听力、睡眠与长期影响，结合来源和行动建议改善环境。"}
+            </p>
+            <Link href={`${href("decibel-chart", locale)}#health`}>
+              {en ? "Read about health effects" : "了解噪音对健康的影响"}
+              <LinkArrow size={15} />
+            </Link>
+          </div>
         </div>
         <div className={styles.articles}>
           {articles.map((article, i) => (

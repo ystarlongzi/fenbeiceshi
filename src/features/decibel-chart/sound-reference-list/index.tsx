@@ -4,6 +4,8 @@ import { useRef, useState } from "react";
 import { Icon } from "@/components/icon";
 import type { Locale } from "@/features/sound-meter/types";
 import { filterSounds, referenceLevel, type LookupSound } from "./filter";
+import { SoundExplorer } from "../sound-explorer";
+import { useSoundSelection } from "../sound-explorer/selection";
 import styles from "./index.module.css";
 
 export function SoundReferenceList({
@@ -16,18 +18,21 @@ export function SoundReferenceList({
   locale: Locale;
 }) {
   const en = locale === "en";
+  const { selection, setSelection, range, invalid, band, value } = useSoundSelection();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const inputRef = useRef<HTMLInputElement>(null);
-  const matches = filterSounds(sounds, query, category);
+  const matches = invalid ? [] : filterSounds(sounds, query, category, range);
   const categoryLabels = new Map(categories.map((item) => [item.id, item.label]));
   function reset() {
     setQuery("");
     setCategory("all");
+    setSelection(null);
     inputRef.current?.focus();
   }
   return (
     <div className={styles.lookup}>
+      <SoundExplorer locale={locale} />
       <label className={styles.label} htmlFor="sound-query">
         {en ? "Search by sound or decibel level" : "按声音或分贝值查找"}
       </label>
@@ -76,7 +81,39 @@ export function SoundReferenceList({
           </button>
         ))}
       </div>
-      <p className={styles.count} role="status" aria-live="polite" aria-atomic="true">
+      <div className={styles.applied}>
+        <span>
+          {selection?.kind === "band" && band
+            ? `${band.range} · ${band.title}`
+            : invalid
+              ? en
+                ? "Invalid decibel value"
+                : "分贝数值待修正"
+              : value !== null
+                ? `${en ? "Value" : "数值"} ${value}`
+                : en
+                  ? "All levels"
+                  : "全部分贝范围"}
+        </span>
+        {selection ? (
+          <button type="button" onClick={() => setSelection(null)}>
+            {en ? "Clear level filter" : "清除分贝筛选"}
+          </button>
+        ) : null}
+        {query || category !== "all" || selection ? (
+          <button type="button" onClick={reset}>
+            {en ? "Reset all filters" : "重置全部筛选"}
+          </button>
+        ) : null}
+      </div>
+      <p
+        id="sound-results"
+        tabIndex={-1}
+        className={styles.count}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
         {en
           ? `${matches.length} of ${sounds.length} sound references`
           : `找到 ${matches.length} / ${sounds.length} 项声音参考`}
@@ -123,8 +160,12 @@ export function SoundReferenceList({
         <div className={styles.empty}>
           <p>
             {en
-              ? "No matching sounds. Try a shorter name, another level or all categories."
-              : "没有找到匹配声音。试试缩短名称、更换分贝值，或查看全部类别。"}
+              ? invalid
+                ? "Correct the decibel value above, or reset the filters."
+                : "No matching sounds. Try a shorter name, another level or all categories."
+              : invalid
+                ? "请先修正上方分贝数值，或重置筛选。"
+                : "没有找到匹配声音。试试缩短名称、更换分贝值，或查看全部类别。"}
           </p>
           <button type="button" onClick={reset}>
             {en ? "Reset lookup" : "重置查询"}

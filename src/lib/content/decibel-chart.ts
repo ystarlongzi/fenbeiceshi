@@ -1,4 +1,5 @@
 import { soundSources } from "./sound-references.ts";
+import { healthSources } from "./health-effects.ts";
 import { dual as t, type SiteContent } from "./types.ts";
 
 export const decibelChart: SiteContent = {
@@ -139,6 +140,21 @@ export const decibelChart: SiteContent = {
       ],
     },
     {
+      id: "health",
+      tocTitle: t("健康影响", "Health effects"),
+      title: t("噪音污染对健康的影响", "How noise pollution can affect health"),
+      paragraphs: [
+        t(
+          "噪音的影响不限于听力，也可能涉及睡眠、烦扰和长期健康。以下概括 WHO 与 CDC/NIOSH 的公开资料；实际影响与声源、暴露方式及个人情况有关。",
+          "Noise can affect hearing, sleep, annoyance and long-term health. These summaries draw on public WHO and CDC/NIOSH material; effects depend on the source, exposure and individual circumstances.",
+        ),
+        t(
+          "展开各主题查看背景与应对建议，来源就在条目下方。这里不使用单次网页读数判断个人健康风险。",
+          "Expand a topic for context and practical actions, with its source immediately below. A single browser reading cannot determine personal health risk.",
+        ),
+      ],
+    },
+    {
       id: "distance",
       tocTitle: t("比较方法", "How to compare"),
       title: t("怎样比较自己环境里的声音？", "How to compare sounds in your surroundings"),
@@ -179,6 +195,6 @@ export const decibelChart: SiteContent = {
       ],
     },
   ],
-  sources: Object.values(soundSources),
+  sources: [...Object.values(soundSources), ...Object.values(healthSources)],
   related: ["dbfs-spl", "phone-accuracy", "calibration", "guide"],
 };

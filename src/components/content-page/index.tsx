@@ -14,16 +14,18 @@ export function ContentPage({
   id,
   locale,
   sectionContent = {},
+  className = "",
 }: {
   id: string;
   locale: Locale;
   sectionContent?: Record<string, ReactNode>;
+  className?: string;
 }) {
   const content = contents.find((item) => item.id === id);
   if (!content) throw new Error(`缺少正文：${id}`);
   const en = locale === "en";
   return (
-    <article className={styles.article}>
+    <article className={`${styles.article} ${className}`}>
       <StructuredData data={breadcrumbData(id, locale)} />
       {content.kind === "article" ? (
         <StructuredData

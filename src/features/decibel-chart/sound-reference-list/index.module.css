@@ -72,6 +72,26 @@
 }
 .lookup .count {
   margin: 18px 0 12px;
+  scroll-margin-top: 100px;
+}
+.applied {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 18px;
+  color: var(--text-accent);
+  font-size: var(--font-size-ui);
+}
+.applied button {
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: var(--font-size-ui);
+  min-height: 36px;
 }
 .columns,
 .results > .soundRow {
