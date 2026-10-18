@@ -194,19 +194,6 @@
   letter-spacing: 0.1em;
   margin: 0 0 16px;
 }
-.toc nav {
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-}
-.toc nav a {
-  font-size: var(--font-size-ui);
-  color: var(--text-accent);
-  line-height: 1.9;
-}
-.toc nav a:hover {
-  color: var(--text-accent);
-}
 .tocBack {
   display: flex;
   align-items: center;
@@ -242,11 +229,6 @@
     padding: 0 0 20px;
     border: 0;
     border-bottom: 1px solid var(--line);
-  }
-  .toc nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 7px 16px;
   }
   .toc > p {
     margin-bottom: 11px;

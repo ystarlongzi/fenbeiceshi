@@ -63,6 +63,15 @@ for (const page of sitePages) {
         .replace(/</g, "&lt;");
       assert.ok(visible.includes(excerpt), `核心答案不在静态正文：${path}`);
       for (const source of content.sources) assert.ok(visible.includes(source.url), path);
+      const toc = visible.match(
+        /<nav\b[^>]*aria-label="(?:本文目录|On this page)"[^>]*>([\s\S]*?)<\/nav>/,
+      )?.[1];
+      assert.ok(toc, `文章目录不在静态 HTML：${path}`);
+      assert.deepEqual(
+        [...toc.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]),
+        content.sections.map((section) => section.id),
+        `文章目录与章节不一致：${path}`,
+      );
       if (page.id === "decibel-chart") {
         for (const sound of soundReferences) {
           assert.ok(

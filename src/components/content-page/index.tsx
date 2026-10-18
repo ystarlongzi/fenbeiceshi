@@ -7,6 +7,7 @@ import { contents, href, pageById, SITE_URL } from "@/lib/routing/pages";
 import { text } from "@/lib/content/types";
 import { breadcrumbData } from "@/lib/seo/metadata";
 import type { Locale } from "@/features/sound-meter/types";
+import { TableOfContents } from "./table-of-contents";
 import styles from "./index.module.css";
 
 export function ContentPage({
@@ -156,13 +157,14 @@ export function ContentPage({
         </div>
         <aside className={styles.toc}>
           <p>{en ? "ON THIS PAGE" : "本页内容"}</p>
-          <nav aria-label={en ? "On this page" : "本文目录"}>
-            {content.sections.map((section) => (
-              <a key={section.id} href={`#${section.id}`}>
-                {text(section.tocTitle ?? section.title, locale)}
-              </a>
-            ))}
-          </nav>
+          <TableOfContents
+            key={id}
+            label={en ? "On this page" : "本文目录"}
+            items={content.sections.map((section) => ({
+              id: section.id,
+              label: text(section.tocTitle ?? section.title, locale),
+            }))}
+          />
           <Link className={styles.tocBack} href={`${href("meter", locale)}#measure`}>
             <Icon name="mic" size={15} />
             {en ? "Back to the tool" : "回到测量工具"}

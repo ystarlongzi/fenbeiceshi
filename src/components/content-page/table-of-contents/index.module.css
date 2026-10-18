@@ -1,0 +1,47 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: -12px;
+}
+.link {
+  display: block;
+  position: relative;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: var(--text-body);
+  font-size: var(--font-size-ui);
+  line-height: 1.9;
+}
+.link[aria-current="location"] {
+  background: var(--surface-accent);
+  color: var(--brand);
+  font-weight: 650;
+}
+.link[aria-current="location"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--brand);
+}
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: var(--surface-hover);
+    color: var(--text-accent);
+  }
+}
+@media (max-width: 760px) {
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    margin-left: -10px;
+  }
+  .link {
+    padding: 5px 10px;
+  }
+}

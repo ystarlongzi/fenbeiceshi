@@ -69,7 +69,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 全站字号使用 `globals.css` 的固定 `rem` 语义变量：辅助文字 12px、常规界面 14px、正文 16px、模块标题 20/24px、页面标题 32px（按浏览器默认 16px 基准换算）。不得使用视口单位、流动字号或手机断点缩小文字；窄屏通过换行和布局适配，保留用户缩放与字体设置。普通内容至少 12px，关键限制和错误至少 14px；图表刻度也保持固定 12px。仪表普通读数 72px、数显 80px、全屏 88px，仅按观察模式切换。当前规则覆盖历史规格中的字号值，实际验证见 [全站字号调整验证](./docs/验证/全站字号调整验证.md)。
 
 - 仪表样式切换等紧凑控件、设置辅助说明和设备名称使用固定 12px；按内容角色分配字号，不把所有控件和说明统一放大到 14px。输入处理警告仍使用 14px。
-- 分贝对照页沿用 `/knowledge/decibel-chart/` 与英文对应路径，并作为一级导航入口；页面组织见 [分贝对照 V1](./design/decibel-chart-v1/design-spec.json)。声音参考在 `src/lib/content/sound-references.ts` 统一维护，保留来源单位、范围和条件，正文与默认完整列表进入静态 HTML；仅筛选为客户端交互。新增例子须核对一手来源，不将通用估算解释为 dBA。
+- 分贝对照页沿用 `/knowledge/decibel-chart/` 与英文对应路径，并作为一级导航入口；页面组织见 [分贝对照 V1](./design/decibel-chart-v1/design-spec.json)。声音参考在 `src/lib/content/sound-references.ts` 统一维护，保留来源单位、范围和条件，正文与默认完整列表进入静态 HTML；筛选和文章目录定位保留为局部客户端交互。新增例子须核对一手来源，不将通用估算解释为 dBA。
 
 ## 工程营销、内容与实现入口
 
