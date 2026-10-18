@@ -3,6 +3,8 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
+import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
+import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
 
 const locales = ["zh-CN", "en"] as const;
 const htmlByPath = new Map<string, string>();
@@ -25,6 +27,27 @@ for (const page of sitePages) {
     assert.match(html, /<meta name="description" content="[^"]+"/, path);
     const noindex = /<meta name="robots" content="[^"]*noindex/.test(html);
     assert.equal(noindex, !page.index, path);
+    const navigation = html.match(
+      /<nav aria-label="(?:主导航|Main navigation)">([\s\S]*?)<\/nav>/,
+    )?.[1];
+    assert.ok(navigation, `缺少主导航：${path}`);
+    assert.ok(
+      navigation.includes(`href="${href("decibel-chart", locale)}"`),
+      `缺少分贝对照一级入口：${path}`,
+    );
+    const selected = [...navigation.matchAll(/<a\b([^>]*)>/g)].filter((match) =>
+      match[1].includes("aria-current="),
+    );
+    const expectedSection = ["meter", "decibel-chart", "knowledge", "guide", "records"].includes(
+      page.id,
+    )
+      ? page.id
+      : page.slug.startsWith("knowledge/")
+        ? "knowledge"
+        : null;
+    assert.equal(selected.length, expectedSection ? 1 : 0, `导航选中数量不正确：${path}`);
+    if (expectedSection)
+      assert.ok(selected[0][1].includes(`href="${href(expectedSection, locale)}"`), path);
     for (const alternate of locales)
       assert.ok(
         html.includes(`hrefLang="${alternate}" href="${SITE_URL + href(page.id, alternate)}"`) ||
@@ -40,6 +63,20 @@ for (const page of sitePages) {
         .replace(/</g, "&lt;");
       assert.ok(visible.includes(excerpt), `核心答案不在静态正文：${path}`);
       for (const source of content.sources) assert.ok(visible.includes(source.url), path);
+      if (page.id === "decibel-chart") {
+        for (const sound of soundReferences) {
+          assert.ok(
+            visible.includes(`data-sound-id="${sound.id}"`),
+            `声音条目不在静态正文：${path} → ${sound.id}`,
+          );
+          assert.ok(visible.includes(text(sound.name, locale)), path);
+          assert.ok(visible.includes(referenceLevel(sound)), path);
+        }
+        for (const source of Object.values(soundSources))
+          assert.ok(visible.includes(`id="${source.id}"`), path);
+        assert.ok(visible.includes('id="sound-query"'), path);
+        assert.ok(visible.includes('id="levels"') && visible.includes('id="exposure"'), path);
+      }
     }
     for (const script of html.matchAll(
       /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g,

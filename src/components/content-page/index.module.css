@@ -124,6 +124,9 @@
   list-style: none;
   padding: 0;
 }
+.sources li[id] {
+  scroll-margin-top: 100px;
+}
 .sources a {
   display: inline-flex;
   align-items: center;

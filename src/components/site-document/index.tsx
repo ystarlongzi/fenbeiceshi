@@ -12,7 +12,13 @@ import styles from "./index.module.css";
 export function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
   const english = locale === "en";
   const nav = [
-    { id: "meter", label: english ? "Measure" : "开始测量", icon: "mic", optional: true },
+    { id: "meter", label: english ? "Measure" : "开始测量", icon: "mic", optional: false },
+    {
+      id: "decibel-chart",
+      label: english ? "Decibel chart" : "分贝对照表",
+      icon: "chart-line",
+      optional: false,
+    },
     { id: "knowledge", label: english ? "Guides" : "声音知识", icon: "book-open", optional: false },
     {
       id: "guide",
@@ -40,7 +46,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
               <span className={styles.brandMark}>
                 <Icon name="audio-lines" size={22} />
               </span>
-              <span className={styles.brandText}>
+              <span>
                 <strong>{english ? "FenbeiCeshi" : "分贝测试"}</strong>
                 <small>fenbeiceshi.com</small>
               </span>
@@ -53,6 +59,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
                     className={item.optional ? styles.optionalNav : undefined}
                     href={href(item.id, locale)}
                     exact={item.id === "meter"}
+                    exclude={item.id === "knowledge" ? [href("decibel-chart", locale)] : undefined}
                   >
                     <Icon name={item.icon} size={15} />
                     {item.label}

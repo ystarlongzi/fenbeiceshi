@@ -1,3 +1,4 @@
+import { decibelChart } from "./decibel-chart.ts";
 import { dual as t, type SiteContent } from "./types.ts";
 
 const mdnAudio = {
@@ -181,104 +182,7 @@ export const articles: SiteContent[] = [
     ],
     related: ["phone-accuracy", "calibration", "guide"],
   },
-  {
-    id: "decibel-chart",
-    slug: "knowledge/decibel-chart",
-    kind: "article",
-    updated: "2026-10-18",
-    title: t("分贝对照表：先看条件，再比较声音", "Decibel chart: compare the context too"),
-    description: t(
-      "用常见声音的参考量级理解分贝，同时核对距离、计权与测量条件，避免把 dBFS 直接套入环境分贝表。",
-      "Use everyday sound references with their distance, weighting and measurement context. Do not place dBFS directly on an environmental chart.",
-    ),
-    takeaway: t(
-      "常见声音对照只能提供量级感。声源名称并不固定对应某个读数；距离、环境和计权不同，数值也会变化。",
-      "Everyday sound references provide a sense of scale. A source name does not determine one fixed reading: distance, surroundings and weighting all matter.",
-    ),
-    sections: [
-      {
-        id: "reference",
-        title: t("常见声音的参考量级", "Everyday sound references"),
-        paragraphs: [
-          t(
-            "下表选取 NIDCD 教育资料中的常见例子。它们用于理解量级，不是对你所在位置的测量，也不是本站验证过的设备校准点。来源表中的示例不都具有相同距离，不能当成统一测试条件。",
-            "The examples below are drawn from NIDCD educational material. They describe a scale, not your location or validated calibration points for this tool. Their measurement distances are not uniform and should not be treated as one test method.",
-          ),
-        ],
-        table: {
-          headers: [
-            t("常见声音", "Everyday example"),
-            t("资料中的参考范围", "Reference range"),
-            t("比较时应记录", "Record when comparing"),
-          ],
-          rows: [
-            [
-              t("正常交谈", "Normal conversation"),
-              t("约 60–70 dBA", "About 60–70 dBA"),
-              t("说话者距离与环境", "Distance and surroundings"),
-            ],
-            [
-              t("摩托车或越野车", "Motorcycles or dirt bikes"),
-              t("约 80–110 dBA", "About 80–110 dBA"),
-              t("距离、负载及是否经过", "Distance, load and pass-by"),
-            ],
-            [
-              t(
-                "最大音量耳机、体育活动或音乐会",
-                "Headphones at maximum volume, sporting events or concerts",
-              ),
-              t("约 94–110 dBA", "About 94–110 dBA"),
-              t("具体设备、位置与时间", "Device, position and duration"),
-            ],
-          ],
-        },
-      },
-      {
-        id: "numbers",
-        title: t("40、50、60 或 70 分贝，到底有多大？", "How loud are 40, 50, 60 or 70 decibels?"),
-        paragraphs: [
-          t(
-            "先确认数字的单位和条件。若是网页未校准的 dBFS，它不能直接回答环境声音有多大；若是声级计的 dBA，还需知道测量位置、时段和方法。仅凭一个数字，也不能替每个人判断是否舒适。",
-            "First identify the unit and conditions. An uncalibrated browser dBFS value cannot directly tell you an environmental sound level. A meter's dBA value also needs a position, duration and method. One number cannot determine comfort for everyone.",
-          ),
-          t(
-            "对照表可帮助提出一个更具体的问题，例如同一张书桌上，关窗前后是否出现可重复的变化。用固定条件复测，比给一次读数贴一个场景名称更有帮助。",
-            "A chart can help you form a more useful question, such as whether closing a window produces a repeatable change at the same desk. Repeating fixed conditions is more informative than assigning one reading a source name.",
-          ),
-        ],
-      },
-      {
-        id: "distance",
-        title: t("让比较有意义的三个条件", "Three conditions for a useful comparison"),
-        paragraphs: [
-          t(
-            "使用相同设备与输入设置；保持距离、位置和朝向一致；记录声源状态和观察时间。关窗、移动设备或改变输入增益，都可能改变读数，不能把变化一概归因于某个声源。",
-            "Use the same input and settings, keep distance and orientation fixed, and record the source state and observation time. Closing a window, moving a device or changing gain can all affect the result.",
-          ),
-        ],
-      },
-      {
-        id: "limits",
-        title: t(
-          "颜色和播放音量不能代替校准",
-          "Colours and playback volume do not calibrate a meter",
-        ),
-        paragraphs: [
-          t(
-            "本站主仪表和色带显示估算噪音分贝，颜色与文字仅帮助理解声音量级，不自动判定健康风险。通用估算有设备误差，也不能直接等同于表中的 dBA。网页播放一段声音，也不能保证你的扬声器在某个位置输出指定的环境分贝。需要声压级参考时，请使用合适的参考设备。",
-            "The main meter and scale show estimated noise. Colours and descriptions indicate approximate sound levels, not health risk. Generic estimates vary by device and are not equivalent to the dBA examples in the table. Playing a sound on a webpage cannot guarantee a specified environmental level from your speakers. Use a suitable reference instrument when sound pressure is required.",
-          ),
-        ],
-      },
-    ],
-    sources: [
-      {
-        title: "NIDCD · Noise-Induced Hearing Loss",
-        url: "https://www.nidcd.nih.gov/health/noise-induced-hearing-loss",
-      },
-    ],
-    related: ["dbfs-spl", "phone-accuracy", "calibration"],
-  },
+  decibelChart,
   {
     id: "microphone-help",
     slug: "knowledge/microphone-permission",

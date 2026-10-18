@@ -7,11 +7,13 @@ export interface Dual {
 export interface ContentSection {
   id: string;
   title: Dual;
+  tocTitle?: Dual;
   paragraphs: Dual[];
   items?: Dual[];
   table?: { headers: Dual[]; rows: Dual[][] };
 }
 export interface Source {
+  id?: string;
   title: string;
   url: string;
 }

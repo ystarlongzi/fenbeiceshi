@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "updated": "2026-10-18",
+  "status": "local-implementation",
+  "routes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
+  "task": "按声音名称、参考分贝或类别查找常见声音量级，并理解来源与比较条件。",
+  "state": "默认显示完整声音列表；支持组合筛选、结果数量、空结果与重置。",
+  "hierarchy": {
+    "primary": "七档声音概览和四类声音查询；范围、原始单位与声音名称保持可比较。",
+    "support": "条件和来源靠近条目，说明来源测距不统一；40–70 分贝以表格直接回答。",
+    "reading": "对数刻度、职业暴露参考、观察方法与本站口径限制按章节阅读。",
+    "surfaces": "七档概览使用独立整行背景色表达量级，不使用侧边色线；声音查询结果继续使用对齐和分隔线，搜索/类别控件表示输入和选中状态，沿用文章外壳。",
+    "navigation": "中英文一级导航直接提供分贝对照表；该页不同时选中声音知识。手机品牌与菜单分为两行，保留四个主要入口。"
+  },
+  "data": {
+    "sounds": 31,
+    "bands": 7,
+    "categories": 4,
+    "sources": ["WHO", "NIH", "NIDCD", "CDC", "NPS", "NIOSH", "CCOHS"],
+    "sourceFile": "../../src/lib/content/sound-references.ts",
+    "units": "按来源保留 dB/dBA；不自行补充计权或测距，不合并成产品保证值。",
+    "exposure": "85 dBA / 8 小时及 3 dBA 交换率的 NIOSH 职业参考，不连接网页估算生成个人安全时长。"
+  },
+  "rendering": "文章、概览、完整默认声音列表及来源存在于静态 HTML；只向搜索子树传入所需语言和查询字段。",
+  "theme": "沿用 globals.css 语义变量；组件布局、移动重排、焦点与悬停规则留在相邻 CSS Modules。字号固定，不随窄屏缩小。",
+  "bandAppearance": {
+    "encoding": "按量级顺序使用绿、青、蓝、黄、橙、红、玫红整行底色，保留数值、单位、等级文字和示例；行间留 8px 间距，不增加嵌套表面。",
+    "tones": ["faint", "quiet", "everyday", "raised", "loud", "intense", "extreme"],
+    "tokens": "背景与文字配对变量在 src/features/decibel-chart/index.module.css 定义；暗色主题使用对应深色底与浅色文字。",
+    "minimumTextContrast": {"light": 6.73, "dark": 10.48},
+    "verification": "band-color-validation.json"
+  },
+  "screenshots": {
+    "desktopOverview": "desktop-light.jpg",
+    "desktopLookup": "desktop-lookup.jpg",
+    "mobileLightZh": "mobile-light-zh.jpg",
+    "mobileLightZhLookup": "mobile-light-zh-lookup.jpg",
+    "mobileDarkEnLookup": "mobile-dark-en-lookup.jpg",
+    "bandsDesktopLight": "bands-desktop-light.jpg",
+    "bandsDesktopDark": "bands-desktop-dark.jpg",
+    "bandsMobileLightZh": "bands-mobile-light-zh.jpg",
+    "bandsMobileDarkEn": "bands-mobile-dark-en.jpg"
+  },
+  "verification": "../../docs/验证/分贝对照页扩充验证.md"
+}

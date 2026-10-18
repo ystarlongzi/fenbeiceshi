@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Icon } from "../icon";
 import { LinkArrow } from "../link-arrow";
 import { StructuredData } from "../structured-data";
@@ -8,7 +9,15 @@ import { breadcrumbData } from "@/lib/seo/metadata";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
 
-export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
+export function ContentPage({
+  id,
+  locale,
+  sectionContent = {},
+}: {
+  id: string;
+  locale: Locale;
+  sectionContent?: Record<string, ReactNode>;
+}) {
   const content = contents.find((item) => item.id === id);
   if (!content) throw new Error(`缺少正文：${id}`);
   const en = locale === "en";
@@ -74,6 +83,7 @@ export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
               {section.paragraphs.map((paragraph, i) => (
                 <p key={i}>{text(paragraph, locale)}</p>
               ))}
+              {sectionContent[section.id]}
               {section.items ? (
                 <ul>
                   {section.items.map((item, i) => (
@@ -111,7 +121,7 @@ export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
             <h2>{en ? "Sources and references" : "来源与参考"}</h2>
             <ul>
               {content.sources.map((source) => (
-                <li key={source.url}>
+                <li key={source.url} id={source.id}>
                   <a href={source.url} target="_blank" rel="noreferrer">
                     {source.title}
                     <Icon name="external-link" size={12} />
@@ -149,7 +159,7 @@ export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
           <nav aria-label={en ? "On this page" : "本文目录"}>
             {content.sections.map((section) => (
               <a key={section.id} href={`#${section.id}`}>
-                {text(section.title, locale)}
+                {text(section.tocTitle ?? section.title, locale)}
               </a>
             ))}
           </nav>

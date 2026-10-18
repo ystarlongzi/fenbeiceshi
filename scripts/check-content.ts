@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { contents, href, sitePages } from "../src/lib/routing/pages.ts";
+import {
+  soundBands,
+  soundCategories,
+  soundReferences,
+  soundSources,
+} from "../src/lib/content/sound-references.ts";
 
 const locales = ["zh-CN", "en"] as const;
 const ids = sitePages.map((page) => page.id);
@@ -42,6 +48,32 @@ for (const content of contents) {
   }
 }
 const plan = JSON.parse(await readFile("docs/产品/页面与关键词映射.json", "utf8"));
+const soundIds = soundReferences.map((sound) => sound.id);
+assert.equal(new Set(soundIds).size, soundIds.length, "声音参考 ID 不得重复");
+assert.ok(soundReferences.length >= 30, "分贝对照页应保留完整的日常声音覆盖");
+for (const sound of soundReferences) {
+  assert.ok(
+    Number.isFinite(sound.min) &&
+      Number.isFinite(sound.max) &&
+      sound.min >= 0 &&
+      sound.min <= sound.max,
+    sound.id,
+  );
+  assert.ok(
+    soundCategories.some((category) => category.id === sound.category),
+    sound.id,
+  );
+  assert.ok(soundSources[sound.source], `声音参考缺少来源：${sound.id}`);
+  assert.ok(sound.name.zh && sound.name.en && sound.context.zh && sound.context.en, sound.id);
+}
+for (const band of soundBands) {
+  assert.ok(
+    band.examples.every((id) => soundIds.includes(id)),
+    `分段示例缺失：${band.range}`,
+  );
+}
+const sourceIds = Object.values(soundSources).map((source) => source.id);
+assert.equal(new Set(sourceIds).size, sourceIds.length, "来源锚点不得重复");
 for (const page of sitePages.filter((page) => page.index)) {
   const candidate = plan.pages.find((item: { id: string }) => item.id === page.id);
   assert.ok(candidate, page.id);
