@@ -152,7 +152,7 @@ export const guides: SiteContent[] = [
     updated: "2026-10-18",
     title: t("关于分贝测试", "About fenbeiceshi.com"),
     description: t(
-      "分贝测试的产品目的、方法、能力范围与项目维护入口。",
+      "分贝测试的产品目的、方法、能力范围与使用说明。",
       "The purpose, methods and limits of this browser sound observation project.",
     ),
     takeaway: t(
@@ -182,19 +182,19 @@ export const guides: SiteContent[] = [
       },
       {
         id: "maintain",
-        title: t("项目维护与反馈", "Maintenance and feedback"),
+        title: t("维护与使用说明", "Maintenance and guidance"),
         paragraphs: [
           t(
-            "分贝测试由 fenbeiceshi.com 项目维护。你可以通过项目仓库查看开发进展并反馈问题。反馈设备兼容问题时，描述浏览器、系统和发生步骤即可，不需要提供录音、私人地点或完整测量记录。",
-            "The fenbeiceshi.com project maintains this tool. Use the project repository to follow development and report problems. For compatibility feedback, a browser, operating system and reproduction steps are enough; recordings, private locations and complete measurement records are not needed.",
+            "分贝测试由 fenbeiceshi.com 项目维护。使用指南说明测量与本机摘要的操作方法，隐私说明介绍音频处理和数据保存方式。遇到设备兼容问题时，可先按声音知识区的麦克风排查说明检查浏览器权限与输入设置。",
+            "The fenbeiceshi.com project maintains this tool. The user guide explains measurement and local summaries, and the privacy page describes audio processing and data storage. For device compatibility problems, start with the microphone troubleshooting guide to check browser permissions and input settings.",
           ),
         ],
       },
     ],
     sources: [
       {
-        title: "fenbeiceshi · 项目仓库 / Project repository",
-        url: "https://github.com/ystarlongzi/fenbeiceshi",
+        title: "分贝测试 · 使用指南 / User guide",
+        url: "https://fenbeiceshi.com/guide/",
       },
     ],
     related: ["guide", "privacy", "phone-accuracy"],

@@ -5,6 +5,7 @@ import { href } from "@/lib/routing/pages";
 import { breadcrumbData } from "@/lib/seo/metadata";
 import type { Locale } from "@/features/sound-meter/types";
 import { Icon } from "../icon";
+import { LinkArrow } from "../link-arrow";
 import { StructuredData } from "../structured-data";
 import styles from "./index.module.css";
 
@@ -23,7 +24,7 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
       <div className={styles.links}>
         {articles.map((article, i) => (
           <Link key={article.id} href={href(article.id, locale)}>
-            <span>0{i + 1}</span>
+            <span className={styles.articleIndex}>0{i + 1}</span>
             <div>
               <p>
                 {i === 3
@@ -37,7 +38,7 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
               <h2>{text(article.title, locale)}</h2>
               <p>{text(article.description, locale)}</p>
             </div>
-            <Icon name="arrow-right" size={20} />
+            <LinkArrow size={20} className={styles.articleArrow} />
           </Link>
         ))}
       </div>
@@ -53,7 +54,7 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
         </div>
         <Link href={href("meter", locale)}>
           {en ? "Open the meter" : "打开工具"}
-          <Icon name="arrow-right" size={16} />
+          <LinkArrow size={16} />
         </Link>
       </div>
     </div>

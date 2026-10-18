@@ -6,6 +6,7 @@ import { articles } from "@/lib/content/articles";
 import { text } from "@/lib/content/types";
 import { href, SITE_URL } from "@/lib/routing/pages";
 import { Icon, type IconName } from "../icon";
+import { LinkArrow } from "../link-arrow";
 import { StructuredData } from "../structured-data";
 import styles from "./index.module.css";
 
@@ -123,7 +124,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <Link className={styles.heroHelp} href={href("phone-accuracy", locale)}>
             <Icon name="circle-alert" size={15} />
             {en ? "How accurate is it?" : "手机测分贝，准吗？"}
-            <Icon name="arrow-right" size={14} />
+            <LinkArrow size={14} />
           </Link>
         </header>
         <SoundMeter locale={locale} />
@@ -137,7 +138,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <h2>{en ? "Three steps to a useful observation" : "一次观察，做好这三步"}</h2>
           <Link href={href("guide", locale)}>
             {en ? "Read the guide" : "完整使用指南"}
-            <Icon name="arrow-right" size={14} />
+            <LinkArrow size={14} />
           </Link>
         </div>
         <ol className={styles.steps}>
@@ -166,23 +167,25 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
         <div className={styles.scenes}>
           {scenes.map((scene, i) => (
-            <article key={scene.title} className={styles.scene}>
+            <Link
+              key={scene.title}
+              className={styles.scene}
+              href={href(scene.target, locale)}
+              aria-label={`${en ? "Read about " : "了解"}${scene.title}`}
+            >
               <Icon name={scene.icon} size={24} />
               <span className={styles.sceneNumber} aria-hidden="true">
                 0{i + 1}
               </span>
               <h3>{scene.title}</h3>
               <p>{scene.description}</p>
-              <div>
-                <span>{scene.note}</span>
-                <Link
-                  href={href(scene.target, locale)}
-                  aria-label={`${en ? "Read about " : "了解"}${scene.title}`}
-                >
-                  <Icon name="arrow-right" size={17} />
-                </Link>
+              <div className={styles.sceneFooter}>
+                <span className={styles.sceneNote}>{scene.note}</span>
+                <span className={styles.sceneAction} aria-hidden="true">
+                  <LinkArrow size={17} />
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
@@ -197,7 +200,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           </p>
           <Link href={href("knowledge", locale)}>
             {en ? "All guides" : "全部声音知识"}
-            <Icon name="arrow-right" size={15} />
+            <LinkArrow size={15} />
           </Link>
         </div>
         <div className={styles.articles}>
@@ -208,7 +211,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 <h3>{text(article.title, locale)}</h3>
                 <p>{text(article.description, locale)}</p>
               </div>
-              <Icon name="arrow-right" size={18} />
+              <LinkArrow size={18} className={styles.articleArrow} />
             </Link>
           ))}
         </div>

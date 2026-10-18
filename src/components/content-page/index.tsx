@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon } from "../icon";
+import { LinkArrow } from "../link-arrow";
 import { StructuredData } from "../structured-data";
 import { contents, href, pageById, SITE_URL } from "@/lib/routing/pages";
 import { text } from "@/lib/content/types";
@@ -27,7 +28,7 @@ export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
             author: {
               "@type": "Organization",
               name: "fenbeiceshi.com project",
-              url: "https://github.com/ystarlongzi/fenbeiceshi",
+              url: SITE_URL,
             },
           }}
         />
@@ -130,7 +131,7 @@ export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
             </div>
             <Link href={`${href("meter", locale)}#measure`}>
               {en ? "Open the meter" : "打开测量工具"}
-              <Icon name="arrow-right" size={16} />
+              <LinkArrow size={16} />
             </Link>
           </div>
           <section className={styles.related}>
@@ -138,7 +139,7 @@ export function ContentPage({ id, locale }: { id: string; locale: Locale }) {
             {content.related.map((related) => (
               <Link key={related} href={href(related, locale)}>
                 {text(pageById(related).title, locale)}
-                <Icon name="arrow-right" size={15} />
+                <LinkArrow size={15} />
               </Link>
             ))}
           </section>

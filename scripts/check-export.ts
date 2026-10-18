@@ -12,6 +12,7 @@ for (const page of sitePages) {
     const path = href(page.id, locale);
     const html = await readFile(resolve("out", path.slice(1), "index.html"), "utf8");
     htmlByPath.set(path, html);
+    assert.doesNotMatch(html, /github\.com|\bgithub\b/i, `产品页面不得暴露 GitHub 信息：${path}`);
     assert.match(html, new RegExp(`<html[^>]*lang="${locale}"`), path);
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, path);
     const canonical = [...html.matchAll(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/g)].map(

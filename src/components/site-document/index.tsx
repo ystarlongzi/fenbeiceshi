@@ -85,10 +85,6 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
               <Link href={href("calibration", locale)}>{english ? "Calibration" : "参考校准"}</Link>
               <Link href={href("about", locale)}>{english ? "About" : "关于"}</Link>
               <Link href={href("privacy", locale)}>{english ? "Privacy" : "隐私说明"}</Link>
-              <a href="https://github.com/ystarlongzi/fenbeiceshi" target="_blank" rel="noreferrer">
-                GitHub
-                <Icon name="external-link" size={12} />
-              </a>
             </nav>
           </div>
           <p className={styles.footerNote}>

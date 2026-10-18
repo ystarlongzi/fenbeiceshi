@@ -168,11 +168,11 @@
         "en": {"path":"/en/about/","wave":"P0","title":"About the Tool and Its Methods | fenbeiceshi.com","h1":"About this tool","keywords":["about fenbeiceshi"]}
       },
       "intent": "核实产品是谁维护、为什么做以及采用什么方法。",
-      "uniqueValue": "真实维护主体、方法入口和可用反馈渠道。",
-      "sections": ["产品目的","方法与能力范围","实际维护与反馈"],
+      "uniqueValue": "真实维护主体、方法入口和使用说明。",
+      "sections": ["产品目的","方法与能力范围","维护与使用说明"],
       "ctaTargetId": "guide",
       "relatedIds": ["privacy","phone-accuracy","calibration"],
-      "publishGate": "维护主体与反馈渠道已确认可用；不填虚构资质、专家或评价。",
+      "publishGate": "维护主体与方法入口可核对；反馈渠道确认可用后再展示，不将私有仓库作为公开入口；不填虚构资质、专家或评价。",
       "requiredEvidence": ["真实维护信息","产品方法文档"]
     },
     {

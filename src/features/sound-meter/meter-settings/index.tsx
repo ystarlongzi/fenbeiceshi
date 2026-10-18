@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { LinkArrow } from "@/components/link-arrow";
 import { meterCopy } from "../copy";
 import type { Locale } from "../types";
 import type { useSoundMeter } from "../use-sound-meter";
@@ -129,7 +130,7 @@ export function MeterSettings({
         ) : null}
         <Link href={`${prefix}/calibration/`} className={styles.helpLink}>
           {copy.calibrationHelp}
-          <Icon name="arrow-right" size={13} />
+          <LinkArrow size={13} />
         </Link>
         <p className={styles.sessionOnly}>{copy.sessionOnly}</p>
       </section>
@@ -159,7 +160,7 @@ export function MeterSettings({
           <p>{copy.privacyHint}</p>
           <Link href={`${prefix}/privacy/`}>
             {locale === "en" ? "Privacy details" : "了解隐私与本机数据"}
-            <Icon name="arrow-right" size={12} />
+            <LinkArrow size={12} />
           </Link>
         </div>
       </div>

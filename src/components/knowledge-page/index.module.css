@@ -33,7 +33,7 @@
   align-items: center;
   gap: 26px;
 }
-.links > a > span {
+.articleIndex {
   color: var(--text-soft);
   font: var(--font-size-caption) var(--font-number);
 }
@@ -55,7 +55,7 @@
   line-height: 1.9;
   margin: 0;
 }
-.links > a > svg {
+.articleArrow {
   margin-left: auto;
   color: var(--brand);
 }

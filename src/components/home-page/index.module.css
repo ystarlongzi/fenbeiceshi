@@ -167,6 +167,10 @@
   border-radius: 14px;
   padding: 28px;
   overflow: hidden;
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 160ms ease,
+    border-color 160ms ease;
 }
 .scene > svg {
   color: var(--text-accent);
@@ -196,7 +200,7 @@
   color: var(--text-body);
   margin: 0;
 }
-.scene > div {
+.sceneFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -205,12 +209,12 @@
   padding-top: 17px;
   margin-top: 25px;
 }
-.scene > div > span {
+.sceneNote {
   font-size: var(--font-size-caption);
   color: var(--text-accent);
   line-height: 1.8;
 }
-.scene > div > a {
+.sceneAction {
   display: grid;
   place-items: center;
   height: 36px;
@@ -220,9 +224,36 @@
   background: var(--surface-hover);
   color: var(--text-accent);
   border: 1px solid var(--line-accent);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
 }
-.scene a:hover {
+.scene:focus-visible {
   background: var(--surface-hover);
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+.scene:focus-visible .sceneAction {
+  background: var(--action-surface);
+  border-color: var(--action-surface);
+  color: var(--action-ink);
+}
+@media (hover: hover) and (pointer: fine) {
+  .scene:hover {
+    background: var(--surface-hover);
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+  }
+  .scene:hover .sceneAction {
+    background: var(--action-surface);
+    border-color: var(--action-surface);
+    color: var(--action-ink);
+  }
+}
+.scene:active {
+  background: var(--surface-pressed);
+  transform: translateY(0);
 }
 .knowledge {
   position: relative;
@@ -286,7 +317,7 @@
   line-height: 1.8;
   margin: 0;
 }
-.articles > a > svg {
+.articleArrow {
   margin-left: auto;
   color: var(--text-accent);
 }
@@ -339,6 +370,15 @@
   color: var(--muted);
   line-height: 2;
   margin: 14px 30px 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene,
+  .sceneAction {
+    transition: none;
+  }
+  .scene {
+    transform: none !important;
+  }
 }
 @media (max-width: 900px) {
   .hero h1 span {

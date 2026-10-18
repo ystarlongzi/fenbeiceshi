@@ -3,6 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { LinkArrow } from "@/components/link-arrow";
 import { meterCopy } from "../sound-meter/copy";
 import { formatDuration } from "../sound-meter/level";
 import { displayStats, formatReading, measurementBasis } from "../sound-meter/readings";
@@ -73,7 +74,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
         {compact ? (
           <Link href={`${prefix}/records/`}>
             {copy.allRecords}
-            <Icon name="arrow-right" size={14} />
+            <LinkArrow size={14} />
           </Link>
         ) : (
           <span className={styles.compareHint}>{copy.compareHint}</span>
@@ -97,7 +98,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
           {!compact ? (
             <Link href={`${prefix}/#measure`}>
               {copy.start}
-              <Icon name="arrow-right" size={14} />
+              <LinkArrow size={14} />
             </Link>
           ) : null}
         </div>
