@@ -1,0 +1,355 @@
+{
+  "date": "2026-10-19",
+  "browser": "Codex In-app Browser",
+  "scope": "实际 SessionStats 组件与源码 CSS 的受控静态渲染；非真实麦克风",
+  "cases": [
+    {
+      "name": "desktop-zh-light",
+      "screenshot": "desktop-zh-light.png",
+      "cases": [
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "等待测量"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "等待测量"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "等待测量"
+            }
+          ],
+          "numbers": [
+            "— —",
+            "— —",
+            "— —",
+            "00:01"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "按采样能量计算"
+            }
+          ],
+          "numbers": [
+            "60.0",
+            "80.0",
+            "77.0",
+            "00:02"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "按采样能量计算"
+            }
+          ],
+          "numbers": [
+            "≤0.0",
+            "80.0",
+            "75.3",
+            "00:02"
+          ]
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "name": "desktop-zh-dark",
+      "screenshot": "desktop-zh-dark.png",
+      "cases": [
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "等待测量"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "等待测量"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "等待测量"
+            }
+          ],
+          "numbers": [
+            "— —",
+            "— —",
+            "— —",
+            "00:01"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "按采样能量计算"
+            }
+          ],
+          "numbers": [
+            "60.0",
+            "80.0",
+            "77.0",
+            "00:02"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "本次观察"
+            },
+            {
+              "display": "block",
+              "size": "12px",
+              "text": "按采样能量计算"
+            }
+          ],
+          "numbers": [
+            "≤0.0",
+            "80.0",
+            "75.3",
+            "00:02"
+          ]
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "name": "mobile-en-light",
+      "screenshot": "mobile-en-light.png",
+      "cases": [
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "Awaiting data"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "Awaiting data"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "Awaiting data"
+            }
+          ],
+          "numbers": [
+            "— —",
+            "— —",
+            "— —",
+            "00:01"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "Calculated from sampled energy"
+            }
+          ],
+          "numbers": [
+            "60.0",
+            "80.0",
+            "77.0",
+            "00:02"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "Calculated from sampled energy"
+            }
+          ],
+          "numbers": [
+            "≤0.0",
+            "80.0",
+            "75.3",
+            "00:02"
+          ]
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "name": "mobile-en-dark",
+      "screenshot": "mobile-en-dark.png",
+      "cases": [
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "Awaiting data"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "Awaiting data"
+            },
+            {
+              "display": "block",
+              "size": "14px",
+              "text": "Awaiting data"
+            }
+          ],
+          "numbers": [
+            "— —",
+            "— —",
+            "— —",
+            "00:01"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "Calculated from sampled energy"
+            }
+          ],
+          "numbers": [
+            "60.0",
+            "80.0",
+            "77.0",
+            "00:02"
+          ]
+        },
+        {
+          "clipped": false,
+          "hints": [
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "This observation"
+            },
+            {
+              "display": "none",
+              "size": "12px",
+              "text": "Calculated from sampled energy"
+            }
+          ],
+          "numbers": [
+            "≤0.0",
+            "80.0",
+            "75.3",
+            "00:02"
+          ]
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "width": 320
+    }
+  ]
+}

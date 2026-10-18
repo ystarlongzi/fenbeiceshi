@@ -29,6 +29,7 @@ async function withInput(
   const contexts: FakeContext[] = [];
   let onResume = () => Promise.resolve();
   let callback: FrameRequestCallback | null = null;
+  let frameTime = performance.now();
   let constraints: MediaStreamConstraints | null = null;
   class Context extends FakeContext {
     constructor() {
@@ -76,7 +77,10 @@ async function withInput(
       ready,
       ended,
       session,
-      step: () => callback?.(performance.now() + 500),
+      step: () => {
+        frameTime = Math.max(frameTime, performance.now()) + 1000;
+        callback?.(frameTime);
+      },
       setResume: (fn) => {
         onResume = fn;
       },
@@ -114,8 +118,12 @@ class FakeContext extends EventTarget {
   state = "running";
   sampleRate = 48000;
   closes = 0;
+  amplitude = 0.1;
   createAnalyser() {
-    return { fftSize: 2048, getFloatTimeDomainData: (samples: Float32Array) => samples.fill(0.1) };
+    return {
+      fftSize: 2048,
+      getFloatTimeDomainData: (samples: Float32Array) => samples.fill(this.amplitude),
+    };
   }
   createMediaStreamSource() {
     return { connect: () => undefined };
@@ -147,6 +155,60 @@ test("实际采集路径计算相对电平，结束只关闭一次音轨与上�
     assert.deepEqual(ended, ["user"]);
     step();
     assert.equal(frames.length, 1);
+  }));
+
+test("启动全零窗口只反馈输入下限，首次非零采样才进入统计与趋势", () =>
+  withInput(async ({ session, frames, contexts, step }) => {
+    await session.start("");
+    contexts[0].amplitude = 0;
+    step();
+    step();
+    for (const frame of frames) {
+      const displayed = displayFrame(frame, currentBasis());
+      assert.equal(displayed.belowFloor, true);
+      assert.equal(displayed.minimum, null);
+      assert.equal(displayed.average, null);
+      assert.equal(frame.stats.count, 0);
+      assert.deepEqual(frame.points, []);
+    }
+    assert.equal(frames.length, 2);
+    contexts[0].amplitude = 0.01;
+    step();
+    contexts[0].amplitude = 0.1;
+    step();
+    const last = frames[3];
+    const displayed = displayFrame(last, currentBasis());
+    assert.equal(last.stats.count, 2);
+    assert.equal(last.points.length, 2);
+    assert.ok(Math.abs((displayed.minimum ?? 0) - 60) < 0.0001);
+    assert.ok(Math.abs((displayed.maximum ?? 0) - 80) < 0.0001);
+    assert.ok(Math.abs((displayed.average ?? 0) - 77.032914) < 0.0001);
+    assert.equal(displayed.minimumAtFloor, false);
+  }));
+
+test("正常采集后的全零窗口仍计入最低值并保留下限标记", () =>
+  withInput(async ({ session, frames, contexts, step }) => {
+    await session.start("");
+    step();
+    contexts[0].amplitude = 0;
+    step();
+    const last = frames[1];
+    const displayed = displayFrame(last, currentBasis());
+    assert.equal(last.stats.count, 2);
+    assert.equal(last.points.length, 2);
+    assert.equal(displayed.minimum, 0);
+    assert.equal(displayed.minimumAtFloor, true);
+    assert.equal(displayed.belowFloor, true);
+  }));
+
+test("非零但低于计算下限的采样不会被启动保护排除", () =>
+  withInput(async ({ session, frames, contexts, step }) => {
+    await session.start("");
+    contexts[0].amplitude = 0.000001;
+    step();
+    assert.equal(frames[0].stats.count, 1);
+    assert.equal(frames[0].points.length, 1);
+    assert.equal(displayFrame(frames[0], currentBasis()).minimumAtFloor, true);
   }));
 
 test("音频上下文恢复期间取消，也不会进入运行状态或遗留输入", () =>

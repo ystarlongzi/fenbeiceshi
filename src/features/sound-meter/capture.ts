@@ -100,8 +100,9 @@ export class CaptureSession {
             analyser.getFloatTimeDomainData(samples);
             const level = analyzeSamples(samples);
             const elapsed = time - started;
-            stats = addWindow(stats, level.energy);
-            if (elapsed - lastPoint >= 500) {
+            // 首次非零输入前，全零窗口可能来自启动缓冲；保留信号反馈，避免锁死最低值。
+            if (stats.count || level.energy > 0) stats = addWindow(stats, level.energy);
+            if (stats.count && elapsed - lastPoint >= 500) {
               points = [
                 ...points.filter((point) => point.time > elapsed - 60000),
                 { time: elapsed, value: level.value },

@@ -6,6 +6,14 @@ import { readingColor } from "../palette.ts";
 import type { MeterCopy } from "../copy.ts";
 import styles from "./index.module.css";
 
+const numberColors = [
+  "var(--stat-faint)",
+  "var(--stat-quiet)",
+  "var(--stat-everyday)",
+  "var(--stat-loud)",
+  "var(--stat-very-loud)",
+] as const;
+
 export function SessionStats({
   frame,
   copy,
@@ -15,12 +23,20 @@ export function SessionStats({
   copy: MeterCopy;
   demo?: boolean;
 }) {
-  const items: { label: string; value: string; icon: IconName; color?: string; hint: string }[] = [
+  const items: {
+    label: string;
+    value: string;
+    icon: IconName;
+    color?: string;
+    numberColor?: string;
+    hint: string;
+  }[] = [
     {
       label: copy.minimum,
       value: formatReading(frame?.minimum ?? null, frame?.minimumAtFloor),
       icon: "arrow-down",
       color: readingColor(frame?.minimum ?? null),
+      numberColor: readingColor(frame?.minimum ?? null, numberColors),
       hint: copy.currentSession,
     },
     {
@@ -28,6 +44,7 @@ export function SessionStats({
       value: formatReading(frame?.maximum ?? null, frame?.maximumAtFloor),
       icon: "arrow-up",
       color: readingColor(frame?.maximum ?? null),
+      numberColor: readingColor(frame?.maximum ?? null, numberColors),
       hint: copy.currentSession,
     },
     {
@@ -35,6 +52,7 @@ export function SessionStats({
       value: formatReading(frame?.average ?? null, frame?.averageAtFloor),
       icon: "audio-lines",
       color: readingColor(frame?.average ?? null),
+      numberColor: readingColor(frame?.average ?? null, numberColors),
       hint: copy.sampled,
     },
     {
@@ -46,23 +64,31 @@ export function SessionStats({
   ];
   return (
     <div className={styles.stats}>
-      {items.map((item, i) => (
-        <div
-          className={styles.stat}
-          style={{ "--stat-color": item.color } as CSSProperties}
-          key={item.label}
-        >
-          <div className={styles.label}>
-            <Icon name={item.icon} size={16} />
-            <span>{item.label}</span>
+      {items.map((item, i) => {
+        const isReading = i < 3;
+        const waiting = isReading && frame?.minimum == null;
+        return (
+          <div
+            className={isReading ? `${styles.stat} ${styles.reading}` : styles.stat}
+            style={
+              { "--stat-color": item.color, "--stat-number": item.numberColor } as CSSProperties
+            }
+            key={item.label}
+          >
+            <div className={styles.label}>
+              <Icon name={item.icon} size={16} />
+              <span>{item.label}</span>
+            </div>
+            <div className={styles.result}>
+              <strong>{item.value}</strong>
+              {isReading ? <span>dB</span> : null}
+            </div>
+            <p className={waiting ? styles.waiting : undefined}>
+              {waiting ? copy.statsWaiting : item.hint}
+            </p>
           </div>
-          <div className={styles.result}>
-            <strong>{item.value}</strong>
-            {i < 3 ? <span>dB</span> : null}
-          </div>
-          <p>{item.hint}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

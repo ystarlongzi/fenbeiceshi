@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-19",
+  "source": {
+    "level": "src/features/sound-meter/index.module.css",
+    "lightNumber": "src/features/sound-meter/session-stats/index.module.css"
+  },
+  "method": "亮色使用同色相的高饱和文字色阶；两套色阶共用 readingColor 连续插值，0–120 每 0.1 dB 采样计算显示对比度。",
+  "anchors": [
+    {
+      "value": 0,
+      "levelColor": "#5da97c",
+      "numberColors": {
+        "light": "#07873b",
+        "dark": "#5da97c"
+      },
+      "lightSaturation": 90.14,
+      "hueDeltaDegrees": 0.1,
+      "contrast": {
+        "light": 4.63,
+        "dark": 5.57
+      }
+    },
+    {
+      "value": 30,
+      "levelColor": "#a3c96b",
+      "numberColors": {
+        "light": "#508207",
+        "dark": "#a3c96b"
+      },
+      "lightSaturation": 89.78,
+      "hueDeltaDegrees": 0.13,
+      "contrast": {
+        "light": 4.63,
+        "dark": 8.34
+      }
+    },
+    {
+      "value": 60,
+      "levelColor": "#e4cf5b",
+      "numberColors": {
+        "light": "#887407",
+        "dark": "#e4cf5b"
+      },
+      "lightSaturation": 90.21,
+      "hueDeltaDegrees": 0.11,
+      "contrast": {
+        "light": 4.62,
+        "dark": 10.03
+      }
+    },
+    {
+      "value": 90,
+      "levelColor": "#ef9b4c",
+      "numberColors": {
+        "light": "#b65d0a",
+        "dark": "#ef9b4c"
+      },
+      "lightSaturation": 89.58,
+      "hueDeltaDegrees": 0.13,
+      "contrast": {
+        "light": 4.61,
+        "dark": 7.09
+      }
+    },
+    {
+      "value": 120,
+      "levelColor": "#ee6256",
+      "numberColors": {
+        "light": "#e61d0c",
+        "dark": "#ee6256"
+      },
+      "lightSaturation": 90.08,
+      "hueDeltaDegrees": 0.06,
+      "contrast": {
+        "light": 4.62,
+        "dark": 4.89
+      }
+    }
+  ],
+  "minimumContrast": {
+    "light": 4.61,
+    "dark": 4.89
+  }
+}

@@ -1,0 +1,809 @@
+{
+  "date": "2026-10-19",
+  "browser": "Codex In-app Browser",
+  "review": "亮色移除混黑后复核数字与顶部量级色完全相同；暗色回归检查。",
+  "summary": {
+    "states": 7,
+    "noHorizontalOverflow": true,
+    "numbersUseOriginalLevelColor": true,
+    "emptyValuesNeutral": true,
+    "pendingHintsVisible": true
+  },
+  "numericContrastRange": {
+    "light": {
+      "min": 1.57,
+      "max": 1.72
+    },
+    "dark": {
+      "min": 9.17,
+      "max": 9.96
+    }
+  },
+  "note": "亮色使用原声级色，黄绿段在白底对比度较低；没有将本轮描述为数字对比度 4.5:1 全量通过。",
+  "scenarios": [
+    {
+      "name": "desktop-ready-light",
+      "screenshot": "desktop-ready-light-vivid.jpg",
+      "cards": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 125.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "14px",
+            "text": "等待测量"
+          },
+          "icon": "color(srgb 0.170784 0.345882 0.259216)",
+          "label": "rgb(89, 109, 91)",
+          "number": "rgb(32, 53, 43)",
+          "text": "最低分贝— —dB等待测量",
+          "top": "rgb(213, 223, 210)",
+          "width": 202.5,
+          "x": 77,
+          "y": 330.0546875
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 125.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "14px",
+            "text": "等待测量"
+          },
+          "icon": "color(srgb 0.170784 0.345882 0.259216)",
+          "label": "rgb(89, 109, 91)",
+          "number": "rgb(32, 53, 43)",
+          "text": "最高分贝— —dB等待测量",
+          "top": "rgb(213, 223, 210)",
+          "width": 202.5,
+          "x": 291.5,
+          "y": 330.0546875
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 125.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "14px",
+            "text": "等待测量"
+          },
+          "icon": "color(srgb 0.170784 0.345882 0.259216)",
+          "label": "rgb(89, 109, 91)",
+          "number": "rgb(32, 53, 43)",
+          "text": "平均分贝— —dB等待测量",
+          "top": "rgb(213, 223, 210)",
+          "width": 202.5,
+          "x": 506,
+          "y": 330.0546875
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "rgb(226, 232, 225)",
+          "gradient": "linear-gradient(150deg, rgb(255, 255, 255), rgb(248, 250, 248))",
+          "height": 125.59375,
+          "hint": {
+            "color": "rgb(109, 124, 114)",
+            "display": "block",
+            "size": "12px",
+            "text": "从开始采集起计时"
+          },
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "label": "rgb(109, 124, 114)",
+          "number": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "有效时长00:00从开始采集起计时",
+          "top": "rgb(226, 232, 225)",
+          "width": 202.5,
+          "x": 720.5,
+          "y": 330.0546875
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "contrast": [
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 13.08,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 13.08,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 13.08,
+          "unit": 5.58
+        }
+      ]
+    },
+    {
+      "name": "desktop-demo-light",
+      "screenshot": "desktop-demo-light-vivid.jpg",
+      "cards": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.851634 0.807843 0.36732) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.524869 0.537843 0.277909)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.851634 0.807843 0.36732)",
+          "text": "最低分贝55.0dB本次观察",
+          "top": "color(srgb 0.851634 0.807843 0.36732)",
+          "width": 202.5,
+          "x": 77,
+          "y": 329.953125
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.891269 0.811502 0.357564) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.546669 0.539855 0.272543)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.891269 0.811502 0.357564)",
+          "text": "最高分贝59.7dB本次观察",
+          "top": "color(srgb 0.891269 0.811502 0.357564)",
+          "width": 202.5,
+          "x": 291.5,
+          "y": 329.953125
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.879366 0.810403 0.360494) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "12px",
+            "text": "按采样能量计算"
+          },
+          "icon": "color(srgb 0.540122 0.539251 0.274154)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.879366 0.810403 0.360494)",
+          "text": "平均分贝58.3dB按采样能量计算",
+          "top": "color(srgb 0.879366 0.810403 0.360494)",
+          "width": 202.5,
+          "x": 506,
+          "y": 329.953125
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "rgb(226, 232, 225)",
+          "gradient": "linear-gradient(150deg, rgb(255, 255, 255), rgb(248, 250, 248))",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(109, 124, 114)",
+            "display": "block",
+            "size": "12px",
+            "text": "演示数据"
+          },
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "label": "rgb(109, 124, 114)",
+          "number": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "有效时长00:01演示数据",
+          "top": "rgb(226, 232, 225)",
+          "width": 202.5,
+          "x": 720.5,
+          "y": 329.953125
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "contrast": [
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.62,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.57,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.59,
+          "unit": 5.58
+        }
+      ]
+    },
+    {
+      "name": "desktop-demo-dark",
+      "screenshot": "desktop-demo-dark-vivid.jpg",
+      "cards": [
+        {
+          "background": "rgb(24, 38, 29)",
+          "border": "color(srgb 0.851634 0.807843 0.36732) rgb(64, 85, 62) rgb(64, 85, 62)",
+          "gradient": "none",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(176, 191, 175)",
+            "display": "block",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.868987 0.862549 0.595556)",
+          "label": "rgb(176, 191, 175)",
+          "number": "color(srgb 0.851634 0.807843 0.36732)",
+          "text": "最低分贝55.0dB本次观察",
+          "top": "color(srgb 0.851634 0.807843 0.36732)",
+          "width": 202.5,
+          "x": 77,
+          "y": 329.953125
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "border": "color(srgb 0.895981 0.802958 0.354322) rgb(64, 85, 62) rgb(64, 85, 62)",
+          "gradient": "none",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(176, 191, 175)",
+            "display": "block",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.893378 0.859862 0.588407)",
+          "label": "rgb(176, 191, 175)",
+          "number": "color(srgb 0.895981 0.802958 0.354322)",
+          "text": "最高分贝61.3dB本次观察",
+          "top": "color(srgb 0.895981 0.802958 0.354322)",
+          "width": 202.5,
+          "x": 291.5,
+          "y": 329.953125
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "border": "color(srgb 0.885641 0.810982 0.358949) rgb(64, 85, 62) rgb(64, 85, 62)",
+          "gradient": "none",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(176, 191, 175)",
+            "display": "block",
+            "size": "12px",
+            "text": "按采样能量计算"
+          },
+          "icon": "color(srgb 0.887691 0.864276 0.590952)",
+          "label": "rgb(176, 191, 175)",
+          "number": "color(srgb 0.885641 0.810982 0.358949)",
+          "text": "平均分贝59.0dB按采样能量计算",
+          "top": "color(srgb 0.885641 0.810982 0.358949)",
+          "width": 202.5,
+          "x": 506,
+          "y": 329.953125
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "rgb(48, 65, 52)",
+          "gradient": "linear-gradient(150deg, rgb(24, 38, 29), rgb(27, 43, 33))",
+          "height": 122.59375,
+          "hint": {
+            "color": "rgb(162, 178, 162)",
+            "display": "block",
+            "size": "12px",
+            "text": "演示数据"
+          },
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "label": "rgb(162, 178, 162)",
+          "number": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "有效时长00:02演示数据",
+          "top": "rgb(48, 65, 52)",
+          "width": 202.5,
+          "x": 720.5,
+          "y": 329.953125
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "contrast": [
+        {
+          "hint": 8.19,
+          "label": 8.19,
+          "number": 9.7,
+          "unit": 8.19
+        },
+        {
+          "hint": 8.19,
+          "label": 8.19,
+          "number": 9.88,
+          "unit": 8.19
+        },
+        {
+          "hint": 8.19,
+          "label": 8.19,
+          "number": 9.96,
+          "unit": 8.19
+        }
+      ]
+    },
+    {
+      "name": "mobile-demo-dark",
+      "screenshot": "mobile-demo-dark-vivid.jpg",
+      "cards": [
+        {
+          "background": "rgb(24, 38, 29)",
+          "border": "color(srgb 0.77552 0.800817 0.386056) rgb(64, 85, 62) rgb(64, 85, 62)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(176, 191, 175)",
+            "display": "none",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.827124 0.858685 0.60586)",
+          "label": "rgb(176, 191, 175)",
+          "number": "color(srgb 0.77552 0.800817 0.386056)",
+          "text": "最低分贝46.0dB本次观察",
+          "top": "color(srgb 0.77552 0.800817 0.386056)",
+          "width": 162,
+          "x": 29,
+          "y": 329.796875
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "border": "color(srgb 0.899862 0.784608 0.349029) rgb(64, 85, 62) rgb(64, 85, 62)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(176, 191, 175)",
+            "display": "none",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.895513 0.84977 0.585495)",
+          "label": "rgb(176, 191, 175)",
+          "number": "color(srgb 0.899862 0.784608 0.349029)",
+          "text": "最高分贝64.0dB本次观察",
+          "top": "color(srgb 0.899862 0.784608 0.349029)",
+          "width": 162,
+          "x": 199,
+          "y": 329.796875
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "border": "color(srgb 0.873964 0.809904 0.361824) rgb(64, 85, 62) rgb(64, 85, 62)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(176, 191, 175)",
+            "display": "none",
+            "size": "12px",
+            "text": "按采样能量计算"
+          },
+          "icon": "color(srgb 0.881269 0.863683 0.592532)",
+          "label": "rgb(176, 191, 175)",
+          "number": "color(srgb 0.873964 0.809904 0.361824)",
+          "text": "平均分贝57.6dB按采样能量计算",
+          "top": "color(srgb 0.873964 0.809904 0.361824)",
+          "width": 162,
+          "x": 29,
+          "y": 427.390625
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "rgb(48, 65, 52)",
+          "gradient": "linear-gradient(150deg, rgb(24, 38, 29), rgb(27, 43, 33))",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(162, 178, 162)",
+            "display": "none",
+            "size": "12px",
+            "text": "演示数据"
+          },
+          "icon": "color(srgb 0.890196 0.929412 0.87451)",
+          "label": "rgb(162, 178, 162)",
+          "number": "color(srgb 0.890196 0.929412 0.87451)",
+          "text": "有效时长00:13演示数据",
+          "top": "rgb(48, 65, 52)",
+          "width": 162,
+          "x": 199,
+          "y": 427.390625
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "contrast": [
+        {
+          "hint": 8.19,
+          "label": 8.19,
+          "number": 9.17,
+          "unit": 8.19
+        },
+        {
+          "hint": 8.19,
+          "label": 8.19,
+          "number": 9.57,
+          "unit": 8.19
+        },
+        {
+          "hint": 8.19,
+          "label": 8.19,
+          "number": 9.87,
+          "unit": 8.19
+        }
+      ]
+    },
+    {
+      "name": "mobile-demo-light",
+      "screenshot": "mobile-demo-light-vivid.jpg",
+      "cards": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.77552 0.800817 0.386056) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "none",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.483007 0.533979 0.288213)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.77552 0.800817 0.386056)",
+          "text": "最低分贝46.0dB本次观察",
+          "top": "color(srgb 0.77552 0.800817 0.386056)",
+          "width": 162,
+          "x": 29,
+          "y": 330.296875
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.899862 0.784608 0.349029) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "none",
+            "size": "12px",
+            "text": "本次观察"
+          },
+          "icon": "color(srgb 0.551395 0.525064 0.267848)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.899862 0.784608 0.349029)",
+          "text": "最高分贝64.0dB本次观察",
+          "top": "color(srgb 0.899862 0.784608 0.349029)",
+          "width": 162,
+          "x": 199,
+          "y": 330.296875
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.87601 0.810093 0.36132) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "none",
+            "size": "12px",
+            "text": "按采样能量计算"
+          },
+          "icon": "color(srgb 0.538276 0.539081 0.274608)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.87601 0.810093 0.36132)",
+          "text": "平均分贝57.9dB按采样能量计算",
+          "top": "color(srgb 0.87601 0.810093 0.36132)",
+          "width": 162,
+          "x": 29,
+          "y": 427.890625
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "rgb(226, 232, 225)",
+          "gradient": "linear-gradient(150deg, rgb(255, 255, 255), rgb(248, 250, 248))",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(109, 124, 114)",
+            "display": "none",
+            "size": "12px",
+            "text": "演示数据"
+          },
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "label": "rgb(109, 124, 114)",
+          "number": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "有效时长00:14演示数据",
+          "top": "rgb(226, 232, 225)",
+          "width": 162,
+          "x": 199,
+          "y": 427.890625
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "contrast": [
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.72,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.65,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.59,
+          "unit": 5.58
+        }
+      ]
+    },
+    {
+      "name": "narrow-en-ready-light",
+      "screenshot": "narrow-en-ready-light-vivid.jpg",
+      "cards": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 120.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "14px",
+            "text": "Awaiting data"
+          },
+          "icon": "color(srgb 0.170784 0.345882 0.259216)",
+          "label": "rgb(89, 109, 91)",
+          "number": "rgb(32, 53, 43)",
+          "text": "Minimum— —dBAwaiting data",
+          "top": "rgb(213, 223, 210)",
+          "width": 127,
+          "x": 29,
+          "y": 329.8359375
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 120.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "14px",
+            "text": "Awaiting data"
+          },
+          "icon": "color(srgb 0.170784 0.345882 0.259216)",
+          "label": "rgb(89, 109, 91)",
+          "number": "rgb(32, 53, 43)",
+          "text": "Maximum— —dBAwaiting data",
+          "top": "rgb(213, 223, 210)",
+          "width": 127,
+          "x": 164,
+          "y": 329.8359375
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 142.9921875,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "block",
+            "size": "14px",
+            "text": "Awaiting data"
+          },
+          "icon": "color(srgb 0.170784 0.345882 0.259216)",
+          "label": "rgb(89, 109, 91)",
+          "number": "rgb(32, 53, 43)",
+          "text": "Energy mean— —dBAwaiting data",
+          "top": "rgb(213, 223, 210)",
+          "width": 127,
+          "x": 29,
+          "y": 458.4296875
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "rgb(226, 232, 225)",
+          "gradient": "linear-gradient(150deg, rgb(255, 255, 255), rgb(248, 250, 248))",
+          "height": 142.9921875,
+          "hint": {
+            "color": "rgb(109, 124, 114)",
+            "display": "none",
+            "size": "12px",
+            "text": "Time with active capture"
+          },
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "label": "rgb(109, 124, 114)",
+          "number": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "Elapsed time00:00Time with active capture",
+          "top": "rgb(226, 232, 225)",
+          "width": 127,
+          "x": 164,
+          "y": 458.4296875
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "contrast": [
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 13.08,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 13.08,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 13.08,
+          "unit": 5.58
+        }
+      ]
+    },
+    {
+      "name": "narrow-en-demo-light",
+      "screenshot": "narrow-en-demo-light-vivid.jpg",
+      "cards": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.851641 0.807844 0.367319) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "none",
+            "size": "12px",
+            "text": "This observation"
+          },
+          "icon": "color(srgb 0.524873 0.537844 0.277908)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.851641 0.807844 0.367319)",
+          "text": "Minimum55.0dBThis observation",
+          "top": "color(srgb 0.851641 0.807844 0.367319)",
+          "width": 127,
+          "x": 29,
+          "y": 330.03125
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.891275 0.811502 0.357563) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 89.59375,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "none",
+            "size": "12px",
+            "text": "This observation"
+          },
+          "icon": "color(srgb 0.546672 0.539856 0.272542)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.891275 0.811502 0.357563)",
+          "text": "Maximum59.7dBThis observation",
+          "top": "color(srgb 0.891275 0.811502 0.357563)",
+          "width": 127,
+          "x": 164,
+          "y": 330.03125
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "color(srgb 0.879386 0.810405 0.360489) rgb(213, 223, 210) rgb(213, 223, 210)",
+          "gradient": "none",
+          "height": 111.9921875,
+          "hint": {
+            "color": "rgb(89, 109, 91)",
+            "display": "none",
+            "size": "12px",
+            "text": "Calculated from sampled energy"
+          },
+          "icon": "color(srgb 0.540133 0.539252 0.274151)",
+          "label": "rgb(89, 109, 91)",
+          "number": "color(srgb 0.879386 0.810405 0.360489)",
+          "text": "Energy mean58.3dBCalculated from sampled energy",
+          "top": "color(srgb 0.879386 0.810405 0.360489)",
+          "width": 127,
+          "x": 29,
+          "y": 427.625
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "rgb(226, 232, 225)",
+          "gradient": "linear-gradient(150deg, rgb(255, 255, 255), rgb(248, 250, 248))",
+          "height": 111.9921875,
+          "hint": {
+            "color": "rgb(109, 124, 114)",
+            "display": "none",
+            "size": "12px",
+            "text": "Demo data"
+          },
+          "icon": "color(srgb 0.12549 0.207843 0.168627)",
+          "label": "rgb(109, 124, 114)",
+          "number": "color(srgb 0.12549 0.207843 0.168627)",
+          "text": "Elapsed time00:01Demo data",
+          "top": "rgb(226, 232, 225)",
+          "width": 127,
+          "x": 164,
+          "y": 427.625
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "contrast": [
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.62,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.57,
+          "unit": 5.58
+        },
+        {
+          "hint": 5.58,
+          "label": 5.58,
+          "number": 1.59,
+          "unit": 5.58
+        }
+      ]
+    }
+  ]
+}
