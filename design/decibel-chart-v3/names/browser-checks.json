@@ -1,0 +1,700 @@
+{
+  "date": "2026-10-20",
+  "chartZh": {
+    "heading": "从安静到吵闹：分贝分段概览",
+    "headingY": 448.78125,
+    "labels": [
+      "非常安静",
+      "安静",
+      "适中",
+      "较吵",
+      "很吵",
+      "极吵",
+      "极强噪音"
+    ],
+    "theme": "light"
+  },
+  "recordsZh": {
+    "height": 1000,
+    "tags": [
+      {
+        "text": "非常安静",
+        "tone": "faint"
+      },
+      {
+        "text": "安静",
+        "tone": "quiet"
+      },
+      {
+        "text": "适中",
+        "tone": "everyday"
+      },
+      {
+        "text": "较吵",
+        "tone": "raised"
+      },
+      {
+        "text": "很吵",
+        "tone": "loud"
+      },
+      {
+        "text": "极吵",
+        "tone": "intense"
+      },
+      {
+        "text": "极强噪音",
+        "tone": "extreme"
+      }
+    ],
+    "width": 1280
+  },
+  "meterZhDesktop": {
+    "compactTags": [
+      "非常安静",
+      "安静",
+      "适中"
+    ],
+    "height": 1000,
+    "labels": [
+      {
+        "label": "非常安静",
+        "value": "0"
+      },
+      {
+        "label": "安静",
+        "value": "40"
+      },
+      {
+        "label": "较吵",
+        "value": "70"
+      },
+      {
+        "label": "很吵",
+        "value": "85"
+      },
+      {
+        "label": "极吵",
+        "value": "100"
+      },
+      {
+        "label": "极强噪音",
+        "value": "120"
+      }
+    ],
+    "scaleY": 826.5625,
+    "width": 1280
+  },
+  "meterZhMobile": {
+    "height": 820,
+    "labels": [
+      {
+        "font": "12px",
+        "label": "非常安静",
+        "rects": [
+          {
+            "bottom": 979.4609375,
+            "left": 47,
+            "right": 95,
+            "top": 965.4609375
+          }
+        ],
+        "unclipped": true,
+        "value": "0"
+      },
+      {
+        "font": "12px",
+        "label": "安静",
+        "rects": [
+          {
+            "bottom": 979.4609375,
+            "left": 110.328125,
+            "right": 134.328125,
+            "top": 965.4609375
+          }
+        ],
+        "unclipped": true,
+        "value": "40"
+      },
+      {
+        "font": "12px",
+        "label": "较吵",
+        "rects": [
+          {
+            "bottom": 979.4609375,
+            "left": 166.828125,
+            "right": 190.828125,
+            "top": 965.4609375
+          }
+        ],
+        "unclipped": true,
+        "value": "70"
+      },
+      {
+        "font": "12px",
+        "label": "很吵",
+        "rects": [
+          {
+            "bottom": 979.4609375,
+            "left": 195.078125,
+            "right": 219.078125,
+            "top": 965.4609375
+          }
+        ],
+        "unclipped": true,
+        "value": "85"
+      },
+      {
+        "font": "12px",
+        "label": "极吵",
+        "rects": [
+          {
+            "bottom": 979.4609375,
+            "left": 223.328125,
+            "right": 247.328125,
+            "top": 965.4609375
+          }
+        ],
+        "unclipped": true,
+        "value": "100"
+      },
+      {
+        "font": "12px",
+        "label": "极强噪音",
+        "rects": [
+          {
+            "bottom": 999.65625,
+            "left": 225,
+            "right": 273,
+            "top": 985.65625
+          }
+        ],
+        "unclipped": true,
+        "value": "120"
+      }
+    ],
+    "overflow": false,
+    "overlaps": [],
+    "scaleY": 929.4609375,
+    "width": 320
+  },
+  "meterEnWidths": [
+    {
+      "height": 820,
+      "labels": [
+        {
+          "font": "12px",
+          "label": "Very quiet",
+          "rects": [
+            {
+              "bottom": 1077.8515625,
+              "left": 47,
+              "right": 72.5,
+              "top": 1063.8515625
+            },
+            {
+              "bottom": 1094.046875,
+              "left": 47,
+              "right": 75.5,
+              "top": 1080.046875
+            }
+          ],
+          "unclipped": true,
+          "value": "0"
+        },
+        {
+          "font": "12px",
+          "label": "Quiet",
+          "rects": [
+            {
+              "bottom": 1114.25,
+              "left": 107.10546875,
+              "right": 137.55078125,
+              "top": 1100.25
+            }
+          ],
+          "unclipped": true,
+          "value": "40"
+        },
+        {
+          "font": "12px",
+          "label": "Fairly noisy",
+          "rects": [
+            {
+              "bottom": 1077.8515625,
+              "left": 163.7421875,
+              "right": 193.90625,
+              "top": 1063.8515625
+            },
+            {
+              "bottom": 1094.046875,
+              "left": 163.984375,
+              "right": 193.6640625,
+              "top": 1080.046875
+            }
+          ],
+          "unclipped": true,
+          "value": "70"
+        },
+        {
+          "font": "12px",
+          "label": "Very noisy",
+          "rects": [
+            {
+              "bottom": 1114.25,
+              "left": 194.328125,
+              "right": 219.828125,
+              "top": 1100.25
+            },
+            {
+              "bottom": 1130.4453125,
+              "left": 192.234375,
+              "right": 221.9140625,
+              "top": 1116.4453125
+            }
+          ],
+          "unclipped": true,
+          "value": "85"
+        },
+        {
+          "font": "12px",
+          "label": "Extremely noisy",
+          "rects": [
+            {
+              "bottom": 1077.8515625,
+              "left": 207.375,
+              "right": 263.2734375,
+              "top": 1063.8515625
+            },
+            {
+              "bottom": 1094.046875,
+              "left": 220.484375,
+              "right": 250.1640625,
+              "top": 1080.046875
+            }
+          ],
+          "unclipped": true,
+          "value": "100"
+        },
+        {
+          "font": "12px",
+          "label": "Extreme noise",
+          "rects": [
+            {
+              "bottom": 1114.25,
+              "left": 226.6484375,
+              "right": 273,
+              "top": 1100.25
+            },
+            {
+              "bottom": 1130.4453125,
+              "left": 242.8046875,
+              "right": 273,
+              "top": 1116.4453125
+            }
+          ],
+          "unclipped": true,
+          "value": "120"
+        }
+      ],
+      "overflow": false,
+      "overlaps": [],
+      "scaleWidth": 230,
+      "scaleY": 1027.8515625,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "height": 1000,
+      "labels": [
+        {
+          "font": "12px",
+          "label": "Very quiet",
+          "rects": [
+            {
+              "bottom": 962.15625,
+              "left": 80,
+              "right": 137.375,
+              "top": 948.15625
+            }
+          ],
+          "unclipped": true,
+          "value": "0"
+        },
+        {
+          "font": "12px",
+          "label": "Quiet",
+          "rects": [
+            {
+              "bottom": 998.5546875,
+              "left": 187.44140625,
+              "right": 217.88671875,
+              "top": 984.5546875
+            }
+          ],
+          "unclipped": true,
+          "value": "40"
+        },
+        {
+          "font": "12px",
+          "label": "Fairly noisy",
+          "rects": [
+            {
+              "bottom": 962.15625,
+              "left": 263.0546875,
+              "right": 326.2734375,
+              "top": 948.15625
+            }
+          ],
+          "unclipped": true,
+          "value": "70"
+        },
+        {
+          "font": "12px",
+          "label": "Very noisy",
+          "rects": [
+            {
+              "bottom": 998.5546875,
+              "left": 311.38671875,
+              "right": 369.94140625,
+              "top": 984.5546875
+            }
+          ],
+          "unclipped": true,
+          "value": "85"
+        },
+        {
+          "font": "12px",
+          "label": "Extremely noisy",
+          "rects": [
+            {
+              "bottom": 962.15625,
+              "left": 342.1875,
+              "right": 431.140625,
+              "top": 948.15625
+            }
+          ],
+          "unclipped": true,
+          "value": "100"
+        },
+        {
+          "font": "12px",
+          "label": "Extreme noise",
+          "rects": [
+            {
+              "bottom": 998.5546875,
+              "left": 401.6484375,
+              "right": 448,
+              "top": 984.5546875
+            },
+            {
+              "bottom": 1014.75,
+              "left": 417.8046875,
+              "right": 448,
+              "top": 1000.75
+            }
+          ],
+          "unclipped": true,
+          "value": "120"
+        }
+      ],
+      "overflow": false,
+      "overlaps": [],
+      "scaleWidth": 372,
+      "scaleY": 912.15625,
+      "theme": "dark",
+      "width": 768
+    },
+    {
+      "height": 1000,
+      "labels": [
+        {
+          "font": "12px",
+          "label": "Very quiet",
+          "rects": [
+            {
+              "bottom": 876.5625,
+              "left": 104,
+              "right": 161.375,
+              "top": 862.5625
+            }
+          ],
+          "unclipped": true,
+          "value": "0"
+        },
+        {
+          "font": "12px",
+          "label": "Quiet",
+          "rects": [
+            {
+              "bottom": 876.5625,
+              "left": 352.76953125,
+              "right": 383.21484375,
+              "top": 862.5625
+            }
+          ],
+          "unclipped": true,
+          "value": "40"
+        },
+        {
+          "font": "12px",
+          "label": "Fairly noisy",
+          "rects": [
+            {
+              "bottom": 876.5625,
+              "left": 534.390625,
+              "right": 597.609375,
+              "top": 862.5625
+            }
+          ],
+          "unclipped": true,
+          "value": "70"
+        },
+        {
+          "font": "12px",
+          "label": "Very noisy",
+          "rects": [
+            {
+              "bottom": 876.5625,
+              "left": 635.72265625,
+              "right": 694.27734375,
+              "top": 862.5625
+            }
+          ],
+          "unclipped": true,
+          "value": "85"
+        },
+        {
+          "font": "12px",
+          "label": "Extremely noisy",
+          "rects": [
+            {
+              "bottom": 876.5625,
+              "left": 719.5234375,
+              "right": 808.4765625,
+              "top": 862.5625
+            }
+          ],
+          "unclipped": true,
+          "value": "100"
+        },
+        {
+          "font": "12px",
+          "label": "Extreme noise",
+          "rects": [
+            {
+              "bottom": 876.5625,
+              "left": 816.078125,
+              "right": 896,
+              "top": 862.5625
+            }
+          ],
+          "unclipped": true,
+          "value": "120"
+        }
+      ],
+      "overflow": false,
+      "overlaps": [],
+      "scaleWidth": 796,
+      "scaleY": 826.5625,
+      "theme": "dark",
+      "width": 1280
+    }
+  ],
+  "recordsEnMobile": {
+    "height": 820,
+    "overflow": false,
+    "tags": [
+      {
+        "font": "12px",
+        "label": "Very quiet",
+        "tone": "faint",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "Quiet",
+        "tone": "quiet",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "Moderate",
+        "tone": "everyday",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "Fairly noisy",
+        "tone": "raised",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "Very noisy",
+        "tone": "loud",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "Extremely noisy",
+        "tone": "intense",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "Extreme noise",
+        "tone": "extreme",
+        "unclipped": true,
+        "withinWidth": true
+      }
+    ],
+    "theme": "light",
+    "themeButtons": [
+      "Dark mode"
+    ],
+    "width": 320
+  },
+  "recordsEnDark": {
+    "labels": [
+      "Very quiet",
+      "Quiet",
+      "Moderate",
+      "Fairly noisy",
+      "Very noisy",
+      "Extremely noisy",
+      "Extreme noise"
+    ],
+    "theme": "dark"
+  },
+  "recordsZhMobile": {
+    "height": 820,
+    "overflow": false,
+    "tags": [
+      {
+        "font": "12px",
+        "label": "非常安静",
+        "tone": "faint",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "安静",
+        "tone": "quiet",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "适中",
+        "tone": "everyday",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "较吵",
+        "tone": "raised",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "很吵",
+        "tone": "loud",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "极吵",
+        "tone": "intense",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "12px",
+        "label": "极强噪音",
+        "tone": "extreme",
+        "unclipped": true,
+        "withinWidth": true
+      }
+    ],
+    "theme": "dark",
+    "width": 320
+  },
+  "chartEnMobileDark": {
+    "bands": [
+      {
+        "font": "14px",
+        "label": "Very quiet",
+        "tone": "faint",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "14px",
+        "label": "Quiet",
+        "tone": "quiet",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "14px",
+        "label": "Moderate",
+        "tone": "everyday",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "14px",
+        "label": "Fairly noisy",
+        "tone": "raised",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "14px",
+        "label": "Very noisy",
+        "tone": "loud",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "14px",
+        "label": "Extremely noisy",
+        "tone": "intense",
+        "unclipped": true,
+        "withinWidth": true
+      },
+      {
+        "font": "14px",
+        "label": "Extreme noise",
+        "tone": "extreme",
+        "unclipped": true,
+        "withinWidth": true
+      }
+    ],
+    "headingY": 266.125,
+    "height": 820,
+    "inputLabel": "Explore by decibel value",
+    "overflow": false,
+    "theme": "dark",
+    "width": 320
+  },
+  "explorer": {
+    "description": "Reference value: 60 · Moderate",
+    "results": "3 of 31 sound references",
+    "value": "60"
+  },
+  "logs": {
+    "chart": [],
+    "qa": []
+  }
+}

@@ -1,9 +1,7 @@
 import type { MeterCopy } from "../copy.ts";
 import { scalePosition } from "../level.ts";
-import { NOISE_MAX, NOISE_MIN } from "../readings.ts";
+import { NOISE_MAX, NOISE_MIN, NOISE_SCALE_TICKS } from "../readings.ts";
 import styles from "./index.module.css";
-
-const values = [0, 40, 70, 85, 100, 120];
 
 export function LevelScale({ value, copy }: { value: number | null; copy: MeterCopy }) {
   const min = NOISE_MIN;
@@ -13,10 +11,10 @@ export function LevelScale({ value, copy }: { value: number | null; copy: MeterC
   return (
     <div className={styles.scale} role="group" aria-label={`${copy.scale} · ${unit}`}>
       <div className={styles.ticks}>
-        {values.map((tick, i) => (
+        {NOISE_SCALE_TICKS.map((tick, i) => (
           <span
             key={tick}
-            data-edge={i === 0 ? "start" : i === values.length - 1 ? "end" : undefined}
+            data-edge={i === 0 ? "start" : i === NOISE_SCALE_TICKS.length - 1 ? "end" : undefined}
             style={{ left: `${scalePosition(tick, min, max) * 100}%` }}
           >
             <span className={styles.value}>{tick}</span>

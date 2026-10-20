@@ -1,5 +1,11 @@
-type ScaleLabels = [string, string, string, string, string, string];
+import { soundBands } from "../../lib/content/sound-bands.ts";
+import { NOISE_SCALE_TICKS } from "./readings.ts";
+
 type ReferenceLabels = [string, string, string, string, string];
+
+const scaleTitles = NOISE_SCALE_TICKS.map(
+  (tick) => (soundBands.findLast((band) => tick >= band.min) ?? soundBands[0]).title,
+);
 
 const zh = {
   workspace: "噪音测量台",
@@ -52,7 +58,7 @@ const zh = {
   elapsedHint: "从开始采集起计时",
   sampled: "按采样能量计算",
   scale: "噪音级别参考刻度",
-  estimateScaleLabels: ["微弱", "安静", "较响", "嘈杂", "很响", "极响"] satisfies ScaleLabels,
+  estimateScaleLabels: scaleTitles.map((title) => title.zh),
   estimateScaleUnit: "估算噪音 · dB",
   estimateScaleHint: "量级描述仅供参考，颜色不表示安全或超标结论。",
   noiseReference: "分贝（dB）噪音水平量表",
@@ -194,7 +200,7 @@ const en: MeterCopy = {
   elapsedHint: "Time with active capture",
   sampled: "Calculated from sampled energy",
   scale: "Noise level reference scale",
-  estimateScaleLabels: ["Faint", "Quiet", "Loud", "Noisy", "Very loud", "Extreme"],
+  estimateScaleLabels: scaleTitles.map((title) => title.en),
   estimateScaleUnit: "Estimated noise · dB",
   estimateScaleHint: "Descriptions are approximate. Colours do not indicate safety or compliance.",
   noiseReference: "Decibel (dB) noise level chart",

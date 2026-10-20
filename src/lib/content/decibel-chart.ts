@@ -6,7 +6,7 @@ export const decibelChart: SiteContent = {
   id: "decibel-chart",
   slug: "knowledge/decibel-chart",
   kind: "article",
-  updated: "2026-10-18",
+  updated: "2026-10-20",
   title: t("分贝对照表：常见声音与噪音水平", "Decibel chart: everyday sounds and noise levels"),
   description: t(
     "查询耳语、家电、交通和音乐会的分贝参考，按声音名称、分贝值与类别筛选，了解 40、50、60、70 分贝有多大及比较条件。",
@@ -20,11 +20,11 @@ export const decibelChart: SiteContent = {
     {
       id: "levels",
       tocTitle: t("分段概览", "Level overview"),
-      title: t("从安静到强声：分贝分段概览", "From quiet to intense: the decibel scale"),
+      title: t("从安静到吵闹：分贝分段概览", "From quiet to noisy: the decibel scale"),
       paragraphs: [
         t(
-          "分段便于快速浏览，示例范围可能跨越相邻区间。它们不是舒适度或安全等级；具体数值、单位和来源见下方查询。",
-          "These bands help you browse; example ranges may span adjacent bands. They are not comfort or safety ratings. Find values, units and sources in the lookup below.",
+          "分段名称粗略描述吵闹程度，示例范围可能跨越相邻区间。它们不是舒适度或安全等级；具体数值、单位和来源见下方查询。",
+          "Band names describe approximate noisiness; example ranges may span adjacent bands. They are not comfort or safety ratings. Find values, units and sources in the lookup below.",
         ),
       ],
     },

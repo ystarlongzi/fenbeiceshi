@@ -73,9 +73,17 @@
   white-space: nowrap;
   margin-right: 8px;
 }
-/* 英文说明更长，窄工作区错开说明，保留数字位置与固定字号。 */
-@container (max-width: 440px) {
+/* 窄工作区错开说明，保留数字位置；英文最长标签需要两行空间。 */
+@container (max-width: 27.5rem) {
+  .ticks > span[data-edge="end"] .meaning {
+    padding-top: calc(var(--font-size-caption) * 1.35 + 4px);
+  }
+}
+@container (max-width: 48rem) {
   .ticks:lang(en) > span:nth-child(even) .meaning {
-    padding-top: 19px;
+    padding-top: calc(var(--font-size-caption) * 2.7 + 4px);
+  }
+  .ticks:lang(en) > span[data-edge="end"] .meaning {
+    max-width: 7ch;
   }
 }

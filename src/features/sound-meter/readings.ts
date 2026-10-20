@@ -8,6 +8,7 @@ export const DEFAULT_ESTIMATE: Readonly<EstimateModel> = Object.freeze({
 });
 export const NOISE_MIN = 0;
 export const NOISE_MAX = 120;
+export const NOISE_SCALE_TICKS = [0, 40, 70, 85, 100, 120] as const;
 
 export interface ReadingBasis {
   mode: "generic-estimate" | "reference-estimate" | "relative";

@@ -46,5 +46,38 @@
     "mobileLight": "mobile-light-zh.jpg",
     "mobileDarkEnglish": "mobile-dark-en.jpg",
     "recordTags": "record-tags-light-zh.jpg"
+  },
+  "names": {
+    "source": "../../src/lib/content/sound-bands.ts",
+    "zh": [
+      "非常安静",
+      "安静",
+      "适中",
+      "较吵",
+      "很吵",
+      "极吵",
+      "极强噪音"
+    ],
+    "en": [
+      "Very quiet",
+      "Quiet",
+      "Moderate",
+      "Fairly noisy",
+      "Very noisy",
+      "Extremely noisy",
+      "Extreme noise"
+    ],
+    "ticks": [
+      0,
+      40,
+      70,
+      85,
+      100,
+      120
+    ],
+    "rule": "仪表刻度按位置从共享分段派生名称；70、85、100、120 归入后一档。分段边界、颜色、来源例子与连续色阶沿用原实现。",
+    "verification": "../../docs/验证/吵闹程度名称统一验证.md",
+    "screenshots": "names/",
+    "narrowLayout": "保留刻度数字的线性位置和固定 12px；窄容器的中文末档错开一行，英文偶数项为两行文字留出空间。"
   }
 }
