@@ -170,7 +170,10 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
                 </div>
                 <RecordReading record={record} locale={locale} />
                 {!compact ? (
-                  <div className={styles.rowActions}>
+                  <div
+                    className={styles.rowActions}
+                    data-confirming={confirm === record.id ? "true" : undefined}
+                  >
                     <button
                       type="button"
                       onClick={() => exportRecord(record)}

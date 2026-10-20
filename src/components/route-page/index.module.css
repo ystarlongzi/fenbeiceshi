@@ -1,26 +1,37 @@
 .records {
   max-width: 1000px;
   margin-inline: auto;
-  padding-top: 42px;
+  padding-top: 46px;
 }
-.records > p {
+.recordsHeader {
+  margin-bottom: 32px;
+}
+.eyebrow {
   font-size: var(--font-size-caption);
   letter-spacing: 0.08em;
   color: var(--text-accent);
   margin: 0 0 14px;
 }
-.records > h1 {
+.recordsHeader h1 {
   font-size: var(--font-size-title);
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: -0.03em;
-  margin: 0 0 35px;
+  margin: 0;
+  text-wrap: balance;
+}
+.intro {
+  max-width: 650px;
+  font-size: var(--font-size-body);
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 15px 0 0;
 }
 @media (max-width: 680px) {
   .records {
     padding-top: 30px;
   }
-  .records > h1 {
+  .recordsHeader {
     margin-bottom: 28px;
   }
 }

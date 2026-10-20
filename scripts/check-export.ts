@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
+import { articles } from "../src/lib/content/articles.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
 import { healthEffects, healthSources } from "../src/lib/content/health-effects.ts";
@@ -36,6 +37,16 @@ for (const page of sitePages) {
     assert.match(html, /<meta name="description" content="[^"]+"/, path);
     const noindex = /<meta name="robots" content="[^"]*noindex/.test(html);
     assert.equal(noindex, !page.index, path);
+    if (page.id === "knowledge") {
+      const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
+      assert.ok(main, `知识目录缺少正文：${path}`);
+      for (const article of articles)
+        assert.equal(
+          main.split(`href="${href(article.id, locale)}"`).length - 1,
+          1,
+          `知识分组应完整且不重复地保留已发布文章：${path} → ${article.id}`,
+        );
+    }
     if (page.id === "meter") {
       assert.ok(
         html.includes(`href="${href("decibel-chart", locale)}#health"`),

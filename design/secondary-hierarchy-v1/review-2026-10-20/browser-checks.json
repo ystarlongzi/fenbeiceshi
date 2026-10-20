@@ -1,0 +1,418 @@
+{
+  "date": "2026-10-20",
+  "knowledgeZhDesktop": {
+    "groups": [
+      {
+        "articles": [
+          "手机测分贝准吗？先确认你要比较什么",
+          "dBFS 与 dB SPL：相同的 dB，不同的参考"
+        ],
+        "columns": "200px 756px",
+        "heading": "理解读数",
+        "headingFont": "24px",
+        "titleFont": "20px"
+      },
+      {
+        "articles": [
+          "分贝对照表：常见声音与噪音水平"
+        ],
+        "columns": "200px 756px",
+        "heading": "查询声音参考",
+        "headingFont": "24px",
+        "titleFont": "20px"
+      },
+      {
+        "articles": [
+          "麦克风打不开？按现象检查权限与输入"
+        ],
+        "columns": "200px 756px",
+        "heading": "解决使用问题",
+        "headingFont": "24px",
+        "titleFont": "20px"
+      }
+    ],
+    "h1": "让每个读数，都有清楚的解释",
+    "height": 960,
+    "links": [
+      "/knowledge/phone-decibel-accuracy/",
+      "/knowledge/dbfs-vs-db-spl/",
+      "/knowledge/decibel-chart/",
+      "/knowledge/microphone-permission/"
+    ],
+    "overflow": false,
+    "width": 1280
+  },
+  "keyboardFocus": {
+    "href": "/knowledge/phone-decibel-accuracy/",
+    "outline": "solid",
+    "text": "手机测分贝准吗？先确认你要比较什么了解手机麦克风、自动处理与参考校准的影响，区分通用噪音估算、参考校准和专业检测。"
+  },
+  "keyboardArticle": {
+    "h1": "手机测分贝准吗？先确认你要比较什么",
+    "path": "/knowledge/phone-decibel-accuracy/"
+  },
+  "recordsSelectionOne": [
+    "1 of 2 selected"
+  ],
+  "recordsEnMobile": {
+    "disabled": 7,
+    "height": 820,
+    "longNote": {
+      "actionSize": "44px",
+      "actionsTop": 605.046875,
+      "meanTop": 585.0546875,
+      "noteBeforeReading": true,
+      "noteBottom": 476.4765625,
+      "noteWidth": 228,
+      "text": "Layout sample 2 · A longer observation note to verify wrapping, comparison selection and row actions on a narrow screen"
+    },
+    "overflow": false,
+    "records": 9,
+    "selected": 2,
+    "status": [
+      "2 of 2 selected",
+      "Change in energy mean+24.4dBLater minus earlier. This is not an isolated source level or an insulation rating.10/19, 10:00 AM → 10/19, 10:01 AM"
+    ],
+    "theme": "dark",
+    "width": 320
+  },
+  "deleteCancelled": {
+    "confirmButtons": 0,
+    "records": 9
+  },
+  "helpBefore": {
+    "parts": [
+      {
+        "flex": "0 0 auto",
+        "height": 22,
+        "tag": "svg",
+        "text": "",
+        "width": 22
+      },
+      {
+        "flex": "1 1 0%",
+        "height": 476.3125,
+        "tag": "DIV",
+        "text": "Ready to try?Start with a generic noise estimate. Reference calibration is optional, and you can try a demo first.",
+        "width": 47.8984375
+      },
+      {
+        "flex": "0 1 auto",
+        "height": 44,
+        "tag": "A",
+        "text": "Open the meter",
+        "width": 124.1015625
+      }
+    ],
+    "rect": {
+      "height": 516.3125,
+      "width": 292,
+      "x": 14
+    },
+    "text": [
+      {
+        "overflow": "visible",
+        "scrollWidth": 58,
+        "text": "Ready to try?",
+        "width": 48
+      },
+      {
+        "overflow": "visible",
+        "scrollWidth": 68,
+        "text": "Start with a generic noise estimate. Reference calibration is optional, and you can try a demo first.",
+        "width": 48
+      }
+    ]
+  },
+  "confirmAfter": {
+    "actionsBelowReading": true,
+    "actionsTop": 487.84375,
+    "buttonWidths": [
+      44,
+      117.59375,
+      54.6171875
+    ],
+    "confirming": "true",
+    "meanBottom": 471.84375,
+    "meanWidth": 216,
+    "overflow": false,
+    "width": 320
+  },
+  "incompatible": [
+    "2 of 2 selected",
+    "Change in energy meanThese records use different inputs, settings or estimate models. They cannot be directly compared."
+  ],
+  "emptyEn": {
+    "heading": "No saved records yet",
+    "height": 740,
+    "overflow": false,
+    "records": 0,
+    "start": {
+      "bottom": 675.46875,
+      "href": "/en/#measure",
+      "top": 631.46875,
+      "withinFirstScreen": true
+    },
+    "theme": "dark",
+    "width": 320
+  },
+  "emptyStart": {
+    "hash": "#measure",
+    "measure": true,
+    "path": "/en/"
+  },
+  "corruptEn": {
+    "empty": false,
+    "errors": [
+      {
+        "font": "14px",
+        "text": "Stored records have an unexpected format. Existing data has been preserved; you can export this result."
+      }
+    ],
+    "h2": "Local records0",
+    "height": 740,
+    "overflow": false,
+    "records": 0,
+    "width": 320,
+    "theme": "dark"
+  },
+  "helpAfter": {
+    "clipped": [],
+    "columns": [
+      "292px",
+      "292px",
+      "292px"
+    ],
+    "height": 820,
+    "linkBelowText": true,
+    "overflow": false,
+    "textWidth": 218,
+    "theme": "dark",
+    "width": 320
+  },
+  "knowledgeEnMedium": {
+    "columns": [
+      "200px 512px",
+      "200px 512px",
+      "200px 512px"
+    ],
+    "height": 1000,
+    "overflow": false,
+    "theme": "dark",
+    "width": 820
+  },
+  "knowledgeZhMobile": {
+    "clipped": [],
+    "groups": [
+      "理解读数",
+      "查询声音参考",
+      "解决使用问题"
+    ],
+    "height": 844,
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  "recordsZhDesktop": {
+    "disabled": 7,
+    "height": 960,
+    "overflow": false,
+    "records": 9,
+    "selected": 2,
+    "status": [
+      "已选 2 / 2",
+      "能量均值变化+24.4dB后一次减前一次；读数差不代表声源独立声级或隔声性能。10/19 10:00 → 10/19 10:01"
+    ],
+    "theme": "light",
+    "width": 1280
+  },
+  "recordsZhMobile": {
+    "actionsBelowReading": true,
+    "buttons": [
+      {
+        "height": 44,
+        "text": "导出 JSON: 10/19 10:01",
+        "width": 44
+      },
+      {
+        "height": 44,
+        "text": "确认删除",
+        "width": 78
+      },
+      {
+        "height": 44,
+        "text": "保留",
+        "width": 50
+      }
+    ],
+    "height": 844,
+    "meanWidth": 286,
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "logs": [],
+  "cleanup": {
+    "records": 0,
+    "theme": "light"
+  },
+  "knowledgeEnMobileBefore": {
+    "clipped": [
+      "Ready to try?",
+      "Start with a generic noise estimate. Reference calibration is optional, and you can try a demo first."
+    ],
+    "groups": [
+      {
+        "columns": "292px",
+        "heading": "Understand readings",
+        "headingFont": "24px",
+        "titleFont": "20px"
+      },
+      {
+        "columns": "292px",
+        "heading": "Find a sound reference",
+        "headingFont": "24px",
+        "titleFont": "20px"
+      },
+      {
+        "columns": "292px",
+        "heading": "Fix an input problem",
+        "headingFont": "24px",
+        "titleFont": "20px"
+      }
+    ],
+    "height": 820,
+    "overflow": false,
+    "theme": "dark",
+    "width": 320
+  },
+  "deleteConfirmationBefore": {
+    "buttons": [
+      {
+        "label": "Export JSON: 10/19, 10:01 AM",
+        "left": 73,
+        "right": 105.046875,
+        "width": 32.046875
+      },
+      {
+        "label": "Confirm delete",
+        "left": 114.046875,
+        "right": 231.640625,
+        "width": 117.59375
+      },
+      {
+        "label": "Keep",
+        "left": 114.046875,
+        "right": 168.6640625,
+        "width": 54.6171875
+      }
+    ],
+    "overflow": false,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  "confirmBefore": {
+    "buttons": [
+      {
+        "bottom": 471.0390625,
+        "height": 44,
+        "label": "Export JSON: 10/19, 10:01 AM",
+        "left": 73,
+        "right": 105.046875,
+        "top": 427.0390625,
+        "width": 32.046875
+      },
+      {
+        "bottom": 501.4375,
+        "height": 44,
+        "label": "Confirm delete",
+        "left": 114.046875,
+        "right": 231.640625,
+        "top": 457.4375,
+        "width": 117.59375
+      },
+      {
+        "bottom": 553.4375,
+        "height": 44,
+        "label": "Keep",
+        "left": 114.046875,
+        "right": 168.6640625,
+        "top": 509.4375,
+        "width": 54.6171875
+      }
+    ],
+    "mean": {
+      "bottom": 567.421875,
+      "height": 154.3671875,
+      "left": 61,
+      "right": 61,
+      "top": 413.0546875,
+      "width": 0
+    },
+    "overflow": false,
+    "texts": [
+      {
+        "rects": [
+          {
+            "bottom": 441.0546875,
+            "left": 61,
+            "right": 114.796875,
+            "top": 413.0546875
+          }
+        ],
+        "text": "46.4"
+      },
+      {
+        "rects": [
+          {
+            "bottom": 438.0546875,
+            "left": 118.796875,
+            "right": 134.0546875,
+            "top": 424.0546875
+          },
+          {
+            "bottom": 463.6484375,
+            "left": 61,
+            "right": 64.5625,
+            "top": 449.6484375
+          },
+          {
+            "bottom": 489.2421875,
+            "left": 61,
+            "right": 85.96875,
+            "top": 475.2421875
+          }
+        ],
+        "text": "dB · EST."
+      },
+      {
+        "rects": [
+          {
+            "bottom": 516.3359375,
+            "left": 61,
+            "right": 100.234375,
+            "top": 502.3359375
+          },
+          {
+            "bottom": 535.53125,
+            "left": 61,
+            "right": 91.921875,
+            "top": 521.53125
+          }
+        ],
+        "text": "Energy mean"
+      },
+      {
+        "rects": [
+          {
+            "bottom": 562.7265625,
+            "left": 68,
+            "right": 98.4453125,
+            "top": 548.7265625
+          }
+        ],
+        "text": "Quiet"
+      }
+    ]
+  }
+}

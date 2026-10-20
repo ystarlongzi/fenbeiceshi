@@ -271,6 +271,7 @@
 .workspace .rowActions > button {
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
 }
 .confirm {
   display: flex;
@@ -396,6 +397,11 @@
     grid-row: 2;
     margin-left: 0;
     justify-content: flex-end;
+  }
+  .workspace .rowActions[data-confirming="true"] {
+    grid-column: 2 / -1;
+    grid-row: 3;
+    justify-content: flex-start;
   }
   .workspace .recordContext {
     grid-column: 2 / -1;

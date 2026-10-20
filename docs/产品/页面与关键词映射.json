@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-18",
+  "updated": "2026-10-19",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "中文优先，兼顾百度、必应和 Google；同时规划英文。",
@@ -88,8 +88,8 @@
         "en": {"path":"/en/knowledge/","wave":"P0","title":"Sound Measurement Guides and Explanations | fenbeiceshi.com","h1":"Sound measurement guides","keywords":["sound measurement guides","decibel meter help"]}
       },
       "intent": "按问题找到相关解释和方法。",
-      "uniqueValue": "按开始使用、理解读数和进阶方法组织已发布内容，提供可抓取目录。",
-      "sections": ["入门与排查","读懂数值","已发布的进阶方法"],
+      "uniqueValue": "按理解读数、查询声音参考和解决使用问题组织已发布内容，提供可抓取目录与使用指南辅助入口。",
+      "sections": ["理解读数","查询声音参考","解决使用问题"],
       "ctaTargetId": "guide",
       "relatedIds": ["phone-accuracy","dbfs-spl","decibel-chart","microphone-help"],
       "publishGate": "至少首批四篇基础内容已发布；只列当前语言可用条目。",

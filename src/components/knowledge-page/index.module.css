@@ -1,7 +1,10 @@
 .page {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
   padding-top: 46px;
+}
+.header {
+  margin-bottom: 42px;
 }
 .eyebrow {
   color: var(--text-accent);
@@ -9,48 +12,78 @@
   letter-spacing: 0.1em;
   margin: 0 0 15px;
 }
-.page > h1 {
+.header h1 {
   font-size: var(--font-size-title);
   font-weight: 600;
   letter-spacing: -0.04em;
   margin: 0;
   line-height: 1.5;
+  text-wrap: balance;
 }
 .intro {
   font-size: var(--font-size-body);
-  line-height: 2;
+  line-height: 1.9;
   color: var(--muted);
   max-width: 650px;
-  margin: 15px 0 38px;
+  margin: 15px 0 18px;
+}
+.guideLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-ui);
+  color: var(--brand);
+  min-height: 32px;
+}
+.directory {
+  border-top: 1px solid var(--line-strong);
+}
+.group {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 44px;
+  padding-block: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.groupIntro h2 {
+  font-size: var(--font-size-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+.groupIntro > p {
+  font-size: var(--font-size-ui);
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 0;
 }
 .links {
-  border-top: 1px solid var(--line);
+  min-width: 0;
 }
 .links > a {
-  padding: 29px 8px;
-  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 24px;
+  padding: 4px 12px 20px;
+  margin-inline: -12px;
 }
-.articleIndex {
-  color: var(--text-soft);
-  font: var(--font-size-caption) var(--font-number);
+.links > a + a {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
 }
-.links > a > div > p:first-child {
-  color: var(--text-accent);
-  font-size: var(--font-size-caption);
-  letter-spacing: 0.08em;
-  margin: 0 0 9px;
+.links > a:last-child {
+  padding-bottom: 4px;
 }
-.links h2 {
+.links h3 {
   font-size: var(--font-size-heading-sm);
   font-weight: 600;
   margin: 0 0 9px;
   line-height: 1.6;
+  text-wrap: balance;
 }
 .links p {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-ui);
   color: var(--muted);
   line-height: 1.9;
   margin: 0;
@@ -59,8 +92,19 @@
   margin-left: auto;
   color: var(--brand);
 }
-.links > a:hover h2 {
+.links > a:focus-visible h3 {
   color: var(--brand);
+}
+@media (hover: hover) and (pointer: fine) {
+  .links > a:hover {
+    background: var(--surface);
+  }
+  .links > a:hover h3,
+  .guideLink:hover {
+    color: var(--brand);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 }
 .help {
   display: flex;
@@ -69,7 +113,7 @@
   padding: 26px;
   background: var(--surface-accent);
   border-radius: 12px;
-  margin-top: 35px;
+  margin-top: 40px;
 }
 .help > svg {
   color: var(--brand);
@@ -93,25 +137,43 @@
   font-size: var(--font-size-ui);
   margin-left: auto;
   white-space: nowrap;
+  min-height: 44px;
+}
+@media (max-width: 760px) {
+  .group {
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 28px;
+  }
 }
 @media (max-width: 680px) {
   .page {
     padding-top: 30px;
   }
-  .intro {
+  .header {
     margin-bottom: 28px;
   }
+  .group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding-block: 26px;
+  }
+  .groupIntro h2 {
+    margin-bottom: 6px;
+  }
   .links > a {
-    gap: 17px;
-    padding: 23px 2px;
+    gap: 14px;
+    padding-inline: 4px;
+    margin-inline: -4px;
   }
   .help {
     padding: 20px;
     flex-wrap: wrap;
     gap: 12px;
+    margin-top: 30px;
   }
   .help > div {
-    flex: 1;
+    flex: 1 1 calc(100% - 34px);
+    min-width: 0;
   }
   .help a {
     margin: 4px 0 0 34px;
