@@ -46,6 +46,7 @@
     {
       "id": "effects",
       "role": "六个同级短主题",
+      "decorativeEmoji": "标题前依次使用 👂、🔔、😴、🧠、❤️、👶，统一 24px 并设置 aria-hidden；标题与正文保留完整文字。",
       "ids": [
         "hearing",
         "tinnitus",
@@ -133,6 +134,8 @@
     "mobile-effects.jpg",
     "desktop-exposure-en-dark.jpg",
     "mobile-exposure-en-dark.jpg",
-    "mobile-effects-en-dark-320.jpg"
+    "mobile-effects-en-dark-320.jpg",
+    "desktop-effects-emoji.jpg",
+    "mobile-effects-emoji-en.jpg"
   ]
 }

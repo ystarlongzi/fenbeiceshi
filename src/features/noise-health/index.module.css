@@ -25,6 +25,17 @@
 .steps p {
   max-width: 65ch;
 }
+.impact h3 {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.emoji {
+  flex: 0 0 auto;
+  font-size: var(--font-size-heading);
+  font-weight: 400;
+  line-height: 1.4;
+}
 .sources,
 .sourceLink {
   display: flex;

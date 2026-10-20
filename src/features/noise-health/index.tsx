@@ -50,7 +50,12 @@ export function NoiseHealthArticle({ locale }: { locale: Locale }) {
                 className={styles.impact}
                 data-health-id={impact.id}
               >
-                <h3>{text(impact.title, locale)}</h3>
+                <h3>
+                  <span className={styles.emoji} aria-hidden="true">
+                    {impact.emoji}
+                  </span>
+                  {text(impact.title, locale)}
+                </h3>
                 {impact.paragraphs.map((paragraph, index) => (
                   <p key={index}>{text(paragraph, locale)}</p>
                 ))}

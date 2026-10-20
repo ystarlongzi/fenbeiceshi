@@ -183,5 +183,87 @@
       "timestamp": "2026-10-20T13:28:54.294Z",
       "url": "http://127.0.0.1:3144/knowledge/noise-and-health/"
     }
-  ]
+  ],
+  "emoji": {
+    "desktop": {
+      "items": [
+        {
+          "emoji": "👂",
+          "font": "24px",
+          "hidden": "true",
+          "id": "hearing"
+        },
+        {
+          "emoji": "🔔",
+          "font": "24px",
+          "hidden": "true",
+          "id": "tinnitus"
+        },
+        {
+          "emoji": "😴",
+          "font": "24px",
+          "hidden": "true",
+          "id": "sleep"
+        },
+        {
+          "emoji": "🧠",
+          "font": "24px",
+          "hidden": "true",
+          "id": "daily-life"
+        },
+        {
+          "emoji": "❤️",
+          "font": "24px",
+          "hidden": "true",
+          "id": "long-term"
+        },
+        {
+          "emoji": "👶",
+          "font": "24px",
+          "hidden": "true",
+          "id": "vulnerable-groups"
+        }
+      ],
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    "mobileEnglish": {
+      "height": 740,
+      "hiddenEmoji": 6,
+      "scrollWidth": 320,
+      "titles": [
+        {
+          "scrollWidth": 242,
+          "text": "👂Hearing damage",
+          "width": 242
+        },
+        {
+          "scrollWidth": 242,
+          "text": "🔔Ringing and muffled hearing",
+          "width": 242
+        },
+        {
+          "scrollWidth": 242,
+          "text": "😴Disturbed sleep",
+          "width": 242
+        },
+        {
+          "scrollWidth": 242,
+          "text": "🧠Annoyance and focus",
+          "width": 242
+        },
+        {
+          "scrollWidth": 242,
+          "text": "❤️Cardiovascular risk",
+          "width": 242
+        },
+        {
+          "scrollWidth": 242,
+          "text": "👶Children and vulnerable groups",
+          "width": 242
+        }
+      ],
+      "width": 320
+    }
+  }
 }

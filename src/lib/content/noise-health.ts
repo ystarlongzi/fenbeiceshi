@@ -33,6 +33,7 @@ export const healthSources = {
 export const healthImpacts = [
   {
     id: "hearing",
+    emoji: "👂",
     title: t("听力损伤", "Hearing damage"),
     paragraphs: [
       t(
@@ -44,6 +45,7 @@ export const healthImpacts = [
   },
   {
     id: "tinnitus",
+    emoji: "🔔",
     title: t("耳鸣与听觉发闷", "Ringing and muffled hearing"),
     paragraphs: [
       t(
@@ -55,6 +57,7 @@ export const healthImpacts = [
   },
   {
     id: "sleep",
+    emoji: "😴",
     title: t("睡眠干扰", "Disturbed sleep"),
     paragraphs: [
       t(
@@ -66,6 +69,7 @@ export const healthImpacts = [
   },
   {
     id: "daily-life",
+    emoji: "🧠",
     title: t("烦扰与专注", "Annoyance and focus"),
     paragraphs: [
       t(
@@ -77,6 +81,7 @@ export const healthImpacts = [
   },
   {
     id: "long-term",
+    emoji: "❤️",
     title: t("心血管风险", "Cardiovascular risk"),
     paragraphs: [
       t(
@@ -88,6 +93,7 @@ export const healthImpacts = [
   },
   {
     id: "vulnerable-groups",
+    emoji: "👶",
     title: t("儿童与敏感人群", "Children and vulnerable groups"),
     paragraphs: [
       t(
