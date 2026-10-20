@@ -1,5 +1,5 @@
 .control {
-  position: relative;
+  position: var(--theme-control-position, relative);
   display: inline-flex;
 }
 .button {
@@ -39,9 +39,10 @@
 }
 .notice {
   position: absolute;
-  top: calc(100% + 12px);
+  top: var(--theme-notice-top, calc(100% + 12px));
+  bottom: var(--theme-notice-bottom, auto);
   right: 0;
-  width: 230px;
+  width: var(--theme-notice-width, 230px);
   padding: 12px 14px;
   border: 1px solid var(--line-strong);
   border-radius: 8px;

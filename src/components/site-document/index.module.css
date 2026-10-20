@@ -45,32 +45,6 @@
   letter-spacing: 0.08em;
   margin-top: 2px;
 }
-.navigation {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-.navigation nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.utilities {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.navigation nav a {
-  font-size: var(--font-size-ui);
-  color: var(--muted);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 40px;
-  padding: 10px;
-  border-radius: 8px;
-  white-space: nowrap;
-}
 .language {
   display: grid;
   place-items: center;
@@ -83,38 +57,26 @@
   font-size: var(--font-size-caption);
   font-weight: 650;
   color: var(--text-accent);
-}
-.navigation nav a,
-.language {
   transition:
     background-color 160ms ease,
     color 160ms ease,
     box-shadow 160ms ease;
 }
-.navigation nav a:focus-visible,
 .language:focus-visible {
   background: var(--surface-hover);
   color: var(--text-accent);
   box-shadow: inset 0 0 0 1px var(--line-accent);
 }
 @media (hover: hover) and (pointer: fine) {
-  .navigation nav a:hover,
   .language:hover {
     background: var(--surface-hover);
     color: var(--text-accent);
     box-shadow: inset 0 0 0 1px var(--line-accent);
   }
 }
-.navigation nav a:active,
 .language:active {
   background: var(--surface-pressed);
   color: var(--text-accent);
-}
-.navigation nav a[aria-current] {
-  background: var(--surface-accent);
-  color: var(--brand);
-  font-weight: 650;
-  box-shadow: inset 0 -2px 0 var(--brand);
 }
 .content {
   max-width: 1240px;
@@ -187,35 +149,15 @@
 .skip:focus {
   top: 10px;
 }
-@media (max-width: 1000px) {
-  .navigation nav .optionalNav {
-    display: none;
-  }
-}
 @media (max-width: 760px) {
   .headerInner {
-    height: auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    height: 68px;
     padding-inline: 20px;
-    padding-block: 12px 8px;
-    gap: 10px;
+    gap: 16px;
   }
-  .navigation {
-    display: contents;
-  }
-  .utilities {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .navigation nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: space-between;
-    gap: 4px;
-  }
-  .navigation nav a {
-    padding-inline: 6px;
+  .language {
+    min-width: 40px;
+    min-height: 36px;
   }
   .content {
     padding-inline: 20px;
@@ -247,30 +189,11 @@
     height: 30px;
     border-radius: 8px;
   }
-  .utilities {
-    gap: 6px;
-  }
-  .navigation nav {
-    gap: 4px;
-  }
-  .navigation nav a {
-    flex-direction: column;
-    justify-content: center;
-    min-width: 44px;
-    padding: 8px 4px;
-    line-height: 1.25;
-    gap: 4px;
-  }
-  .navigation nav a svg {
-    width: 15px;
-    height: 15px;
-  }
   .content {
     padding-inline: 14px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .navigation nav a,
   .language {
     transition: none;
   }

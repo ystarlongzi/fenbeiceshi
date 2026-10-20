@@ -4,7 +4,7 @@ import { Icon } from "../icon";
 import { LanguageSwitch } from "../language-switch";
 import { ThemeSwitch } from "../theme-switch";
 import { ThemeScript } from "../theme-switch/theme-script";
-import { NavigationLink } from "./navigation-link";
+import { SiteNavigation } from "./site-navigation";
 import { href, sitePages } from "@/lib/routing/pages";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
@@ -51,30 +51,27 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
                 <small>fenbeiceshi.com</small>
               </span>
             </Link>
-            <div className={styles.navigation}>
-              <nav aria-label={english ? "Main navigation" : "主导航"}>
-                {nav.map((item) => (
-                  <NavigationLink
-                    key={item.id}
-                    className={item.optional ? styles.optionalNav : undefined}
-                    href={href(item.id, locale)}
-                    exact={item.id === "meter"}
-                    exclude={item.id === "knowledge" ? [href("decibel-chart", locale)] : undefined}
-                  >
-                    <Icon name={item.icon} size={15} />
-                    {item.label}
-                  </NavigationLink>
-                ))}
-              </nav>
-              <div className={styles.utilities}>
-                <ThemeSwitch locale={locale} />
-                <LanguageSwitch
-                  locale={locale}
-                  available={sitePages.map((page) => href(page.id, other))}
-                  className={styles.language}
-                />
-              </div>
-            </div>
+            <SiteNavigation
+              locale={locale}
+              items={nav.map(({ id, label, icon, optional }) => ({
+                label,
+                icon,
+                optional,
+                href: href(id, locale),
+                exact: id === "meter",
+                exclude: id === "knowledge" ? [href("decibel-chart", locale)] : undefined,
+              }))}
+              utilities={
+                <>
+                  <ThemeSwitch locale={locale} />
+                  <LanguageSwitch
+                    locale={locale}
+                    available={sitePages.map((page) => href(page.id, other))}
+                    className={styles.language}
+                  />
+                </>
+              }
+            />
           </div>
         </header>
         <main id="main-content" className={styles.content}>

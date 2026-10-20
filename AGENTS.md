@@ -75,6 +75,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 仪表、色带、统计、趋势与记录数字共用 `sound-bands.ts` 的七档边界及 `palette.ts` 的映射；深绿仪表使用固定亮色 `--noise-*`，正文数字和趋势使用按主题切换的 `--noise-*-ink`。按显示的一位小数归档和定位，120+ 只占 0–120 量程终点；待测、输入下限和历史相对记录保持中性。当前呈现见 [七档显示配色](./design/noise-color-v1/design-spec.json) 与 [验证记录](./docs/验证/仪表与记录七档配色统一验证.md)。
 
 - 工作台控制区和设置区以 [工作台控制 V1](./design/workbench-controls-v1/design-spec.json) 为准；仪表、色带、统计与趋势沿用现有实现。保存与导出时选填备注，工作台及记录页共用报告弹框，支持 CSV、Excel、PDF 与复制摘要；记录页的临时备注只用于此次导出，不改写原记录。手机及全屏从控制区打开右侧设置抽屉。实现及验证范围见 [工作台控制与导出验证](./docs/验证/工作台控制与导出验证.md)。
+- 移动导航以 [移动导航 V1](./design/mobile-navigation-v1/design-spec.json) 为准：760px 及以下使用单行页头与右上角菜单按钮，右侧模态抽屉包含五项导航及主题／语言切换；关闭、普通链接跳转或切换到桌面宽度时恢复背景滚动与合理焦点。导航交互和 CSS Modules 位于 `src/components/site-document/site-navigation/`，站点外壳及正文保留服务端渲染；验收范围见 [移动端导航抽屉验证](./docs/验证/移动端导航抽屉验证.md)。
 
 ## 工程营销、内容与实现入口
 

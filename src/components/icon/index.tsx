@@ -3,6 +3,7 @@ export type IconName =
   | "book-open"
   | "sliders-horizontal"
   | "mic"
+  | "menu"
   | "timer"
   | "house"
   | "chevron-down"

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "updated": "2026-10-20",
+  "scope": "全站中英文移动端导航",
+  "task": "按需进入其他页面，让手机首屏优先展示当前页面任务。",
+  "hierarchy": {
+    "header": "品牌与右上角菜单按钮，单行 68px。",
+    "drawer": "右侧模态抽屉，上方只放五项同级页面入口；主题与语言切换独立固定在抽屉底部。"
+  },
+  "breakpoint": {
+    "mobileMaxPx": 760,
+    "desktop": "沿用横向导航与主题／语言工具；761–1000px 继续收起使用指南。"
+  },
+  "drawerWidth": {
+    "maxPx": 280,
+    "minimumBackdropPx": 72,
+    "rule": "取 280px 与视口宽度减 72px 中较小值，保留明确的左侧遮罩；导航与底部操作文字允许自然换行。"
+  },
+  "behavior": [
+    "默认关闭，按钮声明展开状态与控制对象。",
+    "点击按钮从右侧打开；关闭按钮、遮罩或 Esc 关闭。",
+    "原生 dialog 管理模态焦点，打开期间锁定背景滚动。",
+    "普通点击导航／语言链接后关闭；修饰键打开新标签时保留菜单。",
+    "关闭后焦点返回菜单按钮；切换桌面宽度时关闭并恢复滚动及桌面链接焦点。",
+    "短屏只滚动上方导航，关闭入口与底部主题／语言切换保持可见；避开设备安全区。",
+    "动效遵循减少动画偏好。"
+  ],
+  "theme": "复用 globals.css 语义配色；抽屉样式在 site-navigation/index.module.css。",
+  "rendering": "SiteDocument 与正文保留服务端渲染；导航和工具在静态 HTML 中输出。",
+  "implementation": "src/components/site-document/site-navigation/",
+  "icons": "icons/source.json",
+  "verification": "../../docs/验证/移动端导航抽屉验证.md"
+}

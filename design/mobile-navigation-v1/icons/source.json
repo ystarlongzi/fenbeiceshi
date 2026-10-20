@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/lucide-icons/lucide",
+  "commit": "1ef60af944de207e0d5176905a0759ba12e6ee8d",
+  "icons": ["menu"],
+  "source": "https://raw.githubusercontent.com/lucide-icons/lucide/1ef60af944de207e0d5176905a0759ba12e6ee8d/icons/menu.svg",
+  "runtime": "public/icons.svg#menu"
+}

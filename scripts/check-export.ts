@@ -80,17 +80,12 @@ for (const page of sitePages) {
       assert.equal((html.match(/role="combobox"/g) || []).length, 2, path);
       assert.doesNotMatch(html, /<select\b/, `麦克风应使用自定义下拉：${path}`);
     }
-    const navigation = html.match(
-      /<nav aria-label="(?:主导航|Main navigation)">([\s\S]*?)<\/nav>/,
-    )?.[1];
-    assert.ok(navigation, `缺少主导航：${path}`);
-    assert.ok(
-      navigation.includes(`href="${href("decibel-chart", locale)}"`),
-      `缺少分贝对照一级入口：${path}`,
-    );
-    const selected = [...navigation.matchAll(/<a\b([^>]*)>/g)].filter((match) =>
-      match[1].includes("aria-current="),
-    );
+    const navigations = [
+      ...html.matchAll(
+        /<nav\b[^>]*aria-label="(?:主导航|Main navigation)"[^>]*>([\s\S]*?)<\/nav>/g,
+      ),
+    ];
+    assert.equal(navigations.length, 2, `桌面与移动抽屉均需静态输出主导航：${path}`);
     const expectedSection = ["meter", "decibel-chart", "knowledge", "guide", "records"].includes(
       page.id,
     )
@@ -98,9 +93,31 @@ for (const page of sitePages) {
       : page.slug.startsWith("knowledge/")
         ? "knowledge"
         : null;
-    assert.equal(selected.length, expectedSection ? 1 : 0, `导航选中数量不正确：${path}`);
-    if (expectedSection)
-      assert.ok(selected[0][1].includes(`href="${href(expectedSection, locale)}"`), path);
+    for (const [, navigation] of navigations) {
+      for (const id of ["meter", "decibel-chart", "knowledge", "guide", "records"])
+        assert.ok(
+          navigation.includes(`href="${href(id, locale)}"`),
+          `缺少导航入口：${path} → ${id}`,
+        );
+      const selected = [...navigation.matchAll(/<a\b([^>]*)>/g)].filter((match) =>
+        match[1].includes("aria-current="),
+      );
+      assert.equal(selected.length, expectedSection ? 1 : 0, `导航选中数量不正确：${path}`);
+      if (expectedSection)
+        assert.ok(selected[0][1].includes(`href="${href(expectedSection, locale)}"`), path);
+    }
+    const menuButton = html.match(/<button\b[^>]*aria-haspopup="dialog"[^>]*>/)?.[0];
+    assert.ok(menuButton, `缺少移动菜单按钮：${path}`);
+    assert.match(menuButton, /aria-expanded="false"/, `菜单应默认收起：${path}`);
+    const menuId = menuButton.match(/aria-controls="([^"]+)"/)?.[1];
+    assert.ok(menuId, `菜单按钮缺少控制对象：${path}`);
+    const menu = [...html.matchAll(/<dialog\b([^>]*)>([\s\S]*?)<\/dialog>/g)].find((match) =>
+      match[1].includes(`id="${menuId}"`),
+    );
+    assert.ok(menu, `移动菜单应使用关联的原生对话框：${path}`);
+    assert.doesNotMatch(menu[1], /\bopen(?:=|\s|$)/, `移动菜单不应默认打开：${path}`);
+    assert.ok(menu[2].includes(navigations[1][1]), `抽屉需包含完整主导航：${path}`);
+    assert.ok(menu[2].includes("hrefLang="), `抽屉缺少语言切换：${path}`);
     for (const alternate of locales)
       assert.ok(
         html.includes(`hrefLang="${alternate}" href="${SITE_URL + href(page.id, alternate)}"`) ||
