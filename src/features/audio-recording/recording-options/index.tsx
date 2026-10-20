@@ -1,3 +1,5 @@
+import { useId } from "react";
+import { Switch } from "@/components/switch";
 import type { Locale } from "../../sound-meter/types";
 import type { useAudioRecording } from "../use-audio-recording";
 import { recordingCopy } from "../copy";
@@ -15,6 +17,7 @@ export function RecordingOptions({
   demo: boolean;
 }) {
   const copy = recordingCopy[locale];
+  const hintId = useId();
   const hint = demo
     ? copy.demo
     : recording.phase === "recording"
@@ -28,18 +31,17 @@ export function RecordingOptions({
             : copy.off;
   return (
     <div className={styles.options}>
-      <label>
-        <input
-          type="checkbox"
-          checked={recording.enabled}
-          disabled={busy || recording.phase === "finishing"}
-          onChange={(event) => recording.setEnabled(event.target.checked)}
-          aria-describedby="recording-hint"
-        />
-        <span>{copy.enable}</span>
-        <small aria-live="polite">{hint}</small>
-      </label>
-      <p id="recording-hint">{copy.hint}</p>
+      <Switch
+        checked={recording.enabled}
+        disabled={busy || recording.phase === "finishing"}
+        onCheckedChange={recording.setEnabled}
+        describedBy={hintId}
+        setting="recording"
+      >
+        {copy.enable}
+      </Switch>
+      <small aria-live="polite">{hint}</small>
+      <p id={hintId}>{copy.hint}</p>
       {recording.enabled && recording.phase === "error" ? (
         <p className={styles.error} role="alert">
           {copy.error}

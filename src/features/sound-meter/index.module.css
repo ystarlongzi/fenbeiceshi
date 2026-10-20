@@ -39,27 +39,6 @@
   align-items: center;
   gap: 12px;
 }
-.views {
-  display: flex;
-  padding: 3px;
-  gap: 2px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: var(--surface-soft);
-}
-.views button {
-  padding: 5px 11px;
-  font-size: var(--font-size-caption);
-  color: var(--muted);
-  border: 0;
-  border-radius: 4px;
-  background: transparent;
-}
-.views button[aria-pressed="true"] {
-  background: var(--surface);
-  color: var(--brand);
-  box-shadow: 0 1px 3px var(--shadow);
-}
 .fullscreen {
   display: inline-flex;
   align-items: center;
@@ -139,10 +118,6 @@
   padding: 10px 22px;
   font-weight: 600;
 }
-.controls button:disabled {
-  opacity: 0.6;
-  cursor: wait;
-}
 .primary {
   background: #d4ecb5;
   color: #203725;
@@ -210,43 +185,6 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.resultActions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  border-top: 1px solid var(--line);
-  padding-top: 16px;
-  margin-top: 18px;
-}
-.resultActions > span {
-  font-size: var(--font-size-ui);
-  color: var(--muted);
-  line-height: 1.7;
-}
-.resultActions > div {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 100%;
-  gap: 8px;
-  flex: 0 0 auto;
-}
-.resultActions button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: var(--font-size-ui);
-  border-radius: 6px;
-  padding: 8px 9px;
-  background: var(--surface);
-  color: var(--brand);
-  border: 1px solid var(--line);
-}
-.resultActions button:disabled {
-  color: var(--text-soft);
-  background: var(--surface-soft);
-}
 .focused {
   --meter-height: 320px;
   --meter-dial-height: 250px;
@@ -302,6 +240,9 @@
   .workbench {
     display: block;
   }
+  .settingsSlot {
+    display: none;
+  }
 }
 @media (max-width: 680px) {
   .workbench {
@@ -324,13 +265,6 @@
   .toolbarActions {
     gap: 8px;
     margin-left: auto;
-  }
-  .views button {
-    padding: 5px 8px;
-    min-height: 28px;
-  }
-  .views {
-    padding: 2px;
   }
   .fullscreen {
     padding: 8px 1px;
@@ -360,21 +294,6 @@
   .captureNote {
     max-width: 140px;
   }
-  .resultActions {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-    padding-top: 13px;
-    margin-top: 10px;
-  }
-  .resultActions > div {
-    width: 100%;
-  }
-  .resultActions button {
-    flex: 1;
-    justify-content: center;
-    min-height: 38px;
-  }
   .focused {
     --meter-height: 230px;
     --meter-dial-height: 190px;
@@ -390,5 +309,17 @@
   }
   .focused .toolbar {
     padding-block: 15px;
+  }
+}
+
+.controls .settingsButton {
+  display: none;
+}
+.focused .controls .settingsButton {
+  display: inline-flex;
+}
+@media (max-width: 760px) {
+  .controls .settingsButton {
+    display: inline-flex;
   }
 }

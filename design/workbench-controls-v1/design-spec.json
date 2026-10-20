@@ -1,0 +1,123 @@
+{
+  "version": "workbench-controls-v1",
+  "date": "2026-10-20",
+  "product": "分贝测试",
+  "scope": {
+    "primary": [
+      "src/features/sound-meter/index.tsx 的 controls",
+      "src/features/sound-meter/meter-settings"
+    ],
+    "linkage": [
+      "保存与导出报告弹框",
+      "手机及全屏设置抽屉",
+      "录音选项位置与主题",
+      "备注草稿和保存内容",
+      "过时的演示与 JSON 使用说明",
+      "本机记录下载入口复用报告弹框"
+    ],
+    "unchanged": [
+      "仪表展示",
+      "级别色带",
+      "统计",
+      "趋势",
+      "录音结果",
+      "本机记录列表结构及样式",
+      "站点模块布局"
+    ]
+  },
+  "states": {
+    "idle": [
+      "开始测量"
+    ],
+    "requesting": [
+      "取消等待"
+    ],
+    "running": [
+      "结束测量"
+    ],
+    "finished": [
+      "重新测量",
+      "保存报告（未保存或备注变化时）",
+      "导出数据"
+    ],
+    "saved": [
+      "重新测量",
+      "已保存状态文字",
+      "导出数据"
+    ],
+    "recordingFinishing": [
+      "整理录音状态文字",
+      "保存与导出（已有结果时）"
+    ],
+    "error": [
+      "开始测量",
+      "现有错误说明"
+    ]
+  },
+  "settings": [
+    "麦克风与输入信号；自定义 combobox/listbox，支持鼠标、触屏、方向键、Home/End、键入名称、Enter、Escape、Tab 及点外部收起",
+    "指针/数显/条形：图形加标签",
+    "同步录音使用共享 Switch，默认关闭；采集中与录音整理时锁定，保留本机处理说明",
+    "参考校准使用共享 Switch，默认关闭；开启展开 20–120 dB、0.1 步长的滑块、数字输入和来源，建立关系后才应用；关闭清除参考，设备切换关闭开关，结束结果保留原口径",
+    "移除结束后的设置提示、样式切换说明、校准状态标签和原 details 折叠入口"
+  ],
+  "mobile": {
+    "maxWidth": 760,
+    "entry": "控制区设置按钮",
+    "presentation": "右侧原生 dialog 抽屉",
+    "fullscreenEntry": true,
+    "close": [
+      "按钮",
+      "Escape",
+      "遮罩"
+    ],
+    "focus": "打开、关闭及下载后恢复；背景不可操作"
+  },
+  "exports": {
+    "entry": "控制区导出数据，或本机记录列表每条记录的下载按钮",
+    "formats": [
+      "csv",
+      "xlsx",
+      "pdf",
+      "copy summary"
+    ],
+    "note": "备注（选填）/ Notes (optional)，保存与导出共用，最多120个UTF-16单元；文件及摘要字段同名",
+    "recordNote": "记录页预填原备注；修改仅用于此次导出，关闭后丢弃，不改写已保存的记录",
+    "stats": "最低、最高、能量均值对应向下箭头、向上箭头、音频线 Lucide 图标；≤520px 图标在标签上方",
+    "layout": "备注默认两行，保留纵向调整与120字限制；收紧统计、提示和操作间距。常规桌面两列，宽度≥681px且高度≤700px时四列，保留每项说明；手机沿用两列或窄屏单列，不缩小字号",
+    "csvColumns": 6,
+    "excelSheets": 2,
+    "pdf": "A4，约192 dpi本机字体图像；按段落分页，文字不可选取",
+    "basis": "publicSummary/readings.ts；一位小数、模型、偏移、单位及输入下限标记；不含音频与内部设备签名",
+    "loading": "Excel/PDF按需动态加载"
+  },
+  "verification": {
+    "report": "../../docs/验证/工作台控制与导出验证.md",
+    "browser": "macOS WebKit in-app browser；1280px桌面、390px手机、320px窄屏，中英文及亮暗",
+    "capture": "隔离测试夹具使用Web Audio合成信号；真实麦克风、移动硬件与声学精度未验证"
+  },
+  "screenshots": {
+    "desktop": "desktop-workbench.jpg",
+    "mobileSettings": "mobile-settings-zh-390.jpg",
+    "microphoneMenu": "mobile-microphone-menu.jpg",
+    "saveReport": "save-report-desktop.jpg",
+    "saveReportMobile": "save-report-mobile-390.jpg",
+    "reportEnglishNarrow": "report-dialog-en-320.jpg",
+    "recordsReport": "records-report-desktop.jpg",
+    "recordsReportPreview": "records-report-preview.jpg",
+    "recordsReportDark": "records-report-dark.jpg",
+    "recordsReportMobile": "records-report-zh-390.jpg",
+    "recordsReportEnglishNarrow": "records-report-en-320.jpg",
+    "compactReport": "report-compact-preview.jpg",
+    "compactReportEnglish": "report-compact-en-720.jpg",
+    "compactReportShortDesktop": "report-compact-en-640.jpg",
+    "compactReportMobile": "report-compact-zh-390.jpg",
+    "compactReportEnglishNarrow": "report-compact-en-320.jpg",
+    "narrowEnglishSettings": "mobile-settings-en-320.jpg",
+    "pdfNormal": "pdf-report-1.png",
+    "pdfLong": [
+      "pdf-long-final-1.png",
+      "pdf-long-final-2.png"
+    ]
+  }
+}

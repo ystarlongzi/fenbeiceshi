@@ -204,14 +204,3 @@ export function publicSummary(record: Measurement) {
         : "Sampled browser observation. No A weighting, certification, safety or compliance conclusion. No audio included.",
   };
 }
-
-export function downloadSummary(record: Measurement) {
-  const url = URL.createObjectURL(
-    new Blob([JSON.stringify(publicSummary(record), null, 2)], { type: "application/json" }),
-  );
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `fenbeiceshi-${record.startedAt.replace(/[:.]/g, "-")}.json`;
-  anchor.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}

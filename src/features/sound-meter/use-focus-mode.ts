@@ -36,6 +36,8 @@ export function useFocusMode(root: RefObject<HTMLDivElement | null>) {
     document.body.style.overflow = "hidden";
     root.current?.querySelector<HTMLButtonElement>("[data-focus-exit]")?.focus();
     const keydown = (event: KeyboardEvent) => {
+      // 原生模态框自行处理焦点和 Escape，避免抽屉关闭时连带退出全屏。
+      if (root.current?.querySelector("dialog[open]")) return;
       if (event.key === "Escape") {
         event.preventDefault();
         void exit();

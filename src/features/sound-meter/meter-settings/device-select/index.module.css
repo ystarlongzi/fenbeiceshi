@@ -1,0 +1,90 @@
+.select {
+  position: relative;
+  min-width: 0;
+}
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: var(--font-size-caption);
+  text-align: left;
+}
+.trigger > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.trigger > svg {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 160ms ease-out;
+}
+.trigger[aria-expanded="true"] > svg {
+  transform: rotate(180deg);
+}
+.trigger:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+.trigger:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+.options {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.options li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 8px;
+  border-radius: 4px;
+  color: var(--ink);
+  font-size: var(--font-size-caption);
+  line-height: 1.6;
+  cursor: pointer;
+}
+.options li > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.options li > svg {
+  flex-shrink: 0;
+  color: var(--brand);
+}
+.options li[data-active="true"] {
+  color: var(--brand);
+  background: var(--surface-accent);
+}
+.options li[aria-selected="true"] {
+  font-weight: 600;
+}
+@media (prefers-reduced-motion: reduce) {
+  .trigger > svg {
+    transition: none;
+  }
+}

@@ -71,7 +71,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     ? [
         {
           title: "Start with your microphone",
-          body: "Allow access when asked. Or try a labelled demo first.",
+          body: "Start measuring and allow access to your microphone.",
         },
         {
           title: "Observe the change",
@@ -83,7 +83,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         },
       ]
     : [
-        { title: "打开麦克风", body: "点击开始并允许访问，也可以先体验带标记的演示。" },
+        { title: "打开麦克风", body: "点击开始，并允许访问当前麦克风。" },
         { title: "观察一段变化", body: "先确认读数口径，保持设备、位置和输入设置稳定。" },
         { title: "把条件一起记下", body: "结束后保存本机摘要，在相同条件下再次观察。" },
       ];

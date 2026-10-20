@@ -66,6 +66,8 @@ export function useSoundMeter() {
     setFrame(null);
     setInput(null);
     setResult(null);
+    noteRef.current = "";
+    setNoteState("");
     setMessage(null);
     setStatus("requesting");
     latest.current = null;
@@ -202,8 +204,9 @@ export function useSoundMeter() {
     clearCalibration();
   }
   function setNote(next: string) {
-    noteRef.current = next;
-    setNoteState(next);
+    const bounded = next.slice(0, 120);
+    noteRef.current = bounded;
+    setNoteState(bounded);
   }
 
   return {

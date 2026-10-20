@@ -1,0 +1,124 @@
+.dialog {
+  width: min(640px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 20px 80px #0003;
+  overflow: auto;
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+  transition:
+    opacity 150ms ease,
+    transform 150ms cubic-bezier(0.22, 1, 0.36, 1),
+    overlay 150ms allow-discrete,
+    display 150ms allow-discrete;
+}
+.dialog[open] {
+  opacity: 1;
+  transform: none;
+  transition-duration: 250ms;
+}
+.dialog::backdrop {
+  background: #071b1480;
+  opacity: 0;
+  transition:
+    opacity 150ms ease,
+    overlay 150ms allow-discrete,
+    display 150ms allow-discrete;
+}
+.dialog[open]::backdrop {
+  opacity: 1;
+  transition-duration: 250ms;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 24px;
+}
+.header h2 {
+  margin: 0;
+  font-size: var(--font-size-heading-sm);
+  font-weight: 650;
+}
+.header button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--muted);
+  background: var(--surface);
+}
+.header button:hover {
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+.body {
+  padding: 24px;
+}
+.drawer {
+  width: min(380px, calc(100% - 32px));
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0 0 0 auto;
+  border-radius: 16px 0 0 16px;
+  transform: translateX(100%);
+  transition-duration: 350ms;
+}
+.drawer[open] {
+  transform: none;
+  transition-duration: 400ms;
+}
+.drawer .body {
+  padding: 0;
+}
+@starting-style {
+  .dialog[open] {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  .drawer[open] {
+    transform: translateX(100%);
+  }
+  .dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+@media (max-width: 680px) {
+  .dialog:not(.drawer) {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 12px;
+  }
+  .header {
+    padding: 12px 16px;
+  }
+  .body {
+    padding: 18px 16px;
+  }
+  .drawer .body {
+    padding: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialog,
+  .dialog[open],
+  .dialog::backdrop {
+    transition: none;
+    transform: none;
+  }
+}

@@ -59,13 +59,26 @@ for (const page of sitePages) {
         html.includes(`href="${href("noise-health", locale)}"`),
         `首页缺少健康导读：${path}`,
       );
-      const recording = html.match(
-        /<input\b[^>]*type="checkbox"[^>]*aria-describedby="recording-hint"[^>]*>/,
-      )?.[0];
-      assert.ok(
-        recording && !/\bchecked(?:=|\s|\/?>)/.test(recording),
-        `同步录音应默认关闭：${path}`,
-      );
+      const switches = [
+        ...html.matchAll(/<input\b[^>]*data-setting="(recording|calibration)"[^>]*>/g),
+      ];
+      for (const setting of ["recording", "calibration"])
+        assert.equal(
+          switches.filter((match) => match[1] === setting).length,
+          2,
+          `桌面与抽屉均需包含设置开关：${path} → ${setting}`,
+        );
+      const hintIds: string[] = [];
+      for (const [input, setting] of switches) {
+        assert.match(input, /role="switch"/, `设置应使用开关：${path} → ${setting}`);
+        assert.doesNotMatch(input, /\bchecked(?:=|\s|\/?>)/, `开关应默认关闭：${path}`);
+        const hintId = input.match(/aria-describedby="([^"]+)"/)?.[1];
+        assert.ok(hintId && html.includes(`id="${hintId}"`), `缺少关联的设置说明：${path}`);
+        hintIds.push(hintId);
+      }
+      assert.equal(new Set(hintIds).size, hintIds.length, `设置说明 ID 不应重复：${path}`);
+      assert.equal((html.match(/role="combobox"/g) || []).length, 2, path);
+      assert.doesNotMatch(html, /<select\b/, `麦克风应使用自定义下拉：${path}`);
     }
     const navigation = html.match(
       /<nav aria-label="(?:主导航|Main navigation)">([\s\S]*?)<\/nav>/,

@@ -3,13 +3,7 @@
 import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
-import {
-  EMPTY_RECORDS,
-  downloadSummary,
-  getRecords,
-  saveRecord,
-  watchRecords,
-} from "@/features/records/storage";
+import { EMPTY_RECORDS, getRecords, saveRecord, watchRecords } from "@/features/records/storage";
 import { meterCopy } from "./copy";
 import { noiseGradient } from "./palette";
 import { useSoundMeter } from "./use-sound-meter";
@@ -20,7 +14,10 @@ import { NoiseLevelReference } from "./noise-level-reference";
 import { SessionStats } from "./session-stats";
 import { SoundTrend } from "./sound-trend";
 import { MeterSettings } from "./meter-settings";
-import { RecordingOptions } from "../audio-recording/recording-options";
+import { WorkbenchDialog } from "./workbench-dialog";
+import { MeasurementReportDialog } from "./measurement-report";
+import { reportCopy } from "./measurement-report/copy";
+import { withMeasurementNote } from "./measurement-report/model";
 import { RecordingResult } from "../audio-recording/recording-result";
 import { currentBasis, displayFrame, measurementBasis } from "./readings";
 import type { Locale, MeterView } from "./types";
@@ -30,7 +27,11 @@ export function SoundMeter({ locale }: { locale: Locale }) {
   const copy = meterCopy[locale];
   const meter = useSoundMeter();
   const [view, setView] = useState<MeterView>("gauge");
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [resultDialog, setResultDialog] = useState<"save" | "export" | null>(null);
+  const [reference, setReference] = useState({ enabled: false, value: "60", source: "" });
   const root = useRef<HTMLDivElement>(null);
+  const exportAction = useRef<HTMLButtonElement>(null);
   const focus = useFocusMode(root);
   const records = useSyncExternalStore(watchRecords, getRecords, () => EMPTY_RECORDS);
   const prefix = locale === "en" ? "/en" : "";
@@ -44,8 +45,10 @@ export function SoundMeter({ locale }: { locale: Locale }) {
   const frame = meter.frame ? displayFrame(meter.frame, basis) : null;
   const value = frame?.value ?? null;
   const calibrated = basis.mode === "reference-estimate";
+  const result = meter.result ? withMeasurementNote(meter.result, meter.note) : null;
   const saved = Boolean(
-    meter.result && records.records.some((record) => record.id === meter.result?.id),
+    result &&
+    records.records.some((record) => record.id === result.id && record.note === result.note),
   );
   const stateLabel = {
     idle: copy.ready,
@@ -56,20 +59,21 @@ export function SoundMeter({ locale }: { locale: Locale }) {
     error: copy.error,
   }[meter.status];
 
-  function save() {
-    if (!meter.result) return;
-    const error = saveRecord(meter.result);
+  function save(): ReturnType<typeof saveRecord> {
+    if (!result) return "saveError";
+    const error = saveRecord(result);
     meter.setMessage(error || "saved");
+    return error;
   }
 
-  function exportResult() {
-    if (!meter.result) return;
-    try {
-      downloadSummary(meter.result);
-    } catch {
-      meter.setMessage("exportError");
-    }
-  }
+  const settingsProps = {
+    locale,
+    meter,
+    view,
+    onViewChange: setView,
+    reference,
+    onReferenceChange: setReference,
+  };
 
   return (
     <div
@@ -88,18 +92,6 @@ export function SoundMeter({ locale }: { locale: Locale }) {
             {copy.workspace}
           </h2>
           <div className={styles.toolbarActions}>
-            <div className={styles.views} role="group" aria-label={copy.display}>
-              {(["gauge", "digital", "bars"] as const).map((name) => (
-                <button
-                  type="button"
-                  key={name}
-                  aria-pressed={view === name}
-                  onClick={() => setView(name)}
-                >
-                  {copy[name]}
-                </button>
-              ))}
-            </div>
             <button
               type="button"
               onClick={() => void focus.toggle()}
@@ -143,35 +135,65 @@ export function SoundMeter({ locale }: { locale: Locale }) {
                 <Icon name={requesting ? "x" : "square"} size={16} />
                 {requesting ? copy.cancel : demo ? copy.stopDemo : copy.stop}
               </button>
+            ) : meter.recording.phase === "finishing" ? (
+              <span className={styles.captureNote} role="status">
+                {locale === "en" ? "Preparing local recording…" : "正在整理本机录音…"}
+              </span>
             ) : (
               <button
                 type="button"
                 className={styles.primary}
-                disabled={meter.recording.phase === "finishing"}
-                onClick={() => void meter.start()}
+                onClick={() => {
+                  setResultDialog(null);
+                  void meter.start();
+                }}
               >
                 <Icon name="mic" size={18} />
                 {meter.status === "finished" ? copy.restart : copy.start}
               </button>
             )}
-            {!busy ? (
-              <button
-                type="button"
-                className={styles.secondary}
-                disabled={meter.recording.phase === "finishing"}
-                onClick={meter.preview}
-              >
-                <Icon name="play" size={15} />
-                {copy.preview}
-              </button>
-            ) : (
+            {result ? (
+              <>
+                {saved ? (
+                  <span className={styles.captureNote}>
+                    <Icon name="circle-check" size={15} />
+                    {copy.savedAlready}
+                  </span>
+                ) : (
+                  <button
+                    type="button"
+                    className={styles.secondary}
+                    onClick={() => setResultDialog("save")}
+                  >
+                    <Icon name="save" size={16} />
+                    {copy.save}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  ref={exportAction}
+                  className={styles.secondary}
+                  onClick={() => setResultDialog("export")}
+                >
+                  <Icon name="download" size={16} />
+                  {reportCopy[locale].export}
+                </button>
+              </>
+            ) : busy ? (
               <span className={styles.captureNote}>
-                <Icon name="shield-check" size={14} />
                 {requesting ? copy.waitHint : demo ? copy.demoNoSave : copy.privacy}
               </span>
-            )}
+            ) : null}
+            <button
+              type="button"
+              className={`${styles.secondary} ${styles.settingsButton}`}
+              aria-haspopup="dialog"
+              onClick={() => setSettingsOpen(true)}
+            >
+              <Icon name="sliders-horizontal" size={16} />
+              {locale === "en" ? "Settings" : "设置"}
+            </button>
           </div>
-          <RecordingOptions locale={locale} recording={meter.recording} busy={busy} demo={demo} />
           {meter.frame?.clipped ? (
             <p className={styles.signalWarning}>
               <Icon name="circle-alert" size={14} />
@@ -206,23 +228,31 @@ export function SoundMeter({ locale }: { locale: Locale }) {
           belowFloor={frame?.belowFloor}
         />
         <RecordingResult locale={locale} recording={meter.recording} />
-        <div className={styles.resultActions}>
-          <span>{demo ? copy.demoNoSave : meter.result ? copy.metadata : copy.resultHint}</span>
-          <div>
-            <button type="button" onClick={save} disabled={!meter.result || saved}>
-              <Icon name="save" size={15} />
-              {saved ? copy.savedAlready : copy.save}
-            </button>
-            <button type="button" onClick={exportResult} disabled={!meter.result}>
-              <Icon name="download" size={15} />
-              {copy.export}
-            </button>
-          </div>
-        </div>
       </div>
       <div className={styles.settingsSlot}>
-        <MeterSettings locale={locale} meter={meter} />
+        <MeterSettings {...settingsProps} />
       </div>
+      <WorkbenchDialog
+        open={settingsOpen}
+        title={copy.settings}
+        closeLabel={reportCopy[locale].close}
+        drawer
+        onClose={() => setSettingsOpen(false)}
+      >
+        <MeterSettings {...settingsProps} inDrawer />
+      </WorkbenchDialog>
+      {result && resultDialog ? (
+        <MeasurementReportDialog
+          key={`${result.id}-${resultDialog}`}
+          record={result}
+          locale={locale}
+          note={meter.note}
+          onNoteChange={meter.setNote}
+          onSave={resultDialog === "save" ? save : undefined}
+          onClose={() => setResultDialog(null)}
+          returnFocus={exportAction}
+        />
+      ) : null}
     </div>
   );
 }

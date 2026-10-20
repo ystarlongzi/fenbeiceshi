@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore, type CSSProperties } from "react";
+import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { LinkArrow } from "@/components/link-arrow";
@@ -10,16 +10,10 @@ import { formatDuration } from "../sound-meter/level";
 import { displayStats, formatReading, measurementBasis } from "../sound-meter/readings";
 import { readingColor } from "../sound-meter/palette";
 import type { Locale, Measurement } from "../sound-meter/types";
-import {
-  EMPTY_RECORDS,
-  compareRecords,
-  deleteRecord,
-  downloadSummary,
-  getRecords,
-  watchRecords,
-} from "./storage";
+import { EMPTY_RECORDS, compareRecords, deleteRecord, getRecords, watchRecords } from "./storage";
 import styles from "./index.module.css";
 import { recordBand } from "./level";
+import { RecordExportDialog } from "./record-export-dialog";
 
 export function RecordsPanel({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
   const copy = meterCopy[locale];
@@ -28,6 +22,8 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
   const [picked, setPicked] = useState<string[]>([]);
   const [confirm, setConfirm] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [reportRecord, setReportRecord] = useState<Measurement | null>(null);
+  const exportAction = useRef<HTMLButtonElement | null>(null);
   const prefix = locale === "en" ? "/en" : "";
   const records = compact ? state.records.slice(0, 3) : state.records;
   const empty = !records.length && !state.error;
@@ -51,14 +47,6 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
     else {
       setPicked((items) => items.filter((item) => item !== id));
       setMessage(null);
-    }
-  }
-
-  function exportRecord(record: Measurement) {
-    try {
-      downloadSummary(record);
-    } catch {
-      setMessage(copy.exportError);
     }
   }
 
@@ -176,8 +164,13 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
                   >
                     <button
                       type="button"
-                      onClick={() => exportRecord(record)}
+                      onClick={(event) => {
+                        exportAction.current = event.currentTarget;
+                        setReportRecord(record);
+                      }}
                       aria-label={`${copy.export}: ${date(record)}`}
+                      aria-haspopup="dialog"
+                      title={copy.export}
                     >
                       <Icon name="download" size={16} />
                     </button>
@@ -229,6 +222,15 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
             </>
           )}
         </div>
+      ) : null}
+      {reportRecord ? (
+        <RecordExportDialog
+          key={reportRecord.id}
+          record={reportRecord}
+          locale={locale}
+          onClose={() => setReportRecord(null)}
+          returnFocus={exportAction}
+        />
       ) : null}
     </section>
   );
