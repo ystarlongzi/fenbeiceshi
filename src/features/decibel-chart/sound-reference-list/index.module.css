@@ -164,8 +164,25 @@
   color: var(--muted);
 }
 .sound[open] > summary {
+  position: relative;
+  align-self: flex-end;
   border-color: var(--text-accent);
   background: var(--surface-accent);
+}
+/* 从标签底部定位说明箭头，换行后仍对准当前标签。 */
+.sound[open] > summary::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: calc(100% + 4px);
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--surface);
+  transform: translateX(-50%) rotate(45deg);
+  pointer-events: none;
 }
 .sound[open] > summary svg {
   transform: rotate(180deg);

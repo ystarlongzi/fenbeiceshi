@@ -13,7 +13,7 @@
     "primary": "七档纵向内容组。组头显示范围与简短程度名称，其下补充一句体感描述；声音标签按内容决定宽度，直接显示名称、完整参考范围与来源单位。",
     "grouping": "按参考范围的起点编组，交界起点归入后一档，160 属于最后一档；跨档条目保留原范围，全部 31 项各出现一次。规则紧邻搜索说明。",
     "search": "只保留名称／数值搜索，搜索后显示匹配条目与非空分组；继续支持全角、多词、dB 和 dBA 条件，无结果时提供查看全部入口。",
-    "details": "每项声音用原生 details 展开比较条件和来源，默认收起，同档同时展开一项；说明在所选标签下方占满一行。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
+    "details": "每项声音用原生 details 展开比较条件和来源，默认收起，同档同时展开一项；说明在所选标签下方占满一行，上沿箭头指向标签底部中心并跟随换行定位。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
     "support": "单位、距离、网页估算差异与分段用途就近说明；读数说明和健康文章导读延续此前分工。",
     "surfaces": "七档直接使用 V3 共享实色背景与配套文字色，不做浅色混合；声音摘要的操作表面用于表达展开能力，不增加独立分类列表。",
     "mobile": "声音组保持从安静到吵闹的纵向顺序；声音标签在各视口均按内容宽度自动换行，长名称可以换行，数值和单位完整保留。展开说明占满组内宽度。"
@@ -26,6 +26,7 @@
   "colorRestorationChecks": "color-restoration-checks.json",
   "tagInteractionChecks": "tag-interaction-checks.json",
   "sourceAuditChecks": "source-audit-checks.json",
+  "arrowChecks": "arrow-checks.json",
   "screenshots": [
     "desktop-zh.png",
     "desktop-zh-high.png",
@@ -39,6 +40,9 @@
     "tags-mobile-zh.png",
     "tags-mobile-en-dark.png",
     "sources-desktop-zh.png",
-    "sources-mobile-en-dark.png"
+    "sources-mobile-en-dark.png",
+    "arrow-desktop-zh.png",
+    "arrow-mobile-zh.png",
+    "arrow-mobile-en-dark.png"
   ]
 }
