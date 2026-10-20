@@ -1,4 +1,5 @@
 import { decibelChart } from "./decibel-chart.ts";
+import { noiseHealth } from "./noise-health.ts";
 import { dual as t, type SiteContent } from "./types.ts";
 
 const mdnAudio = {
@@ -11,6 +12,7 @@ const mdnInput = {
 };
 
 export const articles: SiteContent[] = [
+  noiseHealth,
   {
     id: "phone-accuracy",
     slug: "knowledge/phone-decibel-accuracy",

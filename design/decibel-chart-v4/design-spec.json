@@ -1,0 +1,24 @@
+{
+  "version": 4,
+  "updated": "2026-10-20",
+  "status": "local-implementation-not-deployed",
+  "routes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
+  "task": "快速查找常见声音与分贝量级，理解对应单位和比较条件。",
+  "hierarchy": {
+    "primary": "七档概览与完整 31 项声音查询；名称和数值共用主搜索入口，类别辅助筛选。",
+    "support": "单位、距离与网页估算的区别在查询前直接可见；分段不是舒适度或安全等级。",
+    "reading": "八个主章节收为分段概览、声音查询、读数说明、健康影响四组；五项解释与六类健康详情使用原生 details 按需展开。",
+    "controls": "数值输入和滑块保留在查询内的可选展开区；选择状态、错误恢复与重置保留在可见结果区。",
+    "results": "不重复显示每行的类别名称；声音、原始参考范围、比较条件与来源保留。",
+    "surfaces": "七档量级底色保留，健康卡片改为分隔列表；不增加装饰表面或固定操作栏。",
+    "mobile": "固定字号不变，四项目录与紧凑查询减少纵向堆叠；展开表格保留首列的完整英文单词与数值。"
+  },
+  "compatibility": {
+    "anchors": ["levels", "reference", "numbers", "scale", "exposure", "health", "distance", "limits"],
+    "disclosures": "原有说明锚点放在展开正文内；局部客户端在挂载、hashchange 与 pageshow 后展开并定位目标，兼容直接打开、刷新与片段跳转。",
+    "staticHtml": "完整声音列表、五项说明、职业参考表、六类健康的摘要、详情、行动和来源继续进入静态 HTML。",
+    "selection": "沿用 V2 的选择状态、0–160 数值校验与组合筛选；职业演示仍独立于声音选择和仪表。"
+  },
+  "appearance": "七档颜色、主题变量与固定字号沿用既有规则；仅调整局部 CSS Modules。",
+  "verification": "../../docs/验证/分贝对照页内容精简验证.md"
+}

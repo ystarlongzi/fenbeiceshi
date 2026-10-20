@@ -1,9 +1,30 @@
-.sourceLink {
+.healthNote {
+  margin-top: 30px;
+  scroll-margin-top: 100px;
+}
+.healthNote h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: var(--font-size-heading-sm);
+  font-weight: 600;
+  line-height: 1.7;
+}
+.healthNote .healthDescription {
+  margin: 0;
+  max-width: 65ch;
+  color: var(--text-body);
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
+}
+.healthLink {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  min-height: 44px;
   color: var(--brand);
   font-size: var(--font-size-ui);
+  line-height: 1.8;
   text-decoration: underline;
   text-underline-offset: 3px;
+  scroll-margin-top: 100px;
 }

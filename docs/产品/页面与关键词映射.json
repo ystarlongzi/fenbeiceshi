@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "中文优先，兼顾百度、必应和 Google；同时规划英文。",
@@ -136,9 +136,9 @@
         "en": {"path":"/en/knowledge/decibel-chart/","wave":"P0","title":"Decibel Chart: Everyday Sounds and Their Context | fenbeiceshi.com","h1":"Decibel chart: everyday sounds and noise levels","keywords":["decibel chart","how loud is 60 dB","common sound levels"]}
       },
       "intent": "快速查询常见声音与分贝范围，并理解比较条件。",
-      "uniqueValue": "七档选择、数值滑块与 31 项声音查询联动，保留来源单位和条件；同页回答 40–70 分贝长尾，并解释职业暴露关系与有来源的健康影响。",
-      "sections": ["七档联动概览","数值探索与声音查询","40–70 分贝","对数刻度","职业暴露关系演示","健康影响与应对","比较方法","读数限制"],
-      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-18","locales":["zh-CN","en"],"navigation":"中英文一级导航；本地构建可索引，尚未部署生产"},
+      "uniqueValue": "七档选择与 31 项声音查询联动，保留来源单位和条件；声音或数值搜索为主入口，滑块与四项读数说明按需展开；健康仅保留简短导读和独立文章入口，正文与来源保留在静态 HTML。",
+      "sections": ["七档联动概览","声音查询","读数说明（40–70 分贝、刻度与比较限制）","健康文章简短入口"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-20","locales":["zh-CN","en"],"navigation":"中英文一级导航；本地构建可索引，尚未部署生产"},
       "ctaTargetId": "meter",
       "relatedIds": ["dbfs-spl","phone-accuracy","calibration","guide"],
       "publishGate": "每组参考有来源和条件；不以播放器模拟真实分贝，不把未校准读数套表判定。",
@@ -353,20 +353,62 @@
       "requiredEvidence": ["现行官方标准原文，待核验","适用地区和生效状态","相关领域复核"]
     },
     {
-      "id": "noise-exposure",
-      "kind": "review-required-article",
-      "priority": "P2",
+      "id": "noise-health",
+      "kind": "article",
+      "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/knowledge/noise-exposure-and-hearing/","wave":"P2","title":"理解噪声暴露、持续时间与听力风险资料 - 分贝测试","h1":"如何理解噪声暴露资料","keywords":["噪声暴露时间","噪音与听力风险"]},
-        "en": {"path":"/en/knowledge/noise-exposure-and-hearing/","wave":"P2","title":"Understanding Noise Exposure Guidance | fenbeiceshi.com","h1":"Understand noise exposure guidance","keywords":["noise exposure duration","understanding noise exposure limits"]}
+        "zh-CN": {
+          "path": "/knowledge/noise-and-health/",
+          "wave": "P0",
+          "title": "噪音对健康的影响 - 分贝测试",
+          "h1": "噪音对健康的影响",
+          "keywords": [
+            "噪音对健康的影响",
+            "噪音影响睡眠",
+            "噪音与听力风险"
+          ]
+        },
+        "en": {
+          "path": "/en/knowledge/noise-and-health/",
+          "wave": "P0",
+          "title": "Noise and health - FenbeiCeshi",
+          "h1": "Noise and health",
+          "keywords": [
+            "noise health effects",
+            "noise and sleep",
+            "noise exposure and hearing"
+          ]
+        }
       },
-      "intent": "理解权威暴露资料中的时长、指标与适用人群。",
-      "uniqueValue": "保留来源语境、指标与不确定性；不通过本站即时读数生成个人健康结论。",
-      "sections": ["资料针对谁和什么场景","时长与指标的关系","局限和专业评估入口"],
-      "ctaTargetId": "when-professional-meter",
-      "relatedIds": ["db-dba","metrics","when-professional-meter"],
-      "publishGate": "保持草稿，直到当前权威资料和相关领域复核完成；中文与英文分别核对适用语境。",
-      "requiredEvidence": ["公共卫生或职业机构现行原文，待核验","相关领域复核"]
+      "intent": "理解噪音的不同健康影响、暴露条件，以及减少干扰或寻求专业帮助的下一步。",
+      "uniqueValue": "四组连续阅读：影响概览、理解暴露、减少干扰、下一步；职业参考按需展开，与仅查询声音量级的对照页分工。",
+      "sections": [
+        "影响概览：听力、日常干扰、长期研究",
+        "暴露条件与按需职业参考",
+        "三步减少干扰",
+        "寻求专业帮助"
+      ],
+      "localImplementation": {
+        "status": "implemented-not-deployed",
+        "updated": "2026-10-20",
+        "locales": [
+          "zh-CN",
+          "en"
+        ],
+        "review": "已核对 WHO、NIH/NIDCD 与 CDC/NIOSH 一手资料及双语适用语境；不声称医学专家审校。"
+      },
+      "ctaTargetId": "decibel-chart",
+      "relatedIds": [
+        "phone-accuracy",
+        "dbfs-spl",
+        "guide"
+      ],
+      "publishGate": "一般科普资料：一手来源与双语语境需复核；不以网页估算推算个人患病概率、安全倒计时或合规结论。临床建议与法规扩展仍需相应专业复核。",
+      "requiredEvidence": [
+        "WHO 环境噪音与指南原文，2026-10-20 核对",
+        "NIDCD 噪声性听力损伤与预防资料，2026-10-20 核对",
+        "NIOSH 职业 85 dBA／8 小时与 3 dBA 交换率语境，2026-10-20 核对"
+      ]
     },
     {
       "id": "when-professional-meter",

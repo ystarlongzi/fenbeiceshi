@@ -23,7 +23,6 @@ export function SoundReferenceList({
   const [category, setCategory] = useState("all");
   const inputRef = useRef<HTMLInputElement>(null);
   const matches = invalid ? [] : filterSounds(sounds, query, category, range);
-  const categoryLabels = new Map(categories.map((item) => [item.id, item.label]));
   function reset() {
     setQuery("");
     setCategory("all");
@@ -32,7 +31,6 @@ export function SoundReferenceList({
   }
   return (
     <div className={styles.lookup}>
-      <SoundExplorer locale={locale} />
       <label className={styles.label} htmlFor="sound-query">
         {en ? "Search by sound or decibel level" : "按声音或分贝值查找"}
       </label>
@@ -62,8 +60,8 @@ export function SoundReferenceList({
       </div>
       <p id="sound-query-help" className={styles.help}>
         {en
-          ? "A number finds references that include that level. Add dB or dBA to match the source unit."
-          : "输入数值可查找包含该值的参考范围；加 dB 或 dBA 可限定来源单位。"}
+          ? "A number finds matching ranges. Add dB or dBA to filter by the source unit."
+          : "数字可查找对应范围，加 dB 或 dBA 可限定来源单位。"}
       </p>
       <div
         className={styles.categories}
@@ -81,31 +79,38 @@ export function SoundReferenceList({
           </button>
         ))}
       </div>
-      <div className={styles.applied}>
-        <span>
-          {selection?.kind === "band" && band
-            ? `${band.range} · ${band.title}`
-            : invalid
-              ? en
-                ? "Invalid decibel value"
-                : "分贝数值待修正"
-              : value !== null
-                ? `${en ? "Value" : "数值"} ${value}`
-                : en
-                  ? "All levels"
-                  : "全部分贝范围"}
-        </span>
-        {selection ? (
-          <button type="button" onClick={() => setSelection(null)}>
-            {en ? "Clear level filter" : "清除分贝筛选"}
-          </button>
-        ) : null}
-        {query || category !== "all" || selection ? (
+      <details className={styles.exploreDetails}>
+        <summary>
+          {en ? "Explore with a slider" : "用滑块探索分贝"}
+          <Icon name="chevron-down" size={16} />
+        </summary>
+        <SoundExplorer locale={locale} />
+      </details>
+      {query || category !== "all" || selection ? (
+        <div className={styles.applied}>
+          <span>
+            {selection?.kind === "band" && band
+              ? `${band.range} · ${band.title}`
+              : invalid
+                ? en
+                  ? "Invalid decibel value"
+                  : "分贝数值待修正"
+                : value !== null
+                  ? `${en ? "Value" : "数值"} ${value}`
+                  : en
+                    ? "All levels"
+                    : "全部分贝范围"}
+          </span>
+          {selection ? (
+            <button type="button" onClick={() => setSelection(null)}>
+              {en ? "Clear level filter" : "清除分贝筛选"}
+            </button>
+          ) : null}
           <button type="button" onClick={reset}>
             {en ? "Reset all filters" : "重置全部筛选"}
           </button>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
       <p
         id="sound-results"
         tabIndex={-1}
@@ -130,7 +135,6 @@ export function SoundReferenceList({
               <li key={sound.id} className={styles.soundRow} data-sound-id={sound.id}>
                 <div className={styles.name}>
                   <strong>{sound.name}</strong>
-                  <span>{categoryLabels.get(sound.category)}</span>
                 </div>
                 <p className={styles.level}>
                   <span>
@@ -161,10 +165,10 @@ export function SoundReferenceList({
           <p>
             {en
               ? invalid
-                ? "Correct the decibel value above, or reset the filters."
+                ? "Open the slider controls to correct the decibel value, or reset the filters."
                 : "No matching sounds. Try a shorter name, another level or all categories."
               : invalid
-                ? "请先修正上方分贝数值，或重置筛选。"
+                ? "请展开滑块探索并修正分贝数值，或重置筛选。"
                 : "没有找到匹配声音。试试缩短名称、更换分贝值，或查看全部类别。"}
           </p>
           <button type="button" onClick={reset}>

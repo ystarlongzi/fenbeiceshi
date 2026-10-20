@@ -1,0 +1,82 @@
+.notes {
+  border-top: 1px solid var(--line);
+}
+.note {
+  border-bottom: 1px solid var(--line);
+}
+.note summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 52px;
+  padding-block: 12px;
+  color: var(--ink);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  line-height: 1.7;
+  cursor: pointer;
+  list-style: none;
+}
+.note summary::-webkit-details-marker {
+  display: none;
+}
+.note summary svg {
+  color: var(--brand);
+}
+.note[open] > summary svg {
+  transform: rotate(180deg);
+}
+.body {
+  padding: 6px 0 18px;
+  scroll-margin-top: 100px;
+}
+.body p,
+.body li {
+  max-width: 65ch;
+}
+.tableWrap {
+  overflow-x: auto;
+  margin: 18px 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+}
+.tableWrap table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
+}
+.tableWrap th,
+.tableWrap td {
+  padding: 12px;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.tableWrap th {
+  background: var(--surface-accent);
+  color: var(--ink);
+  font-weight: 600;
+  overflow-wrap: normal;
+}
+.tableWrap td {
+  border-top: 1px solid var(--line);
+  color: var(--text-body);
+}
+.source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand);
+  font-size: var(--font-size-ui);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 520px) {
+  .tableWrap th:first-child,
+  .tableWrap td:first-child {
+    width: 5rem;
+    overflow-wrap: normal;
+  }
+}

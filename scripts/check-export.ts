@@ -4,9 +4,15 @@ import { resolve } from "node:path";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
 import { articles } from "../src/lib/content/articles.ts";
-import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
+import { soundReferences } from "../src/lib/content/sound-references.ts";
 import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
-import { healthEffects, healthSources } from "../src/lib/content/health-effects.ts";
+import {
+  exposureFactors,
+  healthActions,
+  healthImpacts,
+  healthSources,
+} from "../src/lib/content/noise-health.ts";
+import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
 
 const locales = ["zh-CN", "en"] as const;
 function escapeText(value: string) {
@@ -49,7 +55,7 @@ for (const page of sitePages) {
     }
     if (page.id === "meter") {
       assert.ok(
-        html.includes(`href="${href("decibel-chart", locale)}#health"`),
+        html.includes(`href="${href("noise-health", locale)}"`),
         `首页缺少健康导读：${path}`,
       );
       const recording = html.match(
@@ -103,6 +109,20 @@ for (const page of sitePages) {
         `文章目录与章节不一致：${path}`,
       );
       if (page.id === "decibel-chart") {
+        const disclosures = [...visible.matchAll(/<details\b([^>]*)>([\s\S]*?)<\/details>/g)];
+        for (const note of decibelChartNotes) {
+          const disclosure = disclosures.find((match) => match[2].includes(`id="${note.id}"`));
+          assert.ok(disclosure, `说明缺少原生展开与原有锚点：${path} → ${note.id}`);
+          assert.doesNotMatch(disclosure[1], /\bopen(?:=|\s|$)/, path);
+          const body = disclosure[2];
+          for (const paragraph of note.paragraphs)
+            assert.ok(body.includes(escapeText(text(paragraph, locale))), path);
+          for (const row of note.table?.rows ?? [])
+            for (const cell of row) assert.ok(body.includes(escapeText(text(cell, locale))), path);
+        }
+        const slider = disclosures.find((match) => match[2].includes('id="sound-level-input"'));
+        assert.ok(slider, `滑块探索应按需展开：${path}`);
+        assert.doesNotMatch(slider[1], /\bopen(?:=|\s|$)/, path);
         for (const sound of soundReferences) {
           assert.ok(
             visible.includes(`data-sound-id="${sound.id}"`),
@@ -111,32 +131,60 @@ for (const page of sitePages) {
           assert.ok(visible.includes(text(sound.name, locale)), path);
           assert.ok(visible.includes(referenceLevel(sound)), path);
         }
-        for (const source of Object.values(soundSources))
+        for (const source of content.sources)
           assert.ok(visible.includes(`id="${source.id}"`), path);
         assert.ok(visible.includes('id="sound-query"'), path);
         assert.ok(visible.includes('id="levels"') && visible.includes('id="exposure"'), path);
-        for (const id of [
-          "sound-level-input",
-          "sound-level-range",
-          "exposure-level-input",
-          "exposure-level-range",
-          "health",
-        ])
+        for (const id of ["sound-level-input", "sound-level-range", "health"])
           assert.ok(visible.includes(`id="${id}"`), `缺少交互或健康模块：${path} → ${id}`);
-        for (const effect of healthEffects) {
-          assert.ok(visible.includes(`data-health-id="${effect.id}"`), path);
-          assert.ok(
-            visible.includes(escapeText(text(effect.summary, locale))),
-            `健康摘要不在静态正文：${path}`,
-          );
-          assert.ok(
-            visible.includes(escapeText(text(effect.detail, locale))),
-            `展开内容不在静态正文：${path}`,
-          );
-          assert.ok(visible.includes(effect.source.url), path);
+        assert.doesNotMatch(
+          visible,
+          /data-health-id=|id="exposure-level-input"/,
+          `对照页不应保留健康正文和职业演示：${path}`,
+        );
+        const healthEntry = visible.match(/<aside\b[^>]*id="health"[^>]*>([\s\S]*?)<\/aside>/)?.[1];
+        assert.ok(healthEntry, `对照页缺少健康导读：${path}`);
+        assert.ok(
+          healthEntry.includes(`href="${href("noise-health", locale)}"`),
+          `对照页缺少健康文章入口：${path}`,
+        );
+        assert.equal(
+          (healthEntry.match(/<p\b/g) || []).length,
+          1,
+          `对照页健康导读只保留一段：${path}`,
+        );
+      }
+      if (page.id === "noise-health") {
+        for (const section of content.sections)
+          for (const paragraph of section.paragraphs)
+            assert.ok(visible.includes(escapeText(text(paragraph, locale))), path);
+        for (const impact of healthImpacts) {
+          assert.ok(visible.includes(`data-health-id="${impact.id}"`), path);
+          for (const paragraph of impact.paragraphs)
+            assert.ok(
+              visible.includes(escapeText(text(paragraph, locale))),
+              `健康正文不在静态 HTML：${path}`,
+            );
         }
+        for (const field of [
+          ...exposureFactors,
+          ...healthActions.flatMap((action) => [action.title, action.body]),
+        ])
+          assert.ok(
+            visible.includes(escapeText(text(field, locale))),
+            `暴露条件与行动必须静态可读：${path}`,
+          );
+        const occupation = [...visible.matchAll(/<details\b([^>]*)>([\s\S]*?)<\/details>/g)].find(
+          (match) => match[2].includes('id="exposure-level-input"'),
+        );
+        assert.ok(occupation, `健康文章缺少按需职业参考：${path}`);
+        assert.doesNotMatch(occupation[1], /\bopen(?:=|\s|$)/, path);
         for (const source of Object.values(healthSources))
           assert.ok(visible.includes(`id="${source.id}"`), path);
+        assert.ok(
+          visible.includes(`href="${href("decibel-chart", locale)}"`),
+          `健康文章应返回声音对照：${path}`,
+        );
       }
     }
     for (const script of html.matchAll(

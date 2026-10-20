@@ -48,8 +48,8 @@ export function SoundOverview({ locale }: { locale: Locale }) {
       </ol>
       <figcaption>
         {en
-          ? "Select a band to filter sounds. Boundaries belong to the higher band; ranges may cross bands. Original units and conditions appear below."
-          : "点击分段筛选声音。交界值计入后一档，参考范围可跨档；原始单位和条件见下方条目。"}
+          ? "Ranges may cross bands; boundary values belong to the higher band."
+          : "参考范围可能跨档；交界值计入后一档。"}
       </figcaption>
     </figure>
   );

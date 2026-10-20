@@ -20,7 +20,7 @@
   align-items: center;
   gap: 16px;
   width: 100%;
-  padding: 18px 24px 18px 16px;
+  padding: 12px 24px 12px 16px;
   border: 0;
   border-radius: 8px;
   background: var(--band-surface);
@@ -89,7 +89,7 @@
   .band {
     grid-template-columns: 116px minmax(0, 1fr);
     gap: 6px 14px;
-    padding-block: 15px;
+    padding-block: 12px;
   }
   .examples {
     grid-column: 1 / -1;

@@ -70,6 +70,27 @@
   border-color: var(--brand);
   font-weight: 600;
 }
+.exploreDetails {
+  margin-top: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.exploreDetails summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 44px;
+  color: var(--brand);
+  font-size: var(--font-size-ui);
+  cursor: pointer;
+  list-style: none;
+}
+.exploreDetails summary::-webkit-details-marker {
+  display: none;
+}
+.exploreDetails[open] > summary svg {
+  transform: rotate(180deg);
+}
 .lookup .count {
   margin: 18px 0 12px;
   scroll-margin-top: 100px;
@@ -112,7 +133,7 @@
   margin: 0;
 }
 .results > .soundRow {
-  padding: 18px 0;
+  padding: 14px 0;
   margin: 0;
   border-bottom: 1px solid var(--line);
 }
@@ -122,12 +143,6 @@
   color: var(--ink);
   font-weight: 600;
   line-height: 1.7;
-}
-.name > span {
-  display: block;
-  margin-top: 5px;
-  color: var(--muted);
-  font-size: var(--font-size-caption);
 }
 .lookup .level {
   margin: 0;

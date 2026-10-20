@@ -15,15 +15,25 @@ export function ContentPage({
   locale,
   sectionContent = {},
   className = "",
+  cta,
 }: {
   id: string;
   locale: Locale;
   sectionContent?: Record<string, ReactNode>;
   className?: string;
+  cta?: { title: string; description: string; href: string; label: string };
 }) {
   const content = contents.find((item) => item.id === id);
   if (!content) throw new Error(`缺少正文：${id}`);
   const en = locale === "en";
+  const action = cta ?? {
+    title: en ? "Put the method into practice" : "带着这些条件，开始一次观察",
+    description: en
+      ? "Start with a noise estimate. Add reference calibration when available."
+      : "先看估算噪音分贝，有条件时再选用参考校准。",
+    href: `${href("meter", locale)}#measure`,
+    label: en ? "Open the meter" : "打开测量工具",
+  };
   return (
     <article className={`${styles.article} ${className}`}>
       <StructuredData data={breadcrumbData(id, locale)} />
@@ -135,15 +145,11 @@ export function ContentPage({
           </section>
           <div className={styles.cta}>
             <div>
-              <strong>{en ? "Put the method into practice" : "带着这些条件，开始一次观察"}</strong>
-              <p>
-                {en
-                  ? "Start with a noise estimate. Add reference calibration when available."
-                  : "先看估算噪音分贝，有条件时再选用参考校准。"}
-              </p>
+              <strong>{action.title}</strong>
+              <p>{action.description}</p>
             </div>
-            <Link href={`${href("meter", locale)}#measure`}>
-              {en ? "Open the meter" : "打开测量工具"}
+            <Link href={action.href}>
+              {action.label}
               <LinkArrow size={16} />
             </Link>
           </div>

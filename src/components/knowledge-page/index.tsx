@@ -29,6 +29,15 @@ const articleGroups = [
     articles: ["decibel-chart"],
   },
   {
+    id: "health",
+    title: dual("了解噪音与健康", "Understand noise and health"),
+    description: dual(
+      "分清影响与暴露条件，再选择减少干扰的下一步。",
+      "Understand effects and exposure before choosing how to reduce disturbance.",
+    ),
+    articles: ["noise-health"],
+  },
+  {
     id: "troubleshoot",
     title: dual("解决使用问题", "Fix an input problem"),
     description: dual(
@@ -49,8 +58,8 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
         <h1>{en ? "Make sense of the sound" : "让每个读数，都有清楚的解释"}</h1>
         <p className={styles.intro}>
           {en
-            ? "Start with your question: understand the input, check a reference, or get the microphone working."
-            : "从你遇到的问题出发：理解输入、核对参考，或让麦克风恢复工作。"}
+            ? "Understand readings, compare sounds, explore health effects or fix microphone access."
+            : "从你遇到的问题出发：理解读数、查询声音、了解健康，或排查麦克风。"}
         </p>
         <Link className={styles.guideLink} href={href("guide", locale)}>
           {en ? "First time here? Read the usage guide" : "第一次使用？先看使用指南"}

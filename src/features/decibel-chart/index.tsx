@@ -1,14 +1,16 @@
 import { ContentPage } from "@/components/content-page";
-import { Icon } from "@/components/icon";
+import Link from "next/link";
+import { LinkArrow } from "@/components/link-arrow";
+import { href } from "@/lib/routing/pages";
 import { soundBands } from "@/lib/content/sound-bands";
+import { healthTeaser } from "@/lib/content/decibel-chart";
 import { soundCategories, soundReferences, soundSources } from "@/lib/content/sound-references";
 import { text } from "@/lib/content/types";
 import type { Locale } from "@/features/sound-meter/types";
 import { SoundReferenceList } from "./sound-reference-list";
 import { SoundOverview } from "./sound-overview";
 import { SoundSelectionProvider } from "./sound-explorer/selection";
-import { ExposureExplorer } from "./exposure-explorer";
-import { HealthEffects } from "./health-effects";
+import { ChartNotes } from "./chart-notes";
 import styles from "./index.module.css";
 
 export function DecibelChart({ locale }: { locale: Locale }) {
@@ -35,33 +37,24 @@ export function DecibelChart({ locale }: { locale: Locale }) {
         id="decibel-chart"
         locale={locale}
         sectionContent={{
-          scale: (
-            <a
-              className={styles.sourceLink}
-              href={soundSources.ccohs.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {en ? "CCOHS: decibel scale and addition" : "CCOHS：分贝刻度与叠加说明"}
-              <Icon name="external-link" size={13} />
-            </a>
-          ),
-          exposure: (
+          reading: (
             <>
-              <ExposureExplorer locale={locale} />
-              <a
-                className={styles.sourceLink}
-                href={soundSources.niosh.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {en ? "NIOSH: occupational exposure reference" : "NIOSH：职业噪音暴露参考原文"}
-                <Icon name="external-link" size={13} />
-              </a>
+              <ChartNotes locale={locale} />
+              <aside id="health" className={styles.healthNote} aria-labelledby="chart-health-title">
+                <h3 id="chart-health-title">{en ? "Noise and health" : "噪音与健康"}</h3>
+                <p className={styles.healthDescription}>{text(healthTeaser, locale)}</p>
+                <Link
+                  id="exposure"
+                  className={styles.healthLink}
+                  href={href("noise-health", locale)}
+                >
+                  {en ? "Read about noise and health" : "了解噪音对健康的影响"}
+                  <LinkArrow size={16} />
+                </Link>
+              </aside>
             </>
           ),
           levels: <SoundOverview locale={locale} />,
-          health: <HealthEffects locale={locale} />,
           reference: (
             <SoundReferenceList
               locale={locale}

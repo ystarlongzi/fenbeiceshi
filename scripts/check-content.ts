@@ -7,7 +7,13 @@ import {
   soundReferences,
   soundSources,
 } from "../src/lib/content/sound-references.ts";
-import { healthEffects, healthSources } from "../src/lib/content/health-effects.ts";
+import {
+  exposureFactors,
+  healthActions,
+  healthImpacts,
+  healthSources,
+} from "../src/lib/content/noise-health.ts";
+import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
 
 const locales = ["zh-CN", "en"] as const;
 const ids = sitePages.map((page) => page.id);
@@ -16,20 +22,20 @@ const paths = sitePages.flatMap((page) => locales.map((locale) => href(page.id, 
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
-  20,
-  "首批可索引页面为 20 个",
+  22,
+  "当前可索引页面为 22 个",
 );
 assert.equal(sitePages.find((page) => page.id === "records")?.index, false);
 for (const content of contents) {
+  const sections = [
+    ...content.sections,
+    ...(content.id === "decibel-chart" ? decibelChartNotes : []),
+  ];
   assert.ok(
     content.sources.length && content.sections.length && content.related.length,
     content.id,
   );
-  assert.equal(
-    new Set(content.sections.map((section) => section.id)).size,
-    content.sections.length,
-    content.id,
-  );
+  assert.equal(new Set(sections.map((section) => section.id)).size, sections.length, content.id);
   assert.ok(
     content.related.every((id) => ids.includes(id)),
     content.id,
@@ -41,7 +47,7 @@ for (const content of contents) {
       content.id,
     );
     assert.ok(
-      content.sections.every(
+      sections.every(
         (section) => section.title[language] && section.paragraphs.every((p) => p[language]),
       ),
       content.id,
@@ -78,17 +84,21 @@ assert.equal(soundBands[0].min, 0);
 assert.equal(soundBands.at(-1)?.max, 160);
 for (let index = 1; index < soundBands.length; index += 1)
   assert.equal(soundBands[index - 1].max, soundBands[index].min, "分段必须连续");
-assert.equal(new Set(healthEffects.map((effect) => effect.id)).size, 6);
-for (const effect of healthEffects) {
-  for (const field of [effect.title, effect.summary, effect.detail, effect.action])
-    assert.ok(field.zh && field.en, `健康主题缺少双语内容：${effect.id}`);
-  assert.ok(
-    [...Object.values(soundSources), ...Object.values(healthSources)].some(
-      (source) => source.url === effect.source.url,
-    ),
-    effect.id,
-  );
+assert.equal(new Set(healthImpacts.map((impact) => impact.id)).size, healthImpacts.length);
+for (const impact of healthImpacts) {
+  for (const field of [impact.title, ...impact.paragraphs])
+    assert.ok(field.zh && field.en, `健康正文缺少双语内容：${impact.id}`);
+  for (const source of impact.sources)
+    assert.ok(
+      Object.values(healthSources).some((item) => item.url === source.url),
+      impact.id,
+    );
 }
+for (const field of [
+  ...exposureFactors,
+  ...healthActions.flatMap((action) => [action.title, action.body]),
+])
+  assert.ok(field.zh && field.en, "暴露条件与行动步骤必须保留双语内容");
 const sourceIds = Object.values(soundSources).map((source) => source.id);
 assert.equal(new Set(sourceIds).size, sourceIds.length, "来源锚点不得重复");
 for (const page of sitePages.filter((page) => page.index)) {
@@ -97,5 +107,5 @@ for (const page of sitePages.filter((page) => page.index)) {
   for (const locale of locales) assert.equal(candidate.locales[locale].path, href(page.id, locale));
 }
 console.log(
-  `内容检查通过：${contents.length} 个双语正文，20 个可索引 URL，2 个 noindex 功能 URL。`,
+  `内容检查通过：${contents.length} 个双语正文，22 个可索引 URL，2 个 noindex 功能 URL。`,
 );

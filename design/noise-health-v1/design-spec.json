@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "updated": "2026-10-20",
+  "status": "local-implementation-not-deployed",
+  "articleRoutes": ["/knowledge/noise-and-health/", "/en/knowledge/noise-and-health/"],
+  "chartRoutes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
+  "articleTask": "理解噪音影响与暴露语境，选择减少干扰、记录变化或寻求专业帮助的下一步。",
+  "hierarchy": {
+    "lead": "先说明分贝不是唯一判断依据，以可见摘要交代任务和读数边界。",
+    "effects": "强声与听力、日常干扰、长期研究为三个开放小节，合并原有六个标签，按问题连续阅读；依据链接就近显示。",
+    "context": "区分强度与持续时间、时段与活动、单位与平均周期。职业参考只服务需要理解 NIOSH 关系的读者，原生 details 默认关闭。",
+    "actions": "三步开放顺序列表：处理可控声源、按活动调整环境、保留观察条件。",
+    "help": "听力变化与专业评估的入口，不以网页估算诊断或计算个人安全时长。",
+    "nextAction": "文章主操作回到声音对照；沿用文章全局目录和辅助工具入口。",
+    "mobile": "四项目录、连续正文与三个顺序步骤；不缩小字号，不增加卡片网格、固定操作栏或整页客户端状态。"
+  },
+  "chartChanges": {
+    "primaryNavigation": ["分段概览", "声音查询", "读数说明"],
+    "sounds": "完整保留 31 项声音与既有组合筛选。",
+    "reading": "四项与声音比较直接相关的按需说明。",
+    "health": "作为读数说明后的辅助导读，仅一段说明和一个文章入口，不再作为主章节或保留六类展开内容。",
+    "occupation": "职业参考演示、健康长正文与专属来源移到独立文章。",
+    "legacyAnchors": "对照页 #health 继续定位导读，#exposure 定位文章入口；新文章 #exposure 展开职业参考。"
+  },
+  "implementation": {
+    "content": "src/lib/content/noise-health.ts",
+    "article": "src/features/noise-health/",
+    "shared": "复用服务端 ContentPage 与 CSS Modules；仅增加可选页尾操作，其他文章保留默认操作。原生展开锚点已有两个使用处，提取到 components/disclosure-anchors。",
+    "discovery": "首页健康导读和知识目录直达新文章，首页普通文章列表避免重复列出健康入口。",
+    "seo": "新增真实中英文正文，自 canonical 与互相返回 hreflang，24 个本地 URL 中 22 个可索引。"
+  },
+  "sourcesReviewed": "2026-10-20；WHO 环境噪音、2018 指南、2011 睡眠与儿童资料及 NIH/NIDCD、CDC/NIOSH。仅一般科普，不声称医学专家审校。",
+  "verification": "../../docs/验证/噪音健康文章拆分验证.md"
+}

@@ -1,0 +1,466 @@
+[
+  {
+    "stage": "before",
+    "locale": "zh",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "metrics": {
+      "height": 12766,
+      "sections": [
+        {
+          "height": 963,
+          "id": "levels"
+        },
+        {
+          "height": 4773,
+          "id": "reference"
+        },
+        {
+          "height": 558,
+          "id": "numbers"
+        },
+        {
+          "height": 385,
+          "id": "scale"
+        },
+        {
+          "height": 1431,
+          "id": "exposure"
+        },
+        {
+          "height": 1576,
+          "id": "health"
+        },
+        {
+          "height": 389,
+          "id": "distance"
+        },
+        {
+          "height": 411,
+          "id": "limits"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "before",
+    "locale": "zh",
+    "metrics": {
+      "height": 9282,
+      "sections": [
+        {
+          "height": 744,
+          "id": "levels"
+        },
+        {
+          "height": 3567,
+          "id": "reference"
+        },
+        {
+          "height": 452,
+          "id": "numbers"
+        },
+        {
+          "height": 268,
+          "id": "scale"
+        },
+        {
+          "height": 1147,
+          "id": "exposure"
+        },
+        {
+          "height": 864,
+          "id": "health"
+        },
+        {
+          "height": 271,
+          "id": "distance"
+        },
+        {
+          "height": 255,
+          "id": "limits"
+        }
+      ],
+      "width": 1748
+    }
+  },
+  {
+    "stage": "after",
+    "locale": "zh",
+    "metrics": {
+      "height": 5489,
+      "overflow": false,
+      "sections": [
+        {
+          "height": 630,
+          "id": "levels"
+        },
+        {
+          "height": 2278,
+          "id": "reference"
+        },
+        {
+          "height": 352,
+          "id": "reading"
+        },
+        {
+          "height": 532,
+          "id": "health"
+        }
+      ],
+      "soundCount": 31,
+      "toc": [
+        "分段概览",
+        "声音查询",
+        "读数说明",
+        "健康影响"
+      ],
+      "width": 1748
+    }
+  },
+  {
+    "test": "中文分段筛选",
+    "result": {
+      "count": "找到 7 / 31 项声音参考",
+      "focus": "sound-results"
+    }
+  },
+  {
+    "test": "数值搜索与类别组合",
+    "result": {
+      "count": "找到 2 / 31 项声音参考",
+      "sounds": [
+        "dishwasher",
+        "dryer"
+      ]
+    }
+  },
+  {
+    "test": "无结果状态",
+    "result": {
+      "count": "找到 0 / 31 项声音参考",
+      "empty": true
+    }
+  },
+  {
+    "test": "重置恢复",
+    "result": {
+      "count": "找到 31 / 31 项声音参考",
+      "focus": "sound-query"
+    }
+  },
+  {
+    "test": "滑块入口键盘展开和非法数值",
+    "result": {
+      "count": "找到 0 / 31 项声音参考",
+      "invalid": "true",
+      "open": true
+    }
+  },
+  {
+    "test": "折叠非法输入仍显示恢复入口",
+    "result": {
+      "message": true,
+      "open": false
+    }
+  },
+  {
+    "test": "滑块键盘同步",
+    "result": {
+      "count": "找到 3 / 31 项声音参考",
+      "focus": "sound-level-range",
+      "input": "60",
+      "slider": "60"
+    }
+  },
+  {
+    "test": "旧职业参考锚点自动展开",
+    "result": {
+      "open": true,
+      "top": 190
+    }
+  },
+  {
+    "test": "职业演示与声音选择独立",
+    "result": {
+      "count": "找到 3 / 31 项声音参考",
+      "duration": "4 小时",
+      "soundValue": "60"
+    }
+  },
+  {
+    "test": "职业演示非法输入",
+    "result": {
+      "duration": "—",
+      "invalid": "true"
+    }
+  },
+  {
+    "test": "健康主题键盘展开",
+    "result": {
+      "open": true,
+      "paragraphs": 3,
+      "source": "https://www.who.int/europe/news-room/fact-sheets/item/noise"
+    }
+  },
+  {
+    "stage": "after",
+    "locale": "zh",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "metrics": {
+      "height": 7375,
+      "overflow": false,
+      "sections": [
+        {
+          "height": 865,
+          "id": "levels"
+        },
+        {
+          "height": 3380,
+          "id": "reference"
+        },
+        {
+          "height": 348,
+          "id": "reading"
+        },
+        {
+          "height": 588,
+          "id": "health"
+        }
+      ],
+      "soundCount": 31
+    }
+  },
+  {
+    "test": "手机读数表展开",
+    "result": {
+      "open": true,
+      "overflow": false,
+      "tableWidth": 348
+    }
+  },
+  {
+    "test": "手机分段筛选与结果定位",
+    "result": {
+      "count": "找到 4 / 31 项声音参考",
+      "focus": "sound-results",
+      "headerBottom": 132,
+      "top": 236
+    }
+  },
+  {
+    "test": "手机来源单位搜索",
+    "result": {
+      "count": "找到 1 / 31 项声音参考",
+      "sounds": [
+        "conversation"
+      ]
+    }
+  },
+  {
+    "test": "英文320px默认深色布局",
+    "result": {
+      "health": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "notes": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "overflow": false,
+      "sounds": 31,
+      "theme": "dark"
+    }
+  },
+  {
+    "test": "英文320px长数值查询",
+    "result": {
+      "count": "2 of 31 sound references",
+      "overflow": false
+    }
+  },
+  {
+    "test": "英文320px表格展开",
+    "result": {
+      "bodyFont": "16px",
+      "open": true,
+      "overflow": false,
+      "tableFont": "14px"
+    }
+  },
+  {
+    "test": "修复前英文说明锚点刷新",
+    "result": {
+      "hash": "#numbers",
+      "open": false,
+      "scrollY": 7069
+    }
+  },
+  {
+    "test": "修复后英文说明锚点刷新",
+    "result": {
+      "columns": [
+        {
+          "text": "Level",
+          "width": 80
+        },
+        {
+          "text": "Sound reference",
+          "width": 129
+        },
+        {
+          "text": "Source",
+          "width": 69
+        }
+      ],
+      "hash": "#numbers",
+      "open": true,
+      "overflow": false,
+      "top": -516
+    }
+  },
+  {
+    "test": "新标签直接打开英文说明链接",
+    "result": {
+      "hash": "#numbers",
+      "open": true,
+      "top": 190
+    }
+  },
+  {
+    "test": "英文直接链接稳定后复核",
+    "result": {
+      "open": true,
+      "overflow": false,
+      "tableTop": 276,
+      "top": 190
+    }
+  },
+  {
+    "test": "锚点修复后英文320px表格",
+    "result": {
+      "columns": [
+        {
+          "text": "Level",
+          "width": 80
+        },
+        {
+          "text": "Sound reference",
+          "width": 129
+        },
+        {
+          "text": "Source",
+          "width": 69
+        }
+      ],
+      "open": true,
+      "overflow": false,
+      "width": 320
+    }
+  },
+  {
+    "test": "旧说明锚点 scale",
+    "result": {
+      "open": true,
+      "top": 190
+    }
+  },
+  {
+    "test": "旧说明锚点 exposure",
+    "result": {
+      "open": true,
+      "top": 190
+    }
+  },
+  {
+    "test": "旧说明锚点 distance",
+    "result": {
+      "open": true,
+      "top": 190
+    }
+  },
+  {
+    "test": "旧说明锚点 limits",
+    "result": {
+      "open": true,
+      "top": 190
+    }
+  },
+  {
+    "test": "旧限制说明刷新保持展开",
+    "result": {
+      "hash": "#limits",
+      "open": true
+    }
+  },
+  {
+    "test": "英文320px最终表格",
+    "result": {
+      "columns": [
+        80,
+        124,
+        74
+      ],
+      "open": true,
+      "overflow": false,
+      "sourceHeader": "Source",
+      "width": 320
+    }
+  },
+  {
+    "test": "英文320px健康长标题展开",
+    "result": {
+      "fontSize": "16px",
+      "open": true,
+      "overflow": false,
+      "source": "https://www.who.int/tools/compendium-on-health-and-environment/environmental-noise"
+    }
+  },
+  {
+    "test": "中文320px最终默认布局",
+    "result": {
+      "height": 8032,
+      "notes": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "overflow": false,
+      "sounds": 31,
+      "theme": "light",
+      "width": 320
+    }
+  },
+  {
+    "test": "中文1280px最终默认布局",
+    "result": {
+      "height": 5489,
+      "overflow": false,
+      "sounds": 31,
+      "theme": "light",
+      "width": 1280
+    }
+  },
+  {
+    "test": "中文桌面阅读目录跟随",
+    "result": {
+      "active": "读数说明",
+      "readingTop": 190
+    }
+  }
+]

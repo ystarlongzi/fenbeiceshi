@@ -209,23 +209,25 @@ export function HomePage({ locale }: { locale: Locale }) {
                 ? "Understand hearing, sleep and longer-term effects, with sources and practical actions."
                 : "了解听力、睡眠与长期影响，结合来源和行动建议改善环境。"}
             </p>
-            <Link href={`${href("decibel-chart", locale)}#health`}>
+            <Link href={href("noise-health", locale)}>
               {en ? "Read about health effects" : "了解噪音对健康的影响"}
               <LinkArrow size={15} />
             </Link>
           </div>
         </div>
         <div className={styles.articles}>
-          {articles.map((article, i) => (
-            <Link key={article.id} href={href(article.id, locale)}>
-              <span className={styles.articleIndex}>0{i + 1}</span>
-              <div>
-                <h3>{text(article.title, locale)}</h3>
-                <p>{text(article.description, locale)}</p>
-              </div>
-              <LinkArrow size={18} className={styles.articleArrow} />
-            </Link>
-          ))}
+          {articles
+            .filter((article) => article.id !== "noise-health")
+            .map((article, i) => (
+              <Link key={article.id} href={href(article.id, locale)}>
+                <span className={styles.articleIndex}>0{i + 1}</span>
+                <div>
+                  <h3>{text(article.title, locale)}</h3>
+                  <p>{text(article.description, locale)}</p>
+                </div>
+                <LinkArrow size={18} className={styles.articleArrow} />
+              </Link>
+            ))}
         </div>
       </section>
       <section className={styles.faq}>

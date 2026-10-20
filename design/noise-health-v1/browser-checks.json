@@ -1,0 +1,207 @@
+[
+  {
+    "test": "中文桌面默认文章",
+    "result": {
+      "height": 3710,
+      "impacts": 3,
+      "occupationOpen": false,
+      "overflow": false,
+      "toc": [
+        "影响概览",
+        "理解暴露",
+        "减少干扰",
+        "下一步"
+      ],
+      "width": 1280
+    }
+  },
+  {
+    "test": "桌面行动区阅读",
+    "result": {
+      "active": "减少干扰",
+      "font": "16px",
+      "steps": 3
+    }
+  },
+  {
+    "test": "职业参考键盘展开及88输入",
+    "result": {
+      "open": true,
+      "output": "4 小时"
+    }
+  },
+  {
+    "test": "职业参考非法输入",
+    "result": {
+      "invalid": "true",
+      "message": "请输入 85–100 dBA 之间的整数。",
+      "output": "—"
+    }
+  },
+  {
+    "test": "文章返回对照页",
+    "result": {
+      "entry": "/knowledge/noise-and-health/",
+      "healthBlocks": 0,
+      "healthHeight": 113,
+      "healthParagraphs": 1,
+      "occupation": false,
+      "path": "/knowledge/decibel-chart/",
+      "sounds": 31,
+      "toc": [
+        "分段概览",
+        "声音查询",
+        "读数说明"
+      ]
+    }
+  },
+  {
+    "test": "对照页数值查询保留",
+    "result": {
+      "result": "找到 3 / 31 项声音参考"
+    }
+  },
+  {
+    "test": "对照页旧职业锚点",
+    "result": {
+      "hash": "#exposure",
+      "href": "/knowledge/noise-and-health/",
+      "tag": "A"
+    }
+  },
+  {
+    "test": "对照页进入健康文章",
+    "result": {
+      "path": "/knowledge/noise-and-health/",
+      "title": "噪音对健康的影响：听力、睡眠与日常干扰"
+    }
+  },
+  {
+    "test": "中文390手机文章",
+    "result": {
+      "bodySize": "16px",
+      "occupationOpen": false,
+      "overflow": false,
+      "titleSize": "32px",
+      "toc": 4,
+      "width": 390
+    }
+  },
+  {
+    "test": "手机行动步骤",
+    "result": {
+      "headingFont": "20px",
+      "numberFont": "20px",
+      "overflow": false,
+      "steps": 3
+    }
+  },
+  {
+    "test": "手机最终短标题",
+    "result": {
+      "overflow": false,
+      "size": "32px",
+      "title": "噪音对健康的影响"
+    }
+  },
+  {
+    "test": "英文320px深色默认文章",
+    "result": {
+      "occupationOpen": false,
+      "overflow": false,
+      "theme": "dark",
+      "title": "Noise and health",
+      "toc": [
+        "Health effects",
+        "Exposure context",
+        "Reduce disturbance",
+        "Further help"
+      ],
+      "width": 320
+    }
+  },
+  {
+    "test": "英文320px行动步骤",
+    "result": {
+      "bodySize": "16px",
+      "headingSize": "20px",
+      "overflow": false,
+      "steps": 3
+    }
+  },
+  {
+    "test": "英文职业参考100输入",
+    "result": {
+      "output": "15 minutes",
+      "overflow": false
+    }
+  },
+  {
+    "test": "英文职业参考深链接刷新",
+    "result": {
+      "bodyTop": 190,
+      "hash": "#exposure",
+      "open": true
+    }
+  },
+  {
+    "test": "英文320px越界输入",
+    "result": {
+      "errorFont": "14px",
+      "invalid": "true",
+      "output": "—",
+      "overflow": false
+    }
+  },
+  {
+    "test": "英文职业滑块恢复",
+    "result": {
+      "focus": "exposure-level-range",
+      "output": "4 hours",
+      "value": "88"
+    }
+  },
+  {
+    "test": "英文320px对照页简短入口",
+    "result": {
+      "bodyFont": "14px",
+      "entry": "/en/knowledge/noise-and-health/",
+      "occupation": false,
+      "overflow": false,
+      "paragraphs": 1
+    }
+  },
+  {
+    "test": "英文首页健康入口去重",
+    "result": {
+      "count": 1,
+      "href": "/en/knowledge/noise-and-health/"
+    }
+  },
+  {
+    "test": "英文知识目录健康分组",
+    "result": {
+      "count": 1,
+      "group": "Understand noise and health",
+      "overflow": false,
+      "path": "/en/knowledge/"
+    }
+  },
+  {
+    "test": "中文首页健康入口去重",
+    "result": {
+      "count": 1,
+      "href": "/knowledge/noise-and-health/"
+    }
+  },
+  {
+    "test": "最终中文短标题与桌面布局",
+    "result": {
+      "occupationOpen": false,
+      "overflow": false,
+      "path": "/knowledge/noise-and-health/",
+      "title": "噪音对健康的影响",
+      "width": 1280
+    }
+  }
+]
