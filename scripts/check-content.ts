@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { contents, href, sitePages } from "../src/lib/routing/pages.ts";
+import { soundBands } from "../src/lib/content/sound-bands.ts";
 import {
-  soundBands,
   soundCategories,
   soundReferences,
   soundSources,

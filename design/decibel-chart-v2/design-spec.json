@@ -30,7 +30,8 @@
     "homeEntry": "首页声音知识区的简短导读，链接至现有对照页 #health。",
     "scope": "公开资料的一般科普；保留指标、时段、人群和研究语境，不通过单次网页读数判断个人健康。"
   },
-  "appearance": "复用 V1 七档亮暗背景配色；公共主题语义变量和固定字号不变，组件样式相邻维护。",
+  "bandsSource": "../../src/lib/content/sound-bands.ts",
+  "appearance": "复用 V1 七档亮暗背景配色；量级色作为对照页与记录标签的公共变量在 globals.css 维护，固定字号不变，组件样式相邻维护。",
   "verification": "../../docs/验证/分贝对照联动与健康模块验证.md",
   "screenshots": {
     "lookupDesktop": "lookup-desktop-zh.png",

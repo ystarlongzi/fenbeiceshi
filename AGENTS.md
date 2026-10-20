@@ -70,7 +70,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 - 趋势图的“警告 / 危险界限”标注按用户要求单独使用固定 11px（`--font-size-chart-label: 0.6875rem`），作为前述最小字号的局部例外；中英文和手机保持一致，坐标轴刻度仍为 12px。
 - 仪表样式切换等紧凑控件、设置辅助说明和设备名称使用固定 12px；按内容角色分配字号，不把所有控件和说明统一放大到 14px。输入处理警告仍使用 14px。
-- 分贝对照页沿用 `/knowledge/decibel-chart/` 与英文对应路径，并作为一级导航入口；当前组织见 [分贝对照 V2](./design/decibel-chart-v2/design-spec.json)，配色沿用 V1。声音参考在 `src/lib/content/sound-references.ts` 维护，七档、数值探索与查询共用局部选择状态；默认完整列表、健康正文与来源进入静态 HTML。职业参考演示独立使用手动 85–100 dBA，不读取仪表估算；健康主题在 `src/lib/content/health-effects.ts` 保留双语来源与适用语境。新增例子须核对一手来源，不将通用估算解释为 dBA。
+- 分贝对照页沿用 `/knowledge/decibel-chart/` 与英文对应路径，并作为一级导航入口；当前组织见 [分贝对照 V2](./design/decibel-chart-v2/design-spec.json)，七档配色以 [分段配色 V3](./design/decibel-chart-v3/design-spec.json) 的翠绿、叶绿、黄绿、金黄、橙、朱红、深红配色为准。声音参考在 `src/lib/content/sound-references.ts` 维护；七档定义在 `src/lib/content/sound-bands.ts` 维护，对照页与记录标签共用名称、边界和量级色，亮暗配色统一放在 `globals.css`。对照页七档、数值探索与查询共用局部选择状态；默认完整列表、健康正文与来源进入静态 HTML。职业参考演示独立使用手动 85–100 dBA，不读取仪表估算；健康主题在 `src/lib/content/health-effects.ts` 保留双语来源与适用语境。新增例子须核对一手来源，不将通用估算解释为 dBA。
 
 ## 工程营销、内容与实现入口
 

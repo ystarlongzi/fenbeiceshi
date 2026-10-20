@@ -1,0 +1,90 @@
+{
+  "dark": [
+    {
+      "background": "rgb(20, 55, 40)",
+      "color": "rgb(209, 250, 229)",
+      "label": "非常安静",
+      "tone": "faint"
+    },
+    {
+      "background": "rgb(18, 59, 58)",
+      "color": "rgb(204, 251, 241)",
+      "label": "安静",
+      "tone": "quiet"
+    },
+    {
+      "background": "rgb(30, 49, 81)",
+      "color": "rgb(219, 234, 254)",
+      "label": "日常声音",
+      "tone": "everyday"
+    },
+    {
+      "background": "rgb(68, 58, 25)",
+      "color": "rgb(254, 249, 195)",
+      "label": "较响",
+      "tone": "raised"
+    },
+    {
+      "background": "rgb(76, 47, 29)",
+      "color": "rgb(255, 237, 213)",
+      "label": "很响",
+      "tone": "loud"
+    },
+    {
+      "background": "rgb(75, 37, 39)",
+      "color": "rgb(254, 226, 226)",
+      "label": "强声",
+      "tone": "intense"
+    },
+    {
+      "background": "rgb(79, 30, 53)",
+      "color": "rgb(255, 228, 230)",
+      "label": "极强声",
+      "tone": "extreme"
+    }
+  ],
+  "light": [
+    {
+      "background": "rgb(220, 252, 231)",
+      "color": "rgb(20, 83, 45)",
+      "label": "非常安静",
+      "tone": "faint"
+    },
+    {
+      "background": "rgb(204, 251, 241)",
+      "color": "rgb(17, 94, 89)",
+      "label": "安静",
+      "tone": "quiet"
+    },
+    {
+      "background": "rgb(219, 234, 254)",
+      "color": "rgb(30, 58, 138)",
+      "label": "日常声音",
+      "tone": "everyday"
+    },
+    {
+      "background": "rgb(254, 249, 195)",
+      "color": "rgb(113, 63, 18)",
+      "label": "较响",
+      "tone": "raised"
+    },
+    {
+      "background": "rgb(255, 237, 213)",
+      "color": "rgb(124, 45, 18)",
+      "label": "很响",
+      "tone": "loud"
+    },
+    {
+      "background": "rgb(254, 226, 226)",
+      "color": "rgb(127, 29, 29)",
+      "label": "强声",
+      "tone": "intense"
+    },
+    {
+      "background": "rgb(254, 205, 211)",
+      "color": "rgb(136, 19, 55)",
+      "label": "极强声",
+      "tone": "extreme"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-20",
+  "criterion": "WCAG 2.2 SC 1.4.3 normal text >= 4.5:1",
+  "source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+  "scope": "七档普通状态的文字与背景；不是整站无障碍认证",
+  "light": [
+    {
+      "background": "rgb(79, 159, 112)",
+      "color": "rgb(15, 43, 28)",
+      "font": "14px",
+      "label": "0–30 dB非常安静正常呼吸、树叶沙沙声",
+      "selected": "false",
+      "tone": "faint",
+      "backgroundHex": "#4f9f70",
+      "colorHex": "#0f2b1c",
+      "contrast": 4.719756
+    },
+    {
+      "background": "rgb(125, 184, 121)",
+      "color": "rgb(15, 43, 28)",
+      "font": "14px",
+      "label": "30–50 dB安静轻声耳语、图书馆、冰箱运转",
+      "selected": "false",
+      "tone": "quiet",
+      "backgroundHex": "#7db879",
+      "colorHex": "#0f2b1c",
+      "contrast": 6.512431
+    },
+    {
+      "background": "rgb(184, 204, 98)",
+      "color": "rgb(53, 67, 24)",
+      "font": "14px",
+      "label": "50–70 dB日常声音普通家庭环境、正常交谈、洗衣机",
+      "selected": "false",
+      "tone": "everyday",
+      "backgroundHex": "#b8cc62",
+      "colorHex": "#354318",
+      "contrast": 6.023896
+    },
+    {
+      "background": "rgb(246, 213, 120)",
+      "color": "rgb(97, 68, 11)",
+      "font": "14px",
+      "label": "70–85 dB较响吸尘器、繁忙道路交通、门铃",
+      "selected": "false",
+      "tone": "raised",
+      "backgroundHex": "#f6d578",
+      "colorHex": "#61440b",
+      "contrast": 6.285359
+    },
+    {
+      "background": "rgb(245, 164, 93)",
+      "color": "rgb(99, 44, 16)",
+      "font": "14px",
+      "label": "85–100 dB很响繁忙交通中的车内、电动剃须刀、体育赛事",
+      "selected": "false",
+      "tone": "loud",
+      "backgroundHex": "#f5a45d",
+      "colorHex": "#632c10",
+      "contrast": 5.452681
+    },
+    {
+      "background": "rgb(193, 61, 42)",
+      "color": "rgb(255, 255, 255)",
+      "font": "14px",
+      "label": "100–120 dB强声汽车喇叭、链锯、警笛",
+      "selected": "false",
+      "tone": "intense",
+      "backgroundHex": "#c13d2a",
+      "colorHex": "#fff",
+      "contrast": 5.291776
+    },
+    {
+      "background": "rgb(143, 36, 31)",
+      "color": "rgb(255, 255, 255)",
+      "font": "14px",
+      "label": "120+ dB极强声军用喷气飞机飞越、飞机起飞、烟花爆竹",
+      "selected": "false",
+      "tone": "extreme",
+      "backgroundHex": "#8f241f",
+      "colorHex": "#fff",
+      "contrast": 8.606331
+    }
+  ],
+  "lightMinimum": 4.719756,
+  "dark": [
+    {
+      "background": "rgb(23, 60, 41)",
+      "color": "rgb(226, 242, 228)",
+      "font": "14px",
+      "label": "0–30 dB非常安静正常呼吸、树叶沙沙声",
+      "selected": "false",
+      "tone": "faint",
+      "backgroundHex": "#173c29",
+      "colorHex": "#e2f2e4",
+      "contrast": 10.528896
+    },
+    {
+      "background": "rgb(40, 64, 43)",
+      "color": "rgb(217, 239, 205)",
+      "font": "14px",
+      "label": "30–50 dB安静轻声耳语、图书馆、冰箱运转",
+      "selected": "false",
+      "tone": "quiet",
+      "backgroundHex": "#28402b",
+      "colorHex": "#d9efcd",
+      "contrast": 9.24338
+    },
+    {
+      "background": "rgb(59, 69, 37)",
+      "color": "rgb(231, 237, 181)",
+      "font": "14px",
+      "label": "50–70 dB日常声音普通家庭环境、正常交谈、洗衣机",
+      "selected": "false",
+      "tone": "everyday",
+      "backgroundHex": "#3b4525",
+      "colorHex": "#e7edb5",
+      "contrast": 8.323318
+    },
+    {
+      "background": "rgb(102, 80, 31)",
+      "color": "rgb(255, 240, 181)",
+      "font": "14px",
+      "label": "70–85 dB较响吸尘器、繁忙道路交通、门铃",
+      "selected": "false",
+      "tone": "raised",
+      "backgroundHex": "#66501f",
+      "colorHex": "#fff0b5",
+      "contrast": 6.728363
+    },
+    {
+      "background": "rgb(138, 66, 28)",
+      "color": "rgb(255, 240, 217)",
+      "font": "14px",
+      "label": "85–100 dB很响繁忙交通中的车内、电动剃须刀、体育赛事",
+      "selected": "false",
+      "tone": "loud",
+      "backgroundHex": "#8a421c",
+      "colorHex": "#fff0d9",
+      "contrast": 6.506737
+    },
+    {
+      "background": "rgb(169, 54, 39)",
+      "color": "rgb(255, 242, 235)",
+      "font": "14px",
+      "label": "100–120 dB强声汽车喇叭、链锯、警笛",
+      "selected": "false",
+      "tone": "intense",
+      "backgroundHex": "#a93627",
+      "colorHex": "#fff2eb",
+      "contrast": 5.904032
+    },
+    {
+      "background": "rgb(114, 31, 34)",
+      "color": "rgb(255, 240, 238)",
+      "font": "14px",
+      "label": "120+ dB极强声军用喷气飞机飞越、飞机起飞、烟花爆竹",
+      "selected": "false",
+      "tone": "extreme",
+      "backgroundHex": "#721f22",
+      "colorHex": "#fff0ee",
+      "contrast": 9.795768
+    }
+  ],
+  "darkMinimum": 5.904032
+}

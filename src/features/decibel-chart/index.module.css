@@ -1,35 +1,3 @@
-.palette {
-  --band-faint-surface: #dcfce7;
-  --band-faint-ink: #14532d;
-  --band-quiet-surface: #ccfbf1;
-  --band-quiet-ink: #115e59;
-  --band-everyday-surface: #dbeafe;
-  --band-everyday-ink: #1e3a8a;
-  --band-raised-surface: #fef9c3;
-  --band-raised-ink: #713f12;
-  --band-loud-surface: #ffedd5;
-  --band-loud-ink: #7c2d12;
-  --band-intense-surface: #fee2e2;
-  --band-intense-ink: #7f1d1d;
-  --band-extreme-surface: #fecdd3;
-  --band-extreme-ink: #881337;
-}
-:global(:root[data-theme="dark"]) .palette {
-  --band-faint-surface: #143728;
-  --band-faint-ink: #d1fae5;
-  --band-quiet-surface: #123b3a;
-  --band-quiet-ink: #ccfbf1;
-  --band-everyday-surface: #1e3151;
-  --band-everyday-ink: #dbeafe;
-  --band-raised-surface: #443a19;
-  --band-raised-ink: #fef9c3;
-  --band-loud-surface: #4c2f1d;
-  --band-loud-ink: #ffedd5;
-  --band-intense-surface: #4b2527;
-  --band-intense-ink: #fee2e2;
-  --band-extreme-surface: #4f1e35;
-  --band-extreme-ink: #ffe4e6;
-}
 .sourceLink {
   display: inline-flex;
   align-items: center;

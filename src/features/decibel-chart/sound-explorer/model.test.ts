@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { soundBands } from "../../../lib/content/sound-references.ts";
+import { soundBands } from "../../../lib/content/sound-bands.ts";
 import { bandAtLevel, readLevel } from "./model.ts";
 
 const bands = soundBands.map((band) => ({ ...band, title: band.title.zh, examples: "" }));

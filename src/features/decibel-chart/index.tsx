@@ -1,11 +1,7 @@
 import { ContentPage } from "@/components/content-page";
 import { Icon } from "@/components/icon";
-import {
-  soundBands,
-  soundCategories,
-  soundReferences,
-  soundSources,
-} from "@/lib/content/sound-references";
+import { soundBands } from "@/lib/content/sound-bands";
+import { soundCategories, soundReferences, soundSources } from "@/lib/content/sound-references";
 import { text } from "@/lib/content/types";
 import type { Locale } from "@/features/sound-meter/types";
 import { SoundReferenceList } from "./sound-reference-list";
@@ -38,7 +34,6 @@ export function DecibelChart({ locale }: { locale: Locale }) {
       <ContentPage
         id="decibel-chart"
         locale={locale}
-        className={styles.palette}
         sectionContent={{
           scale: (
             <a

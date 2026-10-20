@@ -1,9 +1,4 @@
 .workbench {
-  --noise-faint: #5da97c;
-  --noise-quiet: #a3c96b;
-  --noise-everyday: #e4cf5b;
-  --noise-loud: #ef9b4c;
-  --noise-very-loud: #ee6256;
   --noise-gradient: linear-gradient(
     90deg,
     var(--noise-faint) 0%,

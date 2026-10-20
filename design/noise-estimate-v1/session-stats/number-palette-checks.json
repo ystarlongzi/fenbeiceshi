@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "source": {
-    "level": "src/features/sound-meter/index.module.css",
+    "level": "src/app/globals.css",
     "lightNumber": "src/features/sound-meter/session-stats/index.module.css"
   },
   "method": "亮色使用同色相的高饱和文字色阶；两套色阶共用 readingColor 连续插值，0–120 每 0.1 dB 采样计算显示对比度。",

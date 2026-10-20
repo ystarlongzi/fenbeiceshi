@@ -34,8 +34,8 @@
     }
   },
   "meterPalette": {
-    "source": "../../src/features/sound-meter/index.module.css",
-    "definition": ".workbench 的 --noise-faint、--noise-quiet、--noise-everyday、--noise-loud、--noise-very-loud 和 --noise-gradient",
+    "source": "../../src/app/globals.css",
+    "definition": "根节点共享 --noise-faint、--noise-quiet、--noise-everyday、--noise-loud、--noise-very-loud，仪表与记录复用；--noise-gradient 仍在 .workbench 局部定义。",
     "colors": "复用 scale.band.stops，色带、仪表弧线、条形模式、三种模式的读数数字、统计项的顶部细线与图标、趋势图共用量级颜色定义；统计数字在亮色主题使用同色相的高饱和文字色阶，暗色主题使用原量级色。",
     "mapping": "../../src/features/sound-meter/palette.ts",
     "inactiveOpacity": 0.45,
@@ -51,7 +51,7 @@
   },
   "signal": "麦克风旁五根输入幅度柱，空闲和停止不亮，演示单独标记，过载同时有文字；不展示负分贝主刻度。",
   "inputStartup": "首次非零采样前，全零窗口仅反馈输入下限，统计保持待测、趋势保持空；首个非零窗口后正常累计，包括后续全零和低于计算下限的非零窗口。有效时长仍从开始采集起算；无有效统计不生成摘要，历史摘要不回算。",
-  "records": "版本 2 保留估算模型；历史相对记录保留原单位，比较按模型与输入隔离。",
+  "records": "版本 2 保留估算模型；历史相对记录保留原单位，比较按模型与输入隔离。记录行交替底色，悬停与键盘焦点有背景反馈，选中记录保留左侧标记；估算均值数字复用连续颜色，标签按一位小数显示值复用 sound-bands.ts 的七档名称与边界，以及 globals.css 中对应的亮暗量级配色，同一档标签颜色固定；历史相对电平和输入下限使用中性标签。",
   "screenshots": {
     "desktopStatsReadyLight": "session-stats/desktop-ready-light-contrast.jpg",
     "desktopStatsReadyDark": "session-stats/desktop-ready-dark.jpg",

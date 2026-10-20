@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "updated": "2026-10-20",
+  "status": "local-implementation",
+  "scope": "seven-band-palette",
+  "layoutBaseline": "../decibel-chart-v2/design-spec.json",
+  "routes": [
+    "/knowledge/decibel-chart/",
+    "/en/knowledge/decibel-chart/"
+  ],
+  "task": "浏览并比较七档声音量级，通过分段筛选查询声音参考。",
+  "source": "../../src/app/globals.css",
+  "bandsSource": "../../src/lib/content/sound-bands.ts",
+  "audit": {
+    "light": "原七档均为浅底，85–100 的米橙与 100–120、120+ 的粉色视觉分量接近；50–70 的蓝色打断强弱递进。",
+    "dark": "保留对应色相并增强高声级的暖色饱和度，避免各档都退化为近似深灰底。",
+    "structure": "沿用 V2 的数值、名称、示例对齐和选择行为；七档同级排列，不新增容器、装饰图标或危险结论文案。"
+  },
+  "palette": {
+    "sequence": [
+      "翠绿",
+      "叶绿",
+      "黄绿",
+      "金黄",
+      "橙",
+      "朱红",
+      "深红"
+    ],
+    "roles": "亮色主题 0–30 使用翠绿 #4F9F70，30–50 使用叶绿 #7DB879，两档均配深绿文字，缩小前两档的明度差并减少第二档的黄色感；暗色主题沿用对应深绿配色。50–70 使用更饱满的黄绿 #B8CC62 配深橄榄绿文字 #354318，减少浅白感并衔接前两档绿色与 70–85 的金黄；70–85 开始使用暖色；85–100 明确橙色，100–120 朱红配浅字，120+ 深红配浅字，以色相、明暗、数值和名称共同区分七档。",
+    "tokens": "共用 --band-*-surface 与 --band-*-ink；亮暗主题分别成对定义，具体色值和对比度见 palette-checks.json。",
+    "sharedUses": [
+      "分段概览",
+      "数值探索结果",
+      "本机记录及首页紧凑记录的量级标签"
+    ],
+    "states": "悬停和选中沿用文字色 2px 内描边；键盘焦点保留独立外轮廓。选中状态继续同时使用文字、标记和 aria-pressed。",
+    "meaning": "产品展示分段，颜色仅表示量级；不是国家或国际标准规定的安全等级，也不据此判断安全、危险或超标。"
+  },
+  "verification": "../../docs/验证/分贝分段配色优化验证.md",
+  "checks": "palette-checks.json",
+  "screenshots": {
+    "beforeLight": "before-desktop-light-zh.jpg",
+    "beforeDark": "before-desktop-dark-zh.jpg",
+    "desktopLight": "desktop-light-zh.jpg",
+    "desktopDark": "desktop-dark-zh.jpg",
+    "mobileLight": "mobile-light-zh.jpg",
+    "mobileDarkEnglish": "mobile-dark-en.jpg",
+    "recordTags": "record-tags-light-zh.jpg"
+  }
+}

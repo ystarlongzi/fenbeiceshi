@@ -1,0 +1,60 @@
+import { dual as t } from "./types.ts";
+
+export const soundBands = [
+  {
+    min: 0,
+    max: 30,
+    range: "0–30",
+    title: t("非常安静", "Very quiet"),
+    tone: "faint",
+    examples: ["breathing", "leaves"],
+  },
+  {
+    min: 30,
+    max: 50,
+    range: "30–50",
+    title: t("安静", "Quiet"),
+    tone: "quiet",
+    examples: ["whisper", "library", "fridge"],
+  },
+  {
+    min: 50,
+    max: 70,
+    range: "50–70",
+    title: t("日常声音", "Everyday sound"),
+    tone: "everyday",
+    examples: ["home", "conversation", "washing-machine"],
+  },
+  {
+    min: 70,
+    max: 85,
+    range: "70–85",
+    title: t("较响", "Louder"),
+    tone: "raised",
+    examples: ["vacuum", "street-traffic", "doorbell"],
+  },
+  {
+    min: 85,
+    max: 100,
+    range: "85–100",
+    title: t("很响", "Very loud"),
+    tone: "loud",
+    examples: ["traffic-inside-car", "shaver", "sports"],
+  },
+  {
+    min: 100,
+    max: 120,
+    range: "100–120",
+    title: t("强声", "Intense sound"),
+    tone: "intense",
+    examples: ["horn", "chainsaw", "siren"],
+  },
+  {
+    min: 120,
+    max: 160,
+    range: "120+",
+    title: t("极强声", "Extremely intense"),
+    tone: "extreme",
+    examples: ["jet", "airplane", "fireworks"],
+  },
+] as const;
