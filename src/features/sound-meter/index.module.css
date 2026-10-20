@@ -1,12 +1,4 @@
 .workbench {
-  --noise-gradient: linear-gradient(
-    90deg,
-    var(--noise-faint) 0%,
-    var(--noise-quiet) 25%,
-    var(--noise-everyday) 50%,
-    var(--noise-loud) 75%,
-    var(--noise-very-loud) 100%
-  );
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
   border: 1px solid var(--line);

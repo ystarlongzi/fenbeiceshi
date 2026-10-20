@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import {
@@ -11,6 +11,7 @@ import {
   watchRecords,
 } from "@/features/records/storage";
 import { meterCopy } from "./copy";
+import { noiseGradient } from "./palette";
 import { useSoundMeter } from "./use-sound-meter";
 import { useFocusMode } from "./use-focus-mode";
 import { MeterDisplay } from "./meter-display";
@@ -74,6 +75,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
     <div
       ref={root}
       className={`${styles.workbench} ${focus.focused ? styles.focused : ""}`}
+      style={{ "--noise-gradient": noiseGradient } as CSSProperties}
       role={focus.focused ? "dialog" : "region"}
       aria-modal={focus.focused || undefined}
       aria-labelledby="workspace-title"
@@ -176,7 +178,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
               {copy.clipping}
             </p>
           ) : null}
-          <LevelScale value={value} copy={copy} />
+          <LevelScale value={frame?.belowFloor ? null : value} copy={copy} />
           <NoiseLevelReference copy={copy} />
         </div>
         <div className={styles.announcements} aria-live="polite" aria-atomic="true">
@@ -197,7 +199,12 @@ export function SoundMeter({ locale }: { locale: Locale }) {
           ) : null}
         </div>
         <SessionStats frame={frame} copy={copy} demo={demo} />
-        <SoundTrend points={frame?.points || []} copy={copy} demo={demo} />
+        <SoundTrend
+          points={frame?.points || []}
+          copy={copy}
+          demo={demo}
+          belowFloor={frame?.belowFloor}
+        />
         <RecordingResult locale={locale} recording={meter.recording} />
         <div className={styles.resultActions}>
           <span>{demo ? copy.demoNoSave : meter.result ? copy.metadata : copy.resultHint}</span>

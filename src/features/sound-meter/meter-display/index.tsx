@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
-import { scalePosition } from "../level.ts";
 import { formatReading, NOISE_MAX, NOISE_MIN } from "../readings.ts";
-import { noiseColors, readingColor } from "../palette.ts";
+import { noiseStops, readingColor, readingPosition } from "../palette.ts";
 import type { MeterCopy } from "../copy.ts";
 import type { MeterView } from "../types.ts";
 import styles from "./index.module.css";
@@ -26,13 +25,16 @@ const labels = ticks
       top: `${(label.y / 250) * 100}%`,
     };
   });
-const dialStops = noiseColors.map((color, i, colors) => ({
+const dialStops = noiseStops.map(({ color, position }) => ({
   color,
-  // 弧线的刻度按角度等分，线性渐变的色点需换算到对应的横坐标。
-  offset: `${((1 - Math.cos((Math.PI * i) / (colors.length - 1))) / 2) * 100}%`,
+  // 分贝位置沿半圆按角度分布，SVG 渐变需换算为对应的横坐标。
+  offset: `${((1 - Math.cos(Math.PI * position)) / 2) * 100}%`,
 }));
 const barCount = 40;
-const barPositions = Array.from({ length: barCount }, (_, i) => `${(i / (barCount - 1)) * 100}%`);
+const barPositions = Array.from({ length: barCount }, (_, i) => ({
+  fraction: i / (barCount - 1),
+  backgroundPosition: `${(i / (barCount - 1)) * 100}%`,
+}));
 
 export function MeterDisplay({
   value,
@@ -45,9 +47,7 @@ export function MeterDisplay({
   copy: MeterCopy;
   belowFloor?: boolean;
 }) {
-  const min = NOISE_MIN;
-  const max = NOISE_MAX;
-  const position = value === null ? null : scalePosition(value, min, max);
+  const position = readingPosition(value, belowFloor);
   const numeric = formatReading(value, belowFloor);
   const unit = copy.estimatedUnit;
   return (
@@ -64,8 +64,8 @@ export function MeterDisplay({
                 x2="426"
                 y2="218"
               >
-                {dialStops.map((stop) => (
-                  <stop key={stop.color} offset={stop.offset} stopColor={stop.color} />
+                {dialStops.map((stop, i) => (
+                  <stop key={i} offset={stop.offset} stopColor={stop.color} />
                 ))}
               </linearGradient>
             </defs>
@@ -85,6 +85,13 @@ export function MeterDisplay({
               strokeLinecap="round"
               pathLength="100"
               strokeDasharray={`${position === null ? 0 : position * 100} 100`}
+            />
+            <circle
+              cx="426"
+              cy="218"
+              r="6.5"
+              fill="var(--noise-extreme)"
+              opacity={position !== null && position >= 1 ? 1 : 0.45}
             />
             {ticks.map((fraction, i) => {
               const a = point(fraction, 165);
@@ -130,10 +137,10 @@ export function MeterDisplay({
           aria-hidden="true"
           style={{ "--bar-count": barCount } as CSSProperties}
         >
-          {barPositions.map((backgroundPosition, i) => (
+          {barPositions.map(({ fraction, backgroundPosition }, i) => (
             <span
               key={i}
-              data-on={position !== null && i < Math.ceil(position * barCount)}
+              data-on={position !== null && position > 0 && position >= fraction}
               style={{ "--bar-position": backgroundPosition } as CSSProperties}
             />
           ))}
@@ -146,7 +153,7 @@ export function MeterDisplay({
           aria-live="off"
           className={styles.number}
           aria-label={`${copy.noiseLevel}: ${numeric} ${unit}`}
-          style={{ "--reading-color": readingColor(value) } as CSSProperties}
+          style={{ "--reading-color": readingColor(value, "display", belowFloor) } as CSSProperties}
         >
           {numeric}
         </output>

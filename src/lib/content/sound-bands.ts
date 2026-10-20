@@ -58,3 +58,10 @@ export const soundBands = [
     examples: ["jet", "airplane", "fireworks"],
   },
 ] as const;
+
+export function readingBand(value: number | null, atInputFloor = false) {
+  if (atInputFloor || value === null || !Number.isFinite(value)) return null;
+  // 按屏幕的一位小数判档，避免 69.99 显示为 70.0 却仍使用上一档颜色。
+  const displayedValue = Number(value.toFixed(1));
+  return soundBands.findLast((band) => displayedValue >= band.min) ?? soundBands[0];
+}

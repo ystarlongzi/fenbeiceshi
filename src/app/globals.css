@@ -24,11 +24,20 @@
   --color-leaf-400: #b6d890;
   --color-leaf-500: #a2b2a2;
   --color-leaf-600: #8ea38e;
-  --noise-faint: #5da97c;
-  --noise-quiet: #a3c96b;
-  --noise-everyday: #e4cf5b;
-  --noise-loud: #ef9b4c;
-  --noise-very-loud: #ee6256;
+  --noise-faint: #66be89;
+  --noise-quiet: #91c880;
+  --noise-everyday: #c3d36b;
+  --noise-raised: #f6d578;
+  --noise-loud: #f5a45d;
+  --noise-intense: #ff7755;
+  --noise-extreme: #ff6e65;
+  --noise-faint-ink: #237a45;
+  --noise-quiet-ink: #42752c;
+  --noise-everyday-ink: #607012;
+  --noise-raised-ink: #896606;
+  --noise-loud-ink: #a94c0d;
+  --noise-intense-ink: #b93621;
+  --noise-extreme-ink: #9e2526;
   --band-faint-surface: #4f9f70;
   --band-faint-ink: #0f2b1c;
   --band-quiet-surface: #7db879;
@@ -84,6 +93,13 @@
   --font-size-title: 2rem;
 }
 :root[data-theme="dark"] {
+  --noise-faint-ink: var(--noise-faint);
+  --noise-quiet-ink: var(--noise-quiet);
+  --noise-everyday-ink: var(--noise-everyday);
+  --noise-raised-ink: var(--noise-raised);
+  --noise-loud-ink: var(--noise-loud);
+  --noise-intense-ink: var(--noise-intense);
+  --noise-extreme-ink: var(--noise-extreme);
   --band-faint-surface: #173c29;
   --band-faint-ink: #e2f2e4;
   --band-quiet-surface: #28402b;

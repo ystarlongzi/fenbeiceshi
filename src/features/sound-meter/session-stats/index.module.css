@@ -49,12 +49,6 @@
   color: var(--muted);
 }
 .reading {
-  /* 文字色阶保留色相并提高饱和度，避免浅底黄绿数字发灰；色带继续使用原色。 */
-  --stat-faint: #07873b;
-  --stat-quiet: #508207;
-  --stat-everyday: #887407;
-  --stat-loud: #b65d0a;
-  --stat-very-loud: #e61d0c;
   --stat-ink: color-mix(in srgb, var(--stat-color, var(--brand)) 55%, var(--ink));
   border-color: var(--line-strong);
   border-top-color: var(--stat-color, var(--line-strong));
@@ -70,13 +64,6 @@
 }
 .reading .result strong {
   color: var(--stat-number, var(--ink));
-}
-:global(:root[data-theme="dark"]) .reading {
-  --stat-faint: var(--noise-faint);
-  --stat-quiet: var(--noise-quiet);
-  --stat-everyday: var(--noise-everyday);
-  --stat-loud: var(--noise-loud);
-  --stat-very-loud: var(--noise-very-loud);
 }
 .stat .waiting {
   color: var(--text-body);

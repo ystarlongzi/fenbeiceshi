@@ -52,6 +52,16 @@
   border-radius: inherit;
   background: var(--noise-gradient);
 }
+.band::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--noise-extreme);
+}
 .marker {
   position: absolute;
   top: -5px;

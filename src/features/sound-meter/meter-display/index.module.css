@@ -87,6 +87,11 @@
   opacity: 0.45;
   border-radius: 2px;
 }
+/* 最后一格表示 120+ 终点，只有读数到达量程上限才点亮。 */
+.bars span:last-child {
+  background-image: none;
+  background-color: var(--noise-extreme);
+}
 .bars span[data-on="true"] {
   opacity: 1;
 }

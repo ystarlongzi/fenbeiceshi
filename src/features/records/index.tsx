@@ -253,7 +253,7 @@ function RecordReading({ record, locale }: { record: Measurement; locale: Locale
       data-level={band?.tone}
       style={
         {
-          "--record-color": band ? readingColor(stats.average) : undefined,
+          "--record-color": band ? readingColor(stats.average, "ink") : undefined,
           "--record-tag-surface": band ? `var(--band-${band.tone}-surface)` : undefined,
           "--record-tag-ink": band ? `var(--band-${band.tone}-ink)` : undefined,
         } as CSSProperties

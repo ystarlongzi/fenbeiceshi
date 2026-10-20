@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "updated": "2026-10-20",
+  "status": "local-preview",
+  "task": "同一分贝在仪表、统计、趋势和记录中使用一致的分段与色相。",
+  "sources": {
+    "bands": "../../src/lib/content/sound-bands.ts",
+    "tokens": "../../src/app/globals.css",
+    "mapping": "../../src/features/sound-meter/palette.ts"
+  },
+  "roles": {
+    "display": "深绿仪表的亮色数字、弧线、条形和色带；固定亮度，不随全站主题换成暗背景色。",
+    "ink": "统计和记录数字、趋势线与末端点；浅色主题使用深色，暗色主题别名到 display。",
+    "surface": "对照页与标签的既有背景/文字配对不变。"
+  },
+  "colors": {
+    "faint": {
+      "display": "#66be89",
+      "ink": "#237a45"
+    },
+    "quiet": {
+      "display": "#91c880",
+      "ink": "#42752c"
+    },
+    "everyday": {
+      "display": "#c3d36b",
+      "ink": "#607012"
+    },
+    "raised": {
+      "display": "#f6d578",
+      "ink": "#896606"
+    },
+    "loud": {
+      "display": "#f5a45d",
+      "ink": "#a94c0d"
+    },
+    "intense": {
+      "display": "#ff7755",
+      "ink": "#b93621"
+    },
+    "extreme": {
+      "display": "#ff6e65",
+      "ink": "#9e2526"
+    }
+  },
+  "scale": {
+    "range": [
+      0,
+      120
+    ],
+    "boundaries": [
+      0,
+      30,
+      50,
+      70,
+      85,
+      100,
+      120
+    ],
+    "ticks": [
+      0,
+      40,
+      70,
+      85,
+      100,
+      120
+    ],
+    "endpoint": "120+ 占终点；弧线末端圆点与最后一格条形作为端点，不增加虚假的量程宽度。",
+    "rounding": "按显示的一位小数归档和定位；119.99 显示为 120.0 时到达终点。"
+  },
+  "neutral": "无数据、非法值和输入下限的数字及统计细线不生成量级色；历史 dBFS 保留中性。",
+  "unchanged": "估算口径、数据、保存/导出、标签背景、刻度文字、时长、输入信号及参考虚线状态色。",
+  "verification": "../../docs/验证/仪表与记录七档配色统一验证.md",
+  "contrast": "contrast-checks.json",
+  "previewSamples": "固定数值仅在临时副本的演示中使用，不加入正式代码、路由或保存记录。"
+}

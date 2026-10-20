@@ -6,14 +6,6 @@ import { readingColor } from "../palette.ts";
 import type { MeterCopy } from "../copy.ts";
 import styles from "./index.module.css";
 
-const numberColors = [
-  "var(--stat-faint)",
-  "var(--stat-quiet)",
-  "var(--stat-everyday)",
-  "var(--stat-loud)",
-  "var(--stat-very-loud)",
-] as const;
-
 export function SessionStats({
   frame,
   copy,
@@ -35,24 +27,24 @@ export function SessionStats({
       label: copy.minimum,
       value: formatReading(frame?.minimum ?? null, frame?.minimumAtFloor),
       icon: "arrow-down",
-      color: readingColor(frame?.minimum ?? null),
-      numberColor: readingColor(frame?.minimum ?? null, numberColors),
+      color: readingColor(frame?.minimum ?? null, "display", frame?.minimumAtFloor),
+      numberColor: readingColor(frame?.minimum ?? null, "ink", frame?.minimumAtFloor),
       hint: copy.currentSession,
     },
     {
       label: copy.maximum,
       value: formatReading(frame?.maximum ?? null, frame?.maximumAtFloor),
       icon: "arrow-up",
-      color: readingColor(frame?.maximum ?? null),
-      numberColor: readingColor(frame?.maximum ?? null, numberColors),
+      color: readingColor(frame?.maximum ?? null, "display", frame?.maximumAtFloor),
+      numberColor: readingColor(frame?.maximum ?? null, "ink", frame?.maximumAtFloor),
       hint: copy.currentSession,
     },
     {
       label: copy.average,
       value: formatReading(frame?.average ?? null, frame?.averageAtFloor),
       icon: "audio-lines",
-      color: readingColor(frame?.average ?? null),
-      numberColor: readingColor(frame?.average ?? null, numberColors),
+      color: readingColor(frame?.average ?? null, "display", frame?.averageAtFloor),
+      numberColor: readingColor(frame?.average ?? null, "ink", frame?.averageAtFloor),
       hint: copy.sampled,
     },
     {

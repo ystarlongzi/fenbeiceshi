@@ -240,13 +240,10 @@
   line-height: 1.6;
 }
 .mean[data-level] {
-  --record-number: color-mix(in srgb, var(--record-color) 56%, #000);
+  --record-number: var(--record-color);
 }
 .mean[data-level] .levelTag {
   border-color: color-mix(in srgb, var(--record-tag-ink) 20%, var(--record-tag-surface));
-}
-:global(:root[data-theme="dark"]) .mean[data-level] {
-  --record-number: var(--record-color);
 }
 .levelHint {
   margin: 16px 0 0;

@@ -1,11 +1,13 @@
 import type { MeterCopy } from "../copy.ts";
 import { scalePosition } from "../level.ts";
+import { readingPosition } from "../palette.ts";
 import { NOISE_MAX, NOISE_MIN, NOISE_SCALE_TICKS } from "../readings.ts";
 import styles from "./index.module.css";
 
 export function LevelScale({ value, copy }: { value: number | null; copy: MeterCopy }) {
   const min = NOISE_MIN;
   const max = NOISE_MAX;
+  const position = readingPosition(value);
   const labels = copy.estimateScaleLabels;
   const unit = copy.estimateScaleUnit;
   return (
@@ -24,11 +26,8 @@ export function LevelScale({ value, copy }: { value: number | null; copy: MeterC
       </div>
       <div className={styles.track} aria-hidden="true">
         <span className={styles.band} />
-        {value !== null ? (
-          <span
-            className={styles.marker}
-            style={{ left: `${scalePosition(value, min, max) * 100}%` }}
-          />
+        {position !== null ? (
+          <span className={styles.marker} style={{ left: `${position * 100}%` }} />
         ) : null}
       </div>
       <p>

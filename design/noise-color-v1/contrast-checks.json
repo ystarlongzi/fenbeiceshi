@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-20",
+  "source": "../../src/app/globals.css",
+  "method": "sRGB 相对亮度；浅底文字目标 4.5:1，深底大数字和图形目标 3:1；标签沿用原七档独立配对。",
+  "backgrounds": {
+    "light": {
+      "normal": "#ffffff",
+      "stripe": "#eef2ec",
+      "selected": "#eaf0e4",
+      "hover": "#e9f1e5"
+    },
+    "dark": {
+      "normal": "#18261d",
+      "stripe": "#142019",
+      "selected": "#293a23",
+      "hover": "#30462a"
+    },
+    "meter": {
+      "top": "#345140",
+      "middle": "#203c2e",
+      "bottom": "#193327"
+    }
+  },
+  "bands": [
+    {
+      "tone": "faint",
+      "display": "#66be89",
+      "ink": "#237a45",
+      "light": {
+        "normal": 5.328,
+        "stripe": 4.706,
+        "selected": 4.588,
+        "hover": 4.612
+      },
+      "dark": {
+        "normal": 6.966,
+        "stripe": 7.431,
+        "selected": 5.39,
+        "hover": 4.565
+      },
+      "meter": {
+        "top": 3.876,
+        "middle": 5.318,
+        "bottom": 6.017
+      }
+    },
+    {
+      "tone": "quiet",
+      "display": "#91c880",
+      "ink": "#42752c",
+      "light": {
+        "normal": 5.508,
+        "stripe": 4.865,
+        "selected": 4.743,
+        "hover": 4.768
+      },
+      "dark": {
+        "normal": 8.08,
+        "stripe": 8.619,
+        "selected": 6.252,
+        "hover": 5.296
+      },
+      "meter": {
+        "top": 4.496,
+        "middle": 6.168,
+        "bottom": 6.979
+      }
+    },
+    {
+      "tone": "everyday",
+      "display": "#c3d36b",
+      "ink": "#607012",
+      "light": {
+        "normal": 5.492,
+        "stripe": 4.851,
+        "selected": 4.729,
+        "hover": 4.754
+      },
+      "dark": {
+        "normal": 9.634,
+        "stripe": 10.277,
+        "selected": 7.455,
+        "hover": 6.314
+      },
+      "meter": {
+        "top": 5.361,
+        "middle": 7.355,
+        "bottom": 8.322
+      }
+    },
+    {
+      "tone": "raised",
+      "display": "#f6d578",
+      "ink": "#896606",
+      "light": {
+        "normal": 5.294,
+        "stripe": 4.676,
+        "selected": 4.558,
+        "hover": 4.583
+      },
+      "dark": {
+        "normal": 11.027,
+        "stripe": 11.762,
+        "selected": 8.532,
+        "hover": 7.227
+      },
+      "meter": {
+        "top": 6.136,
+        "middle": 8.418,
+        "bottom": 9.525
+      }
+    },
+    {
+      "tone": "loud",
+      "display": "#f5a45d",
+      "ink": "#a94c0d",
+      "light": {
+        "normal": 5.635,
+        "stripe": 4.977,
+        "selected": 4.852,
+        "hover": 4.878
+      },
+      "dark": {
+        "normal": 7.76,
+        "stripe": 8.278,
+        "selected": 6.005,
+        "hover": 5.086
+      },
+      "meter": {
+        "top": 4.318,
+        "middle": 5.924,
+        "bottom": 6.703
+      }
+    },
+    {
+      "tone": "intense",
+      "display": "#ff7755",
+      "ink": "#b93621",
+      "light": {
+        "normal": 5.813,
+        "stripe": 5.134,
+        "selected": 5.006,
+        "hover": 5.032
+      },
+      "dark": {
+        "normal": 6.014,
+        "stripe": 6.416,
+        "selected": 4.654,
+        "hover": 3.942
+      },
+      "meter": {
+        "top": 3.347,
+        "middle": 4.591,
+        "bottom": 5.195
+      }
+    },
+    {
+      "tone": "extreme",
+      "display": "#ff6e65",
+      "ink": "#9e2526",
+      "light": {
+        "normal": 7.646,
+        "stripe": 6.753,
+        "selected": 6.584,
+        "hover": 6.619
+      },
+      "dark": {
+        "normal": 5.751,
+        "stripe": 6.134,
+        "selected": 4.45,
+        "hover": 3.769
+      },
+      "meter": {
+        "top": 3.2,
+        "middle": 4.39,
+        "bottom": 4.967
+      }
+    }
+  ]
+}

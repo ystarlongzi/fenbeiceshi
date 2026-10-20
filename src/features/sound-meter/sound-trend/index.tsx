@@ -2,7 +2,7 @@ import { useId } from "react";
 import { Icon } from "@/components/icon";
 import { scalePosition } from "../level.ts";
 import { NOISE_MAX, NOISE_MIN } from "../readings.ts";
-import { noiseColors, readingColor } from "../palette.ts";
+import { noiseStops, readingColor } from "../palette.ts";
 import type { MeterCopy } from "../copy.ts";
 import type { LevelPoint } from "../types.ts";
 import styles from "./index.module.css";
@@ -17,10 +17,12 @@ export function SoundTrend({
   points,
   copy,
   demo,
+  belowFloor = false,
 }: {
   points: LevelPoint[];
   copy: MeterCopy;
   demo: boolean;
+  belowFloor?: boolean;
 }) {
   const gradientId = useId();
   const latest = points.at(-1);
@@ -77,12 +79,8 @@ export function SoundTrend({
                   x2="0"
                   y2="0"
                 >
-                  {noiseColors.map((color, i) => (
-                    <stop
-                      key={color}
-                      offset={`${(i / (noiseColors.length - 1)) * 100}%`}
-                      stopColor={color}
-                    />
+                  {noiseStops.map((stop, i) => (
+                    <stop key={i} offset={`${stop.position * 100}%`} stopColor={stop.ink} />
                   ))}
                 </linearGradient>
               </defs>
@@ -173,7 +171,8 @@ export function SoundTrend({
                 style={{
                   left: `${(last.x / 632) * 100}%`,
                   top: `${(last.y / 118) * 100}%`,
-                  background: readingColor(latest?.value ?? null),
+                  background:
+                    readingColor(latest?.value ?? null, "ink", belowFloor) ?? "var(--text-soft)",
                 }}
               />
             ) : null}
