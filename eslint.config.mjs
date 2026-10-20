@@ -12,5 +12,6 @@ export default defineConfig([
     "coverage/**",
     "next-env.d.ts",
     "design/**",
+    "public/vendor/lamejs/**",
   ]),
 ]);

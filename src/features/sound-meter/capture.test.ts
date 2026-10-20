@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { CaptureSession } from "./capture.ts";
+import { CaptureSession, type CaptureTap } from "./capture.ts";
 import type { InputInfo, MeterFrame, StopReason } from "./types.ts";
 import { currentBasis, displayFrame } from "./readings.ts";
 
@@ -16,6 +16,7 @@ async function withInput(
     setResume: (resume: () => Promise<void>) => void;
     constraints: () => MediaStreamConstraints | null;
   }) => Promise<void>,
+  tap?: CaptureTap,
 ) {
   const keys = [
     "window",
@@ -64,11 +65,14 @@ async function withInput(
   const frames: MeterFrame[] = [];
   const ready: InputInfo[] = [];
   const ended: StopReason[] = [];
-  const session = new CaptureSession({
-    frame: (frame) => frames.push(frame),
-    ready: (info) => ready.push(info),
-    end: (reason) => ended.push(reason),
-  });
+  const session = new CaptureSession(
+    {
+      frame: (frame) => frames.push(frame),
+      ready: (info) => ready.push(info),
+      end: (reason) => ended.push(reason),
+    },
+    tap,
+  );
   try {
     await run({
       track,
@@ -249,3 +253,65 @@ test("设备结束事件中断采集并释放资源", () =>
     assert.equal(contexts[0].closes, 1);
     assert.equal(frames.length, 1);
   }));
+
+test("同步录音使用测量输入，结束立即停止音轨并等待尾部后关闭上下文", async () => {
+  let finish!: () => void;
+  let starts = 0;
+  let stops = 0;
+  const tap: CaptureTap = {
+    start: async (context, source, signal) => {
+      starts += 1;
+      assert.equal(context.sampleRate, 48000);
+      assert.ok(source);
+      assert.equal(signal.aborted, false);
+    },
+    stop: () => {
+      stops += 1;
+      return new Promise<void>((resolve) => {
+        finish = resolve;
+      });
+    },
+  };
+  await withInput(async ({ session, contexts, track, ended, step }) => {
+    await session.start("");
+    step();
+    session.stop("hidden");
+    assert.equal(track.stops, 1);
+    assert.equal(contexts[0].closes, 0);
+    assert.equal(starts, 1);
+    assert.deepEqual(ended, ["hidden"]);
+    session.stop();
+    assert.equal(stops, 1);
+    finish();
+    await Promise.resolve();
+    assert.equal(contexts[0].closes, 1);
+  }, tap);
+});
+
+test("同步录音模块准备中取消，迟到完成不会开始测量，音轨立即释放", async () => {
+  let finishStart!: () => void;
+  let entered!: () => void;
+  const entering = new Promise<void>((resolve) => {
+    entered = resolve;
+  });
+  const tap: CaptureTap = {
+    start: async (_context, _source, signal) => {
+      entered();
+      await new Promise<void>((resolve) => {
+        finishStart = resolve;
+      });
+      assert.equal(signal.aborted, true);
+    },
+    stop: async () => {},
+  };
+  await withInput(async ({ session, track, ready, contexts }) => {
+    const pending = session.start("");
+    await entering;
+    session.stop("cancelled");
+    assert.equal(track.stops, 1);
+    finishStart();
+    await pending;
+    assert.equal(ready.length, 0);
+    assert.equal(contexts[0].closes, 1);
+  }, tap);
+});

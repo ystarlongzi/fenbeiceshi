@@ -1,0 +1,19 @@
+MP3 encoding uses @breezystack/lamejs 1.2.7 (LAME), by Alex Zhukov and contributors.
+License: GNU Lesser General Public License v3.0 (LGPL-3.0).
+LAME project: https://lame.sourceforge.net/
+Package: https://www.npmjs.com/package/@breezystack/lamejs/v/1.2.7
+Source: https://github.com/gideonstele/lamejs/tree/1fb0ef5fa177413107e2e107d054a9b994e3f79c
+
+lamejs.js is distributed unmodified from the package's dist/lamejs.js.
+The encoder is loaded only when creating MP3, as an independent same-origin
+ES module, outside the application bundles. No audio is sent to a server.
+
+The corresponding source archive is source-1.2.7.tar.gz in this directory.
+COPYING.LESSER.txt and COPYING.txt contain the LGPLv3 and GPLv3 texts.
+UPSTREAM-LICENSE.txt and UPSTREAM-README.md retain the author's notices.
+
+Replacement: replace /vendor/lamejs/lamejs.js with an interface-compatible
+ES module exporting Mp3Encoder(channels, sampleRate, kbps), whose instances
+provide encodeBuffer(Int16Array) and flush(). Rebuilding the application is
+not required to replace this file. You may modify and debug the library
+under the terms of its license. No modifications were made to it here.

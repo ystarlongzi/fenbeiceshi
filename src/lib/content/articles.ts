@@ -187,7 +187,7 @@ export const articles: SiteContent[] = [
     id: "microphone-help",
     slug: "knowledge/microphone-permission",
     kind: "article",
-    updated: "2026-10-18",
+    updated: "2026-10-20",
     title: t(
       "麦克风打不开？按现象检查权限与输入",
       "Microphone not working? Check access and input",
@@ -261,8 +261,8 @@ export const articles: SiteContent[] = [
         title: t("结束后怎样停止访问？", "How does access stop?"),
         paragraphs: [
           t(
-            "点击结束后，本站停止音轨并关闭音频上下文。浏览器仍可能保留你为网站授予的权限；可以在浏览器的网站权限界面自行更改。音频本身不录制、不上传，也不进入本机摘要记录。",
-            "Finishing stops the tracks and closes the audio context. Your browser may remember the site's permission; change it in its site settings when you choose. Audio is not recorded, uploaded or included in local summaries.",
+            "点击结束后，本站停止音轨；开启同步录音时会先整理尾部采样，再关闭音频上下文。浏览器仍可能保留你为网站授予的权限，可在网站权限界面更改。录音默认关闭，开启后的音频仅暂存当前页面供播放和下载，不上传，也不进入本机摘要记录。",
+            "Finishing stops the tracks and closes the audio context after any recording tail is collected. Your browser may remember the site's permission; change it in site settings when you choose. Recording is off by default. Optional audio stays in this page for playback and download, without uploads or audio in saved summaries.",
           ),
         ],
       },

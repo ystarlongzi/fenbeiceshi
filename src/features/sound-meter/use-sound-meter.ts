@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { activeCalibration, makeCalibration } from "../calibration/calibration.ts";
+import { useAudioRecording } from "../audio-recording/use-audio-recording.ts";
 import { CaptureSession } from "./capture.ts";
 import { addWindow, emptyStats } from "./level.ts";
 import { DEFAULT_ESTIMATE } from "./readings.ts";
@@ -16,6 +17,7 @@ import type {
 import type { MeterCopy } from "./copy.ts";
 
 export function useSoundMeter() {
+  const recording = useAudioRecording();
   const [status, setStatus] = useState<MeterStatus>("idle");
   const [frame, setFrame] = useState<MeterFrame | null>(null);
   const [input, setInput] = useState<InputInfo | null>(null);
@@ -60,65 +62,68 @@ export function useSoundMeter() {
   }, [stop]);
 
   async function start() {
-    if (engine.current || demoTimer.current) return;
+    if (engine.current || demoTimer.current || recording.phase === "finishing") return;
     setFrame(null);
     setInput(null);
     setResult(null);
     setMessage(null);
     setStatus("requesting");
     latest.current = null;
-    const current = new CaptureSession({
-      ready: (info) => {
-        if (engine.current !== current) return;
-        inputRef.current = info;
-        setInput(info);
-        startedAt.current = new Date().toISOString();
-        const matching = activeCalibration(reference.current, info.signature);
-        if (reference.current && !matching) setMessage("inputChanged");
-        reference.current = matching;
-        setCalibration(matching);
-        setStatus("running");
-        void navigator.mediaDevices
-          .enumerateDevices()
-          .then((items) => {
-            if (engine.current === current)
-              setDevices(items.filter((item) => item.kind === "audioinput"));
-          })
-          .catch(() => {
-            if (engine.current === current) setMessage("deviceListFailed");
+    const current = new CaptureSession(
+      {
+        ready: (info) => {
+          if (engine.current !== current) return;
+          inputRef.current = info;
+          setInput(info);
+          startedAt.current = new Date().toISOString();
+          const matching = activeCalibration(reference.current, info.signature);
+          if (reference.current && !matching) setMessage("inputChanged");
+          reference.current = matching;
+          setCalibration(matching);
+          setStatus("running");
+          void navigator.mediaDevices
+            .enumerateDevices()
+            .then((items) => {
+              if (engine.current === current)
+                setDevices(items.filter((item) => item.kind === "audioinput"));
+            })
+            .catch(() => {
+              if (engine.current === current) setMessage("deviceListFailed");
+            });
+        },
+        frame: (next) => {
+          if (engine.current !== current) return;
+          latest.current = next;
+          setFrame(next);
+        },
+        end: (reason) => {
+          if (engine.current !== current) return;
+          engine.current = null;
+          const last = latest.current;
+          if (!last?.stats.count || !inputRef.current) {
+            setStatus("idle");
+            if (reason !== "cancelled") setMessage("noInput");
+            return;
+          }
+          setResult({
+            id: crypto.randomUUID(),
+            startedAt: startedAt.current,
+            duration: last.elapsed,
+            stats: last.stats,
+            points: last.points,
+            input: inputRef.current,
+            calibration: activeCalibration(reference.current, inputRef.current.signature),
+            estimate: DEFAULT_ESTIMATE,
+            note: noteRef.current,
+            reason,
           });
+          setStatus("finished");
+          if (reason === "hidden") setMessage("hidden");
+          if (reason === "device-ended") setMessage("deviceEnded");
+        },
       },
-      frame: (next) => {
-        if (engine.current !== current) return;
-        latest.current = next;
-        setFrame(next);
-      },
-      end: (reason) => {
-        if (engine.current !== current) return;
-        engine.current = null;
-        const last = latest.current;
-        if (!last?.stats.count || !inputRef.current) {
-          setStatus("idle");
-          if (reason !== "cancelled") setMessage("noInput");
-          return;
-        }
-        setResult({
-          id: crypto.randomUUID(),
-          startedAt: startedAt.current,
-          duration: last.elapsed,
-          stats: last.stats,
-          points: last.points,
-          input: inputRef.current,
-          calibration: activeCalibration(reference.current, inputRef.current.signature),
-          estimate: DEFAULT_ESTIMATE,
-          note: noteRef.current,
-          reason,
-        });
-        setStatus("finished");
-        if (reason === "hidden") setMessage("hidden");
-        if (reason === "device-ended") setMessage("deviceEnded");
-      },
-    });
+      recording.createCapture(),
+    );
     engine.current = current;
     try {
       await current.start(deviceId);
@@ -141,7 +146,7 @@ export function useSoundMeter() {
   }
 
   function preview() {
-    if (engine.current || demoTimer.current) return;
+    if (engine.current || demoTimer.current || recording.phase === "finishing") return;
     setResult(null);
     setMessage(null);
     setInput(null);
@@ -202,6 +207,7 @@ export function useSoundMeter() {
   }
 
   return {
+    recording,
     status,
     frame,
     input,

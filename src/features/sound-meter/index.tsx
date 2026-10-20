@@ -19,6 +19,8 @@ import { NoiseLevelReference } from "./noise-level-reference";
 import { SessionStats } from "./session-stats";
 import { SoundTrend } from "./sound-trend";
 import { MeterSettings } from "./meter-settings";
+import { RecordingOptions } from "../audio-recording/recording-options";
+import { RecordingResult } from "../audio-recording/recording-result";
 import { currentBasis, displayFrame, measurementBasis } from "./readings";
 import type { Locale, MeterView } from "./types";
 import styles from "./index.module.css";
@@ -140,13 +142,23 @@ export function SoundMeter({ locale }: { locale: Locale }) {
                 {requesting ? copy.cancel : demo ? copy.stopDemo : copy.stop}
               </button>
             ) : (
-              <button type="button" className={styles.primary} onClick={() => void meter.start()}>
+              <button
+                type="button"
+                className={styles.primary}
+                disabled={meter.recording.phase === "finishing"}
+                onClick={() => void meter.start()}
+              >
                 <Icon name="mic" size={18} />
                 {meter.status === "finished" ? copy.restart : copy.start}
               </button>
             )}
             {!busy ? (
-              <button type="button" className={styles.secondary} onClick={meter.preview}>
+              <button
+                type="button"
+                className={styles.secondary}
+                disabled={meter.recording.phase === "finishing"}
+                onClick={meter.preview}
+              >
                 <Icon name="play" size={15} />
                 {copy.preview}
               </button>
@@ -157,6 +169,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
               </span>
             )}
           </div>
+          <RecordingOptions locale={locale} recording={meter.recording} busy={busy} demo={demo} />
           {meter.frame?.clipped ? (
             <p className={styles.signalWarning}>
               <Icon name="circle-alert" size={14} />
@@ -185,6 +198,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
         </div>
         <SessionStats frame={frame} copy={copy} demo={demo} />
         <SoundTrend points={frame?.points || []} copy={copy} demo={demo} />
+        <RecordingResult locale={locale} recording={meter.recording} />
         <div className={styles.resultActions}>
           <span>{demo ? copy.demoNoSave : meter.result ? copy.metadata : copy.resultHint}</span>
           <div>

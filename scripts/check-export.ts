@@ -36,11 +36,19 @@ for (const page of sitePages) {
     assert.match(html, /<meta name="description" content="[^"]+"/, path);
     const noindex = /<meta name="robots" content="[^"]*noindex/.test(html);
     assert.equal(noindex, !page.index, path);
-    if (page.id === "meter")
+    if (page.id === "meter") {
       assert.ok(
         html.includes(`href="${href("decibel-chart", locale)}#health"`),
         `首页缺少健康导读：${path}`,
       );
+      const recording = html.match(
+        /<input\b[^>]*type="checkbox"[^>]*aria-describedby="recording-hint"[^>]*>/,
+      )?.[0];
+      assert.ok(
+        recording && !/\bchecked(?:=|\s|\/?>)/.test(recording),
+        `同步录音应默认关闭：${path}`,
+      );
+    }
     const navigation = html.match(
       /<nav aria-label="(?:主导航|Main navigation)">([\s\S]*?)<\/nav>/,
     )?.[1];

@@ -5,7 +5,7 @@ export const guides: SiteContent[] = [
     id: "guide",
     slug: "guide",
     kind: "guide",
-    updated: "2026-10-18",
+    updated: "2026-10-20",
     title: t("从一次观察开始", "Start with one observation"),
     description: t(
       "开始测量、切换仪表、进入全屏，以及结束后保存本机摘要的方法。",
@@ -54,6 +54,14 @@ export const guides: SiteContent[] = [
         id: "save",
         title: t("04 结束、保存与复测", "04 Finish, save and repeat"),
         paragraphs: [
+          t(
+            "需要保留声音时，在开始前开启“同步录音”（默认关闭）。录音与真实测量一起开始，结束后可播放、生成并下载 MP3，或下载单声道、16 位小端原始 PCM；PCM 采样率标在界面与文件名中，导入播放器时需使用这些参数。单次录音最多 10 分钟，或在达到 64 MiB 采样上限时提前停止，测量继续。演示不录音。",
+            "To keep the sound, turn on Record audio before starting (off by default). Recording starts with a real measurement. After finishing, play it, create and download MP3, or download raw mono, signed 16-bit little-endian PCM. Use the sample rate shown in the interface and filename when importing PCM into a player. Recording stops after 10 minutes or at the 64 MiB sample limit; measurement continues. Demos are not recorded.",
+          ),
+          t(
+            "录音仅暂存当前页面，不上传，也不随摘要保存。刷新、离开页面或开始新录音会清除；请及时下载，也可使用“清除录音”释放本机内存。页面切到后台或输入中断会停止采集；如尾部采样未完整返回，会提示并保留已收到的片段。",
+            "Audio stays in this page, with no uploads or audio in saved summaries. Reloading, leaving the page or starting a new recording clears it. Download it to keep it, or use Clear audio to release memory. Capture stops when the page leaves the foreground or the input ends. If the final samples cannot be recovered, received audio is kept with a warning.",
+          ),
           t(
             "在测量前或过程中填写本次条件，例如位置、距离和家电状态。结束后，麦克风音轨会停止。你可以保存本机摘要或导出 JSON；摘要包括统计、口径、条件与最近一段趋势，不包含录音。",
             "Note position, distance and appliance state before or during the observation. Finishing stops the microphone tracks. Save a local summary or export JSON with statistics, scale, context and the recent trend, without recorded audio.",
@@ -203,15 +211,15 @@ export const guides: SiteContent[] = [
     id: "privacy",
     slug: "privacy",
     kind: "trust",
-    updated: "2026-10-18",
+    updated: "2026-10-20",
     title: t("你的声音，留在你的设备上", "Your audio stays on your device"),
     description: t(
       "了解麦克风权限、音频本机处理、本机记录、参考校准和删除方式。",
       "Understand microphone access, on-device processing, local records, reference calibration and deletion.",
     ),
     takeaway: t(
-      "本站不录制或上传原始音频。你主动保存的是当前浏览器中的观察摘要，可逐条删除或自行导出。",
-      "This tool does not record or upload raw audio. Summaries are saved in this browser only when you choose, and you can delete or export them.",
+      "本站不上传音频。同步录音默认关闭，开启后的录音仅暂存当前页面，可播放和下载；本机摘要不包含音频，可逐条删除或自行导出。",
+      "This tool does not upload audio. Recording is off by default; optional recordings stay in this page for playback and download. Local summaries exclude audio and can be deleted or exported.",
     ),
     sections: [
       {
@@ -219,8 +227,16 @@ export const guides: SiteContent[] = [
         title: t("麦克风与音频", "Microphone and audio"),
         paragraphs: [
           t(
-            "点击开始后才请求麦克风权限。音频采样在浏览器内存中计算，不生成录音文件，也不发送至服务器。结束、离开前台或关闭页面时，采集会停止。浏览器是否记住授权由你的浏览器设置决定。",
-            "Microphone access is requested only after Start. Audio samples are processed in browser memory without recording files or server uploads. Capture stops when you finish, leave the foreground or close the page. Your browser controls whether permission is remembered.",
+            "点击开始后才请求麦克风权限。默认仅在浏览器内存中计算分贝，不录音；主动开启同步录音后，采样仍只在本机处理，结束后可播放、生成 MP3 或下载原始 PCM。音频不发送至服务器，编码器从本站加载，无需第三方音频服务。结束、离开前台或关闭页面时，采集会停止。浏览器是否记住授权由你的浏览器设置决定。",
+            "Microphone access is requested only after Start. By default, samples are used only to calculate levels in browser memory. Optional recording stays on-device for playback, local MP3 encoding and raw PCM download after finishing. Audio is never sent to a server; the encoder is loaded from this site without a third-party audio service. Capture stops when you finish, leave the foreground or close the page. Your browser controls whether permission is remembered.",
+          ),
+          t(
+            "录音仅暂存在当前页面，单次最多 10 分钟，并受 64 MiB 采样内存上限约束；到达上限会停止录音、保留片段，测量可继续。刷新、离开页面、开始新录音或点击“清除录音”会释放页面中的音频；请提前下载。下载的音频文件由你保存在设备上，清除页面录音或本站数据不会删除这些文件。本机摘要及 JSON 导出均不包含音频。",
+            "Recordings are temporary in this page, limited to 10 minutes and 64 MiB of sample data. Reaching a limit keeps the audio and stops recording while measurement can continue. Reloading, leaving the page, starting a new recording or choosing Clear audio releases page-held audio; download it first to keep it. Downloaded files remain on your device and are not deleted by clearing page audio or site data. Local summaries and JSON exports contain no audio.",
+          ),
+          t(
+            "MP3 编码使用本机运行的 LAME / lamejs 开源编码器，许可证、源码与替换说明见本站 /vendor/lamejs/NOTICE.txt。",
+            "Local MP3 encoding uses the open-source LAME / lamejs encoder. License, source and replacement details are available at /vendor/lamejs/NOTICE.txt on this site.",
           ),
         ],
       },

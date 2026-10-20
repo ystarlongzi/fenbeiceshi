@@ -1,6 +1,15 @@
 import { addWindow, analyzeSamples, emptyStats } from "./level.ts";
 import type { InputInfo, LevelPoint, MeterFrame, StopReason } from "./types.ts";
 
+export interface CaptureTap {
+  start: (
+    context: AudioContext,
+    source: MediaStreamAudioSourceNode,
+    signal: AbortSignal,
+  ) => Promise<void>;
+  stop: () => Promise<void>;
+}
+
 export async function acquireInput(
   request: () => Promise<MediaStream>,
   signal: AbortSignal,
@@ -25,14 +34,16 @@ export class CaptureSession {
   private context: AudioContext | null = null;
   private animation = 0;
   private stopped = false;
+  private tap: CaptureTap | undefined;
   private callbacks: {
     frame: (frame: MeterFrame) => void;
     ready: (input: InputInfo) => void;
     end: (reason: StopReason) => void;
   };
 
-  constructor(callbacks: CaptureSession["callbacks"]) {
+  constructor(callbacks: CaptureSession["callbacks"], tap?: CaptureTap) {
     this.callbacks = callbacks;
+    this.tap = tap;
   }
 
   async start(deviceId: string) {
@@ -62,6 +73,8 @@ export class CaptureSession {
       const source = context.createMediaStreamSource(stream);
       source.connect(analyser);
       await context.resume();
+      if (!this.controller.signal.aborted)
+        await this.tap?.start(context, source, this.controller.signal);
       if (this.controller.signal.aborted) {
         this.release();
         return;
@@ -145,8 +158,20 @@ export class CaptureSession {
     this.stream = null;
     const context = this.context;
     this.context = null;
-    if (context && context.state !== "closed") {
-      void context.close().catch((error: unknown) => console.error("音频上下文关闭失败。", error));
-    }
+    const close = () => {
+      if (context && context.state !== "closed")
+        void context
+          .close()
+          .catch((error: unknown) => console.error("音频上下文关闭失败。", error));
+    };
+    const tap = this.tap;
+    this.tap = undefined;
+    // 先停止麦克风，等录音尾部采样回传后再关闭其共用的音频上下文。
+    if (tap)
+      void tap.stop().then(close, (error: unknown) => {
+        console.error("录音停止失败，释放音频上下文。", error);
+        close();
+      });
+    else close();
   }
 }

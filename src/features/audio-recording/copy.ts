@@ -1,0 +1,58 @@
+const zh = {
+  enable: "同步录音",
+  off: "默认关闭",
+  on: "已开启，下次测量时录音",
+  active: "正在同步录音",
+  stopped: "本次录音已结束",
+  finishing: "正在整理本机录音…",
+  hint: "仅存本机，不上传。单次最多 10 分钟；结束后可播放、下载 MP3 / PCM。",
+  demo: "演示不录音",
+  title: "本机录音",
+  temporary: "仅暂存在当前页面，刷新或新录音会清除。请及时下载；保存摘要不含音频。",
+  limited: "录音已达时长或内存上限，已保留音频；测量可继续。",
+  interrupted: "录音中断，已保留收到的音频片段。",
+  error: "录音不可用，本次仅测量。可结束后重试，或换用其他浏览器。",
+  unavailable: "录音不可用",
+  pcm: "下载 PCM",
+  mp3: "生成 MP3",
+  mp3Ready: "下载 MP3",
+  encoding: "正在生成 MP3…",
+  encodeError: "MP3 生成失败，可重试或先下载 PCM。",
+  playbackError: "浏览器无法播放本段音频，可下载后在本机播放器打开。",
+  clear: "清除录音",
+  format: "单声道 · 16 位小端 PCM",
+  license: "MP3 开源许可",
+  seconds: "秒",
+};
+
+const en: typeof zh = {
+  enable: "Record audio",
+  off: "Off by default",
+  on: "On for the next measurement",
+  active: "Recording audio",
+  stopped: "Audio recording has stopped",
+  finishing: "Preparing local recording…",
+  hint: "Local only, no uploads. Up to 10 minutes; play or download MP3 / PCM after finishing.",
+  demo: "Demos are not recorded",
+  title: "Local audio recording",
+  temporary:
+    "Kept in this page only; reloading or a new recording clears it. Download to keep it. Summaries exclude audio.",
+  limited:
+    "The recording reached its time or memory limit. Audio is kept; measurement can continue.",
+  interrupted: "Recording was interrupted. Received audio has been kept.",
+  error:
+    "Recording is unavailable; measurement can continue. Finish, then retry or use another browser.",
+  unavailable: "Recording unavailable",
+  pcm: "Download PCM",
+  mp3: "Create MP3",
+  mp3Ready: "Download MP3",
+  encoding: "Creating MP3…",
+  encodeError: "MP3 creation failed. Retry or download PCM first.",
+  playbackError: "Your browser cannot play this audio. Download it to open in a local player.",
+  clear: "Clear audio",
+  format: "Mono · signed 16-bit little-endian PCM",
+  license: "MP3 open-source notice",
+  seconds: "s",
+};
+
+export const recordingCopy = { "zh-CN": zh, en };

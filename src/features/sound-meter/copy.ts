@@ -96,7 +96,7 @@ const zh = {
   notePlaceholder: "例如：书桌位置，关窗，空调关闭",
   noteHint: "记录位置和状态，方便下一次在相同条件下复测。",
   privacy: "音频仅在本机处理",
-  privacyHint: "不录音，不上传原始声音。你可以主动保存本机摘要。",
+  privacyHint: "录音默认关闭；开启后仅暂存当前页面，可播放和下载，不上传原始声音。摘要不含音频。",
   saved: "摘要已保存到本机",
   save: "保存本机摘要",
   export: "导出 JSON",
@@ -241,7 +241,8 @@ const en: MeterCopy = {
   notePlaceholder: "For example: at desk, window shut, AC off",
   noteHint: "Keep a note of position and conditions for repeat observations.",
   privacy: "Audio stays on your device",
-  privacyHint: "No recording or raw audio uploads. Save a local summary when you choose.",
+  privacyHint:
+    "Recording is off by default. Optional audio stays in this page for playback and download, with no uploads. Summaries exclude audio.",
   saved: "Summary saved on this device",
   save: "Save summary",
   export: "Export JSON",

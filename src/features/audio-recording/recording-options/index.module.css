@@ -1,0 +1,45 @@
+.options {
+  margin-top: 14px;
+  text-align: center;
+  color: #d8e4d6;
+}
+.options label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-size: var(--font-size-ui);
+  cursor: pointer;
+}
+.options input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: #d4ecb5;
+  cursor: inherit;
+}
+.options input:focus-visible {
+  outline: 2px solid #d4ecb5;
+  outline-offset: 3px;
+}
+.options input:disabled {
+  cursor: default;
+}
+.options small {
+  color: #b1c4b5;
+  font-size: var(--font-size-caption);
+}
+.options p {
+  font-size: var(--font-size-caption);
+  line-height: 1.7;
+  color: #b1c4b5;
+  margin: 3px auto 0;
+  max-width: 48ch;
+}
+.options .error {
+  margin-top: 8px;
+  color: #efcf97;
+  font-size: var(--font-size-ui);
+}
