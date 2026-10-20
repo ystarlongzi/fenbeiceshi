@@ -103,7 +103,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
-.actions button {
+.actions > :is(button, a, .encoding) {
   min-width: 0;
   padding: 10px 12px;
   border: 1px solid var(--line-strong);
@@ -111,12 +111,13 @@
   background: var(--surface);
   color: var(--brand);
   text-align: left;
+  text-decoration: none;
 }
-.actions button:hover {
+.actions > :is(button, a):hover {
   background: var(--surface-accent);
   border-color: var(--line-accent);
 }
-.actions button > span {
+.actions > :is(button, a, .encoding) > span {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -129,6 +130,26 @@
   color: var(--muted);
   font-size: var(--font-size-caption);
   line-height: 1.6;
+}
+.actions > .encoding {
+  color: var(--muted);
+}
+.audioHint {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: var(--font-size-caption);
+  line-height: 1.7;
+}
+.audioStatus {
+  color: var(--warning);
+  font-size: var(--font-size-ui);
+  line-height: 1.7;
+}
+.audioStatus p {
+  margin: 8px 0 0;
+}
+.audioStatus [data-error="true"] {
+  color: var(--error);
 }
 .save p {
   color: var(--muted);
@@ -161,15 +182,31 @@
 .feedback[data-error="true"] {
   color: var(--error);
 }
+@media (min-width: 681px) {
+  .actions[data-audio="true"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .actions[data-audio="true"] > :is(button, a, .encoding) {
+    padding: 6px 10px;
+  }
+  .actions[data-audio="true"] small {
+    margin-top: 2px;
+  }
+}
 @media (min-width: 681px) and (max-height: 700px) {
+  .actions[data-audio="true"],
   .actions {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  .actions button {
+  .actions[data-audio="true"] > :is(button, a, .encoding),
+  .actions > :is(button, a, .encoding) {
     padding: 8px;
   }
   .actions small {
     margin-top: 2px;
+  }
+  .actions[data-audio="true"] > :nth-child(n + 5) {
+    grid-column: span 2;
   }
 }
 @media (max-width: 520px) {

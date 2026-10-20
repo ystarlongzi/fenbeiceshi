@@ -247,6 +247,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
           record={result}
           locale={locale}
           note={meter.note}
+          recording={meter.recording}
           onNoteChange={meter.setNote}
           onSave={resultDialog === "save" ? save : undefined}
           onClose={() => setResultDialog(null)}

@@ -63,6 +63,8 @@ export function useSoundMeter() {
 
   async function start() {
     if (engine.current || demoTimer.current || recording.phase === "finishing") return;
+    // 不安全环境交给采集流程提示，避免提前调用受安全上下文限制的 randomUUID。
+    const measurementId = window.isSecureContext ? crypto.randomUUID() : "";
     setFrame(null);
     setInput(null);
     setResult(null);
@@ -108,7 +110,7 @@ export function useSoundMeter() {
             return;
           }
           setResult({
-            id: crypto.randomUUID(),
+            id: measurementId,
             startedAt: startedAt.current,
             duration: last.elapsed,
             stats: last.stats,
@@ -124,7 +126,7 @@ export function useSoundMeter() {
           if (reason === "device-ended") setMessage("deviceEnded");
         },
       },
-      recording.createCapture(),
+      recording.createCapture(measurementId),
     );
     engine.current = current;
     try {

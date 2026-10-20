@@ -13,14 +13,15 @@
       "录音选项位置与主题",
       "备注草稿和保存内容",
       "过时的演示与 JSON 使用说明",
-      "本机记录下载入口复用报告弹框"
+      "本机记录下载入口复用报告弹框",
+      "当前测量录音接入导出弹框，共用 MP3 编码任务与下载结果"
     ],
     "unchanged": [
       "仪表展示",
       "级别色带",
       "统计",
       "趋势",
-      "录音结果",
+      "录音结果区结构及样式",
       "本机记录列表结构及样式",
       "站点模块布局"
     ]
@@ -84,11 +85,19 @@
     "note": "备注（选填）/ Notes (optional)，保存与导出共用，最多120个UTF-16单元；文件及摘要字段同名",
     "recordNote": "记录页预填原备注；修改仅用于此次导出，关闭后丢弃，不改写已保存的记录",
     "stats": "最低、最高、能量均值对应向下箭头、向上箭头、音频线 Lucide 图标；≤520px 图标在标签上方",
-    "layout": "备注默认两行，保留纵向调整与120字限制；收紧统计、提示和操作间距。常规桌面两列，宽度≥681px且高度≤700px时四列，保留每项说明；手机沿用两列或窄屏单列，不缩小字号",
+    "layout": "备注默认两行，保留纵向调整与120字限制；收紧统计、提示和操作间距。常规桌面无录音时两列、有录音时三列；宽度≥681px且高度≤700px时四种数据操作在首行，MP3与PCM各占第二行两列。手机沿用两列或窄屏单列，不缩小字号",
+    "audio": {
+      "formats": ["mp3", "pcm"],
+      "condition": "仅工作台导出模式、录音measurementId与报告id一致时显示；无录音、清除后或历史记录不显示",
+      "mp3": "首次点击生成，状态文字替代生成按钮，完成后为下载链接；与原录音区共享任务、进度、错误及文件，不因关闭弹框取消",
+      "pcm": "立即下载原始PCM，显示实际采样率、mono、s16le；文件名带采样参数",
+      "lifetime": "仅当前页内存；不写入本机摘要或数据导出；清除、新录音和卸载释放文件与编码任务",
+      "status": "整理尾部、编码失败、限额及中断说明就近显示；MP3失败保留PCM并允许重试"
+    },
     "csvColumns": 6,
     "excelSheets": 2,
     "pdf": "A4，约192 dpi本机字体图像；按段落分页，文字不可选取",
-    "basis": "publicSummary/readings.ts；一位小数、模型、偏移、单位及输入下限标记；不含音频与内部设备签名",
+    "basis": "publicSummary/readings.ts；一位小数、模型、偏移、单位及输入下限标记；CSV、Excel、PDF与复制摘要不含音频与内部设备签名，音频单独下载",
     "loading": "Excel/PDF按需动态加载"
   },
   "verification": {
@@ -113,6 +122,13 @@
     "compactReportShortDesktop": "report-compact-en-640.jpg",
     "compactReportMobile": "report-compact-zh-390.jpg",
     "compactReportEnglishNarrow": "report-compact-en-320.jpg",
+    "audioReportLight": "report-audio-desktop-light.jpg",
+    "audioReportDark": "report-audio-desktop-dark.jpg",
+    "audioReportMobile": "report-audio-mobile-390.jpg",
+    "audioReportEnglish": "report-audio-en-720.jpg",
+    "audioReportShortDesktop": "report-audio-en-640.jpg",
+    "audioReportEnglishNarrow": "report-audio-en-320.jpg",
+    "audioExportError": "report-audio-mp3-error.jpg",
     "narrowEnglishSettings": "mobile-settings-en-320.jpg",
     "pdfNormal": "pdf-report-1.png",
     "pdfLong": [

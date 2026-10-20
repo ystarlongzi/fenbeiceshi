@@ -12,6 +12,7 @@ export default function WorkbenchFixture() {
   const [armed, setArmed] = useState(false);
   const [locale, setLocale] = useState<Locale>("zh-CN");
   const [recordsFeedback, setRecordsFeedback] = useState("");
+  const [workerCount, setWorkerCount] = useState(0);
   const mode = useRef("tone");
   const restore = useRef<(() => void) | null>(null);
   useEffect(() => () => restore.current?.(), []);
@@ -61,6 +62,14 @@ export default function WorkbenchFixture() {
     const originalInput = media.getUserMedia;
     const originalDevices = media.enumerateDevices;
     const originalCopy = navigator.clipboard?.writeText;
+    const OriginalWorker = window.Worker;
+    window.Worker = class extends OriginalWorker {
+      constructor(url: string | URL, options?: WorkerOptions) {
+        if (mode.current === "mp3-error") throw new Error("QA MP3 编码不可用");
+        super(url, options);
+        setWorkerCount((count) => count + 1);
+      }
+    };
     if (navigator.clipboard)
       navigator.clipboard.writeText = async (text) => {
         if (mode.current === "copy-error")
@@ -117,6 +126,7 @@ export default function WorkbenchFixture() {
     restore.current = () => {
       media.getUserMedia = originalInput;
       media.enumerateDevices = originalDevices;
+      window.Worker = OriginalWorker;
       if (navigator.clipboard) navigator.clipboard.writeText = originalCopy;
     };
     setArmed(true);
@@ -151,11 +161,12 @@ export default function WorkbenchFixture() {
           <option value="denied">拒绝访问</option>
           <option value="waiting">等待授权</option>
           <option value="copy-error">复制被拒绝</option>
+          <option value="mp3-error">MP3 编码失败</option>
           <option value="long">长设备名</option>
         </select>
       </label>{" "}
       {armed ? (
-        <p role="status">合成输入已启用</p>
+        <p role="status">合成输入已启用 · MP3 编码次数 {workerCount}</p>
       ) : (
         <button type="button" onClick={arm}>
           启用合成输入

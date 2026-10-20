@@ -55,8 +55,8 @@ export const guides: SiteContent[] = [
         title: t("04 结束、保存与复测", "04 Finish, save and repeat"),
         paragraphs: [
           t(
-            "需要保留声音时，在开始前开启“同步录音”（默认关闭）。录音与真实测量一起开始，结束后可播放、生成并下载 MP3，或下载单声道、16 位小端原始 PCM；PCM 采样率标在界面与文件名中，导入播放器时需使用这些参数。单次录音最多 10 分钟，或在达到 64 MiB 采样上限时提前停止，测量继续。",
-            "To keep the sound, turn on Record audio before starting (off by default). Recording starts with a real measurement. After finishing, play it, create and download MP3, or download raw mono, signed 16-bit little-endian PCM. Use the sample rate shown in the interface and filename when importing PCM into a player. Recording stops after 10 minutes or at the 64 MiB sample limit; measurement continues.",
+            "需要保留声音时，在开始前开启“同步录音”（默认关闭）。录音与真实测量一起开始，结束后可播放。点击“导出数据”打开报告弹框，有本次录音时可生成并下载 MP3，或下载单声道、16 位小端原始 PCM；录音区也保留下载入口。PCM 采样率标在界面与文件名中，导入播放器时需使用这些参数。单次录音最多 10 分钟，或在达到 64 MiB 采样上限时提前停止，测量继续。",
+            "To keep the sound, turn on Record audio before starting (off by default). Recording starts with a real measurement and can be played after finishing. Open Export data: if this measurement has audio, the report dialog offers Create MP3 and Download PCM. Downloads also remain in the recording area. PCM is raw mono, signed 16-bit little-endian; use the sample rate shown in the interface and filename when importing it into a player. Recording stops after 10 minutes or at the 64 MiB sample limit; measurement continues.",
           ),
           t(
             "录音仅暂存当前页面，不上传，也不随摘要保存。刷新、离开页面或开始新录音会清除；请及时下载，也可使用“清除录音”释放本机内存。页面切到后台或输入中断会停止采集；如尾部采样未完整返回，会提示并保留已收到的片段。",

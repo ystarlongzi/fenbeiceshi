@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { Icon } from "@/components/icon";
+import { recordingCopy } from "../../audio-recording/copy";
+import { recordingFilename } from "../../audio-recording/pcm";
+import type { useAudioRecording } from "../../audio-recording/use-audio-recording";
 import type { saveRecord } from "../../records/storage";
 import { WorkbenchDialog } from "../workbench-dialog";
 import { meterCopy } from "../copy";
@@ -18,6 +21,7 @@ export function MeasurementReportDialog({
   locale,
   note,
   noteHint,
+  recording,
   onNoteChange,
   onSave,
   onClose,
@@ -27,6 +31,7 @@ export function MeasurementReportDialog({
   locale: Locale;
   note: string;
   noteHint?: string;
+  recording?: ReturnType<typeof useAudioRecording>;
   onNoteChange: (note: string) => void;
   onSave?: () => ReturnType<typeof saveRecord>;
   onClose: () => void;
@@ -35,11 +40,15 @@ export function MeasurementReportDialog({
   const copy = reportCopy[locale];
   const meter = meterCopy[locale];
   const report = createReport(record, locale);
+  // 上次录音会保留到新录音开始，报告只允许下载同一次测量的音频。
+  const clip = recording?.clip?.measurementId === record.id ? recording.clip : null;
+  const audio = recordingCopy[locale];
   const [pending, setPending] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [error, setError] = useState(false);
   const [manualCopy, setManualCopy] = useState<string | null>(null);
   const actions = useRef<HTMLDivElement>(null);
+  const pcmAction = useRef<HTMLAnchorElement>(null);
   const lastAction = useRef<FileFormat | null>(null);
 
   useEffect(() => {
@@ -154,7 +163,12 @@ export function MeasurementReportDialog({
             <span>{report.notice}</span>
           </p>
           {pending ? null : (
-            <div ref={actions} className={styles.actions} aria-label={copy.export}>
+            <div
+              ref={actions}
+              className={styles.actions}
+              data-audio={!!clip}
+              aria-label={copy.export}
+            >
               {(["csv", "excel", "pdf", "copy"] as const).map((format) => (
                 <button
                   type="button"
@@ -169,8 +183,58 @@ export function MeasurementReportDialog({
                   <small>{copy[`${format}Hint`]}</small>
                 </button>
               ))}
+              {clip && recording ? (
+                <>
+                  {recording.mp3.url ? (
+                    <a href={recording.mp3.url} download={recordingFilename(clip, "mp3")}>
+                      <span>
+                        <Icon name="download" size={16} />
+                        {audio.mp3Ready}
+                      </span>
+                      <small>{copy.mp3Hint}</small>
+                    </a>
+                  ) : recording.mp3.phase === "encoding" ? (
+                    <div className={styles.encoding} role="status">
+                      <span>{audio.encoding}</span>
+                      <small>{copy.mp3Hint}</small>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        recording.createMp3();
+                        pcmAction.current?.focus();
+                      }}
+                    >
+                      <span>
+                        <Icon name="download" size={16} />
+                        {audio.mp3}
+                      </span>
+                      <small>{copy.mp3Hint}</small>
+                    </button>
+                  )}
+                  <a ref={pcmAction} href={clip.pcmUrl} download={recordingFilename(clip, "pcm")}>
+                    <span>
+                      <Icon name="download" size={16} />
+                      {audio.pcm}
+                    </span>
+                    <small>{clip.sampleRate} Hz · mono · s16le</small>
+                  </a>
+                </>
+              ) : null}
             </div>
           )}
+          {clip ? <p className={styles.audioHint}>{copy.audioHint}</p> : null}
+          <div className={styles.audioStatus} role="status">
+            {clip?.limited ? <p>{audio.limited}</p> : null}
+            {clip?.interrupted ? <p>{audio.interrupted}</p> : null}
+            {clip && recording?.mp3.phase === "error" ? (
+              <p data-error="true">{audio.encodeError}</p>
+            ) : null}
+            {recording?.measurementId === record.id && recording.phase === "finishing" ? (
+              <p>{audio.finishing}</p>
+            ) : null}
+          </div>
         </>
       )}
       <p className={styles.feedback} role="status" data-error={error}>
