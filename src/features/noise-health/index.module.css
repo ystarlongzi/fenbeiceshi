@@ -1,9 +1,16 @@
 .impacts {
-  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
 }
 .impact {
-  padding-block: 22px;
-  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
   scroll-margin-top: 100px;
 }
 .impact h3,
@@ -28,6 +35,9 @@
   font-size: var(--font-size-ui);
   line-height: 1.8;
 }
+.sources {
+  margin-top: auto;
+}
 .sources a,
 .sourceLink {
   display: inline-flex;
@@ -36,37 +46,6 @@
   color: var(--brand);
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-.occupation {
-  margin-top: 22px;
-  border-block: 1px solid var(--line);
-}
-.occupation summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 52px;
-  padding-block: 14px;
-  color: var(--ink);
-  font-size: var(--font-size-body);
-  font-weight: 600;
-  line-height: 1.7;
-  list-style: none;
-  cursor: pointer;
-}
-.occupation summary::-webkit-details-marker {
-  display: none;
-}
-.occupation summary svg {
-  color: var(--brand);
-}
-.occupation[open] > summary svg {
-  transform: rotate(180deg);
-}
-.exposure {
-  padding: 8px 0 20px;
-  scroll-margin-top: 100px;
 }
 .steps {
   list-style: none;
@@ -87,6 +66,13 @@
   line-height: 1.7;
 }
 @media (max-width: 520px) {
+  .impacts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .impact {
+    padding: 18px;
+  }
   .steps > li {
     gap: 12px;
   }

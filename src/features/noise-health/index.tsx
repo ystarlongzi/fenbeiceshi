@@ -1,5 +1,4 @@
 import { ContentPage } from "@/components/content-page";
-import { DisclosureAnchors } from "@/components/disclosure-anchors";
 import { Icon } from "@/components/icon";
 import {
   exposureFactors,
@@ -28,6 +27,20 @@ export function NoiseHealthArticle({ locale }: { locale: Locale }) {
         label: en ? "Open the decibel chart" : "回到分贝对照表",
       }}
       sectionContent={{
+        exposure: (
+          <>
+            <ExposureExplorer locale={locale} />
+            <a
+              className={styles.sourceLink}
+              href={healthSources.occupation.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {en ? "NIOSH: reference and scope" : "NIOSH：参考原文与适用范围"}
+              <Icon name="external-link" size={12} />
+            </a>
+          </>
+        ),
         effects: (
           <div className={styles.impacts}>
             {healthImpacts.map((impact) => (
@@ -55,39 +68,11 @@ export function NoiseHealthArticle({ locale }: { locale: Locale }) {
           </div>
         ),
         context: (
-          <>
-            <ul>
-              {exposureFactors.map((item, index) => (
-                <li key={index}>{text(item, locale)}</li>
-              ))}
-            </ul>
-            <details className={styles.occupation}>
-              <summary>
-                {en
-                  ? "Occupational reference: 85 dBA and exposure time"
-                  : "进一步理解：85 dBA 与职业暴露时长"}
-                <Icon name="chevron-down" size={16} />
-              </summary>
-              <div id="exposure" className={styles.exposure}>
-                <p>
-                  {en
-                    ? "NIOSH's workplace reference uses 85 dBA over eight hours, halving the duration for each 3 dBA increase. It does not set a bedroom noise target or a personal safety countdown."
-                    : "NIOSH 的职业参考以 8 小时平均 85 dBA 为起点，每增加 3 dBA，参考时长减半。它既不是卧室噪音目标，也不是个人安全倒计时。"}
-                </p>
-                <ExposureExplorer locale={locale} />
-                <a
-                  className={styles.sourceLink}
-                  href={healthSources.occupation.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {en ? "NIOSH: scope and reference" : "NIOSH：参考原文与适用范围"}
-                  <Icon name="external-link" size={12} />
-                </a>
-              </div>
-            </details>
-            <DisclosureAnchors ids={["exposure"]} />
-          </>
+          <ul>
+            {exposureFactors.map((item, index) => (
+              <li key={index}>{text(item, locale)}</li>
+            ))}
+          </ul>
         ),
         actions: (
           <ol className={styles.steps}>

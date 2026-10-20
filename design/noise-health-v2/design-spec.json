@@ -1,0 +1,138 @@
+{
+  "version": 2,
+  "updated": "2026-10-20",
+  "pageIds": [
+    "noise-health"
+  ],
+  "routes": [
+    "/knowledge/noise-and-health/",
+    "/en/knowledge/noise-and-health/"
+  ],
+  "status": "implemented-not-deployed",
+  "task": "先理解声级与暴露时长的关系，再扫读健康影响并找到应对与专业帮助。",
+  "audit": {
+    "before": [
+      "职业演示位于第二章且默认折叠，主要交互难以找到",
+      "三组长标题与双段正文混合了不同健康问题，扫读负担较大"
+    ],
+    "priority": [
+      "暴露时长参考",
+      "六项健康影响",
+      "减少干扰",
+      "判断条件",
+      "专业帮助"
+    ],
+    "surfaces": "计算器表面组织输入与结果；六个同级健康主题使用一致容器便于比较，其余文章保持开放排版。"
+  },
+  "references": [
+    {
+      "url": "https://realtimesoundmeter.org/cn/",
+      "observed": "输入框与滑块同步、时长即时反馈、常用参考点对照",
+      "adaptation": "采用操作关系；使用独立手动职业声级，范围与适用条件不照搬竞品的安全时长表述。"
+    },
+    {
+      "url": "https://realtimesoundmeter.com/zh/",
+      "selector": ".health-impact-grid",
+      "observed": "桌面三列六项，短标题加一段说明",
+      "adaptation": "适配本站 750px 文章列为双列，手机单列；每项就近提供官方依据，事实按一手来源改写。"
+    }
+  ],
+  "sections": [
+    {
+      "id": "exposure",
+      "role": "核心交互",
+      "default": "visible"
+    },
+    {
+      "id": "effects",
+      "role": "六个同级短主题",
+      "ids": [
+        "hearing",
+        "tinnitus",
+        "sleep",
+        "daily-life",
+        "long-term",
+        "vulnerable-groups"
+      ],
+      "structure": [
+        "短标题",
+        "一段说明",
+        "官方依据"
+      ]
+    },
+    {
+      "id": "actions",
+      "role": "三项连续行动"
+    },
+    {
+      "id": "context",
+      "role": "测量条件与研究适用范围"
+    },
+    {
+      "id": "help",
+      "role": "专业帮助与来源"
+    }
+  ],
+  "exposure": {
+    "source": "https://www.cdc.gov/niosh/noise/about/noise.html",
+    "formulaMinutes": "480 * 2 ** ((85 - L) / 3)",
+    "unit": "dBA",
+    "input": {
+      "min": 85,
+      "max": 115,
+      "step": 0.5,
+      "default": 85
+    },
+    "rangeReason": "用于展示 85 dBA 起点及更高稳定声级的减半关系；85–115 为本站演示范围，不宣称是标准的全部适用边界。",
+    "presets": [
+      85,
+      88,
+      91,
+      94,
+      97,
+      100
+    ],
+    "output": "约每日累计参考时长；至少一小时显示小时与分钟，不足一小时可显示秒；向下取整，不将很短结果显示成零分钟。",
+    "invalid": "空值、非有限值、越界或不符合 0.5 步长时显示就近错误，结果为破折号；不沿用上次结果。",
+    "scope": [
+      "职业听力保护参考，不保证个人无风险",
+      "按同一稳定声级累计计算，不替代混合声级剂量评估",
+      "不适用于爆炸等冲击声",
+      "不提供卧室目标或个人安全倒计时",
+      "不读取本站未校准的仪表估算"
+    ]
+  },
+  "implementation": {
+    "content": "src/lib/content/noise-health.ts",
+    "server": "src/features/noise-health/index.tsx",
+    "client": "src/features/noise-health/exposure-explorer/index.tsx",
+    "model": "src/features/noise-health/exposure-explorer/model.ts",
+    "css": "所属组件的 CSS Modules；复用主题与固定字号变量",
+    "dependencies": "无新增依赖；正文、来源、默认值及六个参考点均静态输出",
+    "links": "保留原中英 URL、自 canonical、双向 hreflang、已有章节锚点与对照页入口"
+  },
+  "validation": {
+    "automated": "见 docs/验证/健康文章层级与暴露时长验证.md",
+    "browser": "Chrome 实际浏览器，1440×1100、390×844、320×740，中英文、亮暗主题、输入/预设/键盘与错误结果",
+    "evidence": "browser-checks.json",
+    "notVerified": [
+      "真实手机与软键盘",
+      "真实麦克风或专业声学准确度",
+      "生产部署、服务器及 Cloudflare",
+      "医学专家审校"
+    ]
+  },
+  "screenshots": [
+    "before-desktop.jpg",
+    "reference-desktop.jpg",
+    "reference-health-impact.jpg",
+    "desktop-zh.jpg",
+    "desktop-exposure.jpg",
+    "desktop-effects.jpg",
+    "mobile-exposure.jpg",
+    "mobile-effects.jpg",
+    "desktop-exposure-en-dark.jpg",
+    "mobile-exposure-en-dark.jpg",
+    "mobile-effects-en-dark-320.jpg"
+  ]
+}

@@ -33,48 +33,69 @@ export const healthSources = {
 export const healthImpacts = [
   {
     id: "hearing",
-    title: t("强声暴露：听力与耳鸣", "Loud sound: hearing and tinnitus"),
+    title: t("听力损伤", "Hearing damage"),
     paragraphs: [
       t(
-        "爆炸等强烈冲击声，以及长时间、反复接触的强声，都可能损伤听力。音量、距离和暴露时长需要一起看，不能只等到耳朵明显不舒服才采取保护。",
-        "An intense impulse or repeated, prolonged loud sound can harm hearing. Consider level, distance and duration together; obvious discomfort is not a prerequisite for protection.",
-      ),
-      t(
-        "强声暴露后可能出现耳鸣或听声音发闷。感觉恢复不等于可以继续承受相同暴露；怀疑听力变化时，应安排专业听力检查。",
-        "Ringing or muffled hearing can follow loud sound. Feeling better does not establish that further exposure is harmless. Arrange a hearing test if you suspect a change.",
+        "一次强烈冲击声，或长时间、反复接触强声，都可能损伤听力。损伤有时逐渐发生，不应等到明显不适才采取保护。",
+        "One intense impulse or repeated, prolonged loud sound can damage hearing. Harm can develop gradually, before you notice a problem.",
       ),
     ],
     sources: [healthSources.hearing],
   },
   {
-    id: "daily-life",
-    title: t("日常干扰：睡眠、烦扰与专注", "Everyday disturbance: sleep, annoyance and focus"),
+    id: "tinnitus",
+    title: t("耳鸣与听觉发闷", "Ringing and muffled hearing"),
     paragraphs: [
       t(
-        "交通、邻里或设备声可能打断睡眠、引起烦扰，或干扰工作和学习。听力损伤不是判断噪音是否值得改善的唯一依据，也不存在适合所有活动的同一条分贝界线。",
-        "Traffic, neighbours or equipment may disturb sleep, cause annoyance or interrupt work and learning. Hearing damage is not the only reason to address noise; one decibel boundary does not suit every activity.",
-      ),
-      t(
-        "观察夜间或学习环境时，把醒来、难以听清说话、任务被打断等实际影响一起记录。儿童、老人、慢病人群和轮班工作者的活动与休息安排，也需要纳入考虑。",
-        "Alongside noise observations, note awakenings, difficulty hearing speech or interrupted tasks. Consider the learning and rest needs of children, older people, people with chronic conditions and shift workers.",
+        "强声后可能出现耳鸣或听声音发闷。感觉恢复不代表没有残留损伤；怀疑听力变化时，应安排专业检查。",
+        "Ringing or muffled hearing can follow loud sound. Feeling better does not rule out lasting harm. Arrange a hearing test if you suspect a change.",
       ),
     ],
-    sources: [healthSources.overview, healthSources.night],
+    sources: [healthSources.hearing],
+  },
+  {
+    id: "sleep",
+    title: t("睡眠干扰", "Disturbed sleep"),
+    paragraphs: [
+      t(
+        "交通、邻里或设备声可能打断睡眠，影响休息。除了声音大小，也要关注发生时段、反复次数，以及是否被吵醒。",
+        "Traffic, neighbours or equipment may interrupt sleep and rest. Consider when sound occurs, how often it repeats and whether it wakes you.",
+      ),
+    ],
+    sources: [healthSources.overview],
+  },
+  {
+    id: "daily-life",
+    title: t("烦扰与专注", "Annoyance and focus"),
+    paragraphs: [
+      t(
+        "噪音可能引起烦扰，干扰交谈、工作和学习。即使主要问题不是听力损伤，持续的日常干扰也值得改善。",
+        "Noise can cause annoyance and interrupt conversation, work and learning. Persistent disruption deserves attention even when hearing damage is not the main concern.",
+      ),
+    ],
+    sources: [healthSources.overview],
   },
   {
     id: "long-term",
-    title: t("长期影响：怎样理解研究结论", "Long-term effects: reading the evidence"),
+    title: t("心血管风险", "Cardiovascular risk"),
     paragraphs: [
       t(
-        "WHO 的环境噪音资料涉及睡眠、认知，以及缺血性心脏病和高血压等长期健康影响。这些证据需要结合研究人群、声源与长期暴露条件理解。",
-        "WHO material covers sleep and cognition, alongside longer-term outcomes such as ischaemic heart disease and hypertension. Interpret findings with their population, source and exposure conditions.",
-      ),
-      t(
-        "群体研究中的风险关系不能换算成某个人的患病概率；一次网页估算也不能证明这些疾病由当前声源造成。长期反复的干扰值得记录和评估，单个数字并不能完成判断。",
-        "Population findings do not calculate an individual's disease probability. One browser estimate cannot establish that a source caused an illness. Recurring disturbance deserves documentation and assessment beyond a single number.",
+        "WHO 资料指出，环境噪音暴露与缺血性心脏病、高血压等风险有关。应结合研究人群、声源与长期暴露条件理解。",
+        "WHO material links environmental noise exposure with risks including ischaemic heart disease and hypertension. Interpret findings in their population, source and long-term exposure context.",
       ),
     ],
     sources: [healthSources.environment],
+  },
+  {
+    id: "vulnerable-groups",
+    title: t("儿童与敏感人群", "Children and vulnerable groups"),
+    paragraphs: [
+      t(
+        "儿童的学习与休息需要特别关注。WHO 也提示，老人、慢病人群及轮班工作者更易受到噪音干扰。",
+        "Children's learning and rest need particular attention. WHO also identifies older people, people with chronic conditions and shift workers as vulnerable to noise disturbance.",
+      ),
+    ],
+    sources: [healthSources.night],
   },
 ] as const;
 
@@ -128,18 +149,40 @@ export const noiseHealth: SiteContent = {
     "Understand hearing effects, everyday disturbance and exposure context. Learn what the NIOSH occupational reference means and how to reduce noise or seek further help.",
   ),
   takeaway: t(
-    "噪音的影响不只取决于分贝数，还与持续时间、出现时段和活动有关。先分清问题，再选择减少干扰、记录变化或寻求专业帮助；单次网页读数不能判断个人健康风险。",
-    "Noise effects depend on duration, timing and activity as well as level. Identify the concern before reducing disturbance, documenting change or seeking help. One browser reading cannot determine personal health risk.",
+    "声音越响，越需要缩短暴露；健康影响还与时段、活动和个人情况有关。单次网页读数不能判断个人健康风险。",
+    "Louder sound calls for shorter exposure. Timing, activity and individual factors also matter. One browser reading cannot determine personal health risk.",
   ),
   sections: [
+    {
+      id: "exposure",
+      tocTitle: t("暴露时长", "Exposure time"),
+      title: t("暴露时长：声音越响，时间越短", "Exposure time: louder sound, less time"),
+      paragraphs: [
+        t(
+          "下面按 NIOSH 职业听力保护参考，演示声级与每日累计暴露时长的关系：85 dBA 对应 8 小时，每增加 3 dBA，参考时长减半。",
+          "Explore the NIOSH occupational hearing reference for daily cumulative exposure: 85 dBA corresponds to 8 hours, with the duration halved for each 3 dBA increase.",
+        ),
+      ],
+    },
     {
       id: "effects",
       tocTitle: t("影响概览", "Health effects"),
       title: t("噪音会怎样影响我们？", "How can noise affect us?"),
       paragraphs: [
         t(
-          "先区分强声对听力的伤害、日常活动受到的干扰，以及长期暴露研究中的健康影响。它们关注的问题不同，需要的判断依据也不同。",
-          "Distinguish hearing harm, disruption to daily activities and findings about long-term exposure. Each concern calls for different evidence.",
+          "噪音的影响不只在耳朵。下面六个方面，分别涉及强声伤害、日常干扰和长期暴露研究。",
+          "Noise affects more than hearing. These six topics cover loud-sound harm, everyday disruption and findings about long-term exposure.",
+        ),
+      ],
+    },
+    {
+      id: "actions",
+      tocTitle: t("减少干扰", "Reduce disturbance"),
+      title: t("从能控制的部分开始", "Start with what you can change"),
+      paragraphs: [
+        t(
+          "优先减少暴露与干扰，再用记录检验调整是否有帮助。",
+          "Reduce exposure and disturbance first, then use observations to review the change.",
         ),
       ],
     },
@@ -152,16 +195,9 @@ export const noiseHealth: SiteContent = {
           "读到健康建议时，先看它针对什么声源、哪个人群，以及采用什么测量指标。WHO 环境噪音指南与 NIOSH 职业听力保护参考服务于不同场景，不能互相替代。",
           "Check the source, population and measurement indicator behind a recommendation. WHO environmental guidance and NIOSH occupational hearing references address different settings.",
         ),
-      ],
-    },
-    {
-      id: "actions",
-      tocTitle: t("减少干扰", "Reduce disturbance"),
-      title: t("从能控制的部分开始", "Start with what you can change"),
-      paragraphs: [
         t(
-          "优先减少暴露与干扰，再用记录检验调整是否有帮助。",
-          "Reduce exposure and disturbance first, then use observations to review the change.",
+          "群体研究中的风险关系不能换算成个人患病概率；一次网页估算也不能证明某种疾病由当前声源造成。记录长期反复的干扰，比只看一个最高值更有帮助。",
+          "Population findings cannot calculate your disease probability, and one browser estimate cannot establish the cause of an illness. Document recurring disturbance rather than relying on one maximum.",
         ),
       ],
     },

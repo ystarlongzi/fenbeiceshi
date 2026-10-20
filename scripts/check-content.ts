@@ -12,6 +12,7 @@ import {
   healthActions,
   healthImpacts,
   healthSources,
+  noiseHealth,
 } from "../src/lib/content/noise-health.ts";
 import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
 
@@ -85,6 +86,12 @@ assert.equal(soundBands.at(-1)?.max, 160);
 for (let index = 1; index < soundBands.length; index += 1)
   assert.equal(soundBands[index - 1].max, soundBands[index].min, "分段必须连续");
 assert.equal(new Set(healthImpacts.map((impact) => impact.id)).size, healthImpacts.length);
+assert.equal(healthImpacts.length, 6, "健康影响应保留六个短主题");
+assert.deepEqual(
+  noiseHealth.sections.map((section) => section.id),
+  ["exposure", "effects", "actions", "context", "help"],
+  "健康文章应先展示时长参考，再解释影响与行动",
+);
 for (const impact of healthImpacts) {
   for (const field of [impact.title, ...impact.paragraphs])
     assert.ok(field.zh && field.en, `健康正文缺少双语内容：${impact.id}`);

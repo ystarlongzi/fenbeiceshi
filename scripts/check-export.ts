@@ -230,7 +230,7 @@ for (const page of sitePages) {
             assert.ok(visible.includes(escapeText(text(paragraph, locale))), path);
         for (const impact of healthImpacts) {
           assert.ok(visible.includes(`data-health-id="${impact.id}"`), path);
-          for (const paragraph of impact.paragraphs)
+          for (const paragraph of [impact.title, ...impact.paragraphs])
             assert.ok(
               visible.includes(escapeText(text(paragraph, locale))),
               `健康正文不在静态 HTML：${path}`,
@@ -247,8 +247,22 @@ for (const page of sitePages) {
         const occupation = [...visible.matchAll(/<details\b([^>]*)>([\s\S]*?)<\/details>/g)].find(
           (match) => match[2].includes('id="exposure-level-input"'),
         );
-        assert.ok(occupation, `健康文章缺少按需职业参考：${path}`);
-        assert.doesNotMatch(occupation[1], /\bopen(?:=|\s|$)/, path);
+        assert.equal(occupation, undefined, `暴露时长应默认可见：${path}`);
+        const exposureStart = visible.indexOf('id="exposure"');
+        assert.ok(
+          exposureStart >= 0 && exposureStart < visible.indexOf('id="effects"'),
+          `暴露时长应位于影响概览之前：${path}`,
+        );
+        for (const id of ["exposure-level-input", "exposure-level-range"]) {
+          const input = visible.match(new RegExp(`<input\\b[^>]*id="${id}"[^>]*>`))?.[0];
+          assert.ok(input, `健康文章缺少声级控件：${path} → ${id}`);
+          for (const attribute of ['min="85"', 'max="115"', 'step="0.5"', 'value="85"'])
+            assert.ok(input.includes(attribute), `${path} → ${id} → ${attribute}`);
+        }
+        assert.match(visible, /id="exposure-duration"[^>]*>[\s\S]*?8 (?:小时|hrs)<\/output>/, path);
+        const referenceText = visible.replace(/<!--[\s\S]*?-->/g, "");
+        for (const level of [85, 88, 91, 94, 97, 100])
+          assert.ok(referenceText.includes(`${level} dBA`), `参考点必须静态可读：${path}`);
         for (const source of Object.values(healthSources))
           assert.ok(visible.includes(`id="${source.id}"`), path);
         assert.ok(

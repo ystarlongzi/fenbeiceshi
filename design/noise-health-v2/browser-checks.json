@@ -1,0 +1,187 @@
+{
+  "desktop": [
+    {
+      "level": "85",
+      "duration": "8 小时",
+      "slider": "85"
+    },
+    {
+      "level": "88",
+      "duration": "4 小时",
+      "slider": "88"
+    },
+    {
+      "level": "91",
+      "duration": "2 小时",
+      "slider": "91"
+    },
+    {
+      "level": "100",
+      "duration": "15 分钟",
+      "slider": "100"
+    },
+    {
+      "level": "103",
+      "duration": "7 分钟 30 秒",
+      "slider": "103"
+    },
+    {
+      "level": "112",
+      "duration": "56 秒",
+      "slider": "112"
+    },
+    {
+      "level": "115",
+      "duration": "28 秒",
+      "slider": "115"
+    },
+    {
+      "level": "85.5",
+      "duration": "7 小时 7 分钟",
+      "slider": "85.5"
+    }
+  ],
+  "invalid": [
+    {
+      "input": "",
+      "invalid": "true",
+      "output": "—"
+    },
+    {
+      "input": "84.5",
+      "invalid": "true",
+      "output": "—"
+    },
+    {
+      "input": "115.5",
+      "invalid": "true",
+      "output": "—"
+    },
+    {
+      "input": "85.1",
+      "invalid": "true",
+      "output": "—"
+    }
+  ],
+  "keyboard": {
+    "duration": "7 小时 7 分钟",
+    "focused": "exposure-level-range",
+    "level": "85.5"
+  },
+  "desktopLayout": {
+    "bodyFont": "16px",
+    "cards": 6,
+    "columns": "367px 367px",
+    "current": "影响概览",
+    "viewport": [
+      1440,
+      1100
+    ],
+    "width": 1440
+  },
+  "mobile": {
+    "font": "14px",
+    "input": "100",
+    "output": "15 分钟",
+    "presets": [
+      {
+        "height": 48,
+        "width": 152
+      },
+      {
+        "height": 48,
+        "width": 152
+      },
+      {
+        "height": 48,
+        "width": 152
+      },
+      {
+        "height": 48,
+        "width": 152
+      },
+      {
+        "height": 48,
+        "width": 152
+      },
+      {
+        "height": 48,
+        "width": 152
+      }
+    ],
+    "scrollWidth": 390,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileEffects": {
+    "columns": "350px",
+    "count": 6,
+    "width": 350
+  },
+  "englishMobile": {
+    "defaultOutput": "8 hrs",
+    "scrollWidth": 390,
+    "sections": [
+      "exposure",
+      "effects",
+      "hearing",
+      "tinnitus",
+      "sleep",
+      "daily-life",
+      "long-term",
+      "vulnerable-groups",
+      "actions",
+      "context",
+      "help"
+    ],
+    "width": 390
+  },
+  "englishDark": {
+    "input": "103",
+    "output": "7 min 30 sec",
+    "scrollWidth": 1440,
+    "theme": "dark",
+    "width": 1440
+  },
+  "mobileDark": {
+    "output": "28 sec",
+    "scrollWidth": 390,
+    "theme": "dark",
+    "width": 390
+  },
+  "narrowEnglish": {
+    "duration": "7 hrs 7 min",
+    "outputFont": "32px",
+    "outputWidth": 242,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  "narrowEffects": {
+    "bodyFont": "16px",
+    "columns": "280px",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  "console": [
+    {
+      "level": "error",
+      "message": "TypeError: Cannot redefine property: __s@3s'\"A213D+3\n    at Object.defineProperty (<anonymous>)\n    at chrome-extension://ihhkmalpkhkoedlmcnilbbhhbhnicjga/content.js:6:21004\n    at chrome-extension://ihhkmalpkhkoedlmcnilbbhhbhnicjga/content.js:6:21070\n    at chrome-extension://ihhkmalpkhkoedlmcnilbbhhbhnicjga/content.js:6:25455\n    at chrome-extension://ihhkmalpkhkoedlmcnilbbhhbhnicjga/content.js:6:25459",
+      "timestamp": "2026-10-20T13:22:56.728Z",
+      "url": "chrome-extension://ihhkmalpkhkoedlmcnilbbhhbhnicjga/content.js"
+    },
+    {
+      "level": "error",
+      "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      "timestamp": "2026-10-20T13:23:04.059Z",
+      "url": "http://127.0.0.1:3143/knowledge/noise-and-health/"
+    },
+    {
+      "level": "error",
+      "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      "timestamp": "2026-10-20T13:28:54.294Z",
+      "url": "http://127.0.0.1:3144/knowledge/noise-and-health/"
+    }
+  ]
+}
