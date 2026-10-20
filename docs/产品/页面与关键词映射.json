@@ -136,13 +136,13 @@
         "en": {"path":"/en/knowledge/decibel-chart/","wave":"P0","title":"Decibel Chart: Everyday Sounds and Their Context | fenbeiceshi.com","h1":"Decibel chart: everyday sounds and noise levels","keywords":["decibel chart","how loud is 60 dB","common sound levels"]}
       },
       "intent": "快速查询常见声音与分贝范围，并理解比较条件。",
-      "uniqueValue": "七档选择与 31 项声音查询联动，保留来源单位和条件；声音或数值搜索为主入口，滑块与四项读数说明按需展开；健康仅保留简短导读和独立文章入口，正文与来源保留在静态 HTML。",
-      "sections": ["七档联动概览","声音查询","读数说明（40–70 分贝、刻度与比较限制）","健康文章简短入口"],
+      "uniqueValue": "七档纵向内容组直接承载 31 项声音，声音标签按内容宽度自动换行，名称、范围与来源单位直接可见，条件及来源在标签下方整行展开并保留静态 HTML；七档简短名称另附一句体感描述；按范围起点编组，跨档声音保留完整范围且仅展示一次；名称或数值搜索只保留匹配条目与分组，无分段按钮、类别筛选和滑块；四项读数说明与健康文章入口作为辅助阅读。",
+      "sections": ["七档声音对照与名称／数值搜索","读数说明（40–70 分贝、刻度与比较限制）","健康文章简短入口"],
       "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-20","locales":["zh-CN","en"],"navigation":"中英文一级导航；本地构建可索引，尚未部署生产"},
       "ctaTargetId": "meter",
       "relatedIds": ["dbfs-spl","phone-accuracy","calibration","guide"],
       "publishGate": "每组参考有来源和条件；不以播放器模拟真实分贝，不把未校准读数套表判定。",
-      "requiredEvidence": ["WHO、NIH、NIDCD、CDC、NPS 的声音参考","NIOSH 职业暴露适用范围","原始单位、范围与示例条件核对","WHO 环境噪音、睡眠及认知影响原文；每项保留人群与暴露语境"]
+      "requiredEvidence": ["WHO、NIDCD、CDC、NPS、EPA 与 NIOSH 官方资料的声音参考；逐项原文位置见声音参考来源核验记录","NIOSH 职业暴露适用范围","原始单位、范围、测距与历史教学例子的适用条件核对","WHO 环境噪音、睡眠及认知影响原文；每项保留人群与暴露语境"]
     },
     {
       "id": "microphone-help",

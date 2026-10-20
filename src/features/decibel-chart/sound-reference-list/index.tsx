@@ -3,34 +3,35 @@
 import { useRef, useState } from "react";
 import { Icon } from "@/components/icon";
 import type { Locale } from "@/features/sound-meter/types";
-import { filterSounds, referenceLevel, type LookupSound } from "./filter";
-import { SoundExplorer } from "../sound-explorer";
-import { useSoundSelection } from "../sound-explorer/selection";
+import {
+  filterSounds,
+  groupSounds,
+  referenceLevel,
+  type LookupBand,
+  type LookupSound,
+} from "./filter";
 import styles from "./index.module.css";
 
 export function SoundReferenceList({
   sounds,
-  categories,
+  bands,
   locale,
 }: {
   sounds: LookupSound[];
-  categories: { id: string; label: string }[];
+  bands: LookupBand[];
   locale: Locale;
 }) {
   const en = locale === "en";
-  const { selection, setSelection, range, invalid, band, value } = useSoundSelection();
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("all");
   const inputRef = useRef<HTMLInputElement>(null);
-  const matches = invalid ? [] : filterSounds(sounds, query, category, range);
+  const matches = filterSounds(sounds, query);
+  const groups = groupSounds(matches, bands);
   function reset() {
     setQuery("");
-    setCategory("all");
-    setSelection(null);
     inputRef.current?.focus();
   }
   return (
-    <div className={styles.lookup}>
+    <div id="reference" className={styles.lookup}>
       <label className={styles.label} htmlFor="sound-query">
         {en ? "Search by sound or decibel level" : "按声音或分贝值查找"}
       </label>
@@ -46,136 +47,89 @@ export function SoundReferenceList({
           aria-describedby="sound-query-help"
         />
         {query ? (
-          <button
-            type="button"
-            onClick={() => {
-              setQuery("");
-              inputRef.current?.focus();
-            }}
-            aria-label={en ? "Clear search" : "清空搜索"}
-          >
+          <button type="button" onClick={reset} aria-label={en ? "Clear search" : "清空搜索"}>
             <Icon name="x" size={17} />
           </button>
         ) : null}
       </div>
       <p id="sound-query-help" className={styles.help}>
         {en
-          ? "A number finds matching ranges. Add dB or dBA to filter by the source unit."
-          : "数字可查找对应范围，加 dB 或 dBA 可限定来源单位。"}
+          ? "Sounds are grouped by the start of their source range; full ranges may cross bands. Open a sound for its context and source."
+          : "按参考范围起点分组，跨档条目保留完整范围；点开声音查看条件与来源。"}
       </p>
-      <div
-        className={styles.categories}
-        role="group"
-        aria-label={en ? "Sound category" : "声音类别"}
-      >
-        {[{ id: "all", label: en ? "All sounds" : "全部声音" }, ...categories].map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            aria-pressed={category === item.id}
-            onClick={() => setCategory(item.id)}
+      <div id="sound-results">
+        <p className={styles.count} role="status" aria-live="polite" aria-atomic="true">
+          {en
+            ? `${matches.length} of ${sounds.length} sound references`
+            : `找到 ${matches.length} / ${sounds.length} 项声音参考`}
+        </p>
+        {matches.length ? (
+          <ol
+            className={styles.bands}
+            aria-label={en ? "Sounds by level band" : "按分贝分段的声音"}
           >
-            {item.label}
-          </button>
-        ))}
-      </div>
-      <details className={styles.exploreDetails}>
-        <summary>
-          {en ? "Explore with a slider" : "用滑块探索分贝"}
-          <Icon name="chevron-down" size={16} />
-        </summary>
-        <SoundExplorer locale={locale} />
-      </details>
-      {query || category !== "all" || selection ? (
-        <div className={styles.applied}>
-          <span>
-            {selection?.kind === "band" && band
-              ? `${band.range} · ${band.title}`
-              : invalid
-                ? en
-                  ? "Invalid decibel value"
-                  : "分贝数值待修正"
-                : value !== null
-                  ? `${en ? "Value" : "数值"} ${value}`
-                  : en
-                    ? "All levels"
-                    : "全部分贝范围"}
-          </span>
-          {selection ? (
-            <button type="button" onClick={() => setSelection(null)}>
-              {en ? "Clear level filter" : "清除分贝筛选"}
-            </button>
-          ) : null}
-          <button type="button" onClick={reset}>
-            {en ? "Reset all filters" : "重置全部筛选"}
-          </button>
-        </div>
-      ) : null}
-      <p
-        id="sound-results"
-        tabIndex={-1}
-        className={styles.count}
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {en
-          ? `${matches.length} of ${sounds.length} sound references`
-          : `找到 ${matches.length} / ${sounds.length} 项声音参考`}
-      </p>
-      {matches.length ? (
-        <>
-          <div className={styles.columns} aria-hidden="true">
-            <span>{en ? "Sound" : "声音场景"}</span>
-            <span>{en ? "Approx. level" : "参考分贝"}</span>
-            <span>{en ? "Context & source" : "比较条件与来源"}</span>
-          </div>
-          <ul className={styles.results} aria-label={en ? "Sound references" : "声音参考结果"}>
-            {matches.map((sound) => (
-              <li key={sound.id} className={styles.soundRow} data-sound-id={sound.id}>
-                <div className={styles.name}>
-                  <strong>{sound.name}</strong>
+            {groups.map(({ band, sounds: items }) => (
+              <li key={band.tone} className={styles.band} data-band-tone={band.tone}>
+                <div className={styles.bandHeader}>
+                  <h3 id={`sound-band-${band.tone}`}>
+                    {band.range} <small>dB</small>
+                  </h3>
+                  <p>{band.title}</p>
                 </div>
-                <p className={styles.level}>
-                  <span>
-                    {en ? "~ " : "约 "}
-                    {referenceLevel(sound)}
-                  </span>
+                <p className={styles.feeling} data-band-description={band.tone}>
+                  {band.description}
                 </p>
-                <p className={styles.context}>
-                  {sound.context}
-                  <a
-                    href={`#${sound.sourceId}`}
-                    aria-label={
-                      en
-                        ? `Source: ${sound.sourceLabel} for ${sound.name}`
-                        : `${sound.name}的来源：${sound.sourceLabel}`
-                    }
-                  >
-                    {sound.sourceLabel}
-                    <Icon name="arrow-down" size={12} />
-                  </a>
-                </p>
+                <ul className={styles.sounds} aria-labelledby={`sound-band-${band.tone}`}>
+                  {items.map((sound) => (
+                    <li key={sound.id}>
+                      <details
+                        className={styles.sound}
+                        name={`sound-details-${band.tone}`}
+                        data-sound-id={sound.id}
+                        data-sound-band={band.tone}
+                      >
+                        <summary>
+                          <span className={styles.name}>{sound.name}</span>
+                          <strong className={styles.level}>
+                            {en ? "~ " : "约 "}
+                            {referenceLevel(sound)}
+                          </strong>
+                          <Icon name="chevron-down" size={14} />
+                        </summary>
+                        <p className={styles.context}>
+                          {sound.context}
+                          <a
+                            href={`#${sound.sourceId}`}
+                            aria-label={
+                              en
+                                ? `Source: ${sound.sourceLabel} for ${sound.name}`
+                                : `${sound.name}的来源：${sound.sourceLabel}`
+                            }
+                          >
+                            {sound.sourceLabel}
+                            <Icon name="arrow-down" size={12} />
+                          </a>
+                        </p>
+                      </details>
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
-          </ul>
-        </>
-      ) : (
-        <div className={styles.empty}>
-          <p>
-            {en
-              ? invalid
-                ? "Open the slider controls to correct the decibel value, or reset the filters."
-                : "No matching sounds. Try a shorter name, another level or all categories."
-              : invalid
-                ? "请展开滑块探索并修正分贝数值，或重置筛选。"
-                : "没有找到匹配声音。试试缩短名称、更换分贝值，或查看全部类别。"}
-          </p>
-          <button type="button" onClick={reset}>
-            {en ? "Reset lookup" : "重置查询"}
-          </button>
-        </div>
-      )}
+          </ol>
+        ) : (
+          <div className={styles.empty}>
+            <p>
+              {en
+                ? "No matching sounds. Try a shorter name or another decibel value."
+                : "没有找到匹配声音。试试缩短名称或更换分贝值。"}
+            </p>
+            <button type="button" onClick={reset}>
+              {en ? "Show all sounds" : "查看全部声音"}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

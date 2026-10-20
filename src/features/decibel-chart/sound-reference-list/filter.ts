@@ -1,9 +1,6 @@
 import type { SoundReference } from "../../../lib/content/sound-references.ts";
 
-export interface LookupSound extends Pick<
-  SoundReference,
-  "id" | "category" | "min" | "max" | "unit"
-> {
+export interface LookupSound extends Pick<SoundReference, "id" | "min" | "max" | "unit"> {
   name: string;
   context: string;
   searchText: string;
@@ -11,18 +8,16 @@ export interface LookupSound extends Pick<
   sourceLabel: string;
 }
 
-export interface LevelRange {
+export interface LookupBand {
+  range: string;
+  title: string;
+  description: string;
+  tone: string;
   min: number;
   max: number;
-  includeMax: boolean;
 }
 
-export function filterSounds(
-  sounds: LookupSound[],
-  query: string,
-  category: string,
-  range: LevelRange | null = null,
-): LookupSound[] {
+export function filterSounds(sounds: LookupSound[], query: string): LookupSound[] {
   const normalized = query.slice(0, 100).normalize("NFKC").trim().toLowerCase();
   const levelQuery = normalized.match(/^(\d+(?:\.\d+)?)\s*(db(?:a|\(a\))?|分贝)?$/u);
   const value = levelQuery ? Number(levelQuery[1]) : null;
@@ -33,12 +28,6 @@ export function filterSounds(
     : null;
   const tokens = normalized.split(/\s+/u);
   return sounds.filter((sound) => {
-    if (category !== "all" && sound.category !== category) return false;
-    if (
-      range &&
-      (sound.max < range.min || (range.includeMax ? sound.min > range.max : sound.min >= range.max))
-    )
-      return false;
     if (!normalized) return true;
     if (value !== null) {
       return (
@@ -50,6 +39,19 @@ export function filterSounds(
       .toLowerCase();
     return tokens.every((token) => searchable.includes(token));
   });
+}
+
+export function groupSounds(sounds: LookupSound[], bands: LookupBand[]) {
+  return bands
+    .map((band, index) => ({
+      band,
+      sounds: sounds.filter(
+        (sound) =>
+          sound.min >= band.min &&
+          (sound.min < band.max || (index === bands.length - 1 && sound.min === band.max)),
+      ),
+    }))
+    .filter((group) => group.sounds.length > 0);
 }
 
 export function referenceLevel(sound: Pick<SoundReference, "min" | "max" | "unit">): string {

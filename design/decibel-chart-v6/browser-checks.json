@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-20",
+  "reference": "https://onlinedecibelmeter.org/zh-CN/decibel-chart",
+  "checks": {
+    "desktop": {
+      "columns": "351px 351px",
+      "fonts": {
+        "band": "20px",
+        "sound": "14px"
+      },
+      "groups": 7,
+      "height": 3748,
+      "open": 0,
+      "overflow": false,
+      "sounds": 31,
+      "width": 1280
+    },
+    "nameSearch": {
+      "groups": [
+        "quiet"
+      ],
+      "sounds": [
+        "fridge"
+      ],
+      "status": "找到 1 / 31 项声音参考"
+    },
+    "detail": {
+      "focused": "SUMMARY",
+      "open": true,
+      "source": "#sound-source-cdc",
+      "text": "压缩机运行状态与距离需一致。CDC"
+    },
+    "numeric60": {
+      "groups": [
+        "quiet",
+        "everyday"
+      ],
+      "sounds": [
+        "dishwasher",
+        "dryer",
+        "conversation"
+      ]
+    },
+    "unit60": "找到 1 / 31 项声音参考",
+    "empty": {
+      "groups": 0,
+      "sounds": 0,
+      "text": "找到 0 / 31 项声音参考没有找到匹配声音。试试缩短名称或更换分贝值。查看全部声音"
+    },
+    "reset": {
+      "focus": "sound-query",
+      "groups": 7,
+      "sounds": 31
+    },
+    "mobile": {
+      "clipped": 0,
+      "columns": "322px",
+      "groups": 7,
+      "height": 844,
+      "overflow": false,
+      "sounds": 31,
+      "width": 390
+    },
+    "englishDark": {
+      "clipped": 0,
+      "fonts": {
+        "band": "20px",
+        "sound": "14px",
+        "title": "32px"
+      },
+      "groups": 7,
+      "height": 740,
+      "overflow": false,
+      "sounds": 31,
+      "theme": "dark",
+      "width": 320
+    },
+    "englishName": "1 of 31 sound references",
+    "endpoint": {
+      "groups": [
+        "extreme"
+      ],
+      "sounds": [
+        "fireworks"
+      ],
+      "value": "~ 140–160 dBA"
+    },
+    "englishDetail": {
+      "open": true,
+      "overflow": false,
+      "text": "Brief impulse sounds, not a continuous average level.NIDCD"
+    },
+    "englishEmpty": "0 of 31 sound references",
+    "englishReset": {
+      "focus": "sound-query",
+      "groups": 7,
+      "sounds": 31
+    }
+  }
+}

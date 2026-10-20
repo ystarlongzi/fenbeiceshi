@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-20",
+  "browser": "Chrome",
+  "desktop": {
+    "bands": 7,
+    "descriptions": 7,
+    "groupWidth": 710,
+    "panelWidth": 710,
+    "quietTags": [
+      {
+        "text": "轻声耳语约 30 dB",
+        "width": 165.6953125
+      },
+      {
+        "text": "图书馆约 40 dB",
+        "width": 151.6953125
+      },
+      {
+        "text": "冰箱运转约 40 dB",
+        "width": 165.6953125
+      },
+      {
+        "text": "洗碗机约 45–65 dB",
+        "width": 178.53125
+      }
+    ],
+    "scrollWidth": 1280,
+    "sounds": 31,
+    "width": 1280
+  },
+  "switch": {
+    "context": "安静环境的量级示例。WHO",
+    "focused": "SUMMARY",
+    "open": ["library"]
+  },
+  "collapse": {
+    "open": 0
+  },
+  "mobile": {
+    "groupWidth": 322,
+    "panelWidth": 322,
+    "scrollWidth": 390,
+    "tagWidths": [165.6953125, 151.6953125, 165.6953125, 178.53125],
+    "width": 390
+  },
+  "search": {
+    "descriptions": 2,
+    "groups": ["quiet", "everyday"],
+    "ids": ["dishwasher", "dryer", "conversation"]
+  },
+  "reset": {
+    "bands": 7,
+    "count": 31,
+    "focused": "sound-query"
+  },
+  "english": {
+    "bands": 7,
+    "descriptions": 7,
+    "groupWidth": 252,
+    "panelWidth": 252,
+    "scrollWidth": 320,
+    "sounds": 31,
+    "tagWidth": 252,
+    "text": "Fireworks and firecrackers\n~ 140–160 dBA\n\nBrief impulse sounds, not a continuous average level.NIDCD",
+    "theme": "dark",
+    "width": 320
+  },
+  "native": {
+    "context": "压缩机运行状态与距离需一致。CDC",
+    "groupWidth": 710,
+    "open": true,
+    "panelWidth": 710,
+    "scripts": 1,
+    "scrollWidth": 1280,
+    "width": 1280,
+    "applicationScripts": 0,
+    "extensionScripts": 1
+  },
+  "nativeExclusive": {
+    "open": ["library"]
+  },
+  "darkPalette": [
+    {
+      "background": "rgb(23, 60, 41)",
+      "heading": "rgb(226, 242, 228)",
+      "tone": "faint"
+    },
+    {
+      "background": "rgb(40, 64, 43)",
+      "heading": "rgb(217, 239, 205)",
+      "tone": "quiet"
+    },
+    {
+      "background": "rgb(59, 69, 37)",
+      "heading": "rgb(231, 237, 181)",
+      "tone": "everyday"
+    },
+    {
+      "background": "rgb(102, 80, 31)",
+      "heading": "rgb(255, 240, 181)",
+      "tone": "raised"
+    },
+    {
+      "background": "rgb(138, 66, 28)",
+      "heading": "rgb(255, 240, 217)",
+      "tone": "loud"
+    },
+    {
+      "background": "rgb(169, 54, 39)",
+      "heading": "rgb(255, 242, 235)",
+      "tone": "intense"
+    },
+    {
+      "background": "rgb(114, 31, 34)",
+      "heading": "rgb(255, 240, 238)",
+      "tone": "extreme"
+    }
+  ],
+  "lightPalette": [
+    {
+      "background": "rgb(79, 159, 112)",
+      "heading": "rgb(15, 43, 28)",
+      "tone": "faint"
+    },
+    {
+      "background": "rgb(125, 184, 121)",
+      "heading": "rgb(15, 43, 28)",
+      "tone": "quiet"
+    },
+    {
+      "background": "rgb(184, 204, 98)",
+      "heading": "rgb(53, 67, 24)",
+      "tone": "everyday"
+    },
+    {
+      "background": "rgb(246, 213, 120)",
+      "heading": "rgb(97, 68, 11)",
+      "tone": "raised"
+    },
+    {
+      "background": "rgb(245, 164, 93)",
+      "heading": "rgb(99, 44, 16)",
+      "tone": "loud"
+    },
+    {
+      "background": "rgb(193, 61, 42)",
+      "heading": "rgb(255, 255, 255)",
+      "tone": "intense"
+    },
+    {
+      "background": "rgb(143, 36, 31)",
+      "heading": "rgb(255, 255, 255)",
+      "tone": "extreme"
+    }
+  ]
+}

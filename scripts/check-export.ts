@@ -4,7 +4,8 @@ import { resolve } from "node:path";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
 import { articles } from "../src/lib/content/articles.ts";
-import { soundReferences } from "../src/lib/content/sound-references.ts";
+import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
+import { soundBands } from "../src/lib/content/sound-bands.ts";
 import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
 import {
   exposureFactors,
@@ -120,22 +121,61 @@ for (const page of sitePages) {
           for (const row of note.table?.rows ?? [])
             for (const cell of row) assert.ok(body.includes(escapeText(text(cell, locale))), path);
         }
-        const slider = disclosures.find((match) => match[2].includes('id="sound-level-input"'));
-        assert.ok(slider, `滑块探索应按需展开：${path}`);
-        assert.doesNotMatch(slider[1], /\bopen(?:=|\s|$)/, path);
+        const comparison = visible.match(
+          /<section\b[^>]*id="levels"[^>]*>([\s\S]*?)<\/section>/,
+        )?.[1];
+        assert.ok(comparison, `声音对照缺少统一章节：${path}`);
+        assert.ok(comparison.includes('id="sound-query"'), `搜索应在对照章节内：${path}`);
+        assert.ok(comparison.includes('id="reference"'), `保留旧查询锚点：${path}`);
+        assert.equal(
+          (comparison.match(/data-band-tone="/g) || []).length,
+          7,
+          `七档应直接包含声音内容：${path}`,
+        );
+        for (const band of soundBands) {
+          assert.ok(
+            comparison.includes(`data-band-description="${band.tone}"`),
+            `缺少分段体感说明：${path} → ${band.tone}`,
+          );
+          assert.ok(
+            comparison.includes(escapeText(text(band.description, locale))),
+            `分段体感说明必须静态输出：${path} → ${band.tone}`,
+          );
+        }
+        assert.doesNotMatch(
+          comparison,
+          /<input\b[^>]*type="(?:range|number)"|aria-label="(?:声音类别|Sound category)"|aria-controls="sound-results"/,
+          `对照区不再包含滑块、独立数值输入、类别或分段筛选按钮：${path}`,
+        );
+        assert.equal((comparison.match(/<h2\b/g) || []).length, 1, path);
+        assert.equal(
+          (comparison.match(/data-sound-id="/g) || []).length,
+          soundReferences.length,
+          `每项声音只在统一对照区展示一份：${path}`,
+        );
+        const entries = [...comparison.matchAll(/<details\b([^>]*)>([\s\S]*?)<\/details>/g)];
+        assert.equal(entries.length, soundReferences.length, path);
         for (const sound of soundReferences) {
           assert.ok(
-            visible.includes(`data-sound-id="${sound.id}"`),
-            `声音条目不在静态正文：${path} → ${sound.id}`,
+            comparison.includes(`data-sound-id="${sound.id}"`),
+            `声音条目不在统一对照区静态正文：${path} → ${sound.id}`,
           );
           assert.ok(visible.includes(text(sound.name, locale)), path);
           assert.ok(visible.includes(referenceLevel(sound)), path);
+          const entry = entries.find((match) => match[1].includes(`data-sound-id="${sound.id}"`));
+          assert.ok(entry, `声音详情缺少原生展开：${path} → ${sound.id}`);
+          const band = soundBands.findLast((item) => sound.min >= item.min);
+          assert.ok(entry[1].includes(`data-sound-band="${band?.tone}"`), path);
+          assert.ok(entry[1].includes(`name="sound-details-${band?.tone}"`), path);
+          assert.doesNotMatch(entry[1], /\bopen(?:=|\s|$)/, path);
+          assert.ok(entry[2].includes(escapeText(text(sound.context, locale))), path);
+          assert.ok(entry[2].includes(`href="#${soundSources[sound.source].id}"`), path);
         }
         for (const source of content.sources)
           assert.ok(visible.includes(`id="${source.id}"`), path);
         assert.ok(visible.includes('id="sound-query"'), path);
         assert.ok(visible.includes('id="levels"') && visible.includes('id="exposure"'), path);
-        for (const id of ["sound-level-input", "sound-level-range", "health"])
+        for (const id of ["sound-results", "health"])
           assert.ok(visible.includes(`id="${id}"`), `缺少交互或健康模块：${path} → ${id}`);
         assert.doesNotMatch(
           visible,

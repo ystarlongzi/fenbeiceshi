@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import type { Locale } from "@/features/sound-meter/types";
-import { readLevel } from "@/features/decibel-chart/sound-explorer/model";
-import { exposureMinutes } from "./model";
+import { exposureMinutes, readLevel } from "./model";
 import styles from "./index.module.css";
 
 export function ExposureExplorer({ locale }: { locale: Locale }) {

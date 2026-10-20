@@ -1,0 +1,230 @@
+{
+  "date": "2026-10-20",
+  "desktop": {
+    "bands": [
+      {
+        "color": "rgb(79, 159, 112)",
+        "tone": "faint"
+      },
+      {
+        "color": "rgb(125, 184, 121)",
+        "tone": "quiet"
+      },
+      {
+        "color": "rgb(184, 204, 98)",
+        "tone": "everyday"
+      },
+      {
+        "color": "rgb(246, 213, 120)",
+        "tone": "raised"
+      },
+      {
+        "color": "rgb(245, 164, 93)",
+        "tone": "loud"
+      },
+      {
+        "color": "rgb(193, 61, 42)",
+        "tone": "intense"
+      },
+      {
+        "color": "rgb(143, 36, 31)",
+        "tone": "extreme"
+      }
+    ],
+    "count": "找到 31 / 31 项声音参考",
+    "overflow": false,
+    "sounds": [
+      {
+        "id": "breathing",
+        "source": "#sound-source-who",
+        "text": "正常呼吸约 10 dB"
+      },
+      {
+        "id": "leaves",
+        "source": "#sound-source-nps",
+        "text": "树叶沙沙声约 20 dBA"
+      },
+      {
+        "id": "whisper",
+        "source": "#sound-source-who",
+        "text": "轻声耳语约 30 dB"
+      },
+      {
+        "id": "library",
+        "source": "#sound-source-who",
+        "text": "图书馆约 40 dB"
+      },
+      {
+        "id": "fridge",
+        "source": "#sound-source-cdc",
+        "text": "冰箱运转约 40 dB"
+      },
+      {
+        "id": "home",
+        "source": "#sound-source-epa",
+        "text": "普通家庭环境约 45–55 dB"
+      },
+      {
+        "id": "dishwasher",
+        "source": "#sound-source-cdc",
+        "text": "洗碗机约 45–65 dB"
+      },
+      {
+        "id": "shaver",
+        "source": "#sound-source-niosh-appliances",
+        "text": "电动剃须刀约 47–69 dB"
+      },
+      {
+        "id": "washing-machine",
+        "source": "#sound-source-niosh-appliances",
+        "text": "洗衣机约 47–72 dB"
+      },
+      {
+        "id": "dryer",
+        "source": "#sound-source-niosh-appliances",
+        "text": "干衣机约 51–66 dB"
+      },
+      {
+        "id": "conversation",
+        "source": "#sound-source-nidcd",
+        "text": "正常交谈约 60–70 dBA"
+      },
+      {
+        "id": "vacuum",
+        "source": "#sound-source-niosh-appliances",
+        "text": "吸尘器约 62–85 dB"
+      },
+      {
+        "id": "restaurant",
+        "source": "#sound-source-epa",
+        "text": "嘈杂餐厅约 65–75 dB"
+      },
+      {
+        "id": "street-traffic",
+        "source": "#sound-source-epa",
+        "text": "高速公路车流约 70–75 dB"
+      },
+      {
+        "id": "cinema",
+        "source": "#sound-source-nidcd",
+        "text": "电影院约 74–104 dBA"
+      },
+      {
+        "id": "doorbell",
+        "source": "#sound-source-who",
+        "text": "门铃约 80 dB"
+      },
+      {
+        "id": "motorcycle",
+        "source": "#sound-source-nidcd",
+        "text": "摩托车或越野车约 80–110 dBA"
+      },
+      {
+        "id": "traffic-inside-car",
+        "source": "#sound-source-who",
+        "text": "繁忙交通中的车内约 85 dB"
+      },
+      {
+        "id": "sports",
+        "source": "#sound-source-nidcd",
+        "text": "体育赛事约 94–110 dBA"
+      },
+      {
+        "id": "headphones",
+        "source": "#sound-source-nidcd",
+        "text": "最大音量耳机约 94–110 dBA"
+      },
+      {
+        "id": "concert",
+        "source": "#sound-source-cdc",
+        "text": "摇滚音乐会或夜店约 95–115 dB"
+      },
+      {
+        "id": "drill",
+        "source": "#sound-source-niosh-examples",
+        "text": "手持电钻约 98 dB"
+      },
+      {
+        "id": "hair-dryer",
+        "source": "#sound-source-who",
+        "text": "吹风机约 100 dB"
+      },
+      {
+        "id": "thunder",
+        "source": "#sound-source-nps",
+        "text": "雷声约 100 dBA"
+      },
+      {
+        "id": "horn",
+        "source": "#sound-source-who",
+        "text": "汽车喇叭约 105 dB"
+      },
+      {
+        "id": "chainsaw",
+        "source": "#sound-source-niosh-examples",
+        "text": "链锯约 108 dB"
+      },
+      {
+        "id": "siren",
+        "source": "#sound-source-nidcd",
+        "text": "警笛约 110–129 dBA"
+      },
+      {
+        "id": "jet",
+        "source": "#sound-source-nps",
+        "text": "军用喷气飞机飞越约 120 dBA"
+      },
+      {
+        "id": "jackhammer",
+        "source": "#sound-source-who",
+        "text": "风镐约 130 dB"
+      },
+      {
+        "id": "airplane",
+        "source": "#sound-source-who",
+        "text": "飞机起飞约 140 dB"
+      },
+      {
+        "id": "fireworks",
+        "source": "#sound-source-nidcd",
+        "text": "烟花表演约 140–160 dBA"
+      }
+    ],
+    "sources": [
+      {
+        "title": "EPA · Profile of Environmental Quality, Region V (1979) · Noise chart, PDF p. 13",
+        "url": "https://nepis.epa.gov/Exe/ZyPDF.cgi?Dockey=2000UEHO.PDF#page=13"
+      },
+      {
+        "title": "CDC/NIOSH archive · Occupational Safety and Health Materials for Integration into Engineering Curricula (1986) · Table 2, p. 5-23 (PDF p. 117)",
+        "url": "https://stacks.cdc.gov/view/cdc/234051/cdc_234051_DS1.pdf#page=117"
+      },
+      {
+        "title": "CDC/NIOSH · Sound Level Meter App User Manual · Examples of noise levels, p. 13",
+        "url": "https://www.cdc.gov/niosh/media/pdfs/niosh-sound-level-meter-application-app-english.pdf#page=13"
+      }
+    ],
+    "width": 1280
+  },
+  "numericSearch": {
+    "count": "找到 5 / 31 项声音参考",
+    "ids": ["dishwasher", "shaver", "washing-machine", "dryer", "conversation"],
+    "open": ["washing-machine"],
+    "overflow": false,
+    "query": "60"
+  },
+  "sourceAnchor": {
+    "hash": "#sound-source-niosh-appliances",
+    "targetText": "CDC/NIOSH archive · Occupational Safety and Health Materials for Integration into Engineering Curricula (1986) · Table 2, p. 5-23 (PDF p. 117)",
+    "targetY": 190.234375
+  },
+  "englishMobile": {
+    "context": "Brief impulse sounds, not a continuous average level.NIDCD",
+    "count": "1 of 31 sound references",
+    "detailWidth": 252,
+    "overflow": false,
+    "summary": "Fireworks show~ 140–160 dBA",
+    "theme": "dark",
+    "width": 320
+  }
+}

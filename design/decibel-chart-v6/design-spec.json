@@ -1,0 +1,44 @@
+{
+  "version": 6,
+  "updated": "2026-10-20",
+  "status": "local-implementation-not-deployed",
+  "routes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
+  "reference": {
+    "url": "https://onlinedecibelmeter.org/zh-CN/decibel-chart",
+    "observed": "Chrome 实际渲染：顶部搜索、七档纵向色块、组内声音标签；搜索冰箱后仅保留 30–50 档，但整档示例与后续类别内容仍显示。",
+    "applied": "采用七档直接承载声音的结构；配色按用户要求恢复 V3 七档共享实色与配套文字色。本站声音参考独立维护，搜索精确到条目，省去第二份类别列表与职业正文。"
+  },
+  "task": "沿声音量级直接浏览和对照具体声音，必要时搜索并查看其比较条件与来源。",
+  "hierarchy": {
+    "primary": "七档纵向内容组。组头显示范围与简短程度名称，其下补充一句体感描述；声音标签按内容决定宽度，直接显示名称、完整参考范围与来源单位。",
+    "grouping": "按参考范围的起点编组，交界起点归入后一档，160 属于最后一档；跨档条目保留原范围，全部 31 项各出现一次。规则紧邻搜索说明。",
+    "search": "只保留名称／数值搜索，搜索后显示匹配条目与非空分组；继续支持全角、多词、dB 和 dBA 条件，无结果时提供查看全部入口。",
+    "details": "每项声音用原生 details 展开比较条件和来源，默认收起，同档同时展开一项；说明在所选标签下方占满一行。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
+    "support": "单位、距离、网页估算差异与分段用途就近说明；读数说明和健康文章导读延续此前分工。",
+    "surfaces": "七档直接使用 V3 共享实色背景与配套文字色，不做浅色混合；声音摘要的操作表面用于表达展开能力，不增加独立分类列表。",
+    "mobile": "声音组保持从安静到吵闹的纵向顺序；声音标签在各视口均按内容宽度自动换行，长名称可以换行，数值和单位完整保留。展开说明占满组内宽度。"
+  },
+  "appearance": "恢复 V3 翠绿、叶绿、黄绿、金黄、橙、朱红、深红七档实色，亮暗主题沿用共享变量；标题 32px、分段范围 20px、声音摘要 14px、辅助单位与来源 12px，全部沿用固定 rem 变量。",
+  "compatibility": "levels、reference、sound-results 和四项阅读及健康入口锚点保留；正文与来源静态输出，健康内容仍属于独立文章。",
+  "verification": "../../docs/验证/分贝对照分组呈现验证.md",
+  "sourceVerification": "../../docs/验证/声音参考来源逐项核验.md",
+  "browserChecks": "browser-checks.json",
+  "colorRestorationChecks": "color-restoration-checks.json",
+  "tagInteractionChecks": "tag-interaction-checks.json",
+  "sourceAuditChecks": "source-audit-checks.json",
+  "screenshots": [
+    "desktop-zh.png",
+    "desktop-zh-high.png",
+    "search-detail-zh.png",
+    "mobile-zh.png",
+    "mobile-en-dark.png",
+    "detail-mobile-en-dark.png",
+    "reference-desktop.png",
+    "tags-desktop-zh.png",
+    "tags-detail-zh.png",
+    "tags-mobile-zh.png",
+    "tags-mobile-en-dark.png",
+    "sources-desktop-zh.png",
+    "sources-mobile-en-dark.png"
+  ]
+}

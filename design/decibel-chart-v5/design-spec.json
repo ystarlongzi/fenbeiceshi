@@ -1,0 +1,26 @@
+{
+  "version": 5,
+  "updated": "2026-10-20",
+  "status": "local-implementation-not-deployed",
+  "routes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
+  "task": "在同一区域浏览声音量级，并按分段、名称或数值查找具体声音的参考条件。",
+  "hierarchy": {
+    "primary": "声音分贝对照：搜索、七档与默认完整的 31 项声音结果归于一个章节，不重复分段示例。",
+    "support": "来源单位、距离差异、估算边界与分段用途在筛选前可见；条目保留参考范围、条件和来源。",
+    "controls": "移除类别筛选、独立数值输入与滑块。七档按钮就地筛选，再次点击取消；名称和数值共用搜索框，可与分段组合；清除筛选恢复完整列表并聚焦搜索框。",
+    "focus": "点选分段不再主动滚动到结果或搬移键盘焦点；结果数量通过 status 宣告。",
+    "reading": "目录只保留声音对照与读数说明；四项说明按需展开，健康保持简短导读与独立文章入口。",
+    "surfaces": "紧凑七档色块表达同级量级选择，结果维持开放列表，不增加外层卡片。",
+    "mobile": "七档按断点从七列变为四列、两列；声音与参考值并列，条件与来源接续，固定字号保持不变。"
+  },
+  "compatibility": {
+    "anchors": "levels 为合并后的主章节，reference 保留在搜索与七档区域；numbers、scale、distance、limits、health、exposure 沿用原入口。",
+    "staticHtml": "默认完整声音列表与来源、四项读数说明及文章入口均存在于构建 HTML。",
+    "units": "按来源的数值范围取交集；不转换 dB / dBA，跨档范围可在相邻筛选中出现，交界单值归入后一档，160 属于最后一档。",
+    "health": "仅将原先共用的整数解析函数移入职业参考所属模块，健康文章内容、85–100 dBA 演示及其输入校验保持原行为。"
+  },
+  "appearance": "沿用共享七档名称、V3 色值、主题语义变量与固定字号，仅调整所属 CSS Modules。",
+  "verification": "../../docs/验证/分贝对照合并验证.md",
+  "screenshots": ["desktop-zh.png", "band-desktop-zh.png", "empty-desktop-zh.png", "mobile-zh.png", "desktop-en-dark.png", "mobile-en-dark.png"],
+  "browserChecks": "browser-checks.json"
+}

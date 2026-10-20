@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { exposureMinutes } from "./model.ts";
+import { exposureMinutes, readLevel } from "./model.ts";
+
+test("职业演示输入接受范围内整数，拒绝空值、越界、小数与非有限数", () => {
+  assert.equal(readLevel("85", 85, 100), 85);
+  assert.equal(readLevel(" 100 ", 85, 100), 100);
+  for (const raw of ["", " ", "0", "84", "101", "85.5", "NaN", "Infinity", "1e309", "声音"])
+    assert.equal(readLevel(raw, 85, 100), null, raw);
+});
 
 test("NIOSH 六个参考点符合 85 dBA 八小时及每 3 dBA 时长减半", () => {
   for (const [level, minutes] of [

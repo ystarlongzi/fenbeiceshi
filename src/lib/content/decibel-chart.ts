@@ -8,8 +8,8 @@ export const decibelChart: SiteContent = {
   updated: "2026-10-20",
   title: t("分贝对照表：常见声音与噪音水平", "Decibel chart: everyday sounds and noise levels"),
   description: t(
-    "查询耳语、家电、交通和音乐会的分贝参考，按声音名称、分贝值与类别筛选，了解 40、50、60、70 分贝有多大及比较条件。",
-    "Look up whispers, appliances, traffic and concerts by name, decibel value or category. Compare everyday sound references, their conditions and what 40–70 dB means.",
+    "按七档分组浏览耳语、家电、交通和音乐会的分贝参考，搜索声音名称或数值，了解 40、50、60、70 分贝有多大，并查看各项条件与来源。",
+    "Browse whispers, appliances, traffic and concerts in seven level bands. Search by sound or decibel value, compare what 40–70 dB means, and open each sound for its context and source.",
   ),
   takeaway: t(
     "轻声耳语约 30 dB，正常交谈约 60–70 dBA。按分段、声音名称或数值，查找常见声音的参考量级。",
@@ -18,23 +18,12 @@ export const decibelChart: SiteContent = {
   sections: [
     {
       id: "levels",
-      tocTitle: t("分段概览", "Level overview"),
-      title: t("从安静到吵闹", "From quiet to noisy"),
+      tocTitle: t("声音对照", "Sound comparison"),
+      title: t("声音分贝对照", "Compare everyday sound levels"),
       paragraphs: [
         t(
-          "点选分段查看对应声音。分段仅描述大致吵闹程度，不代表舒适度或安全等级。",
-          "Select a band to find sounds. Bands describe approximate noisiness, not comfort or safety ratings.",
-        ),
-      ],
-    },
-    {
-      id: "reference",
-      tocTitle: t("声音查询", "Sound lookup"),
-      title: t("常见声音查询", "Look up everyday sounds"),
-      paragraphs: [
-        t(
-          "参考保留来源的 dB / dBA，未统一测量距离。数值不是本站测量或校准结果，也不能直接等同于网页估算读数。",
-          "References retain the source's dB / dBA units without a common measurement distance. They are not measurements or calibration results from this site, or equivalents of its browser estimates.",
+          "参考保留来源的 dB / dBA，测量距离未统一，不能直接等同于本站网页估算。七档仅帮助浏览声音量级，不代表舒适度或安全等级。",
+          "References retain the source's dB / dBA units without a common measurement distance and are not equivalents of this site's browser estimates. Bands help compare approximate levels; they are not comfort or safety ratings.",
         ),
       ],
     },
@@ -72,22 +61,26 @@ export const decibelChartNotes: ContentSection[] = [
           t("图书馆、冰箱运转", "Library or refrigerator humming"),
           t("WHO / CDC", "WHO / CDC"),
         ],
-        [t("50 dB", "50 dB"), t("普通家庭背景声", "Average home background"), t("NIH", "NIH")],
+        [
+          t("50 dB 左右", "Around 50 dB"),
+          t("普通家庭背景声参考范围为 45–55 dB", "Average home background spans 45–55 dB"),
+          t("EPA（1979）", "EPA (1979)"),
+        ],
         [
           t("60 dB 左右", "Around 60 dB"),
           t(
-            "干衣机；正常交谈参考范围为 60–70 dBA",
-            "Clothes dryer; normal conversation spans 60–70 dBA",
+            "干衣机在 0.9 米处为 51–66 dB；正常交谈为 60–70 dBA",
+            "Clothes dryer at 0.9 m: 51–66 dB; normal conversation: 60–70 dBA",
           ),
-          t("NIH / NIDCD", "NIH / NIDCD"),
+          t("NIOSH 馆藏（1986）/ NIDCD", "NIOSH archive (1986) / NIDCD"),
         ],
         [
           t("70 dB 左右", "Around 70 dB"),
           t(
-            "吸尘器；也接近上述交谈范围的上端",
-            "Vacuum cleaner; also near the upper end of that conversation range",
+            "吸尘器在 0.9 米处为 62–85 dB；也接近上述交谈范围的上端",
+            "Vacuum cleaner at 0.9 m: 62–85 dB; also near the upper end of that conversation range",
           ),
-          t("NIH / NIDCD", "NIH / NIDCD"),
+          t("NIOSH 馆藏（1986）/ NIDCD", "NIOSH archive (1986) / NIDCD"),
         ],
       ],
     },

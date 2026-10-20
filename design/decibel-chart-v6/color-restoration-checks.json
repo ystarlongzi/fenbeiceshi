@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-20",
+  "light": {
+    "bands": [
+      {
+        "background": "rgb(79, 159, 112)",
+        "heading": "rgb(15, 43, 28)",
+        "label": "rgb(15, 43, 28)",
+        "tone": "faint"
+      },
+      {
+        "background": "rgb(125, 184, 121)",
+        "heading": "rgb(15, 43, 28)",
+        "label": "rgb(15, 43, 28)",
+        "tone": "quiet"
+      },
+      {
+        "background": "rgb(184, 204, 98)",
+        "heading": "rgb(53, 67, 24)",
+        "label": "rgb(53, 67, 24)",
+        "tone": "everyday"
+      },
+      {
+        "background": "rgb(246, 213, 120)",
+        "heading": "rgb(97, 68, 11)",
+        "label": "rgb(97, 68, 11)",
+        "tone": "raised"
+      },
+      {
+        "background": "rgb(245, 164, 93)",
+        "heading": "rgb(99, 44, 16)",
+        "label": "rgb(99, 44, 16)",
+        "tone": "loud"
+      },
+      {
+        "background": "rgb(193, 61, 42)",
+        "heading": "rgb(255, 255, 255)",
+        "label": "rgb(255, 255, 255)",
+        "tone": "intense"
+      },
+      {
+        "background": "rgb(143, 36, 31)",
+        "heading": "rgb(255, 255, 255)",
+        "label": "rgb(255, 255, 255)",
+        "tone": "extreme"
+      }
+    ],
+    "count": 31,
+    "scrollWidth": 1280,
+    "theme": "light",
+    "width": 1280
+  },
+  "dark": {
+    "bands": [
+      {
+        "background": "rgb(23, 60, 41)",
+        "heading": "rgb(226, 242, 228)",
+        "label": "rgb(226, 242, 228)",
+        "tone": "faint"
+      },
+      {
+        "background": "rgb(40, 64, 43)",
+        "heading": "rgb(217, 239, 205)",
+        "label": "rgb(217, 239, 205)",
+        "tone": "quiet"
+      },
+      {
+        "background": "rgb(59, 69, 37)",
+        "heading": "rgb(231, 237, 181)",
+        "label": "rgb(231, 237, 181)",
+        "tone": "everyday"
+      },
+      {
+        "background": "rgb(102, 80, 31)",
+        "heading": "rgb(255, 240, 181)",
+        "label": "rgb(255, 240, 181)",
+        "tone": "raised"
+      },
+      {
+        "background": "rgb(138, 66, 28)",
+        "heading": "rgb(255, 240, 217)",
+        "label": "rgb(255, 240, 217)",
+        "tone": "loud"
+      },
+      {
+        "background": "rgb(169, 54, 39)",
+        "heading": "rgb(255, 242, 235)",
+        "label": "rgb(255, 242, 235)",
+        "tone": "intense"
+      },
+      {
+        "background": "rgb(114, 31, 34)",
+        "heading": "rgb(255, 240, 238)",
+        "label": "rgb(255, 240, 238)",
+        "tone": "extreme"
+      }
+    ],
+    "theme": "dark"
+  },
+  "mobile": {
+    "bands": 7,
+    "scrollWidth": 390,
+    "sounds": 31,
+    "width": 390
+  },
+  "search": {
+    "detailOpen": true,
+    "groups": ["quiet"],
+    "ids": ["fridge"],
+    "overflow": false,
+    "status": "找到 1 / 31 项声音参考30–50 dB安静冰箱运转约 40 dB压缩机运行状态与距离需一致。CDC"
+  },
+  "englishMobile": {
+    "bands": 7,
+    "count": 31,
+    "scrollWidth": 320,
+    "theme": "dark",
+    "width": 320
+  },
+  "englishDetail": {
+    "bands": 1,
+    "open": true,
+    "scrollWidth": 320,
+    "text": "Fireworks and firecrackers\n~ 140–160 dBA\n\nBrief impulse sounds, not a continuous average level.NIDCD",
+    "width": 320
+  },
+  "numberSearch": {
+    "groups": ["quiet", "everyday"],
+    "ids": ["dishwasher", "dryer", "conversation"]
+  },
+  "reset": {
+    "bands": 7,
+    "count": 31,
+    "focused": "sound-query"
+  }
+}
