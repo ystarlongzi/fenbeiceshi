@@ -1,0 +1,279 @@
+{
+  "date": "2026-10-20",
+  "browser": "ChatGPT in-app browser",
+  "source": "http://127.0.0.1:3100/",
+  "scenes": [
+    {
+      "name": "desktop-zh-light",
+      "screenshot": "desktop-zh-light.png",
+      "legend": "自定义参考线\n警告 70 dB\n危险 85 dB",
+      "legendFont": "14px",
+      "legendItems": [
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "自定义参考线",
+          "width": 84,
+          "x": 77,
+          "y": 351.4453125
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "警告 70 dB",
+          "width": 97.3671875,
+          "x": 177,
+          "y": 351.4453125
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "危险 85 dB",
+          "width": 98.375,
+          "x": 290.3671875,
+          "y": 351.4453125
+        }
+      ],
+      "lines": [
+        {
+          "dashes": "6px, 4px",
+          "level": 70,
+          "projectedLevel": 69.99998474121094,
+          "stroke": "rgb(135, 99, 54)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 49.166666666666664,
+          "y2": 49.166666666666664
+        },
+        {
+          "dashes": "6px, 4px",
+          "level": 85,
+          "projectedLevel": 85.00000762939453,
+          "stroke": "rgb(139, 73, 53)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 34.416666666666664,
+          "y2": 34.416666666666664
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "waveformPaths": 3
+    },
+    {
+      "name": "desktop-zh-dark",
+      "screenshot": "desktop-zh-dark.png",
+      "legend": "自定义参考线\n警告 70 dB\n危险 85 dB",
+      "legendFont": "14px",
+      "legendItems": [
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "自定义参考线",
+          "width": 84,
+          "x": 77,
+          "y": 351.4453125
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "警告 70 dB",
+          "width": 97.3671875,
+          "x": 177,
+          "y": 351.4453125
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "危险 85 dB",
+          "width": 98.375,
+          "x": 290.3671875,
+          "y": 351.4453125
+        }
+      ],
+      "lines": [
+        {
+          "dashes": "6px, 4px",
+          "level": 70,
+          "projectedLevel": 69.99998474121094,
+          "stroke": "rgb(226, 189, 133)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 49.166666666666664,
+          "y2": 49.166666666666664
+        },
+        {
+          "dashes": "6px, 4px",
+          "level": 85,
+          "projectedLevel": 85.00000762939453,
+          "stroke": "rgb(231, 175, 152)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 34.416666666666664,
+          "y2": 34.416666666666664
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "waveformPaths": 3
+    },
+    {
+      "name": "mobile-en-dark",
+      "screenshot": "mobile-en-dark.png",
+      "legend": "Custom reference lines\nWarning 70 dB\nDanger 85 dB",
+      "legendFont": "14px",
+      "legendItems": [
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "Custom reference lines",
+          "width": 262,
+          "x": 29,
+          "y": 286.7109375
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "Warning 70 dB",
+          "width": 122.703125,
+          "x": 29,
+          "y": 315.109375
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "Danger 85 dB",
+          "width": 117.40625,
+          "x": 167.703125,
+          "y": 315.109375
+        }
+      ],
+      "lines": [
+        {
+          "dashes": "6px, 4px",
+          "level": 70,
+          "projectedLevel": 70.00000939002403,
+          "stroke": "rgb(226, 189, 133)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 49.166666666666664,
+          "y2": 49.166666666666664
+        },
+        {
+          "dashes": "6px, 4px",
+          "level": 85,
+          "projectedLevel": 85.00000939002403,
+          "stroke": "rgb(231, 175, 152)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 34.416666666666664,
+          "y2": 34.416666666666664
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "waveformPaths": 3
+    },
+    {
+      "name": "mobile-en-light",
+      "screenshot": "mobile-en-light.png",
+      "legend": "Custom reference lines\nWarning 70 dB\nDanger 85 dB",
+      "legendFont": "14px",
+      "legendItems": [
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "Custom reference lines",
+          "width": 262,
+          "x": 29,
+          "y": 286.7109375
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "Warning 70 dB",
+          "width": 122.703125,
+          "x": 29,
+          "y": 315.109375
+        },
+        {
+          "height": 22.3984375,
+          "overflow": false,
+          "text": "Danger 85 dB",
+          "width": 117.40625,
+          "x": 167.703125,
+          "y": 315.109375
+        }
+      ],
+      "lines": [
+        {
+          "dashes": "6px, 4px",
+          "level": 70,
+          "projectedLevel": 70.00000939002403,
+          "stroke": "rgb(135, 99, 54)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 49.166666666666664,
+          "y2": 49.166666666666664
+        },
+        {
+          "dashes": "6px, 4px",
+          "level": 85,
+          "projectedLevel": 85.00000939002403,
+          "stroke": "rgb(139, 73, 53)",
+          "vectorEffect": "non-scaling-stroke",
+          "width": "1.5px",
+          "x1": "0",
+          "x2": "632",
+          "y": 34.416666666666664,
+          "y2": 34.416666666666664
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "waveformPaths": 3
+    }
+  ],
+  "emptyBefore": {
+    "empty": "Waiting for sound data\n\nStart measuring or try a demo to see the sound trend here.",
+    "legend": 0,
+    "lines": 0,
+    "theme": "dark"
+  },
+  "emptyAfter": {
+    "empty": "Waiting for sound data\n\nStart measuring or try a demo to see the sound trend here.",
+    "legend": 0,
+    "lines": 0,
+    "theme": "light"
+  }
+}

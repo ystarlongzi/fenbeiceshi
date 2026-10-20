@@ -29,6 +29,21 @@
   color: var(--muted);
   white-space: nowrap;
 }
+.referenceLabel {
+  position: absolute;
+  right: 4px;
+  transform: translateY(calc(-100% - 2px));
+  font-size: var(--font-size-chart-label);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.warning {
+  color: var(--warning);
+}
+.danger {
+  color: var(--error);
+}
 .chart {
   --trend-height: 200px;
   display: flow-root;

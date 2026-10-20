@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-20",
+  "browser": "ChatGPT in-app browser",
+  "source": "http://127.0.0.1:3100/",
+  "scenes": [
+    {
+      "name": "desktop-zh-light",
+      "screenshot": "desktop-zh-light-thin.png",
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelGap": 5.6015625,
+      "labels": [
+        {
+          "bottom": 473.70703125,
+          "centerError": 0.00262451171875,
+          "chartRight": 923,
+          "font": "12px",
+          "gap": 6,
+          "level": 70,
+          "overPlot": false,
+          "right": 893.2265625,
+          "text": "警告 70 dB",
+          "top": 459.30859375,
+          "truncated": false
+        },
+        {
+          "bottom": 453.70703125,
+          "centerError": 0.002593994140625,
+          "chartRight": 923,
+          "font": "12px",
+          "gap": 6,
+          "level": 85,
+          "overPlot": false,
+          "right": 894.09375,
+          "text": "危险 85 dB",
+          "top": 439.30859375,
+          "truncated": false
+        }
+      ],
+      "overflow": false,
+      "plotHeight": 160,
+      "plotWidth": 714,
+      "referenceWidths": [
+        "1px",
+        "1px"
+      ],
+      "theme": "light",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "name": "desktop-zh-dark",
+      "screenshot": "desktop-zh-dark-thin.png",
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelGap": 5.6015625,
+      "labels": [
+        {
+          "bottom": 473.70703125,
+          "centerError": 0.00262451171875,
+          "chartRight": 923,
+          "font": "12px",
+          "gap": 6,
+          "level": 70,
+          "overPlot": false,
+          "right": 893.2265625,
+          "text": "警告 70 dB",
+          "top": 459.30859375,
+          "truncated": false
+        },
+        {
+          "bottom": 453.70703125,
+          "centerError": 0.002593994140625,
+          "chartRight": 923,
+          "font": "12px",
+          "gap": 6,
+          "level": 85,
+          "overPlot": false,
+          "right": 894.09375,
+          "text": "危险 85 dB",
+          "top": 439.30859375,
+          "truncated": false
+        }
+      ],
+      "overflow": false,
+      "plotHeight": 160,
+      "plotWidth": 714,
+      "referenceWidths": [
+        "1px",
+        "1px"
+      ],
+      "theme": "dark",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "name": "mobile-en-dark",
+      "screenshot": "mobile-en-dark-thin.png",
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelGap": 1.8515625,
+      "labels": [
+        {
+          "bottom": 394.47265625,
+          "centerError": 0.002593994140625,
+          "chartRight": 291,
+          "font": "12px",
+          "gap": 6,
+          "level": 70,
+          "overPlot": false,
+          "right": 283.84375,
+          "text": "Warning 70 dB",
+          "top": 380.07421875,
+          "truncated": false
+        },
+        {
+          "bottom": 378.22265625,
+          "centerError": 0.002593994140625,
+          "chartRight": 291,
+          "font": "12px",
+          "gap": 6,
+          "level": 85,
+          "overPlot": false,
+          "right": 279.1796875,
+          "text": "Danger 85 dB",
+          "top": 363.82421875,
+          "truncated": false
+        }
+      ],
+      "overflow": false,
+      "plotHeight": 130,
+      "plotWidth": 130,
+      "referenceWidths": [
+        "1px",
+        "1px"
+      ],
+      "theme": "dark",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    },
+    {
+      "name": "mobile-en-light",
+      "screenshot": "mobile-en-light-thin.png",
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelGap": 1.8515625,
+      "labels": [
+        {
+          "bottom": 394.47265625,
+          "centerError": 0.002593994140625,
+          "chartRight": 291,
+          "font": "12px",
+          "gap": 6,
+          "level": 70,
+          "overPlot": false,
+          "right": 283.84375,
+          "text": "Warning 70 dB",
+          "top": 380.07421875,
+          "truncated": false
+        },
+        {
+          "bottom": 378.22265625,
+          "centerError": 0.002593994140625,
+          "chartRight": 291,
+          "font": "12px",
+          "gap": 6,
+          "level": 85,
+          "overPlot": false,
+          "right": 279.1796875,
+          "text": "Danger 85 dB",
+          "top": 363.82421875,
+          "truncated": false
+        }
+      ],
+      "overflow": false,
+      "plotHeight": 130,
+      "plotWidth": 130,
+      "referenceWidths": [
+        "1px",
+        "1px"
+      ],
+      "theme": "light",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    }
+  ],
+  "emptyAfter": {
+    "labels": 0,
+    "lines": 0
+  }
+}

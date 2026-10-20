@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-20",
+  "browser": "ChatGPT in-app browser",
+  "source": "http://127.0.0.1:3100/",
+  "scenes": [
+    {
+      "name": "desktop-zh-dark",
+      "screenshot": "desktop-zh-dark-11px.png",
+      "axes": [
+        {
+          "font": "12px",
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "text": "0"
+        },
+        {
+          "font": "12px",
+          "text": "−60s"
+        },
+        {
+          "font": "12px",
+          "text": "−30s"
+        },
+        {
+          "font": "12px",
+          "text": "现在"
+        }
+      ],
+      "clip": {
+        "height": 273.3984375,
+        "width": 846,
+        "x": 77,
+        "y": 1069.546875
+      },
+      "labelGap": 6.8046875,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666666288,
+          "bottom": 1000.109375,
+          "color": "rgb(226, 189, 133)",
+          "font": "11px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "警告",
+          "top": 986.9140625,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666666288,
+          "bottom": 980.109375,
+          "color": "rgb(231, 175, 152)",
+          "font": "11px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "危险界限",
+          "top": 966.9140625,
+          "weight": "600"
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "name": "desktop-zh-light",
+      "screenshot": "desktop-zh-light-11px.png",
+      "axes": [
+        {
+          "font": "12px",
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "text": "0"
+        },
+        {
+          "font": "12px",
+          "text": "−60s"
+        },
+        {
+          "font": "12px",
+          "text": "−30s"
+        },
+        {
+          "font": "12px",
+          "text": "现在"
+        }
+      ],
+      "clip": {
+        "height": 273.3984375,
+        "width": 846,
+        "x": 77,
+        "y": 1069.546875
+      },
+      "labelGap": 6.8046875,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1219.609375,
+          "color": "rgb(135, 99, 54)",
+          "font": "11px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "警告",
+          "top": 1206.4140625,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1199.609375,
+          "color": "rgb(139, 73, 53)",
+          "font": "11px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "危险界限",
+          "top": 1186.4140625,
+          "weight": "600"
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "name": "mobile-en-light",
+      "screenshot": "mobile-en-light-11px.png",
+      "axes": [
+        {
+          "font": "12px",
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "text": "0"
+        },
+        {
+          "font": "12px",
+          "text": "−60s"
+        },
+        {
+          "font": "12px",
+          "text": "−30s"
+        },
+        {
+          "font": "12px",
+          "text": "Now"
+        }
+      ],
+      "clip": {
+        "height": 276.59375,
+        "width": 262,
+        "x": 29,
+        "y": 1462.6171875
+      },
+      "labelGap": 3.0546875,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1152.875,
+          "color": "rgb(135, 99, 54)",
+          "font": "11px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "Warning",
+          "top": 1139.6796875,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1136.625,
+          "color": "rgb(139, 73, 53)",
+          "font": "11px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "Danger limit",
+          "top": 1123.4296875,
+          "weight": "600"
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    },
+    {
+      "name": "mobile-en-dark",
+      "screenshot": "mobile-en-dark-11px.png",
+      "axes": [
+        {
+          "font": "12px",
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "text": "0"
+        },
+        {
+          "font": "12px",
+          "text": "−60s"
+        },
+        {
+          "font": "12px",
+          "text": "−30s"
+        },
+        {
+          "font": "12px",
+          "text": "Now"
+        }
+      ],
+      "clip": {
+        "height": 276.59375,
+        "width": 262,
+        "x": 29,
+        "y": 1462.6171875
+      },
+      "labelGap": 3.0546875,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1531.875,
+          "color": "rgb(226, 189, 133)",
+          "font": "11px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "Warning",
+          "top": 1518.6796875,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1515.625,
+          "color": "rgb(231, 175, 152)",
+          "font": "11px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "Danger limit",
+          "top": 1502.4296875,
+          "weight": "600"
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    }
+  ],
+  "emptyAfter": {
+    "labels": 0,
+    "lines": 0
+  }
+}

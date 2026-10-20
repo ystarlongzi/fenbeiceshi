@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-20",
+  "browser": "ChatGPT in-app browser",
+  "source": "http://127.0.0.1:3100/",
+  "scenes": [
+    {
+      "name": "desktop-zh-dark",
+      "screenshot": "desktop-zh-dark-075px.png",
+      "clip": {
+        "height": 273.3984375,
+        "width": 846,
+        "x": 77,
+        "y": 1069.546875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelFonts": [
+        "11px",
+        "11px"
+      ],
+      "overflow": false,
+      "references": [
+        {
+          "dash": "6 4",
+          "level": 70,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        },
+        {
+          "dash": "6 4",
+          "level": 85,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        }
+      ],
+      "theme": "dark",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "name": "desktop-zh-light",
+      "screenshot": "desktop-zh-light-075px.png",
+      "clip": {
+        "height": 273.3984375,
+        "width": 846,
+        "x": 77,
+        "y": 1069.546875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelFonts": [
+        "11px",
+        "11px"
+      ],
+      "overflow": false,
+      "references": [
+        {
+          "dash": "6 4",
+          "level": 70,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        },
+        {
+          "dash": "6 4",
+          "level": 85,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        }
+      ],
+      "theme": "light",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "name": "mobile-en-light",
+      "screenshot": "mobile-en-light-075px.png",
+      "clip": {
+        "height": 276.59375,
+        "width": 262,
+        "x": 29,
+        "y": 1462.6171875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelFonts": [
+        "11px",
+        "11px"
+      ],
+      "overflow": false,
+      "references": [
+        {
+          "dash": "6 4",
+          "level": 70,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        },
+        {
+          "dash": "6 4",
+          "level": 85,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        }
+      ],
+      "theme": "light",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    },
+    {
+      "name": "mobile-en-dark",
+      "screenshot": "mobile-en-dark-075px.png",
+      "clip": {
+        "height": 276.59375,
+        "width": 262,
+        "x": 29,
+        "y": 1462.6171875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "labelFonts": [
+        "11px",
+        "11px"
+      ],
+      "overflow": false,
+      "references": [
+        {
+          "dash": "6 4",
+          "level": 70,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        },
+        {
+          "dash": "6 4",
+          "level": 85,
+          "vectorEffect": "non-scaling-stroke",
+          "width": "0.75px"
+        }
+      ],
+      "theme": "dark",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    }
+  ],
+  "emptyAfter": {
+    "labels": 0,
+    "lines": 0
+  }
+}

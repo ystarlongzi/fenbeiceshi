@@ -56,6 +56,7 @@
   --font-body:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-number: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-size-chart-label: 0.6875rem;
   --font-size-caption: 0.75rem;
   --font-size-ui: 0.875rem;
   --font-size-body: 1rem;

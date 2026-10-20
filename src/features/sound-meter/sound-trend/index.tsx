@@ -7,6 +7,12 @@ import type { MeterCopy } from "../copy.ts";
 import type { LevelPoint } from "../types.ts";
 import styles from "./index.module.css";
 
+const referenceLines = [
+  { value: 70, label: "trendWarning", tone: "warning" },
+  { value: 85, label: "trendDanger", tone: "danger" },
+] as const;
+const yAxisTicks = [120, 90, 60, 30, 0] as const;
+
 export function SoundTrend({
   points,
   copy,
@@ -80,30 +86,49 @@ export function SoundTrend({
                   ))}
                 </linearGradient>
               </defs>
-              {[0, 0.5, 1].map((fraction) => (
+              {yAxisTicks.map((value) => (
                 <line
-                  key={fraction}
+                  key={value}
                   x1="0"
                   x2="632"
-                  y1={fraction * 118}
-                  y2={fraction * 118}
+                  y1={(1 - scalePosition(value, min, max)) * 118}
+                  y2={(1 - scalePosition(value, min, max)) * 118}
                   stroke="var(--line)"
-                  strokeDasharray="3 5"
                   vectorEffect="non-scaling-stroke"
                 />
               ))}
               {coordinates.length > 1 ? (
-                <>
-                  <path
-                    d={`${path} L${last?.x},118 L${coordinates[0].x},118 Z`}
-                    fill={`url(#${gradientId})`}
-                    fillOpacity="0.12"
+                <path
+                  d={`${path} L${last?.x},118 L${coordinates[0].x},118 Z`}
+                  fill={`url(#${gradientId})`}
+                  fillOpacity="0.12"
+                />
+              ) : null}
+              {referenceLines.map(({ value, tone }) => {
+                const y = (1 - scalePosition(value, min, max)) * 118;
+                return (
+                  <line
+                    key={value}
+                    className={styles[tone]}
+                    x1="0"
+                    x2="632"
+                    y1={y}
+                    y2={y}
+                    stroke="currentColor"
+                    strokeWidth="0.75"
+                    strokeDasharray="6 4"
+                    vectorEffect="non-scaling-stroke"
+                    data-reference-level={value}
                   />
+                );
+              })}
+              {coordinates.length > 1 ? (
+                <>
                   <path
                     d={path}
                     stroke="var(--ink)"
                     strokeOpacity="0.3"
-                    strokeWidth="4"
+                    strokeWidth="2.5"
                     fill="none"
                     strokeLinejoin="round"
                     vectorEffect="non-scaling-stroke"
@@ -111,7 +136,7 @@ export function SoundTrend({
                   <path
                     d={path}
                     stroke={`url(#${gradientId})`}
-                    strokeWidth="2.5"
+                    strokeWidth="1.5"
                     fill="none"
                     strokeLinejoin="round"
                     vectorEffect="non-scaling-stroke"
@@ -119,10 +144,20 @@ export function SoundTrend({
                 </>
               ) : null}
             </svg>
+            {referenceLines.map(({ value, label, tone }) => (
+              <span
+                key={value}
+                className={`${styles.referenceLabel} ${styles[tone]}`}
+                style={{ top: `${(1 - scalePosition(value, min, max)) * 100}%` }}
+                data-reference-label={value}
+              >
+                {copy[label]}
+              </span>
+            ))}
             <div className={styles.yAxis} aria-hidden="true">
-              {[0, 0.5, 1].map((fraction) => (
-                <span key={fraction} style={{ top: `${fraction * 100}%` }}>
-                  {Math.round(max - fraction * (max - min))}
+              {yAxisTicks.map((value) => (
+                <span key={value} style={{ top: `${(1 - scalePosition(value, min, max)) * 100}%` }}>
+                  {value}
                 </span>
               ))}
             </div>

@@ -1,0 +1,454 @@
+{
+  "date": "2026-10-20",
+  "browser": "ChatGPT in-app browser",
+  "source": "http://127.0.0.1:3100/",
+  "emptyBefore": {
+    "labels": 0,
+    "lines": 0,
+    "references": 0,
+    "theme": "dark"
+  },
+  "scenes": [
+    {
+      "name": "desktop-zh-dark",
+      "screenshot": "desktop-zh-dark-30db.png",
+      "clip": {
+        "height": 273.3984375,
+        "width": 846,
+        "x": 77,
+        "y": 1069.546875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "grid": [
+        {
+          "dash": null,
+          "y": 0
+        },
+        {
+          "dash": null,
+          "y": 29.5
+        },
+        {
+          "dash": null,
+          "y": 59
+        },
+        {
+          "dash": null,
+          "y": 88.5
+        },
+        {
+          "dash": null,
+          "y": 118
+        }
+      ],
+      "labelGap": 5.6015625,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666666288,
+          "bottom": 460.109375,
+          "font": "12px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "警告",
+          "top": 445.7109375,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666666288,
+          "bottom": 440.109375,
+          "font": "12px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "危险界限",
+          "top": 425.7109375,
+          "weight": "600"
+        }
+      ],
+      "legendCount": 0,
+      "overflow": false,
+      "plotWidth": 802,
+      "references": [
+        {
+          "level": 70,
+          "width": "1px",
+          "y": 49.166666666666664
+        },
+        {
+          "level": 85,
+          "width": "1px",
+          "y": 34.416666666666664
+        }
+      ],
+      "theme": "dark",
+      "ticks": [
+        {
+          "font": "12px",
+          "position": 0,
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "position": 0.25,
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "position": 0.5,
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "position": 0.75,
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "position": 1,
+          "text": "0"
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "viewportTop": 310.046875
+    },
+    {
+      "name": "desktop-zh-light",
+      "screenshot": "desktop-zh-light-30db.png",
+      "clip": {
+        "height": 273.3984375,
+        "width": 846,
+        "x": 77,
+        "y": 1069.546875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "grid": [
+        {
+          "dash": null,
+          "y": 0
+        },
+        {
+          "dash": null,
+          "y": 29.5
+        },
+        {
+          "dash": null,
+          "y": 59
+        },
+        {
+          "dash": null,
+          "y": 88.5
+        },
+        {
+          "dash": null,
+          "y": 118
+        }
+      ],
+      "labelGap": 5.6015625,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666666288,
+          "bottom": 917.109375,
+          "font": "12px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "警告",
+          "top": 902.7109375,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666666288,
+          "bottom": 897.109375,
+          "font": "12px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "危险界限",
+          "top": 882.7109375,
+          "weight": "600"
+        }
+      ],
+      "legendCount": 0,
+      "overflow": false,
+      "plotWidth": 802,
+      "references": [
+        {
+          "level": 70,
+          "width": "1px",
+          "y": 49.166666666666664
+        },
+        {
+          "level": 85,
+          "width": "1px",
+          "y": 34.416666666666664
+        }
+      ],
+      "theme": "light",
+      "ticks": [
+        {
+          "font": "12px",
+          "position": 0,
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "position": 0.25,
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "position": 0.5,
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "position": 0.75,
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "position": 1,
+          "text": "0"
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "viewportTop": 767.046875
+    },
+    {
+      "name": "mobile-en-light",
+      "screenshot": "mobile-en-light-30db.png",
+      "clip": {
+        "height": 276.59375,
+        "width": 262,
+        "x": 29,
+        "y": 1462.6171875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "grid": [
+        {
+          "dash": null,
+          "y": 0
+        },
+        {
+          "dash": null,
+          "y": 29.5
+        },
+        {
+          "dash": null,
+          "y": 59
+        },
+        {
+          "dash": null,
+          "y": 88.5
+        },
+        {
+          "dash": null,
+          "y": 118
+        }
+      ],
+      "labelGap": 1.8515625,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1152.875,
+          "font": "12px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "Warning",
+          "top": 1138.4765625,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1136.625,
+          "font": "12px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "Danger limit",
+          "top": 1122.2265625,
+          "weight": "600"
+        }
+      ],
+      "legendCount": 0,
+      "overflow": false,
+      "plotWidth": 218,
+      "references": [
+        {
+          "level": 70,
+          "width": "1px",
+          "y": 49.166666666666664
+        },
+        {
+          "level": 85,
+          "width": "1px",
+          "y": 34.416666666666664
+        }
+      ],
+      "theme": "light",
+      "ticks": [
+        {
+          "font": "12px",
+          "position": 0,
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "position": 0.25,
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "position": 0.5,
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "position": 0.75,
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "position": 1,
+          "text": "0"
+        }
+      ],
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "viewportTop": 982.1171875
+    },
+    {
+      "name": "mobile-en-dark",
+      "screenshot": "mobile-en-dark-30db.png",
+      "clip": {
+        "height": 276.59375,
+        "width": 262,
+        "x": 29,
+        "y": 1462.6171875
+      },
+      "curveWidths": [
+        "2.5px",
+        "1.5px"
+      ],
+      "grid": [
+        {
+          "dash": null,
+          "y": 0
+        },
+        {
+          "dash": null,
+          "y": 29.5
+        },
+        {
+          "dash": null,
+          "y": 59
+        },
+        {
+          "dash": null,
+          "y": 88.5
+        },
+        {
+          "dash": null,
+          "y": 118
+        }
+      ],
+      "labelGap": 1.8515625,
+      "labels": [
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1531.875,
+          "font": "12px",
+          "inside": true,
+          "level": 70,
+          "rightGap": 4,
+          "text": "Warning",
+          "top": 1517.4765625,
+          "weight": "600"
+        },
+        {
+          "aboveLineGap": 2.0026041666667425,
+          "bottom": 1515.625,
+          "font": "12px",
+          "inside": true,
+          "level": 85,
+          "rightGap": 4,
+          "text": "Danger limit",
+          "top": 1501.2265625,
+          "weight": "600"
+        }
+      ],
+      "legendCount": 0,
+      "overflow": false,
+      "plotWidth": 218,
+      "references": [
+        {
+          "level": 70,
+          "width": "1px",
+          "y": 49.166666666666664
+        },
+        {
+          "level": 85,
+          "width": "1px",
+          "y": 34.416666666666664
+        }
+      ],
+      "theme": "dark",
+      "ticks": [
+        {
+          "font": "12px",
+          "position": 0,
+          "text": "120"
+        },
+        {
+          "font": "12px",
+          "position": 0.25,
+          "text": "90"
+        },
+        {
+          "font": "12px",
+          "position": 0.5,
+          "text": "60"
+        },
+        {
+          "font": "12px",
+          "position": 0.75,
+          "text": "30"
+        },
+        {
+          "font": "12px",
+          "position": 1,
+          "text": "0"
+        }
+      ],
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "viewportTop": 1361.1171875
+    }
+  ],
+  "emptyAfter": {
+    "labels": 0,
+    "lines": 0,
+    "references": 0
+  }
+}
