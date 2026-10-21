@@ -194,6 +194,10 @@ for (const page of sitePages) {
           assert.ok(visible.includes(referenceLevel(sound)), path);
           const entry = entries.find((match) => match[1].includes(`data-sound-id="${sound.id}"`));
           assert.ok(entry, `声音详情缺少原生展开：${path} → ${sound.id}`);
+          assert.ok(
+            entry[2].includes(`aria-hidden="true">${sound.emoji}</span>`),
+            `声音标签缺少静态装饰图示：${path} → ${sound.id}`,
+          );
           const band = soundBands.findLast((item) => sound.min >= item.min);
           assert.ok(entry[1].includes(`data-sound-band="${band?.tone}"`), path);
           assert.ok(entry[1].includes(`name="sound-details-${band?.tone}"`), path);

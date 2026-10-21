@@ -89,7 +89,12 @@ export function SoundReferenceList({
                         data-sound-band={band.tone}
                       >
                         <summary>
-                          <span className={styles.name}>{sound.name}</span>
+                          <span className={styles.name}>
+                            <span className={styles.emoji} aria-hidden="true">
+                              {sound.emoji}
+                            </span>
+                            {sound.name}
+                          </span>
                           <strong className={styles.level}>
                             {en ? "~ " : "约 "}
                             {referenceLevel(sound)}

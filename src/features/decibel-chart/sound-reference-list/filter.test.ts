@@ -7,6 +7,7 @@ import { filterSounds, groupSounds, referenceLevel, type LookupSound } from "./f
 const sounds: LookupSound[] = [
   {
     id: "fridge",
+    emoji: "🧊",
     min: 40,
     max: 40,
     unit: "dB",
@@ -18,6 +19,7 @@ const sounds: LookupSound[] = [
   },
   {
     id: "dishwasher",
+    emoji: "🍽️",
     min: 45,
     max: 65,
     unit: "dB",
@@ -29,6 +31,7 @@ const sounds: LookupSound[] = [
   },
   {
     id: "conversation",
+    emoji: "💬",
     min: 60,
     max: 70,
     unit: "dBA",

@@ -67,6 +67,7 @@ export const soundCategories = [
 
 export interface SoundReference {
   id: string;
+  emoji: string;
   name: Dual;
   category: (typeof soundCategories)[number]["id"];
   min: number;
@@ -79,6 +80,7 @@ export interface SoundReference {
 export const soundReferences: SoundReference[] = [
   {
     id: "breathing",
+    emoji: "🫁",
     name: t("正常呼吸", "Normal breathing"),
     category: "everyday",
     min: 10,
@@ -89,6 +91,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "leaves",
+    emoji: "🍃",
     name: t("树叶沙沙声", "Rustling leaves"),
     category: "everyday",
     min: 20,
@@ -99,6 +102,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "whisper",
+    emoji: "🤫",
     name: t("轻声耳语", "Soft whispering"),
     category: "everyday",
     min: 30,
@@ -109,6 +113,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "library",
+    emoji: "📚",
     name: t("图书馆", "Library"),
     category: "everyday",
     min: 40,
@@ -119,6 +124,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "home",
+    emoji: "🏠",
     name: t("普通家庭环境", "Average home"),
     category: "everyday",
     min: 45,
@@ -132,6 +138,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "conversation",
+    emoji: "💬",
     name: t("正常交谈", "Normal conversation"),
     category: "everyday",
     min: 60,
@@ -145,6 +152,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "restaurant",
+    emoji: "🍴",
     name: t("嘈杂餐厅", "Noisy restaurant"),
     category: "everyday",
     min: 65,
@@ -158,6 +166,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "fridge",
+    emoji: "🧊",
     name: t("冰箱运转", "Refrigerator humming"),
     category: "appliances",
     min: 40,
@@ -168,6 +177,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "dishwasher",
+    emoji: "🍽️",
     name: t("洗碗机", "Dishwasher"),
     category: "appliances",
     min: 45,
@@ -178,6 +188,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "dryer",
+    emoji: "🧺",
     name: t("干衣机", "Clothes dryer"),
     category: "appliances",
     min: 51,
@@ -191,6 +202,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "washing-machine",
+    emoji: "🫧",
     name: t("洗衣机", "Washing machine"),
     category: "appliances",
     min: 47,
@@ -204,6 +216,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "vacuum",
+    emoji: "🧹",
     name: t("吸尘器", "Vacuum cleaner"),
     category: "appliances",
     min: 62,
@@ -217,6 +230,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "doorbell",
+    emoji: "🔔",
     name: t("门铃", "Doorbell"),
     category: "appliances",
     min: 80,
@@ -230,6 +244,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "shaver",
+    emoji: "🪒",
     name: t("电动剃须刀", "Electric shaver"),
     category: "appliances",
     min: 47,
@@ -243,6 +258,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "hair-dryer",
+    emoji: "💨",
     name: t("吹风机", "Hair dryer"),
     category: "appliances",
     min: 100,
@@ -256,6 +272,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "drill",
+    emoji: "🛠️",
     name: t("手持电钻", "Hand drill"),
     category: "appliances",
     min: 98,
@@ -269,6 +286,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "chainsaw",
+    emoji: "🪚",
     name: t("链锯", "Chain saw"),
     category: "appliances",
     min: 108,
@@ -282,6 +300,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "jackhammer",
+    emoji: "⚒️",
     name: t("风镐", "Jackhammer"),
     category: "appliances",
     min: 130,
@@ -292,6 +311,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "street-traffic",
+    emoji: "🛣️",
     name: t("高速公路车流", "Freeway traffic"),
     category: "outdoors",
     min: 70,
@@ -305,6 +325,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "traffic-inside-car",
+    emoji: "🚗",
     name: t("繁忙交通中的车内", "Heavy traffic inside a car"),
     category: "outdoors",
     min: 85,
@@ -318,6 +339,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "motorcycle",
+    emoji: "🏍️",
     name: t("摩托车或越野车", "Motorcycle or dirt bike"),
     category: "outdoors",
     min: 80,
@@ -331,6 +353,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "horn",
+    emoji: "📣",
     name: t("汽车喇叭", "Car horn"),
     category: "outdoors",
     min: 105,
@@ -344,6 +367,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "thunder",
+    emoji: "⛈️",
     name: t("雷声", "Thunder"),
     category: "outdoors",
     min: 100,
@@ -357,6 +381,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "siren",
+    emoji: "🚨",
     name: t("警笛", "Siren"),
     category: "outdoors",
     min: 110,
@@ -370,6 +395,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "jet",
+    emoji: "🛩️",
     name: t("军用喷气飞机飞越", "Military jet flyover"),
     category: "outdoors",
     min: 120,
@@ -383,6 +409,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "airplane",
+    emoji: "🛫",
     name: t("飞机起飞", "Airplane taking off"),
     category: "outdoors",
     min: 140,
@@ -396,6 +423,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "fireworks",
+    emoji: "🎆",
     name: t("烟花表演", "Fireworks show"),
     category: "outdoors",
     min: 140,
@@ -409,6 +437,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "cinema",
+    emoji: "🎬",
     name: t("电影院", "Movie theatre"),
     category: "leisure",
     min: 74,
@@ -422,6 +451,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "sports",
+    emoji: "🏟️",
     name: t("体育赛事", "Sporting event"),
     category: "leisure",
     min: 94,
@@ -432,6 +462,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "headphones",
+    emoji: "🎧",
     name: t("最大音量耳机", "Headphones at maximum volume"),
     category: "leisure",
     min: 94,
@@ -445,6 +476,7 @@ export const soundReferences: SoundReference[] = [
   },
   {
     id: "concert",
+    emoji: "🎸",
     name: t("摇滚音乐会或夜店", "Rock concert or nightclub"),
     category: "leisure",
     min: 95,

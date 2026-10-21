@@ -45,6 +45,7 @@ export function DecibelChart({ locale }: { locale: Locale }) {
             sounds={soundReferences
               .map((sound) => ({
                 id: sound.id,
+                emoji: sound.emoji,
                 name: text(sound.name, locale),
                 context: text(sound.context, locale),
                 min: sound.min,

@@ -192,6 +192,12 @@
   font-weight: 500;
   overflow-wrap: anywhere;
 }
+.emoji {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: var(--font-size-body);
+  line-height: 1.4;
+}
 .level {
   color: var(--text-accent);
   font-size: var(--font-size-ui);

@@ -1,0 +1,247 @@
+{
+  "desktop": {
+    "emoji": [
+      {
+        "size": "16px",
+        "text": "🫁"
+      },
+      {
+        "size": "16px",
+        "text": "🍃"
+      },
+      {
+        "size": "16px",
+        "text": "🤫"
+      },
+      {
+        "size": "16px",
+        "text": "📚"
+      },
+      {
+        "size": "16px",
+        "text": "🧊"
+      },
+      {
+        "size": "16px",
+        "text": "🏠"
+      },
+      {
+        "size": "16px",
+        "text": "🍽️"
+      },
+      {
+        "size": "16px",
+        "text": "🪒"
+      },
+      {
+        "size": "16px",
+        "text": "🫧"
+      },
+      {
+        "size": "16px",
+        "text": "🧺"
+      },
+      {
+        "size": "16px",
+        "text": "💬"
+      },
+      {
+        "size": "16px",
+        "text": "🧹"
+      },
+      {
+        "size": "16px",
+        "text": "🍴"
+      },
+      {
+        "size": "16px",
+        "text": "🛣️"
+      },
+      {
+        "size": "16px",
+        "text": "🎬"
+      },
+      {
+        "size": "16px",
+        "text": "🔔"
+      },
+      {
+        "size": "16px",
+        "text": "🏍️"
+      },
+      {
+        "size": "16px",
+        "text": "🚗"
+      },
+      {
+        "size": "16px",
+        "text": "🏟️"
+      },
+      {
+        "size": "16px",
+        "text": "🎧"
+      },
+      {
+        "size": "16px",
+        "text": "🎸"
+      },
+      {
+        "size": "16px",
+        "text": "🛠️"
+      },
+      {
+        "size": "16px",
+        "text": "💨"
+      },
+      {
+        "size": "16px",
+        "text": "⛈️"
+      },
+      {
+        "size": "16px",
+        "text": "📣"
+      },
+      {
+        "size": "16px",
+        "text": "🪚"
+      },
+      {
+        "size": "16px",
+        "text": "🚨"
+      },
+      {
+        "size": "16px",
+        "text": "🛩️"
+      },
+      {
+        "size": "16px",
+        "text": "⚒️"
+      },
+      {
+        "size": "16px",
+        "text": "🛫"
+      },
+      {
+        "size": "16px",
+        "text": "🎆"
+      }
+    ],
+    "groups": 7,
+    "overflow": [],
+    "scrollWidth": 1568,
+    "sounds": 31,
+    "viewport": [
+      1568,
+      863
+    ]
+  },
+  "search": [
+    {
+      "query": "冰箱",
+      "ids": [
+        "fridge"
+      ]
+    },
+    {
+      "query": "60",
+      "ids": [
+        "dishwasher",
+        "shaver",
+        "washing-machine",
+        "dryer",
+        "conversation"
+      ]
+    },
+    {
+      "query": "60 dBA",
+      "ids": [
+        "conversation"
+      ]
+    },
+    {
+      "query": "６０ 分贝",
+      "ids": [
+        "dishwasher",
+        "shaver",
+        "washing-machine",
+        "dryer",
+        "conversation"
+      ]
+    },
+    {
+      "query": "Rock CONCERT",
+      "ids": [
+        "concert"
+      ]
+    },
+    {
+      "query": "不存在的声音",
+      "ids": []
+    }
+  ],
+  "reset": {
+    "count": 31,
+    "focus": "sound-query"
+  },
+  "details": {
+    "arrowLeft": "92.8438px",
+    "arrowTop": "46px",
+    "arrowWidth": "10px",
+    "contextWidth": 710,
+    "groupWidth": 710,
+    "open": true,
+    "summaryHeight": 44,
+    "summaryWidth": 187.6953125
+  },
+  "keyboard": {
+    "focus": "library",
+    "open": [
+      "library"
+    ]
+  },
+  "mobileZh": {
+    "emojiCount": 31,
+    "scrollWidth": 390,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileDetail": {
+    "arrowLeft": "99.2656px",
+    "contextWidth": 322,
+    "groupWidth": 322,
+    "summaryHeight": 44,
+    "summaryWidth": 200.53125
+  },
+  "mobileEnDark": {
+    "count": 1,
+    "scrollWidth": 320,
+    "theme": "dark",
+    "viewport": [
+      320,
+      740
+    ],
+    "detail": {
+      "contextWidth": 252,
+      "groupWidth": 252,
+      "hidden": "true",
+      "name": "🎆Fireworks show~ 140–160 dBA",
+      "summaryHeight": 67.59375,
+      "summaryWidth": 252
+    }
+  },
+  "longEnglishLabel": {
+    "height": 115.1875,
+    "scrollWidth": 250,
+    "text": "🎧Headphones at maximum volume~ 94–110 dBA",
+    "viewport": 320,
+    "width": 252
+  },
+  "mobileEnAll": {
+    "count": 31,
+    "focus": "sound-query",
+    "groups": 7,
+    "scrollWidth": 320
+  }
+}

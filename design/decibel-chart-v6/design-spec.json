@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "status": "local-implementation-not-deployed",
   "routes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
   "reference": {
@@ -11,6 +11,7 @@
   "task": "沿声音量级直接浏览和对照具体声音，必要时搜索并查看其比较条件与来源。",
   "hierarchy": {
     "primary": "七档纵向内容组。组头显示范围与简短程度名称，其下补充一句体感描述；声音标签按内容决定宽度，直接显示名称、完整参考范围与来源单位。",
+    "emoji": "31 项声音名称前增加对应的 16px 装饰 Emoji，使用 aria-hidden；中英文共用图示，不参与名称或数值搜索。Emoji 仅占首行宽度，后续文字按原有宽度自然换行。保留原有标签布局、七档颜色、详情箭头与展开交互。",
     "grouping": "按参考范围的起点编组，交界起点归入后一档，160 属于最后一档；跨档条目保留原范围，全部 31 项各出现一次。规则紧邻搜索说明。",
     "search": "只保留名称／数值搜索，搜索后显示匹配条目与非空分组；继续支持全角、多词、dB 和 dBA 条件，无结果时提供查看全部入口。",
     "details": "每项声音用原生 details 展开比较条件和来源，默认收起，同档同时展开一项；说明在所选标签下方占满一行，上沿箭头指向标签底部中心并跟随换行定位。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
@@ -27,6 +28,7 @@
   "tagInteractionChecks": "tag-interaction-checks.json",
   "sourceAuditChecks": "source-audit-checks.json",
   "arrowChecks": "arrow-checks.json",
+  "emojiChecks": "emoji-checks.json",
   "screenshots": [
     "desktop-zh.png",
     "desktop-zh-high.png",
@@ -43,6 +45,9 @@
     "sources-mobile-en-dark.png",
     "arrow-desktop-zh.png",
     "arrow-mobile-zh.png",
-    "arrow-mobile-en-dark.png"
+    "arrow-mobile-en-dark.png",
+    "emoji-desktop-zh.jpg",
+    "emoji-mobile-zh.jpg",
+    "emoji-mobile-detail-en-dark.jpg"
   ]
 }

@@ -72,6 +72,7 @@ for (const sound of soundReferences) {
     sound.id,
   );
   assert.ok(soundSources[sound.source], `声音参考缺少来源：${sound.id}`);
+  assert.ok(sound.emoji.trim(), `声音参考缺少装饰图示：${sound.id}`);
   assert.ok(sound.name.zh && sound.name.en && sound.context.zh && sound.context.en, sound.id);
 }
 for (const band of soundBands) {

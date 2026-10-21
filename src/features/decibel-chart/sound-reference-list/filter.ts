@@ -1,6 +1,6 @@
 import type { SoundReference } from "../../../lib/content/sound-references.ts";
 
-export interface LookupSound extends Pick<SoundReference, "id" | "min" | "max" | "unit"> {
+export interface LookupSound extends Pick<SoundReference, "id" | "emoji" | "min" | "max" | "unit"> {
   name: string;
   context: string;
   searchText: string;
