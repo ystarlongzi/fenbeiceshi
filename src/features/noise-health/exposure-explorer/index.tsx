@@ -111,9 +111,9 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
               aria-pressed={level === value}
               onClick={() => setRaw(String(value))}
             >
-              <span className={styles.presetHeader} style={{ color: readingColor(value, "ink") }}>
+              <span className={styles.presetHeader}>
                 <span className={styles.levelBadge}>{value} dBA</span>
-                <strong className={styles.timeBadge}>
+                <strong className={styles.timeBadge} style={{ color: readingColor(value, "ink") }}>
                   {renderDuration(exposureMinutes(value)!, en)}
                 </strong>
               </span>

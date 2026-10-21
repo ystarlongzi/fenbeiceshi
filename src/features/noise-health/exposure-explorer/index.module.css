@@ -147,6 +147,7 @@
   font-weight: 600;
 }
 .levelBadge {
+  color: var(--ink);
   white-space: nowrap;
 }
 .presetDescription {
