@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "pageIds": [
     "noise-health"
   ],
@@ -79,12 +79,12 @@
     "formulaMinutes": "480 * 2 ** ((85 - L) / 3)",
     "unit": "dBA",
     "input": {
-      "min": 85,
-      "max": 115,
+      "min": 40,
+      "max": 130,
       "step": 0.5,
       "default": 85
     },
-    "rangeReason": "用于展示 85 dBA 起点及更高稳定声级的减半关系；85–115 为本站演示范围，不宣称是标准的全部适用边界。",
+    "rangeReason": "对齐竞品 exposureDbRange 实际 40–130、0.5 步长；这是交互演示范围，不宣称为个人安全暴露边界。公式向低声级和极强声级扩展时就近解释其局限。",
     "presets": [
       85,
       88,
@@ -93,7 +93,7 @@
       97,
       100
     ],
-    "output": "约每日累计参考时长；至少一小时显示小时与分钟，不足一小时可显示秒；向下取整，不将很短结果显示成零分钟。",
+    "output": "约每日累计参考时长；小时／分钟／秒按现有规则显示并向下取整。超过 24 小时显示 > 24 小时，不足 1 秒显示 < 1 秒，避免巨大时长和零秒误导。",
     "invalid": "空值、非有限值、越界或不符合 0.5 步长时显示就近错误，结果为破折号；不沿用上次结果。",
     "scope": [
       "职业听力保护参考，不保证个人无风险",
@@ -101,7 +101,33 @@
       "不适用于爆炸等冲击声",
       "不提供卧室目标或个人安全倒计时",
       "不读取本站未校准的仪表估算"
-    ]
+    ],
+    "outputColor": "文字与声级描述标签按当前有效 dBA 复用共享七档名称和主题文字色；无效输入时结果恢复中性色并隐藏标签。",
+    "outputTypography": "主结果数字固定 32px、650 字重；小时／分钟／秒及英文单位固定 20px、500 字重，与数字基线对齐并继承同一档文字色。每组数字和单位保持一起，在组间自然换行；参考点按钮保持 14px。",
+    "dynamicNote": {
+      "thresholds": [
+        40,
+        70,
+        85,
+        100,
+        120
+      ],
+      "states": [
+        "日常干扰",
+        "降低音量与安静休息",
+        "听力影响与减少暴露",
+        "尽快降低声源并防护",
+        "立即远离强噪音",
+        "输入错误"
+      ],
+      "basis": [
+        "https://www.cdc.gov/niosh/noise/about/noise.html",
+        "https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"
+      ],
+      "verified": "2026-10-21",
+      "presentation": "仅保留与当前声级有关的影响与行动建议；适用范围统一留在模块底部。"
+    },
+    "bandPlacement": "声级标签紧跟时长结果，桌面同排、窄屏允许自然换行；标签不进入 output 的时长文字，保持独立的字号和同步档位色。"
   },
   "implementation": {
     "content": "src/lib/content/noise-health.ts",
@@ -110,7 +136,8 @@
     "model": "src/features/noise-health/exposure-explorer/model.ts",
     "css": "所属组件的 CSS Modules；复用主题与固定字号变量",
     "dependencies": "无新增依赖；正文、来源、默认值及六个参考点均静态输出",
-    "links": "保留原中英 URL、自 canonical、双向 hreflang、已有章节锚点与对照页入口"
+    "links": "保留原中英 URL、自 canonical、双向 hreflang、已有章节锚点与对照页入口",
+    "numberInput": "src/components/number-input/ 共享输入、单位、步进与可访问性；本组件和参考校准同时使用，无新增依赖。"
   },
   "validation": {
     "automated": "见 docs/验证/健康文章层级与暴露时长验证.md",
@@ -121,7 +148,11 @@
       "真实麦克风或专业声学准确度",
       "生产部署、服务器及 Cloudflare",
       "医学专家审校"
-    ]
+    ],
+    "durationColorEvidence": "duration-color-checks.json",
+    "durationUnitEvidence": "duration-unit-checks.json",
+    "numberInputEvidence": "number-input-checks.json",
+    "noteTagEvidence": "note-tag-checks.json"
   },
   "screenshots": [
     "before-desktop.jpg",
@@ -136,6 +167,16 @@
     "mobile-exposure-en-dark.jpg",
     "mobile-effects-en-dark-320.jpg",
     "desktop-effects-emoji.jpg",
-    "mobile-effects-emoji-en.jpg"
+    "mobile-effects-emoji-en.jpg",
+    "desktop-exposure-colors.jpg",
+    "mobile-exposure-colors-en-dark.jpg",
+    "desktop-exposure-units.jpg",
+    "mobile-exposure-units-en-dark.jpg",
+    "desktop-exposure-number-input.jpg",
+    "mobile-exposure-number-input-en-dark.jpg",
+    "desktop-calibration-number-input.jpg",
+    "mobile-calibration-number-input.jpg",
+    "desktop-exposure-note-tag.jpg",
+    "mobile-exposure-note-tag-en-dark.jpg"
   ]
 }

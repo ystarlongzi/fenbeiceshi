@@ -1,0 +1,337 @@
+{
+  "date": "2026-10-21",
+  "preview": "http://127.0.0.1:3148",
+  "reference": {
+    "url": "https://realtimesoundmeter.org/cn/",
+    "min": 40,
+    "max": 130,
+    "step": 0.5,
+    "observedNoteThresholds": [
+      70,
+      85,
+      120
+    ],
+    "adaptation": "采用范围与动态反馈；本站在100 dBA补充分段，并明确公式演示与个人风险的区别。"
+  },
+  "exposure": [
+    {
+      "color": "rgb(66, 117, 44)",
+      "invalid": null,
+      "note": "当前公式结果超过一天，仅表示声级与时长的数学关系，不代表可以无限暴露；睡眠与舒适度仍需单独考虑。",
+      "output": "> 24 小时",
+      "slider": "40",
+      "tag": "安静",
+      "valid": true,
+      "value": "40"
+    },
+    {
+      "color": "rgb(96, 112, 18)",
+      "invalid": null,
+      "note": "当前公式结果超过一天，仅表示声级与时长的数学关系，不代表可以无限暴露；睡眠与舒适度仍需单独考虑。",
+      "output": "> 24 小时",
+      "slider": "69.5",
+      "tag": "适中",
+      "valid": true,
+      "value": "69.5"
+    },
+    {
+      "color": "rgb(137, 102, 6)",
+      "invalid": null,
+      "note": "低于 85 dBA 职业参考点，推算时长会超过 8 小时。这不等于个人安全保证，仍需结合累计暴露和实际干扰判断。",
+      "output": "> 24 小时",
+      "slider": "70",
+      "tag": "较吵",
+      "valid": true,
+      "value": "70"
+    },
+    {
+      "color": "rgb(137, 102, 6)",
+      "invalid": null,
+      "note": "低于 85 dBA 职业参考点，推算时长会超过 8 小时。这不等于个人安全保证，仍需结合累计暴露和实际干扰判断。",
+      "output": "8 小时 58 分钟",
+      "slider": "84.5",
+      "tag": "较吵",
+      "valid": true,
+      "value": "84.5"
+    },
+    {
+      "color": "rgb(169, 76, 13)",
+      "invalid": null,
+      "note": "已达到职业参考起点：85 dBA 对应 8 小时，每增加 3 dBA 时长减半。按稳定声级累计理解，并优先降低或减少暴露。",
+      "output": "8 小时",
+      "slider": "85",
+      "tag": "很吵",
+      "valid": true,
+      "value": "85"
+    },
+    {
+      "color": "rgb(169, 76, 13)",
+      "invalid": null,
+      "note": "已达到职业参考起点：85 dBA 对应 8 小时，每增加 3 dBA 时长减半。按稳定声级累计理解，并优先降低或减少暴露。",
+      "output": "16 分钟 50 秒",
+      "slider": "99.5",
+      "tag": "很吵",
+      "valid": true,
+      "value": "99.5"
+    },
+    {
+      "color": "rgb(185, 54, 33)",
+      "invalid": null,
+      "note": "推算时长已缩短至分钟或秒级。优先降低声源、拉开距离，并正确使用合适的听力防护；不要把短时长当作无风险保证。",
+      "output": "15 分钟",
+      "slider": "100",
+      "tag": "极吵",
+      "valid": true,
+      "value": "100"
+    },
+    {
+      "color": "rgb(185, 54, 33)",
+      "invalid": null,
+      "note": "推算时长已缩短至分钟或秒级。优先降低声源、拉开距离，并正确使用合适的听力防护；不要把短时长当作无风险保证。",
+      "output": "9 秒",
+      "slider": "119.5",
+      "tag": "极吵",
+      "valid": true,
+      "value": "119.5"
+    },
+    {
+      "color": "rgb(158, 37, 38)",
+      "invalid": null,
+      "note": "极强噪音可能很快损伤听力，应优先离开或避开声源。这里的秒数只是公式演示，不能当作可停留时间，也不适用于爆炸等冲击声。",
+      "output": "8 秒",
+      "slider": "120",
+      "tag": "极强噪音",
+      "valid": true,
+      "value": "120"
+    },
+    {
+      "color": "rgb(158, 37, 38)",
+      "invalid": null,
+      "note": "极强噪音可能很快损伤听力，应优先离开或避开声源。这里的秒数只是公式演示，不能当作可停留时间，也不适用于爆炸等冲击声。",
+      "output": "< 1 秒",
+      "slider": "130",
+      "tag": "极强噪音",
+      "valid": true,
+      "value": "130"
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "invalid": "true",
+      "note": "输入有效噪音水平后，将显示对应的时长说明。",
+      "output": "—",
+      "slider": "85",
+      "tag": null,
+      "valid": false,
+      "value": ""
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "invalid": "true",
+      "note": "输入有效噪音水平后，将显示对应的时长说明。",
+      "output": "—",
+      "slider": "85",
+      "tag": null,
+      "valid": false,
+      "value": "39.5"
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "invalid": "true",
+      "note": "输入有效噪音水平后，将显示对应的时长说明。",
+      "output": "—",
+      "slider": "85",
+      "tag": null,
+      "valid": false,
+      "value": "130.5"
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "invalid": "true",
+      "note": "输入有效噪音水平后，将显示对应的时长说明。",
+      "output": "—",
+      "slider": "85",
+      "tag": null,
+      "valid": false,
+      "value": "85.1"
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "invalid": "true",
+      "note": "输入有效噪音水平后，将显示对应的时长说明。",
+      "output": "—",
+      "slider": "85",
+      "tag": null,
+      "valid": false,
+      "value": "abc"
+    }
+  ],
+  "interaction": {
+    "keyUp": "85.5",
+    "button": {
+      "focused": true,
+      "value": "85.5"
+    },
+    "max": {
+      "value": "130",
+      "increaseEnabled": false
+    },
+    "min": {
+      "value": "40",
+      "decreaseEnabled": false
+    },
+    "preset": "15 分钟"
+  },
+  "mobileZh": {
+    "output": "< 1 秒",
+    "pageWidth": 320,
+    "stepHeight": 26.5,
+    "unitFonts": [
+      "20px"
+    ],
+    "viewport": 320
+  },
+  "mobileEn": [
+    {
+      "color": "rgb(145, 200, 128)",
+      "label": "Noise level",
+      "note": "The formula exceeds one day here. This illustrates the level–duration relationship, not unlimited safe exposure. Consider sleep and comfort separately.",
+      "output": "> 24 hrs",
+      "pageWidth": 320,
+      "tag": "Quiet",
+      "value": "40",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(246, 213, 120)",
+      "label": "Noise level",
+      "note": "Below the 85 dBA occupational reference, the formula exceeds 8 hours. This is not a personal safety guarantee; cumulative exposure and disturbance still matter.",
+      "output": "> 24 hrs",
+      "pageWidth": 320,
+      "tag": "Fairly noisy",
+      "value": "70",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(245, 164, 93)",
+      "label": "Noise level",
+      "note": "At the occupational reference, 85 dBA corresponds to 8 hours; each 3 dBA increase halves the duration. This assumes a steady level. Reduce exposure where possible.",
+      "output": "8 hrs",
+      "pageWidth": 320,
+      "tag": "Very noisy",
+      "value": "85",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(255, 119, 85)",
+      "label": "Noise level",
+      "note": "The formula now gives minutes or seconds. Reduce the source, move away and use suitable hearing protection correctly. A short duration does not guarantee no harm.",
+      "output": "15 min",
+      "pageWidth": 320,
+      "tag": "Extremely noisy",
+      "value": "100",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(255, 110, 101)",
+      "label": "Noise level",
+      "note": "Extremely loud sound can damage hearing quickly. Move away or avoid the source. These seconds are a formula demonstration, not time you can safely stay, and do not apply to impulses such as explosions.",
+      "output": "< 1 sec",
+      "pageWidth": 320,
+      "tag": "Extreme noise",
+      "value": "130",
+      "viewport": 320
+    }
+  ],
+  "calibration": [
+    {
+      "invalid": null,
+      "message": "",
+      "slider": "60.1",
+      "valid": true,
+      "value": "60.1"
+    },
+    {
+      "invalid": null,
+      "message": "",
+      "slider": "20",
+      "valid": true,
+      "value": "20"
+    },
+    {
+      "invalid": null,
+      "message": "",
+      "slider": "120",
+      "valid": true,
+      "value": "120"
+    },
+    {
+      "invalid": "true",
+      "message": "请从 20 起按 0.1 的步长输入。",
+      "slider": "60.2",
+      "valid": false,
+      "value": "60.15"
+    },
+    {
+      "invalid": "true",
+      "message": "请输入有效数字。",
+      "slider": "60",
+      "valid": false,
+      "value": "abc"
+    },
+    {
+      "invalid": "true",
+      "message": "请输入数值。",
+      "slider": "60",
+      "valid": false,
+      "value": ""
+    }
+  ],
+  "calibrationStep": {
+    "slider": "60.2",
+    "value": "60.2"
+  },
+  "calibrationError": {
+    "describedBy": "_R_a9bsivb_-calibration-hint _R_a9bsivb_-reference-error",
+    "invalid": "true",
+    "message": "请输入 20–120 dB 之间的数值，步长为 0.1。",
+    "valid": false
+  },
+  "calibrationKeyboard": {
+    "error": null,
+    "slider": "60.2",
+    "value": "60.2"
+  },
+  "calibrationMobile": {
+    "controlWidth": 150,
+    "error": "请输入 20–120 dB 之间的数值，步长为 0.1。",
+    "errorFont": "14px",
+    "font": "16px",
+    "pageWidth": 320,
+    "valid": false,
+    "value": "60.15",
+    "viewport": 320,
+    "fixed": {
+      "error": null,
+      "slider": "60.2",
+      "valid": true,
+      "value": "60.2"
+    }
+  },
+  "automated": {
+    "command": "npm run check",
+    "passed": true,
+    "tests": 106
+  },
+  "passed": true,
+  "notVerified": [
+    "真实移动设备及软键盘",
+    "真实麦克风与参考校准准确度",
+    "生产部署"
+  ],
+  "screenshots": [
+    "desktop-exposure-number-input.jpg",
+    "mobile-exposure-number-input-en-dark.jpg",
+    "desktop-calibration-number-input.jpg",
+    "mobile-calibration-number-input.jpg"
+  ]
+}

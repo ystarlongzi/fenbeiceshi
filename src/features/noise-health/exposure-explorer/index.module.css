@@ -21,27 +21,20 @@
 .inputArea {
   min-width: 0;
 }
-.number {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+.numberControl {
+  --number-input-font-size: var(--font-size-heading);
+  --number-input-height: 56px;
+  width: 190px;
+  max-width: 100%;
   margin-top: 10px;
 }
-.number input {
-  width: 124px;
-  max-width: 100%;
-  min-height: 48px;
-  padding: 8px 10px;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  background: var(--surface);
-  color: var(--ink);
-  font-size: var(--font-size-heading);
-  font-variant-numeric: tabular-nums;
-}
-.number span {
-  color: var(--muted);
-  font-size: var(--font-size-ui);
+.band {
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: var(--font-size-caption);
+  font-weight: 600;
+  line-height: 1.7;
 }
 .range {
   width: 100%;
@@ -56,9 +49,6 @@
   color: var(--muted);
   font-size: var(--font-size-caption);
   line-height: 1.6;
-}
-.number input[aria-invalid="true"] {
-  border-color: var(--error);
 }
 .explorer .help,
 .explorer .error,
@@ -76,15 +66,29 @@
   padding-left: 28px;
   border-left: 1px solid var(--line);
 }
+.duration {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 12px;
+}
 .result output {
   display: block;
-  margin-top: 12px;
-  color: var(--brand);
+  color: var(--ink);
   font-size: var(--font-size-title);
   font-weight: 650;
   font-variant-numeric: tabular-nums;
   line-height: 1.5;
   overflow-wrap: anywhere;
+}
+.durationPart {
+  display: inline-block;
+  white-space: nowrap;
+}
+.result .durationUnit {
+  font-size: var(--font-size-heading-sm);
+  font-weight: 500;
 }
 .presets {
   margin: 22px 0 0;
@@ -150,7 +154,7 @@
     border-left: 0;
     border-top: 1px solid var(--line);
   }
-  .result output {
+  .duration {
     margin-top: 6px;
   }
   .presets > div {

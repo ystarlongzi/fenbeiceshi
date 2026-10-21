@@ -6,6 +6,7 @@ import { text } from "../src/lib/content/types.ts";
 import { articles } from "../src/lib/content/articles.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
+import { exposureNotes } from "../src/features/noise-health/exposure-explorer/copy.ts";
 import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
 import {
   exposureFactors,
@@ -260,10 +261,49 @@ for (const page of sitePages) {
         for (const id of ["exposure-level-input", "exposure-level-range"]) {
           const input = visible.match(new RegExp(`<input\\b[^>]*id="${id}"[^>]*>`))?.[0];
           assert.ok(input, `健康文章缺少声级控件：${path} → ${id}`);
-          for (const attribute of ['min="85"', 'max="115"', 'step="0.5"', 'value="85"'])
+          const attributes =
+            id === "exposure-level-input"
+              ? [
+                  'type="text"',
+                  'role="spinbutton"',
+                  'aria-valuemin="40"',
+                  'aria-valuemax="130"',
+                  'value="85"',
+                ]
+              : ['min="40"', 'max="130"', 'step="0.5"', 'value="85"'];
+          for (const attribute of attributes)
             assert.ok(input.includes(attribute), `${path} → ${id} → ${attribute}`);
         }
-        assert.match(visible, /id="exposure-duration"[^>]*>[\s\S]*?8 (?:小时|hrs)<\/output>/, path);
+        assert.ok(visible.includes(locale === "en" ? "Noise level" : "噪音水平"), path);
+        assert.ok(
+          visible.includes(text(exposureNotes.reference, locale)),
+          `默认动态说明应静态输出：${path}`,
+        );
+        const duration = visible.match(
+          /<output\b[^>]*id="exposure-duration"[^>]*>([\s\S]*?)<\/output>/,
+        )?.[1];
+        assert.equal(
+          duration?.replace(/<[^>]*>/g, ""),
+          `8 ${locale === "en" ? "hrs" : "小时"}`,
+          path,
+        );
+        assert.match(
+          visible,
+          /id="exposure-duration"[^>]*style="color:var\(--noise-loud-ink\)"/,
+          `默认时长应使用 85 dBA 对应的文字色：${path}`,
+        );
+        assert.match(
+          visible,
+          new RegExp(
+            `id="exposure-level-band"[^>]*>${locale === "en" ? "Very noisy" : "很吵"}</span>`,
+          ),
+          `默认声级描述应静态输出：${path}`,
+        );
+        assert.ok(
+          visible.indexOf('id="exposure-level-band"') >
+            visible.indexOf("</output>", visible.indexOf('id="exposure-duration"')),
+          `声级标签应紧跟时长结果：${path}`,
+        );
         const referenceText = visible.replace(/<!--[\s\S]*?-->/g, "");
         for (const level of [85, 88, 91, 94, 97, 100])
           assert.ok(referenceText.includes(`${level} dBA`), `参考点必须静态可读：${path}`);

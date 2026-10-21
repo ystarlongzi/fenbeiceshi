@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-21",
+  "zh": [
+    {
+      "color": "rgb(66, 117, 44)",
+      "note": "留意声音是否影响交谈、休息或睡眠，优先处理持续、反复的噪音干扰。",
+      "output": "> 24 小时",
+      "tag": "安静",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(66, 117, 44)",
+      "tagInInput": false,
+      "value": "40"
+    },
+    {
+      "color": "rgb(137, 102, 6)",
+      "note": "调低音乐或设备音量，远离持续噪音；工作、学习间隙可到安静处休息。",
+      "output": "> 24 小时",
+      "tag": "较吵",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(137, 102, 6)",
+      "tagInInput": false,
+      "value": "70"
+    },
+    {
+      "color": "rgb(169, 76, 13)",
+      "note": "长时间或反复接触强噪音可能损伤听力。优先降低声源、缩短停留，并在需要时正确使用听力防护。",
+      "output": "8 小时",
+      "tag": "很吵",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(169, 76, 13)",
+      "tagInInput": false,
+      "value": "85"
+    },
+    {
+      "color": "rgb(185, 54, 33)",
+      "note": "应尽快降低音量或拉开距离，减少停留，并正确使用合适的听力防护。",
+      "output": "7 分钟 30 秒",
+      "tag": "极吵",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(185, 54, 33)",
+      "tagInInput": false,
+      "value": "103"
+    },
+    {
+      "color": "rgb(158, 37, 38)",
+      "note": "强烈噪音可能迅速损伤听力，应立即远离声源，避免继续暴露。",
+      "output": "< 1 秒",
+      "tag": "极强噪音",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(158, 37, 38)",
+      "tagInInput": false,
+      "value": "130"
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "note": "请检查输入的噪音水平。",
+      "output": "—",
+      "tag": null,
+      "tagAfterOutput": null,
+      "tagColor": null,
+      "tagInInput": false,
+      "value": ""
+    }
+  ],
+  "mobileZh": {
+    "output": "8 小时 58 分钟",
+    "outputFont": "32px",
+    "pageWidth": 320,
+    "tag": "较吵",
+    "tagAfterOutput": true,
+    "unitFonts": [
+      "20px",
+      "20px"
+    ],
+    "viewport": 320
+  },
+  "en": [
+    {
+      "color": "rgb(145, 200, 128)",
+      "note": "Notice whether sound interrupts conversation, rest or sleep. Address persistent or recurring disturbance first.",
+      "output": "> 24 hrs",
+      "pageWidth": 320,
+      "tag": "Quiet",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(145, 200, 128)",
+      "value": "40",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(246, 213, 120)",
+      "note": "Lower music or equipment volume and move away from continuous noise. Take breaks in a quieter place during work or study.",
+      "output": "> 24 hrs",
+      "pageWidth": 320,
+      "tag": "Fairly noisy",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(246, 213, 120)",
+      "value": "70",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(245, 164, 93)",
+      "note": "Long or repeated loud-noise exposure can damage hearing. Reduce the source, limit time nearby and use suitable hearing protection when needed.",
+      "output": "8 hrs",
+      "pageWidth": 320,
+      "tag": "Very noisy",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(245, 164, 93)",
+      "value": "85",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(255, 119, 85)",
+      "note": "Turn the volume down or move farther away promptly. Keep your stay brief and use suitable hearing protection correctly.",
+      "output": "7 min 30 sec",
+      "pageWidth": 320,
+      "tag": "Extremely noisy",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(255, 119, 85)",
+      "value": "103",
+      "viewport": 320
+    },
+    {
+      "color": "rgb(255, 110, 101)",
+      "note": "Intense noise can damage hearing quickly. Move away from the source immediately and avoid further exposure.",
+      "output": "< 1 sec",
+      "pageWidth": 320,
+      "tag": "Extreme noise",
+      "tagAfterOutput": true,
+      "tagColor": "rgb(255, 110, 101)",
+      "value": "130",
+      "viewport": 320
+    }
+  ],
+  "passed": true,
+  "screenshots": [
+    "desktop-exposure-note-tag.jpg",
+    "mobile-exposure-note-tag-en-dark.jpg"
+  ]
+}

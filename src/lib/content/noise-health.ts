@@ -148,7 +148,7 @@ export const noiseHealth: SiteContent = {
   id: "noise-health",
   slug: "knowledge/noise-and-health",
   kind: "article",
-  updated: "2026-10-20",
+  updated: "2026-10-21",
   title: t("噪音对健康的影响", "Noise and health"),
   description: t(
     "分清强声对听力的影响与日常噪音干扰，理解暴露时长、研究语境和 NIOSH 职业参考，了解减少噪音与寻求专业帮助的下一步。",

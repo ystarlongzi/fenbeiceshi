@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-21",
+  "preview": "http://127.0.0.1:3147",
+  "zh": [
+    {
+      "color": "rgb(169, 76, 13)",
+      "font": "32px",
+      "text": "8 小时",
+      "units": [
+        {
+          "color": "rgb(169, 76, 13)",
+          "font": "20px",
+          "text": "小时",
+          "weight": "500"
+        }
+      ]
+    },
+    {
+      "color": "rgb(169, 76, 13)",
+      "font": "32px",
+      "text": "7 小时 7 分钟",
+      "units": [
+        {
+          "color": "rgb(169, 76, 13)",
+          "font": "20px",
+          "text": "小时",
+          "weight": "500"
+        },
+        {
+          "color": "rgb(169, 76, 13)",
+          "font": "20px",
+          "text": "分钟",
+          "weight": "500"
+        }
+      ]
+    },
+    {
+      "color": "rgb(185, 54, 33)",
+      "font": "32px",
+      "text": "7 分钟 30 秒",
+      "units": [
+        {
+          "color": "rgb(185, 54, 33)",
+          "font": "20px",
+          "text": "分钟",
+          "weight": "500"
+        },
+        {
+          "color": "rgb(185, 54, 33)",
+          "font": "20px",
+          "text": "秒",
+          "weight": "500"
+        }
+      ]
+    },
+    {
+      "color": "rgb(185, 54, 33)",
+      "font": "32px",
+      "text": "28 秒",
+      "units": [
+        {
+          "color": "rgb(185, 54, 33)",
+          "font": "20px",
+          "text": "秒",
+          "weight": "500"
+        }
+      ]
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "font": "32px",
+      "text": "—",
+      "units": []
+    }
+  ],
+  "preset": {
+    "font": "14px",
+    "text": "8 小时",
+    "unitFont": "14px"
+  },
+  "mobileZh": {
+    "font": "32px",
+    "pageWidth": 320,
+    "unitFonts": [
+      "20px",
+      "20px"
+    ],
+    "viewport": 320
+  },
+  "en": [
+    {
+      "color": "rgb(245, 164, 93)",
+      "font": "32px",
+      "pageWidth": 320,
+      "text": "8 hrs",
+      "units": [
+        {
+          "color": "rgb(245, 164, 93)",
+          "font": "20px",
+          "text": "hrs"
+        }
+      ],
+      "viewport": 320
+    },
+    {
+      "color": "rgb(255, 119, 85)",
+      "font": "32px",
+      "pageWidth": 320,
+      "text": "7 min 30 sec",
+      "units": [
+        {
+          "color": "rgb(255, 119, 85)",
+          "font": "20px",
+          "text": "min"
+        },
+        {
+          "color": "rgb(255, 119, 85)",
+          "font": "20px",
+          "text": "sec"
+        }
+      ],
+      "viewport": 320
+    },
+    {
+      "color": "rgb(255, 119, 85)",
+      "font": "32px",
+      "pageWidth": 320,
+      "text": "28 sec",
+      "units": [
+        {
+          "color": "rgb(255, 119, 85)",
+          "font": "20px",
+          "text": "sec"
+        }
+      ],
+      "viewport": 320
+    }
+  ],
+  "passed": true,
+  "screenshots": [
+    "desktop-exposure-units.jpg",
+    "mobile-exposure-units-en-dark.jpg"
+  ]
+}

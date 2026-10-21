@@ -4,6 +4,8 @@ import { useId } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { LinkArrow } from "@/components/link-arrow";
+import { NumberInput } from "@/components/number-input";
+import { numberIssue, readNumber } from "@/components/number-input/model";
 import { Switch } from "@/components/switch";
 import { RecordingOptions } from "../../audio-recording/recording-options";
 import { meterCopy } from "../copy";
@@ -14,6 +16,8 @@ import { DeviceSelect } from "./device-select";
 import styles from "./index.module.css";
 
 export type ReferenceDraft = { enabled: boolean; value: string; source: string };
+
+const referenceBounds = { min: 20, max: 120, step: 0.1, required: true };
 
 export function MeterSettings({
   locale,
@@ -38,15 +42,15 @@ export function MeterSettings({
   const running = meter.status === "running";
   const demo = meter.status === "demo";
   const busy = running || demo || meter.status === "requesting";
-  const value = Number(reference.value);
+  const value = readNumber(reference.value) ?? NaN;
+  const referenceInvalid = numberIssue(reference.value, referenceBounds) !== null;
   const canCalibrate =
     running &&
     meter.frame &&
     !meter.frame.clipped &&
     meter.frame.value > -90 &&
     meter.frame.value <= 0 &&
-    value >= 20 &&
-    value <= 120 &&
+    !referenceInvalid &&
     reference.source.trim().length > 0;
 
   return (
@@ -147,6 +151,7 @@ export function MeterSettings({
             <div className={styles.referenceControls}>
               <input
                 type="range"
+                className={styles.referenceRange}
                 min="20"
                 max="120"
                 step="0.1"
@@ -154,26 +159,30 @@ export function MeterSettings({
                 aria-label={copy.referenceValue + (locale === "en" ? " slider" : "滑块")}
                 onChange={(event) => onReferenceChange({ ...reference, value: event.target.value })}
               />
-              <span className={styles.inputUnit}>
-                <input
-                  id={`${id}-reference`}
-                  type="number"
-                  min="20"
-                  max="120"
-                  step="0.1"
-                  required
-                  value={reference.value}
-                  onChange={(event) =>
-                    onReferenceChange({ ...reference, value: event.target.value })
-                  }
-                />
-                <span>dB</span>
-              </span>
+              <NumberInput
+                id={`${id}-reference`}
+                label={copy.referenceValue}
+                locale={locale}
+                {...referenceBounds}
+                value={reference.value}
+                onValueChange={(next) => onReferenceChange({ ...reference, value: next })}
+                suffix="dB"
+                className={styles.referenceNumber}
+                aria-describedby={`${id}-calibration-hint${referenceInvalid ? ` ${id}-reference-error` : ""}`}
+              />
             </div>
+            {referenceInvalid ? (
+              <p id={`${id}-reference-error`} className={styles.referenceError} role="status">
+                {locale === "en"
+                  ? "Enter 20–120 dB in steps of 0.1."
+                  : "请输入 20–120 dB 之间的数值，步长为 0.1。"}
+              </p>
+            ) : null}
             <label htmlFor={`${id}-source`}>
               {copy.calibrationSource}
               <input
                 id={`${id}-source`}
+                className={styles.sourceInput}
                 required
                 maxLength={120}
                 value={reference.source}

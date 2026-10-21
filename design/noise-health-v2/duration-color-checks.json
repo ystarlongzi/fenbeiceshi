@@ -1,0 +1,149 @@
+{
+  "date": "2026-10-21",
+  "preview": "http://127.0.0.1:3146",
+  "light": [
+    {
+      "color": "rgb(169, 76, 13)",
+      "colorStyle": "color:var(--noise-loud-ink)",
+      "duration": "8 小时",
+      "invalid": null,
+      "level": "85",
+      "tag": "很吵",
+      "tagColor": "rgb(169, 76, 13)"
+    },
+    {
+      "color": "rgb(169, 76, 13)",
+      "colorStyle": "color:var(--noise-loud-ink)",
+      "duration": "16 分钟 50 秒",
+      "invalid": null,
+      "level": "99.5",
+      "tag": "很吵",
+      "tagColor": "rgb(169, 76, 13)"
+    },
+    {
+      "color": "rgb(185, 54, 33)",
+      "colorStyle": "color: var(--noise-intense-ink);",
+      "duration": "15 分钟",
+      "invalid": null,
+      "level": "100",
+      "tag": "极吵",
+      "tagColor": "rgb(185, 54, 33)"
+    },
+    {
+      "color": "rgb(185, 54, 33)",
+      "colorStyle": "color: var(--noise-intense-ink);",
+      "duration": "28 秒",
+      "invalid": null,
+      "level": "115",
+      "tag": "极吵",
+      "tagColor": "rgb(185, 54, 33)"
+    },
+    {
+      "color": "rgb(169, 76, 13)",
+      "colorStyle": "color: var(--noise-loud-ink);",
+      "duration": "7 小时 7 分钟",
+      "invalid": null,
+      "level": "85.5",
+      "tag": "很吵",
+      "tagColor": "rgb(169, 76, 13)"
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "colorStyle": "",
+      "duration": "—",
+      "invalid": "true",
+      "level": "",
+      "tag": null,
+      "tagColor": null
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "colorStyle": "",
+      "duration": "—",
+      "invalid": "true",
+      "level": "84.5",
+      "tag": null,
+      "tagColor": null
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "colorStyle": "",
+      "duration": "—",
+      "invalid": "true",
+      "level": "115.5",
+      "tag": null,
+      "tagColor": null
+    },
+    {
+      "color": "rgb(32, 53, 43)",
+      "colorStyle": "",
+      "duration": "—",
+      "invalid": "true",
+      "level": "85.1",
+      "tag": null,
+      "tagColor": null
+    }
+  ],
+  "preset": {
+    "duration": "15 分钟",
+    "input": "100",
+    "slider": "100",
+    "tag": "极吵"
+  },
+  "keyboard": {
+    "duration": "7 小时 7 分钟",
+    "input": "85.5",
+    "slider": "85.5",
+    "tag": "很吵"
+  },
+  "mobileZh": {
+    "outputFont": "32px",
+    "pageWidth": 390,
+    "tag": "很吵",
+    "tagFont": "12px",
+    "viewport": 390
+  },
+  "dark": [
+    {
+      "color": "rgb(245, 164, 93)",
+      "duration": "8 hrs",
+      "level": "85",
+      "tag": "Very noisy",
+      "tagColor": "rgb(245, 164, 93)"
+    },
+    {
+      "color": "rgb(255, 119, 85)",
+      "duration": "15 min",
+      "level": "100",
+      "tag": "Extremely noisy",
+      "tagColor": "rgb(255, 119, 85)"
+    },
+    {
+      "color": "rgb(227, 237, 223)",
+      "duration": "—",
+      "level": "",
+      "tag": null,
+      "tagColor": null
+    }
+  ],
+  "mobileEnLong": {
+    "duration": "7 hrs 7 min",
+    "outputFont": "32px",
+    "pageWidth": 320,
+    "tag": "Very noisy",
+    "viewport": 320
+  },
+  "mobileEnTag": {
+    "font": "12px",
+    "label": "Extremely noisy",
+    "left": 39,
+    "pageWidth": 320,
+    "right": 150.6875,
+    "viewport": 320
+  },
+  "passed": true,
+  "screenshots": [
+    "desktop-exposure-colors.jpg",
+    "mobile-exposure-colors-en-dark.jpg"
+  ]
+}
