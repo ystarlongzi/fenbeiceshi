@@ -1,0 +1,242 @@
+{
+  "date": "2026-10-21",
+  "environment": "应用内浏览器和 Chrome 本地静态预览，手机使用模拟视口",
+  "checks": [
+    {
+      "label": "zh-iab-desktop",
+      "groups": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "getting-started",
+          "padding": "24px",
+          "questionWidth": 687,
+          "radius": "12px",
+          "width": 735
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "accuracy",
+          "padding": "24px",
+          "questionWidth": 687,
+          "radius": "12px",
+          "width": 735
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "microphone",
+          "padding": "24px",
+          "questionWidth": 687,
+          "radius": "12px",
+          "width": 735
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "readings",
+          "padding": "24px",
+          "questionWidth": 687,
+          "radius": "12px",
+          "width": 735
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "measuring",
+          "padding": "24px",
+          "questionWidth": 687,
+          "radius": "12px",
+          "width": 735
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "audio-records",
+          "padding": "24px",
+          "questionWidth": 687,
+          "radius": "12px",
+          "width": 735
+        }
+      ],
+      "height": 1025,
+      "questionCount": 17,
+      "scrollWidth": 1096,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/faq/#accuracy",
+      "width": 1096
+    },
+    {
+      "label": "en-desktop-1280",
+      "groups": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "getting-started",
+          "padding": "24px",
+          "questionWidth": 702,
+          "radius": "12px",
+          "width": 750
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "accuracy",
+          "padding": "24px",
+          "questionWidth": 702,
+          "radius": "12px",
+          "width": 750
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "microphone",
+          "padding": "24px",
+          "questionWidth": 702,
+          "radius": "12px",
+          "width": 750
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "readings",
+          "padding": "24px",
+          "questionWidth": 702,
+          "radius": "12px",
+          "width": 750
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "measuring",
+          "padding": "24px",
+          "questionWidth": 702,
+          "radius": "12px",
+          "width": 750
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "audio-records",
+          "padding": "24px",
+          "questionWidth": 702,
+          "radius": "12px",
+          "width": 750
+        }
+      ],
+      "height": 900,
+      "questionCount": 17,
+      "scrollWidth": 1280,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 1280
+    },
+    {
+      "label": "en-mobile-dark-320",
+      "groups": [
+        {
+          "background": "rgb(24, 38, 29)",
+          "id": "getting-started",
+          "padding": "20px 16px",
+          "questionWidth": 248,
+          "radius": "12px",
+          "width": 280
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "id": "accuracy",
+          "padding": "20px 16px",
+          "questionWidth": 248,
+          "radius": "12px",
+          "width": 280
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "id": "microphone",
+          "padding": "20px 16px",
+          "questionWidth": 248,
+          "radius": "12px",
+          "width": 280
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "id": "readings",
+          "padding": "20px 16px",
+          "questionWidth": 248,
+          "radius": "12px",
+          "width": 280
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "id": "measuring",
+          "padding": "20px 16px",
+          "questionWidth": 248,
+          "radius": "12px",
+          "width": 280
+        },
+        {
+          "background": "rgb(24, 38, 29)",
+          "id": "audio-records",
+          "padding": "20px 16px",
+          "questionWidth": 248,
+          "radius": "12px",
+          "width": 280
+        }
+      ],
+      "height": 740,
+      "questionCount": 17,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 320
+    },
+    {
+      "label": "zh-mobile-light-390",
+      "groups": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "getting-started",
+          "padding": "20px 16px",
+          "questionWidth": 318,
+          "radius": "12px",
+          "width": 350
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "accuracy",
+          "padding": "20px 16px",
+          "questionWidth": 318,
+          "radius": "12px",
+          "width": 350
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "microphone",
+          "padding": "20px 16px",
+          "questionWidth": 318,
+          "radius": "12px",
+          "width": 350
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "readings",
+          "padding": "20px 16px",
+          "questionWidth": 318,
+          "radius": "12px",
+          "width": 350
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "measuring",
+          "padding": "20px 16px",
+          "questionWidth": 318,
+          "radius": "12px",
+          "width": 350
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "id": "audio-records",
+          "padding": "20px 16px",
+          "questionWidth": 318,
+          "radius": "12px",
+          "width": 350
+        }
+      ],
+      "height": 844,
+      "questionCount": 17,
+      "scrollWidth": 390,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/faq/",
+      "width": 390
+    }
+  ]
+}

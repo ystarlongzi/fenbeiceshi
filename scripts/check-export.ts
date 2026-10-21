@@ -18,6 +18,7 @@ import {
   healthSources,
 } from "../src/lib/content/noise-health.ts";
 import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
+import { faqItems, homeFaqItems } from "../src/lib/content/faq.ts";
 
 const locales = ["zh-CN", "en"] as const;
 function escapeText(value: string) {
@@ -90,15 +91,20 @@ for (const page of sitePages) {
       ),
     ];
     assert.equal(navigations.length, 2, `桌面与移动抽屉均需静态输出主导航：${path}`);
-    const expectedSection = ["meter", "decibel-chart", "knowledge", "guide", "records"].includes(
-      page.id,
-    )
+    const expectedSection = [
+      "meter",
+      "decibel-chart",
+      "knowledge",
+      "guide",
+      "records",
+      "faq",
+    ].includes(page.id)
       ? page.id
       : page.slug.startsWith("knowledge/")
         ? "knowledge"
         : null;
     for (const [, navigation] of navigations) {
-      for (const id of ["meter", "decibel-chart", "knowledge", "guide", "records"])
+      for (const id of ["meter", "decibel-chart", "knowledge", "guide", "records", "faq"])
         assert.ok(
           navigation.includes(`href="${href(id, locale)}"`),
           `缺少导航入口：${path} → ${id}`,
@@ -129,6 +135,36 @@ for (const page of sitePages) {
         `缺少语言对应：${path}`,
       );
     const content = contents.find((item) => item.id === page.id);
+    if (page.id === "meter" || page.id === "faq") {
+      const visible = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
+      const questions = [
+        ...visible.matchAll(/<details\b([^>]*data-faq-id="([^"]+)"[^>]*)>([\s\S]*?)<\/details>/g),
+      ];
+      const expected = page.id === "meter" ? homeFaqItems : faqItems;
+      assert.deepEqual(
+        questions.map((match) => match[2]),
+        expected.map((item) => item.id),
+        `问题数量与顺序不正确：${path}`,
+      );
+      for (const [index, item] of expected.entries()) {
+        const [, attributes, , body] = questions[index];
+        assert.doesNotMatch(attributes, /\bopen(?:=|\s|$)/, `问题应默认收起：${path} → ${item.id}`);
+        assert.ok(body.includes(escapeText(text(item.question, locale))), path);
+        for (const paragraph of item.answer)
+          assert.ok(
+            body.includes(escapeText(text(paragraph, locale))),
+            `回答必须在静态正文：${path} → ${item.id}`,
+          );
+        assert.ok(
+          body.includes(
+            `href="${href(item.link.pageId, locale)}${item.link.hash ? `#${item.link.hash}` : ""}"`,
+          ),
+          path,
+        );
+      }
+      for (const id of ["faq", "how-it-works"])
+        assert.ok(visible.includes(`href="${href(id, locale)}"`), `缺少帮助入口：${path} → ${id}`);
+    }
     if (content) {
       const visible = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
       const excerpt = escapeText(text(content.takeaway, locale).slice(0, 18));
@@ -143,6 +179,13 @@ for (const page of sitePages) {
         content.sections.map((section) => section.id),
         `文章目录与章节不一致：${path}`,
       );
+      if (page.id === "how-it-works")
+        for (const section of content.sections)
+          for (const paragraph of section.paragraphs)
+            assert.ok(
+              visible.includes(escapeText(text(paragraph, locale))),
+              `工作原理必须静态输出：${path}`,
+            );
       if (page.id === "decibel-chart") {
         const disclosures = [...visible.matchAll(/<details\b([^>]*)>([\s\S]*?)<\/details>/g)];
         for (const note of decibelChartNotes) {

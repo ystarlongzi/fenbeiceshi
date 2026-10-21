@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "中文优先，兼顾百度、必应和 Google；同时规划英文。",
@@ -32,6 +32,121 @@
   },
   "pages": [
     {
+      "id": "how-it-works",
+      "kind": "guide",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {
+          "path": "/how-it-works/",
+          "wave": "P0",
+          "title": "网页是怎么测分贝的？ - 分贝测试",
+          "h1": "网页是怎么测分贝的？",
+          "keywords": [
+            "网页怎么测分贝",
+            "在线分贝仪工作原理"
+          ]
+        },
+        "en": {
+          "path": "/en/how-it-works/",
+          "wave": "P0",
+          "title": "How does a browser measure decibels? | fenbeiceshi.com",
+          "h1": "How does a browser measure decibels?",
+          "keywords": [
+            "how online decibel meters work",
+            "browser decibel meter explained"
+          ]
+        }
+      },
+      "intent": "用通俗步骤解释本站如何把麦克风输入变成估算读数。",
+      "uniqueValue": "四步讲清采集、采样能量、估算映射与趋势统计；技术公式详解继续归 dbfs-spl，操作说明归 guide。",
+      "sections": [
+        "麦克风接收声音",
+        "计算声音能量",
+        "换算估算分贝",
+        "显示趋势与统计",
+        "设备差异",
+        "本机音频处理"
+      ],
+      "localImplementation": {
+        "status": "implemented-not-deployed",
+        "updated": "2026-10-21",
+        "locales": [
+          "zh-CN",
+          "en"
+        ]
+      },
+      "ctaTargetId": "meter",
+      "relatedIds": [
+        "dbfs-spl",
+        "phone-accuracy",
+        "calibration",
+        "faq"
+      ],
+      "publishGate": "原理与采集及估算代码一致；说明 +100 为未经跨设备验证的产品假设；中英文静态正文与来源完整。",
+      "requiredEvidence": [
+        "本站 capture.ts、level.ts、readings.ts",
+        "MDN Web Audio 与 getUserMedia",
+        "NIOSH 特定应用验证条件"
+      ]
+    },
+    {
+      "id": "faq",
+      "kind": "guide",
+      "priority": "P0",
+      "locales": {
+        "zh-CN": {
+          "path": "/faq/",
+          "wave": "P0",
+          "title": "分贝测试常见问题 - 分贝测试",
+          "h1": "分贝测试常见问题",
+          "keywords": [
+            "分贝测试常见问题",
+            "在线分贝仪使用帮助"
+          ]
+        },
+        "en": {
+          "path": "/en/faq/",
+          "wave": "P0",
+          "title": "Decibel meter FAQ | fenbeiceshi.com",
+          "h1": "Decibel meter FAQ",
+          "keywords": [
+            "decibel meter FAQ",
+            "online decibel meter help"
+          ]
+        }
+      },
+      "intent": "按用户遇到的问题提供简短答案和下一步入口。",
+      "uniqueValue": "六组 17 问，首页精选 8 问共用同一数据与原生 details；与长篇指南分工，不拆分设备型号或同义问题页面。",
+      "sections": [
+        "开始使用",
+        "读数准不准",
+        "麦克风与故障",
+        "看懂分贝数字",
+        "怎样测和比较",
+        "录音、保存与导出"
+      ],
+      "localImplementation": {
+        "status": "implemented-not-deployed",
+        "updated": "2026-10-21",
+        "locales": [
+          "zh-CN",
+          "en"
+        ]
+      },
+      "ctaTargetId": "meter",
+      "relatedIds": [
+        "how-it-works",
+        "guide",
+        "privacy"
+      ],
+      "publishGate": "问题与真实功能一致，双语答案存在于静态 HTML，八问共用且无重复，链接及锚点有效，手机与键盘展开可用。",
+      "requiredEvidence": [
+        "共享 FAQ 数据与内容检查",
+        "静态导出与浏览器验证",
+        "现有产品操作与隐私说明"
+      ]
+    },
+    {
       "id": "meter",
       "kind": "tool",
       "priority": "P0",
@@ -41,9 +156,9 @@
       },
       "intent": "立即使用浏览器观察环境声音。",
       "uniqueValue": "估算噪音分贝、辅助输入信号、可选参考校准、同口径趋势和本机摘要共同完成一次任务。",
-      "sections": ["测量工作台与当前口径","方法、准确性与故障入口","已发布场景与精选知识"],
+      "sections": ["测量工作台与当前口径","使用方法与场景","工作原理与精选知识","八个常见问题与完整帮助入口"],
       "ctaTargetId": "meter",
-      "relatedIds": ["guide","calibration","phone-accuracy","microphone-help","room-noise"],
+      "relatedIds": ["guide","how-it-works","faq","calibration","phone-accuracy","microphone-help","room-noise"],
       "publishGate": "测量状态、设备变化、停止释放、记录和隐私行为验证；示例与真实数据明确区分。",
       "requiredEvidence": ["实际设备与浏览器测试","Web Audio 与 getUserMedia 一手资料","校准和统计口径说明"]
     },
@@ -52,8 +167,8 @@
       "kind": "guide",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/guide/","wave":"P0","title":"分贝测试使用指南：开始、结束与保存记录 - 分贝测试","h1":"如何使用分贝测试","keywords":["分贝测试使用方法","fenbeiceshi 使用指南"]},
-        "en": {"path":"/en/guide/","wave":"P0","title":"How to Use This Decibel Meter | fenbeiceshi.com","h1":"How to use this decibel meter","keywords":["fenbeiceshi decibel meter guide","how to use this decibel meter"]}
+        "zh-CN": {"path":"/guide/","wave":"P0","title":"分贝测试怎么用？ - 分贝测试","h1":"分贝测试怎么用？","keywords":["分贝测试使用方法","fenbeiceshi 使用指南"]},
+        "en": {"path":"/en/guide/","wave":"P0","title":"How do I use the decibel meter? | fenbeiceshi.com","h1":"How do I use the decibel meter?","keywords":["fenbeiceshi decibel meter guide","how to use this decibel meter"]}
       },
       "intent": "了解本站已经实现的操作流程。",
       "uniqueValue": "按本站真实状态说明开始、模式、结束和本机记录，承担产品手册职责。",
@@ -68,8 +183,8 @@
       "kind": "guide",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/calibration/","wave":"P0","title":"分贝测试参考校准：方法与适用条件 - 分贝测试","h1":"参考校准与适用条件","keywords":["在线分贝测试校准","网页分贝仪参考校准"]},
-        "en": {"path":"/en/calibration/","wave":"P0","title":"Reference Calibration for This Decibel Meter | fenbeiceshi.com","h1":"Reference calibration and its limits","keywords":["calibrate online decibel meter","reference calibration sound meter"]}
+        "zh-CN": {"path":"/calibration/","wave":"P0","title":"有参考声级计，怎样校准？ - 分贝测试","h1":"有参考声级计，怎样校准？","keywords":["在线分贝测试校准","网页分贝仪参考校准"]},
+        "en": {"path":"/en/calibration/","wave":"P0","title":"How do I calibrate with a reference meter? | fenbeiceshi.com","h1":"How do I calibrate with a reference meter?","keywords":["calibrate online decibel meter","reference calibration sound meter"]}
       },
       "intent": "判断是否具备参考校准条件并进入实际流程。",
       "uniqueValue": "说明参考设备、输入设置、保存关系与失效条件；不把默认偏移量当作校准。",
@@ -84,14 +199,14 @@
       "kind": "hub",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/knowledge/","wave":"P0","title":"声音知识与测量方法 - 分贝测试","h1":"声音知识与测量方法","keywords":["分贝知识","噪音测量基础"]},
-        "en": {"path":"/en/knowledge/","wave":"P0","title":"Sound Measurement Guides and Explanations | fenbeiceshi.com","h1":"Sound measurement guides","keywords":["sound measurement guides","decibel meter help"]}
+        "zh-CN": {"path":"/knowledge/","wave":"P0","title":"分贝知识与使用帮助 - 分贝测试","h1":"分贝怎么看，噪音怎么测？","keywords":["分贝知识","噪音测量基础"]},
+        "en": {"path":"/en/knowledge/","wave":"P0","title":"Decibel guides and help | fenbeiceshi.com","h1":"Decibel readings, explained","keywords":["sound measurement guides","decibel meter help"]}
       },
       "intent": "按问题找到相关解释和方法。",
-      "uniqueValue": "按理解读数、查询声音参考和解决使用问题组织已发布内容，提供可抓取目录与使用指南辅助入口。",
-      "sections": ["理解读数","查询声音参考","解决使用问题"],
+      "uniqueValue": "按理解读数、查询声音参考、噪音与健康和解决使用问题组织文章，提供可抓取目录及使用指南、工作原理、常见问题入口。",
+      "sections": ["使用帮助入口","理解读数","查询声音参考","了解噪音与健康","解决使用问题"],
       "ctaTargetId": "guide",
-      "relatedIds": ["phone-accuracy","dbfs-spl","decibel-chart","microphone-help"],
+      "relatedIds": ["how-it-works","faq","guide","phone-accuracy","dbfs-spl","decibel-chart","noise-health","microphone-help"],
       "publishGate": "至少首批四篇基础内容已发布；只列当前语言可用条目。",
       "requiredEvidence": ["已发布内容注册表"]
     },
@@ -100,8 +215,8 @@
       "kind": "article",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/knowledge/phone-decibel-accuracy/","wave":"P0","title":"手机测分贝准吗？设备、校准与使用边界 - 分贝测试","h1":"手机测分贝准吗？","keywords":["手机测分贝准吗","手机噪音测试准确吗","网页分贝仪准确吗"]},
-        "en": {"path":"/en/knowledge/phone-decibel-accuracy/","wave":"P0","title":"Are Phone Decibel Meters Accurate? | fenbeiceshi.com","h1":"Are phone decibel meters accurate?","keywords":["are phone decibel meters accurate","online decibel meter accuracy"]}
+        "zh-CN": {"path":"/knowledge/phone-decibel-accuracy/","wave":"P0","title":"手机测分贝准吗？ - 分贝测试","h1":"手机测分贝准吗？","keywords":["手机测分贝准吗","手机噪音测试准确吗","网页分贝仪准确吗"]},
+        "en": {"path":"/en/knowledge/phone-decibel-accuracy/","wave":"P0","title":"How accurate is a phone decibel meter? | fenbeiceshi.com","h1":"How accurate is a phone decibel meter?","keywords":["are phone decibel meters accurate","online decibel meter accuracy"]}
       },
       "intent": "判断手机或网页读数是否能用于当前目的。",
       "uniqueValue": "区分默认通用估算、可选参考校准和需要专业验证的任务。",
@@ -116,8 +231,8 @@
       "kind": "article",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"dBFS 与 dB SPL 有什么区别？为什么不能直接换算 - 分贝测试","h1":"dBFS 与 dB SPL 有什么区别？","keywords":["dBFS 是什么","dBFS 和 dB SPL 区别","dBFS 转 dB SPL"]},
-        "en": {"path":"/en/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"dBFS vs dB SPL: Why There Is No Universal Conversion | fenbeiceshi.com","h1":"dBFS vs dB SPL","keywords":["dBFS vs dB SPL","convert dBFS to SPL"]}
+        "zh-CN": {"path":"/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"为什么网页读数和声级计不一样？ - 分贝测试","h1":"为什么网页读数和声级计不一样？","keywords":["dBFS 是什么","dBFS 和 dB SPL 区别","dBFS 转 dB SPL"]},
+        "en": {"path":"/en/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"Why does a browser reading differ from a sound level meter? | fenbeiceshi.com","h1":"Why does a browser reading differ from a sound level meter?","keywords":["dBFS vs dB SPL","convert dBFS to SPL"]}
       },
       "intent": "理解相对数字电平与环境声压级的关系。",
       "uniqueValue": "用输入链路解释参考量、增益、通用估算假设与参考校准，不把产品默认偏移当作万能换算常数。",
@@ -149,8 +264,8 @@
       "kind": "article",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/knowledge/microphone-permission/","wave":"P0","title":"网页麦克风打不开？分贝测试权限与故障排查 - 分贝测试","h1":"麦克风权限与故障排查","keywords":["网页麦克风打不开","分贝测试没反应","麦克风权限被拒绝"]},
-        "en": {"path":"/en/knowledge/microphone-permission/","wave":"P0","title":"Microphone Permission Denied? Fix Your Decibel Meter | fenbeiceshi.com","h1":"Microphone permission and troubleshooting","keywords":["microphone permission denied","decibel meter not working","browser microphone not working"]}
+        "zh-CN": {"path":"/knowledge/microphone-permission/","wave":"P0","title":"麦克风打不开怎么办？ - 分贝测试","h1":"麦克风打不开怎么办？","keywords":["网页麦克风打不开","分贝测试没反应","麦克风权限被拒绝"]},
+        "en": {"path":"/en/knowledge/microphone-permission/","wave":"P0","title":"Why isn't my microphone working? | fenbeiceshi.com","h1":"Why isn't my microphone working?","keywords":["microphone permission denied","decibel meter not working","browser microphone not working"]}
       },
       "intent": "根据失败原因恢复测量。",
       "uniqueValue": "区分拒绝、等待、无设备、占用、安全上下文与站点策略，不按设备型号复制页面。",

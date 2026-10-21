@@ -2,6 +2,7 @@ import type { Locale } from "@/features/sound-meter/types";
 import type { SitePage } from "@/lib/routing/pages";
 import { ContentPage } from "../content-page";
 import { KnowledgePage } from "../knowledge-page";
+import { FaqPage } from "../faq-page";
 import { RecordsPanel } from "@/features/records";
 import { DecibelChart } from "@/features/decibel-chart";
 import { NoiseHealthArticle } from "@/features/noise-health";
@@ -11,6 +12,7 @@ export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) 
   if (page.kind === "knowledge") return <KnowledgePage locale={locale} />;
   if (page.id === "decibel-chart") return <DecibelChart locale={locale} />;
   if (page.id === "noise-health") return <NoiseHealthArticle locale={locale} />;
+  if (page.id === "faq") return <FaqPage locale={locale} />;
   if (page.kind === "records")
     return (
       <div className={styles.records}>
@@ -18,7 +20,7 @@ export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) 
           <p className={styles.eyebrow}>
             {locale === "en" ? "YOUR OBSERVATIONS" : "每一次观察，都留下条件"}
           </p>
-          <h1>{locale === "en" ? "Your local sound records" : "本机声音观察记录"}</h1>
+          <h1>{locale === "en" ? "My measurement records" : "我的测量记录"}</h1>
           <p className={styles.intro}>
             {locale === "en"
               ? "Revisit saved summaries, or compare two observations made under the same conditions."

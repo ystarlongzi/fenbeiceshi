@@ -25,25 +25,78 @@
   line-height: 1.9;
   color: var(--muted);
   max-width: 650px;
-  margin: 15px 0 18px;
+  margin: 15px 0 0;
 }
-.guideLink {
-  display: inline-flex;
+.helpLinks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+.helpCard {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.helpCardHeading {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: var(--font-size-ui);
+  gap: 12px;
+}
+.helpCardHeading > svg {
   color: var(--brand);
-  min-height: 32px;
+}
+.helpCard h2 {
+  margin: 0;
+  font-size: var(--font-size-heading-sm);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+.helpCard > p {
+  margin: 14px 0 20px;
+  color: var(--text-body);
+  font-size: var(--font-size-ui);
+  line-height: 1.9;
+}
+.helpCardAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--brand);
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
+}
+.helpCard:focus-visible {
+  border-color: var(--brand);
+  background: var(--surface-soft);
+}
+.helpCard:active {
+  background: var(--surface-pressed);
 }
 .directory {
-  border-top: 1px solid var(--line-strong);
+  display: grid;
+  gap: 20px;
 }
 .group {
   display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 44px;
-  padding-block: 32px;
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 28px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.groupIntro {
+  padding-right: 24px;
+  border-right: 1px solid var(--line);
 }
 .groupIntro h2 {
   font-size: var(--font-size-heading);
@@ -95,15 +148,24 @@
 .links > a:focus-visible h3 {
   color: var(--brand);
 }
+.links > a:focus-visible {
+  background: var(--surface-soft);
+}
 @media (hover: hover) and (pointer: fine) {
   .links > a:hover {
-    background: var(--surface);
+    background: var(--surface-soft);
   }
-  .links > a:hover h3,
-  .guideLink:hover {
+  .links > a:hover h3 {
     color: var(--brand);
     text-decoration: underline;
     text-underline-offset: 4px;
+  }
+  .helpCard:hover {
+    border-color: var(--line-accent);
+    background: var(--surface-soft);
+  }
+  .helpCard:hover h2 {
+    color: var(--brand);
   }
 }
 .help {
@@ -139,10 +201,24 @@
   white-space: nowrap;
   min-height: 44px;
 }
+@media (max-width: 860px) {
+  .helpLinks {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .helpCard {
+    padding: 20px;
+  }
+}
 @media (max-width: 760px) {
   .group {
-    grid-template-columns: 170px minmax(0, 1fr);
-    gap: 28px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .groupIntro {
+    padding: 0 0 20px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 }
 @media (max-width: 680px) {
@@ -152,10 +228,31 @@
   .header {
     margin-bottom: 28px;
   }
+  .helpCard {
+    position: relative;
+  }
+  .helpCardHeading {
+    padding-right: 24px;
+  }
+  .helpCard > p {
+    margin: 10px 0 0;
+  }
+  .helpCardAction {
+    position: absolute;
+    top: 27px;
+    right: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .helpCardActionLabel {
+    display: none;
+  }
+  .directory {
+    gap: 16px;
+  }
   .group {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-    padding-block: 26px;
+    padding: 20px;
   }
   .groupIntro h2 {
     margin-bottom: 6px;

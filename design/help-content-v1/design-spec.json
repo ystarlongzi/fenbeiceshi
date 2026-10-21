@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "updated": "2026-10-21",
+  "status": "implemented-and-locally-verified",
+  "task": "开始测量，或按问题理解读数、解决操作问题；首页测量仍为主任务。",
+  "hierarchy": {
+    "home": "保留工具、方法、场景、知识与 FAQ 的顺序；知识区增加工作原理导读；FAQ 为按需收尾。",
+    "faq": "六组连续阅读章节、17 个原生 details；每个分类以白色主题表面统一标题、说明和问题，暗色随主题使用深色表面；问题通栏展示，章节线和问题线建立内部层级，目录辅助定位。",
+    "howItWorks": "连续阅读四个处理步骤，之后说明设备差异与隐私；复用正文和目录，不添加无关容器。"
+  },
+  "routes": [
+    "/faq/",
+    "/en/faq/",
+    "/how-it-works/",
+    "/en/how-it-works/"
+  ],
+  "homeQuestions": [
+    "install",
+    "devices",
+    "accuracy",
+    "calibration",
+    "permission",
+    "audio",
+    "background",
+    "reports"
+  ],
+  "content": {
+    "faq": "src/lib/content/faq.ts",
+    "howItWorks": "src/lib/content/how-it-works.ts",
+    "sharedView": "src/components/faq-list/"
+  },
+  "entryPoints": [
+    "首页知识区",
+    "首页 FAQ",
+    "知识目录",
+    "主导航的常见问题",
+    "页脚"
+  ],
+  "navigation": "手机抽屉保留六项；761–1140px 收起使用指南和 FAQ；工作原理不增加主导航项目。",
+  "faqLayout": {
+    "task": "按自己遇到的问题找到分类、展开答案，再进入对应详细帮助。",
+    "desktop": "主内容始终为单栏章节；分类标题与说明在空间允许时并排，问题通栏展示；模块内边距 24px、组间 24px，右侧目录保留。",
+    "narrow": "760px 及以下分类标题与说明上下相邻，模块内边距 20px 16px、组间 20px；问题仍通栏展示，保留完整字号和自然换行。",
+    "surface": "每个分类使用 var(--surface)，亮色为白色、暗色为主题深色，圆角 12px，无外框或阴影；分类标题下使用 2px 章节线，问题间使用 1px 分隔线，不为单个问题新增表面。",
+    "expanded": "展开的问题使用品牌色标题与答案左侧细线；答案和详细帮助入口相邻，保留原生 details、键盘操作与默认收起。",
+    "scope": "FaqPage 通过 ContentPage 的 children 组合分类；FaqList 的 grouped 变体仅用于完整页，首页继续使用 plain 列表；样式在相邻 CSS Modules。"
+  },
+  "titles": "标题使用直接问题和清楚任务，术语放入正文并解释。既有 URL 与章节 ID 保留，元数据及双语同步。",
+  "rendering": "正文与原生问答静态输出；只复用已有目录和站点导航客户端边界，无新增依赖。",
+  "measurement": "保留 generic-rms-v1 与参考偏移；未声称支持 dBA、专业精度或标准判定。",
+  "verification": "../../docs/验证/帮助内容与标题优化验证.md",
+  "screenshots": {
+    "home": "home-faq-desktop-zh.jpg",
+    "faqDesktop": "faq-surface-desktop-zh.jpg",
+    "faqDesktopEnglish": "faq-surface-desktop-en.jpg",
+    "faqMobile": "faq-surface-mobile-zh.jpg",
+    "faqMobileEnglish": "faq-surface-mobile-dark-en.jpg",
+    "principle": "principle-desktop-zh.jpg",
+    "principleMobile": "principle-mobile-dark-zh.jpg"
+  },
+  "browserChecks": "browser-checks.json",
+  "faqHierarchyChecks": "faq-hierarchy-checks.json",
+  "faqReadingChecks": "faq-reading-checks.json",
+  "faqSurfaceChecks": "faq-surface-checks.json"
+}

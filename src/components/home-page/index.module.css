@@ -293,22 +293,22 @@
 .articles {
   border-top: 1px solid var(--line-strong);
 }
-.healthGuide {
+.readingGuide {
   margin-top: 28px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
 }
-.healthGuide strong {
+.readingGuide strong {
   font-size: var(--font-size-body);
   font-weight: 600;
 }
-.healthGuide p {
+.readingGuide p {
   margin: 8px 0 12px;
   color: var(--muted);
   font-size: var(--font-size-body);
   line-height: 1.8;
 }
-.healthGuide a {
+.readingGuide a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -364,35 +364,14 @@
   font-size: var(--font-size-body);
   margin-top: 13px;
 }
-.questions {
-  border-top: 1px solid var(--line);
-}
-.faq details {
-  border-bottom: 1px solid var(--line);
-  padding: 22px 0;
-}
-.faq summary {
-  display: flex;
+.faqLink {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: var(--font-size-body);
-  font-weight: 550;
-  line-height: 1.8;
-  cursor: pointer;
-  list-style: none;
-}
-.faq summary::-webkit-details-marker {
-  display: none;
-}
-.faq details[open] summary svg {
-  transform: rotate(180deg);
-}
-.faq details p {
-  font-size: var(--font-size-body);
-  color: var(--muted);
-  line-height: 2;
-  margin: 14px 30px 0 0;
+  gap: 8px;
+  margin-top: 20px;
+  min-height: 44px;
+  color: var(--brand);
+  font-size: var(--font-size-ui);
 }
 @media (prefers-reduced-motion: reduce) {
   .scene,
@@ -518,8 +497,5 @@
   }
   .questions {
     margin-top: 24px;
-  }
-  .faq details {
-    padding-block: 20px;
   }
 }

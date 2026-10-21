@@ -1,0 +1,101 @@
+{
+  "chrome": {
+    "initial": [
+      {
+        "level": "error",
+        "message": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.\n    at e (chrome-extension://necpbmbhhdiplmfhmjicabdeighkndkn/frame/frame.js:1:41650)\n    at t.onload (chrome-extension://necpbmbhhdiplmfhmjicabdeighkndkn/frame/frame.js:1:42219)",
+        "timestamp": "2026-10-21T06:27:13.522Z",
+        "url": "chrome-extension://necpbmbhhdiplmfhmjicabdeighkndkn/frame/frame.js"
+      },
+      {
+        "level": "error",
+        "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+        "timestamp": "2026-10-21T06:27:43.491Z",
+        "url": "http://127.0.0.1:3100/faq/"
+      }
+    ],
+    "dom": {
+      "extensionAssetUrls": [
+        "chrome-extension://ibdfeimkglcmdejppabkaidpippniiob/content/windowDataMessage.js"
+      ],
+      "injectedPanel": true,
+      "page": "/faq/",
+      "questions": 17,
+      "scripts": [
+        "/_next/static/chunks/4bd1b696-7a3b7f6429414305.js",
+        "/_next/static/chunks/794-22b7f0fc22a540ba.js",
+        "/_next/static/chunks/main-app-6a074dfff0e14e31.js",
+        "/_next/static/chunks/500-9d2a77de23464304.js",
+        "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "/_next/static/chunks/webpack-2d303d6922d9be04.js",
+        "/content/windowDataMessage.js"
+      ]
+    },
+    "probe": {
+      "dom": {
+        "injectedPanel": true,
+        "nextScripts": 0,
+        "page": "/channel-probe-zillr1lr/",
+        "sameOriginScripts": 0
+      },
+      "logs": [
+        {
+          "level": "error",
+          "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+          "timestamp": "2026-10-21T06:30:05.343Z",
+          "url": "http://127.0.0.1:3100/channel-probe-zillr1lr/"
+        }
+      ]
+    }
+  },
+  "inApp": {
+    "initial": [],
+    "dom": {
+      "extensionAssetUrls": [],
+      "injectedPanel": false,
+      "page": "/faq/",
+      "questions": 17,
+      "scripts": [
+        "/_next/static/chunks/4bd1b696-7a3b7f6429414305.js",
+        "/_next/static/chunks/794-22b7f0fc22a540ba.js",
+        "/_next/static/chunks/main-app-6a074dfff0e14e31.js",
+        "/_next/static/chunks/500-9d2a77de23464304.js",
+        "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "/_next/static/chunks/webpack-2d303d6922d9be04.js"
+      ]
+    },
+    "probe": {
+      "dom": {
+        "injectedPanel": false,
+        "page": "/channel-probe-zillr1lr/",
+        "scripts": 0
+      },
+      "logs": []
+    },
+    "afterInteractions": {
+      "page": "http://127.0.0.1:3100/en/how-it-works/",
+      "logs": []
+    },
+    "restored": {
+      "page": "http://127.0.0.1:3100/faq/",
+      "questions": 17,
+      "logs": []
+    }
+  },
+  "date": "2026-10-21",
+  "conclusion": "这条消息通道错误来自 Chrome 扩展环境；不依赖本站应用代码。具体扩展未逐个隔离。",
+  "sameAppScripts": true,
+  "sourceChecks": {
+    "chromeRuntime": 0,
+    "browserRuntime": 0,
+    "runtimeSendMessage": 0,
+    "runtimeOnMessage": 0,
+    "errorTextInBundles": 0,
+    "standardMessageChannelInBundles": 2
+  },
+  "references": [
+    "https://developer.chrome.com/docs/extensions/develop/concepts/messaging",
+    "https://github.com/chromium/chromium/blob/main/extensions/browser/api/messaging/extension_message_port.cc#L54"
+  ],
+  "limitations": "Chrome 扩展管理页访问被浏览器 URL 安全策略阻止；没有禁用、卸载或更改扩展设置，没有录音或使用真实麦克风。"
+}

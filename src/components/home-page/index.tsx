@@ -3,11 +3,13 @@ import { SoundMeter } from "@/features/sound-meter";
 import { RecordsPanel } from "@/features/records";
 import type { Locale } from "@/features/sound-meter/types";
 import { articles } from "@/lib/content/articles";
+import { homeFaqItems } from "@/lib/content/faq";
 import { text } from "@/lib/content/types";
 import { href, SITE_URL } from "@/lib/routing/pages";
 import { Icon, type IconName } from "../icon";
 import { LinkArrow } from "../link-arrow";
 import { StructuredData } from "../structured-data";
+import { FaqList } from "../faq-list";
 import styles from "./index.module.css";
 
 export function HomePage({ locale }: { locale: Locale }) {
@@ -21,7 +23,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   }[] = en
     ? [
         {
-          title: "Find your room baseline",
+          title: "Check your room's noise",
           description:
             "Observe the same spot at different times. Keep a note of windows and background activity.",
           note: "Same position · repeat observations",
@@ -46,7 +48,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       ]
     : [
         {
-          title: "找到房间的声音基线",
+          title: "看看房间有多吵",
           description: "在相同位置，观察不同时段的声音。记下门窗状态和背景活动。",
           note: "固定位置 · 重复观察",
           icon: "house",
@@ -84,7 +86,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       ]
     : [
         { title: "打开麦克风", body: "点击开始，并允许访问当前麦克风。" },
-        { title: "观察一段变化", body: "先确认读数口径，保持设备、位置和输入设置稳定。" },
+        { title: "观察声音变化", body: "查看估算读数，保持设备、位置和输入设置稳定。" },
         { title: "把条件一起记下", body: "结束后保存本机摘要，在相同条件下再次观察。" },
       ];
   return (
@@ -135,7 +137,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className={styles.stepsSection}>
         <div>
           <p className={styles.eyebrow}>{en ? "HOW TO USE" : "使用方法"}</p>
-          <h2>{en ? "Three steps to a useful observation" : "一次观察，做好这三步"}</h2>
+          <h2>{en ? "Start measuring in three steps" : "三步开始测分贝"}</h2>
           <Link href={href("guide", locale)}>
             {en ? "Read the guide" : "完整使用指南"}
             <LinkArrow size={14} />
@@ -192,7 +194,9 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className={styles.knowledge}>
         <div className={styles.knowledgeLead}>
           <p className={styles.eyebrow}>{en ? "SOUND KNOWLEDGE" : "声音知识"}</p>
-          <h2>{en ? "Understand the reading before you decide" : "先读懂数字，\n再作判断"}</h2>
+          <h2>
+            {en ? "How accurate is it?\nWhat do the numbers mean?" : "读数准不准，\n分贝怎么看？"}
+          </h2>
           <p className={styles.sectionIntro}>
             {en
               ? "How accurate is the reading? What do the units mean? Start with the questions that help you use the tool."
@@ -202,7 +206,19 @@ export function HomePage({ locale }: { locale: Locale }) {
             {en ? "All guides" : "全部声音知识"}
             <LinkArrow size={15} />
           </Link>
-          <div className={styles.healthGuide}>
+          <div className={styles.readingGuide}>
+            <strong>{en ? "How the meter works" : "网页是怎么测分贝的？"}</strong>
+            <p>
+              {en
+                ? "Your microphone picks up sound. The page calculates its energy, then displays an estimate and a trend."
+                : "麦克风接收声音，网页计算声音能量，再显示估算分贝和变化趋势。"}
+            </p>
+            <Link href={href("how-it-works", locale)}>
+              {en ? "Follow the four steps" : "四步看懂工作原理"}
+              <LinkArrow size={15} />
+            </Link>
+          </div>
+          <div className={styles.readingGuide}>
             <strong>{en ? "Noise & health" : "噪音与健康"}</strong>
             <p>
               {en
@@ -230,56 +246,21 @@ export function HomePage({ locale }: { locale: Locale }) {
             ))}
         </div>
       </section>
-      <section className={styles.faq}>
+      <section className={styles.faq} id="faq" aria-labelledby="faq-title">
         <div className={styles.faqLead}>
           <p className={styles.eyebrow}>{en ? "COMMON QUESTIONS" : "常见问题"}</p>
-          <h2>{en ? "Before you begin" : "开始前的几个问题"}</h2>
+          <h2 id="faq-title">{en ? "Questions about using the meter" : "使用时，你可能想问"}</h2>
           <p className={styles.sectionIntro}>
             {en
-              ? "Audio privacy, reading units and the limits of background measurement."
-              : "先了解隐私、读数口径与后台测量限制。"}
+              ? "Start here for devices, accuracy, microphone access and saving results."
+              : "设备能不能用、读数准不准、麦克风打不开、结果怎么保存，都从这里找答案。"}
           </p>
+          <Link className={styles.faqLink} href={href("faq", locale)}>
+            {en ? "View all questions" : "查看全部常见问题"}
+            <LinkArrow size={15} />
+          </Link>
         </div>
-        <div className={styles.questions}>
-          {(en
-            ? [
-                {
-                  q: "Does it record or upload my audio?",
-                  a: "Recording is off by default. Turn on Record audio before measuring to play or download MP3 / PCM afterward. Save report can keep audio in this browser for later downloads from history. Unsaved audio is cleared on reload or a new recording. Audio is never uploaded; exported data summaries exclude it.",
-                },
-                {
-                  q: "Do I need to calibrate before starting?",
-                  a: "No. The default is a generic, uncalibrated estimate. The meter, scale, trend and statistics use the same mapping. A reference meter can optionally adjust it for this device. Device differences still affect accuracy; this is not dBA or a certified measurement.",
-                },
-                {
-                  q: "Can I leave it running with the screen locked?",
-                  a: "This version stops capture when the page leaves the foreground. It does not promise background or overnight monitoring.",
-                },
-              ]
-            : [
-                {
-                  q: "会录音或上传我的声音吗？",
-                  a: "录音默认关闭。测量前开启同步录音，结束后可播放或下载 MP3 / PCM；保存报告时可将录音留在当前浏览器，以后从历史记录下载。未保存的录音在刷新或新录音后清除。音频不上传服务器，导出的数据摘要不包含原始声音。",
-                },
-                {
-                  q: "开始测量前，一定要先校准吗？",
-                  a: "不用。默认提供标注未校准的通用估算，仪表、色带、趋势和统计共用同一映射。有参考声级计时，可选用校准修正当前设备的偏移。设备差异仍会影响结果，它不是 dBA 或认证测量。",
-                },
-                {
-                  q: "能在锁屏或后台一直测量吗？",
-                  a: "首版在页面离开前台时停止采集并保留有效摘要，不承诺后台或整夜监测。",
-                },
-              ]
-          ).map((item) => (
-            <details key={item.q}>
-              <summary>
-                {item.q}
-                <Icon name="chevron-down" size={17} />
-              </summary>
-              <p>{item.a}</p>
-            </details>
-          ))}
-        </div>
+        <FaqList items={homeFaqItems} locale={locale} className={styles.questions} />
       </section>
     </>
   );

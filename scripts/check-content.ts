@@ -15,6 +15,7 @@ import {
   noiseHealth,
 } from "../src/lib/content/noise-health.ts";
 import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
+import { faqGroups, faqItems, homeFaqIds, homeFaqItems } from "../src/lib/content/faq.ts";
 
 const locales = ["zh-CN", "en"] as const;
 const ids = sitePages.map((page) => page.id);
@@ -23,8 +24,8 @@ const paths = sitePages.flatMap((page) => locales.map((locale) => href(page.id, 
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
-  22,
-  "当前可索引页面为 22 个",
+  26,
+  "当前可索引页面为 26 个",
 );
 assert.equal(sitePages.find((page) => page.id === "records")?.index, false);
 for (const content of contents) {
@@ -56,6 +57,20 @@ for (const content of contents) {
   }
 }
 const plan = JSON.parse(await readFile("docs/产品/页面与关键词映射.json", "utf8"));
+assert.equal(faqGroups.length, 6, "完整常见问题按六类组织");
+assert.equal(faqItems.length, 17, "完整常见问题应保留 17 个独立问题");
+assert.equal(new Set(faqItems.map((item) => item.id)).size, faqItems.length, "问题 ID 不得重复");
+assert.equal(homeFaqItems.length, 8, "首页展示八个常见问题");
+assert.equal(new Set(homeFaqIds).size, 8, "首页问题不得重复");
+for (const item of faqItems) {
+  assert.ok(ids.includes(item.link.pageId), `问题的详细帮助必须可用：${item.id}`);
+  assert.ok(item.answer.length, `问题必须有回答：${item.id}`);
+  for (const language of ["zh", "en"] as const)
+    assert.ok(
+      item.question[language] && item.link.label[language] && item.answer.every((p) => p[language]),
+      `问题缺少双语内容：${item.id}`,
+    );
+}
 const soundIds = soundReferences.map((sound) => sound.id);
 assert.equal(new Set(soundIds).size, soundIds.length, "声音参考 ID 不得重复");
 assert.ok(soundReferences.length >= 30, "分贝对照页应保留完整的日常声音覆盖");
@@ -115,5 +130,5 @@ for (const page of sitePages.filter((page) => page.index)) {
   for (const locale of locales) assert.equal(candidate.locales[locale].path, href(page.id, locale));
 }
 console.log(
-  `内容检查通过：${contents.length} 个双语正文，22 个可索引 URL，2 个 noindex 功能 URL。`,
+  `内容检查通过：${contents.length} 个双语正文，26 个可索引 URL，2 个 noindex 功能 URL。`,
 );

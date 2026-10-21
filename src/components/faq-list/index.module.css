@@ -1,0 +1,84 @@
+.list {
+  border-top: 1px solid var(--line);
+}
+.list details {
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+.list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 64px;
+  padding-block: 18px;
+  font-size: var(--font-size-body);
+  font-weight: 550;
+  line-height: 1.8;
+  cursor: pointer;
+  list-style: none;
+}
+.list summary::-webkit-details-marker {
+  display: none;
+}
+.list summary svg {
+  flex-shrink: 0;
+  color: var(--text-accent);
+}
+.list summary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.list details[open] summary svg {
+  transform: rotate(180deg);
+}
+.answer {
+  padding: 0 24px 22px 0;
+}
+.list .answer p {
+  margin: 0 0 12px;
+  font-size: var(--font-size-body);
+  color: var(--text-body);
+  line-height: 1.9;
+}
+.answer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-size: var(--font-size-ui);
+  color: var(--brand);
+}
+.answer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.grouped {
+  border-top: 0;
+}
+.grouped details[open] summary {
+  color: var(--brand);
+  font-weight: 600;
+}
+.grouped .answer {
+  margin-bottom: 24px;
+  border-left: 2px solid var(--line-accent);
+  padding: 0 24px 0 18px;
+}
+@media (hover: hover) {
+  .grouped summary:hover {
+    color: var(--brand);
+  }
+}
+@media (max-width: 760px) {
+  .list summary {
+    gap: 14px;
+  }
+  .answer {
+    padding-right: 0;
+  }
+  .grouped .answer {
+    padding-inline: 14px 0;
+  }
+}

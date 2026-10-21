@@ -1,0 +1,374 @@
+{
+  "date": "2026-10-21",
+  "environment": "应用内浏览器和 Chrome 本地静态预览，手机使用模拟视口",
+  "checks": [
+    {
+      "label": "zh-iab-desktop",
+      "fonts": {
+        "answer": "16px",
+        "category": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "display": "block",
+          "groupWidth": 735,
+          "headerDisplay": "flex",
+          "id": "getting-started",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 735
+        },
+        {
+          "display": "block",
+          "groupWidth": 735,
+          "headerDisplay": "flex",
+          "id": "accuracy",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 735
+        },
+        {
+          "display": "block",
+          "groupWidth": 735,
+          "headerDisplay": "flex",
+          "id": "microphone",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 735
+        },
+        {
+          "display": "block",
+          "groupWidth": 735,
+          "headerDisplay": "flex",
+          "id": "readings",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 735
+        },
+        {
+          "display": "block",
+          "groupWidth": 735,
+          "headerDisplay": "flex",
+          "id": "measuring",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 735
+        },
+        {
+          "display": "block",
+          "groupWidth": 735,
+          "headerDisplay": "flex",
+          "id": "audio-records",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 735
+        }
+      ],
+      "height": 1025,
+      "open": [
+        "faq-accuracy"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 1096,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/faq/#accuracy",
+      "width": 1096
+    },
+    {
+      "label": "en-desktop-1280",
+      "fonts": {
+        "answer": "16px",
+        "category": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "getting-started",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "accuracy",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "microphone",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "readings",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "measuring",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "audio-records",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        }
+      ],
+      "height": 900,
+      "open": [
+        "faq-accuracy"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 1280,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 1280
+    },
+    {
+      "label": "en-keyboard-space-close",
+      "fonts": {
+        "answer": "16px",
+        "category": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "getting-started",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "accuracy",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "microphone",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "readings",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "measuring",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        },
+        {
+          "display": "block",
+          "groupWidth": 750,
+          "headerDisplay": "flex",
+          "id": "audio-records",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 750
+        }
+      ],
+      "height": 900,
+      "open": [],
+      "questionCount": 17,
+      "scrollWidth": 1280,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 1280
+    },
+    {
+      "label": "en-mobile-dark-320",
+      "fonts": {
+        "answer": "16px",
+        "category": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "display": "block",
+          "groupWidth": 280,
+          "headerDisplay": "block",
+          "id": "getting-started",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 280
+        },
+        {
+          "display": "block",
+          "groupWidth": 280,
+          "headerDisplay": "block",
+          "id": "accuracy",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 280
+        },
+        {
+          "display": "block",
+          "groupWidth": 280,
+          "headerDisplay": "block",
+          "id": "microphone",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 280
+        },
+        {
+          "display": "block",
+          "groupWidth": 280,
+          "headerDisplay": "block",
+          "id": "readings",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 280
+        },
+        {
+          "display": "block",
+          "groupWidth": 280,
+          "headerDisplay": "block",
+          "id": "measuring",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 280
+        },
+        {
+          "display": "block",
+          "groupWidth": 280,
+          "headerDisplay": "block",
+          "id": "audio-records",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 280
+        }
+      ],
+      "height": 740,
+      "open": [
+        "faq-missing-records"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 320
+    },
+    {
+      "label": "zh-mobile-light-390",
+      "fonts": {
+        "answer": "16px",
+        "category": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "display": "block",
+          "groupWidth": 350,
+          "headerDisplay": "block",
+          "id": "getting-started",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 350
+        },
+        {
+          "display": "block",
+          "groupWidth": 350,
+          "headerDisplay": "block",
+          "id": "accuracy",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 350
+        },
+        {
+          "display": "block",
+          "groupWidth": 350,
+          "headerDisplay": "block",
+          "id": "microphone",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 350
+        },
+        {
+          "display": "block",
+          "groupWidth": 350,
+          "headerDisplay": "block",
+          "id": "readings",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 350
+        },
+        {
+          "display": "block",
+          "groupWidth": 350,
+          "headerDisplay": "block",
+          "id": "measuring",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 350
+        },
+        {
+          "display": "block",
+          "groupWidth": 350,
+          "headerDisplay": "block",
+          "id": "audio-records",
+          "listBackground": "rgba(0, 0, 0, 0)",
+          "listRadius": "0px",
+          "questionWidth": 350
+        }
+      ],
+      "height": 844,
+      "open": [
+        "faq-install"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 390,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/faq/",
+      "width": 390
+    }
+  ]
+}

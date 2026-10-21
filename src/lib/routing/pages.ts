@@ -1,10 +1,12 @@
 import { articles } from "../content/articles.ts";
 import { guides } from "../content/guides.ts";
+import { faq } from "../content/faq.ts";
+import { howItWorks } from "../content/how-it-works.ts";
 import { dual, text, type Dual } from "../content/types.ts";
 import type { Locale } from "../../features/sound-meter/types.ts";
 
 export const SITE_URL = "https://fenbeiceshi.com";
-export const contents = [...guides, ...articles];
+export const contents = [...guides, howItWorks, faq, ...articles];
 export interface SitePage {
   id: string;
   slug: string;
@@ -30,10 +32,10 @@ export const sitePages: SitePage[] = [
     id: "knowledge",
     slug: "knowledge",
     kind: "knowledge",
-    title: dual("声音知识与测量方法", "Sound Measurement Guides"),
+    title: dual("分贝知识与使用帮助", "Decibel guides and help"),
     description: dual(
-      "理解读数、参考校准与麦克风权限，按问题找到适合的声音观察方法。",
-      "Understand sound readings, reference calibration and microphone permissions with practical guides.",
+      "了解网页怎么测分贝、读数准不准，查询常见声音，找到测量方法与使用问题的答案。",
+      "Learn how browser readings work, check accuracy, look up everyday sounds and find practical measurement help.",
     ),
     index: true,
   },
@@ -41,9 +43,9 @@ export const sitePages: SitePage[] = [
     id: "records",
     slug: "records",
     kind: "records",
-    title: dual("本机观察记录", "Local Observation Records"),
+    title: dual("我的测量记录", "My measurement records"),
     description: dual(
-      "查看、导出、删除与比较当前浏览器保存的声音观察摘要。",
+      "查看、导出、删除与比较保存在当前浏览器的测量结果。",
       "View, export, delete and compare observation summaries saved in this browser.",
     ),
     index: false,

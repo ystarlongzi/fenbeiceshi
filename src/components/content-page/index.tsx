@@ -14,12 +14,14 @@ export function ContentPage({
   id,
   locale,
   sectionContent = {},
+  children,
   className = "",
   cta,
 }: {
   id: string;
   locale: Locale;
   sectionContent?: Record<string, ReactNode>;
+  children?: ReactNode;
   className?: string;
   cta?: { title: string; description: string; href: string; label: string };
 }) {
@@ -27,7 +29,7 @@ export function ContentPage({
   if (!content) throw new Error(`缺少正文：${id}`);
   const en = locale === "en";
   const action = cta ?? {
-    title: en ? "Put the method into practice" : "带着这些条件，开始一次观察",
+    title: en ? "Try a measurement" : "开始一次测量",
     description: en
       ? "Start with a noise estimate. Add reference calibration when available."
       : "先看估算噪音分贝，有条件时再选用参考校准。",
@@ -74,7 +76,7 @@ export function ContentPage({
               : "声音知识"
             : en
               ? "HELP & METHODS"
-              : "方法与说明"}
+              : "使用帮助"}
         </p>
         <h1>{text(content.title, locale)}</h1>
         <div className={styles.meta}>
@@ -90,46 +92,47 @@ export function ContentPage({
             <Icon name="book-open" size={19} />
             <p>{text(content.takeaway, locale)}</p>
           </div>
-          {content.sections.map((section) => (
-            <section key={section.id} id={section.id}>
-              <h2>{text(section.title, locale)}</h2>
-              {section.paragraphs.map((paragraph, i) => (
-                <p key={i}>{text(paragraph, locale)}</p>
-              ))}
-              {sectionContent[section.id]}
-              {section.items ? (
-                <ul>
-                  {section.items.map((item, i) => (
-                    <li key={i}>{text(item, locale)}</li>
-                  ))}
-                </ul>
-              ) : null}
-              {section.table ? (
-                <div className={styles.tableWrap}>
-                  <table>
-                    <thead>
-                      <tr>
-                        {section.table.headers.map((header, i) => (
-                          <th key={i} scope="col">
-                            {text(header, locale)}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {section.table.rows.map((row, i) => (
-                        <tr key={i}>
-                          {row.map((cell, j) => (
-                            <td key={j}>{text(cell, locale)}</td>
+          {children ??
+            content.sections.map((section) => (
+              <section key={section.id} id={section.id}>
+                <h2>{text(section.title, locale)}</h2>
+                {section.paragraphs.map((paragraph, i) => (
+                  <p key={i}>{text(paragraph, locale)}</p>
+                ))}
+                {sectionContent[section.id]}
+                {section.items ? (
+                  <ul>
+                    {section.items.map((item, i) => (
+                      <li key={i}>{text(item, locale)}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {section.table ? (
+                  <div className={styles.tableWrap}>
+                    <table>
+                      <thead>
+                        <tr>
+                          {section.table.headers.map((header, i) => (
+                            <th key={i} scope="col">
+                              {text(header, locale)}
+                            </th>
                           ))}
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ) : null}
-            </section>
-          ))}
+                      </thead>
+                      <tbody>
+                        {section.table.rows.map((row, i) => (
+                          <tr key={i}>
+                            {row.map((cell, j) => (
+                              <td key={j}>{text(cell, locale)}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : null}
+              </section>
+            ))}
           <section className={styles.sources}>
             <h2>{en ? "Sources and references" : "来源与参考"}</h2>
             <ul>

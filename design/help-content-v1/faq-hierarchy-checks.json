@@ -1,0 +1,664 @@
+{
+  "date": "2026-10-21",
+  "environment": "本地静态预览；Chrome 实际浏览器，手机为模拟视口",
+  "checks": [
+    {
+      "label": "zh-desktop-1280",
+      "activeToc": "#getting-started",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "220px 502px",
+          "id": "getting-started",
+          "label": "开始使用",
+          "questions": 2,
+          "top": 281
+        },
+        {
+          "columns": "220px 502px",
+          "id": "accuracy",
+          "label": "读数准不准",
+          "questions": 4,
+          "top": 461
+        },
+        {
+          "columns": "220px 502px",
+          "id": "microphone",
+          "label": "麦克风与故障",
+          "questions": 2,
+          "top": 961
+        },
+        {
+          "columns": "220px 502px",
+          "id": "readings",
+          "label": "看懂分贝数字",
+          "questions": 3,
+          "top": 1142
+        },
+        {
+          "columns": "220px 502px",
+          "id": "measuring",
+          "label": "怎样测和比较",
+          "questions": 2,
+          "top": 1388
+        },
+        {
+          "columns": "220px 502px",
+          "id": "audio-records",
+          "label": "录音、保存与导出",
+          "questions": 4,
+          "top": 1569
+        }
+      ],
+      "height": 900,
+      "open": [
+        "faq-accuracy"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 1280,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/faq/",
+      "width": 1280
+    },
+    {
+      "label": "en-desktop-keyboard-enter",
+      "activeToc": "#getting-started",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "220px 502px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": 281
+        },
+        {
+          "columns": "220px 502px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": 461
+        },
+        {
+          "columns": "220px 502px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": 1051
+        },
+        {
+          "columns": "220px 502px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": 1260
+        },
+        {
+          "columns": "220px 502px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": 1507
+        },
+        {
+          "columns": "220px 502px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": 1725
+        }
+      ],
+      "height": 900,
+      "open": [
+        "faq-accuracy"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 1280,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 1280
+    },
+    {
+      "label": "en-keyboard-space-close",
+      "activeToc": "#getting-started",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "220px 502px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": 281
+        },
+        {
+          "columns": "220px 502px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": 461
+        },
+        {
+          "columns": "220px 502px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": 802
+        },
+        {
+          "columns": "220px 502px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": 1012
+        },
+        {
+          "columns": "220px 502px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": 1258
+        },
+        {
+          "columns": "220px 502px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": 1477
+        }
+      ],
+      "height": 900,
+      "open": [],
+      "questionCount": 17,
+      "scrollWidth": 1280,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 1280
+    },
+    {
+      "label": "en-desktop-1024",
+      "activeToc": "#getting-started",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "220px 415px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": 311
+        },
+        {
+          "columns": "220px 415px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": 492
+        },
+        {
+          "columns": "220px 415px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": 862
+        },
+        {
+          "columns": "220px 415px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": 1100
+        },
+        {
+          "columns": "220px 415px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": 1375
+        },
+        {
+          "columns": "220px 415px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": 1613
+        }
+      ],
+      "height": 900,
+      "open": [],
+      "questionCount": 17,
+      "scrollWidth": 1024,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 1024
+    },
+    {
+      "label": "en-group-breakpoint-1000",
+      "activeToc": "#getting-started",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "704px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": 281
+        },
+        {
+          "columns": "704px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": 551
+        },
+        {
+          "columns": "704px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": 952
+        },
+        {
+          "columns": "704px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": 1222
+        },
+        {
+          "columns": "704px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": 1557
+        },
+        {
+          "columns": "704px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": 1827
+        }
+      ],
+      "height": 900,
+      "open": [],
+      "questionCount": 17,
+      "scrollWidth": 1000,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 1000
+    },
+    {
+      "label": "en-mobile-390-long-answer",
+      "activeToc": "#audio-records",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "350px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": -1779
+        },
+        {
+          "columns": "350px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": -1497
+        },
+        {
+          "columns": "350px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": -1000
+        },
+        {
+          "columns": "350px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": -689
+        },
+        {
+          "columns": "350px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": -286
+        },
+        {
+          "columns": "350px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": 50
+        }
+      ],
+      "height": 844,
+      "open": [
+        "faq-missing-records"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 390,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/",
+      "width": 390
+    },
+    {
+      "label": "en-mobile-390-reports-and-toc",
+      "activeToc": "#audio-records",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "350px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": -1685
+        },
+        {
+          "columns": "350px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": -1402
+        },
+        {
+          "columns": "350px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": -905
+        },
+        {
+          "columns": "350px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": -594
+        },
+        {
+          "columns": "350px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": -192
+        },
+        {
+          "columns": "350px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": 145
+        }
+      ],
+      "height": 844,
+      "open": [
+        "faq-reports"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 390,
+      "theme": "light",
+      "url": "http://127.0.0.1:3100/en/faq/#audio-records",
+      "width": 390
+    },
+    {
+      "label": "en-mobile-dark-320",
+      "activeToc": "#readings",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "280px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": -1392
+        },
+        {
+          "columns": "280px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": -1081
+        },
+        {
+          "columns": "280px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": -526
+        },
+        {
+          "columns": "280px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": -161
+        },
+        {
+          "columns": "280px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": 299
+        },
+        {
+          "columns": "280px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": 664
+        }
+      ],
+      "height": 740,
+      "open": [
+        "faq-reports"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "url": "http://127.0.0.1:3100/en/faq/#audio-records",
+      "width": 320
+    },
+    {
+      "label": "en-mobile-dark-320-long-answer",
+      "activeToc": "#audio-records",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "280px",
+          "id": "getting-started",
+          "label": "Getting started",
+          "questions": 2,
+          "top": -2532
+        },
+        {
+          "columns": "280px",
+          "id": "accuracy",
+          "label": "Understanding accuracy",
+          "questions": 4,
+          "top": -2221
+        },
+        {
+          "columns": "280px",
+          "id": "microphone",
+          "label": "Microphone problems",
+          "questions": 2,
+          "top": -1666
+        },
+        {
+          "columns": "280px",
+          "id": "readings",
+          "label": "Reading the numbers",
+          "questions": 3,
+          "top": -1301
+        },
+        {
+          "columns": "280px",
+          "id": "measuring",
+          "label": "Measuring and comparing",
+          "questions": 2,
+          "top": -841
+        },
+        {
+          "columns": "280px",
+          "id": "audio-records",
+          "label": "Audio, saving and exports",
+          "questions": 4,
+          "top": -476
+        }
+      ],
+      "height": 740,
+      "open": [
+        "faq-reports",
+        "faq-missing-records"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "url": "http://127.0.0.1:3100/en/faq/#audio-records",
+      "width": 320
+    },
+    {
+      "label": "zh-mobile-dark-390",
+      "activeToc": "#getting-started",
+      "fonts": {
+        "answer": "16px",
+        "groupTitle": "24px",
+        "question": "16px",
+        "title": "32px"
+      },
+      "groups": [
+        {
+          "columns": "350px",
+          "id": "getting-started",
+          "label": "开始使用",
+          "questions": 2,
+          "top": 349
+        },
+        {
+          "columns": "350px",
+          "id": "accuracy",
+          "label": "读数准不准",
+          "questions": 4,
+          "top": 790
+        },
+        {
+          "columns": "350px",
+          "id": "microphone",
+          "label": "麦克风与故障",
+          "questions": 2,
+          "top": 1204
+        },
+        {
+          "columns": "350px",
+          "id": "readings",
+          "label": "看懂分贝数字",
+          "questions": 3,
+          "top": 1516
+        },
+        {
+          "columns": "350px",
+          "id": "measuring",
+          "label": "怎样测和比较",
+          "questions": 2,
+          "top": 1864
+        },
+        {
+          "columns": "350px",
+          "id": "audio-records",
+          "label": "录音、保存与导出",
+          "questions": 4,
+          "top": 2118
+        }
+      ],
+      "height": 844,
+      "open": [
+        "faq-install"
+      ],
+      "questionCount": 17,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "url": "http://127.0.0.1:3100/faq/",
+      "width": 390
+    }
+  ],
+  "principleRegression": {
+    "scrollWidth": 1280,
+    "sections": [
+      {
+        "id": "capture",
+        "title": "01 麦克风接收周围的声音"
+      },
+      {
+        "id": "calculate",
+        "title": "02 计算一小段声音的能量"
+      },
+      {
+        "id": "estimate",
+        "title": "03 换算为你看到的估算分贝"
+      },
+      {
+        "id": "display",
+        "title": "04 显示变化，并汇总本次结果"
+      },
+      {
+        "id": "limits",
+        "title": "为什么设备不同，读数也不同？"
+      },
+      {
+        "id": "privacy",
+        "title": "声音会被上传或保存吗？"
+      }
+    ],
+    "theme": "light",
+    "tocLinks": 6,
+    "url": "http://127.0.0.1:3100/how-it-works/",
+    "width": 1280
+  }
+}

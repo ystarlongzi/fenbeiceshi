@@ -1,0 +1,242 @@
+{
+  "date": "2026-10-21",
+  "browser": "Chrome",
+  "build": "static export",
+  "checks": [
+    {
+      "page": "/faq/",
+      "questions": 17,
+      "scrollWidth": 1280,
+      "sections": 6,
+      "selected": [
+        "常见问题",
+        "常见问题"
+      ],
+      "width": 1280
+    },
+    {
+      "keyboardClosed": true
+    },
+    {
+      "answerFont": "16px",
+      "keyboardOpened": true
+    },
+    {
+      "h1": "Decibel meter FAQ",
+      "page": "/en/faq/",
+      "questions": 17,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    {
+      "menuLinks": 6,
+      "page": "/en/how-it-works/",
+      "scrollLocked": true,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "menuClosed": true,
+      "page": "/how-it-works/",
+      "scrollRestored": true,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "titleFont": "32px",
+      "width": 390
+    },
+    {
+      "activeToc": "计算声音能量",
+      "hash": "#estimate",
+      "page": "/how-it-works/",
+      "targetTop": 495,
+      "phase": "during-smooth-scroll"
+    },
+    {
+      "answerFont": "16px",
+      "page": "/faq/",
+      "questions": 17,
+      "reportsOpen": true,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "lastAnswerOpen": true,
+      "page": "/en/faq/",
+      "questions": 17,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "h1": "在线分贝测试看见声音的变化",
+      "menuVisible": false,
+      "page": "/",
+      "questions": 8,
+      "scrollWidth": 1280,
+      "visibleNav": [
+        "开始测量",
+        "分贝对照表",
+        "声音知识",
+        "使用指南",
+        "本机记录",
+        "常见问题"
+      ],
+      "width": 1280
+    },
+    {
+      "h1": "Online decibel meterSound, in context.",
+      "menuVisible": true,
+      "page": "/en/",
+      "questions": 8,
+      "scrollWidth": 390,
+      "visibleNav": [],
+      "width": 390
+    },
+    {
+      "h1": "分贝测试常见问题",
+      "menuVisible": false,
+      "page": "/faq/",
+      "questions": 17,
+      "scrollWidth": 761,
+      "visibleNav": [
+        "开始测量",
+        "分贝对照表",
+        "声音知识",
+        "本机记录"
+      ],
+      "width": 761
+    },
+    {
+      "h1": "Decibel meter FAQ",
+      "menuVisible": false,
+      "page": "/en/faq/",
+      "questions": 17,
+      "scrollWidth": 1024,
+      "visibleNav": [
+        "Measure",
+        "Decibel chart",
+        "Guides",
+        "Records"
+      ],
+      "width": 1024
+    },
+    {
+      "h1": "Decibel meter FAQ",
+      "menuVisible": true,
+      "page": "/en/faq/",
+      "questions": 17,
+      "scrollWidth": 760,
+      "visibleNav": [],
+      "width": 760
+    },
+    {
+      "h1": "网页是怎么测分贝的？",
+      "menuVisible": true,
+      "page": "/how-it-works/",
+      "questions": 0,
+      "scrollWidth": 390,
+      "visibleNav": [],
+      "width": 390
+    },
+    {
+      "h1": "How does a browser measure decibels?",
+      "menuVisible": true,
+      "page": "/en/how-it-works/",
+      "questions": 0,
+      "scrollWidth": 320,
+      "visibleNav": [],
+      "width": 320
+    },
+    {
+      "h1": "分贝怎么看，噪音怎么测？",
+      "menuVisible": false,
+      "page": "/knowledge/",
+      "questions": 0,
+      "scrollWidth": 1280,
+      "visibleNav": [
+        "开始测量",
+        "分贝对照表",
+        "声音知识",
+        "使用指南",
+        "本机记录",
+        "常见问题",
+        "使用指南",
+        "工作原理",
+        "常见问题"
+      ],
+      "width": 1280
+    },
+    {
+      "h1": "Decibel readings, explained",
+      "menuVisible": true,
+      "page": "/en/knowledge/",
+      "questions": 0,
+      "scrollWidth": 320,
+      "visibleNav": [
+        "How to use",
+        "How it works",
+        "Common questions"
+      ],
+      "width": 320
+    },
+    {
+      "activeToc": "换算估算分贝",
+      "hash": "#estimate",
+      "page": "/how-it-works/",
+      "phase": "scroll-complete",
+      "targetTop": 190
+    },
+    {
+      "page": "/en/faq/",
+      "themeRestored": "light"
+    },
+    {
+      "answer": "本站提供粗略的噪音分贝估算，方便在同一设备、位置和设置下观察变化。通用估算没有经过跨设备声学精度验证，我们不承诺固定误差范围。需要准确声压级或专业结论时，应使用适合该用途的仪器和方法。",
+      "homeAnswerOpen": true
+    },
+    {
+      "fromHomePrincipleLink": true,
+      "h1": "网页是怎么测分贝的？",
+      "page": "/how-it-works/",
+      "steps": 4
+    }
+  ],
+  "consoleEntries": [
+    {
+      "level": "error",
+      "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      "timestamp": "2026-10-21T06:06:29.449Z",
+      "url": "http://127.0.0.1:3100/"
+    },
+    {
+      "level": "error",
+      "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      "timestamp": "2026-10-21T06:08:28.603Z",
+      "url": "http://127.0.0.1:3100/"
+    },
+    {
+      "level": "error",
+      "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      "timestamp": "2026-10-21T06:17:02.627Z",
+      "url": "http://127.0.0.1:3100/"
+    },
+    {
+      "level": "error",
+      "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      "timestamp": "2026-10-21T06:17:25.689Z",
+      "url": "http://127.0.0.1:3100/faq/"
+    },
+    {
+      "level": "error",
+      "message": "Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received",
+      "timestamp": "2026-10-21T06:19:23.225Z",
+      "url": "http://127.0.0.1:3100/en/faq/"
+    }
+  ],
+  "consoleNote": "后续纯静态同源页面与独立浏览器对照，确认这条消息通道错误来自 Chrome 扩展环境；原始日志保留，详细证据见 message-channel-checks.json。",
+  "consoleDiagnosis": {
+    "status": "extension-environment-confirmed",
+    "evidence": "message-channel-checks.json",
+    "specificExtension": "not-isolated",
+    "applicationChangeRequired": false
+  }
+}

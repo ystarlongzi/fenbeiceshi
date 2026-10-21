@@ -24,6 +24,7 @@ export type IconName =
   | "trash"
   | "arrow-right"
   | "circle-alert"
+  | "circle-question-mark"
   | "x"
   | "external-link"
   | "sun"

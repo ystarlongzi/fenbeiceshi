@@ -6,7 +6,7 @@ export const guides: SiteContent[] = [
     slug: "guide",
     kind: "guide",
     updated: "2026-10-21",
-    title: t("从一次观察开始", "Start with one observation"),
+    title: t("分贝测试怎么用？", "How do I use the decibel meter?"),
     description: t(
       "开始测量、切换仪表、进入全屏，以及结束后保存报告的方法。",
       "How to start, change displays, use fullscreen and save a local observation summary.",
@@ -28,7 +28,7 @@ export const guides: SiteContent[] = [
       },
       {
         id: "mode",
-        title: t("02 先看口径，再看数字", "02 Check the mode before the number"),
+        title: t("02 看懂估算读数", "02 Understand the estimate"),
         paragraphs: [
           t(
             "默认显示通用估算噪音分贝，并标注未校准。仪表、色带、趋势、平均值和最大最小值使用同一套估算；设备差异可能造成明显偏差。具备参考声级计时，可选用参考校准，替换通用偏移。",
@@ -83,14 +83,14 @@ export const guides: SiteContent[] = [
         url: "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia",
       },
     ],
-    related: ["calibration", "microphone-help", "dbfs-spl"],
+    related: ["how-it-works", "faq", "calibration", "microphone-help", "dbfs-spl"],
   },
   {
     id: "calibration",
     slug: "calibration",
     kind: "guide",
-    updated: "2026-10-18",
-    title: t("建立一个有条件的声音参考", "Establish a sound reference, with its conditions"),
+    updated: "2026-10-21",
+    title: t("有参考声级计，怎样校准？", "How do I calibrate with a reference meter?"),
     description: t(
       "使用参考声级计建立单点估算关系，了解输入要求、有效条件和参考校准的限制。",
       "Establish a single-point estimate with a reference sound level meter and understand its input requirements and limits.",
@@ -112,11 +112,11 @@ export const guides: SiteContent[] = [
       },
       {
         id: "steps",
-        title: t("在本站建立参考关系", "Set a reference in this tool"),
+        title: t("怎样输入参考读数？", "How do I enter a reference reading?"),
         paragraphs: [
           t(
-            "先开始一次真实测量，确认输入稳定且未接近满幅。展开设备与记录中的参考校准，填写参考声级计读数与来源，再建立参考关系。首版接受 20–120 dB 的参考值，这只是工具输入范围，不代表已验证的测量量程。",
-            "Begin a real measurement and confirm a stable input without a full-scale warning. Open Reference calibration under Input & context, enter the reference reading and source, and set the reference. The accepted 20–120 dB range is an input constraint, not a validated measurement range.",
+            "先开始一次真实测量，确认输入稳定且没有过载提示。在“测量设置”中开启“参考校准”，填写参考声级计读数与来源，再建立参考关系。手机或全屏时，先点击“设置”打开抽屉。工具接受 20–120 dB 的参考值，这只是输入范围，不代表已验证的测量量程。",
+            "Begin a real measurement and confirm a stable input without an overload warning. Enable Reference calibration in Measurement settings, enter the reference reading and source, then set the reference. On a phone or in fullscreen, open Settings first. The accepted 20–120 dB range is an input constraint, not a validated measurement range.",
           ),
           t(
             "估算值由当前 dBFS 加上参考偏移得到。参考偏移会替换通用模型的 +100，应用于本次输入的仪表、色带、趋势、统计、记录和导出；不会在通用偏移上再次叠加。结果明确标为估算 dB，而不是 dBA。参考值、来源和时间随摘要保留。",
@@ -126,7 +126,7 @@ export const guides: SiteContent[] = [
       },
       {
         id: "validity",
-        title: t("什么时候需要重新建立？", "When do you need a new reference?"),
+        title: t("什么时候需要重新校准？", "When do I need to calibrate again?"),
         paragraphs: [
           t(
             "首版参考关系仅在当前页面停留期间保留；刷新后恢复通用估算。切换麦克风会清除参考，重新开始时也会核对输入与音频处理设置。即使设置看似一致，声源频谱、音量或系统自动处理变化仍可能影响估算。",

@@ -17,11 +17,8 @@ export const articles: SiteContent[] = [
     id: "phone-accuracy",
     slug: "knowledge/phone-decibel-accuracy",
     kind: "article",
-    updated: "2026-10-18",
-    title: t(
-      "手机测分贝准吗？先确认你要比较什么",
-      "Are phone decibel meters accurate? Start with your purpose",
-    ),
+    updated: "2026-10-21",
+    title: t("手机测分贝准吗？", "How accurate is a phone decibel meter?"),
     description: t(
       "了解手机麦克风、自动处理与参考校准的影响，区分通用噪音估算、参考校准和专业检测。",
       "Understand microphone differences, audio processing and reference calibration before using a phone or browser reading.",
@@ -33,7 +30,7 @@ export const articles: SiteContent[] = [
     sections: [
       {
         id: "purpose",
-        title: t("先问：你希望得到什么答案？", "First, decide what you need to know"),
+        title: t("可以用来做什么？", "What can I use it for?"),
         paragraphs: [
           t(
             "比较空调开关前后、记录某个位置的变化，与判断是否符合法规，是不同的任务。前者需要固定条件并反复观察；后者还需要符合要求的仪器、测量方法和适用标准。",
@@ -85,7 +82,7 @@ export const articles: SiteContent[] = [
       },
       {
         id: "choose",
-        title: t("怎样选择下一步", "Choose your next step"),
+        title: t("什么时候需要专业测量？", "When do I need professional measurement?"),
         paragraphs: [
           t(
             "只想观察变化，可以先使用通用估算，并固定条件。具备参考声级计时，可按校准方法调整当前设备的偏移。涉及法律、职业安全或健康决定时，应选择适合该用途的专业测量，不用此网页读数下结论。",
@@ -107,15 +104,18 @@ export const articles: SiteContent[] = [
     id: "dbfs-spl",
     slug: "knowledge/dbfs-vs-db-spl",
     kind: "article",
-    updated: "2026-10-18",
-    title: t("dBFS 与 dB SPL：相同的 dB，不同的参考", "dBFS vs dB SPL: different reference points"),
+    updated: "2026-10-21",
+    title: t(
+      "为什么网页读数和声级计不一样？",
+      "Why does a browser reading differ from a sound level meter?",
+    ),
     description: t(
       "解释数字音频电平与环境声压级为什么不能直接换算，以及本站通用估算、参考校准与原始输入的关系。",
       "Learn why digital audio level cannot be universally converted to sound pressure level, and how this tool labels each mode.",
     ),
     takeaway: t(
-      "dB 描述相对某个参考量的对数比值。dBFS 的参考是数字满幅，dB SPL 的参考是声压；缺少设备和输入链路的参考关系，就没有通用换算常数。",
-      "A decibel expresses a logarithmic ratio to a reference. dBFS refers to digital full scale; dB SPL refers to sound pressure. There is no universal conversion without an input-specific reference.",
+      "网页先读到麦克风产生的数字输入，而声级计测量的是声压。前者通常用 dBFS 表示，后者常写作 dB SPL。没有当前设备的可靠参考关系，就不能把两个数字直接当成同一回事。",
+      "A browser reads digital microphone input, while a sound level meter measures sound pressure. These use different references, called dBFS and dB SPL. Without a reliable reference for the current input, the two numbers cannot be treated as equivalent.",
     ),
     sections: [
       {
@@ -134,7 +134,7 @@ export const articles: SiteContent[] = [
       },
       {
         id: "rms",
-        title: t("本站怎样计算相对电平？", "How this tool calculates relative level"),
+        title: t("麦克风输入的数字怎么算？", "How is the microphone input level calculated?"),
         paragraphs: [
           t(
             "本站对采样窗口求均方能量，采用 10 × log10(均方能量)，以满幅样本幅度 1 为参考，标为 RMS dBFS。这里不采用将满幅正弦定义为 0 的其他计量约定。",
@@ -148,7 +148,10 @@ export const articles: SiteContent[] = [
       },
       {
         id: "estimate",
-        title: t("通用估算与参考校准", "Generic estimation and reference calibration"),
+        title: t(
+          "默认估算和校准后的读数有什么不同？",
+          "What changes when I calibrate the estimate?",
+        ),
         paragraphs: [
           t(
             "本站默认通用模型为 generic-rms-v1：估算 dB = RMS dBFS + 100。例如原始 -40 dBFS 显示约 60 dB。100 是用于粗略显示的产品假设，不是设备灵敏度或通用声压换算常数，没有获得跨设备声学精度验证。仪表 0–120 的刻度也不代表经过验证的测量量程。",
@@ -182,18 +185,15 @@ export const articles: SiteContent[] = [
         url: "https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/getFloatTimeDomainData",
       },
     ],
-    related: ["phone-accuracy", "calibration", "guide"],
+    related: ["how-it-works", "phone-accuracy", "calibration", "guide"],
   },
   decibelChart,
   {
     id: "microphone-help",
     slug: "knowledge/microphone-permission",
     kind: "article",
-    updated: "2026-10-20",
-    title: t(
-      "麦克风打不开？按现象检查权限与输入",
-      "Microphone not working? Check access and input",
-    ),
+    updated: "2026-10-21",
+    title: t("麦克风打不开怎么办？", "Why isn't my microphone working?"),
     description: t(
       "处理网页麦克风授权等待、被拒绝、设备未找到、占用和系统中断，恢复分贝测试操作。",
       "Troubleshoot pending or denied microphone permission, missing inputs, device conflicts and interrupted browser capture.",

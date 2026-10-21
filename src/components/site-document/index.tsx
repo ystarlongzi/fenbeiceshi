@@ -27,6 +27,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
       optional: true,
     },
     { id: "records", label: english ? "Records" : "本机记录", icon: "save", optional: false },
+    { id: "faq", label: english ? "FAQ" : "常见问题", icon: "book-open", optional: true },
   ] as const;
   const other = english ? "zh-CN" : "en";
   return (
@@ -86,6 +87,10 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
             </div>
             <nav aria-label={english ? "Footer" : "页脚导航"}>
               <Link href={href("guide", locale)}>{english ? "How to use" : "使用指南"}</Link>
+              <Link href={href("how-it-works", locale)}>
+                {english ? "How it works" : "工作原理"}
+              </Link>
+              <Link href={href("faq", locale)}>{english ? "FAQ" : "常见问题"}</Link>
               <Link href={href("calibration", locale)}>{english ? "Calibration" : "参考校准"}</Link>
               <Link href={href("about", locale)}>{english ? "About" : "关于"}</Link>
               <Link href={href("privacy", locale)}>{english ? "Privacy" : "隐私说明"}</Link>
