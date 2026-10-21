@@ -137,7 +137,7 @@
     "css": "所属组件的 CSS Modules；复用主题与固定字号变量",
     "dependencies": "无新增依赖；正文、来源、默认值及六个参考点均静态输出",
     "links": "保留原中英 URL、自 canonical、双向 hreflang、已有章节锚点与对照页入口",
-    "numberInput": "src/components/number-input/ 共享输入、单位、步进与可访问性；本组件和参考校准同时使用，无新增依赖。"
+    "numberInput": "src/components/number-input/ 共享输入、单位、步进与可访问性；本组件和参考校准同时使用，无新增依赖。右侧步进按钮随控件内聚焦以 250ms 展开，失焦后收起且不占宽度；按钮接收键盘焦点时保持展开，减少动态效果时直接切换。"
   },
   "validation": {
     "automated": "见 docs/验证/健康文章层级与暴露时长验证.md",
@@ -152,7 +152,8 @@
     "durationColorEvidence": "duration-color-checks.json",
     "durationUnitEvidence": "duration-unit-checks.json",
     "numberInputEvidence": "number-input-checks.json",
-    "noteTagEvidence": "note-tag-checks.json"
+    "noteTagEvidence": "note-tag-checks.json",
+    "numberInputFocusEvidence": "number-input-focus-checks.json"
   },
   "screenshots": [
     "before-desktop.jpg",
@@ -177,6 +178,10 @@
     "desktop-calibration-number-input.jpg",
     "mobile-calibration-number-input.jpg",
     "desktop-exposure-note-tag.jpg",
-    "mobile-exposure-note-tag-en-dark.jpg"
+    "mobile-exposure-note-tag-en-dark.jpg",
+    "desktop-number-input-blurred.jpg",
+    "desktop-number-input-focused.jpg",
+    "mobile-number-input-focused-en-dark.jpg",
+    "mobile-calibration-number-input-focused.jpg"
   ]
 }

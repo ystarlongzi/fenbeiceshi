@@ -84,7 +84,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 一个主要搜索意图对应一个页面；新增 URL 前确认现有归属与独有任务，不为近义词、城市、设备型号或逐个分贝数值批量生成同款页面。候选词不代表已验证搜索量或排名难度。
 - 核心答案、方法、来源和链接必须存在于构建 HTML；正文保持静态，麦克风与本机交互限制在必要的客户端子树。默认提供明确标注未校准的通用估算噪音分贝；当前 generic-rms-v1 使用原始 RMS dBFS +100，仅为未经跨设备声学验证的产品假设。仪表、色带、趋势、统计、记录和导出复用 readings.ts 的同一转换，参考校准可选且替换通用偏移。原始信号只在麦克风旁作为辅助信号柱；不得擅自宣称 dBA、法定检测或专业准确度。新记录保留模型版本，历史相对记录保留原单位，禁止混比或重新解释旧值。
 - 首版已采用 Next.js App Router、TypeScript strict、npm、静态导出和 CSS Modules。`src/app` 管路由，`src/features` 按测量、校准与记录等职责组织，`src/components` 仅放确实共享的展示组件；`src/lib/content`、`routing`、`seo` 分别管理内容、发布语言与 SEO 派生数据，专属样式和测试靠近所属功能。
-- 全站数字输入复用 `src/components/number-input/` 的受控字符串组件；参考牛蛙工具 NumberInput 的单位、步进按钮与键盘交互，使用本站语义变量和 Lucide 图标。范围、步长、空值及小数校验由相邻 `model.ts` 负责；暴露时长与参考校准分别保留各自范围，布局与字号通过组件 className 和 CSS 变量定制。
+- 全站数字输入复用 `src/components/number-input/` 的受控字符串组件；参考牛蛙工具 NumberInput 的单位、步进按钮与键盘交互，右侧按钮仅在控件内聚焦时展开，失焦后收起，使用本站语义变量和 Lucide 图标。范围、步长、空值及小数校验由相邻 `model.ts` 负责；暴露时长与参考校准分别保留各自范围，布局与字号通过组件 className 和 CSS 变量定制。
 - 当前应用的实际页面注册为 `src/lib/routing/pages.ts`，与候选关键词映射分开维护；已实现 24 个中英 URL，其中 22 个可索引，两个本机记录页 noindex。新增语言或路由必须有真实正文和可用操作。
 - `npm run check` 依次运行 format:check、lint、typecheck、test、test:content、build 和 test:export，本地与 CI 一致；lint 警告阻断，检查不自动改写。`npm run preview` 预览静态产物。新增依赖和检查配置遵循前述技能及聚焦变更要求。
 - Actions 的 `out/` 仅作为当前 runner 的临时检查产物，不上传 GitHub Artifacts，也不通过跨 job 下载产物中转；`cache: npm` 只缓存依赖。后续生产发布在同一 runner/job 完成检查、构建、校验、打包与 SSH 传输，回滚版本保留在本站服务器的独立目录。当前尚未接入生产发布，不能将此约定描述为已部署能力。

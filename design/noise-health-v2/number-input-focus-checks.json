@@ -1,0 +1,403 @@
+{
+  "date": "2026-10-21",
+  "preview": "http://127.0.0.1:3148",
+  "reference": "牛蛙工具/apps/web/src/components/ui/NumberInput",
+  "checks": [
+    {
+      "case": "desktop-initial-blurred",
+      "activeLabel": null,
+      "activeRole": null,
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": false,
+      "opacity": "0",
+      "pageOverflow": false,
+      "pointerEvents": "none",
+      "stepsWidth": 0,
+      "value": "85",
+      "visibility": "hidden"
+    },
+    {
+      "case": "desktop-input-focused",
+      "activeLabel": "噪音水平",
+      "activeRole": "spinbutton",
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "85",
+      "visibility": "visible"
+    },
+    {
+      "case": "tab-to-increase-stays-open",
+      "activeLabel": "增加噪音水平，步长 0.5",
+      "activeRole": null,
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": false,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "85",
+      "visibility": "visible"
+    },
+    {
+      "case": "keyboard-increase",
+      "activeLabel": "增加噪音水平，步长 0.5",
+      "activeRole": null,
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": false,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "85.5",
+      "visibility": "visible"
+    },
+    {
+      "case": "tab-to-decrease-stays-open",
+      "activeLabel": "减少噪音水平，步长 0.5",
+      "activeRole": null,
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": false,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "85.5",
+      "visibility": "visible"
+    },
+    {
+      "case": "tab-out-collapses",
+      "activeLabel": "拖动滑块选择噪音水平",
+      "activeRole": null,
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": false,
+      "opacity": "0",
+      "pageOverflow": false,
+      "pointerEvents": "none",
+      "stepsWidth": 0,
+      "value": "85.5",
+      "visibility": "hidden"
+    },
+    {
+      "case": "reverse-tab-skips-hidden-buttons",
+      "activeLabel": "噪音水平",
+      "activeRole": "spinbutton",
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "85.5",
+      "visibility": "visible"
+    },
+    {
+      "case": "click-to-upper-bound-retains-input-focus",
+      "activeLabel": "噪音水平",
+      "activeRole": "spinbutton",
+      "buttons": [
+        {
+          "disabled": true,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "130",
+      "visibility": "visible"
+    },
+    {
+      "case": "click-decrease-stays-open",
+      "activeLabel": "噪音水平",
+      "activeRole": "spinbutton",
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "129.5",
+      "visibility": "visible"
+    },
+    {
+      "case": "lower-bound",
+      "activeLabel": "噪音水平",
+      "activeRole": "spinbutton",
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": true,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "40",
+      "visibility": "visible"
+    },
+    {
+      "case": "arrow-up-still-works",
+      "activeLabel": "噪音水平",
+      "activeRole": "spinbutton",
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "40.5",
+      "visibility": "visible"
+    },
+    {
+      "case": "pointer-blur-collapses",
+      "activeLabel": null,
+      "activeRole": null,
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "增加噪音水平，步长 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "减少噪音水平，步长 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": false,
+      "opacity": "0",
+      "pageOverflow": false,
+      "pointerEvents": "none",
+      "stepsWidth": 0,
+      "value": "40.5",
+      "visibility": "hidden"
+    },
+    {
+      "case": "mobile-320-en-dark-focused",
+      "activeLabel": "Noise level",
+      "activeRole": "spinbutton",
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "Increase Noise level by 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "Decrease Noise level by 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "103",
+      "visibility": "visible"
+    },
+    {
+      "case": "mobile-320-en-dark-blurred",
+      "activeLabel": null,
+      "activeRole": null,
+      "buttons": [
+        {
+          "disabled": false,
+          "label": "Increase Noise level by 0.5"
+        },
+        {
+          "disabled": false,
+          "label": "Decrease Noise level by 0.5"
+        }
+      ],
+      "controlWidth": 190,
+      "focused": false,
+      "opacity": "0",
+      "pageOverflow": false,
+      "pointerEvents": "none",
+      "stepsWidth": 0,
+      "value": "103",
+      "visibility": "hidden"
+    },
+    {
+      "case": "mobile-calibration-blurred",
+      "controlWidth": 150,
+      "focused": false,
+      "opacity": "0",
+      "pageOverflow": false,
+      "pointerEvents": "none",
+      "stepsWidth": 0,
+      "value": "60",
+      "visibility": "hidden"
+    },
+    {
+      "case": "mobile-calibration-click-retains-focus",
+      "controlWidth": 150,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "60.1",
+      "visibility": "visible"
+    },
+    {
+      "case": "mobile-calibration-blur",
+      "controlWidth": 150,
+      "focused": false,
+      "opacity": "0",
+      "pageOverflow": false,
+      "pointerEvents": "none",
+      "stepsWidth": 0,
+      "value": "60.1",
+      "visibility": "hidden"
+    },
+    {
+      "case": "desktop-calibration-blurred",
+      "controlWidth": 150,
+      "focused": false,
+      "opacity": "0",
+      "pageOverflow": false,
+      "pointerEvents": "none",
+      "stepsWidth": 0,
+      "value": "60.1",
+      "visibility": "hidden"
+    },
+    {
+      "case": "desktop-calibration-focused",
+      "controlWidth": 150,
+      "focused": true,
+      "opacity": "1",
+      "pageOverflow": false,
+      "pointerEvents": "auto",
+      "stepsWidth": 36,
+      "value": "60.1",
+      "visibility": "visible"
+    }
+  ],
+  "automated": {
+    "format": "npx prettier --check src/components/number-input/index.tsx src/components/number-input/index.module.css",
+    "lint": "npx eslint src/components/number-input/index.tsx --max-warnings 0",
+    "tests": "node --experimental-strip-types --test src/components/number-input/model.test.ts: 4 passed",
+    "build": "npm run build: passed, including TypeScript",
+    "export": "npm run test:export: 24 pages, 22 sitemap URLs, 730 internal links and anchors",
+    "fullCheck": false
+  },
+  "notVerified": [
+    "真实移动设备与软键盘",
+    "减少动态效果系统设置的实际切换（已提供对应 CSS 规则）",
+    "生产部署"
+  ],
+  "screenshots": [
+    "desktop-number-input-blurred.jpg",
+    "desktop-number-input-focused.jpg",
+    "mobile-number-input-focused-en-dark.jpg",
+    "mobile-calibration-number-input-focused.jpg"
+  ]
+}

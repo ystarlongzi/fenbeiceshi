@@ -53,10 +53,33 @@
   font-size: var(--font-size-ui);
 }
 .steps {
+  --step-width: 36px;
+  --step-duration: 250ms;
+
+  display: flex;
+  flex-shrink: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    width var(--step-duration) ease,
+    opacity var(--step-duration) ease,
+    visibility 0s linear var(--step-duration);
+}
+.control:focus-within > .steps {
+  width: var(--step-width);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+.stepsContent {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: 36px;
+  width: var(--step-width);
   border-left: 1px solid var(--line);
 }
 .steps button {
@@ -102,5 +125,11 @@
   .steps button:hover:not(:disabled) {
     background: var(--surface-hover);
     color: var(--brand);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .steps,
+  .control:focus-within > .steps {
+    transition: none;
   }
 }

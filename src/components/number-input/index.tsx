@@ -123,28 +123,30 @@ export function NumberInput({
         ) : null}
       </div>
       <div className={styles.steps}>
-        {([1, -1] as const).map((direction) => (
-          <button
-            key={direction}
-            type="button"
-            aria-label={
-              en
-                ? `${direction > 0 ? "Increase" : "Decrease"} ${label} by ${step}`
-                : `${direction > 0 ? "增加" : "减少"}${label}，步长 ${step}`
-            }
-            disabled={locked || (issue === null && number === (direction > 0 ? max : min))}
-            onPointerDown={(event) => {
-              if (event.button === 0) event.preventDefault();
-            }}
-            onClick={() => move(direction)}
-          >
-            <Icon
-              name="chevron-down"
-              size={16}
-              className={direction > 0 ? styles.increase : undefined}
-            />
-          </button>
-        ))}
+        <div className={styles.stepsContent}>
+          {([1, -1] as const).map((direction) => (
+            <button
+              key={direction}
+              type="button"
+              aria-label={
+                en
+                  ? `${direction > 0 ? "Increase" : "Decrease"} ${label} by ${step}`
+                  : `${direction > 0 ? "增加" : "减少"}${label}，步长 ${step}`
+              }
+              disabled={locked || (issue === null && number === (direction > 0 ? max : min))}
+              onPointerDown={(event) => {
+                if (event.button === 0) event.preventDefault();
+              }}
+              onClick={() => move(direction)}
+            >
+              <Icon
+                name="chevron-down"
+                size={16}
+                className={direction > 0 ? styles.increase : undefined}
+              />
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
