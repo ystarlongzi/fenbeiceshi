@@ -31,52 +31,21 @@
   padding: 6px 0 18px;
   scroll-margin-top: 100px;
 }
-.body p,
-.body li {
+.body p {
   max-width: 65ch;
 }
-.tableWrap {
-  overflow-x: auto;
-  margin: 18px 0;
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-}
-.tableWrap table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: var(--font-size-ui);
-  line-height: 1.8;
-}
-.tableWrap th,
-.tableWrap td {
-  padding: 12px;
-  vertical-align: top;
-  overflow-wrap: anywhere;
-}
-.tableWrap th {
-  background: var(--surface-accent);
-  color: var(--ink);
-  font-weight: 600;
-  overflow-wrap: normal;
-}
-.tableWrap td {
-  border-top: 1px solid var(--line);
-  color: var(--text-body);
-}
-.source {
+.moreLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-height: 44px;
   color: var(--brand);
   font-size: var(--font-size-ui);
+  line-height: 1.8;
   text-decoration: underline;
   text-underline-offset: 3px;
+  scroll-margin-top: 100px;
 }
-@media (max-width: 520px) {
-  .tableWrap th:first-child,
-  .tableWrap td:first-child {
-    width: 5rem;
-    overflow-wrap: normal;
-  }
+.moreLink svg {
+  flex-shrink: 0;
 }

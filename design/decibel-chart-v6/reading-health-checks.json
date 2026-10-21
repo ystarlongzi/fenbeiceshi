@@ -1,0 +1,529 @@
+{
+  "date": "2026-10-21",
+  "preview": "http://127.0.0.1:3148",
+  "checks": [
+    {
+      "case": "desktop-zh-dark-default",
+      "bands": 7,
+      "healthBodyFont": "16px",
+      "healthHeading": "噪音与健康",
+      "healthHeadingFont": "24px",
+      "healthLinks": [
+        {
+          "height": 45.1953125,
+          "href": "/knowledge/noise-and-health/#exposure",
+          "text": "查看暴露时长参考"
+        },
+        {
+          "height": 44,
+          "href": "/knowledge/noise-and-health/#effects",
+          "text": "了解噪音对健康的影响"
+        }
+      ],
+      "legacyIds": [
+        {
+          "id": "numbers",
+          "present": true
+        },
+        {
+          "id": "scale",
+          "present": true
+        },
+        {
+          "id": "distance",
+          "present": true
+        },
+        {
+          "id": "limits",
+          "present": true
+        },
+        {
+          "id": "exposure",
+          "present": true
+        }
+      ],
+      "locale": "zh-CN",
+      "notes": [
+        "为什么同一种声音的参考值会不同？",
+        "表中的数值，能和网页读数直接比较吗？"
+      ],
+      "pageOverflow": false,
+      "sections": [
+        "levels",
+        "health",
+        "reading"
+      ],
+      "sounds": 31,
+      "sourceCount": 7,
+      "theme": "dark",
+      "toc": [
+        {
+          "href": "#levels",
+          "text": "声音对照"
+        },
+        {
+          "href": "#health",
+          "text": "噪音与健康"
+        },
+        {
+          "href": "#reading",
+          "text": "参考说明"
+        }
+      ],
+      "viewportWidth": 1457
+    },
+    {
+      "case": "legacy-scale-anchor",
+      "href": "/knowledge/dbfs-vs-db-spl/",
+      "id": "scale",
+      "open": true,
+      "top": 189.9140625
+    },
+    {
+      "case": "legacy-numbers-anchor",
+      "id": "numbers",
+      "queryPresent": true,
+      "top": 184.4765625
+    },
+    {
+      "case": "search-and-detail",
+      "healthVisible": true,
+      "open": [
+        "fridge"
+      ],
+      "query": "冰箱",
+      "sounds": 1
+    },
+    {
+      "case": "exposure-link-destination",
+      "duration": "8 小时",
+      "heading": "暴露时长：声音越响，时间越短",
+      "input": "85",
+      "top": 189.78125
+    },
+    {
+      "case": "effects-link-destination",
+      "heading": "噪音会怎样影响我们？",
+      "topics": 6
+    },
+    {
+      "case": "health-link-back",
+      "healthEntry": true,
+      "title": "分贝对照表：常见声音与噪音水平"
+    },
+    {
+      "case": "desktop-zh-light",
+      "bands": 7,
+      "healthBodyFont": "16px",
+      "healthHeading": "噪音与健康",
+      "healthHeadingFont": "24px",
+      "healthLinks": [
+        {
+          "height": 45.1953125,
+          "href": "/knowledge/noise-and-health/#exposure",
+          "text": "查看暴露时长参考"
+        },
+        {
+          "height": 44,
+          "href": "/knowledge/noise-and-health/#effects",
+          "text": "了解噪音对健康的影响"
+        }
+      ],
+      "legacyIds": [
+        {
+          "id": "numbers",
+          "present": true
+        },
+        {
+          "id": "scale",
+          "present": true
+        },
+        {
+          "id": "distance",
+          "present": true
+        },
+        {
+          "id": "limits",
+          "present": true
+        },
+        {
+          "id": "exposure",
+          "present": true
+        }
+      ],
+      "locale": "zh-CN",
+      "notes": [
+        "为什么同一种声音的参考值会不同？",
+        "表中的数值，能和网页读数直接比较吗？"
+      ],
+      "pageOverflow": false,
+      "sections": [
+        "levels",
+        "health",
+        "reading"
+      ],
+      "sounds": 31,
+      "sourceCount": 7,
+      "theme": "light",
+      "toc": [
+        {
+          "href": "#levels",
+          "text": "声音对照"
+        },
+        {
+          "href": "#health",
+          "text": "噪音与健康"
+        },
+        {
+          "href": "#reading",
+          "text": "参考说明"
+        }
+      ],
+      "viewportWidth": 1457
+    },
+    {
+      "case": "health-toc-selection",
+      "links": [
+        {
+          "current": null,
+          "href": "#levels"
+        },
+        {
+          "current": "location",
+          "href": "#health"
+        },
+        {
+          "current": null,
+          "href": "#reading"
+        }
+      ]
+    },
+    {
+      "case": "mobile-390-zh-light",
+      "bands": 7,
+      "healthBodyFont": "16px",
+      "healthHeading": "噪音与健康",
+      "healthHeadingFont": "24px",
+      "healthLinks": [
+        {
+          "height": 45.1953125,
+          "href": "/knowledge/noise-and-health/#exposure",
+          "text": "查看暴露时长参考"
+        },
+        {
+          "height": 44,
+          "href": "/knowledge/noise-and-health/#effects",
+          "text": "了解噪音对健康的影响"
+        }
+      ],
+      "legacyIds": [
+        {
+          "id": "numbers",
+          "present": true
+        },
+        {
+          "id": "scale",
+          "present": true
+        },
+        {
+          "id": "distance",
+          "present": true
+        },
+        {
+          "id": "limits",
+          "present": true
+        },
+        {
+          "id": "exposure",
+          "present": true
+        }
+      ],
+      "locale": "zh-CN",
+      "notes": [
+        "为什么同一种声音的参考值会不同？",
+        "表中的数值，能和网页读数直接比较吗？"
+      ],
+      "pageOverflow": false,
+      "sections": [
+        "levels",
+        "health",
+        "reading"
+      ],
+      "sounds": 31,
+      "sourceCount": 7,
+      "theme": "light",
+      "toc": [
+        {
+          "href": "#levels",
+          "text": "声音对照"
+        },
+        {
+          "href": "#health",
+          "text": "噪音与健康"
+        },
+        {
+          "href": "#reading",
+          "text": "参考说明"
+        }
+      ],
+      "viewportWidth": 390
+    },
+    {
+      "case": "mobile-320-en-dark",
+      "bands": 7,
+      "healthBodyFont": "16px",
+      "healthHeading": "Noise and health",
+      "healthHeadingFont": "24px",
+      "healthLinks": [
+        {
+          "height": 45.1953125,
+          "href": "/en/knowledge/noise-and-health/#exposure",
+          "text": "Explore exposure time"
+        },
+        {
+          "height": 44,
+          "href": "/en/knowledge/noise-and-health/#effects",
+          "text": "Noise and health effects"
+        }
+      ],
+      "legacyIds": [
+        {
+          "id": "numbers",
+          "present": true
+        },
+        {
+          "id": "scale",
+          "present": true
+        },
+        {
+          "id": "distance",
+          "present": true
+        },
+        {
+          "id": "limits",
+          "present": true
+        },
+        {
+          "id": "exposure",
+          "present": true
+        }
+      ],
+      "locale": "en",
+      "notes": [
+        "Why can the same sound have different levels?",
+        "Can I compare the chart directly with the browser meter?"
+      ],
+      "pageOverflow": false,
+      "sections": [
+        "levels",
+        "health",
+        "reading"
+      ],
+      "sounds": 31,
+      "sourceCount": 7,
+      "theme": "dark",
+      "toc": [
+        {
+          "href": "#levels",
+          "text": "Sound comparison"
+        },
+        {
+          "href": "#health",
+          "text": "Noise and health"
+        },
+        {
+          "href": "#reading",
+          "text": "Using the chart"
+        }
+      ],
+      "viewportWidth": 320
+    },
+    {
+      "case": "mobile-en-note-open",
+      "link": "/en/guide/",
+      "open": true,
+      "overflow": false,
+      "text": "The model, operating state, distance and background sound can change a reading. References retain each source's value or range, so compare them with their stated conditions."
+    },
+    {
+      "case": "mobile-en-note-keyboard-close",
+      "open": false
+    },
+    {
+      "case": "final-mobile-320-en",
+      "teaser": "Duration and repetition matter alongside sound level. Learn how noise affects hearing, sleep and focus.",
+      "bands": 7,
+      "healthBodyFont": "16px",
+      "healthHeading": "Noise and health",
+      "healthHeadingFont": "24px",
+      "healthLinks": [
+        {
+          "height": 45.1953125,
+          "href": "/en/knowledge/noise-and-health/#exposure",
+          "text": "Explore exposure time"
+        },
+        {
+          "height": 44,
+          "href": "/en/knowledge/noise-and-health/#effects",
+          "text": "Noise and health effects"
+        }
+      ],
+      "legacyIds": [
+        {
+          "id": "numbers",
+          "present": true
+        },
+        {
+          "id": "scale",
+          "present": true
+        },
+        {
+          "id": "distance",
+          "present": true
+        },
+        {
+          "id": "limits",
+          "present": true
+        },
+        {
+          "id": "exposure",
+          "present": true
+        }
+      ],
+      "locale": "en",
+      "notes": [
+        "Why can the same sound have different levels?",
+        "Can I compare the chart directly with the browser meter?"
+      ],
+      "pageOverflow": false,
+      "sections": [
+        "levels",
+        "health",
+        "reading"
+      ],
+      "sounds": 31,
+      "sourceCount": 7,
+      "theme": "dark",
+      "toc": [
+        {
+          "href": "#levels",
+          "text": "Sound comparison"
+        },
+        {
+          "href": "#health",
+          "text": "Noise and health"
+        },
+        {
+          "href": "#reading",
+          "text": "Using the chart"
+        }
+      ],
+      "viewportWidth": 320
+    },
+    {
+      "case": "final-mobile-390-zh",
+      "teaser": "声音大小之外，还要看持续多久、是否反复出现。了解噪音对听力、睡眠和专注的影响。",
+      "bands": 7,
+      "healthBodyFont": "16px",
+      "healthHeading": "噪音与健康",
+      "healthHeadingFont": "24px",
+      "healthLinks": [
+        {
+          "height": 45.1953125,
+          "href": "/knowledge/noise-and-health/#exposure",
+          "text": "查看暴露时长参考"
+        },
+        {
+          "height": 44,
+          "href": "/knowledge/noise-and-health/#effects",
+          "text": "了解噪音对健康的影响"
+        }
+      ],
+      "legacyIds": [
+        {
+          "id": "numbers",
+          "present": true
+        },
+        {
+          "id": "scale",
+          "present": true
+        },
+        {
+          "id": "distance",
+          "present": true
+        },
+        {
+          "id": "limits",
+          "present": true
+        },
+        {
+          "id": "exposure",
+          "present": true
+        }
+      ],
+      "locale": "zh-CN",
+      "notes": [
+        "为什么同一种声音的参考值会不同？",
+        "表中的数值，能和网页读数直接比较吗？"
+      ],
+      "pageOverflow": false,
+      "sections": [
+        "levels",
+        "health",
+        "reading"
+      ],
+      "sounds": 31,
+      "sourceCount": 7,
+      "theme": "light",
+      "toc": [
+        {
+          "href": "#levels",
+          "text": "声音对照"
+        },
+        {
+          "href": "#health",
+          "text": "噪音与健康"
+        },
+        {
+          "href": "#reading",
+          "text": "参考说明"
+        }
+      ],
+      "viewportWidth": 390
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.cdc.gov/niosh/noise/about/noise.html",
+      "verified": "2026-10-21",
+      "supports": "Level, duration and repeated exposure"
+    },
+    {
+      "url": "https://www.who.int/europe/health-topics/noise",
+      "verified": "2026-10-21",
+      "supports": "Hearing, sleep and cognitive effects"
+    }
+  ],
+  "automated": {
+    "format": "Targeted npx prettier --check",
+    "lint": "npx eslint src/features/decibel-chart src/lib/content/decibel-chart.ts scripts/check-export.ts --max-warnings 0",
+    "content": "npm run test:content: 9 bilingual texts, 22 indexable URLs, 2 noindex URLs",
+    "build": "npm run build: passed, including TypeScript",
+    "export": "npm run test:export: 24 pages, 22 sitemap URLs, 738 internal links and anchors",
+    "fullCheck": false
+  },
+  "screenshots": [
+    "reading-health-before.jpg",
+    "reading-health-desktop.jpg",
+    "reading-health-desktop-dark.jpg",
+    "reading-health-mobile-zh.jpg",
+    "reading-health-mobile-en-dark.jpg"
+  ],
+  "notVerified": [
+    "真实移动设备",
+    "Safari",
+    "实际读屏朗读",
+    "生产部署",
+    "31 项声音原始测量数据的重新核验"
+  ]
+}

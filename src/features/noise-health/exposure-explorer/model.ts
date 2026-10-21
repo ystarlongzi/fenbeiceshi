@@ -4,7 +4,6 @@ export const minLevel = 40;
 export const maxLevel = 130;
 export const defaultLevel = 85;
 export const levelStep = 0.5;
-export const referenceLevels = [85, 88, 91, 94, 97, 100] as const;
 
 export function readLevel(raw: string): number | null {
   return numberIssue(raw, { min: minLevel, max: maxLevel, step: levelStep, required: true })

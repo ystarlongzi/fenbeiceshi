@@ -6,7 +6,10 @@ import { text } from "../src/lib/content/types.ts";
 import { articles } from "../src/lib/content/articles.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
-import { exposureNotes } from "../src/features/noise-health/exposure-explorer/copy.ts";
+import {
+  exposureNotes,
+  exposureReferences,
+} from "../src/features/noise-health/exposure-explorer/copy.ts";
 import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
 import {
   exposureFactors,
@@ -149,8 +152,10 @@ for (const page of sitePages) {
           const body = disclosure[2];
           for (const paragraph of note.paragraphs)
             assert.ok(body.includes(escapeText(text(paragraph, locale))), path);
-          for (const row of note.table?.rows ?? [])
-            for (const cell of row) assert.ok(body.includes(escapeText(text(cell, locale))), path);
+          assert.ok(
+            body.includes(`href="${href(note.link.pageId, locale)}"`),
+            `参考说明缺少进一步阅读入口：${path} → ${note.id}`,
+          );
         }
         const comparison = visible.match(
           /<section\b[^>]*id="levels"[^>]*>([\s\S]*?)<\/section>/,
@@ -217,12 +222,23 @@ for (const page of sitePages) {
           /data-health-id=|id="exposure-level-input"/,
           `对照页不应保留健康正文和职业演示：${path}`,
         );
-        const healthEntry = visible.match(/<aside\b[^>]*id="health"[^>]*>([\s\S]*?)<\/aside>/)?.[1];
+        for (const id of ["numbers", "scale", "distance", "limits"])
+          assert.ok(visible.includes(`id="${id}"`), `保留已发布说明锚点：${path} → ${id}`);
+        const healthEntry = visible.match(
+          /<section\b[^>]*id="health"[^>]*>([\s\S]*?)<\/section>/,
+        )?.[1];
         assert.ok(healthEntry, `对照页缺少健康导读：${path}`);
+        assert.match(healthEntry, /<h2\b/, `健康导读应为独立章节：${path}`);
         assert.ok(
-          healthEntry.includes(`href="${href("noise-health", locale)}"`),
-          `对照页缺少健康文章入口：${path}`,
+          visible.indexOf('id="health"') > visible.indexOf('id="levels"') &&
+            visible.indexOf('id="health"') < visible.indexOf('id="reading"'),
+          `健康入口应紧随声音对照并位于参考说明之前：${path}`,
         );
+        for (const target of ["exposure", "effects"])
+          assert.ok(
+            healthEntry.includes(`href="${href("noise-health", locale)}#${target}"`),
+            `对照页缺少健康文章的具体入口：${path} → ${target}`,
+          );
         assert.equal(
           (healthEntry.match(/<p\b/g) || []).length,
           1,
@@ -305,8 +321,13 @@ for (const page of sitePages) {
           `声级标签应紧跟时长结果：${path}`,
         );
         const referenceText = visible.replace(/<!--[\s\S]*?-->/g, "");
-        for (const level of [85, 88, 91, 94, 97, 100])
-          assert.ok(referenceText.includes(`${level} dBA`), `参考点必须静态可读：${path}`);
+        for (const point of exposureReferences) {
+          assert.ok(referenceText.includes(`${point.level} dBA`), `参考点必须静态可读：${path}`);
+          assert.ok(
+            referenceText.includes(escapeText(text(point.description, locale))),
+            `参考点说明必须静态可读：${path} → ${point.level} dBA`,
+          );
+        }
         for (const source of Object.values(healthSources))
           assert.ok(visible.includes(`id="${source.id}"`), path);
         assert.ok(

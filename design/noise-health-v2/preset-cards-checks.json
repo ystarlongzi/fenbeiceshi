@@ -1,0 +1,516 @@
+{
+  "date": "2026-10-21",
+  "preview": "http://127.0.0.1:3148",
+  "checks": [
+    {
+      "case": "desktop-zh-dark-default",
+      "band": "很吵",
+      "cards": [
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "割草机、吸尘器等设备可达到这一量级；长时间接触需保护听力。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "85 dBA",
+          "overflow": false,
+          "pressed": "true",
+          "time": "8 小时",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "比 85 dBA 增加 3 dBA，每日累计参考时长减半。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "88 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "4 小时",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "噪音工作或活动中，减少连续停留，并安排安静休息。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "91 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "2 小时",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "高音量耳机、体育赛事可达到这一量级；优先调低音量或拉开距离。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "94 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "1 小时",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(255, 119, 85)",
+          "description": "音乐会、夜店等强声环境中，缩短停留并正确使用听力防护。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "100 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "15 分钟",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(255, 119, 85)",
+          "description": "警笛等强声附近，优先远离声源，避免继续暴露。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "110 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "1 分钟 29 秒",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 228
+        }
+      ],
+      "duration": "8 小时",
+      "grid": "228px 228px 228px",
+      "input": "85",
+      "intro": "长期或反复接触 85 dBA 及以上噪音，可能造成听力损伤或耳鸣，部分损伤不可逆。下方按 NIOSH 职业听力保护建议，提供不同声级的每日累计暴露时长参考。",
+      "locale": "zh-CN",
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "range": "85",
+      "theme": "dark",
+      "viewportWidth": 1457
+    },
+    {
+      "case": "click-reference-85",
+      "band": "很吵",
+      "duration": "8 小时",
+      "error": null,
+      "range": "85",
+      "selected": [
+        "85 dBA"
+      ],
+      "value": "85"
+    },
+    {
+      "case": "click-reference-88",
+      "band": "很吵",
+      "duration": "4 小时",
+      "error": null,
+      "range": "88",
+      "selected": [
+        "88 dBA"
+      ],
+      "value": "88"
+    },
+    {
+      "case": "click-reference-91",
+      "band": "很吵",
+      "duration": "2 小时",
+      "error": null,
+      "range": "91",
+      "selected": [
+        "91 dBA"
+      ],
+      "value": "91"
+    },
+    {
+      "case": "click-reference-94",
+      "band": "很吵",
+      "duration": "1 小时",
+      "error": null,
+      "range": "94",
+      "selected": [
+        "94 dBA"
+      ],
+      "value": "94"
+    },
+    {
+      "case": "click-reference-100",
+      "band": "极吵",
+      "duration": "15 分钟",
+      "error": null,
+      "range": "100",
+      "selected": [
+        "100 dBA"
+      ],
+      "value": "100"
+    },
+    {
+      "case": "click-reference-110",
+      "band": "极吵",
+      "duration": "1 分钟 29 秒",
+      "error": null,
+      "range": "110",
+      "selected": [
+        "110 dBA"
+      ],
+      "value": "110"
+    },
+    {
+      "case": "keyboard-select-100",
+      "band": "极吵",
+      "duration": "15 分钟",
+      "error": null,
+      "range": "100",
+      "selected": [
+        "100 dBA"
+      ],
+      "value": "100"
+    },
+    {
+      "case": "invalid-input-clears-selection",
+      "band": null,
+      "duration": "—",
+      "error": "请输入 40–130 dBA 之间的数值，步长为 0.5。",
+      "range": "85",
+      "selected": [],
+      "value": ""
+    },
+    {
+      "case": "description-click-restores-110",
+      "band": "极吵",
+      "duration": "1 分钟 29 秒",
+      "error": null,
+      "range": "110",
+      "selected": [
+        "110 dBA"
+      ],
+      "value": "110"
+    },
+    {
+      "case": "desktop-zh-light",
+      "band": "很吵",
+      "cards": [
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "割草机、吸尘器等设备可达到这一量级；长时间接触需保护听力。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "85 dBA",
+          "overflow": false,
+          "pressed": "true",
+          "time": "8 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "比 85 dBA 增加 3 dBA，每日累计参考时长减半。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "88 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "4 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "噪音工作或活动中，减少连续停留，并安排安静休息。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "91 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "2 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "高音量耳机、体育赛事可达到这一量级；优先调低音量或拉开距离。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "94 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "1 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(185, 54, 33)",
+          "description": "音乐会、夜店等强声环境中，缩短停留并正确使用听力防护。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "100 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "15 分钟",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 228
+        },
+        {
+          "color": "rgb(185, 54, 33)",
+          "description": "警笛等强声附近，优先远离声源，避免继续暴露。",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "110 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "1 分钟 29 秒",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 228
+        }
+      ],
+      "duration": "8 小时",
+      "grid": "228px 228px 228px",
+      "input": "85",
+      "intro": "长期或反复接触 85 dBA 及以上噪音，可能造成听力损伤或耳鸣，部分损伤不可逆。下方按 NIOSH 职业听力保护建议，提供不同声级的每日累计暴露时长参考。",
+      "locale": "zh-CN",
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "range": "85",
+      "theme": "light",
+      "viewportWidth": 1457
+    },
+    {
+      "case": "mobile-390-zh-light",
+      "band": "很吵",
+      "cards": [
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "割草机、吸尘器等设备可达到这一量级；长时间接触需保护听力。",
+          "descriptionFont": "14px",
+          "height": 111.390625,
+          "level": "85 dBA",
+          "overflow": false,
+          "pressed": "true",
+          "time": "8 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 312
+        },
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "比 85 dBA 增加 3 dBA，每日累计参考时长减半。",
+          "descriptionFont": "14px",
+          "height": 111.390625,
+          "level": "88 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "4 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 312
+        },
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "噪音工作或活动中，减少连续停留，并安排安静休息。",
+          "descriptionFont": "14px",
+          "height": 111.390625,
+          "level": "91 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "2 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 312
+        },
+        {
+          "color": "rgb(169, 76, 13)",
+          "description": "高音量耳机、体育赛事可达到这一量级；优先调低音量或拉开距离。",
+          "descriptionFont": "14px",
+          "height": 111.390625,
+          "level": "94 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "1 小时",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 312
+        },
+        {
+          "color": "rgb(185, 54, 33)",
+          "description": "音乐会、夜店等强声环境中，缩短停留并正确使用听力防护。",
+          "descriptionFont": "14px",
+          "height": 111.390625,
+          "level": "100 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "15 分钟",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 312
+        },
+        {
+          "color": "rgb(185, 54, 33)",
+          "description": "警笛等强声附近，优先远离声源，避免继续暴露。",
+          "descriptionFont": "14px",
+          "height": 111.390625,
+          "level": "110 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "1 分钟 29 秒",
+          "timeBackground": "rgb(248, 250, 248)",
+          "timeFont": "14px",
+          "width": 312
+        }
+      ],
+      "duration": "8 小时",
+      "grid": "312px",
+      "input": "85",
+      "intro": "长期或反复接触 85 dBA 及以上噪音，可能造成听力损伤或耳鸣，部分损伤不可逆。下方按 NIOSH 职业听力保护建议，提供不同声级的每日累计暴露时长参考。",
+      "locale": "zh-CN",
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "range": "85",
+      "theme": "light",
+      "viewportWidth": 390
+    },
+    {
+      "case": "mobile-320-en-dark-110",
+      "band": "Extremely noisy",
+      "cards": [
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "Lawn mowers and vacuums can reach this level. Protect your hearing during prolonged exposure.",
+          "descriptionFont": "14px",
+          "height": 158.984375,
+          "level": "85 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "8 hrs",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 242
+        },
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "A 3 dBA increase from 85 dBA halves the daily reference duration.",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "88 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "4 hrs",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 242
+        },
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "Spend less time in noisy work or activities and take breaks somewhere quiet.",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "91 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "2 hrs",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 242
+        },
+        {
+          "color": "rgb(245, 164, 93)",
+          "description": "Loud headphones and sporting events can reach this level. Lower the volume or move farther away.",
+          "descriptionFont": "14px",
+          "height": 158.984375,
+          "level": "94 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "1 hr",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 242
+        },
+        {
+          "color": "rgb(255, 119, 85)",
+          "description": "At loud concerts or nightclubs, limit your stay and use hearing protection correctly.",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "100 dBA",
+          "overflow": false,
+          "pressed": "false",
+          "time": "15 min",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 242
+        },
+        {
+          "color": "rgb(255, 119, 85)",
+          "description": "Near intense sound such as sirens, move away from the source to avoid further exposure.",
+          "descriptionFont": "14px",
+          "height": 135.1875,
+          "level": "110 dBA",
+          "overflow": false,
+          "pressed": "true",
+          "time": "1 min 29 sec",
+          "timeBackground": "rgb(27, 43, 33)",
+          "timeFont": "14px",
+          "width": 242
+        }
+      ],
+      "duration": "1 min 29 sec",
+      "grid": "242px",
+      "input": "110",
+      "intro": "Long or repeated exposure to noise at or above 85 dBA can cause hearing damage or tinnitus, and some damage is permanent. The calculator and reference points below follow NIOSH occupational hearing recommendations for daily cumulative exposure.",
+      "locale": "en",
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "range": "110",
+      "theme": "dark",
+      "viewportWidth": 320
+    }
+  ],
+  "reference": {
+    "url": "https://freeonlinedecibelmeter.com/zh/",
+    "selector": "#exposure-limits"
+  },
+  "sources": [
+    {
+      "url": "https://www.cdc.gov/niosh/noise/about/noise.html",
+      "verified": "2026-10-21",
+      "supports": "85 dBA / 8 hours, 3 dBA exchange rate, equipment examples and prevention actions"
+    },
+    {
+      "url": "https://www.nidcd.nih.gov/health/noise-induced-hearing-loss",
+      "verified": "2026-10-21",
+      "supports": "Hearing damage and tinnitus; headphones, events and concerts 94–110 dBA; sirens 110–129 dBA"
+    }
+  ],
+  "automated": {
+    "format": "npx prettier --check on changed source, documentation and evidence files",
+    "lint": "npx eslint on changed TS/TSX files --max-warnings 0",
+    "tests": "node --experimental-strip-types --test src/features/noise-health/exposure-explorer/model.test.ts: 6 passed",
+    "content": "npm run test:content: 9 bilingual texts, 22 indexable URLs, 2 noindex URLs",
+    "build": "npm run build: passed, including TypeScript",
+    "export": "npm run test:export: 24 pages, 22 sitemap URLs, 730 internal links and anchors",
+    "fullCheck": false
+  },
+  "screenshots": [
+    "reference-exposure-limits.jpg",
+    "desktop-exposure-reference-cards.jpg",
+    "desktop-exposure-reference-cards-dark.jpg",
+    "mobile-exposure-reference-cards.jpg",
+    "mobile-exposure-reference-cards-en-dark.jpg"
+  ],
+  "notVerified": [
+    "真实移动设备与软键盘",
+    "专业医学审校",
+    "生产部署"
+  ]
+}

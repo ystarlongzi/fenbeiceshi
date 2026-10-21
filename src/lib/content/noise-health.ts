@@ -165,8 +165,8 @@ export const noiseHealth: SiteContent = {
       title: t("暴露时长：声音越响，时间越短", "Exposure time: louder sound, less time"),
       paragraphs: [
         t(
-          "下面按 NIOSH 职业听力保护参考，演示声级与每日累计暴露时长的关系：85 dBA 对应 8 小时，每增加 3 dBA，参考时长减半。",
-          "Explore the NIOSH occupational hearing reference for daily cumulative exposure: 85 dBA corresponds to 8 hours, with the duration halved for each 3 dBA increase.",
+          "长期或反复接触 85 dBA 及以上噪音，可能造成听力损伤或耳鸣，部分损伤不可逆。下方按 NIOSH 职业听力保护建议，提供不同声级的每日累计暴露时长参考。",
+          "Long or repeated exposure to noise at or above 85 dBA can cause hearing damage or tinnitus, and some damage is permanent. The calculator and reference points below follow NIOSH occupational hearing recommendations for daily cumulative exposure.",
         ),
       ],
     },

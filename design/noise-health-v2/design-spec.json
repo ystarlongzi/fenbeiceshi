@@ -35,6 +35,12 @@
       "selector": ".health-impact-grid",
       "observed": "桌面三列六项，短标题加一段说明",
       "adaptation": "适配本站 750px 文章列为双列，手机单列；每项就近提供官方依据，事实按一手来源改写。"
+    },
+    {
+      "url": "https://freeonlinedecibelmeter.com/zh/",
+      "selector": "#exposure-limits",
+      "observed": "六项参考按声级标签、时长标签和一句说明组织。",
+      "adaptation": "保留可点击的参考卡片，独立展示 timeBadge 与 presetDescription；使用 85、88、91、94、100、110 dBA，时长由本站 NIOSH 模型计算，场景与行动按 CDC/NIOSH 和 NIDCD 改写。"
     }
   ],
   "sections": [
@@ -90,9 +96,11 @@
       88,
       91,
       94,
-      97,
-      100
+      100,
+      110
     ],
+    "presetPresentation": "每日累计暴露参考：每项上排为声级标签与独立时长标签，下排为场景或行动说明，标签和说明均为固定 14px。桌面三列，600px 及以下单列；整项点击或键盘激活均同步输入、滑块、结果与选中状态。声级和时长复用七档主题文字色。",
+    "intro": "暴露时长标题下先说明长期或反复强声暴露的听力风险，再引出 NIOSH 职业建议的每日累计时长参考；中英文同步，保持可能性表述与现有适用范围。",
     "output": "约每日累计参考时长；小时／分钟／秒按现有规则显示并向下取整。超过 24 小时显示 > 24 小时，不足 1 秒显示 < 1 秒，避免巨大时长和零秒误导。",
     "invalid": "空值、非有限值、越界或不符合 0.5 步长时显示就近错误，结果为破折号；不沿用上次结果。",
     "scope": [
@@ -153,7 +161,9 @@
     "durationUnitEvidence": "duration-unit-checks.json",
     "numberInputEvidence": "number-input-checks.json",
     "noteTagEvidence": "note-tag-checks.json",
-    "numberInputFocusEvidence": "number-input-focus-checks.json"
+    "numberInputFocusEvidence": "number-input-focus-checks.json",
+    "inputHelpRemovalEvidence": "input-help-removal-checks.json",
+    "presetCardsEvidence": "preset-cards-checks.json"
   },
   "screenshots": [
     "before-desktop.jpg",
@@ -182,6 +192,13 @@
     "desktop-number-input-blurred.jpg",
     "desktop-number-input-focused.jpg",
     "mobile-number-input-focused-en-dark.jpg",
-    "mobile-calibration-number-input-focused.jpg"
+    "mobile-calibration-number-input-focused.jpg",
+    "desktop-exposure-no-input-help.jpg",
+    "mobile-exposure-no-input-help-en.jpg",
+    "reference-exposure-limits.jpg",
+    "desktop-exposure-reference-cards.jpg",
+    "desktop-exposure-reference-cards-dark.jpg",
+    "mobile-exposure-reference-cards.jpg",
+    "mobile-exposure-reference-cards-en-dark.jpg"
   ]
 }

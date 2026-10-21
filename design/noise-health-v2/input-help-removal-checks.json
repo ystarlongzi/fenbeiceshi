@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-21",
+  "preview": "http://127.0.0.1:3148",
+  "checks": [
+    {
+      "case": "desktop-zh-default",
+      "duration": "8 小时",
+      "error": null,
+      "inputDescription": "exposure-scope",
+      "invalid": null,
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "rangeDescription": "exposure-scope",
+      "referencesValid": true,
+      "value": "85"
+    },
+    {
+      "case": "desktop-zh-empty",
+      "duration": "—",
+      "error": "请输入 40–130 dBA 之间的数值，步长为 0.5。",
+      "inputDescription": "exposure-input-error exposure-scope",
+      "invalid": "true",
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "rangeDescription": "exposure-input-error exposure-scope",
+      "referencesValid": true,
+      "value": ""
+    },
+    {
+      "case": "desktop-zh-invalid-step",
+      "duration": "—",
+      "error": "请输入 40–130 dBA 之间的数值，步长为 0.5。",
+      "inputDescription": "exposure-input-error exposure-scope",
+      "invalid": "true",
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "rangeDescription": "exposure-input-error exposure-scope",
+      "referencesValid": true,
+      "value": "85.1"
+    },
+    {
+      "case": "desktop-zh-recovered",
+      "duration": "8 小时",
+      "error": null,
+      "inputDescription": "exposure-scope",
+      "invalid": null,
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "rangeDescription": "exposure-scope",
+      "referencesValid": true,
+      "value": "85"
+    },
+    {
+      "case": "mobile-320-en-default",
+      "duration": "8 hrs",
+      "error": null,
+      "inputDescription": "exposure-scope",
+      "invalid": null,
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "rangeDescription": "exposure-scope",
+      "referencesValid": true,
+      "value": "85"
+    },
+    {
+      "case": "mobile-320-en-empty",
+      "duration": "—",
+      "error": "Enter 40–130 dBA in steps of 0.5.",
+      "inputDescription": "exposure-input-error exposure-scope",
+      "invalid": "true",
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "rangeDescription": "exposure-input-error exposure-scope",
+      "referencesValid": true,
+      "value": ""
+    },
+    {
+      "case": "mobile-320-en-recovered",
+      "duration": "7 min 30 sec",
+      "error": null,
+      "inputDescription": "exposure-scope",
+      "invalid": null,
+      "oldHelpPresent": false,
+      "pageOverflow": false,
+      "rangeDescription": "exposure-scope",
+      "referencesValid": true,
+      "value": "103"
+    }
+  ],
+  "screenshots": [
+    "desktop-exposure-no-input-help.jpg",
+    "mobile-exposure-no-input-help-en.jpg"
+  ],
+  "notVerified": [
+    "真实手机与软键盘",
+    "生产部署"
+  ]
+}

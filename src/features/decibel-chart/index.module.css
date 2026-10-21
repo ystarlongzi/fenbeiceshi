@@ -1,21 +1,14 @@
-.healthNote {
-  margin-top: 30px;
+.anchor {
+  display: block;
   scroll-margin-top: 100px;
 }
-.healthNote h3 {
-  margin: 0 0 10px;
-  color: var(--ink);
-  font-size: var(--font-size-heading-sm);
-  font-weight: 600;
-  line-height: 1.7;
+.healthLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
 }
-.healthNote .healthDescription {
-  margin: 0;
-  max-width: 65ch;
-  color: var(--text-body);
-  font-size: var(--font-size-ui);
-  line-height: 1.8;
-}
+.exposureLink,
 .healthLink {
   display: inline-flex;
   align-items: center;
@@ -24,7 +17,26 @@
   color: var(--brand);
   font-size: var(--font-size-ui);
   line-height: 1.8;
+  scroll-margin-top: 100px;
+}
+.exposureLink {
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--action-surface);
+  color: var(--action-ink);
+  font-weight: 600;
+}
+.healthLink {
   text-decoration: underline;
   text-underline-offset: 3px;
-  scroll-margin-top: 100px;
+}
+.healthLinks svg {
+  flex-shrink: 0;
+}
+@media (max-width: 520px) {
+  .healthLinks {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
 }

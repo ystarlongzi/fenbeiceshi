@@ -14,9 +14,8 @@ import {
   maxLevel,
   minLevel,
   readLevel,
-  referenceLevels,
 } from "./model";
-import { exposureNotes } from "./copy";
+import { exposureNotes, exposureReferences } from "./copy";
 import styles from "./index.module.css";
 
 export function ExposureExplorer({ locale }: { locale: Locale }) {
@@ -27,6 +26,8 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
   const color = readingColor(level, "ink");
   const minutes = level === null ? null : exposureMinutes(level);
   const note = exposureNotes[exposureContext(level)];
+  const inputDescription =
+    level === null ? "exposure-input-error exposure-scope" : "exposure-scope";
 
   return (
     <div className={styles.explorer}>
@@ -46,7 +47,7 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
             required
             className={styles.numberControl}
             aria-invalid={level === null || undefined}
-            aria-describedby="exposure-input-help exposure-scope"
+            aria-describedby={inputDescription}
           />
           <input
             id="exposure-level-range"
@@ -59,22 +60,20 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
             onChange={(event) => setRaw(event.target.value)}
             aria-label={en ? "Adjust noise level" : "拖动滑块选择噪音水平"}
             aria-valuetext={`${level ?? defaultLevel} dBA`}
-            aria-describedby="exposure-input-help exposure-scope"
+            aria-describedby={inputDescription}
           />
           <div className={styles.scale} aria-hidden="true">
             <span>40</span>
             <span>85</span>
             <span>130 dBA</span>
           </div>
-          <p id="exposure-input-help" className={level === null ? styles.error : styles.help}>
-            {level === null
-              ? en
+          {level === null ? (
+            <p id="exposure-input-error" className={styles.error}>
+              {en
                 ? "Enter 40–130 dBA in steps of 0.5."
-                : "请输入 40–130 dBA 之间的数值，步长为 0.5。"
-              : en
-                ? "Type a value or move the slider (40–130 dBA)."
-                : "直接输入或拖动滑块（40–130 dBA）。"}
-          </p>
+                : "请输入 40–130 dBA 之间的数值，步长为 0.5。"}
+            </p>
+          ) : null}
         </div>
         <div className={styles.result}>
           <label htmlFor="exposure-duration">
@@ -103,17 +102,24 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
         </div>
       </div>
       <fieldset className={styles.presets}>
-        <legend>{en ? "Compare common reference points" : "常用参考点，点击对比"}</legend>
+        <legend>{en ? "Daily exposure reference" : "每日累计暴露参考"}</legend>
         <div>
-          {referenceLevels.map((value) => (
+          {exposureReferences.map(({ level: value, description }) => (
             <button
               key={value}
               type="button"
               aria-pressed={level === value}
               onClick={() => setRaw(String(value))}
             >
-              <span>{value} dBA</span>
-              <strong>{renderDuration(exposureMinutes(value)!, en)}</strong>
+              <span className={styles.presetHeader} style={{ color: readingColor(value, "ink") }}>
+                <span className={styles.levelBadge}>{value} dBA</span>
+                <strong className={styles.timeBadge}>
+                  {renderDuration(exposureMinutes(value)!, en)}
+                </strong>
+              </span>
+              <span className={styles.presetDescription}>
+                {en ? description.en : description.zh}
+              </span>
             </button>
           ))}
         </div>

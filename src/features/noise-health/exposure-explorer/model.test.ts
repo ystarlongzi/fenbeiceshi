@@ -59,6 +59,12 @@ test("时长保留不足一分钟的秒数，并向下取整到秒", () => {
   assert.deepEqual(durationParts(480), { comparison: null, hours: 8, minutes: 0, seconds: 0 });
   assert.deepEqual(durationParts(60), { comparison: null, hours: 1, minutes: 0, seconds: 0 });
   assert.deepEqual(durationParts(7.5), { comparison: null, hours: 0, minutes: 7, seconds: 30 });
+  assert.deepEqual(durationParts(exposureMinutes(110)!), {
+    comparison: null,
+    hours: 0,
+    minutes: 1,
+    seconds: 29,
+  });
   assert.deepEqual(durationParts(0.9375), { comparison: null, hours: 0, minutes: 0, seconds: 56 });
   assert.deepEqual(durationParts(0.46875), { comparison: null, hours: 0, minutes: 0, seconds: 28 });
 });

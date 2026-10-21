@@ -15,12 +15,13 @@
     "grouping": "按参考范围的起点编组，交界起点归入后一档，160 属于最后一档；跨档条目保留原范围，全部 31 项各出现一次。规则紧邻搜索说明。",
     "search": "只保留名称／数值搜索，搜索后显示匹配条目与非空分组；继续支持全角、多词、dB 和 dBA 条件，无结果时提供查看全部入口。",
     "details": "每项声音用原生 details 展开比较条件和来源，默认收起，同档同时展开一项；说明在所选标签下方占满一行，上沿箭头指向标签底部中心并跟随换行定位。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
-    "support": "单位、距离、网页估算差异与分段用途就近说明；读数说明和健康文章导读延续此前分工。",
+    "support": "40–70 分贝的简短答案合并到页首；参考说明只保留同一声音的范围差异、网页估算与参考值的比较两个问题，进一步的方法通过现有指南和单位文章承接。",
+    "health": "紧随声音对照的独立二级章节，进入目录；正文一段，突出暴露时长参考入口，并提供健康影响入口。详细健康内容和计算器继续位于独立文章。",
     "surfaces": "七档直接使用 V3 共享实色背景与配套文字色，不做浅色混合；声音摘要的操作表面用于表达展开能力，不增加独立分类列表。",
     "mobile": "声音组保持从安静到吵闹的纵向顺序；声音标签在各视口均按内容宽度自动换行，长名称可以换行，数值和单位完整保留。展开说明占满组内宽度。"
   },
   "appearance": "恢复 V3 翠绿、叶绿、黄绿、金黄、橙、朱红、深红七档实色，亮暗主题沿用共享变量；标题 32px、分段范围 20px、声音摘要 14px、辅助单位与来源 12px，全部沿用固定 rem 变量。",
-  "compatibility": "levels、reference、sound-results 和四项阅读及健康入口锚点保留；正文与来源静态输出，健康内容仍属于独立文章。",
+  "compatibility": "levels、reference、sound-results、reading、health 和 exposure 保留；旧 numbers 定位到统一声音对照，旧 scale 定位到单位说明的文章入口，distance 与 limits 保留原生展开定位。正文与实际使用的声音来源静态输出，健康内容仍属于独立文章。",
   "verification": "../../docs/验证/分贝对照分组呈现验证.md",
   "sourceVerification": "../../docs/验证/声音参考来源逐项核验.md",
   "browserChecks": "browser-checks.json",
@@ -29,6 +30,7 @@
   "sourceAuditChecks": "source-audit-checks.json",
   "arrowChecks": "arrow-checks.json",
   "emojiChecks": "emoji-checks.json",
+  "contentHierarchyChecks": "reading-health-checks.json",
   "screenshots": [
     "desktop-zh.png",
     "desktop-zh-high.png",
@@ -48,6 +50,11 @@
     "arrow-mobile-en-dark.png",
     "emoji-desktop-zh.jpg",
     "emoji-mobile-zh.jpg",
-    "emoji-mobile-detail-en-dark.jpg"
+    "emoji-mobile-detail-en-dark.jpg",
+    "reading-health-before.jpg",
+    "reading-health-desktop.jpg",
+    "reading-health-desktop-dark.jpg",
+    "reading-health-mobile-zh.jpg",
+    "reading-health-mobile-en-dark.jpg"
   ]
 }

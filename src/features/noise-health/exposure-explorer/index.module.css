@@ -100,6 +100,7 @@
   padding: 0;
   color: var(--muted);
   font-size: var(--font-size-ui);
+  font-weight: 600;
   line-height: 1.8;
 }
 .presets > div {
@@ -110,12 +111,10 @@
 }
 .presets button {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 4px 12px;
+  flex-direction: column;
+  gap: 10px;
   min-height: 48px;
-  padding: 10px 12px;
+  padding: 12px;
   border: 1px solid var(--line);
   border-radius: 6px;
   background: transparent;
@@ -133,8 +132,25 @@
   background: var(--surface-accent);
   color: var(--ink);
 }
-.presets strong {
+.presetHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+.levelBadge,
+.timeBadge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--surface-soft);
   font-weight: 600;
+}
+.levelBadge {
+  white-space: nowrap;
+}
+.presetDescription {
+  color: var(--text-body);
 }
 .explorer .scope {
   margin-top: 20px;
@@ -158,6 +174,6 @@
     margin-top: 6px;
   }
   .presets > div {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
 }
