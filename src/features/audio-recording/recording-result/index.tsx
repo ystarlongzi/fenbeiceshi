@@ -86,17 +86,6 @@ function ClipResult({
           {copy.clear}
         </button>
       </div>
-      <p className={styles.format}>
-        {copy.format} · {clip.sampleRate} Hz
-      </p>
-      <a
-        className={styles.license}
-        href="/vendor/lamejs/NOTICE.txt"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {copy.license}
-      </a>
       <div aria-live="polite">
         {encoding ? <p>{copy.encoding}</p> : null}
         {clip.limited ? <p className={styles.notice}>{copy.limited}</p> : null}

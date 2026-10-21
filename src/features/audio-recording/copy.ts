@@ -19,8 +19,6 @@ const zh = {
   encodeError: "MP3 生成失败，可重试或先下载 PCM。",
   playbackError: "浏览器无法播放本段音频，可下载后在本机播放器打开。",
   clear: "清除录音",
-  format: "单声道 · 16 位小端 PCM",
-  license: "MP3 开源许可",
   seconds: "秒",
 };
 
@@ -47,8 +45,6 @@ const en: typeof zh = {
   encodeError: "MP3 creation failed. Retry or download PCM first.",
   playbackError: "Your browser cannot play this audio. Download it to open in a local player.",
   clear: "Clear audio",
-  format: "Mono · signed 16-bit little-endian PCM",
-  license: "MP3 open-source notice",
   seconds: "s",
 };
 

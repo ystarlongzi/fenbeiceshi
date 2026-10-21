@@ -30,17 +30,9 @@
   font-size: var(--font-size-ui);
   margin: 0;
 }
-.heading span,
-.clip .format,
-.license {
+.heading span {
   color: var(--muted);
   font-size: var(--font-size-caption);
-}
-.license {
-  display: inline-block;
-  margin-top: 6px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 .clip audio {
   width: 100%;
