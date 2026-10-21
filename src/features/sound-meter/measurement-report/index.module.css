@@ -170,6 +170,26 @@
   color: var(--surface);
   font-size: var(--font-size-ui);
 }
+.saveAudio {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 12px 0 16px;
+  font-size: var(--font-size-ui);
+  line-height: 1.7;
+}
+.saveAudio input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  accent-color: var(--brand);
+}
+.saveAudio small {
+  display: block;
+  color: var(--muted);
+  font-size: var(--font-size-caption);
+}
 .feedback {
   font-size: var(--font-size-ui);
   line-height: 1.8;

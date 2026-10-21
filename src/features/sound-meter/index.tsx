@@ -3,7 +3,8 @@
 import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
-import { EMPTY_RECORDS, getRecords, saveRecord, watchRecords } from "@/features/records/storage";
+import { EMPTY_RECORDS, getRecords, watchRecords } from "@/features/records/storage";
+import { saveRecord } from "@/features/records/mutations";
 import { meterCopy } from "./copy";
 import { noiseGradient } from "./palette";
 import { useSoundMeter } from "./use-sound-meter";
@@ -45,7 +46,10 @@ export function SoundMeter({ locale }: { locale: Locale }) {
   const frame = meter.frame ? displayFrame(meter.frame, basis) : null;
   const value = frame?.value ?? null;
   const calibrated = basis.mode === "reference-estimate";
-  const result = meter.result ? withMeasurementNote(meter.result, meter.note) : null;
+  const existing = records.records.find((record) => record.id === meter.result?.id);
+  const result = meter.result
+    ? withMeasurementNote({ ...meter.result, recording: existing?.recording }, meter.note)
+    : null;
   const saved = Boolean(
     result &&
     records.records.some((record) => record.id === result.id && record.note === result.note),
@@ -59,9 +63,13 @@ export function SoundMeter({ locale }: { locale: Locale }) {
     error: copy.error,
   }[meter.status];
 
-  function save(): ReturnType<typeof saveRecord> {
+  async function save(includeAudio: boolean): ReturnType<typeof saveRecord> {
     if (!result) return "saveError";
-    const error = saveRecord(result);
+    const clip = meter.recording.clip;
+    const error = await saveRecord(
+      result,
+      includeAudio && clip?.measurementId === result.id ? clip : undefined,
+    );
     meter.setMessage(error || "saved");
     return error;
   }
@@ -159,7 +167,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
                     <Icon name="circle-check" size={15} />
                     {copy.savedAlready}
                   </span>
-                ) : (
+                ) : meter.recording.phase === "finishing" ? null : (
                   <button
                     type="button"
                     className={styles.secondary}

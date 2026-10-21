@@ -5,9 +5,9 @@ import {
   getRecords,
   parseRecords,
   publicSummary,
-  saveRecord,
   validMeasurement,
 } from "./storage.ts";
+import { saveRecord } from "./mutations.ts";
 import type { Measurement } from "../sound-meter/types.ts";
 import { DEFAULT_ESTIMATE } from "../sound-meter/readings.ts";
 import { makeCalibration } from "../calibration/calibration.ts";
@@ -108,7 +108,8 @@ test("新估算模型随记录和导出保留，旧记录继续使用原口径",
   assert.equal(parseRecords(JSON.stringify({ version: 1, records: [generic] })).error, "corrupt");
 });
 
-test("旧记录升级与存储恢复可继续保存，配额失败不覆盖已有数据", () => {
+test("旧记录升级与存储恢复可继续保存，配额失败不覆盖已有数据", async (t) => {
+  t.mock.method(console, "error", () => {});
   const windowDescriptor = Object.getOwnPropertyDescriptor(globalThis, "window");
   const storageDescriptor = Object.getOwnPropertyDescriptor(globalThis, "localStorage");
   let unavailable = false;
@@ -134,13 +135,13 @@ test("旧记录升级与存储恢复可继续保存，配额失败不覆盖已�
     assert.equal(getRecords().error, "saveError");
     unavailable = false;
     assert.equal(getRecords().error, null);
-    assert.equal(saveRecord(sample), null);
+    assert.equal(await saveRecord(sample), null);
     assert.equal(JSON.parse(raw ?? "{}").version, 2);
-    assert.equal(saveRecord({ ...sample, id: "generic", estimate: DEFAULT_ESTIMATE }), null);
+    assert.equal(await saveRecord({ ...sample, id: "generic", estimate: DEFAULT_ESTIMATE }), null);
     assert.equal(getRecords().records[1].estimate, undefined);
     const saved = raw;
     full = true;
-    assert.equal(saveRecord({ ...sample, id: "later" }), "saveError");
+    assert.equal(await saveRecord({ ...sample, id: "later" }), "saveError");
     assert.equal(raw, saved);
     assert.equal(getRecords().records.length, 2);
   } finally {

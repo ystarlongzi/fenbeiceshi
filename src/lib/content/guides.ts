@@ -5,7 +5,7 @@ export const guides: SiteContent[] = [
     id: "guide",
     slug: "guide",
     kind: "guide",
-    updated: "2026-10-20",
+    updated: "2026-10-21",
     title: t("从一次观察开始", "Start with one observation"),
     description: t(
       "开始测量、切换仪表、进入全屏，以及结束后保存报告的方法。",
@@ -59,20 +59,20 @@ export const guides: SiteContent[] = [
             "To keep the sound, turn on Record audio before starting (off by default). Recording starts with a real measurement and can be played after finishing. Open Export data: if this measurement has audio, the report dialog offers Create MP3 and Download PCM. Downloads also remain in the recording area. PCM is raw mono, signed 16-bit little-endian; use the sample rate shown in the interface and filename when importing it into a player. Recording stops after 10 minutes or at the 64 MiB sample limit; measurement continues.",
           ),
           t(
-            "录音仅暂存当前页面，不上传，也不随摘要保存。刷新、离开页面或开始新录音会清除；请及时下载，也可使用“清除录音”释放本机内存。页面切到后台或输入中断会停止采集；如尾部采样未完整返回，会提示并保留已收到的片段。",
-            "Audio stays in this page, with no uploads or audio in saved summaries. Reloading, leaving the page or starting a new recording clears it. Download it to keep it, or use Clear audio to release memory. Capture stops when the page leaves the foreground or the input ends. If the final samples cannot be recovered, received audio is kept with a warning.",
+            "音频不上传。点击“保存报告”时，有同次录音会默认勾选“随报告保存录音”，将原始 PCM 保存在当前浏览器的 IndexedDB 中；也可取消勾选，仅保存报告数据。录音总容量上限为 200 MiB，空间不足会提示并保留已有数据。未保存的录音在刷新、离开页面或开始新录音后会清除；“清除录音”只释放当前页音频，不删除已存报告的录音。页面切到后台或输入中断会停止采集；尾部采样不完整时会保留片段并提示。",
+            "Audio is never uploaded. Save report selects Save audio with this report by default when matching audio is available, storing raw PCM in this browser's IndexedDB. Uncheck it to save report data only. Total audio is limited to 200 MiB; storage failures are reported and existing data is kept. Unsaved audio is cleared when you reload, leave or start a new recording. Clear audio releases page-held audio without deleting audio saved with reports. Capture stops when the page leaves the foreground or input ends; incomplete final samples are kept with a warning.",
           ),
           t(
             "结束后，麦克风音轨会停止。点击“保存报告”或“导出数据”时，可在“备注”中选填位置、距离和家电状态等测量条件；两处共用备注。可导出 CSV、Excel、PDF 或复制摘要；摘要包括统计、口径、备注与最近一段趋势，不包含录音。",
             "Finishing stops the microphone tracks. When saving or exporting, optionally note the position, distance and appliance state. Both dialogs share this note. Export CSV, Excel or PDF, or copy a text summary, with statistics, scale, context and the recent trend, without recorded audio.",
           ),
           t(
-            "记录最多保留最近 30 条，只在当前浏览器可见。比较记录时，输入设置、估算模型和校准口径需要一致；旧版相对记录继续显示原来的 dBFS，不能与通用估算混比；条件仍需由你核对。均值差不是家电独立声级，也不是窗户的隔声性能。",
-            "Up to 30 recent records are kept in this browser. Comparisons require matching input settings, estimate models and calibration. Legacy relative records retain dBFS and cannot be mixed with generic estimates. You must also check the conditions. A mean difference is not an isolated appliance level or window insulation rating.",
+            "记录最多保留最近 30 条，只在当前浏览器可见；删除或淘汰记录时会同时清理对应录音。比较记录时，输入设置、估算模型和校准口径需要一致；旧版相对记录继续显示原来的 dBFS，不能与通用估算混比；条件仍需由你核对。均值差不是家电独立声级，也不是窗户的隔声性能。",
+            "Up to 30 recent records are kept in this browser. Deleting or replacing an old record also removes its audio. Comparisons require matching input settings, estimate models and calibration. Legacy relative records retain dBFS and cannot be mixed with generic estimates. You must also check the conditions. A mean difference is not an isolated appliance level or window insulation rating.",
           ),
           t(
-            "在本机记录页点击某条记录的下载按钮，也会打开报告弹框，选择 CSV、Excel、PDF 或复制摘要。弹框内修改的备注仅用于本次导出，不会更改已保存的记录。",
-            "On the local records page, each download button opens the report dialog with CSV, Excel, PDF and Copy summary. Note edits in this dialog apply only to that export; saved records stay unchanged.",
+            "在本机记录页点击某条记录的下载按钮，也会打开报告弹框，选择 CSV、Excel、PDF 或复制摘要；有已保存录音时，还可下载 PCM 或在本机生成 MP3。旧记录不会恢复未曾保存的录音。弹框内修改的备注仅用于本次导出，不会更改原记录。浏览器清理网站数据或回收存储时可能删除报告与录音，请下载重要文件留存。",
+            "On the local records page, each download button opens the report dialog with CSV, Excel, PDF and Copy summary. Saved audio also offers PCM download and local MP3 creation. Audio that was never saved with an old record cannot be recovered. Note edits apply only to that export, leaving saved records unchanged. Clearing site data or browser storage eviction may remove reports and audio; download important files to keep them.",
           ),
         ],
       },
@@ -215,15 +215,15 @@ export const guides: SiteContent[] = [
     id: "privacy",
     slug: "privacy",
     kind: "trust",
-    updated: "2026-10-20",
+    updated: "2026-10-21",
     title: t("你的声音，留在你的设备上", "Your audio stays on your device"),
     description: t(
       "了解麦克风权限、音频本机处理、本机记录、参考校准和删除方式。",
       "Understand microphone access, on-device processing, local records, reference calibration and deletion.",
     ),
     takeaway: t(
-      "本站不上传音频。同步录音默认关闭，开启后的录音仅暂存当前页面，可播放和下载；本机摘要不包含音频，可逐条删除或自行导出。",
-      "This tool does not upload audio. Recording is off by default; optional recordings stay in this page for playback and download. Local summaries exclude audio and can be deleted or exported.",
+      "本站不上传音频。同步录音默认关闭；开启后可播放、下载，并在保存报告时将录音留在当前浏览器。删除或淘汰记录时会清理关联录音；导出的数据摘要不包含音频。",
+      "This tool never uploads audio. Recording is off by default. Optional audio can be played, downloaded and saved with reports in this browser. Deleting or replacing a record removes its audio; exported data summaries exclude audio.",
     ),
     sections: [
       {
@@ -235,8 +235,8 @@ export const guides: SiteContent[] = [
             "Microphone access is requested only after Start. By default, samples are used only to calculate levels in browser memory. Optional recording stays on-device for playback, local MP3 encoding and raw PCM download after finishing. Audio is never sent to a server; the encoder is loaded from this site without a third-party audio service. Capture stops when you finish, leave the foreground or close the page. Your browser controls whether permission is remembered.",
           ),
           t(
-            "录音仅暂存在当前页面，单次最多 10 分钟，并受 64 MiB 采样内存上限约束；到达上限会停止录音、保留片段，测量可继续。刷新、离开页面、开始新录音或点击“清除录音”会释放页面中的音频；请提前下载。下载的音频文件由你保存在设备上，清除页面录音或本站数据不会删除这些文件。本机摘要及数据导出均不包含音频。",
-            "Recordings are temporary in this page, limited to 10 minutes and 64 MiB of sample data. Reaching a limit keeps the audio and stops recording while measurement can continue. Reloading, leaving the page, starting a new recording or choosing Clear audio releases page-held audio; download it first to keep it. Downloaded files remain on your device and are not deleted by clearing page audio or site data. Local summaries and data exports contain no audio.",
+            "单次录音最多 10 分钟，并受 64 MiB 采样内存上限约束；到达上限会停止录音、保留片段，测量可继续。保存报告时可将同次原始 PCM、实际采样率及报告 ID 留在当前浏览器的 IndexedDB，录音总容量最多 200 MiB，不会自动删除其他报告的录音腾出空间。未保存的录音仍只暂存当前页面，刷新、离开或新录音会释放；“清除录音”也只清理页面副本。下载到设备的音频文件不会被这些操作或网站数据清理删除。CSV、Excel、PDF 与文字摘要均不嵌入音频。",
+            "Each recording is limited to 10 minutes and 64 MiB of samples; reaching either limit keeps the audio while measurement continues. Saving a report can keep its raw PCM, actual sample rate and report ID in this browser's IndexedDB, with a total audio limit of 200 MiB. Audio from retained reports is not silently deleted to make space. Unsaved audio stays in the page and is released on reload, navigation or a new recording. Clear audio also clears only the page copy. Downloaded files are unaffected by these actions or clearing site data. CSV, Excel, PDF and text summaries do not embed audio.",
           ),
           t(
             "MP3 编码使用本机运行的 LAME / lamejs 开源编码器，许可证、源码与替换说明见本站 /vendor/lamejs/NOTICE.txt。",
@@ -246,15 +246,15 @@ export const guides: SiteContent[] = [
       },
       {
         id: "records",
-        title: t("本机摘要与删除", "Local summaries and deletion"),
+        title: t("本机报告与删除", "Local reports and deletion"),
         paragraphs: [
           t(
-            "保存操作使用当前浏览器的网站存储，最多保留最近 30 条摘要。摘要包括时间、时长、输入信息、采样统计、条件、最近一段趋势、估算模型及已使用的参考信息，不包含音频。旧记录保留原口径，不会因版本更新被改写成估算分贝。它们不会自动同步到其他浏览器或设备。",
-            "Saving uses this browser's site storage for up to 30 recent summaries: time, duration, input information, sampled statistics, conditions, recent trend, estimate model and any reference used. Legacy records keep their original scale rather than being relabelled as estimates. No audio is included, and records do not automatically sync to another device or browser.",
+            "保存操作在当前浏览器的 localStorage 中保留最多 30 条报告数据，包括时间、时长、输入信息、统计、备注、最近趋势、估算模型及参考信息；选存录音另外保存在 IndexedDB，通过报告 ID 关联。旧记录保留原口径，不会被改写成估算分贝，也无法恢复未曾保存的音频。报告与录音不会自动同步到其他浏览器或设备。",
+            "Saving keeps up to 30 reports in this browser's localStorage, including time, duration, input information, statistics, notes, recent trend, estimate model and reference information. Optional audio is stored separately in IndexedDB, linked by report ID. Legacy records keep their original scale and cannot recover audio that was never saved. Reports and audio do not automatically sync to another device or browser.",
           ),
           t(
-            "本机记录页可以逐条确认删除。清除浏览器中的本站数据也会删除摘要；请先导出你希望保留的结果。本机存储不可用或损坏时，工具会提示并保留已有数据，不静默覆盖。",
-            "Confirm individual deletions on the local records page. Clearing this site's browser data also removes summaries, so export any you want to keep first. Unavailable or malformed storage is reported and existing data is not silently overwritten.",
+            "本机记录页可以逐条确认删除，并清理对应录音；保存第 31 条时会淘汰最早保存的记录及其录音。清除本站数据也会删除报告与录音，浏览器还可能因空间紧张而回收存储，请先下载重要文件。容量不足或存储异常会提示，已有报告不会被静默覆盖；保存时可取消勾选录音，仅保存数据。",
+            "Confirm individual deletions on the records page to remove a report and its audio. Saving a 31st record removes the earliest saved record and its audio. Clearing site data also removes reports and audio, and browsers may evict storage under pressure. Download important files first. Full or malformed storage is reported without silently overwriting existing reports; uncheck audio when saving to keep report data only.",
           ),
           t(
             "手动选择的亮色或暗色主题会作为独立偏好保存在当前浏览器，仅用于恢复外观，不包含音频或观察摘要，也不上传至服务器。尚未选择时跟随系统外观；清除本站数据后会恢复这一默认行为。",

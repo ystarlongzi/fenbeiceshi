@@ -3,15 +3,16 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { Icon } from "@/components/icon";
 import { recordingCopy } from "../../audio-recording/copy";
-import { recordingFilename } from "../../audio-recording/pcm";
 import type { useAudioRecording } from "../../audio-recording/use-audio-recording";
-import type { saveRecord } from "../../records/storage";
+import type { saveRecord } from "../../records/mutations";
+import { useStoredRecording } from "../../records/use-stored-recording";
 import { WorkbenchDialog } from "../workbench-dialog";
 import { meterCopy } from "../copy";
 import type { Locale, Measurement } from "../types";
 import { reportCopy } from "./copy";
 import { createReport, reportText } from "./model";
 import { exportReport, type FileFormat } from "./export";
+import { AudioReportActions } from "./audio-actions";
 import styles from "./index.module.css";
 
 const STAT_ICONS = ["arrow-down", "arrow-up", "audio-lines"] as const;
@@ -21,7 +22,7 @@ export function MeasurementReportDialog({
   locale,
   note,
   noteHint,
-  recording,
+  recording: liveRecording,
   onNoteChange,
   onSave,
   onClose,
@@ -33,7 +34,7 @@ export function MeasurementReportDialog({
   noteHint?: string;
   recording?: ReturnType<typeof useAudioRecording>;
   onNoteChange: (note: string) => void;
-  onSave?: () => ReturnType<typeof saveRecord>;
+  onSave?: (includeAudio: boolean) => ReturnType<typeof saveRecord>;
   onClose: () => void;
   returnFocus: RefObject<HTMLButtonElement | null>;
 }) {
@@ -41,21 +42,39 @@ export function MeasurementReportDialog({
   const meter = meterCopy[locale];
   const report = createReport(record, locale);
   // 上次录音会保留到新录音开始，报告只允许下载同一次测量的音频。
+  const liveClip = liveRecording?.clip?.measurementId === record.id ? liveRecording.clip : null;
+  const stored = useStoredRecording(record.id, !onSave && !liveClip ? record.recording : undefined);
+  const recording = liveClip ? liveRecording : stored;
   const clip = recording?.clip?.measurementId === record.id ? recording.clip : null;
   const audio = recordingCopy[locale];
+  const [includeAudio, setIncludeAudio] = useState(true);
   const [pending, setPending] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [error, setError] = useState(false);
   const [manualCopy, setManualCopy] = useState<string | null>(null);
   const actions = useRef<HTMLDivElement>(null);
-  const pcmAction = useRef<HTMLAnchorElement>(null);
+  const saveAction = useRef<HTMLButtonElement>(null);
+  const saveAttempt = useRef(false);
   const lastAction = useRef<FileFormat | null>(null);
+  const mounted = useRef(true);
 
   useEffect(() => {
-    if (!pending && lastAction.current)
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (pending) return;
+    if (lastAction.current)
       actions.current
         ?.querySelector<HTMLButtonElement>(`[data-format="${lastAction.current}"]`)
         ?.focus();
+    else if (saveAttempt.current) {
+      saveAction.current?.focus();
+      saveAttempt.current = false;
+    }
   }, [pending]);
 
   async function download(format: FileFormat) {
@@ -86,6 +105,31 @@ export function MeasurementReportDialog({
       setError(true);
       setManualCopy(text);
       setFeedback(copy.copyError);
+    }
+  }
+
+  async function save() {
+    if (!onSave || pending) return;
+    saveAttempt.current = true;
+    setPending(true);
+    setError(false);
+    setFeedback("");
+    try {
+      const code = await onSave(includeAudio);
+      if (!mounted.current) return;
+      if (!code) onClose();
+      else {
+        setError(true);
+        setFeedback(meter[code]);
+      }
+    } catch (cause) {
+      console.error("保存报告失败。", cause);
+      if (mounted.current) {
+        setError(true);
+        setFeedback(meter.saveError);
+      }
+    } finally {
+      if (mounted.current) setPending(false);
     }
   }
 
@@ -142,19 +186,32 @@ export function MeasurementReportDialog({
           className={styles.save}
           onSubmit={(event) => {
             event.preventDefault();
-            const code = onSave();
-            if (!code) onClose();
-            else {
-              setError(true);
-              setFeedback(meter[code]);
-            }
+            void save();
           }}
         >
           <p>{copy.saveHint}</p>
-          <button type="submit">
-            <Icon name="save" size={16} />
-            {meter.save}
-          </button>
+          {liveClip ? (
+            <label className={styles.saveAudio}>
+              <input
+                type="checkbox"
+                checked={includeAudio}
+                disabled={pending}
+                onChange={(event) => setIncludeAudio(event.target.checked)}
+              />
+              <span>
+                {copy.saveAudio}
+                <small>{copy.saveAudioHint}</small>
+              </span>
+            </label>
+          ) : null}
+          {pending ? (
+            <p role="status">{copy.saving}</p>
+          ) : (
+            <button ref={saveAction} type="submit">
+              <Icon name="save" size={16} />
+              {meter.save}
+            </button>
+          )}
         </form>
       ) : (
         <>
@@ -184,54 +241,27 @@ export function MeasurementReportDialog({
                 </button>
               ))}
               {clip && recording ? (
-                <>
-                  {recording.mp3.url ? (
-                    <a href={recording.mp3.url} download={recordingFilename(clip, "mp3")}>
-                      <span>
-                        <Icon name="download" size={16} />
-                        {audio.mp3Ready}
-                      </span>
-                      <small>{copy.mp3Hint}</small>
-                    </a>
-                  ) : recording.mp3.phase === "encoding" ? (
-                    <div className={styles.encoding} role="status">
-                      <span>{audio.encoding}</span>
-                      <small>{copy.mp3Hint}</small>
-                    </div>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        recording.createMp3();
-                        pcmAction.current?.focus();
-                      }}
-                    >
-                      <span>
-                        <Icon name="download" size={16} />
-                        {audio.mp3}
-                      </span>
-                      <small>{copy.mp3Hint}</small>
-                    </button>
-                  )}
-                  <a ref={pcmAction} href={clip.pcmUrl} download={recordingFilename(clip, "pcm")}>
-                    <span>
-                      <Icon name="download" size={16} />
-                      {audio.pcm}
-                    </span>
-                    <small>{clip.sampleRate} Hz · mono · s16le</small>
-                  </a>
-                </>
+                <AudioReportActions clip={clip} recording={recording} locale={locale} />
               ) : null}
             </div>
           )}
           {clip ? <p className={styles.audioHint}>{copy.audioHint}</p> : null}
           <div className={styles.audioStatus} role="status">
+            {!liveClip && record.recording && stored.status === "loading" ? (
+              <p>{copy.loadingAudio}</p>
+            ) : null}
+            {!liveClip && record.recording && stored.status === "missing" ? (
+              <p>{copy.audioMissing}</p>
+            ) : null}
+            {!liveClip && record.recording && stored.status === "error" ? (
+              <p data-error="true">{copy.audioReadError}</p>
+            ) : null}
             {clip?.limited ? <p>{audio.limited}</p> : null}
             {clip?.interrupted ? <p>{audio.interrupted}</p> : null}
             {clip && recording?.mp3.phase === "error" ? (
               <p data-error="true">{audio.encodeError}</p>
             ) : null}
-            {recording?.measurementId === record.id && recording.phase === "finishing" ? (
+            {liveRecording?.measurementId === record.id && liveRecording.phase === "finishing" ? (
               <p>{audio.finishing}</p>
             ) : null}
           </div>

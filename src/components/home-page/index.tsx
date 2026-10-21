@@ -245,7 +245,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             ? [
                 {
                   q: "Does it record or upload my audio?",
-                  a: "Recording is off by default. Turn on Record audio before measuring to play or download MP3 / PCM afterward. Audio stays in this page with no uploads. Reloading or starting a new recording clears it; local summaries exclude audio.",
+                  a: "Recording is off by default. Turn on Record audio before measuring to play or download MP3 / PCM afterward. Save report can keep audio in this browser for later downloads from history. Unsaved audio is cleared on reload or a new recording. Audio is never uploaded; exported data summaries exclude it.",
                 },
                 {
                   q: "Do I need to calibrate before starting?",
@@ -259,7 +259,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             : [
                 {
                   q: "会录音或上传我的声音吗？",
-                  a: "录音默认关闭。测量前开启同步录音，结束后可播放或下载 MP3 / PCM。音频只暂存在当前页面，不上传服务器；刷新或新录音会清除。本机摘要不包含原始声音。",
+                  a: "录音默认关闭。测量前开启同步录音，结束后可播放或下载 MP3 / PCM；保存报告时可将录音留在当前浏览器，以后从历史记录下载。未保存的录音在刷新或新录音后清除。音频不上传服务器，导出的数据摘要不包含原始声音。",
                 },
                 {
                   q: "开始测量前，一定要先校准吗？",

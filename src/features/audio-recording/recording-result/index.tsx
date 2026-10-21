@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import type { Locale } from "../../sound-meter/types";
-import type { PlaybackClip, useAudioRecording } from "../use-audio-recording";
+import type { useAudioRecording } from "../use-audio-recording";
+import type { PlaybackClip } from "../use-audio-clip";
 import { recordingFilename } from "../pcm";
 import { recordingCopy } from "../copy";
 import styles from "./index.module.css";
@@ -96,7 +97,6 @@ function ClipResult({
       >
         {copy.license}
       </a>
-      <p>{copy.temporary}</p>
       <div aria-live="polite">
         {encoding ? <p>{copy.encoding}</p> : null}
         {clip.limited ? <p className={styles.notice}>{copy.limited}</p> : null}

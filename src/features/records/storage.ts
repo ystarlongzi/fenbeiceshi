@@ -1,4 +1,5 @@
 import type { Calibration, Measurement } from "../sound-meter/types.ts";
+import { validRecordingInfo } from "../audio-recording/pcm.ts";
 import { DISPLAY_FLOOR } from "../sound-meter/level.ts";
 import {
   DEFAULT_ESTIMATE,
@@ -8,8 +9,9 @@ import {
 } from "../sound-meter/readings.ts";
 
 export const RECORD_KEY = "fenbeiceshi:records:v1";
-const MAX_RECORDS = 30;
-export type RecordError = "saveError" | "corrupt" | null;
+export const MAX_RECORDS = 30;
+export type RecordError =
+  "saveError" | "corrupt" | "audioUnavailable" | "audioFull" | "audioQuota" | "audioCorrupt" | null;
 export interface RecordState {
   records: Measurement[];
   error: RecordError;
@@ -51,6 +53,7 @@ export function validMeasurement(value: unknown): value is Measurement {
     text(r.input.label, 200) &&
     text(r.input.signature, 1000) &&
     typeof r.input.processing === "boolean" &&
+    (r.recording === undefined || validRecordingInfo(r.recording)) &&
     (r.estimate === undefined ||
       (r.estimate !== null &&
         r.estimate.id === DEFAULT_ESTIMATE.id &&
@@ -80,7 +83,10 @@ export function parseRecords(raw: string | null): RecordState {
       !Array.isArray(data.records) ||
       data.records.length > MAX_RECORDS ||
       !data.records.every(validMeasurement) ||
-      (data.version === 1 && data.records.some((r: Measurement) => r.estimate !== undefined))
+      (data.version === 1 &&
+        data.records.some(
+          (r: Measurement) => r.estimate !== undefined || r.recording !== undefined,
+        ))
     )
       return { records: [], error: "corrupt" };
     if (new Set(data.records.map((r: Measurement) => r.id)).size !== data.records.length)
@@ -119,33 +125,6 @@ export function watchRecords(listener: () => void) {
     window.removeEventListener("storage", external);
     window.removeEventListener("fenbei-records", listener);
   };
-}
-
-function writeRecords(records: Measurement[]): RecordError {
-  try {
-    const raw = JSON.stringify({ version: 2, records });
-    if (raw.length > 1000000) return "saveError";
-    localStorage.setItem(RECORD_KEY, raw);
-    window.dispatchEvent(new Event("fenbei-records"));
-    return null;
-  } catch {
-    return "saveError";
-  }
-}
-
-export function saveRecord(record: Measurement): RecordError {
-  if (!validMeasurement(record)) return "saveError";
-  const state = getRecords();
-  if (state.error) return state.error;
-  return writeRecords(
-    [record, ...state.records.filter((item) => item.id !== record.id)].slice(0, MAX_RECORDS),
-  );
-}
-
-export function deleteRecord(id: string): RecordError {
-  const state = getRecords();
-  if (state.error) return state.error;
-  return writeRecords(state.records.filter((item) => item.id !== id));
 }
 
 export function compareRecords(a: Measurement, b: Measurement): number | null {

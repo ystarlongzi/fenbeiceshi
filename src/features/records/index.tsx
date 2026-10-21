@@ -10,7 +10,8 @@ import { formatDuration } from "../sound-meter/level";
 import { displayStats, formatReading, measurementBasis } from "../sound-meter/readings";
 import { readingColor } from "../sound-meter/palette";
 import type { Locale, Measurement } from "../sound-meter/types";
-import { EMPTY_RECORDS, compareRecords, deleteRecord, getRecords, watchRecords } from "./storage";
+import { EMPTY_RECORDS, compareRecords, getRecords, watchRecords } from "./storage";
+import { deleteRecord } from "./mutations";
 import styles from "./index.module.css";
 import { recordBand } from "./level";
 import { RecordExportDialog } from "./record-export-dialog";
@@ -23,6 +24,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
   const [confirm, setConfirm] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [reportRecord, setReportRecord] = useState<Measurement | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const exportAction = useRef<HTMLButtonElement | null>(null);
   const prefix = locale === "en" ? "/en" : "";
   const records = compact ? state.records.slice(0, 3) : state.records;
@@ -40,8 +42,11 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
       minute: "2-digit",
     }).format(new Date(record.startedAt));
 
-  function remove(id: string) {
-    const error = deleteRecord(id);
+  async function remove(id: string) {
+    if (deleting) return;
+    setDeleting(id);
+    const error = await deleteRecord(id);
+    setDeleting(null);
     setConfirm(null);
     if (error) setMessage(copy[error]);
     else {
@@ -154,7 +159,12 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
                         ? copy.generic
                         : copy.relative}
                   </p>
-                  {!compact ? <small>{record.input.label}</small> : null}
+                  {!compact ? (
+                    <small>
+                      {record.input.label}
+                      {record.recording ? (en ? " · Audio saved" : " · 含录音") : ""}
+                    </small>
+                  ) : null}
                 </div>
                 <RecordReading record={record} locale={locale} />
                 {!compact ? (
@@ -174,17 +184,19 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
                     >
                       <Icon name="download" size={16} />
                     </button>
-                    {confirm === record.id ? (
+                    {deleting === record.id ? (
+                      <span role="status">{copy.deleting}</span>
+                    ) : confirm === record.id ? (
                       <div className={styles.confirm}>
                         <span>{copy.confirmDelete}?</span>
-                        <button type="button" onClick={() => remove(record.id)}>
+                        <button type="button" onClick={() => void remove(record.id)}>
                           {copy.confirmDelete}
                         </button>
                         <button type="button" onClick={() => setConfirm(null)}>
                           {copy.keep}
                         </button>
                       </div>
-                    ) : (
+                    ) : deleting ? null : (
                       <button
                         type="button"
                         aria-label={`${copy.delete}: ${date(record)}`}
@@ -223,7 +235,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
           )}
         </div>
       ) : null}
-      {reportRecord ? (
+      {reportRecord && state.records.some((record) => record.id === reportRecord.id) ? (
         <RecordExportDialog
           key={reportRecord.id}
           record={reportRecord}

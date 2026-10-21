@@ -263,8 +263,8 @@ export const articles: SiteContent[] = [
         title: t("结束后怎样停止访问？", "How does access stop?"),
         paragraphs: [
           t(
-            "点击结束后，本站停止音轨；开启同步录音时会先整理尾部采样，再关闭音频上下文。浏览器仍可能保留你为网站授予的权限，可在网站权限界面更改。录音默认关闭，开启后的音频仅暂存当前页面供播放和下载，不上传，也不进入本机摘要记录。",
-            "Finishing stops the tracks and closes the audio context after any recording tail is collected. Your browser may remember the site's permission; change it in site settings when you choose. Recording is off by default. Optional audio stays in this page for playback and download, without uploads or audio in saved summaries.",
+            "点击结束后，本站停止音轨；开启同步录音时会先整理尾部采样，再关闭音频上下文。浏览器仍可能保留你为网站授予的权限，可在网站权限界面更改。录音默认关闭，开启后可播放、下载，并在保存报告时选择将同次录音保存在当前浏览器，供历史记录下载 MP3、PCM；音频不上传，也不嵌入数据摘要。",
+            "Finishing stops the tracks and closes the audio context after any recording tail is collected. Your browser may remember the site's permission; change it in site settings when you choose. Recording is off by default. Optional audio can be played, downloaded and saved with its report in this browser for later MP3 / PCM downloads. Audio is never uploaded or embedded in data summaries.",
           ),
         ],
       },

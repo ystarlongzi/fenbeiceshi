@@ -3,8 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { SoundMeter } from "../../src/features/sound-meter";
 import { makeCalibration } from "../../src/features/calibration/calibration";
-import { saveRecord } from "../../src/features/records/storage";
+import { saveRecord } from "../../src/features/records/mutations";
 import { DEFAULT_ESTIMATE } from "../../src/features/sound-meter/readings";
+import { RECORDING_DB, RECORDING_STORE } from "../../src/features/records/recording-storage";
+import { getRecords } from "../../src/features/records/storage";
 import type { Locale, Measurement } from "../../src/features/sound-meter/types";
 
 // 只由临时本地测试路由导入，不注册生产页面，也不请求真实麦克风。
@@ -17,7 +19,7 @@ export default function WorkbenchFixture() {
   const restore = useRef<(() => void) | null>(null);
   useEffect(() => () => restore.current?.(), []);
 
-  function seedRecords() {
+  async function seedRecords() {
     const sample: Measurement = {
       id: "qa-records-generic",
       startedAt: "2026-10-20T01:00:00.000Z",
@@ -48,7 +50,7 @@ export default function WorkbenchFixture() {
       },
     ];
     for (const record of records) {
-      const error = saveRecord(record);
+      const error = await saveRecord(record);
       if (error) {
         setRecordsFeedback(`添加 QA 记录失败：${error}`);
         return;
@@ -57,12 +59,46 @@ export default function WorkbenchFixture() {
     setRecordsFeedback("已添加 QA 通用估算、参考估算和历史相对记录。");
   }
 
+  async function inspectAudio() {
+    try {
+      const count = await new Promise<number>((resolve, reject) => {
+        const request = indexedDB.open(RECORDING_DB, 1);
+        request.onupgradeneeded = () =>
+          request.result.createObjectStore(RECORDING_STORE, { keyPath: "measurementId" });
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+          const db = request.result;
+          const tx = db.transaction(RECORDING_STORE);
+          const query = tx.objectStore(RECORDING_STORE).count();
+          tx.oncomplete = () => {
+            db.close();
+            resolve(query.result);
+          };
+          tx.onabort = () => {
+            db.close();
+            reject(tx.error);
+          };
+        };
+      });
+      setRecordsFeedback(`QA 存储核对：${getRecords().records.length} 条报告，${count} 段音频。`);
+    } catch (cause) {
+      console.error("QA 存储核对失败", cause);
+      setRecordsFeedback("QA 存储核对失败。");
+    }
+  }
+
   function arm() {
     const media = navigator.mediaDevices;
     const originalInput = media.getUserMedia;
     const originalDevices = media.enumerateDevices;
     const originalCopy = navigator.clipboard?.writeText;
     const OriginalWorker = window.Worker;
+    const originalPut = IDBObjectStore.prototype.put;
+    IDBObjectStore.prototype.put = function (value: unknown, key?: IDBValidKey) {
+      if (mode.current === "audio-quota" && this.name === RECORDING_STORE)
+        throw new DOMException("QA 录音空间不足", "QuotaExceededError");
+      return originalPut.call(this, value, key);
+    };
     window.Worker = class extends OriginalWorker {
       constructor(url: string | URL, options?: WorkerOptions) {
         if (mode.current === "mp3-error") throw new Error("QA MP3 编码不可用");
@@ -127,6 +163,7 @@ export default function WorkbenchFixture() {
       media.getUserMedia = originalInput;
       media.enumerateDevices = originalDevices;
       window.Worker = OriginalWorker;
+      IDBObjectStore.prototype.put = originalPut;
       if (navigator.clipboard) navigator.clipboard.writeText = originalCopy;
     };
     setArmed(true);
@@ -140,7 +177,10 @@ export default function WorkbenchFixture() {
         <button type="button" onClick={seedRecords}>
           添加导出验证记录
         </button>{" "}
-        <a href={locale === "en" ? "/en/records/" : "/records/"}>查看验证记录</a>
+        <a href={locale === "en" ? "/en/records/" : "/records/"}>查看验证记录</a>{" "}
+        <button type="button" onClick={() => void inspectAudio()}>
+          核对本机音频
+        </button>
       </p>
       {recordsFeedback ? <p role="status">{recordsFeedback}</p> : null}
       <label>
@@ -162,6 +202,7 @@ export default function WorkbenchFixture() {
           <option value="waiting">等待授权</option>
           <option value="copy-error">复制被拒绝</option>
           <option value="mp3-error">MP3 编码失败</option>
+          <option value="audio-quota">录音存储容量不足</option>
           <option value="long">长设备名</option>
         </select>
       </label>{" "}

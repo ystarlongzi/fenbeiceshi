@@ -8,7 +8,6 @@ const zh = {
   hint: "仅存本机，不上传。单次最多 10 分钟；结束后可播放、下载 MP3 / PCM。",
   demo: "演示不录音",
   title: "本机录音",
-  temporary: "仅暂存在当前页面，刷新或新录音会清除。请及时下载；保存摘要不含音频。",
   limited: "录音已达时长或内存上限，已保留音频；测量可继续。",
   interrupted: "录音中断，已保留收到的音频片段。",
   error: "录音不可用，本次仅测量。可结束后重试，或换用其他浏览器。",
@@ -35,8 +34,6 @@ const en: typeof zh = {
   hint: "Local only, no uploads. Up to 10 minutes; play or download MP3 / PCM after finishing.",
   demo: "Demos are not recorded",
   title: "Local audio recording",
-  temporary:
-    "Kept in this page only; reloading or a new recording clears it. Download to keep it. Summaries exclude audio.",
   limited:
     "The recording reached its time or memory limit. Audio is kept; measurement can continue.",
   interrupted: "Recording was interrupted. Received audio has been kept.",

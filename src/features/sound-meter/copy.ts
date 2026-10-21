@@ -100,7 +100,8 @@ const zh = {
   notePlaceholder: "例如：书桌位置，关窗，空调关闭",
   noteHint: "记录位置和状态，方便下一次在相同条件下复测。",
   privacy: "音频仅在本机处理",
-  privacyHint: "录音默认关闭；开启后仅暂存当前页面，可播放和下载，不上传原始声音。摘要不含音频。",
+  privacyHint:
+    "录音默认关闭；开启后可随报告保存在当前浏览器，支持播放和下载，不上传。导出摘要不含音频。",
   saved: "报告已保存到本机",
   save: "保存报告",
   export: "导出数据",
@@ -109,6 +110,11 @@ const zh = {
   demoNoSave: "演示不能保存或导出为测量记录。",
   saveError: "本机存储不可用或已满，可改用导出数据。",
   corrupt: "本机记录格式异常。为保留旧数据，暂不覆盖；可先导出本次结果。",
+  audioUnavailable: "本机录音存储不可用，操作未完成。请重试，或先导出报告和当前录音。",
+  audioFull: "本机录音已达 200 MiB 上限。请先下载并删除旧记录，或取消勾选录音，仅保存报告数据。",
+  audioQuota: "浏览器可用空间不足，报告尚未保存。请清理空间，或取消勾选录音，仅保存报告数据。",
+  audioCorrupt: "本机录音数据异常，未覆盖已有记录。可先下载当前录音，或仅保存报告数据。",
+  deleting: "正在删除记录与录音…",
   fullFallback: "已进入页面内专注模式，当前浏览器没有启用系统全屏。",
   closeError: "无法退出系统全屏，请按 Esc 或使用浏览器退出操作。",
   inputChanged: "输入设置已改变，已清除参考并恢复通用估算。",
@@ -126,7 +132,7 @@ const zh = {
   saveFirst: "完成一次真实测量并保存摘要后，记录会出现在这里。",
   records: "本机记录",
   recordsHint:
-    "只在当前浏览器保存，清除网站数据会一并删除。最多保留30条，超出后自动移除最早保存的一条。",
+    "只在当前浏览器保存，最多 30 条；删除或淘汰记录时一并清理录音。已保存的录音可在下载弹框导出 MP3、PCM，总容量上限 200 MiB。",
   recordBelowFloor: "低于输入下限",
   allRecords: "查看全部记录",
   input: "输入",
@@ -139,7 +145,7 @@ const zh = {
   incompatible: "两条记录的设备、设置或估算口径不同，不能直接计算差值。",
   difference: "能量均值变化",
   differenceHint: "后一次减前一次；读数差不代表声源独立声级或隔声性能。",
-  noAudio: "仅保存摘要与最近一段趋势，不含音频。",
+  noAudio: "报告与选存录音仅保存在当前浏览器。",
   sessionOnly: "参考关系仅在本次页面停留期间使用。",
   metadata: "观察摘要",
   exportError: "导出失败，请检查浏览器下载权限后重试。",
@@ -243,7 +249,7 @@ const en: MeterCopy = {
   noteHint: "Keep a note of position and conditions for repeat observations.",
   privacy: "Audio stays on your device",
   privacyHint:
-    "Recording is off by default. Optional audio stays in this page for playback and download, with no uploads. Summaries exclude audio.",
+    "Recording is off by default. Optional audio can be saved with reports in this browser for playback and download, with no uploads. Exported summaries exclude audio.",
   saved: "Report saved on this device",
   save: "Save report",
   export: "Export data",
@@ -253,6 +259,15 @@ const en: MeterCopy = {
   saveError: "Local storage is unavailable or full. You can export the data instead.",
   corrupt:
     "Stored records have an unexpected format. Existing data has been preserved; you can export this result.",
+  audioUnavailable:
+    "Local audio storage is unavailable. The operation is incomplete. Retry, or export the report and current audio first.",
+  audioFull:
+    "Local audio reached the 200 MiB limit. Download and delete old records, or uncheck audio to save report data only.",
+  audioQuota:
+    "Browser storage is full. The report has not been saved. Free some space, or uncheck audio to save report data only.",
+  audioCorrupt:
+    "Local audio has an unexpected format. Existing records were preserved. Download the current audio or save report data only.",
+  deleting: "Deleting the record and audio…",
   fullFallback: "Focus view is open. System fullscreen is unavailable in this browser.",
   closeError: "Unable to exit system fullscreen. Press Esc or use your browser control.",
   inputChanged:
@@ -272,7 +287,7 @@ const en: MeterCopy = {
   saveFirst: "Finish a real measurement and save its summary to see it here.",
   records: "Local records",
   recordsHint:
-    "Saved only in this browser. Clearing site data also removes these records. Keeps up to 30 records; saving more automatically removes the earliest saved record.",
+    "Saved only in this browser, up to 30 records. Deleting or replacing old records removes their audio too. Saved audio is available as MP3 / PCM in the download dialog, with a 200 MiB total limit.",
   recordBelowFloor: "Below input floor",
   allRecords: "View all records",
   input: "Input",
@@ -287,7 +302,7 @@ const en: MeterCopy = {
   difference: "Change in energy mean",
   differenceHint:
     "Later minus earlier. This is not an isolated source level or an insulation rating.",
-  noAudio: "Summary and recent trend only. No audio is stored.",
+  noAudio: "Reports and optional audio stay in this browser.",
   sessionOnly: "The reference is kept only while this page remains open.",
   metadata: "Observation summary",
   exportError: "Export failed. Check browser download permissions and retry.",
