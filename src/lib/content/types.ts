@@ -1,35 +1,28 @@
-import type { Locale } from "../../features/sound-meter/types.ts";
-
-export interface Dual {
-  zh: string;
-  en: string;
-}
+import type { LocalizedText } from "../i18n/text.ts";
+export { translations, text } from "../i18n/text.ts";
+export type { LocalizedText } from "../i18n/text.ts";
 export interface ContentSection {
   id: string;
-  title: Dual;
-  tocTitle?: Dual;
-  paragraphs: Dual[];
-  items?: Dual[];
-  table?: { headers: Dual[]; rows: Dual[][] };
+  title: LocalizedText;
+  tocTitle?: LocalizedText;
+  paragraphs: LocalizedText[];
+  items?: LocalizedText[];
+  table?: { headers: LocalizedText[]; rows: LocalizedText[][] };
 }
 export interface Source {
   id?: string;
-  title: string;
+  title: string | LocalizedText;
   url: string;
 }
 export interface SiteContent {
   id: string;
   slug: string;
-  title: Dual;
-  description: Dual;
-  takeaway: Dual;
+  title: LocalizedText;
+  description: LocalizedText;
+  takeaway: LocalizedText;
   sections: ContentSection[];
   sources: Source[];
   related: string[];
   updated: string;
   kind: "article" | "guide" | "trust";
 }
-
-export const dual = (zh: string, en: string): Dual => ({ zh, en });
-export const text = (value: Dual, locale: Locale): string =>
-  locale === "en" ? value.en : value.zh;

@@ -1,4 +1,4 @@
-import { dual as t, type Dual } from "./types.ts";
+import { translations as t, type LocalizedText } from "./types.ts";
 
 export const soundSources = {
   who: {
@@ -59,73 +59,89 @@ export const soundSources = {
 };
 
 export const soundCategories = [
-  { id: "everyday", label: t("安静与日常", "Quiet & everyday") },
-  { id: "appliances", label: t("家电与设备", "Appliances & tools") },
-  { id: "outdoors", label: t("交通与户外", "Traffic & outdoors") },
-  { id: "leisure", label: t("娱乐与活动", "Music & events") },
+  { id: "everyday", label: t("安静与日常", "Quiet & everyday", "安靜與日常") },
+  { id: "appliances", label: t("家电与设备", "Appliances & tools", "家電與裝置") },
+  { id: "outdoors", label: t("交通与户外", "Traffic & outdoors", "交通與戶外") },
+  { id: "leisure", label: t("娱乐与活动", "Music & events", "娛樂與活動") },
 ] as const;
 
 export interface SoundReference {
   id: string;
   emoji: string;
-  name: Dual;
+  name: LocalizedText;
   category: (typeof soundCategories)[number]["id"];
   min: number;
   max: number;
   unit: "dB" | "dBA";
   source: keyof typeof soundSources;
-  context: Dual;
+  context: LocalizedText;
 }
 
 export const soundReferences: SoundReference[] = [
   {
     id: "breathing",
     emoji: "🫁",
-    name: t("正常呼吸", "Normal breathing"),
+    name: t("正常呼吸", "Normal breathing", "正常呼吸"),
     category: "everyday",
     min: 10,
     max: 10,
     unit: "dB",
     source: "who",
-    context: t("非常轻微的声音，需安静背景。", "A very faint sound in a quiet background."),
+    context: t(
+      "非常轻微的声音，需安静背景。",
+      "A very faint sound in a quiet background.",
+      "非常輕微的聲音，需安靜背景。",
+    ),
   },
   {
     id: "leaves",
     emoji: "🍃",
-    name: t("树叶沙沙声", "Rustling leaves"),
+    name: t("树叶沙沙声", "Rustling leaves", "樹葉沙沙聲"),
     category: "everyday",
     min: 20,
     max: 20,
     unit: "dBA",
     source: "nps",
-    context: t("NPS 峡谷地国家公园的示例。", "An NPS example from Canyonlands National Park."),
+    context: t(
+      "NPS 峡谷地国家公园的示例。",
+      "An NPS example from Canyonlands National Park.",
+      "NPS 峽谷地國家公園的示例。",
+    ),
   },
   {
     id: "whisper",
     emoji: "🤫",
-    name: t("轻声耳语", "Soft whispering"),
+    name: t("轻声耳语", "Soft whispering", "輕聲耳語"),
     category: "everyday",
     min: 30,
     max: 30,
     unit: "dB",
     source: "who",
-    context: t("说话距离和背景声会改变读数。", "Distance and background sound affect the level."),
+    context: t(
+      "说话距离和背景声会改变读数。",
+      "Distance and background sound affect the level.",
+      "說話距離和背景聲會改變讀數。",
+    ),
   },
   {
     id: "library",
     emoji: "📚",
-    name: t("图书馆", "Library"),
+    name: t("图书馆", "Library", "圖書館"),
     category: "everyday",
     min: 40,
     max: 40,
     unit: "dB",
     source: "who",
-    context: t("安静环境的量级示例。", "An illustration of a quiet environment."),
+    context: t(
+      "安静环境的量级示例。",
+      "An illustration of a quiet environment.",
+      "安靜環境的量級示例。",
+    ),
   },
   {
     id: "home",
     emoji: "🏠",
-    name: t("普通家庭环境", "Average home"),
+    name: t("普通家庭环境", "Average home", "普通家庭環境"),
     category: "everyday",
     min: 45,
     max: 55,
@@ -134,12 +150,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "EPA 1979 年资料中的室内家庭环境范围，未给出统一测距。",
       "An indoor home range in EPA material from 1979; no common measurement distance is given.",
+      "EPA 1979 年資料中的室內家庭環境範圍，未給出統一測距。",
     ),
   },
   {
     id: "conversation",
     emoji: "💬",
-    name: t("正常交谈", "Normal conversation"),
+    name: t("正常交谈", "Normal conversation", "正常交談"),
     category: "everyday",
     min: 60,
     max: 70,
@@ -148,12 +165,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "保留说话距离、人数与环境条件。",
       "Keep the distance, number of speakers and setting in context.",
+      "保留說話距離、人數與環境條件。",
     ),
   },
   {
     id: "restaurant",
     emoji: "🍴",
-    name: t("嘈杂餐厅", "Noisy restaurant"),
+    name: t("嘈杂餐厅", "Noisy restaurant", "嘈雜餐廳"),
     category: "everyday",
     min: 65,
     max: 75,
@@ -162,34 +180,43 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "EPA 1979 年资料中的餐厅示例范围；客流、测点和室内声学条件会影响结果。",
       "A restaurant range in EPA material from 1979; occupancy, measurement position and room acoustics affect the result.",
+      "EPA 1979 年資料中的餐廳示例範圍；客流、測點和室內聲學條件會影響結果。",
     ),
   },
   {
     id: "fridge",
     emoji: "🧊",
-    name: t("冰箱运转", "Refrigerator humming"),
+    name: t("冰箱运转", "Refrigerator humming", "冰箱運轉"),
     category: "appliances",
     min: 40,
     max: 40,
     unit: "dB",
     source: "cdc",
-    context: t("压缩机运行状态与距离需一致。", "Keep compressor state and distance consistent."),
+    context: t(
+      "压缩机运行状态与距离需一致。",
+      "Keep compressor state and distance consistent.",
+      "壓縮機執行狀態與距離需一致。",
+    ),
   },
   {
     id: "dishwasher",
     emoji: "🍽️",
-    name: t("洗碗机", "Dishwasher"),
+    name: t("洗碗机", "Dishwasher", "洗碗機"),
     category: "appliances",
     min: 45,
     max: 65,
     unit: "dB",
     source: "cdc",
-    context: t("不同型号与程序存在差异。", "Levels vary with the model and programme."),
+    context: t(
+      "不同型号与程序存在差异。",
+      "Levels vary with the model and programme.",
+      "不同型號與程式存在差異。",
+    ),
   },
   {
     id: "dryer",
     emoji: "🧺",
-    name: t("干衣机", "Clothes dryer"),
+    name: t("干衣机", "Clothes dryer", "乾衣機"),
     category: "appliances",
     min: 51,
     max: 66,
@@ -198,12 +225,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "1986 年工程教学资料 Table 2 的范围，测距 0.9 米；不代表当前所有型号。",
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; not a range for all current models.",
+      "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；不代表當前所有型號。",
     ),
   },
   {
     id: "washing-machine",
     emoji: "🫧",
-    name: t("洗衣机", "Washing machine"),
+    name: t("洗衣机", "Washing machine", "洗衣機"),
     category: "appliances",
     min: 47,
     max: 72,
@@ -212,12 +240,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "1986 年工程教学资料 Table 2 的范围，测距 0.9 米；程序、负载和安装条件会影响声音。",
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; cycle, load and installation affect sound.",
+      "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；程式、負載和安裝條件會影響聲音。",
     ),
   },
   {
     id: "vacuum",
     emoji: "🧹",
-    name: t("吸尘器", "Vacuum cleaner"),
+    name: t("吸尘器", "Vacuum cleaner", "吸塵器"),
     category: "appliances",
     min: 62,
     max: 85,
@@ -226,12 +255,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "1986 年工程教学资料 Table 2 的范围，测距 0.9 米；比较时还需固定档位与吸头。",
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; also keep the setting and attachment consistent.",
+      "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；比較時還需固定檔位與吸頭。",
     ),
   },
   {
     id: "doorbell",
     emoji: "🔔",
-    name: t("门铃", "Doorbell"),
+    name: t("门铃", "Doorbell", "門鈴"),
     category: "appliances",
     min: 80,
     max: 80,
@@ -240,12 +270,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "铃声音量与站立位置会影响结果。",
       "Volume setting and listening position affect the result.",
+      "鈴聲音量與站立位置會影響結果。",
     ),
   },
   {
     id: "shaver",
     emoji: "🪒",
-    name: t("电动剃须刀", "Electric shaver"),
+    name: t("电动剃须刀", "Electric shaver", "電動剃鬚刀"),
     category: "appliances",
     min: 47,
     max: 69,
@@ -254,12 +285,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "1986 年工程教学资料 Table 2 的范围，测距 0.9 米；不等同于贴近耳部使用时的暴露。",
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; not equivalent to exposure during use near the ear.",
+      "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；不等同於貼近耳部使用時的暴露。",
     ),
   },
   {
     id: "hair-dryer",
     emoji: "💨",
-    name: t("吹风机", "Hair dryer"),
+    name: t("吹风机", "Hair dryer", "吹風機"),
     category: "appliances",
     min: 100,
     max: 100,
@@ -268,12 +300,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "WHO 示例；型号、档位与距离会不同。",
       "A WHO example; models, settings and distances differ.",
+      "WHO 示例；型號、檔位與距離會不同。",
     ),
   },
   {
     id: "drill",
     emoji: "🛠️",
-    name: t("手持电钻", "Hand drill"),
+    name: t("手持电钻", "Hand drill", "手持電鑽"),
     category: "appliances",
     min: 98,
     max: 98,
@@ -282,12 +315,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "NIOSH App 用户指南第 13 页的量级示例，未给出测距和工况；空转与钻孔不能直接比较。",
       "A level example on page 13 of the NIOSH App manual, without a specified distance or operating condition; idling and drilling differ.",
+      "NIOSH App 使用者指南第 13 頁的量級示例，未給出測距和工況；空轉與鑽孔不能直接比較。",
     ),
   },
   {
     id: "chainsaw",
     emoji: "🪚",
-    name: t("链锯", "Chain saw"),
+    name: t("链锯", "Chain saw", "鏈鋸"),
     category: "appliances",
     min: 108,
     max: 108,
@@ -296,23 +330,28 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "NIOSH App 用户指南第 13 页的量级示例，未给出测距和工况；运行负载与观察位置需记录。",
       "A level example on page 13 of the NIOSH App manual, without a specified distance or operating condition; note load and listening position.",
+      "NIOSH App 使用者指南第 13 頁的量級示例，未給出測距和工況；執行負載與觀察位置需記錄。",
     ),
   },
   {
     id: "jackhammer",
     emoji: "⚒️",
-    name: t("风镐", "Jackhammer"),
+    name: t("风镐", "Jackhammer", "風鎬"),
     category: "appliances",
     min: 130,
     max: 130,
     unit: "dB",
     source: "who",
-    context: t("高声级设备的量级示例。", "An example of high-level equipment noise."),
+    context: t(
+      "高声级设备的量级示例。",
+      "An example of high-level equipment noise.",
+      "高聲級裝置的量級示例。",
+    ),
   },
   {
     id: "street-traffic",
     emoji: "🛣️",
-    name: t("高速公路车流", "Freeway traffic"),
+    name: t("高速公路车流", "Freeway traffic", "高速公路車流"),
     category: "outdoors",
     min: 70,
     max: 75,
@@ -321,12 +360,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "EPA 1979 年资料中的正常车流示例，距道路 50 英尺（约 15 米），不是车内读数。",
       "Normal freeway traffic in EPA material from 1979, at 50 feet (about 15 metres), rather than an in-car reading.",
+      "EPA 1979 年資料中的正常車流示例，距道路 50 英尺（約 15 米），不是車內讀數。",
     ),
   },
   {
     id: "traffic-inside-car",
     emoji: "🚗",
-    name: t("繁忙交通中的车内", "Heavy traffic inside a car"),
+    name: t("繁忙交通中的车内", "Heavy traffic inside a car", "繁忙交通中的車內"),
     category: "outdoors",
     min: 85,
     max: 85,
@@ -335,12 +375,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "车内示例，与道路边测量不同。",
       "An in-car example, distinct from a roadside measurement.",
+      "車內示例，與道路邊測量不同。",
     ),
   },
   {
     id: "motorcycle",
     emoji: "🏍️",
-    name: t("摩托车或越野车", "Motorcycle or dirt bike"),
+    name: t("摩托车或越野车", "Motorcycle or dirt bike", "摩托車或越野車"),
     category: "outdoors",
     min: 80,
     max: 110,
@@ -349,12 +390,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "范围较宽，距离与负载尤其重要。",
       "A broad range: distance and engine load are important.",
+      "範圍較寬，距離與負載尤其重要。",
     ),
   },
   {
     id: "horn",
     emoji: "📣",
-    name: t("汽车喇叭", "Car horn"),
+    name: t("汽车喇叭", "Car horn", "汽車喇叭"),
     category: "outdoors",
     min: 105,
     max: 105,
@@ -363,12 +405,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "WHO 给出的条件为距喇叭 5 米。",
       "The WHO example specifies a distance of 5 metres.",
+      "WHO 給出的條件為距喇叭 5 米。",
     ),
   },
   {
     id: "thunder",
     emoji: "⛈️",
-    name: t("雷声", "Thunder"),
+    name: t("雷声", "Thunder", "雷聲"),
     category: "outdoors",
     min: 100,
     max: 100,
@@ -377,12 +420,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "NPS 拱门国家公园的示例，并非所有雷声。",
       "An NPS example from Arches, not a level for all thunder.",
+      "NPS 拱門國家公園的示例，並非所有雷聲。",
     ),
   },
   {
     id: "siren",
     emoji: "🚨",
-    name: t("警笛", "Siren"),
+    name: t("警笛", "Siren", "警笛"),
     category: "outdoors",
     min: 110,
     max: 129,
@@ -391,12 +435,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "声源接近或经过时，读数会明显变化。",
       "Levels change as the source approaches or passes.",
+      "聲源接近或經過時，讀數會明顯變化。",
     ),
   },
   {
     id: "jet",
     emoji: "🛩️",
-    name: t("军用喷气飞机飞越", "Military jet flyover"),
+    name: t("军用喷气飞机飞越", "Military jet flyover", "軍用噴氣飛機飛越"),
     category: "outdoors",
     min: 120,
     max: 120,
@@ -405,12 +450,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "NPS 示例条件：离地约 100 米飞越。",
       "The NPS example specifies about 100 metres above ground.",
+      "NPS 示例條件：離地約 100 米飛越。",
     ),
   },
   {
     id: "airplane",
     emoji: "🛫",
-    name: t("飞机起飞", "Airplane taking off"),
+    name: t("飞机起飞", "Airplane taking off", "飛機起飛"),
     category: "outdoors",
     min: 140,
     max: 140,
@@ -419,12 +465,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "距离未统一，不代表机舱内声级。",
       "No common distance is given; this is not a cabin level.",
+      "距離未統一，不代表機艙內聲級。",
     ),
   },
   {
     id: "fireworks",
     emoji: "🎆",
-    name: t("烟花表演", "Fireworks show"),
+    name: t("烟花表演", "Fireworks show", "煙花表演"),
     category: "outdoors",
     min: 140,
     max: 160,
@@ -433,12 +480,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "短促冲击声，不能当作持续平均声级。",
       "Brief impulse sounds, not a continuous average level.",
+      "短促衝擊聲，不能當作持續平均聲級。",
     ),
   },
   {
     id: "cinema",
     emoji: "🎬",
-    name: t("电影院", "Movie theatre"),
+    name: t("电影院", "Movie theatre", "電影院"),
     category: "leisure",
     min: 74,
     max: 104,
@@ -447,23 +495,28 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "影片片段、音量与座位会影响声音。",
       "The scene, volume and seating position affect sound.",
+      "影片片段、音量與座位會影響聲音。",
     ),
   },
   {
     id: "sports",
     emoji: "🏟️",
-    name: t("体育赛事", "Sporting event"),
+    name: t("体育赛事", "Sporting event", "體育賽事"),
     category: "leisure",
     min: 94,
     max: 110,
     unit: "dBA",
     source: "nidcd",
-    context: t("场馆、观众与扩声条件不同。", "Venue, crowds and amplification vary."),
+    context: t(
+      "场馆、观众与扩声条件不同。",
+      "Venue, crowds and amplification vary.",
+      "場館、觀眾與擴聲條件不同。",
+    ),
   },
   {
     id: "headphones",
     emoji: "🎧",
-    name: t("最大音量耳机", "Headphones at maximum volume"),
+    name: t("最大音量耳机", "Headphones at maximum volume", "最大音量耳機"),
     category: "leisure",
     min: 94,
     max: 110,
@@ -472,12 +525,13 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "耳部暴露示例，不能用外部麦克风照搬测量。",
       "An ear-exposure example, not a reading to reproduce with an external microphone.",
+      "耳部暴露示例，不能用外部麥克風照搬測量。",
     ),
   },
   {
     id: "concert",
     emoji: "🎸",
-    name: t("摇滚音乐会或夜店", "Rock concert or nightclub"),
+    name: t("摇滚音乐会或夜店", "Rock concert or nightclub", "搖滾音樂會或夜店"),
     category: "leisure",
     min: 95,
     max: 115,
@@ -486,6 +540,7 @@ export const soundReferences: SoundReference[] = [
     context: t(
       "与扬声器距离、场地及节目有关。",
       "Distance from speakers, venue and programme matter.",
+      "與揚聲器距離、場地及節目有關。",
     ),
   },
 ];

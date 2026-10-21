@@ -19,7 +19,7 @@ export interface LookupBand {
 
 export function filterSounds(sounds: LookupSound[], query: string): LookupSound[] {
   const normalized = query.slice(0, 100).normalize("NFKC").trim().toLowerCase();
-  const levelQuery = normalized.match(/^(\d+(?:\.\d+)?)\s*(db(?:a|\(a\))?|分贝)?$/u);
+  const levelQuery = normalized.match(/^(\d+(?:\.\d+)?)\s*(db(?:a|\(a\))?|分[贝貝])?$/u);
   const value = levelQuery ? Number(levelQuery[1]) : null;
   const requestedUnit = levelQuery?.[2]?.startsWith("db")
     ? levelQuery[2] === "db"

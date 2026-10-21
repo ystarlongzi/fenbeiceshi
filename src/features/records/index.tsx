@@ -1,5 +1,8 @@
 "use client";
 
+import { localePrefix } from "@/lib/i18n/locales";
+import { localize } from "@/lib/i18n/text";
+
 import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
@@ -18,7 +21,6 @@ import { RecordExportDialog } from "./record-export-dialog";
 
 export function RecordsPanel({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
   const copy = meterCopy[locale];
-  const en = locale === "en";
   const state = useSyncExternalStore(watchRecords, getRecords, () => EMPTY_RECORDS);
   const [picked, setPicked] = useState<string[]>([]);
   const [confirm, setConfirm] = useState<string | null>(null);
@@ -26,7 +28,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
   const [reportRecord, setReportRecord] = useState<Measurement | null>(null);
   const [deleting, setDeleting] = useState<string | null>(null);
   const exportAction = useRef<HTMLButtonElement | null>(null);
-  const prefix = locale === "en" ? "/en" : "";
+  const prefix = localePrefix(locale);
   const records = compact ? state.records.slice(0, 3) : state.records;
   const empty = !records.length && !state.error;
   const selected = picked.filter((id) => state.records.some((record) => record.id === id));
@@ -78,7 +80,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
           ) : records.length ? (
             <Link className={styles.newObservation} href={`${prefix}/#measure`}>
               <Icon name="mic" size={16} />
-              {en ? "New observation" : "开始新的观察"}
+              {localize(locale, "开始新的观察", "New observation", "開始新的觀察")}
             </Link>
           ) : null}
         </div>
@@ -87,7 +89,12 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
         <div className={styles.selection}>
           <p>{copy.compareHint}</p>
           <span role="status">
-            {en ? `${selected.length} of 2 selected` : `已选 ${selected.length} / 2`}
+            {localize(
+              locale,
+              `已选 ${selected.length} / 2`,
+              `${selected.length} of 2 selected`,
+              `已選 ${selected.length} / 2`,
+            )}
           </span>
         </div>
       ) : null}
@@ -105,7 +112,11 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
       {empty ? (
         <div className={styles.empty}>
           <Icon name="audio-lines" size={compact ? 20 : 32} />
-          {!compact ? <h2>{en ? "No saved records yet" : "还没有保存的观察"}</h2> : null}
+          {!compact ? (
+            <h2>
+              {localize(locale, "还没有保存的观察", "No saved records yet", "還沒有儲存的觀察")}
+            </h2>
+          ) : null}
           <p>{copy.saveFirst}</p>
           {!compact ? (
             <>
@@ -162,7 +173,9 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
                   {!compact ? (
                     <small>
                       {record.input.label}
-                      {record.recording ? (en ? " · Audio saved" : " · 含录音") : ""}
+                      {record.recording
+                        ? localize(locale, " · 含录音", " · Audio saved", " · 含錄音")
+                        : ""}
                     </small>
                   ) : null}
                 </div>

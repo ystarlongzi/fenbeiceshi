@@ -9,6 +9,7 @@ import { useStoredRecording } from "../../records/use-stored-recording";
 import { WorkbenchDialog } from "../workbench-dialog";
 import { meterCopy } from "../copy";
 import type { Locale, Measurement } from "../types";
+import { localeSettings } from "@/lib/i18n/locales";
 import { reportCopy } from "./copy";
 import { createReport, reportText } from "./model";
 import { exportReport, type FileFormat } from "./export";
@@ -146,7 +147,7 @@ export function MeasurementReportDialog({
       </p>
       <p className={styles.date}>
         <time dateTime={record.startedAt}>
-          {new Date(record.startedAt).toLocaleString(locale === "en" ? "en-GB" : "zh-CN")}
+          {new Date(record.startedAt).toLocaleString(localeSettings[locale].date)}
         </time>
         <span>
           {copy.durationLabel} {report.duration}

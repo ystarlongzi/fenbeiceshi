@@ -66,9 +66,29 @@ test("分贝查询匹配数值范围并包含上下界", () => {
 
 test("全角输入与单位筛选不混同 dB 和 dBA", () => {
   assert.deepEqual(ids("６０ 分贝"), ["dishwasher", "conversation"]);
+  assert.deepEqual(ids("６０ 分貝"), ["dishwasher", "conversation"]);
   assert.deepEqual(ids("60 dB"), ["dishwasher"]);
   assert.deepEqual(ids("60 dBA"), ["conversation"]);
   assert.deepEqual(ids("60 dB(A)"), ["conversation"]);
+});
+
+test("繁体声音名称可在不同语言的索引中查找", () => {
+  const multilingual = soundReferences.map((sound): LookupSound => ({
+    ...sound,
+    name: sound.name.zhTW,
+    context: sound.context.zhTW,
+    searchText: `${sound.name.zh} ${sound.name.zhTW} ${sound.name.en}`,
+    sourceId: "source",
+    sourceLabel: "Source",
+  }));
+  assert.deepEqual(
+    filterSounds(multilingual, "洗碗機").map((sound) => sound.id),
+    ["dishwasher"],
+  );
+  assert.deepEqual(
+    filterSounds(multilingual, "洗碗机").map((sound) => sound.id),
+    ["dishwasher"],
+  );
 });
 
 test("默认和空白查询保留全部声音", () => {

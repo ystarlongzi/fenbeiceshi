@@ -1,5 +1,8 @@
 "use client";
 
+import { localePrefix } from "@/lib/i18n/locales";
+import { localize } from "@/lib/i18n/text";
+
 import { useId } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
@@ -38,7 +41,7 @@ export function MeterSettings({
 }) {
   const copy = meterCopy[locale];
   const id = useId();
-  const prefix = locale === "en" ? "/en" : "";
+  const prefix = localePrefix(locale);
   const running = meter.status === "running";
   const demo = meter.status === "demo";
   const busy = running || demo || meter.status === "requesting";
@@ -156,7 +159,7 @@ export function MeterSettings({
                 max="120"
                 step="0.1"
                 value={Number.isFinite(value) ? Math.max(20, Math.min(120, value)) : 60}
-                aria-label={copy.referenceValue + (locale === "en" ? " slider" : "滑块")}
+                aria-label={copy.referenceValue + localize(locale, "滑块", " slider", "滑桿")}
                 onChange={(event) => onReferenceChange({ ...reference, value: event.target.value })}
               />
               <NumberInput
@@ -173,9 +176,12 @@ export function MeterSettings({
             </div>
             {referenceInvalid ? (
               <p id={`${id}-reference-error`} className={styles.referenceError} role="status">
-                {locale === "en"
-                  ? "Enter 20–120 dB in steps of 0.1."
-                  : "请输入 20–120 dB 之间的数值，步长为 0.1。"}
+                {localize(
+                  locale,
+                  "请输入 20–120 dB 之间的数值，步长为 0.1。",
+                  "Enter 20–120 dB in steps of 0.1.",
+                  "請輸入 20–120 dB 之間的數值，步長為 0.1。",
+                )}
               </p>
             ) : null}
             <label htmlFor={`${id}-source`}>

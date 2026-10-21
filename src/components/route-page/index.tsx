@@ -1,3 +1,4 @@
+import { localize } from "@/lib/i18n/text";
 import type { Locale } from "@/features/sound-meter/types";
 import type { SitePage } from "@/lib/routing/pages";
 import { ContentPage } from "../content-page";
@@ -18,13 +19,21 @@ export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) 
       <div className={styles.records}>
         <header className={styles.recordsHeader}>
           <p className={styles.eyebrow}>
-            {locale === "en" ? "YOUR OBSERVATIONS" : "每一次观察，都留下条件"}
+            {localize(
+              locale,
+              "每一次观察，都留下条件",
+              "YOUR OBSERVATIONS",
+              "每一次觀察，都留下條件",
+            )}
           </p>
-          <h1>{locale === "en" ? "My measurement records" : "我的测量记录"}</h1>
+          <h1>{localize(locale, "我的测量记录", "My measurement records", "我的測量記錄")}</h1>
           <p className={styles.intro}>
-            {locale === "en"
-              ? "Revisit saved summaries, or compare two observations made under the same conditions."
-              : "回看已保存的摘要，或选择两次同条件观察，比较声音的变化。"}
+            {localize(
+              locale,
+              "回看已保存的摘要，或选择两次同条件观察，比较声音的变化。",
+              "Revisit saved summaries, or compare two observations made under the same conditions.",
+              "回看已儲存的摘要，或選擇兩次同條件觀察，比較聲音的變化。",
+            )}
           </p>
         </header>
         <RecordsPanel locale={locale} />

@@ -59,6 +59,22 @@ test("报告沿用读数投影，保存后编辑备注不改变原始结果", ()
   assert.equal(report.duration, "00:10");
 });
 
+test("繁体报告、CSV 和摘要保留原始读数、设备名与用户备注", () => {
+  const traditional = createReport(sample, "zh-TW");
+  const simplified = createReport(sample, "zh-CN");
+  assert.equal(traditional.title, "本次測量報告");
+  assert.deepEqual(
+    traditional.stats.map((stat) => stat.value),
+    simplified.stats.map((stat) => stat.value),
+  );
+  assert.deepEqual(traditional.trend, simplified.trend);
+  assert.equal(traditional.input, sample.input.label);
+  assert.equal(traditional.note, sample.note);
+  assert.ok(reportText(traditional).includes("麥克風: 测试输入"));
+  assert.ok(reportCsv(traditional).includes('"測量口徑","通用估算 · 未校正"'));
+  assert.ok(reportCsv(traditional).includes(sample.note));
+});
+
 test("参考估算、历史相对记录与输入下限不混用或伪造精度", () => {
   const calibrated = createReport(
     { ...sample, calibration: makeCalibration(-40, 75, "参考声级计", sample.input.signature) },

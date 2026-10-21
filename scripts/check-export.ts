@@ -19,8 +19,9 @@ import {
 } from "../src/lib/content/noise-health.ts";
 import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
 import { faqItems, homeFaqItems } from "../src/lib/content/faq.ts";
+import { locales, localeSettings } from "../src/lib/i18n/locales.ts";
+import { localize } from "../src/lib/i18n/text.ts";
 
-const locales = ["zh-CN", "en"] as const;
 function escapeText(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -49,6 +50,15 @@ for (const page of sitePages) {
     assert.match(html, /<meta name="description" content="[^"]+"/, path);
     const noindex = /<meta name="robots" content="[^"]*noindex/.test(html);
     assert.equal(noindex, !page.index, path);
+    if (locale === "zh-TW") {
+      const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+      const visible = main.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
+      assert.doesNotMatch(
+        visible,
+        /麦克风|分贝|导出数据|常见问题|准备就绪|测量设置|保存报告/,
+        `繁体正文不得回退到简体界面：${path}`,
+      );
+    }
     if (page.id === "knowledge") {
       const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
       assert.ok(main, `知识目录缺少正文：${path}`);
@@ -91,12 +101,11 @@ for (const page of sitePages) {
         hintIds.push(hintId);
       }
       assert.equal(new Set(hintIds).size, hintIds.length, `设置说明 ID 不应重复：${path}`);
-      assert.equal((html.match(/role="combobox"/g) || []).length, 2, path);
-      assert.doesNotMatch(html, /<select\b/, `麦克风应使用自定义下拉：${path}`);
+      assert.equal((html.match(/role="combobox"/g) || []).length, 4, path);
     }
     const navigations = [
       ...html.matchAll(
-        /<nav\b[^>]*aria-label="(?:主导航|Main navigation)"[^>]*>([\s\S]*?)<\/nav>/g,
+        /<nav\b[^>]*aria-label="(?:主导航|主導航|Main navigation)"[^>]*>([\s\S]*?)<\/nav>/g,
       ),
     ];
     assert.equal(navigations.length, 2, `桌面与移动抽屉均需静态输出主导航：${path}`);
@@ -136,7 +145,59 @@ for (const page of sitePages) {
     assert.ok(menu, `移动菜单应使用关联的原生对话框：${path}`);
     assert.doesNotMatch(menu[1], /\bopen(?:=|\s|$)/, `移动菜单不应默认打开：${path}`);
     assert.ok(menu[2].includes(navigations[1][1]), `抽屉需包含完整主导航：${path}`);
-    assert.ok(menu[2].includes("hrefLang="), `抽屉缺少语言切换：${path}`);
+    for (const [visible, count] of [
+      [html, 2],
+      [menu[2], 1],
+    ] as const) {
+      assert.doesNotMatch(visible, /<select\b/, `语言和麦克风均需使用自定义下拉：${path}`);
+      const selectors = [
+        ...visible.matchAll(/<button\b([^>]*data-language-switch=""[^>]*)>([\s\S]*?)<\/button>/g),
+      ];
+      assert.equal(selectors.length, count, `桌面与手机均需语言下拉框：${path}`);
+      const listIds: string[] = [];
+      for (const [, attributes, body] of selectors) {
+        assert.match(attributes, /\bdisabled=/, `水合前应禁用语言选择，避免事件丢失：${path}`);
+        assert.match(attributes, /role="combobox"/, path);
+        assert.match(attributes, /aria-haspopup="listbox"/, path);
+        assert.match(attributes, /aria-expanded="false"/, `语言菜单应默认收起：${path}`);
+        assert.ok(
+          attributes.includes(`aria-label="${localize(locale, "语言", "Language", "語言")}"`),
+          path,
+        );
+        assert.ok(
+          body.includes(`<span lang="${locale}">${localeSettings[locale].label}</span>`),
+          path,
+        );
+        const listId = attributes.match(/aria-controls="([^"]+)"/)?.[1];
+        assert.ok(listId, `语言入口缺少选项列表关联：${path}`);
+        listIds.push(listId);
+        const list = [...visible.matchAll(/<ul\b([^>]*)>([\s\S]*?)<\/ul>/g)].find((match) =>
+          match[1].includes(`id="${listId}"`),
+        );
+        assert.ok(list, `缺少语言选项列表：${path}`);
+        assert.match(list[1], /role="listbox"/, path);
+        assert.match(list[1], /\bhidden=/, `未展开的语言列表应隐藏：${path}`);
+        const options = [...list[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
+        assert.deepEqual(
+          options.map((option) => option[2].match(/<span>([^<]*)<\/span>/)?.[1]),
+          ["简体中文", "繁體中文", "English"],
+          path,
+        );
+        for (const [index, language] of locales.entries()) {
+          assert.match(options[index][1], /role="option"/, path);
+          assert.ok(options[index][1].includes(`lang="${language}"`), path);
+          assert.ok(
+            options[index][1].includes(`aria-selected="${language === locale}"`),
+            `下拉框应选中当前语言：${path}`,
+          );
+        }
+      }
+      assert.equal(new Set(listIds).size, count, `语言列表 ID 不应重复：${path}`);
+    }
+    assert.ok(
+      html.includes(`property="og:locale" content="${localeSettings[locale].openGraph}"`),
+      path,
+    );
     for (const alternate of locales)
       assert.ok(
         html.includes(`hrefLang="${alternate}" href="${SITE_URL + href(page.id, alternate)}"`) ||
@@ -180,7 +241,7 @@ for (const page of sitePages) {
       assert.ok(visible.includes(excerpt), `核心答案不在静态正文：${path}`);
       for (const source of content.sources) assert.ok(visible.includes(source.url), path);
       const toc = visible.match(
-        /<nav\b[^>]*aria-label="(?:本文目录|On this page)"[^>]*>([\s\S]*?)<\/nav>/,
+        /<nav\b[^>]*aria-label="(?:本文目录|本文目錄|On this page)"[^>]*>([\s\S]*?)<\/nav>/,
       )?.[1];
       assert.ok(toc, `文章目录不在静态 HTML：${path}`);
       assert.deepEqual(
@@ -352,7 +413,7 @@ for (const page of sitePages) {
         )?.[1];
         assert.equal(
           duration?.replace(/<[^>]*>/g, ""),
-          `8 ${locale === "en" ? "hrs" : "小时"}`,
+          `8 ${localize(locale, "小时", "hrs", "小時")}`,
           path,
         );
         assert.match(

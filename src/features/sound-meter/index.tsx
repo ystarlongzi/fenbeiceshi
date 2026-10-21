@@ -1,5 +1,8 @@
 "use client";
 
+import { localePrefix } from "@/lib/i18n/locales";
+import { localize } from "@/lib/i18n/text";
+
 import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
@@ -35,7 +38,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
   const exportAction = useRef<HTMLButtonElement>(null);
   const focus = useFocusMode(root);
   const records = useSyncExternalStore(watchRecords, getRecords, () => EMPTY_RECORDS);
-  const prefix = locale === "en" ? "/en" : "";
+  const prefix = localePrefix(locale);
   const demo = meter.status === "demo";
   const running = meter.status === "running";
   const requesting = meter.status === "requesting";
@@ -145,7 +148,12 @@ export function SoundMeter({ locale }: { locale: Locale }) {
               </button>
             ) : meter.recording.phase === "finishing" ? (
               <span className={styles.captureNote} role="status">
-                {locale === "en" ? "Preparing local recording…" : "正在整理本机录音…"}
+                {localize(
+                  locale,
+                  "正在整理本机录音…",
+                  "Preparing local recording…",
+                  "正在整理本機錄音…",
+                )}
               </span>
             ) : (
               <button
@@ -199,7 +207,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
               onClick={() => setSettingsOpen(true)}
             >
               <Icon name="sliders-horizontal" size={16} />
-              {locale === "en" ? "Settings" : "设置"}
+              {localize(locale, "设置", "Settings", "設定")}
             </button>
           </div>
           {meter.frame?.clipped ? (

@@ -1,4 +1,4 @@
-export type Locale = "zh-CN" | "en";
+export type { Locale } from "../../lib/i18n/locales.ts";
 export type MeterView = "gauge" | "digital" | "bars";
 export type MeterStatus = "idle" | "requesting" | "running" | "demo" | "finished" | "error";
 export type StopReason = "user" | "hidden" | "device-ended" | "cancelled";

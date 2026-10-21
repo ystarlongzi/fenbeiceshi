@@ -3,21 +3,24 @@
   "updated": "2026-10-21",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
-  "market": "中文优先，兼顾百度、必应和 Google；同时规划英文。",
+  "market": "简体中文优先，同时提供繁体中文与英文；兼顾百度、必应和 Google。",
   "keywordEvidence": "全部为意图规划候选；未取得经验证的搜索量、难度或排名数据，非正式竞品审计结果。",
   "implementationNote": "本文件不是可发布路由注册表。每种语言通过发布门槛后，才能进入应用的已发布内容数据；只渲染当前语言实际发布的关联目标。",
   "localePolicy": {
     "defaultLocale": "zh-CN",
     "englishPrefix": "/en/",
     "canonical": "每个已发布语言页面自引用规范地址。",
-    "hreflang": "仅真实对应且已发布的页面互相返回并包含自身；x-default 为该主题中文默认页。"
+    "hreflang": "仅真实对应且已发布的页面互相返回并包含自身；x-default 为该主题中文默认页。",
+    "traditionalLocale": "zh-TW",
+    "traditionalPrefix": "/zh-tw/"
   },
   "functionalRoutes": [
     {
       "id": "records",
       "paths": [
         "/records/",
-        "/en/records/"
+        "/en/records/",
+        "/zh-tw/records/"
       ],
       "indexPolicy": "noindex",
       "sitemap": false,
@@ -55,6 +58,14 @@
             "how online decibel meters work",
             "browser decibel meter explained"
           ]
+        },
+        "zh-TW": {
+          "path": "/zh-tw/how-it-works/",
+          "wave": "P0",
+          "title": "網頁是怎麼測分貝的？ - 分貝測試",
+          "h1": "網頁是怎麼測分貝的？",
+          "keywords": ["網頁怎麼測分貝", "線上分貝儀工作原理"],
+          "status": "implemented-not-deployed"
         }
       },
       "intent": "用通俗步骤解释本站如何把麦克风输入变成估算读数。",
@@ -72,6 +83,7 @@
         "updated": "2026-10-21",
         "locales": [
           "zh-CN",
+          "zh-TW",
           "en"
         ]
       },
@@ -113,6 +125,14 @@
             "decibel meter FAQ",
             "online decibel meter help"
           ]
+        },
+        "zh-TW": {
+          "path": "/zh-tw/faq/",
+          "wave": "P0",
+          "title": "分貝測試常見問題 - 分貝測試",
+          "h1": "分貝測試常見問題",
+          "keywords": ["分貝測試常見問題", "線上分貝儀使用幫助"],
+          "status": "implemented-not-deployed"
         }
       },
       "intent": "按用户遇到的问题提供简短答案和下一步入口。",
@@ -130,6 +150,7 @@
         "updated": "2026-10-21",
         "locales": [
           "zh-CN",
+          "zh-TW",
           "en"
         ]
       },
@@ -152,7 +173,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/","wave":"P0","title":"在线分贝测试与噪音观察工具 - 分贝测试","h1":"在线分贝测试","keywords":["在线分贝测试","在线噪音测试","在线分贝仪","噪声测试在线"]},
-        "en": {"path":"/en/","wave":"P0","title":"Online Decibel Meter & Noise Observation Tool | fenbeiceshi.com","h1":"Online decibel meter","keywords":["online decibel meter","online sound level meter","noise meter online"]}
+        "en": {"path":"/en/","wave":"P0","title":"Online Decibel Meter & Noise Observation Tool | fenbeiceshi.com","h1":"Online decibel meter","keywords":["online decibel meter","online sound level meter","noise meter online"]},
+        "zh-TW": {
+          "path": "/zh-tw/",
+          "wave": "P0",
+          "title": "線上分貝測試與噪音觀察工具 - 分貝測試",
+          "h1": "線上分貝測試",
+          "keywords": ["線上分貝測試", "線上噪音測試", "線上分貝儀", "噪聲測試線上"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "立即使用浏览器观察环境声音。",
       "uniqueValue": "估算噪音分贝、辅助输入信号、可选参考校准、同口径趋势和本机摘要共同完成一次任务。",
@@ -168,7 +197,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/guide/","wave":"P0","title":"分贝测试怎么用？ - 分贝测试","h1":"分贝测试怎么用？","keywords":["分贝测试使用方法","fenbeiceshi 使用指南"]},
-        "en": {"path":"/en/guide/","wave":"P0","title":"How do I use the decibel meter? | fenbeiceshi.com","h1":"How do I use the decibel meter?","keywords":["fenbeiceshi decibel meter guide","how to use this decibel meter"]}
+        "en": {"path":"/en/guide/","wave":"P0","title":"How do I use the decibel meter? | fenbeiceshi.com","h1":"How do I use the decibel meter?","keywords":["fenbeiceshi decibel meter guide","how to use this decibel meter"]},
+        "zh-TW": {
+          "path": "/zh-tw/guide/",
+          "wave": "P0",
+          "title": "分貝測試怎麼用？ - 分貝測試",
+          "h1": "分貝測試怎麼用？",
+          "keywords": ["分貝測試使用方法", "fenbeiceshi 使用指南"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "了解本站已经实现的操作流程。",
       "uniqueValue": "按本站真实状态说明开始、模式、结束和本机记录，承担产品手册职责。",
@@ -184,7 +221,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/calibration/","wave":"P0","title":"有参考声级计，怎样校准？ - 分贝测试","h1":"有参考声级计，怎样校准？","keywords":["在线分贝测试校准","网页分贝仪参考校准"]},
-        "en": {"path":"/en/calibration/","wave":"P0","title":"How do I calibrate with a reference meter? | fenbeiceshi.com","h1":"How do I calibrate with a reference meter?","keywords":["calibrate online decibel meter","reference calibration sound meter"]}
+        "en": {"path":"/en/calibration/","wave":"P0","title":"How do I calibrate with a reference meter? | fenbeiceshi.com","h1":"How do I calibrate with a reference meter?","keywords":["calibrate online decibel meter","reference calibration sound meter"]},
+        "zh-TW": {
+          "path": "/zh-tw/calibration/",
+          "wave": "P0",
+          "title": "有參考聲級計，怎樣校正？ - 分貝測試",
+          "h1": "有參考聲級計，怎樣校正？",
+          "keywords": ["線上分貝測試校正", "網頁分貝儀參考校正"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "判断是否具备参考校准条件并进入实际流程。",
       "uniqueValue": "说明参考设备、输入设置、保存关系与失效条件；不把默认偏移量当作校准。",
@@ -200,7 +245,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/knowledge/","wave":"P0","title":"分贝知识与使用帮助 - 分贝测试","h1":"分贝怎么看，噪音怎么测？","keywords":["分贝知识","噪音测量基础"]},
-        "en": {"path":"/en/knowledge/","wave":"P0","title":"Decibel guides and help | fenbeiceshi.com","h1":"Decibel readings, explained","keywords":["sound measurement guides","decibel meter help"]}
+        "en": {"path":"/en/knowledge/","wave":"P0","title":"Decibel guides and help | fenbeiceshi.com","h1":"Decibel readings, explained","keywords":["sound measurement guides","decibel meter help"]},
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/",
+          "wave": "P0",
+          "title": "分貝知識與使用幫助 - 分貝測試",
+          "h1": "分貝怎麼看，噪音怎麼測？",
+          "keywords": ["分貝知識", "噪音測量基礎"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "按问题找到相关解释和方法。",
       "uniqueValue": "按理解读数、查询声音参考、噪音与健康和解决使用问题组织文章，提供可抓取目录及使用指南、工作原理、常见问题入口。",
@@ -216,7 +269,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/knowledge/phone-decibel-accuracy/","wave":"P0","title":"手机测分贝准吗？ - 分贝测试","h1":"手机测分贝准吗？","keywords":["手机测分贝准吗","手机噪音测试准确吗","网页分贝仪准确吗"]},
-        "en": {"path":"/en/knowledge/phone-decibel-accuracy/","wave":"P0","title":"How accurate is a phone decibel meter? | fenbeiceshi.com","h1":"How accurate is a phone decibel meter?","keywords":["are phone decibel meters accurate","online decibel meter accuracy"]}
+        "en": {"path":"/en/knowledge/phone-decibel-accuracy/","wave":"P0","title":"How accurate is a phone decibel meter? | fenbeiceshi.com","h1":"How accurate is a phone decibel meter?","keywords":["are phone decibel meters accurate","online decibel meter accuracy"]},
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/phone-decibel-accuracy/",
+          "wave": "P0",
+          "title": "手機測分貝準嗎？ - 分貝測試",
+          "h1": "手機測分貝準嗎？",
+          "keywords": ["手機測分貝準嗎", "手機噪音測試準確嗎", "網頁分貝儀準確嗎"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "判断手机或网页读数是否能用于当前目的。",
       "uniqueValue": "区分默认通用估算、可选参考校准和需要专业验证的任务。",
@@ -232,7 +293,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"为什么网页读数和声级计不一样？ - 分贝测试","h1":"为什么网页读数和声级计不一样？","keywords":["dBFS 是什么","dBFS 和 dB SPL 区别","dBFS 转 dB SPL"]},
-        "en": {"path":"/en/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"Why does a browser reading differ from a sound level meter? | fenbeiceshi.com","h1":"Why does a browser reading differ from a sound level meter?","keywords":["dBFS vs dB SPL","convert dBFS to SPL"]}
+        "en": {"path":"/en/knowledge/dbfs-vs-db-spl/","wave":"P0","title":"Why does a browser reading differ from a sound level meter? | fenbeiceshi.com","h1":"Why does a browser reading differ from a sound level meter?","keywords":["dBFS vs dB SPL","convert dBFS to SPL"]},
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/dbfs-vs-db-spl/",
+          "wave": "P0",
+          "title": "為什麼網頁讀數和聲級計不一樣？ - 分貝測試",
+          "h1": "為什麼網頁讀數和聲級計不一樣？",
+          "keywords": ["dBFS 是什麼", "dBFS 和 dB SPL 區別", "dBFS 轉 dB SPL"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "理解相对数字电平与环境声压级的关系。",
       "uniqueValue": "用输入链路解释参考量、增益、通用估算假设与参考校准，不把产品默认偏移当作万能换算常数。",
@@ -248,12 +317,20 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/knowledge/decibel-chart/","wave":"P0","title":"分贝对照表：常见声音有多大及比较条件 - 分贝测试","h1":"分贝对照表：常见声音与噪音水平","keywords":["分贝对照表","40 分贝有多大","50 分贝有多大","60 分贝有多大","70 分贝有多大"]},
-        "en": {"path":"/en/knowledge/decibel-chart/","wave":"P0","title":"Decibel Chart: Everyday Sounds and Their Context | fenbeiceshi.com","h1":"Decibel chart: everyday sounds and noise levels","keywords":["decibel chart","how loud is 60 dB","common sound levels"]}
+        "en": {"path":"/en/knowledge/decibel-chart/","wave":"P0","title":"Decibel Chart: Everyday Sounds and Their Context | fenbeiceshi.com","h1":"Decibel chart: everyday sounds and noise levels","keywords":["decibel chart","how loud is 60 dB","common sound levels"]},
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/decibel-chart/",
+          "wave": "P0",
+          "title": "分貝對照表：常見聲音有多大及比較條件 - 分貝測試",
+          "h1": "分貝對照表：常見聲音與噪音水平",
+          "keywords": ["分貝對照表", "40 分貝有多大", "50 分貝有多大", "60 分貝有多大", "70 分貝有多大"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "快速查询常见声音与分贝范围，并理解比较条件。",
       "uniqueValue": "七档纵向内容组直接承载 31 项声音，声音标签按内容宽度自动换行，名称、范围与来源单位直接可见，条件及来源在标签下方整行展开并保留静态 HTML；七档简短名称另附一句体感描述；按范围起点编组，跨档声音保留完整范围且仅展示一次；名称或数值搜索只保留匹配条目与分组，无分段按钮、类别筛选和滑块；页首简述 40–70 分贝量级，健康导读紧随声音对照，参考说明收敛为范围差异与网页估算比较两个问题。",
       "sections": ["七档声音对照与名称／数值搜索","噪音与健康：暴露时长与影响入口","参考说明：范围差异与网页估算比较"],
-      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-21","locales":["zh-CN","en"],"navigation":"中英文一级导航；本地构建可索引，尚未部署生产"},
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-21","locales":["zh-CN", "zh-TW", "en"],"navigation":"简体、繁体与英文一级导航；本地构建可索引，尚未部署生产"},
       "ctaTargetId": "meter",
       "relatedIds": ["dbfs-spl","phone-accuracy","calibration","guide"],
       "publishGate": "每组参考有来源和条件；不以播放器模拟真实分贝，不把未校准读数套表判定。",
@@ -265,7 +342,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/knowledge/microphone-permission/","wave":"P0","title":"麦克风打不开怎么办？ - 分贝测试","h1":"麦克风打不开怎么办？","keywords":["网页麦克风打不开","分贝测试没反应","麦克风权限被拒绝"]},
-        "en": {"path":"/en/knowledge/microphone-permission/","wave":"P0","title":"Why isn't my microphone working? | fenbeiceshi.com","h1":"Why isn't my microphone working?","keywords":["microphone permission denied","decibel meter not working","browser microphone not working"]}
+        "en": {"path":"/en/knowledge/microphone-permission/","wave":"P0","title":"Why isn't my microphone working? | fenbeiceshi.com","h1":"Why isn't my microphone working?","keywords":["microphone permission denied","decibel meter not working","browser microphone not working"]},
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/microphone-permission/",
+          "wave": "P0",
+          "title": "麥克風打不開怎麼辦？ - 分貝測試",
+          "h1": "麥克風打不開怎麼辦？",
+          "keywords": ["網頁麥克風打不開", "分貝測試沒反應", "麥克風許可權被拒絕"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "根据失败原因恢复测量。",
       "uniqueValue": "区分拒绝、等待、无设备、占用、安全上下文与站点策略，不按设备型号复制页面。",
@@ -281,7 +366,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/about/","wave":"P0","title":"关于分贝测试：产品、方法与维护 - 分贝测试","h1":"关于分贝测试","keywords":["分贝测试 网站","fenbeiceshi"]},
-        "en": {"path":"/en/about/","wave":"P0","title":"About the Tool and Its Methods | fenbeiceshi.com","h1":"About this tool","keywords":["about fenbeiceshi"]}
+        "en": {"path":"/en/about/","wave":"P0","title":"About the Tool and Its Methods | fenbeiceshi.com","h1":"About this tool","keywords":["about fenbeiceshi"]},
+        "zh-TW": {
+          "path": "/zh-tw/about/",
+          "wave": "P0",
+          "title": "關於分貝測試：產品、方法與維護 - 分貝測試",
+          "h1": "關於分貝測試",
+          "keywords": ["分貝測試 網站", "fenbeiceshi"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "核实产品是谁维护、为什么做以及采用什么方法。",
       "uniqueValue": "真实维护主体、方法入口和使用说明。",
@@ -297,7 +390,15 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/privacy/","wave":"P0","title":"隐私与本机数据说明 - 分贝测试","h1":"隐私与本机数据","keywords":["分贝测试隐私","fenbeiceshi privacy"]},
-        "en": {"path":"/en/privacy/","wave":"P0","title":"Privacy and Local Data | fenbeiceshi.com","h1":"Privacy and local data","keywords":["fenbeiceshi privacy policy"]}
+        "en": {"path":"/en/privacy/","wave":"P0","title":"Privacy and Local Data | fenbeiceshi.com","h1":"Privacy and local data","keywords":["fenbeiceshi privacy policy"]},
+        "zh-TW": {
+          "path": "/zh-tw/privacy/",
+          "wave": "P0",
+          "title": "隱私與本機資料說明 - 分貝測試",
+          "h1": "隱私與本機資料",
+          "keywords": ["分貝測試隱私", "fenbeiceshi privacy"],
+          "status": "implemented-not-deployed"
+        }
       },
       "intent": "理解麦克风、摘要记录和必要访问数据如何处理。",
       "uniqueValue": "分别说明音频本机处理、本机记录、删除方式及实际启用的基础日志/统计。",
@@ -493,6 +594,14 @@
             "noise and sleep",
             "noise exposure and hearing"
           ]
+        },
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/noise-and-health/",
+          "wave": "P0",
+          "title": "噪音對健康的影響 - 分貝測試",
+          "h1": "噪音對健康的影響",
+          "keywords": ["噪音對健康的影響", "噪音影響睡眠", "噪音與聽力風險"],
+          "status": "implemented-not-deployed"
         }
       },
       "intent": "理解噪音的不同健康影响、暴露条件，以及减少干扰或寻求专业帮助的下一步。",
@@ -506,9 +615,10 @@
       ],
       "localImplementation": {
         "status": "implemented-not-deployed",
-        "updated": "2026-10-20",
+        "updated": "2026-10-21",
         "locales": [
           "zh-CN",
+          "zh-TW",
           "en"
         ],
         "review": "已核对 WHO、NIH/NIDCD 与 CDC/NIOSH 一手资料及双语适用语境；不声称医学专家审校。"

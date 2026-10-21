@@ -1,6 +1,7 @@
+import { localize } from "@/lib/i18n/text";
 import Link from "next/link";
 import { articles } from "@/lib/content/articles";
-import { dual, text } from "@/lib/content/types";
+import { translations, text } from "@/lib/content/types";
 import { href } from "@/lib/routing/pages";
 import { breadcrumbData } from "@/lib/seo/metadata";
 import type { Locale } from "@/features/sound-meter/types";
@@ -13,88 +14,109 @@ const helpLinks = [
   {
     id: "guide",
     icon: "book-open",
-    title: dual("使用指南", "How to use"),
-    description: dual(
+    title: translations("使用指南", "How to use", "使用指南"),
+    description: translations(
       "从打开麦克风到保存结果，跟着步骤完成一次噪音观察。",
       "Follow the steps to allow your microphone, watch sound changes and save a result.",
+      "從開啟麥克風到儲存結果，跟著步驟完成一次噪音觀察。",
     ),
-    action: dual("查看使用步骤", "Read the guide"),
+    action: translations("查看使用步骤", "Read the guide", "檢視使用步驟"),
   },
   {
     id: "how-it-works",
     icon: "audio-lines",
-    title: dual("工作原理", "How it works"),
-    description: dual(
+    title: translations("工作原理", "How it works", "工作原理"),
+    description: translations(
       "看看网页怎样从麦克风输入估算分贝，以及读数有哪些限制。",
       "See how the browser estimates decibels from microphone input and where its limits are.",
+      "看看網頁怎樣從麥克風輸入估算分貝，以及讀數有哪些限制。",
     ),
-    action: dual("了解测量过程", "Explore the process"),
+    action: translations("了解测量过程", "Explore the process", "瞭解測量過程"),
   },
   {
     id: "faq",
     icon: "circle-question-mark",
-    title: dual("常见问题", "Common questions"),
-    description: dual(
+    title: translations("常见问题", "Common questions", "常見問題"),
+    description: translations(
       "读数准不准、麦克风打不开、录音怎么保存？按问题快速找答案。",
       "Find answers about accuracy, microphone access, audio recording and saved results.",
+      "讀數準不準、麥克風打不開、錄音怎麼儲存？按問題快速找答案。",
     ),
-    action: dual("查找常见答案", "Find an answer"),
+    action: translations("查找常见答案", "Find an answer", "查詢常見答案"),
   },
 ] as const;
 
 const articleGroups = [
   {
     id: "understand",
-    title: dual("理解读数", "Understand readings"),
-    description: dual(
+    title: translations("理解读数", "Understand readings", "理解讀數"),
+    description: translations(
       "先弄清数字代表什么，再判断怎样比较。",
       "Know what the numbers mean before comparing them.",
+      "先弄清數字代表什麼，再判斷怎樣比較。",
     ),
     articles: ["phone-accuracy", "dbfs-spl"],
   },
   {
     id: "reference",
-    title: dual("查询声音参考", "Find a sound reference"),
-    description: dual(
+    title: translations("查询声音参考", "Find a sound reference", "查詢聲音參考"),
+    description: translations(
       "把抽象的分贝，放回熟悉的生活场景。",
       "Put decibel levels in the context of familiar sounds.",
+      "把抽象的分貝，放回熟悉的生活場景。",
     ),
     articles: ["decibel-chart"],
   },
   {
     id: "health",
-    title: dual("了解噪音与健康", "Understand noise and health"),
-    description: dual(
+    title: translations("了解噪音与健康", "Understand noise and health", "瞭解噪音與健康"),
+    description: translations(
       "分清影响与暴露条件，再选择减少干扰的下一步。",
       "Understand effects and exposure before choosing how to reduce disturbance.",
+      "分清影響與暴露條件，再選擇減少干擾的下一步。",
     ),
     articles: ["noise-health"],
   },
   {
     id: "troubleshoot",
-    title: dual("解决使用问题", "Fix an input problem"),
-    description: dual(
+    title: translations("解决使用问题", "Fix an input problem", "解決使用問題"),
+    description: translations(
       "从权限和设备入手，恢复声音观察。",
       "Check permissions and devices to get the meter working.",
+      "從權限和裝置入手，恢復聲音觀察。",
     ),
     articles: ["microphone-help"],
   },
 ];
 
 export function KnowledgePage({ locale }: { locale: Locale }) {
-  const en = locale === "en";
   return (
     <div className={styles.page}>
       <StructuredData data={breadcrumbData("knowledge", locale)} />
       <header className={styles.header}>
-        <p className={styles.eyebrow}>{en ? "SOUND, EXPLAINED" : "声音知识"}</p>
-        <h1>{en ? "Decibel readings, explained" : "分贝怎么看，噪音怎么测？"}</h1>
-        <p className={styles.intro}>
-          {en
-            ? "Understand readings, compare sounds, explore health effects or fix microphone access."
-            : "从你遇到的问题出发：理解读数、查询声音、了解健康，或排查麦克风。"}
+        <p className={styles.eyebrow}>
+          {localize(locale, "声音知识", "SOUND, EXPLAINED", "聲音知識")}
         </p>
-        <nav className={styles.helpLinks} aria-label={en ? "Using the meter" : "工具使用帮助"}>
+        <h1>
+          {localize(
+            locale,
+            "分贝怎么看，噪音怎么测？",
+            "Decibel readings, explained",
+            "分貝怎麼看，噪音怎麼測？",
+          )}
+        </h1>
+        <p className={styles.intro}>
+          {localize(
+            locale,
+            "从你遇到的问题出发：理解读数、查询声音、了解健康，或排查麦克风。",
+            "Understand readings, compare sounds, explore health effects or fix microphone access.",
+            "從你遇到的問題出發：理解讀數、查詢聲音、瞭解健康，或排查麥克風。",
+          )}
+        </p>
+        <nav
+          className={styles.helpLinks}
+          aria-label={localize(locale, "工具使用帮助", "Using the meter", "工具使用幫助")}
+        >
           {helpLinks.map((item) => (
             <Link
               key={item.id}
@@ -143,15 +165,20 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
       <section className={styles.help} aria-labelledby="try-meter-title">
         <Icon name="mic" size={22} />
         <div>
-          <h2 id="try-meter-title">{en ? "Ready to try?" : "准备好观察一次了？"}</h2>
+          <h2 id="try-meter-title">
+            {localize(locale, "准备好观察一次了？", "Ready to try?", "準備好觀察一次了？")}
+          </h2>
           <p>
-            {en
-              ? "Start with a generic noise estimate. Reference calibration is optional, and you can try a demo first."
-              : "工具默认提供通用噪音估算，校准可选。也可以先体验演示，再决定是否打开麦克风。"}
+            {localize(
+              locale,
+              "工具默认提供通用噪音估算，校准可选。也可以先体验演示，再决定是否打开麦克风。",
+              "Start with a generic noise estimate. Reference calibration is optional, and you can try a demo first.",
+              "工具預設提供通用噪音估算，校正可選。也可以先體驗演示，再決定是否開啟麥克風。",
+            )}
           </p>
         </div>
         <Link href={href("meter", locale)}>
-          {en ? "Open the meter" : "打开工具"}
+          {localize(locale, "打开工具", "Open the meter", "開啟工具")}
           <LinkArrow size={16} />
         </Link>
       </section>

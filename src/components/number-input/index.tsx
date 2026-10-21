@@ -1,4 +1,5 @@
 "use client";
+import { localize } from "@/lib/i18n/text";
 
 import { useEffect, useRef, type ComponentPropsWithoutRef } from "react";
 import { Icon } from "@/components/icon";
@@ -48,20 +49,32 @@ export function NumberInput({
   "aria-invalid": invalid,
 }: NumberInputProps) {
   const input = useRef<HTMLInputElement>(null);
-  const en = locale === "en";
   const bounds = { min, max, step, required };
   const issue = numberIssue(value, bounds);
   const number = readNumber(value);
   const locked = disabled || readOnly;
   const isInvalid = issue !== null || invalid === true || invalid === "true";
   const messages = {
-    required: en ? "Enter a value." : "请输入数值。",
-    number: en ? "Enter a valid number." : "请输入有效数字。",
-    min: en ? `Enter ${min} or more.` : `请输入不小于 ${min} 的数值。`,
-    max: en ? `Enter ${max} or less.` : `请输入不大于 ${max} 的数值。`,
-    step: en
-      ? `Use steps of ${step}, starting at ${min}.`
-      : `请从 ${min} 起按 ${step} 的步长输入。`,
+    required: localize(locale, "请输入数值。", "Enter a value.", "請輸入數值。"),
+    number: localize(locale, "请输入有效数字。", "Enter a valid number.", "請輸入有效數字。"),
+    min: localize(
+      locale,
+      `请输入不小于 ${min} 的数值。`,
+      `Enter ${min} or more.`,
+      `請輸入不小於 ${min} 的數值。`,
+    ),
+    max: localize(
+      locale,
+      `请输入不大于 ${max} 的数值。`,
+      `Enter ${max} or less.`,
+      `請輸入不大於 ${max} 的數值。`,
+    ),
+    step: localize(
+      locale,
+      `请从 ${min} 起按 ${step} 的步长输入。`,
+      `Use steps of ${step}, starting at ${min}.`,
+      `請從 ${min} 起按 ${step} 的步長輸入。`,
+    ),
   };
   const message = issue ? messages[issue] : isInvalid ? messages.number : "";
 
@@ -128,11 +141,12 @@ export function NumberInput({
             <button
               key={direction}
               type="button"
-              aria-label={
-                en
-                  ? `${direction > 0 ? "Increase" : "Decrease"} ${label} by ${step}`
-                  : `${direction > 0 ? "增加" : "减少"}${label}，步长 ${step}`
-              }
+              aria-label={localize(
+                locale,
+                `${direction > 0 ? "增加" : "减少"}${label}，步长 ${step}`,
+                `${direction > 0 ? "Increase" : "Decrease"} ${label} by ${step}`,
+                `${direction > 0 ? "增加" : "減少"}${label}，步長 ${step}`,
+              )}
               disabled={locked || (issue === null && number === (direction > 0 ? max : min))}
               onPointerDown={(event) => {
                 if (event.button === 0) event.preventDefault();

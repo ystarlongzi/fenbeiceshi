@@ -48,4 +48,28 @@ const en: typeof zh = {
   seconds: "s",
 };
 
-export const recordingCopy = { "zh-CN": zh, en };
+const zhTW: typeof zh = {
+  enable: "同步錄音",
+  off: "預設關閉",
+  on: "已開啟，下次測量時錄音",
+  active: "正在同步錄音",
+  stopped: "本次錄音已結束",
+  finishing: "正在整理本機錄音…",
+  hint: "僅存本機，不上傳。單次最多 10 分鐘；結束後可播放、下載 MP3 / PCM。",
+  demo: "演示不錄音",
+  title: "本機錄音",
+  limited: "錄音已達時長或記憶體上限，已保留音訊；測量可繼續。",
+  interrupted: "錄音中斷，已保留收到的音訊片段。",
+  error: "錄音不可用，本次僅測量。可結束後重試，或換用其他瀏覽器。",
+  unavailable: "錄音不可用",
+  pcm: "下載 PCM",
+  mp3: "生成 MP3",
+  mp3Ready: "下載 MP3",
+  encoding: "正在生成 MP3…",
+  encodeError: "MP3 生成失敗，可重試或先下載 PCM。",
+  playbackError: "瀏覽器無法播放本段音訊，可下載後在本機播放器開啟。",
+  clear: "清除錄音",
+  seconds: "秒",
+};
+
+export const recordingCopy = { "zh-CN": zh, "zh-TW": zhTW, en };

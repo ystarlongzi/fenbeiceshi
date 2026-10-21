@@ -92,6 +92,11 @@
   --font-size-heading: 1.5rem;
   --font-size-title: 2rem;
 }
+:root:lang(zh-TW) {
+  --font-body:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
 :root[data-theme="dark"] {
   --noise-faint-ink: var(--noise-faint);
   --noise-quiet-ink: var(--noise-quiet);

@@ -1,3 +1,4 @@
+import { localize } from "@/lib/i18n/text";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Icon } from "../icon";
@@ -27,14 +28,16 @@ export function ContentPage({
 }) {
   const content = contents.find((item) => item.id === id);
   if (!content) throw new Error(`缺少正文：${id}`);
-  const en = locale === "en";
   const action = cta ?? {
-    title: en ? "Try a measurement" : "开始一次测量",
-    description: en
-      ? "Start with a noise estimate. Add reference calibration when available."
-      : "先看估算噪音分贝，有条件时再选用参考校准。",
+    title: localize(locale, "开始一次测量", "Try a measurement", "開始一次測量"),
+    description: localize(
+      locale,
+      "先看估算噪音分贝，有条件时再选用参考校准。",
+      "Start with a noise estimate. Add reference calibration when available.",
+      "先看估算噪音分貝，有條件時再選用參考校正。",
+    ),
     href: `${href("meter", locale)}#measure`,
-    label: en ? "Open the meter" : "打开测量工具",
+    label: localize(locale, "打开测量工具", "Open the meter", "開啟測量工具"),
   };
   return (
     <article className={`${styles.article} ${className}`}>
@@ -57,12 +60,17 @@ export function ContentPage({
           }}
         />
       ) : null}
-      <nav className={styles.breadcrumb} aria-label={en ? "Breadcrumb" : "面包屑"}>
-        <Link href={href("meter", locale)}>{en ? "Home" : "首页"}</Link>
+      <nav
+        className={styles.breadcrumb}
+        aria-label={localize(locale, "面包屑", "Breadcrumb", "麵包屑")}
+      >
+        <Link href={href("meter", locale)}>{localize(locale, "首页", "Home", "首頁")}</Link>
         <span>/</span>
         {content.kind === "article" ? (
           <>
-            <Link href={href("knowledge", locale)}>{en ? "Guides" : "声音知识"}</Link>
+            <Link href={href("knowledge", locale)}>
+              {localize(locale, "声音知识", "Guides", "聲音知識")}
+            </Link>
             <span>/</span>
           </>
         ) : null}
@@ -71,19 +79,17 @@ export function ContentPage({
       <header className={styles.header}>
         <p>
           {content.kind === "article"
-            ? en
-              ? "SOUND, EXPLAINED"
-              : "声音知识"
-            : en
-              ? "HELP & METHODS"
-              : "使用帮助"}
+            ? localize(locale, "声音知识", "SOUND, EXPLAINED", "聲音知識")
+            : localize(locale, "使用帮助", "HELP & METHODS", "使用幫助")}
         </p>
         <h1>{text(content.title, locale)}</h1>
         <div className={styles.meta}>
           <span>
-            {en ? "Updated" : "更新于"} {content.updated}
+            {localize(locale, "更新于", "Updated", "更新於")} {content.updated}
           </span>
-          <span>{en ? "fenbeiceshi.com project" : "分贝测试项目维护"}</span>
+          <span>
+            {localize(locale, "分贝测试项目维护", "fenbeiceshi.com project", "分貝測試專案維護")}
+          </span>
         </div>
       </header>
       <div className={styles.layout}>
@@ -134,12 +140,12 @@ export function ContentPage({
               </section>
             ))}
           <section className={styles.sources}>
-            <h2>{en ? "Sources and references" : "来源与参考"}</h2>
+            <h2>{localize(locale, "来源与参考", "Sources and references", "來源與參考")}</h2>
             <ul>
               {content.sources.map((source) => (
                 <li key={source.url} id={source.id}>
                   <a href={source.url} target="_blank" rel="noreferrer">
-                    {source.title}
+                    {typeof source.title === "string" ? source.title : text(source.title, locale)}
                     <Icon name="external-link" size={12} />
                   </a>
                 </li>
@@ -157,7 +163,7 @@ export function ContentPage({
             </Link>
           </div>
           <section className={styles.related}>
-            <h2>{en ? "Related reading" : "继续了解"}</h2>
+            <h2>{localize(locale, "继续了解", "Related reading", "繼續瞭解")}</h2>
             {content.related.map((related) => (
               <Link key={related} href={href(related, locale)}>
                 {text(pageById(related).title, locale)}
@@ -167,10 +173,10 @@ export function ContentPage({
           </section>
         </div>
         <aside className={styles.toc}>
-          <p>{en ? "ON THIS PAGE" : "本页内容"}</p>
+          <p>{localize(locale, "本页内容", "ON THIS PAGE", "本頁內容")}</p>
           <TableOfContents
             key={id}
-            label={en ? "On this page" : "本文目录"}
+            label={localize(locale, "本文目录", "On this page", "本文目錄")}
             items={content.sections.map((section) => ({
               id: section.id,
               label: text(section.tocTitle ?? section.title, locale),
@@ -178,7 +184,7 @@ export function ContentPage({
           />
           <Link className={styles.tocBack} href={`${href("meter", locale)}#measure`}>
             <Icon name="mic" size={15} />
-            {en ? "Back to the tool" : "回到测量工具"}
+            {localize(locale, "回到测量工具", "Back to the tool", "回到測量工具")}
           </Link>
         </aside>
       </div>

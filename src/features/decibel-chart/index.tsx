@@ -1,3 +1,4 @@
+import { localize } from "@/lib/i18n/text";
 import { ContentPage } from "@/components/content-page";
 import Link from "next/link";
 import { LinkArrow } from "@/components/link-arrow";
@@ -11,7 +12,6 @@ import { ChartNotes } from "./chart-notes";
 import styles from "./index.module.css";
 
 export function DecibelChart({ locale }: { locale: Locale }) {
-  const en = locale === "en";
   return (
     <ContentPage
       id="decibel-chart"
@@ -25,11 +25,16 @@ export function DecibelChart({ locale }: { locale: Locale }) {
               className={styles.exposureLink}
               href={`${href("noise-health", locale)}#exposure`}
             >
-              {en ? "Explore exposure time" : "查看暴露时长参考"}
+              {localize(locale, "查看暴露时长参考", "Explore exposure time", "檢視暴露時長參考")}
               <LinkArrow size={16} />
             </Link>
             <Link className={styles.healthLink} href={`${href("noise-health", locale)}#effects`}>
-              {en ? "Noise and health effects" : "了解噪音对健康的影响"}
+              {localize(
+                locale,
+                "了解噪音对健康的影响",
+                "Noise and health effects",
+                "瞭解噪音對健康的影響",
+              )}
               <LinkArrow size={16} />
             </Link>
           </div>
@@ -57,7 +62,7 @@ export function DecibelChart({ locale }: { locale: Locale }) {
                   min: sound.min,
                   max: sound.max,
                   unit: sound.unit,
-                  searchText: `${sound.name.zh} ${sound.name.en}`,
+                  searchText: `${sound.name.zh} ${sound.name.zhTW} ${sound.name.en}`,
                   sourceId: soundSources[sound.source].id,
                   sourceLabel: soundSources[sound.source].label,
                 }))

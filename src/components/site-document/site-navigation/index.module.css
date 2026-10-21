@@ -151,7 +151,7 @@
   --theme-notice-width: min(230px, calc(var(--drawer-width) - 48px));
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   flex-shrink: 0;
   align-items: center;
   gap: 12px;
@@ -161,6 +161,7 @@
 }
 .drawerUtilities .utilities {
   position: relative;
+  justify-content: space-between;
 }
 .drawerUtilities > span {
   color: var(--muted);
@@ -188,6 +189,18 @@
 @media (min-width: 761px) and (max-width: 1140px) {
   .desktop .optional {
     display: none;
+  }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .desktop {
+    gap: 12px;
+  }
+  .links {
+    gap: 4px;
+  }
+  .link {
+    padding-inline: 6px;
+    gap: 4px;
   }
 }
 @media (min-width: 761px) {

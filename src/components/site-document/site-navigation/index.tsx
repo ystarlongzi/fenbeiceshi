@@ -1,4 +1,5 @@
 "use client";
+import { localize } from "@/lib/i18n/text";
 
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Icon, type IconName } from "@/components/icon";
@@ -24,7 +25,6 @@ export function SiteNavigation({
   locale: Locale;
   utilities: ReactNode;
 }) {
-  const english = locale === "en";
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -62,7 +62,10 @@ export function SiteNavigation({
   }, [open]);
 
   const navigation = (
-    <nav aria-label={english ? "Main navigation" : "主导航"} className={styles.links}>
+    <nav
+      aria-label={localize(locale, "主导航", "Main navigation", "主導航")}
+      className={styles.links}
+    >
       {items.map((item) => (
         <NavigationLink
           key={item.href}
@@ -88,7 +91,7 @@ export function SiteNavigation({
         ref={triggerRef}
         type="button"
         className={styles.trigger}
-        aria-label={english ? "Open menu" : "打开菜单"}
+        aria-label={localize(locale, "打开菜单", "Open menu", "開啟選單")}
         aria-haspopup="dialog"
         aria-controls={dialogId}
         aria-expanded={open}
@@ -141,11 +144,11 @@ export function SiteNavigation({
         }}
       >
         <div className={styles.drawerHeader}>
-          <h2 id={titleId}>{english ? "Menu" : "菜单"}</h2>
+          <h2 id={titleId}>{localize(locale, "菜单", "Menu", "選單")}</h2>
           <button
             type="button"
             className={styles.close}
-            aria-label={english ? "Close menu" : "关闭菜单"}
+            aria-label={localize(locale, "关闭菜单", "Close menu", "關閉選單")}
             onClick={() => setOpen(false)}
           >
             <Icon name="x" size={22} />
@@ -153,7 +156,7 @@ export function SiteNavigation({
         </div>
         <div className={styles.drawerBody}>{navigation}</div>
         <div className={styles.drawerUtilities}>
-          <span>{english ? "Appearance & language" : "外观与语言"}</span>
+          <span>{localize(locale, "外观与语言", "Appearance & language", "外觀與語言")}</span>
           <div className={styles.utilities}>{utilities}</div>
         </div>
       </dialog>

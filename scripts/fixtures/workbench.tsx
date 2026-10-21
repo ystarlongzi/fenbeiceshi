@@ -8,6 +8,7 @@ import { DEFAULT_ESTIMATE } from "../../src/features/sound-meter/readings";
 import { RECORDING_DB, RECORDING_STORE } from "../../src/features/records/recording-storage";
 import { getRecords } from "../../src/features/records/storage";
 import type { Locale, Measurement } from "../../src/features/sound-meter/types";
+import { localePrefix } from "../../src/lib/i18n/locales";
 
 // 只由临时本地测试路由导入，不注册生产页面，也不请求真实麦克风。
 export default function WorkbenchFixture() {
@@ -177,7 +178,7 @@ export default function WorkbenchFixture() {
         <button type="button" onClick={seedRecords}>
           添加导出验证记录
         </button>{" "}
-        <a href={locale === "en" ? "/en/records/" : "/records/"}>查看验证记录</a>{" "}
+        <a href={`${localePrefix(locale)}/records/`}>查看验证记录</a>{" "}
         <button type="button" onClick={() => void inspectAudio()}>
           核对本机音频
         </button>
@@ -187,6 +188,7 @@ export default function WorkbenchFixture() {
         验证语言{" "}
         <select value={locale} onChange={(event) => setLocale(event.target.value as Locale)}>
           <option value="zh-CN">中文</option>
+          <option value="zh-TW">繁體中文</option>
           <option value="en">English</option>
         </select>
       </label>{" "}
