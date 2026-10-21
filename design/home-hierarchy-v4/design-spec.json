@@ -7,6 +7,7 @@
   "baseline": "../noise-meter-v3/design-spec.json",
   "source": "../../src/components/home-page/",
   "verification": "../../docs/验证/首页层级调整验证.md",
+  "scenarioInstructions": "../home-scenes-v1/design-spec.json",
   "task": "优先完成一次声音观察，再按需要查看方法、场景、知识与常见问题。",
   "diagnosis": [
     "测量台与本机记录分离，结果与记录缺少归属关系。",
@@ -30,11 +31,11 @@
     },
     {
       "name": "日常场景",
-      "role": "按问题探索",
-      "layout": "更明确的区块标题与同级场景对象；图标、标题、条件和入口分组。",
-      "headingSize": "桌面 32px，手机 27px",
+      "role": "简短操作说明",
+      "layout": "三个同级场景，每项使用图标、标题和两步有序说明；桌面三列，手机单列，直接阅读且不设置操作入口。",
+      "headingSize": "固定 24px",
       "surface": "相同浅绿对象表面",
-      "reason": "三个场景保持同级，不制造虚假推荐；与简短步骤区区分。"
+      "reason": "三个例子解释如何观察房间、家电和开关窗变化；操作说明直接呈现，避免场景文案指向不对应的帮助页。当前内容与交互见 scenarioInstructions。"
     },
     {
       "name": "声音知识",

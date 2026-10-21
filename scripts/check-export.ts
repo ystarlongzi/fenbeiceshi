@@ -64,6 +64,15 @@ for (const page of sitePages) {
         html.includes(`href="${href("noise-health", locale)}"`),
         `首页缺少健康导读：${path}`,
       );
+      const scenarios = html.match(
+        /<section\b[^>]*id="home-scenarios"[^>]*>([\s\S]*?)<\/section>/,
+      )?.[1];
+      assert.ok(scenarios, `首页缺少场景说明：${path}`);
+      assert.doesNotMatch(
+        scenarios,
+        /<a\b|<button\b|role="(?:button|link)"/,
+        `场景说明应保持静态阅读，不提供跳转或操作：${path}`,
+      );
       const switches = [
         ...html.matchAll(/<input\b[^>]*data-setting="(recording|calibration)"[^>]*>/g),
       ];

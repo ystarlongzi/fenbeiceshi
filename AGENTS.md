@@ -63,7 +63,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 - 本产品面向普通用户提供分贝与环境噪音测试，Web 优先并适配手机；当前界面名称为“分贝测试”，域名为 `fenbeiceshi.com`。
 - 当前设计依据为 [V3 实现规格](./design/noise-meter-v3/design-spec.json) 与实际界面截图；[V2 规格](./design/noise-meter-v2/design-spec.json) 及 Figma 画框保留为品牌、状态与早期设计依据，V1 作为历史方案保留。
-- 首页模块之间的关系以 [首页层级 V4](./design/home-hierarchy-v4/design-spec.json) 为准：测量与记录合组，方法为辅助引导，场景为同级对象，知识为阅读区域，FAQ 为按需收尾；测量状态沿用 V3；当前测量口径以 [噪音估算规格](./design/noise-estimate-v1/design-spec.json) 和 [噪音估算口径](./docs/产品/噪音估算口径.md) 为准，替代早期默认 dBFS 的决定。
+- 首页模块之间的关系以 [首页层级 V4](./design/home-hierarchy-v4/design-spec.json) 为准：测量与记录合组，方法为辅助引导，场景为同级的两步静态操作说明，不提供跳转或额外测量入口，当前内容见 [首页场景说明 V1](./design/home-scenes-v1/design-spec.json)，知识为阅读区域，FAQ 为按需收尾；测量状态沿用 V3；当前测量口径以 [噪音估算规格](./design/noise-estimate-v1/design-spec.json) 和 [噪音估算口径](./docs/产品/噪音估算口径.md) 为准，替代早期默认 dBFS 的决定。
 - 功能图标采用 [Lucide](https://lucide.dev/)，用于说明操作与信息角色；统一描边与尺寸，不用图标替代必要文字，不为装饰给所有内容添加图标。项目设计目录保留所用 SVG、固定来源与许可证。
 - 亮暗主题以 [主题 V1](./design/theme-v1/design-spec.json) 为准：通用表面、文字、边界和状态使用 `globals.css` 的语义变量，组件专属映射留在相邻 CSS Modules；仪表深绿读数区保留固定配色。主题切换为独立客户端组件，正文与站点外壳保持服务端渲染；同步引导脚本放在可见内容之前，只在根节点处理主题属性的水合差异。默认跟随系统，手动偏好以独立版本化键保存，不能与测量记录混用。
 - 全站字号使用 `globals.css` 的固定 `rem` 语义变量：辅助文字 12px、常规界面 14px、正文 16px、模块标题 20/24px、页面标题 32px（按浏览器默认 16px 基准换算）。不得使用视口单位、流动字号或手机断点缩小文字；窄屏通过换行和布局适配，保留用户缩放与字体设置。普通内容至少 12px，关键限制和错误至少 14px；图表刻度也保持固定 12px。仪表普通读数 72px、数显 80px、全屏 88px，仅按观察模式切换。当前规则覆盖历史规格中的字号值，实际验证见 [全站字号调整验证](./docs/验证/全站字号调整验证.md)。

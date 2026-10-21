@@ -156,7 +156,7 @@
       },
       "intent": "立即使用浏览器观察环境声音。",
       "uniqueValue": "估算噪音分贝、辅助输入信号、可选参考校准、同口径趋势和本机摘要共同完成一次任务。",
-      "sections": ["测量工作台与当前口径","使用方法与场景","工作原理与精选知识","八个常见问题与完整帮助入口"],
+      "sections": ["测量工作台与当前口径","使用方法与三项场景操作说明","工作原理与精选知识","八个常见问题与完整帮助入口"],
       "ctaTargetId": "meter",
       "relatedIds": ["guide","how-it-works","faq","calibration","phone-accuracy","microphone-help","room-noise"],
       "publishGate": "测量状态、设备变化、停止释放、记录和隐私行为验证；示例与真实数据明确区分。",

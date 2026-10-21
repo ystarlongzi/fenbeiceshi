@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "updated": "2026-10-21",
+  "status": "implemented-and-locally-verified",
+  "routes": ["/", "/en/"],
+  "task": "在首页直接了解房间、家电开关和开关窗三种声音观察方法。",
+  "relationship": "三个同级例子，每项内部有两步操作；场景本身不表示页面入口或连续的三个阶段。",
+  "heading": {"zh": "可以观察哪些声音变化？", "en": "Everyday changes you can observe"},
+  "content": {
+    "room": "固定设备和位置，保存观察结果，换时段复测并记录门窗及背景声音。",
+    "appliance": "固定设备、距离和设置，先关闭再开启，保持相近测量时长并记录档位。",
+    "window": "固定设备和位置，分别观察开窗与关窗，保持相近测量时长并记录外部声音变化。"
+  },
+  "interaction": "整个场景区均为静态阅读，不包含链接、按钮、箭头或额外测量入口；没有悬停抬升、按压反馈或额外 Tab 停靠点。",
+  "semantics": "带标题的 section 包含一个无序场景列表，每项包含 h3 和原生两步有序列表；三个图标沿用 Lucide 并对辅助技术隐藏。",
+  "layout": "680px 以上三列、16px 间距；680px 及以下单列、12px 间距。沿用 --surface-feature 背景、1px --line 边界与 14px 圆角，不新增嵌套表面。",
+  "typography": "区块标题固定 24px、场景标题 20px、操作正文 16px、列表序号 14px；窄屏自然换行，不缩小字号。",
+  "rendering": "中英文场景内容和列表由 HomePage 服务端静态输出；没有新增客户端组件、依赖、页面或测量逻辑。",
+  "scope": [
+    "src/components/home-page/index.tsx",
+    "src/components/home-page/index.module.css",
+    "scripts/check-export.ts"
+  ],
+  "verification": "../../docs/验证/首页场景说明调整验证.md",
+  "browserChecks": "browser-checks.json",
+  "screenshots": {
+    "desktopZh": "desktop-zh.jpg",
+    "desktopEn": "desktop-en.jpg",
+    "mobileZh": "mobile-zh.jpg",
+    "mobileEn": "mobile-en.jpg",
+    "mobileDarkEn": "mobile-dark-en.jpg"
+  }
+}

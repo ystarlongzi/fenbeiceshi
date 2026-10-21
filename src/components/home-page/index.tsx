@@ -16,57 +16,59 @@ export function HomePage({ locale }: { locale: Locale }) {
   const en = locale === "en";
   const scenes: {
     title: string;
-    description: string;
-    note: string;
+    steps: [string, string];
     icon: IconName;
-    target: string;
   }[] = en
     ? [
         {
           title: "Check your room's noise",
-          description:
-            "Observe the same spot at different times. Keep a note of windows and background activity.",
-          note: "Same position · repeat observations",
+          steps: [
+            "Keep the device in one place. Measure for a while, then save the result.",
+            "Repeat there at another time. Note windows and background sounds before comparing.",
+          ],
           icon: "house",
-          target: "guide",
         },
         {
           title: "Compare an appliance",
-          description: "Compare on and off states with the same device, distance and settings.",
-          note: "Same distance · record the state",
+          steps: [
+            "Keep the device, distance and settings fixed. Measure with the appliance off.",
+            "Switch it on and measure for a similar duration. Note its setting and compare the results.",
+          ],
           icon: "audio-lines",
-          target: "phone-accuracy",
         },
         {
-          title: "Check a change",
-          description:
-            "Observe before and after closing a window. Keep input and outside conditions in context.",
-          note: "Same input · check the conditions",
+          title: "Compare open and closed windows",
+          steps: [
+            "Keep the device and position fixed. Measure with the window open and save the result.",
+            "Close it and measure for a similar duration. Compare the results and note changes in outside sounds.",
+          ],
           icon: "sliders-horizontal",
-          target: "calibration",
         },
       ]
     : [
         {
           title: "看看房间有多吵",
-          description: "在相同位置，观察不同时段的声音。记下门窗状态和背景活动。",
-          note: "固定位置 · 重复观察",
+          steps: [
+            "固定设备和位置，测一段时间并保存结果。",
+            "在原处换个时段复测，备注门窗状态与背景声音后比较。",
+          ],
           icon: "house",
-          target: "guide",
         },
         {
           title: "比较一件家电的变化",
-          description: "在同一距离，观察关闭和开启状态。保持设备、档位与输入设置一致。",
-          note: "固定距离 · 记录状态",
+          steps: [
+            "保持设备、距离和设置不变，先测家电关闭时的声音。",
+            "开启家电后测量相近时长，记录档位，再比较两次结果。",
+          ],
           icon: "audio-lines",
-          target: "phone-accuracy",
         },
         {
           title: "看看关窗前后的不同",
-          description: "在同一观察位置，比较开窗和关窗。把外部声音的变化也记录下来。",
-          note: "同一输入 · 核对条件",
+          steps: [
+            "保持设备与位置不变，先测开窗时的声音并保存。",
+            "关窗后测量相近时长，再比较；同时记下车流等外部声音的变化。",
+          ],
           icon: "sliders-horizontal",
-          target: "calibration",
         },
       ];
   const steps = en
@@ -155,41 +157,37 @@ export function HomePage({ locale }: { locale: Locale }) {
           ))}
         </ol>
       </section>
-      <section className={styles.scenesSection}>
+      <section
+        className={styles.scenesSection}
+        id="home-scenarios"
+        aria-labelledby="home-scenarios-title"
+      >
         <div className={styles.sectionHeading}>
           <div>
             <p className={styles.eyebrow}>{en ? "EVERYDAY SCENARIOS" : "日常场景"}</p>
-            <h2>{en ? "Start with the sound you care about" : "从你在意的声音开始"}</h2>
+            <h2 id="home-scenarios-title">
+              {en ? "Everyday changes you can observe" : "可以观察哪些声音变化？"}
+            </h2>
           </div>
           <p>
             {en
-              ? "The same input. A clear condition. A repeatable comparison."
-              : "同一套输入，清楚的条件，才有可比较的变化。"}
+              ? "Choose a scenario, follow the steps and save your results."
+              : "选一个场景，按下面的方法测量并记录。"}
           </p>
         </div>
-        <div className={styles.scenes}>
-          {scenes.map((scene, i) => (
-            <Link
-              key={scene.title}
-              className={styles.scene}
-              href={href(scene.target, locale)}
-              aria-label={`${en ? "Read about " : "了解"}${scene.title}`}
-            >
+        <ul className={styles.scenes}>
+          {scenes.map((scene) => (
+            <li key={scene.title} className={styles.scene}>
               <Icon name={scene.icon} size={24} />
-              <span className={styles.sceneNumber} aria-hidden="true">
-                0{i + 1}
-              </span>
               <h3>{scene.title}</h3>
-              <p>{scene.description}</p>
-              <div className={styles.sceneFooter}>
-                <span className={styles.sceneNote}>{scene.note}</span>
-                <span className={styles.sceneAction} aria-hidden="true">
-                  <LinkArrow size={17} />
-                </span>
-              </div>
-            </Link>
+              <ol className={styles.sceneSteps}>
+                {scene.steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
       <section className={styles.knowledge}>
         <div className={styles.knowledgeLead}>

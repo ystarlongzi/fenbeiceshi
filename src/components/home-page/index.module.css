@@ -157,104 +157,45 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .scene {
-  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--surface-feature);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 28px;
-  overflow: hidden;
-  transition:
-    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 160ms ease,
-    border-color 160ms ease;
 }
 .scene > svg {
   color: var(--text-accent);
-  margin-bottom: 42px;
-}
-.sceneNumber {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  font: 600 76px/1 var(--font-number);
-  color: var(--decoration);
-  opacity: 0.55;
-  letter-spacing: -7px;
-  pointer-events: none;
+  margin-bottom: 18px;
 }
 .scene h3 {
-  position: relative;
   font-size: var(--font-size-heading-sm);
   line-height: 1.6;
   font-weight: 600;
   margin: 0 0 12px;
 }
-.scene > p {
-  flex: 1;
+.sceneSteps {
   font-size: var(--font-size-body);
   line-height: 1.9;
   color: var(--text-body);
   margin: 0;
+  padding-left: 1.25em;
 }
-.sceneFooter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  border-top: 1px solid var(--line-accent);
-  padding-top: 17px;
-  margin-top: 25px;
+.sceneSteps li {
+  padding-left: 4px;
 }
-.sceneNote {
-  font-size: var(--font-size-caption);
+.sceneSteps li + li {
+  margin-top: 12px;
+}
+.sceneSteps li::marker {
+  font-size: var(--font-size-ui);
+  font-weight: 600;
   color: var(--text-accent);
-  line-height: 1.8;
-}
-.sceneAction {
-  --link-arrow-shift: 0px;
-  display: grid;
-  place-items: center;
-  height: 36px;
-  width: 36px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: var(--surface-hover);
-  color: var(--text-accent);
-  border: 1px solid var(--line-accent);
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
-}
-.scene:focus-visible {
-  background: var(--surface-hover);
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-}
-.scene:focus-visible .sceneAction {
-  background: var(--action-surface);
-  border-color: var(--action-surface);
-  color: var(--action-ink);
-}
-@media (hover: hover) and (pointer: fine) {
-  .scene:hover {
-    background: var(--surface-hover);
-    border-color: var(--line-strong);
-    transform: translateY(-2px);
-  }
-  .scene:hover .sceneAction {
-    background: var(--action-surface);
-    border-color: var(--action-surface);
-    color: var(--action-ink);
-  }
-}
-.scene:active {
-  background: var(--surface-pressed);
-  transform: translateY(0);
 }
 .knowledge {
   position: relative;
@@ -373,15 +314,6 @@
   color: var(--brand);
   font-size: var(--font-size-ui);
 }
-@media (prefers-reduced-motion: reduce) {
-  .scene,
-  .sceneAction {
-    transition: none;
-  }
-  .scene {
-    transform: none !important;
-  }
-}
 @media (max-width: 900px) {
   .hero h1 span {
     display: none;
@@ -467,9 +399,6 @@
   }
   .scene {
     padding: 25px;
-  }
-  .scene > svg {
-    margin-bottom: 34px;
   }
   .knowledge,
   .faq {
