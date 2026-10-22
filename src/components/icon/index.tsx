@@ -28,6 +28,7 @@ export type IconName =
   | "x"
   | "external-link"
   | "sun"
+  | "monitor"
   | "moon";
 
 export function Icon({

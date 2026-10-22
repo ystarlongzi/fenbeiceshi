@@ -20,10 +20,12 @@ export function SiteNavigation({
   items,
   locale,
   utilities,
+  themeControl,
 }: {
   items: NavigationItem[];
   locale: Locale;
   utilities: ReactNode;
+  themeControl: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -85,20 +87,26 @@ export function SiteNavigation({
     <>
       <div ref={desktopRef} className={styles.desktop}>
         {navigation}
-        <div className={styles.utilities}>{utilities}</div>
+        <div className={styles.utilities}>
+          {themeControl}
+          {utilities}
+        </div>
       </div>
-      <button
-        ref={triggerRef}
-        type="button"
-        className={styles.trigger}
-        aria-label={localize(locale, "打开菜单", "Open menu", "開啟選單")}
-        aria-haspopup="dialog"
-        aria-controls={dialogId}
-        aria-expanded={open}
-        onClick={() => setOpen(true)}
-      >
-        <Icon name="menu" size={22} />
-      </button>
+      <div className={styles.mobileControls} data-mobile-controls="">
+        {themeControl}
+        <button
+          ref={triggerRef}
+          type="button"
+          className={styles.trigger}
+          aria-label={localize(locale, "打开菜单", "Open menu", "開啟選單")}
+          aria-haspopup="dialog"
+          aria-controls={dialogId}
+          aria-expanded={open}
+          onClick={() => setOpen(true)}
+        >
+          <Icon name="menu" size={22} />
+        </button>
+      </div>
       <dialog
         ref={dialogRef}
         id={dialogId}
@@ -156,7 +164,7 @@ export function SiteNavigation({
         </div>
         <div className={styles.drawerBody}>{navigation}</div>
         <div className={styles.drawerUtilities}>
-          <span>{localize(locale, "外观与语言", "Appearance & language", "外觀與語言")}</span>
+          <span>{localize(locale, "语言", "Language", "語言")}</span>
           <div className={styles.utilities}>{utilities}</div>
         </div>
       </dialog>

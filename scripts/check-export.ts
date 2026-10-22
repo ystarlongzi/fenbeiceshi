@@ -135,7 +135,7 @@ for (const page of sitePages) {
         hintIds.push(hintId);
       }
       assert.equal(new Set(hintIds).size, hintIds.length, `设置说明 ID 不应重复：${path}`);
-      assert.equal((html.match(/role="combobox"/g) || []).length, 4, path);
+      assert.equal((html.match(/role="combobox"/g) || []).length, 6, path);
     }
     const navigations = [
       ...html.matchAll(
@@ -179,6 +179,50 @@ for (const page of sitePages) {
     assert.ok(menu, `移动菜单应使用关联的原生对话框：${path}`);
     assert.doesNotMatch(menu[1], /\bopen(?:=|\s|$)/, `移动菜单不应默认打开：${path}`);
     assert.ok(menu[2].includes(navigations[1][1]), `抽屉需包含完整主导航：${path}`);
+    assert.doesNotMatch(menu[2], /data-theme-switch/, `主题入口不应放在手机抽屉中：${path}`);
+    const mobileStart = html.indexOf('data-mobile-controls=""');
+    assert.ok(mobileStart >= 0, `缺少手机页头操作区：${path}`);
+    const mobileControls = html.slice(mobileStart, menu.index);
+    assert.match(mobileControls, /data-theme-switch=""/, `主题应与菜单按钮放在一起：${path}`);
+    assert.ok(mobileControls.includes(menuButton), path);
+    const themeButtons = [
+      ...html.matchAll(/<button\b([^>]*data-theme-switch=""[^>]*)>([\s\S]*?)<\/button>/g),
+    ];
+    assert.equal(themeButtons.length, 2, `桌面与手机页头均需主题入口：${path}`);
+    const themeIds: string[] = [];
+    for (const [, attributes] of themeButtons) {
+      assert.match(attributes, /role="combobox"/, path);
+      assert.match(attributes, /aria-haspopup="listbox"/, path);
+      assert.match(attributes, /aria-expanded="false"/, path);
+      assert.match(attributes, /\bdisabled=/, path);
+      const id = attributes.match(/aria-controls="([^"]+)"/)?.[1];
+      assert.ok(id, `主题入口缺少选项关联：${path}`);
+      themeIds.push(id);
+      const list = [...html.matchAll(/<ul\b([^>]*)>([\s\S]*?)<\/ul>/g)].find((match) =>
+        match[1].includes(`id="${id}"`),
+      );
+      assert.ok(list, `缺少主题列表：${path}`);
+      assert.match(list[1], /role="listbox"/, path);
+      assert.match(list[1], /\bhidden=/, path);
+      const options = [...list[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
+      assert.deepEqual(
+        options.map((option) => option[1].match(/data-theme-option="([^"]+)"/)?.[1]),
+        ["system", "dark", "light"],
+        path,
+      );
+      assert.deepEqual(
+        options.map((option) => option[2].match(/<span>([^<]*)<\/span>/)?.[1]),
+        [
+          localize(locale, "跟随系统", "System", "跟隨系統"),
+          localize(locale, "深色", "Dark", "深色"),
+          localize(locale, "浅色", "Light", "淺色"),
+        ],
+        path,
+      );
+      for (const [index, option] of options.entries())
+        assert.ok(option[1].includes(`aria-selected="${index === 0}"`), path);
+    }
+    assert.equal(new Set(themeIds).size, 2, `主题列表 ID 不应重复：${path}`);
     for (const [visible, count] of [
       [html, 2],
       [menu[2], 1],

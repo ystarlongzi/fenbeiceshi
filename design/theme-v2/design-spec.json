@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "updated": "2026-10-22",
+  "scope": "site-theme-control",
+  "baseline": "../theme-v1/design-spec.json",
+  "task": "随时选择跟随系统、深色或浅色，手机上无需打开导航抽屉。",
+  "hierarchy": "主题为全局辅助操作，保持紧凑图标入口，三个选项展开后完整显示；页面内容层级不变。",
+  "control": {
+    "type": "自定义 combobox 与 listbox",
+    "options": ["system", "dark", "light"],
+    "labels": ["跟随系统", "深色", "浅色"],
+    "default": "system",
+    "desktopPx": 36,
+    "mobilePx": 44,
+    "keyboard": "方向键、Home、End、Enter、空格、Esc、Tab；关闭后焦点保留在入口。"
+  },
+  "mobile": {
+    "maxWidthPx": 760,
+    "header": "品牌、主题按钮、导航菜单按钮组成单行；主题与菜单按钮间距 8px。",
+    "themeList": "页头下方展开，避免被抽屉遮挡。",
+    "drawer": "只保留六项导航与语言切换，语言说明和控件同一行。"
+  },
+  "preference": {
+    "storageKey": "fenbeiceshi:theme:v1",
+    "values": ["system", "dark", "light"],
+    "behavior": "System 随操作系统外观变化；Dark、Light 固定外观。刷新与同源标签页同步。",
+    "initialAppearance": "沿用可见内容前的同步主题脚本，图标按根节点偏好显示，正文保留服务端渲染。",
+    "storageFailure": "本次仍生效并显示提示；System 仍继续跟随本次系统变化。"
+  },
+  "tokens": "沿用 globals.css 语义颜色与相邻 CSS Modules；选项为固定 12px，存储错误提示为固定 14px。",
+  "icons": "icons/source.json",
+  "verification": "../../docs/验证/三态主题与移动页头验证.md"
+}

@@ -85,12 +85,8 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
                 exact: id === "meter",
                 exclude: id === "knowledge" ? [href("decibel-chart", locale)] : undefined,
               }))}
-              utilities={
-                <>
-                  <ThemeSwitch locale={locale} />
-                  <LanguageSwitch locale={locale} available={available} />
-                </>
-              }
+              themeControl={<ThemeSwitch locale={locale} />}
+              utilities={<LanguageSwitch locale={locale} available={available} />}
             />
           </div>
         </header>

@@ -1,19 +1,21 @@
 export type Theme = "light" | "dark";
-type ThemePreference = Theme | "system";
+export type ThemePreference = Theme | "system";
 
 export const THEME_KEY = "fenbeiceshi:theme:v1";
 const THEME_EVENT = "fenbeiceshi:theme-change";
 
-export function getThemeSnapshot(): Theme {
-  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+export function getThemeSnapshot(): ThemePreference {
+  const preference = document.documentElement.dataset.themePreference;
+  return preference === "dark" || preference === "light" ? preference : "system";
 }
 
-export function getServerThemeSnapshot(): Theme {
-  return "light";
+export function getServerThemeSnapshot(): ThemePreference {
+  return "system";
 }
 
-export function setTheme(theme: Theme): Error | null {
-  if (theme !== "light" && theme !== "dark") throw new RangeError("无效的主题偏好。");
+export function setTheme(theme: ThemePreference): Error | null {
+  if (theme !== "light" && theme !== "dark" && theme !== "system")
+    throw new RangeError("无效的主题偏好。");
   applyPreference(theme);
   let error: Error | null = null;
   try {

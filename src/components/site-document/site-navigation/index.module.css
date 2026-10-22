@@ -56,8 +56,11 @@
   background: var(--surface);
   color: var(--text-accent);
 }
-.trigger {
+.mobileControls {
   display: none;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 .trigger:active,
 .close:active {
@@ -145,13 +148,8 @@
   box-shadow: inset 3px 0 0 var(--brand);
 }
 .drawerUtilities {
-  --theme-control-position: static;
-  --theme-notice-top: auto;
-  --theme-notice-bottom: calc(100% + 12px);
-  --theme-notice-width: min(230px, calc(var(--drawer-width) - 48px));
-
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   flex-shrink: 0;
   align-items: center;
   gap: 12px;
@@ -161,7 +159,7 @@
 }
 .drawerUtilities .utilities {
   position: relative;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .drawerUtilities > span {
   color: var(--muted);
@@ -212,8 +210,8 @@
   .desktop {
     display: none;
   }
-  .trigger {
-    display: grid;
+  .mobileControls {
+    display: flex;
   }
 }
 @media (prefers-reduced-motion: reduce) {

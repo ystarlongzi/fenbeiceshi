@@ -311,9 +311,9 @@ export const guides: SiteContent[] = [
             "本機記錄頁可以逐條確認刪除，並清理對應錄音；儲存第 31 條時會淘汰最早儲存的記錄及其錄音。清除本站資料也會刪除報告與錄音，瀏覽器還可能因空間緊張而回收儲存，請先下載重要檔案。容量不足或儲存異常會提示，已有報告不會被靜默覆蓋；儲存時可取消勾選錄音，僅儲存資料。",
           ),
           t(
-            "手动选择的亮色或暗色主题会作为独立偏好保存在当前浏览器，仅用于恢复外观，不包含音频或观察摘要，也不上传至服务器。尚未选择时跟随系统外观；清除本站数据后会恢复这一默认行为。",
-            "Your chosen light or dark theme is stored as a separate preference in this browser to restore the appearance. It contains no audio or observation summaries and is not uploaded. Before you choose, the site follows your system appearance; clearing site data restores that default.",
-            "手動選擇的亮色或暗色主題會作為獨立偏好儲存在當前瀏覽器，僅用於恢復外觀，不包含音訊或觀察摘要，也不上傳至伺服器。尚未選擇時跟隨系統外觀；清除本站資料後會恢復這一預設行為。",
+            "主题提供“跟随系统、深色、浅色”。选择会作为独立偏好保存在当前浏览器，仅用于恢复外观，不包含音频或观察摘要，也不上传至服务器。默认或选择“跟随系统”时，页面随系统外观变化；选择深色或浅色后按该模式显示。清除本站数据后恢复跟随系统。",
+            "The theme menu offers System, Dark and Light. Your choice is stored as a separate preference in this browser to restore the appearance. It contains no audio or observation summaries and is not uploaded. The default System option follows changes to your system appearance; Dark and Light keep their chosen mode. Clearing site data restores System.",
+            "主題提供「跟隨系統、深色、淺色」。選擇會作為獨立偏好儲存在當前瀏覽器，僅用於恢復外觀，不包含音訊或觀察摘要，也不上傳至伺服器。預設或選擇「跟隨系統」時，頁面隨系統外觀變化；選擇深色或淺色後按該模式顯示。清除本站資料後恢復跟隨系統。",
           ),
           t(
             "首次进入无语言前缀的页面时，本站在浏览器内读取语言列表，选择简体中文、繁体中文或英文。手动选择的语言会独立保存在当前浏览器的 localStorage，之后优先使用该偏好；明确带有 /en/ 或 /zh-tw/ 的链接仍按链接显示。清除本站数据后恢复自动识别。语言列表不上传，偏好不包含测量记录；浏览器禁止保存时会提示，本次选择仍可使用。",

@@ -71,7 +71,7 @@ function makeBrowser() {
 test("首屏脚本优先使用有效偏好，缺失或非法值跟随系统", () => {
   withBrowser(({ saved, dataset, media, boot }) => {
     media.matches = true;
-    for (const value of ["dark", "light", "invalid", "<script>", null]) {
+    for (const value of ["dark", "light", "system", "invalid", "<script>", null]) {
       if (value === null) saved.delete(THEME_KEY);
       else saved.set(THEME_KEY, value);
       boot();
@@ -112,16 +112,18 @@ test("手动切换立即生效并持久化，写入失败保留当前主题和�
 });
 
 test("默认随系统变化，手动偏好不会被系统变化覆盖", () => {
-  withBrowser(({ boot, system }) => {
+  withBrowser(({ boot, system, dataset }) => {
     boot();
     const unsubscribe = subscribeTheme(() => {});
     try {
       system(true);
-      assert.equal(getThemeSnapshot(), "dark");
+      assert.equal(getThemeSnapshot(), "system");
+      assert.equal(dataset.theme, "dark");
       setTheme("light");
       system(false);
       system(true);
       assert.equal(getThemeSnapshot(), "light");
+      assert.equal(dataset.theme, "light");
     } finally {
       unsubscribe();
     }
@@ -139,19 +141,71 @@ test("跨标签页同步和清空偏好正常，取消订阅后不再响应", ()
     assert.equal(changes, 0);
     external("dark");
     assert.equal(getThemeSnapshot(), "dark");
+    assert.equal(dataset.theme, "dark");
     system(true);
     external(null, null);
     assert.equal(dataset.themePreference, "system");
-    assert.equal(getThemeSnapshot(), "dark");
+    assert.equal(getThemeSnapshot(), "system");
+    assert.equal(dataset.theme, "dark");
     unsubscribe();
     const before = changes;
     external("light");
     system(false);
     assert.equal(changes, before);
-    assert.equal(getThemeSnapshot(), "dark");
+    assert.equal(getThemeSnapshot(), "system");
+    assert.equal(dataset.theme, "dark");
   });
 });
 
 test("服务端快照不访问浏览器环境", () => {
-  assert.equal(getServerThemeSnapshot(), "light");
+  assert.equal(getServerThemeSnapshot(), "system");
+});
+
+test("主动选择跟随系统后立即恢复联动，刷新仍跟随系统，外观相同时也保留独立选择", () => {
+  withBrowser(({ boot, system, saved, dataset }) => {
+    boot();
+    const seen: string[] = [];
+    const unsubscribe = subscribeTheme(() => seen.push(getThemeSnapshot()));
+    try {
+      setTheme("light");
+      assert.equal(dataset.theme, "light");
+      assert.equal(setTheme("system"), null);
+      assert.equal(dataset.theme, "light");
+      assert.equal(getThemeSnapshot(), "system");
+      assert.equal(saved.get(THEME_KEY), "system");
+      assert.deepEqual(seen, ["light", "system"]);
+      system(true);
+      assert.equal(dataset.theme, "dark");
+      assert.equal(getThemeSnapshot(), "system");
+      boot();
+      assert.equal(dataset.theme, "dark");
+      assert.equal(getThemeSnapshot(), "system");
+      setTheme("dark");
+      system(false);
+      assert.equal(dataset.theme, "dark");
+    } finally {
+      unsubscribe();
+    }
+  });
+});
+
+test("跟随系统保存失败时继续本次联动，保留原偏好与错误上下文", () => {
+  withBrowser(({ boot, saved, storage, dataset, system }) => {
+    boot();
+    setTheme("dark");
+    storage.blocked = true;
+    const unsubscribe = subscribeTheme(() => {});
+    try {
+      const error = setTheme("system");
+      assert.ok(error?.cause instanceof Error);
+      assert.equal(saved.get(THEME_KEY), "dark");
+      assert.equal(dataset.themePersistence, "unavailable");
+      assert.equal(getThemeSnapshot(), "system");
+      assert.equal(dataset.theme, "light");
+      system(true);
+      assert.equal(dataset.theme, "dark");
+    } finally {
+      unsubscribe();
+    }
+  });
 });
