@@ -1,0 +1,862 @@
+{
+  "date": "2026-10-22",
+  "browser": "Chrome",
+  "viewports": [
+    {
+      "width": 1620,
+      "height": 895
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 1481,
+      "height": 839
+    }
+  ],
+  "cases": [
+    {
+      "label": "desktop-zh-CN-directory",
+      "height": 895,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静先判断声源和传播路径，再选择吸音、隔音或减振。按卧室、家电、邻里与办公场景采取措施，用同条件观察比较调整前后的变化。"
+        },
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法了解如何降低强声暴露、选择耳塞或耳罩、正确佩戴泡棉耳塞，以及主动降噪耳机和听力防护用品的区别。认识需要专业检查的听力变化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 0,
+      "title": "知识与帮助",
+      "toc": [],
+      "width": 1620
+    },
+    {
+      "label": "desktop-zh-CN-noise-reduction",
+      "height": 895,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 2,
+      "title": "降噪方法：让居家与办公环境更安静",
+      "toc": [
+        "#identify",
+        "#source",
+        "#methods",
+        "#paths",
+        "#scenarios",
+        "#compare",
+        "#help"
+      ],
+      "width": 1620
+    },
+    {
+      "label": "desktop-zh-CN-directory-return",
+      "height": 895,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静先判断声源和传播路径，再选择吸音、隔音或减振。按卧室、家电、邻里与办公场景采取措施，用同条件观察比较调整前后的变化。"
+        },
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法了解如何降低强声暴露、选择耳塞或耳罩、正确佩戴泡棉耳塞，以及主动降噪耳机和听力防护用品的区别。认识需要专业检查的听力变化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 0,
+      "title": "知识与帮助",
+      "toc": [],
+      "width": 1620
+    },
+    {
+      "label": "desktop-zh-CN-hearing-protection",
+      "height": 895,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 2,
+      "title": "听力保护：耳塞、耳罩与日常听音方法",
+      "toc": [
+        "#reduce-exposure",
+        "#choose",
+        "#foam-fit",
+        "#ratings",
+        "#headphones",
+        "#scenarios",
+        "#help"
+      ],
+      "width": 1620
+    },
+    {
+      "label": "desktop-zh-TW-directory",
+      "height": 895,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/noise-reduction/",
+          "text": "降噪方法：讓居家與辦公環境更安靜先判斷聲源和傳播路徑，再選擇吸音、隔音或減振。按臥室、家電、鄰里與辦公情境採取措施，用同條件觀察比較調整前後的變化。"
+        },
+        {
+          "href": "/zh-tw/knowledge/hearing-protection/",
+          "text": "聽力保護：耳塞、耳罩與日常聆聽方法瞭解如何降低強聲暴露、選擇耳塞或耳罩、正確佩戴泡棉耳塞，以及主動抗噪耳機和聽力防護用品的區別。認識需要專業檢查的聽力變化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 0,
+      "title": "知識與幫助",
+      "toc": [],
+      "width": 1620
+    },
+    {
+      "label": "desktop-zh-TW-noise-reduction",
+      "height": 895,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/hearing-protection/",
+          "text": "聽力保護：耳塞、耳罩與日常聆聽方法"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 2,
+      "title": "降噪方法：讓居家與辦公環境更安靜",
+      "toc": [
+        "#identify",
+        "#source",
+        "#methods",
+        "#paths",
+        "#scenarios",
+        "#compare",
+        "#help"
+      ],
+      "width": 1620
+    },
+    {
+      "label": "desktop-zh-TW-directory-return",
+      "height": 895,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/noise-reduction/",
+          "text": "降噪方法：讓居家與辦公環境更安靜先判斷聲源和傳播路徑，再選擇吸音、隔音或減振。按臥室、家電、鄰里與辦公情境採取措施，用同條件觀察比較調整前後的變化。"
+        },
+        {
+          "href": "/zh-tw/knowledge/hearing-protection/",
+          "text": "聽力保護：耳塞、耳罩與日常聆聽方法瞭解如何降低強聲暴露、選擇耳塞或耳罩、正確佩戴泡棉耳塞，以及主動抗噪耳機和聽力防護用品的區別。認識需要專業檢查的聽力變化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 0,
+      "title": "知識與幫助",
+      "toc": [],
+      "width": 1620
+    },
+    {
+      "label": "desktop-zh-TW-hearing-protection",
+      "height": 895,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/noise-reduction/",
+          "text": "降噪方法：讓居家與辦公環境更安靜"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 2,
+      "title": "聽力保護：耳塞、耳罩與日常聆聽方法",
+      "toc": [
+        "#reduce-exposure",
+        "#choose",
+        "#foam-fit",
+        "#ratings",
+        "#headphones",
+        "#scenarios",
+        "#help"
+      ],
+      "width": 1620
+    },
+    {
+      "label": "desktop-en-directory",
+      "height": 895,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/noise-reduction/",
+          "text": "Noise reduction: practical steps for a quieter spaceIdentify the source and sound path, choose absorption, sound insulation or vibration isolation, and compare changes in bedrooms, shared homes and workspaces under consistent conditions."
+        },
+        {
+          "href": "/en/knowledge/hearing-protection/",
+          "text": "Hearing protection: earplugs, earmuffs and everyday listeningReduce loud-sound exposure, choose earplugs or earmuffs, fit foam earplugs correctly and understand the limits of noise-cancelling headphones. Recognize hearing changes that need professional attention."
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 0,
+      "title": "Knowledge & help",
+      "toc": [],
+      "width": 1620
+    },
+    {
+      "label": "desktop-en-noise-reduction",
+      "height": 895,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/hearing-protection/",
+          "text": "Hearing protection: earplugs, earmuffs and everyday listening"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 2,
+      "title": "Noise reduction: practical steps for a quieter space",
+      "toc": [
+        "#identify",
+        "#source",
+        "#methods",
+        "#paths",
+        "#scenarios",
+        "#compare",
+        "#help"
+      ],
+      "width": 1620
+    },
+    {
+      "label": "desktop-en-directory-return",
+      "height": 895,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/noise-reduction/",
+          "text": "Noise reduction: practical steps for a quieter spaceIdentify the source and sound path, choose absorption, sound insulation or vibration isolation, and compare changes in bedrooms, shared homes and workspaces under consistent conditions."
+        },
+        {
+          "href": "/en/knowledge/hearing-protection/",
+          "text": "Hearing protection: earplugs, earmuffs and everyday listeningReduce loud-sound exposure, choose earplugs or earmuffs, fit foam earplugs correctly and understand the limits of noise-cancelling headphones. Recognize hearing changes that need professional attention."
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 0,
+      "title": "Knowledge & help",
+      "toc": [],
+      "width": 1620
+    },
+    {
+      "label": "desktop-en-hearing-protection",
+      "height": 895,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/noise-reduction/",
+          "text": "Noise reduction: practical steps for a quieter space"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 1620,
+      "tables": 2,
+      "title": "Hearing protection: earplugs, earmuffs and everyday listening",
+      "toc": [
+        "#reduce-exposure",
+        "#choose",
+        "#foam-fit",
+        "#ratings",
+        "#headphones",
+        "#scenarios",
+        "#help"
+      ],
+      "width": 1620
+    },
+    {
+      "label": "mobile-zh-CN-directory",
+      "height": 844,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静先判断声源和传播路径，再选择吸音、隔音或减振。按卧室、家电、邻里与办公场景采取措施，用同条件观察比较调整前后的变化。"
+        },
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法了解如何降低强声暴露、选择耳塞或耳罩、正确佩戴泡棉耳塞，以及主动降噪耳机和听力防护用品的区别。认识需要专业检查的听力变化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 0,
+      "title": "知识与帮助",
+      "toc": [],
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-CN-noise-reduction",
+      "height": 844,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 2,
+      "title": "降噪方法：让居家与办公环境更安静",
+      "toc": [
+        "#identify",
+        "#source",
+        "#methods",
+        "#paths",
+        "#scenarios",
+        "#compare",
+        "#help"
+      ],
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-CN-directory-return",
+      "height": 844,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静先判断声源和传播路径，再选择吸音、隔音或减振。按卧室、家电、邻里与办公场景采取措施，用同条件观察比较调整前后的变化。"
+        },
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法了解如何降低强声暴露、选择耳塞或耳罩、正确佩戴泡棉耳塞，以及主动降噪耳机和听力防护用品的区别。认识需要专业检查的听力变化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 0,
+      "title": "知识与帮助",
+      "toc": [],
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-CN-hearing-protection",
+      "height": 844,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "location",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 2,
+      "title": "听力保护：耳塞、耳罩与日常听音方法",
+      "toc": [
+        "#reduce-exposure",
+        "#choose",
+        "#foam-fit",
+        "#ratings",
+        "#headphones",
+        "#scenarios",
+        "#help"
+      ],
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-TW-directory",
+      "height": 844,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/noise-reduction/",
+          "text": "降噪方法：讓居家與辦公環境更安靜先判斷聲源和傳播路徑，再選擇吸音、隔音或減振。按臥室、家電、鄰里與辦公情境採取措施，用同條件觀察比較調整前後的變化。"
+        },
+        {
+          "href": "/zh-tw/knowledge/hearing-protection/",
+          "text": "聽力保護：耳塞、耳罩與日常聆聽方法瞭解如何降低強聲暴露、選擇耳塞或耳罩、正確佩戴泡棉耳塞，以及主動抗噪耳機和聽力防護用品的區別。認識需要專業檢查的聽力變化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 0,
+      "title": "知識與幫助",
+      "toc": [],
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-TW-noise-reduction",
+      "height": 844,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/hearing-protection/",
+          "text": "聽力保護：耳塞、耳罩與日常聆聽方法"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 2,
+      "title": "降噪方法：讓居家與辦公環境更安靜",
+      "toc": [
+        "#identify",
+        "#source",
+        "#methods",
+        "#paths",
+        "#scenarios",
+        "#compare",
+        "#help"
+      ],
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-TW-directory-return",
+      "height": 844,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/noise-reduction/",
+          "text": "降噪方法：讓居家與辦公環境更安靜先判斷聲源和傳播路徑，再選擇吸音、隔音或減振。按臥室、家電、鄰里與辦公情境採取措施，用同條件觀察比較調整前後的變化。"
+        },
+        {
+          "href": "/zh-tw/knowledge/hearing-protection/",
+          "text": "聽力保護：耳塞、耳罩與日常聆聽方法瞭解如何降低強聲暴露、選擇耳塞或耳罩、正確佩戴泡棉耳塞，以及主動抗噪耳機和聽力防護用品的區別。認識需要專業檢查的聽力變化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "page",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 0,
+      "title": "知識與幫助",
+      "toc": [],
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-TW-hearing-protection",
+      "height": 844,
+      "lang": "zh-TW",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/noise-reduction/",
+          "text": "降噪方法：讓居家與辦公環境更安靜"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        },
+        {
+          "current": "location",
+          "text": "知識與幫助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 2,
+      "title": "聽力保護：耳塞、耳罩與日常聆聽方法",
+      "toc": [
+        "#reduce-exposure",
+        "#choose",
+        "#foam-fit",
+        "#ratings",
+        "#headphones",
+        "#scenarios",
+        "#help"
+      ],
+      "width": 390
+    },
+    {
+      "label": "mobile-en-directory",
+      "height": 844,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/noise-reduction/",
+          "text": "Noise reduction: practical steps for a quieter spaceIdentify the source and sound path, choose absorption, sound insulation or vibration isolation, and compare changes in bedrooms, shared homes and workspaces under consistent conditions."
+        },
+        {
+          "href": "/en/knowledge/hearing-protection/",
+          "text": "Hearing protection: earplugs, earmuffs and everyday listeningReduce loud-sound exposure, choose earplugs or earmuffs, fit foam earplugs correctly and understand the limits of noise-cancelling headphones. Recognize hearing changes that need professional attention."
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 0,
+      "title": "Knowledge & help",
+      "toc": [],
+      "width": 390
+    },
+    {
+      "label": "mobile-en-noise-reduction",
+      "height": 844,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/hearing-protection/",
+          "text": "Hearing protection: earplugs, earmuffs and everyday listening"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 2,
+      "title": "Noise reduction: practical steps for a quieter space",
+      "toc": [
+        "#identify",
+        "#source",
+        "#methods",
+        "#paths",
+        "#scenarios",
+        "#compare",
+        "#help"
+      ],
+      "width": 390
+    },
+    {
+      "label": "mobile-en-directory-return",
+      "height": 844,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/noise-reduction/",
+          "text": "Noise reduction: practical steps for a quieter spaceIdentify the source and sound path, choose absorption, sound insulation or vibration isolation, and compare changes in bedrooms, shared homes and workspaces under consistent conditions."
+        },
+        {
+          "href": "/en/knowledge/hearing-protection/",
+          "text": "Hearing protection: earplugs, earmuffs and everyday listeningReduce loud-sound exposure, choose earplugs or earmuffs, fit foam earplugs correctly and understand the limits of noise-cancelling headphones. Recognize hearing changes that need professional attention."
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "page",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 0,
+      "title": "Knowledge & help",
+      "toc": [],
+      "width": 390
+    },
+    {
+      "label": "mobile-en-hearing-protection",
+      "height": 844,
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/knowledge/noise-reduction/",
+          "text": "Noise reduction: practical steps for a quieter space"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        },
+        {
+          "current": "location",
+          "text": "Knowledge & help"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 2,
+      "title": "Hearing protection: earplugs, earmuffs and everyday listening",
+      "toc": [
+        "#reduce-exposure",
+        "#choose",
+        "#foam-fit",
+        "#ratings",
+        "#headphones",
+        "#scenarios",
+        "#help"
+      ],
+      "width": 390
+    },
+    {
+      "label": "mobile-en-table-scroll",
+      "containerWidth": 348,
+      "pageWidth": 390,
+      "scrollLeft": 122,
+      "tableWidth": 470,
+      "width": 390
+    },
+    {
+      "label": "mobile-zh-CN-directory-health",
+      "height": 844,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静先判断声源和传播路径，再选择吸音、隔音或减振。按卧室、家电、邻里与办公场景采取措施，用同条件观察比较调整前后的变化。"
+        },
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法了解如何降低强声暴露、选择耳塞或耳罩、正确佩戴泡棉耳塞，以及主动降噪耳机和听力防护用品的区别。认识需要专业检查的听力变化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 390,
+      "tables": 0,
+      "title": "知识与帮助",
+      "toc": [],
+      "width": 390
+    },
+    {
+      "label": "desktop-zh-CN-directory-health",
+      "height": 839,
+      "lang": "zh-CN",
+      "links": [
+        {
+          "href": "/knowledge/noise-reduction/",
+          "text": "降噪方法：让居家与办公环境更安静先判断声源和传播路径，再选择吸音、隔音或减振。按卧室、家电、邻里与办公场景采取措施，用同条件观察比较调整前后的变化。"
+        },
+        {
+          "href": "/knowledge/hearing-protection/",
+          "text": "听力保护：耳塞、耳罩与日常听音方法了解如何降低强声暴露、选择耳塞或耳罩、正确佩戴泡棉耳塞，以及主动降噪耳机和听力防护用品的区别。认识需要专业检查的听力变化。"
+        }
+      ],
+      "navigation": [
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        },
+        {
+          "current": "page",
+          "text": "知识与帮助"
+        }
+      ],
+      "pageWidth": 1481,
+      "tables": 0,
+      "title": "知识与帮助",
+      "toc": [],
+      "width": 1481
+    }
+  ],
+  "interactions": {
+    "directoryLinks": "两篇文章在三种语言、桌面与手机视口均从知识目录点击进入",
+    "articleAnchors": "简体桌面 methods 与手机 foam-fit 定位和当前项高亮已验证",
+    "tableScroll": "英文手机防护用品表向右滚动后 scrollLeft 为 122，页面宽度保持 390",
+    "healthReference": "英文听力保护 CTA 到 /en/knowledge/noise-and-health/#exposure"
+  }
+}

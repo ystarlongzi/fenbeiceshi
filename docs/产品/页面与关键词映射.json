@@ -256,10 +256,10 @@
         }
       },
       "intent": "按问题找到相关解释和方法。",
-      "uniqueValue": "按工具帮助与声音知识两组组织入口：工具帮助包含指南、原理、常见问题和麦克风排查，声音知识包含读数解释、声音参考与噪音健康文章，保留静态正文与可抓取链接。",
-      "sections": ["工具帮助：使用指南、工作原理、常见问题、麦克风排查","声音知识：理解读数、查询声音参考、了解噪音与健康"],
+      "uniqueValue": "按工具帮助与声音知识两组组织入口：工具帮助包含指南、原理、常见问题和麦克风排查，声音知识包含读数解释、声音参考、噪音健康、降噪方法、听力保护及法规与职业标准文章，保留静态正文与可抓取链接。",
+      "sections": ["工具帮助：使用指南、工作原理、常见问题、麦克风排查","声音知识：理解读数、查询声音参考、了解噪音与健康、法规与职业标准"],
       "ctaTargetId": "guide",
-      "relatedIds": ["how-it-works","faq","guide","phone-accuracy","dbfs-spl","decibel-chart","noise-health","microphone-help"],
+      "relatedIds": ["how-it-works","faq","guide","phone-accuracy","dbfs-spl","decibel-chart","noise-health","noise-reduction","hearing-protection","china-noise-standards","workplace-noise-standards","microphone-help"],
       "publishGate": "至少首批四篇基础内容已发布；只列当前语言可用条目。",
       "requiredEvidence": ["已发布内容注册表"]
     },
@@ -1086,19 +1086,125 @@
     },
     {
       "id": "china-noise-standards",
-      "kind": "review-required-article",
+      "kind": "article",
       "priority": "P2",
       "locales": {
-        "zh-CN": {"path":"/knowledge/china-noise-standards/","wave":"P2","title":"如何阅读中国环境噪声标准与适用范围 - 分贝测试","h1":"如何确认噪声标准的适用范围","keywords":["环境噪声标准怎么看","室内噪音多少算超标"]},
-        "en": null
+        "zh-CN": {"path":"/knowledge/china-noise-standards/","wave":"P2","title":"噪音法规：中国大陆标准与处理方式 - 分贝测试","h1":"噪音法规：中国大陆标准与处理方式","keywords":["噪音法规","中国大陆噪音标准","施工噪声标准","噪音扰民怎么处理"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/china-noise-standards/","wave":"P2","title":"噪音法規：中國大陸標準與處理方式 - 分貝測試","h1":"噪音法規：中國大陸標準與處理方式","keywords":["中國大陸噪音法規","中國大陸施工噪音標準"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/china-noise-standards/","wave":"P2","title":"Noise regulations: mainland China standards and next steps - fenbeiceshi.com","h1":"Noise regulations: mainland China standards and next steps","keywords":["mainland China noise regulations","China construction noise standards"],"status":"implemented-not-deployed"}
       },
-      "intent": "帮助中文用户查明应参考哪类现行标准及其条件。",
-      "uniqueValue": "先辨别地区、场所、时段、测量量与标准有效性，不用一个阈值回答所有情形。",
-      "sections": ["区分标准对象","核对有效原文和适用条件","何时需要合规检测"],
-      "ctaTargetId": "when-professional-meter",
-      "relatedIds": ["phone-accuracy","db-dba","when-professional-meter"],
-      "publishGate": "保持草稿，直到现行有效原文、法域、日期、方法和领域复核齐备；不声称浏览器结果能证明超标。",
-      "requiredEvidence": ["现行官方标准原文，待核验","适用地区和生效状态","相关领域复核"]
+      "intent": "查明中国大陆环境噪音规则、适用标准、施工与装修条件及求助路径。",
+      "uniqueValue": "复用既有规划 URL；按现行生态环境法典和 GB 12523—2025 解释对象与测量边界，三语均明确同一大陆法域。",
+      "sections": ["现行法律与地区","标准对象对照","测量条件","施工与装修","处理步骤","网页记录边界"],
+      "ctaTargetId": "workplace-noise-standards",
+      "relatedIds": ["workplace-noise-standards","noise-reduction","phone-accuracy","decibel-chart"],
+      "publishGate": "2026-10-22 已核验现行官方文本、适用范围、生效与替代关系；三语静态正文、来源和 SEO 通过本地检查，不提供具体案件法律结论，不声称法律专家审校；生产尚未部署。",
+      "requiredEvidence": ["生态环境法典第 547、572、1242 条及相关职责条款","生态环境部标准原文与国家标准状态","来源、条件及工程验证记录：docs/验证/噪音法规与职业标准三语文章验证.md"]
+    },
+    {
+      "id": "workplace-noise-standards",
+      "kind": "article",
+      "priority": "P2",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/workplace-noise-standards/","wave":"P2","title":"工作场所噪声标准：中国、美国与欧盟对比 - 分贝测试","h1":"工作场所噪声标准：中国、美国与欧盟对比","keywords":["工作场所噪声标准","中美欧噪声限值对比","OSHA NIOSH 区别"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/workplace-noise-standards/","wave":"P2","title":"工作場所噪音標準：中國、美國與歐盟對比 - 分貝測試","h1":"工作場所噪音標準：中國、美國與歐盟對比","keywords":["中美歐職業噪音標準","工作場所噪音限值對比"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/workplace-noise-standards/","wave":"P2","title":"Workplace noise limits: China, the US and the EU - fenbeiceshi.com","h1":"Workplace noise limits: China, the US and the EU","keywords":["China US EU workplace noise limits","OSHA vs NIOSH noise limits"],"status":"implemented-not-deployed"}
+      },
+      "intent": "在相应法域与行业范围内对比职业噪声限值、行动值、建议值、工时和峰值条件。",
+      "uniqueValue": "把 GBZ 2.2、OSHA、NIOSH 与欧盟指令分列，明确 8/40 小时、3/5 dB 交换率、防护衰减、峰值计权和脉冲次数差异。",
+      "sections": ["适用范围","限值与行动值对照","中国时间基准","OSHA 与 NIOSH","欧盟行动与防护","峰值与次数","评估和控制"],
+      "ctaTargetId": "hearing-protection",
+      "relatedIds": ["china-noise-standards","hearing-protection","noise-health","noise-reduction"],
+      "publishGate": "2026-10-22 核验原文、现行目录和适用条件；不把建议称为法规，不将职业值用于卧室或个人安全倒计时，不声称职业卫生专家审校；本地实现待生产部署。",
+      "requiredEvidence": ["GBZ 2.2—2007 第 11 节原表与现行标准目录","OSHA 1910.95、行业范围与州计划","NIOSH REL 原文","欧盟指令第 2–6、8 条及成员国适用条件","docs/验证/噪音法规与职业标准三语文章验证.md"]
+    },
+    {
+      "id": "noise-reduction",
+      "kind": "article",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {
+          "path": "/knowledge/noise-reduction/",
+          "wave": "P1",
+          "title": "降噪方法：让居家与办公环境更安静 - 分贝测试",
+          "h1": "降噪方法：让居家与办公环境更安静",
+          "keywords": ["降噪方法", "房间降噪", "吸音和隔音的区别", "家电噪音怎么降低"],
+          "status": "implemented-not-deployed"
+        },
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/noise-reduction/",
+          "wave": "P1",
+          "title": "降噪方法：讓居家與辦公環境更安靜 - 分貝測試",
+          "h1": "降噪方法：讓居家與辦公環境更安靜",
+          "keywords": ["降噪方法", "房間降噪", "吸音和隔音的區別", "家電噪音改善"],
+          "status": "implemented-not-deployed"
+        },
+        "en": {
+          "path": "/en/knowledge/noise-reduction/",
+          "wave": "P1",
+          "title": "Noise reduction: practical steps for a quieter space - fenbeiceshi.com",
+          "h1": "Noise reduction: practical steps for a quieter space",
+          "keywords": ["noise reduction methods", "reduce room noise", "sound absorption vs sound insulation", "appliance vibration"],
+          "status": "implemented-not-deployed"
+        }
+      },
+      "intent": "根据声源与传播路径选择可尝试的降噪方法，并比较同条件变化。",
+      "uniqueValue": "七章区分吸音、隔音与减振，提供四类生活场景的排查起点、同条件观察和专业评估条件；与测量使用指南及健康影响概览分工。",
+      "sections": ["识别声源", "声源控制", "方法对照", "传播路径", "生活场景", "前后比较", "专业帮助"],
+      "localImplementation": {
+        "status": "implemented-not-deployed",
+        "updated": "2026-10-22",
+        "locales": ["zh-CN", "zh-TW", "en"],
+        "review": "已核对澳大利亚政府 Your Home、CDC/NIOSH、HSE 与 EPA Victoria 一手资料。住宅建议与职业工程原理分别解释，不引入国外法定限值。"
+      },
+      "ctaTargetId": "meter",
+      "relatedIds": ["hearing-protection", "noise-health", "phone-accuracy", "guide"],
+      "publishGate": "三语正文、来源、表格与链接静态输出；不承诺固定材料降噪值，不将浏览器差值解释为隔声评级、合规或听力安全证明。",
+      "requiredEvidence": ["2026-10-22 核对官方住宅噪音控制与职业工程资料", "三语内容与静态产物检查", "知识目录入口、文章目录、关联链接及桌面和手机浏览器验证"]
+    },
+    {
+      "id": "hearing-protection",
+      "kind": "article",
+      "priority": "P1",
+      "locales": {
+        "zh-CN": {
+          "path": "/knowledge/hearing-protection/",
+          "wave": "P1",
+          "title": "听力保护：耳塞、耳罩与日常听音方法 - 分贝测试",
+          "h1": "听力保护：耳塞、耳罩与日常听音方法",
+          "keywords": ["听力保护", "防噪音耳塞怎么戴", "耳塞和耳罩", "降噪耳机听力保护"],
+          "status": "implemented-not-deployed"
+        },
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/hearing-protection/",
+          "wave": "P1",
+          "title": "聽力保護：耳塞、耳罩與日常聆聽方法 - 分貝測試",
+          "h1": "聽力保護：耳塞、耳罩與日常聆聽方法",
+          "keywords": ["聽力保護", "防噪音耳塞怎麼戴", "耳塞和耳罩", "抗噪耳機聽力保護"],
+          "status": "implemented-not-deployed"
+        },
+        "en": {
+          "path": "/en/knowledge/hearing-protection/",
+          "wave": "P1",
+          "title": "Hearing protection: earplugs, earmuffs and everyday listening - fenbeiceshi.com",
+          "h1": "Hearing protection: earplugs, earmuffs and everyday listening",
+          "keywords": ["hearing protection", "how to fit foam earplugs", "earplugs vs earmuffs", "noise cancelling headphones hearing protection"],
+          "status": "implemented-not-deployed"
+        }
+      },
+      "intent": "帮助读者减少强声暴露，选择并正确使用耳塞或耳罩，识别需要专业检查的听力变化。",
+      "uniqueValue": "七章涵盖防护用品对照、泡棉耳塞佩戴、NRR 与个体测试、ANC 用途、日常场景和听力变化；时长关系继续链接现有健康文章，不复制安全倒计时。",
+      "sections": ["减少暴露", "用品选择", "泡棉耳塞佩戴", "降噪标称与个体测试", "耳机听音", "常见场景", "专业检查"],
+      "localImplementation": {
+        "status": "implemented-not-deployed",
+        "updated": "2026-10-22",
+        "locales": ["zh-CN", "zh-TW", "en"],
+        "review": "已核对 NIH/NIDCD、CDC/NIOSH（含 2025 个体测试政策）、WHO、Health Canada 与 CCOHS 的当前一手资料；一般科普，不声称医学专家审校。"
+      },
+      "ctaTargetId": "noise-health",
+      "relatedIds": ["noise-health", "noise-reduction", "decibel-chart"],
+      "publishGate": "三语正文、来源、表格与链接静态输出；消费 ANC 不自动视为听力防护；不以网页估算减去标称衰减判断耳内声级或个人安全时间；突然听力下降应立即就医。",
+      "requiredEvidence": ["2026-10-22 核对官方防护、耳塞佩戴、安全聆听及听力变化资料", "三语内容与静态产物检查", "知识目录入口、文章目录、关联链接及桌面和手机浏览器验证"]
     },
     {
       "id": "noise-health",

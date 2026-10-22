@@ -45,9 +45,9 @@ export const sitePages: SitePage[] = [
       "知識與幫助：分貝讀數與工具使用",
     ),
     description: translations(
-      "查找使用指南、工作原理与常见问题，排查麦克风，并了解分贝读数、常见声音与噪音健康知识。",
-      "Find the user guide, how the meter works and common questions, fix microphone access, and learn about decibel readings, everyday sounds and the health effects of noise.",
-      "查詢使用指南、工作原理與常見問題，排查麥克風，並瞭解分貝讀數、常見聲音與噪音健康知識。",
+      "查找使用指南与常见问题，了解分贝读数、降噪方法、听力保护、中国大陆噪音法规及中美欧职业标准。",
+      "Find guides and answers, understand readings, explore noise reduction and hearing protection, and compare mainland China, US and EU noise standards.",
+      "查詢使用指南與常見問題，瞭解分貝讀數、降噪方法、聽力保護、中國大陸噪音法規及中美歐職業標準。",
     ),
     index: true,
   },

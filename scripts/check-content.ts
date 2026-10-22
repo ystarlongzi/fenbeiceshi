@@ -18,6 +18,7 @@ import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
 import { faqGroups, faqItems, homeFaqIds, homeFaqItems } from "../src/lib/content/faq.ts";
 import { locales } from "../src/lib/i18n/locales.ts";
 import { text } from "../src/lib/i18n/text.ts";
+import type { ContentSection } from "../src/lib/content/types.ts";
 
 const ids = sitePages.map((page) => page.id);
 assert.equal(new Set(ids).size, ids.length, "页面 ID 不得重复");
@@ -25,8 +26,8 @@ const paths = sitePages.flatMap((page) => locales.map((locale) => href(page.id, 
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
-  123,
-  "当前可索引页面为 123 个",
+  135,
+  "当前可索引页面为 135 个",
 );
 assert.equal(sitePages.find((page) => page.id === "records")?.index, false);
 for (const content of contents) {
@@ -34,7 +35,7 @@ for (const content of contents) {
     assert.ok(ids.includes(content.parentId), `父页必须已注册：${content.id}`);
     assert.notEqual(content.parentId, content.id, `页面不能作为自己的父页：${content.id}`);
   }
-  const sections = [
+  const sections: ContentSection[] = [
     ...content.sections,
     ...(content.id === "decibel-chart" ? decibelChartNotes : []),
   ];
@@ -54,13 +55,19 @@ for (const content of contents) {
         text(content.takeaway, locale),
       content.id,
     );
-    assert.ok(
-      sections.every(
-        (section) =>
-          text(section.title, locale) && section.paragraphs.every((p) => text(p, locale)),
-      ),
-      content.id,
-    );
+    for (const section of sections) {
+      const fields = [
+        section.title,
+        ...section.paragraphs,
+        ...(section.items ?? []),
+        ...(section.table?.headers ?? []),
+        ...(section.table?.rows.flat() ?? []),
+      ];
+      assert.ok(
+        fields.every((field) => text(field, locale).trim()),
+        `${content.id} → ${locale}`,
+      );
+    }
   }
 }
 const plan = JSON.parse(await readFile("docs/产品/页面与关键词映射.json", "utf8"));
@@ -147,5 +154,5 @@ for (const page of sitePages.filter((page) => page.index)) {
   for (const locale of locales) assert.equal(candidate.locales[locale].path, href(page.id, locale));
 }
 console.log(
-  `内容检查通过：${contents.length} 个三语正文，123 个可索引 URL，3 个 noindex 功能 URL。`,
+  `内容检查通过：${contents.length} 个三语正文，135 个可索引 URL，3 个 noindex 功能 URL。`,
 );

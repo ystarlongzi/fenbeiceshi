@@ -1,6 +1,10 @@
 import { decibelChart } from "./decibel-chart.ts";
 import { soundDetails } from "./decibel-details/index.ts";
 import { noiseHealth } from "./noise-health.ts";
+import { noiseReduction } from "./noise-reduction.ts";
+import { hearingProtection } from "./hearing-protection.ts";
+import { chinaNoiseStandards } from "./china-noise-standards.ts";
+import { workplaceNoiseStandards } from "./workplace-noise-standards.ts";
 import { translations as t, type SiteContent } from "./types.ts";
 
 const mdnAudio = {
@@ -14,6 +18,10 @@ const mdnInput = {
 
 export const articles: SiteContent[] = [
   noiseHealth,
+  noiseReduction,
+  hearingProtection,
+  chinaNoiseStandards,
+  workplaceNoiseStandards,
   {
     id: "phone-accuracy",
     slug: "knowledge/phone-decibel-accuracy",

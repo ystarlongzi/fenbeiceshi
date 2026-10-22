@@ -7,7 +7,17 @@ import { localize } from "../i18n/text.ts";
 
 test("三语帮助页与知识文章的面包屑归属知识与帮助", () => {
   for (const locale of locales) {
-    for (const id of ["guide", "how-it-works", "faq", "calibration", "microphone-help"]) {
+    for (const id of [
+      "guide",
+      "how-it-works",
+      "faq",
+      "calibration",
+      "microphone-help",
+      "noise-reduction",
+      "hearing-protection",
+      "china-noise-standards",
+      "workplace-noise-standards",
+    ]) {
       const items = breadcrumbData(id, locale).itemListElement;
       assert.deepEqual(
         items.map((item) => item.item),

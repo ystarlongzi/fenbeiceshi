@@ -25,7 +25,16 @@ export function checkKnowledgeDirectory(html: string, locale: Locale) {
       `工具帮助不应混入声音知识：${path} → ${id}`,
     );
   }
-  for (const id of ["phone-accuracy", "dbfs-spl", "decibel-chart", "noise-health"]) {
+  for (const id of [
+    "phone-accuracy",
+    "dbfs-spl",
+    "decibel-chart",
+    "noise-health",
+    "noise-reduction",
+    "hearing-protection",
+    "china-noise-standards",
+    "workplace-noise-standards",
+  ]) {
     assert.ok(
       knowledge.includes(`href="${href(id, locale)}"`),
       `声音知识缺少入口：${path} → ${id}`,
@@ -35,6 +44,15 @@ export function checkKnowledgeDirectory(html: string, locale: Locale) {
       `声音知识不应混入工具帮助：${path} → ${id}`,
     );
   }
+  const standards = knowledge.match(
+    /<section\b[^>]*aria-labelledby="standards-title"[^>]*>([\s\S]*?)<\/section>/,
+  )?.[1];
+  assert.ok(standards, `知识目录缺少法规与职业标准分组：${path}`);
+  assert.deepEqual(
+    [...standards.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]),
+    ["china-noise-standards", "workplace-noise-standards"].map((id) => href(id, locale)),
+    `法规与职业标准分组应保留两篇同语言文章：${path}`,
+  );
   for (const article of articles.filter((item) => !item.parentId))
     assert.equal(
       main.split(`href="${href(article.id, locale)}"`).length - 1,

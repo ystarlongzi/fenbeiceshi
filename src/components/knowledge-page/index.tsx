@@ -71,11 +71,21 @@ const articleGroups = [
     id: "health",
     title: translations("了解噪音与健康", "Understand noise and health", "瞭解噪音與健康"),
     description: translations(
-      "分清影响与暴露条件，再选择减少干扰的下一步。",
-      "Understand effects and exposure before choosing how to reduce disturbance.",
-      "分清影響與暴露條件，再選擇減少干擾的下一步。",
+      "了解健康影响，寻找降噪和保护听力的方法。",
+      "Understand health effects and find ways to reduce noise and protect your hearing.",
+      "瞭解健康影響，尋找降噪和保護聽力的方法。",
     ),
-    articles: ["noise-health"],
+    articles: ["noise-health", "noise-reduction", "hearing-protection"],
+  },
+  {
+    id: "standards",
+    title: translations("法规与职业标准", "Regulations and workplace standards", "法規與職業標準"),
+    description: translations(
+      "区分环境噪声与职业暴露，再确认地区、标准和适用条件。",
+      "Distinguish environmental noise from worker exposure, then check jurisdiction and conditions.",
+      "區分環境噪音與職業暴露，再確認地區、標準和適用條件。",
+    ),
+    articles: ["china-noise-standards", "workplace-noise-standards"],
   },
 ];
 
@@ -89,9 +99,9 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
         <p className={styles.intro}>
           {localize(
             locale,
-            "查找使用方法、解决工具问题，或了解分贝读数、常见声音与噪音健康知识。",
-            "Learn to use the meter, fix a problem, or explore decibel readings, everyday sounds and the effects of noise.",
-            "查詢使用方法、解決工具問題，或瞭解分貝讀數、常見聲音與噪音健康知識。",
+            "查找使用方法、解决工具问题，或了解分贝读数、噪音健康与相关法规标准。",
+            "Learn to use the meter, fix a problem, or explore decibel readings, health and noise standards.",
+            "查詢使用方法、解決工具問題，或瞭解分貝讀數、噪音健康與相關法規標準。",
           )}
         </p>
       </header>
@@ -157,9 +167,9 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
           <p>
             {localize(
               locale,
-              "理解读数、查询熟悉的声音，再了解噪音与健康的关系。",
-              "Understand readings, look up familiar sounds, and explore how noise relates to health.",
-              "理解讀數、查詢熟悉的聲音，再瞭解噪音與健康的關係。",
+              "理解读数、查询熟悉的声音，了解降噪、听力保护和法规标准。",
+              "Explore readings, familiar sounds, noise reduction, hearing protection and noise standards.",
+              "理解讀數、查詢熟悉的聲音，瞭解降噪、聽力保護和法規標準。",
             )}
           </p>
         </div>

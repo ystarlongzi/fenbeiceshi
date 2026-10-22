@@ -5,6 +5,8 @@ import { runInNewContext } from "node:vm";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
 import { checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
+import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
+import { escapeText } from "./export-checks/html.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
 import {
@@ -29,14 +31,6 @@ import { faqItems, homeFaqItems } from "../src/lib/content/faq.ts";
 import { locales, localeSettings } from "../src/lib/i18n/locales.ts";
 import { localize } from "../src/lib/i18n/text.ts";
 
-function escapeText(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#x27;");
-}
 const htmlByPath = new Map<string, string>();
 const titles = new Set<string>();
 for (const page of sitePages) {
@@ -318,6 +312,15 @@ for (const page of sitePages) {
       const excerpt = escapeText(text(content.takeaway, locale).slice(0, 18));
       assert.ok(visible.includes(excerpt), `核心答案不在静态正文：${path}`);
       for (const source of content.sources) assert.ok(visible.includes(source.url), path);
+      if (
+        [
+          "noise-reduction",
+          "hearing-protection",
+          "china-noise-standards",
+          "workplace-noise-standards",
+        ].includes(page.id)
+      )
+        checkPracticalGuide(visible, content, locale);
       const toc = visible.match(
         /<nav\b[^>]*aria-label="(?:本文目录|本文目錄|On this page)"[^>]*>([\s\S]*?)<\/nav>/,
       )?.[1];

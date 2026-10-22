@@ -1,0 +1,851 @@
+{
+  "date": "2026-10-22",
+  "browser": "Chrome",
+  "scope": "三语目录与两篇文章，桌面和手机视口；手机表格、锚点及文章主操作",
+  "navigationNote": "最初四条记录使用 aria-current=page 选择器，文章实际使用 location；已通过渲染与后续选择器核对。",
+  "observations": [
+    {
+      "label": "knowledge-desktop-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": null,
+      "documentWidth": 1481,
+      "groupLinks": [
+        {
+          "href": "/knowledge/china-noise-standards/",
+          "title": "噪音法规：中国大陆标准与处理方式区分环境质量、噪声排放与职业接触标准，了解中国大陆现行噪音法规、施工与装修规则，以及遇到噪音困扰时的处理步骤。"
+        },
+        {
+          "href": "/knowledge/workplace-noise-standards/",
+          "title": "工作场所噪声标准：中国、美国与欧盟对比对比中国 GBZ 2.2、美国 OSHA 与 NIOSH、欧盟 2003/10/EC 的职业噪声限值、行动值、时间基准与峰值口径，避免把不同标准直接混用。"
+        }
+      ],
+      "hash": "#standards-title",
+      "lang": "zh-CN",
+      "path": "/knowledge/",
+      "sections": [],
+      "tables": [],
+      "title": "知识与帮助",
+      "titleSize": "32px",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "regulations-desktop-zh",
+      "activeNavigation": [],
+      "bodySize": "16px",
+      "documentWidth": 1481,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-CN",
+      "path": "/knowledge/china-noise-standards/",
+      "sections": [
+        "current-law",
+        "choose-standard",
+        "conditions",
+        "construction",
+        "respond",
+        "browser-limits"
+      ],
+      "tables": [
+        {
+          "containerWidth": 748,
+          "rows": 6,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "噪音法规：中国大陆标准与处理方式",
+      "titleSize": "32px",
+      "tocCurrent": "#current-law",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "regulations-desktop-zh-anchor",
+      "activeNavigation": [],
+      "bodySize": "16px",
+      "documentWidth": 1481,
+      "groupLinks": [],
+      "hash": "#construction",
+      "lang": "zh-CN",
+      "path": "/knowledge/china-noise-standards/",
+      "sections": [
+        "current-law",
+        "choose-standard",
+        "conditions",
+        "construction",
+        "respond",
+        "browser-limits"
+      ],
+      "tables": [
+        {
+          "containerWidth": 748,
+          "rows": 6,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "噪音法规：中国大陆标准与处理方式",
+      "titleSize": "32px",
+      "tocCurrent": "#construction",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "workplace-desktop-zh",
+      "activeNavigation": [],
+      "bodySize": "16px",
+      "documentWidth": 1481,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-CN",
+      "path": "/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 748,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "工作场所噪声标准：中国、美国与欧盟对比",
+      "titleSize": "32px",
+      "tocCurrent": "#scope",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "knowledge-desktop-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": null,
+      "documentWidth": 1481,
+      "groupLinks": [
+        {
+          "href": "/zh-tw/knowledge/china-noise-standards/",
+          "title": "噪音法規：中國大陸標準與處理方式區分環境品質、噪音排放與職業暴露標準，瞭解中國大陸現行噪音法規、施工與裝修規則，以及遇到噪音困擾時的處理步驟。"
+        },
+        {
+          "href": "/zh-tw/knowledge/workplace-noise-standards/",
+          "title": "工作場所噪音標準：中國、美國與歐盟對比對比中國 GBZ 2.2、美國 OSHA 與 NIOSH、歐盟 2003/10/EC 的職業噪音限值、行動值、時間基準與峰值定義，避免把不同標準直接混用。"
+        }
+      ],
+      "hash": "#standards-title",
+      "lang": "zh-TW",
+      "path": "/zh-tw/knowledge/",
+      "sections": [],
+      "tables": [],
+      "title": "知識與幫助",
+      "titleSize": "32px",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "regulations-desktop-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 1481,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-TW",
+      "nextAction": "/zh-tw/knowledge/workplace-noise-standards/",
+      "path": "/zh-tw/knowledge/china-noise-standards/",
+      "sections": [
+        "current-law",
+        "choose-standard",
+        "conditions",
+        "construction",
+        "respond",
+        "browser-limits"
+      ],
+      "tables": [
+        {
+          "containerWidth": 748,
+          "rows": 6,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "噪音法規：中國大陸標準與處理方式",
+      "titleSize": "32px",
+      "tocCurrent": "#current-law",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "workplace-desktop-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 1481,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-TW",
+      "nextAction": "/zh-tw/knowledge/hearing-protection/",
+      "path": "/zh-tw/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 748,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "工作場所噪音標準：中國、美國與歐盟對比",
+      "titleSize": "32px",
+      "tocCurrent": "#scope",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "knowledge-desktop-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": null,
+      "documentWidth": 1481,
+      "groupLinks": [
+        {
+          "href": "/en/knowledge/china-noise-standards/",
+          "title": "Noise regulations: mainland China standards and next stepsUnderstand mainland China's noise rules, distinguish environmental and workplace standards, and find practical steps for construction noise, renovation and neighbourhood disturbances."
+        },
+        {
+          "href": "/en/knowledge/workplace-noise-standards/",
+          "title": "Workplace noise limits: China, the US and the EUCompare China's GBZ 2.2, US OSHA and NIOSH, and EU Directive 2003/10/EC. Understand exposure limits, action values, averaging periods and peak measurements before comparing numbers."
+        }
+      ],
+      "hash": "#standards-title",
+      "lang": "en",
+      "path": "/en/knowledge/",
+      "sections": [],
+      "tables": [],
+      "title": "Knowledge & help",
+      "titleSize": "32px",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "regulations-desktop-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 1481,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "en",
+      "nextAction": "/en/knowledge/workplace-noise-standards/",
+      "path": "/en/knowledge/china-noise-standards/",
+      "sections": [
+        "current-law",
+        "choose-standard",
+        "conditions",
+        "construction",
+        "respond",
+        "browser-limits"
+      ],
+      "tables": [
+        {
+          "containerWidth": 748,
+          "rows": 6,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "Noise regulations: mainland China standards and next steps",
+      "titleSize": "32px",
+      "tocCurrent": "#current-law",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "workplace-desktop-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 1481,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "en",
+      "nextAction": "/en/knowledge/hearing-protection/",
+      "path": "/en/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 748,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "Workplace noise limits: China, the US and the EU",
+      "titleSize": "32px",
+      "tocCurrent": "#scope",
+      "viewport": [
+        1481,
+        839
+      ]
+    },
+    {
+      "label": "knowledge-mobile-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": null,
+      "documentWidth": 390,
+      "groupLinks": [
+        {
+          "href": "/knowledge/china-noise-standards/",
+          "title": "噪音法规：中国大陆标准与处理方式区分环境质量、噪声排放与职业接触标准，了解中国大陆现行噪音法规、施工与装修规则，以及遇到噪音困扰时的处理步骤。"
+        },
+        {
+          "href": "/knowledge/workplace-noise-standards/",
+          "title": "工作场所噪声标准：中国、美国与欧盟对比对比中国 GBZ 2.2、美国 OSHA 与 NIOSH、欧盟 2003/10/EC 的职业噪声限值、行动值、时间基准与峰值口径，避免把不同标准直接混用。"
+        }
+      ],
+      "hash": "#standards-title",
+      "lang": "zh-CN",
+      "path": "/knowledge/",
+      "sections": [],
+      "tables": [],
+      "title": "知识与帮助",
+      "titleSize": "32px",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "regulations-mobile-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-CN",
+      "nextAction": "/knowledge/workplace-noise-standards/",
+      "path": "/knowledge/china-noise-standards/",
+      "sections": [
+        "current-law",
+        "choose-standard",
+        "conditions",
+        "construction",
+        "respond",
+        "browser-limits"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 6,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "噪音法规：中国大陆标准与处理方式",
+      "titleSize": "32px",
+      "tocCurrent": "#current-law",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "workplace-mobile-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-CN",
+      "nextAction": "/knowledge/hearing-protection/",
+      "path": "/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "工作场所噪声标准：中国、美国与欧盟对比",
+      "titleSize": "32px",
+      "tocCurrent": "#scope",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "knowledge-mobile-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": null,
+      "documentWidth": 390,
+      "groupLinks": [
+        {
+          "href": "/zh-tw/knowledge/china-noise-standards/",
+          "title": "噪音法規：中國大陸標準與處理方式區分環境品質、噪音排放與職業暴露標準，瞭解中國大陸現行噪音法規、施工與裝修規則，以及遇到噪音困擾時的處理步驟。"
+        },
+        {
+          "href": "/zh-tw/knowledge/workplace-noise-standards/",
+          "title": "工作場所噪音標準：中國、美國與歐盟對比對比中國 GBZ 2.2、美國 OSHA 與 NIOSH、歐盟 2003/10/EC 的職業噪音限值、行動值、時間基準與峰值定義，避免把不同標準直接混用。"
+        }
+      ],
+      "hash": "#standards-title",
+      "lang": "zh-TW",
+      "path": "/zh-tw/knowledge/",
+      "sections": [],
+      "tables": [],
+      "title": "知識與幫助",
+      "titleSize": "32px",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "regulations-mobile-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-TW",
+      "nextAction": "/zh-tw/knowledge/workplace-noise-standards/",
+      "path": "/zh-tw/knowledge/china-noise-standards/",
+      "sections": [
+        "current-law",
+        "choose-standard",
+        "conditions",
+        "construction",
+        "respond",
+        "browser-limits"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 6,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "噪音法規：中國大陸標準與處理方式",
+      "titleSize": "32px",
+      "tocCurrent": "#current-law",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "workplace-mobile-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "zh-TW",
+      "nextAction": "/zh-tw/knowledge/hearing-protection/",
+      "path": "/zh-tw/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "工作場所噪音標準：中國、美國與歐盟對比",
+      "titleSize": "32px",
+      "tocCurrent": "#scope",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "knowledge-mobile-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": null,
+      "documentWidth": 390,
+      "groupLinks": [
+        {
+          "href": "/en/knowledge/china-noise-standards/",
+          "title": "Noise regulations: mainland China standards and next stepsUnderstand mainland China's noise rules, distinguish environmental and workplace standards, and find practical steps for construction noise, renovation and neighbourhood disturbances."
+        },
+        {
+          "href": "/en/knowledge/workplace-noise-standards/",
+          "title": "Workplace noise limits: China, the US and the EUCompare China's GBZ 2.2, US OSHA and NIOSH, and EU Directive 2003/10/EC. Understand exposure limits, action values, averaging periods and peak measurements before comparing numbers."
+        }
+      ],
+      "hash": "#standards-title",
+      "lang": "en",
+      "path": "/en/knowledge/",
+      "sections": [],
+      "tables": [],
+      "title": "Knowledge & help",
+      "titleSize": "32px",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "regulations-mobile-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "en",
+      "nextAction": "/en/knowledge/workplace-noise-standards/",
+      "path": "/en/knowledge/china-noise-standards/",
+      "sections": [
+        "current-law",
+        "choose-standard",
+        "conditions",
+        "construction",
+        "respond",
+        "browser-limits"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 6,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "Noise regulations: mainland China standards and next steps",
+      "titleSize": "32px",
+      "tocCurrent": "#current-law",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "workplace-mobile-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "en",
+      "nextAction": "/en/knowledge/hearing-protection/",
+      "path": "/en/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "Workplace noise limits: China, the US and the EU",
+      "titleSize": "32px",
+      "tocCurrent": "#scope",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "workplace-mobile-en-comparison",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "#comparison",
+      "lang": "en",
+      "nextAction": "/en/knowledge/hearing-protection/",
+      "path": "/en/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "Workplace noise limits: China, the US and the EU",
+      "titleSize": "32px",
+      "tocCurrent": "#comparison",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "workplace-mobile-en-table-scroll",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "#comparison",
+      "lang": "en",
+      "nextAction": "/en/knowledge/hearing-protection/",
+      "path": "/en/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 5,
+          "scrollLeft": 122,
+          "width": 470
+        }
+      ],
+      "title": "Workplace noise limits: China, the US and the EU",
+      "titleSize": "32px",
+      "tocCurrent": "#comparison",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "workplace-mobile-en-next-action",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "en",
+      "nextAction": "/en/knowledge/noise-and-health/#exposure",
+      "path": "/en/knowledge/hearing-protection/",
+      "sections": [
+        "reduce-exposure",
+        "choose",
+        "foam-fit",
+        "ratings",
+        "headphones",
+        "scenarios",
+        "help"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 4,
+          "scrollLeft": 0,
+          "width": 470
+        },
+        {
+          "containerWidth": 348,
+          "rows": 4,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "Hearing protection: earplugs, earmuffs and everyday listening",
+      "titleSize": "32px",
+      "tocCurrent": "#reduce-exposure",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "regulations-mobile-en-next-action",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "documentWidth": 390,
+      "groupLinks": [],
+      "hash": "",
+      "lang": "en",
+      "nextAction": "/en/knowledge/hearing-protection/",
+      "path": "/en/knowledge/workplace-noise-standards/",
+      "sections": [
+        "scope",
+        "comparison",
+        "china",
+        "us",
+        "eu",
+        "peaks",
+        "assessment"
+      ],
+      "tables": [
+        {
+          "containerWidth": 348,
+          "rows": 5,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "Workplace noise limits: China, the US and the EU",
+      "titleSize": "32px",
+      "tocCurrent": "#scope",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "knowledge-restored-desktop-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": null,
+      "documentWidth": 1481,
+      "groupLinks": [
+        {
+          "href": "/knowledge/china-noise-standards/",
+          "title": "噪音法规：中国大陆标准与处理方式区分环境质量、噪声排放与职业接触标准，了解中国大陆现行噪音法规、施工与装修规则，以及遇到噪音困扰时的处理步骤。"
+        },
+        {
+          "href": "/knowledge/workplace-noise-standards/",
+          "title": "工作场所噪声标准：中国、美国与欧盟对比对比中国 GBZ 2.2、美国 OSHA 与 NIOSH、欧盟 2003/10/EC 的职业噪声限值、行动值、时间基准与峰值口径，避免把不同标准直接混用。"
+        }
+      ],
+      "hash": "#standards-title",
+      "lang": "zh-CN",
+      "path": "/knowledge/",
+      "sections": [],
+      "tables": [],
+      "title": "知识与帮助",
+      "titleSize": "32px",
+      "viewport": [
+        1481,
+        839
+      ]
+    }
+  ]
+}
