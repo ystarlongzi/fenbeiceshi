@@ -84,6 +84,21 @@
   flex-shrink: 0;
   color: var(--brand);
 }
+.notice {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  width: min(240px, calc(100vw - 112px));
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px var(--shadow);
+  color: var(--ink);
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
+}
 @media (hover: hover) and (pointer: fine) {
   .trigger:hover {
     background: var(--surface-hover);
@@ -94,7 +109,8 @@
   .trigger {
     min-height: 40px;
   }
-  .options {
+  .options,
+  .notice {
     top: auto;
     bottom: calc(100% + 6px);
   }

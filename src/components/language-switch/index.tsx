@@ -11,8 +11,15 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { Icon } from "@/components/icon";
 import type { Locale } from "@/features/sound-meter/types";
-import { languageHref, locales, localePrefix, localeSettings } from "@/lib/i18n/locales";
+import { locales, localePrefix, localeSettings } from "@/lib/i18n/locales";
 import { localize } from "@/lib/i18n/text";
+import {
+  getLanguagePersistenceError,
+  getServerLanguagePersistenceError,
+  languageSelectionHref,
+  setLanguagePreference,
+  subscribeLanguagePreference,
+} from "@/lib/i18n/preference";
 import styles from "./index.module.css";
 
 export function LanguageSwitch({ locale, available }: { locale: Locale; available: string[] }) {
@@ -24,6 +31,11 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
   const pathname = usePathname() || `${localePrefix(locale)}/`;
   // 水合完成后再启用，避免路由监听绑定前的选择事件丢失。
   const ready = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const persistenceError = useSyncExternalStore(
+    subscribeLanguagePreference,
+    getLanguagePersistenceError,
+    getServerLanguagePersistenceError,
+  );
   const selected = locales.indexOf(locale);
   const open = active !== null;
   const highlighted = active ?? selected;
@@ -39,10 +51,20 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
   }, [open]);
 
   function choose(index: number) {
+    const target = locales[index];
+    if (!target) return;
     setActive(null);
     button.current?.focus();
-    const target = locales[index];
-    if (target && target !== locale) router.push(languageHref(pathname, target, available));
+    const error = setLanguagePreference(target);
+    const destination = languageSelectionHref(
+      { pathname, search: window.location.search, hash: window.location.hash },
+      target,
+      available,
+      !error,
+    );
+    if (target !== locale) router.push(destination);
+    else if (destination !== `${pathname}${window.location.search}${window.location.hash}`)
+      window.history.replaceState(window.history.state, "", destination);
   }
 
   function onKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
@@ -134,6 +156,16 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
           </li>
         ))}
       </ul>
+      {persistenceError && !open ? (
+        <span role="status" className={styles.notice}>
+          {localize(
+            locale,
+            "浏览器无法记住语言偏好，本次选择仍可使用。",
+            "Your browser cannot remember the language preference. Your choice still works for this visit.",
+            "瀏覽器無法記住語言偏好，本次選擇仍可使用。",
+          )}
+        </span>
+      ) : null}
     </div>
   );
 }

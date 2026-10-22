@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { runInNewContext } from "node:vm";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
 import { articles } from "../src/lib/content/articles.ts";
@@ -39,6 +40,39 @@ for (const page of sitePages) {
     htmlByPath.set(path, html);
     assert.doesNotMatch(html, /github\.com|\bgithub\b/i, `产品页面不得暴露 GitHub 信息：${path}`);
     assert.match(html, new RegExp(`<html[^>]*lang="${locale}"`), path);
+    const languageScripts = [
+      ...html.matchAll(/<script\b[^>]*id="language-init"[^>]*>([\s\S]*?)<\/script>/g),
+    ];
+    assert.equal(languageScripts.length, 1, `每页应输出一次语言引导脚本：${path}`);
+    assert.ok(
+      languageScripts[0].index! < html.indexOf("<header"),
+      `语言判断应早于可见内容：${path}`,
+    );
+    for (const saved of [null, ...locales]) {
+      const redirects: string[] = [];
+      runInNewContext(languageScripts[0][1], {
+        document: { documentElement: { dataset: {} } },
+        navigator: { languages: ["zh-Hant"] },
+        URLSearchParams,
+        window: {
+          localStorage: { getItem: () => saved },
+          location: {
+            pathname: path,
+            search: "?source=test",
+            hash: "#main-content",
+            replace: (url: string) => redirects.push(url),
+          },
+        },
+      });
+      const target = saved ?? "zh-TW";
+      assert.deepEqual(
+        redirects,
+        locale === "zh-CN" && target !== locale
+          ? [`${href(page.id, target)}?source=test#main-content`]
+          : [],
+        `构建后的语言引导行为不正确：${path} → ${saved}`,
+      );
+    }
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, path);
     const canonical = [...html.matchAll(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/g)].map(
       (m) => m[1],

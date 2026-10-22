@@ -258,7 +258,7 @@ export const guides: SiteContent[] = [
     id: "privacy",
     slug: "privacy",
     kind: "trust",
-    updated: "2026-10-21",
+    updated: "2026-10-22",
     title: t(
       "你的声音，留在你的设备上",
       "Your audio stays on your device",
@@ -314,6 +314,11 @@ export const guides: SiteContent[] = [
             "手动选择的亮色或暗色主题会作为独立偏好保存在当前浏览器，仅用于恢复外观，不包含音频或观察摘要，也不上传至服务器。尚未选择时跟随系统外观；清除本站数据后会恢复这一默认行为。",
             "Your chosen light or dark theme is stored as a separate preference in this browser to restore the appearance. It contains no audio or observation summaries and is not uploaded. Before you choose, the site follows your system appearance; clearing site data restores that default.",
             "手動選擇的亮色或暗色主題會作為獨立偏好儲存在當前瀏覽器，僅用於恢復外觀，不包含音訊或觀察摘要，也不上傳至伺服器。尚未選擇時跟隨系統外觀；清除本站資料後會恢復這一預設行為。",
+          ),
+          t(
+            "首次进入无语言前缀的页面时，本站在浏览器内读取语言列表，选择简体中文、繁体中文或英文。手动选择的语言会独立保存在当前浏览器的 localStorage，之后优先使用该偏好；明确带有 /en/ 或 /zh-tw/ 的链接仍按链接显示。清除本站数据后恢复自动识别。语言列表不上传，偏好不包含测量记录；浏览器禁止保存时会提示，本次选择仍可使用。",
+            "When you first open a page without a language prefix, the site reads your browser's language list locally to choose Simplified Chinese, Traditional Chinese or English. A manual choice is stored separately in this browser's localStorage and takes priority on later visits. Explicit /en/ and /zh-tw/ links keep their language. Clearing site data restores automatic selection. The language list is not uploaded, and the preference contains no measurement records. If storage is blocked, a notice is shown and your choice still works for this visit.",
+            "首次進入無語言前綴的頁面時，本站在瀏覽器內讀取語言清單，選擇簡體中文、繁體中文或英文。手動選擇的語言會獨立儲存在當前瀏覽器的 localStorage，之後優先使用該偏好；明確帶有 /en/ 或 /zh-tw/ 的連結仍按連結顯示。清除本站資料後恢復自動識別。語言清單不上傳，偏好不包含測量記錄；瀏覽器禁止儲存時會提示，本次選擇仍可使用。",
           ),
         ],
       },

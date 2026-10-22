@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Icon } from "../icon";
 import { LanguageSwitch } from "../language-switch";
+import { LanguageScript } from "../language-switch/language-script";
 import { ThemeSwitch } from "../theme-switch";
 import { ThemeScript } from "../theme-switch/theme-script";
 import { SiteNavigation } from "./site-navigation";
@@ -12,6 +13,7 @@ import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
 
 export function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
+  const available = sitePages.flatMap((page) => locales.map((language) => href(page.id, language)));
   const nav = [
     {
       id: "meter",
@@ -53,6 +55,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
   return (
     <html lang={locale} data-scroll-behavior="smooth" data-theme="light" suppressHydrationWarning>
       <body>
+        <LanguageScript locale={locale} available={available} />
         <ThemeScript />
         <a className={styles.skip} href="#main-content">
           {localize(locale, "跳到主要内容", "Skip to content", "跳到主要內容")}
@@ -85,12 +88,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
               utilities={
                 <>
                   <ThemeSwitch locale={locale} />
-                  <LanguageSwitch
-                    locale={locale}
-                    available={sitePages.flatMap((page) =>
-                      locales.map((language) => href(page.id, language)),
-                    )}
-                  />
+                  <LanguageSwitch locale={locale} available={available} />
                 </>
               }
             />
