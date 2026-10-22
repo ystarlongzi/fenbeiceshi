@@ -1,0 +1,616 @@
+{
+  "date": "2026-10-23",
+  "browser": "Chrome",
+  "scope": "三语知识目录与文章桌面和手机阅读、清单锚点、表格滚动、关联阅读",
+  "observations": [
+    {
+      "label": "knowledge-desktop-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": null,
+      "directory": [
+        {
+          "href": "/knowledge/phone-decibel-accuracy/",
+          "title": "手机测分贝准吗？了解手机麦克风、自动处理与手动修正的影响，区分通用噪音估算、读数修正和专业检测。"
+        },
+        {
+          "href": "/knowledge/dbfs-vs-db-spl/",
+          "title": "为什么网页读数和声级计不一样？解释数字音频电平与环境声压级为什么不能直接换算，以及本站通用估算、手动修正与原始输入的关系。"
+        },
+        {
+          "href": "/knowledge/when-to-use-a-sound-level-meter/",
+          "title": "什么时候需要专业声级计或噪声检测？从邻里噪音、隔音装修和工作场所出发，判断何时可以先观察、何时值得找专业人员，以及联系前要问什么、准备什么。"
+        }
+      ],
+      "documentWidth": 1432,
+      "lang": "zh-CN",
+      "sections": [],
+      "tables": [],
+      "title": "知识与帮助",
+      "titleSize": "32px",
+      "url": "/knowledge/#understand-title",
+      "viewport": [
+        1432,
+        896
+      ]
+    },
+    {
+      "label": "article-desktop-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 1432,
+      "lang": "zh-CN",
+      "nextAction": "/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 748,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "什么时候需要专业声级计或噪声检测？",
+      "titleSize": "32px",
+      "url": "/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        1432,
+        896
+      ]
+    },
+    {
+      "label": "knowledge-desktop-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": null,
+      "directory": [
+        {
+          "href": "/zh-tw/knowledge/phone-decibel-accuracy/",
+          "title": "手機測分貝準嗎？瞭解手機麥克風、自動處理與手動修正的影響，區分通用噪音估算、讀數修正和專業檢測。"
+        },
+        {
+          "href": "/zh-tw/knowledge/dbfs-vs-db-spl/",
+          "title": "為什麼網頁讀數和聲級計不一樣？解釋數字音訊電平與環境聲壓級為什麼不能直接換算，以及本站通用估算、手動修正與原始輸入的關係。"
+        },
+        {
+          "href": "/zh-tw/knowledge/when-to-use-a-sound-level-meter/",
+          "title": "什麼時候需要專業噪音計或噪音檢測？從鄰里噪音、隔音裝修和工作場所出發，判斷何時可以先觀察、何時值得找專業人員，以及聯絡前要問什麼、準備什麼。"
+        }
+      ],
+      "documentWidth": 1432,
+      "lang": "zh-TW",
+      "sections": [],
+      "tables": [],
+      "title": "知識與幫助",
+      "titleSize": "32px",
+      "url": "/zh-tw/knowledge/#understand-title",
+      "viewport": [
+        1432,
+        896
+      ]
+    },
+    {
+      "label": "article-desktop-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 1432,
+      "lang": "zh-TW",
+      "nextAction": "/zh-tw/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 748,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "什麼時候需要專業噪音計或噪音檢測？",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/zh-tw/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        1432,
+        896
+      ]
+    },
+    {
+      "label": "knowledge-desktop-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": null,
+      "directory": [
+        {
+          "href": "/en/knowledge/phone-decibel-accuracy/",
+          "title": "How accurate is a phone decibel meter?Understand microphone differences, audio processing and manual adjustments before using a phone or browser reading."
+        },
+        {
+          "href": "/en/knowledge/dbfs-vs-db-spl/",
+          "title": "Why does a browser reading differ from a sound level meter?Learn why digital audio level cannot be universally converted to sound pressure level, and how this tool labels each mode."
+        },
+        {
+          "href": "/en/knowledge/when-to-use-a-sound-level-meter/",
+          "title": "When do you need a sound level meter or a noise assessment?Decide when to observe noise yourself and when to seek help with neighbour noise, soundproofing or noisy work. Learn what to ask and what to prepare before arranging a visit."
+        }
+      ],
+      "documentWidth": 1432,
+      "lang": "en",
+      "sections": [],
+      "tables": [],
+      "title": "Knowledge & help",
+      "titleSize": "32px",
+      "url": "/en/knowledge/#understand-title",
+      "viewport": [
+        1432,
+        896
+      ]
+    },
+    {
+      "label": "article-desktop-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 1432,
+      "lang": "en",
+      "nextAction": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 748,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "When do you need a sound level meter or a noise assessment?",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/en/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        1432,
+        896
+      ]
+    },
+    {
+      "label": "knowledge-mobile-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": null,
+      "directory": [
+        {
+          "href": "/knowledge/phone-decibel-accuracy/",
+          "title": "手机测分贝准吗？了解手机麦克风、自动处理与手动修正的影响，区分通用噪音估算、读数修正和专业检测。"
+        },
+        {
+          "href": "/knowledge/dbfs-vs-db-spl/",
+          "title": "为什么网页读数和声级计不一样？解释数字音频电平与环境声压级为什么不能直接换算，以及本站通用估算、手动修正与原始输入的关系。"
+        },
+        {
+          "href": "/knowledge/when-to-use-a-sound-level-meter/",
+          "title": "什么时候需要专业声级计或噪声检测？从邻里噪音、隔音装修和工作场所出发，判断何时可以先观察、何时值得找专业人员，以及联系前要问什么、准备什么。"
+        }
+      ],
+      "documentWidth": 390,
+      "lang": "zh-CN",
+      "sections": [],
+      "tables": [],
+      "title": "知识与帮助",
+      "titleSize": "32px",
+      "url": "/knowledge/#understand-title",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-mobile-zh",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "zh-CN",
+      "nextAction": "/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 348,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "什么时候需要专业声级计或噪声检测？",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "knowledge-mobile-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": null,
+      "directory": [
+        {
+          "href": "/zh-tw/knowledge/phone-decibel-accuracy/",
+          "title": "手機測分貝準嗎？瞭解手機麥克風、自動處理與手動修正的影響，區分通用噪音估算、讀數修正和專業檢測。"
+        },
+        {
+          "href": "/zh-tw/knowledge/dbfs-vs-db-spl/",
+          "title": "為什麼網頁讀數和聲級計不一樣？解釋數字音訊電平與環境聲壓級為什麼不能直接換算，以及本站通用估算、手動修正與原始輸入的關係。"
+        },
+        {
+          "href": "/zh-tw/knowledge/when-to-use-a-sound-level-meter/",
+          "title": "什麼時候需要專業噪音計或噪音檢測？從鄰里噪音、隔音裝修和工作場所出發，判斷何時可以先觀察、何時值得找專業人員，以及聯絡前要問什麼、準備什麼。"
+        }
+      ],
+      "documentWidth": 390,
+      "lang": "zh-TW",
+      "sections": [],
+      "tables": [],
+      "title": "知識與幫助",
+      "titleSize": "32px",
+      "url": "/zh-tw/knowledge/#understand-title",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-mobile-tw",
+      "activeNavigation": [
+        "知識與幫助",
+        "知識與幫助"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "zh-TW",
+      "nextAction": "/zh-tw/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 348,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "什麼時候需要專業噪音計或噪音檢測？",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/zh-tw/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "knowledge-mobile-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": null,
+      "directory": [
+        {
+          "href": "/en/knowledge/phone-decibel-accuracy/",
+          "title": "How accurate is a phone decibel meter?Understand microphone differences, audio processing and manual adjustments before using a phone or browser reading."
+        },
+        {
+          "href": "/en/knowledge/dbfs-vs-db-spl/",
+          "title": "Why does a browser reading differ from a sound level meter?Learn why digital audio level cannot be universally converted to sound pressure level, and how this tool labels each mode."
+        },
+        {
+          "href": "/en/knowledge/when-to-use-a-sound-level-meter/",
+          "title": "When do you need a sound level meter or a noise assessment?Decide when to observe noise yourself and when to seek help with neighbour noise, soundproofing or noisy work. Learn what to ask and what to prepare before arranging a visit."
+        }
+      ],
+      "documentWidth": 390,
+      "lang": "en",
+      "sections": [],
+      "tables": [],
+      "title": "Knowledge & help",
+      "titleSize": "32px",
+      "url": "/en/knowledge/#understand-title",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-mobile-en",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "en",
+      "nextAction": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 348,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "When do you need a sound level meter or a noise assessment?",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/en/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-mobile-en-prepare",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "en",
+      "nextAction": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 348,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "When do you need a sound level meter or a noise assessment?",
+      "titleSize": "32px",
+      "tocCurrent": "#prepare",
+      "url": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-mobile-en-table-scroll",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "en",
+      "nextAction": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 348,
+          "scrollLeft": 122,
+          "width": 470
+        }
+      ],
+      "title": "When do you need a sound level meter or a noise assessment?",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/en/knowledge/when-to-use-a-sound-level-meter/#choose",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-mobile-en-cta",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "en",
+      "nextAction": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 348,
+          "scrollLeft": 122,
+          "width": 470
+        }
+      ],
+      "title": "When do you need a sound level meter or a noise assessment?",
+      "titleSize": "32px",
+      "tocCurrent": "#prepare",
+      "url": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "accuracy-mobile-en-related",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "en",
+      "nextAction": "/en/#measure",
+      "sections": [
+        "purpose",
+        "devices",
+        "reference",
+        "choose"
+      ],
+      "tables": [],
+      "title": "How accurate is a phone decibel meter?",
+      "titleSize": "32px",
+      "tocCurrent": "#purpose",
+      "url": "/en/knowledge/phone-decibel-accuracy/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-mobile-en-return",
+      "activeNavigation": [
+        "Knowledge & help",
+        "Knowledge & help"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 390,
+      "lang": "en",
+      "nextAction": "/en/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 348,
+          "scrollLeft": 0,
+          "width": 470
+        }
+      ],
+      "title": "When do you need a sound level meter or a noise assessment?",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/en/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "label": "article-desktop-restored",
+      "activeNavigation": [
+        "知识与帮助",
+        "知识与帮助"
+      ],
+      "bodySize": "16px",
+      "directory": [],
+      "documentWidth": 1432,
+      "lang": "zh-CN",
+      "nextAction": "/knowledge/when-to-use-a-sound-level-meter/#prepare",
+      "sections": [
+        "choose",
+        "seek-help",
+        "meter-or-service",
+        "ask-first",
+        "prepare",
+        "results"
+      ],
+      "tables": [
+        {
+          "container": 748,
+          "scrollLeft": 0,
+          "width": 748
+        }
+      ],
+      "title": "什么时候需要专业声级计或噪声检测？",
+      "titleSize": "32px",
+      "tocCurrent": "#choose",
+      "url": "/knowledge/when-to-use-a-sound-level-meter/",
+      "viewport": [
+        1432,
+        896
+      ]
+    }
+  ]
+}

@@ -318,6 +318,7 @@ for (const page of sitePages) {
           "hearing-protection",
           "china-noise-standards",
           "workplace-noise-standards",
+          "when-professional-meter",
         ].includes(page.id)
       )
         checkPracticalGuide(visible, content, locale);

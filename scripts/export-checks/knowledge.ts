@@ -34,6 +34,7 @@ export function checkKnowledgeDirectory(html: string, locale: Locale) {
     "hearing-protection",
     "china-noise-standards",
     "workplace-noise-standards",
+    "when-professional-meter",
   ]) {
     assert.ok(
       knowledge.includes(`href="${href(id, locale)}"`),
@@ -52,6 +53,13 @@ export function checkKnowledgeDirectory(html: string, locale: Locale) {
     [...standards.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]),
     ["china-noise-standards", "workplace-noise-standards"].map((id) => href(id, locale)),
     `法规与职业标准分组应保留两篇同语言文章：${path}`,
+  );
+  const understand = knowledge.match(
+    /<section\b[^>]*aria-labelledby="understand-title"[^>]*>([\s\S]*?)<\/section>/,
+  )?.[1];
+  assert.ok(
+    understand?.includes(`href="${href("when-professional-meter", locale)}"`),
+    `理解读数分组缺少专业检测选择入口：${path}`,
   );
   for (const article of articles.filter((item) => !item.parentId))
     assert.equal(

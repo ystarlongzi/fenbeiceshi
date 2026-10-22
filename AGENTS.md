@@ -86,6 +86,8 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 - 噪音法规 `/knowledge/china-noise-standards/` 与中美欧职业标准对比 `/knowledge/workplace-noise-standards/` 已有三语静态正文，复用 `ContentPage`；知识与帮助新增“法规与职业标准”分组。法规篇三语均为中国大陆法域，按 2026-08-15 施行的生态环境法典及 GB 12523—2025 编写；职业篇分清 GBZ 2.2、OSHA 法定值、NIOSH 建议与欧盟行动／限值，保留时间基准、防护衰减及峰值条件。两篇主操作进入职业对比或听力保护，不用网页读数暗示合规判断；一手来源、状态及验证见 [三语文章验证](./docs/验证/噪音法规与职业标准三语文章验证.md)。
 
+- 专业检测选择 `/knowledge/when-to-use-a-sound-level-meter/` 已有三语正文，维护在 `src/lib/content/professional-meter.ts`，位于知识与帮助的“理解读数”组。面向普通读者，按用途、生活场景、仪器与服务区别、咨询问题、准备清单和结果理解组织，不堆砌公式、计权或仪器参数；复用静态 `ContentPage`，主操作回到 `#prepare` 清单，与准确性、降噪、法规和职业标准文章互相连接。来源及实际范围见 [专业检测选择三语文章验证](./docs/验证/专业检测选择三语文章验证.md)。
+
 ## 工程营销、内容与实现入口
 
 - 处理站点结构、内容、SEO 或页面实现前，读取 [整站结构与 SEO 规划](./docs/产品/整站结构与SEO规划.md)、[页面与关键词映射](./docs/产品/页面与关键词映射.json) 和 [工程与部署参考](./docs/开发/工程与部署参考.md)；完整入口见 [文档索引](./docs/文档索引.md)。这些文件当前描述规划，不能将候选路由或拟定命令声称为已实现。
@@ -95,7 +97,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 核心答案、方法、来源和链接必须存在于构建 HTML；正文保持静态，麦克风与本机交互限制在必要的客户端子树。默认提供“通用估算 · 未修正”的噪音分贝，并说明未经专业校准；当前 generic-rms-v1 使用原始 RMS dBFS +100，仅为未经跨设备声学验证的产品假设。仪表、色带、趋势、统计、记录和导出复用 readings.ts 的同一转换，读数修正可选，在通用估算上实时加减 −50 至 +50 dB（0.1 步进），使用独立 manual-offset-v1 模型，模式标签显示实际生效的修正值（如“手动修正 · +5.0 dB”），记录和报告同步；历史参考校准记录仍以原参考偏移替换通用偏移。原始信号只在麦克风旁作为辅助信号柱；不得擅自宣称 dBA、法定检测或专业准确度。新记录保留模型版本，历史相对记录保留原单位，禁止混比或重新解释旧值。
 - 首版已采用 Next.js App Router、TypeScript strict、npm、静态导出和 CSS Modules。`src/app` 管路由，`src/features` 按测量、校准与记录等职责组织，`src/components` 仅放确实共享的展示组件；`src/lib/content`、`routing`、`seo` 分别管理内容、发布语言与 SEO 派生数据，专属样式和测试靠近所属功能。
 - 全站数字输入复用 `src/components/number-input/` 的受控字符串组件；参考牛蛙工具 NumberInput 的单位、步进按钮与键盘交互，右侧按钮仅在控件内聚焦时展开，失焦后收起，使用本站语义变量和 Lucide 图标。读数修正按用户要求使用 90px 数字框，通过 `showStepper={false}` 隐藏右侧步进按钮，并移除独立反馈／重置行；键盘步进与输入校验继续保留。范围、步长、空值及小数校验由相邻 `model.ts` 负责；暴露时长与读数修正分别保留各自范围，布局与字号通过组件 className 和 CSS 变量定制。
-- 当前应用的实际页面注册为 `src/lib/routing/pages.ts`，与候选关键词映射分开维护；已实现 138 个三语 URL，其中 135 个可索引，三个本机记录页 noindex。声音详情正文位于 `src/lib/content/decibel-details/`，服务端展示位于 `src/features/decibel-details/`，父页为分贝对照表；按直观结论、声音场景、相对声级对比、听力风险、生活化问答及来源组织，目录在手机上排在结论之后；完整答案、表格、问答、来源及行内链接静态输出，见 [分贝详情 V3](./design/decibel-details-v3/design-spec.json) 和 [验证记录](./docs/验证/分贝详情量级对比与通俗文案验证.md)。语言清单、路径前缀和区域格式在 `src/lib/i18n/locales.ts` 统一维护；静态正文使用 `translations` 和 `text`，简短界面使用 `localize`，三者均须显式提供繁体文案。繁体使用台湾常用界面词与字体，不在运行时转换 DOM、用户备注、设备名、来源原名或测量数据。新增语言或路由必须有真实正文和可用操作。
+- 当前应用的实际页面注册为 `src/lib/routing/pages.ts`，与候选关键词映射分开维护；已实现 141 个三语 URL，其中 138 个可索引，三个本机记录页 noindex。声音详情正文位于 `src/lib/content/decibel-details/`，服务端展示位于 `src/features/decibel-details/`，父页为分贝对照表；按直观结论、声音场景、相对声级对比、听力风险、生活化问答及来源组织，目录在手机上排在结论之后；完整答案、表格、问答、来源及行内链接静态输出，见 [分贝详情 V3](./design/decibel-details-v3/design-spec.json) 和 [验证记录](./docs/验证/分贝详情量级对比与通俗文案验证.md)。语言清单、路径前缀和区域格式在 `src/lib/i18n/locales.ts` 统一维护；静态正文使用 `translations` 和 `text`，简短界面使用 `localize`，三者均须显式提供繁体文案。繁体使用台湾常用界面词与字体，不在运行时转换 DOM、用户备注、设备名、来源原名或测量数据。新增语言或路由必须有真实正文和可用操作。
 - `npm run check` 依次运行 format:check、lint、typecheck、test、test:content、build 和 test:export，本地与 CI 一致；lint 警告阻断，检查不自动改写。`npm run preview` 预览静态产物。新增依赖和检查配置遵循前述技能及聚焦变更要求。
 - Actions 的 `out/` 仅作为当前 runner 的临时检查产物，不上传 GitHub Artifacts，也不通过跨 job 下载产物中转；`cache: npm` 只缓存依赖。后续生产发布在同一 runner/job 完成检查、构建、校验、打包与 SSH 传输，回滚版本保留在本站服务器的独立目录。当前尚未接入生产发布，不能将此约定描述为已部署能力。
 - 部署参考屏幕测的静态产物、Nginx、原子切换与回滚方式；域名、根目录、证书、日志、CI 标识和 Cloudflare 凭据必须按本站隔离。参考脚本含屏幕测专属白名单，不得原样运行或删除路径防护来绕过校验。

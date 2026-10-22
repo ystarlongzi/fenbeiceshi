@@ -17,6 +17,7 @@ test("三语帮助页与知识文章的面包屑归属知识与帮助", () => {
       "hearing-protection",
       "china-noise-standards",
       "workplace-noise-standards",
+      "when-professional-meter",
     ]) {
       const items = breadcrumbData(id, locale).itemListElement;
       assert.deepEqual(

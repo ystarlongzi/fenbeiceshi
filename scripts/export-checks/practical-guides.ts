@@ -27,6 +27,15 @@ export function checkPracticalGuide(visible: string, content: SiteContent, local
       visible.includes(`href="${href("noise-health", locale)}#exposure"`),
       `听力保护下一步应进入健康与暴露参考：${path}`,
     );
+  if (content.id === "when-professional-meter") {
+    const cta = visible.match(/<div class="[^"]*cta[^"]*">([\s\S]*?)<\/a><\/div>/)?.[1];
+    assert.ok(cta, `专业检测文章缺少下一步操作：${path}`);
+    assert.ok(cta.includes(`href="${path}#prepare"`), `专业检测文章应引导到联系前清单：${path}`);
+    assert.ok(
+      !cta.includes(`href="${href("meter", locale)}#measure"`),
+      `专业检测文章主操作不应暗示网页可以出具检测结论：${path}`,
+    );
+  }
   if (content.id === "china-noise-standards" || content.id === "workplace-noise-standards") {
     const next =
       content.id === "china-noise-standards" ? "workplace-noise-standards" : "hearing-protection";

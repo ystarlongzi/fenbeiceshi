@@ -315,5 +315,11 @@ export const noiseReduction: SiteContent = {
       url: "https://www.epa.vic.gov.au/reduce-noise-your-home",
     },
   ],
-  related: ["hearing-protection", "noise-health", "phone-accuracy", "guide"],
+  related: [
+    "hearing-protection",
+    "noise-health",
+    "phone-accuracy",
+    "guide",
+    "when-professional-meter",
+  ],
 };

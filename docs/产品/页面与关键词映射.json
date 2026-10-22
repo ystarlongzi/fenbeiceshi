@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "简体中文优先，同时提供繁体中文与英文；兼顾百度、必应和 Google。",
@@ -256,10 +256,10 @@
         }
       },
       "intent": "按问题找到相关解释和方法。",
-      "uniqueValue": "按工具帮助与声音知识两组组织入口：工具帮助包含指南、原理、常见问题和麦克风排查，声音知识包含读数解释、声音参考、噪音健康、降噪方法、听力保护及法规与职业标准文章，保留静态正文与可抓取链接。",
+      "uniqueValue": "按工具帮助与声音知识两组组织入口：工具帮助包含指南、原理、常见问题和麦克风排查，声音知识包含读数解释、专业检测选择、声音参考、噪音健康、降噪方法、听力保护及法规与职业标准文章，保留静态正文与可抓取链接。",
       "sections": ["工具帮助：使用指南、工作原理、常见问题、麦克风排查","声音知识：理解读数、查询声音参考、了解噪音与健康、法规与职业标准"],
       "ctaTargetId": "guide",
-      "relatedIds": ["how-it-works","faq","guide","phone-accuracy","dbfs-spl","decibel-chart","noise-health","noise-reduction","hearing-protection","china-noise-standards","workplace-noise-standards","microphone-help"],
+      "relatedIds": ["how-it-works","faq","guide","phone-accuracy","dbfs-spl","decibel-chart","noise-health","noise-reduction","hearing-protection","china-noise-standards","workplace-noise-standards","microphone-help","when-professional-meter"],
       "publishGate": "至少首批四篇基础内容已发布；只列当前语言可用条目。",
       "requiredEvidence": ["已发布内容注册表"]
     },
@@ -1097,7 +1097,7 @@
       "uniqueValue": "复用既有规划 URL；按现行生态环境法典和 GB 12523—2025 解释对象与测量边界，三语均明确同一大陆法域。",
       "sections": ["现行法律与地区","标准对象对照","测量条件","施工与装修","处理步骤","网页记录边界"],
       "ctaTargetId": "workplace-noise-standards",
-      "relatedIds": ["workplace-noise-standards","noise-reduction","phone-accuracy","decibel-chart"],
+      "relatedIds": ["workplace-noise-standards","noise-reduction","phone-accuracy","decibel-chart","when-professional-meter"],
       "publishGate": "2026-10-22 已核验现行官方文本、适用范围、生效与替代关系；三语静态正文、来源和 SEO 通过本地检查，不提供具体案件法律结论，不声称法律专家审校；生产尚未部署。",
       "requiredEvidence": ["生态环境法典第 547、572、1242 条及相关职责条款","生态环境部标准原文与国家标准状态","来源、条件及工程验证记录：docs/验证/噪音法规与职业标准三语文章验证.md"]
     },
@@ -1114,7 +1114,7 @@
       "uniqueValue": "把 GBZ 2.2、OSHA、NIOSH 与欧盟指令分列，明确 8/40 小时、3/5 dB 交换率、防护衰减、峰值计权和脉冲次数差异。",
       "sections": ["适用范围","限值与行动值对照","中国时间基准","OSHA 与 NIOSH","欧盟行动与防护","峰值与次数","评估和控制"],
       "ctaTargetId": "hearing-protection",
-      "relatedIds": ["china-noise-standards","hearing-protection","noise-health","noise-reduction"],
+      "relatedIds": ["china-noise-standards","hearing-protection","noise-health","noise-reduction","when-professional-meter"],
       "publishGate": "2026-10-22 核验原文、现行目录和适用条件；不把建议称为法规，不将职业值用于卧室或个人安全倒计时，不声称职业卫生专家审校；本地实现待生产部署。",
       "requiredEvidence": ["GBZ 2.2—2007 第 11 节原表与现行标准目录","OSHA 1910.95、行业范围与州计划","NIOSH REL 原文","欧盟指令第 2–6、8 条及成员国适用条件","docs/验证/噪音法规与职业标准三语文章验证.md"]
     },
@@ -1158,7 +1158,7 @@
         "review": "已核对澳大利亚政府 Your Home、CDC/NIOSH、HSE 与 EPA Victoria 一手资料。住宅建议与职业工程原理分别解释，不引入国外法定限值。"
       },
       "ctaTargetId": "meter",
-      "relatedIds": ["hearing-protection", "noise-health", "phone-accuracy", "guide"],
+      "relatedIds": ["hearing-protection","noise-health","phone-accuracy","guide","when-professional-meter"],
       "publishGate": "三语正文、来源、表格与链接静态输出；不承诺固定材料降噪值，不将浏览器差值解释为隔声评级、合规或听力安全证明。",
       "requiredEvidence": ["2026-10-22 核对官方住宅噪音控制与职业工程资料", "三语内容与静态产物检查", "知识目录入口、文章目录、关联链接及桌面和手机浏览器验证"]
     },
@@ -1279,16 +1279,78 @@
       "kind": "article",
       "priority": "P2",
       "locales": {
-        "zh-CN": {"path":"/knowledge/when-to-use-a-sound-level-meter/","wave":"P2","title":"什么时候需要专业声级计或噪声检测？ - 分贝测试","h1":"什么时候需要专业仪器与检测","keywords":["测噪音需要什么仪器","什么时候需要专业噪声检测"]},
-        "en": {"path":"/en/knowledge/when-to-use-a-sound-level-meter/","wave":"P2","title":"When Do You Need a Professional Sound Level Meter? | fenbeiceshi.com","h1":"When to use a professional sound level meter","keywords":["when to use a sound level meter","professional noise measurement requirements"]}
+        "zh-CN": {
+          "path": "/knowledge/when-to-use-a-sound-level-meter/",
+          "wave": "P2",
+          "title": "什么时候需要专业声级计或噪声检测？ - 分贝测试",
+          "h1": "什么时候需要专业声级计或噪声检测？",
+          "keywords": [
+            "什么时候需要噪声检测",
+            "测噪音需要什么仪器",
+            "噪声检测前准备什么"
+          ],
+          "status": "implemented-not-deployed"
+        },
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/when-to-use-a-sound-level-meter/",
+          "wave": "P2",
+          "title": "什麼時候需要專業噪音計或噪音檢測？ - 分貝測試",
+          "h1": "什麼時候需要專業噪音計或噪音檢測？",
+          "keywords": [
+            "什麼時候需要噪音檢測",
+            "噪音計的用途",
+            "噪音檢測前準備"
+          ],
+          "status": "implemented-not-deployed"
+        },
+        "en": {
+          "path": "/en/knowledge/when-to-use-a-sound-level-meter/",
+          "wave": "P2",
+          "title": "When do you need a sound level meter or a noise assessment? - fenbeiceshi.com",
+          "h1": "When do you need a sound level meter or a noise assessment?",
+          "keywords": [
+            "when to get a noise assessment",
+            "do I need a sound level meter",
+            "prepare for a noise assessment"
+          ],
+          "status": "implemented-not-deployed"
+        }
       },
-      "intent": "根据用途判断普通观察和专业测量的边界。",
-      "uniqueValue": "从重复观察、设备验证到特定合规任务建立判断条件，不做无证据商品排名。",
-      "sections": ["先确认用途","需要的量与设备能力","联系适合的专业服务"],
-      "ctaTargetId": "phone-accuracy",
-      "relatedIds": ["phone-accuracy","calibration","china-noise-standards"],
-      "publishGate": "核验设备、方法和用途关系；法规相关例子完成适用范围复核，不伪装提供检测服务。",
-      "requiredEvidence": ["声学仪器和方法的一手资料","涉及合规用途时的当前依据"]
+      "intent": "从生活用途出发，判断自己观察、使用仪器与找专业服务的时机。",
+      "uniqueValue": "用邻里、装修、设备和工作场所例子串起选择、咨询、准备和理解结果；不讲公式或仪器参数，不做品牌排名。",
+      "sections": [
+        "先确认目的",
+        "哪些情况值得找人",
+        "买仪器还是找服务",
+        "预约前的问题",
+        "联系前准备清单",
+        "理解结果与下一步"
+      ],
+      "ctaTargetId": "when-professional-meter",
+      "ctaHash": "prepare",
+      "relatedIds": [
+        "phone-accuracy",
+        "noise-reduction",
+        "china-noise-standards",
+        "workplace-noise-standards"
+      ],
+      "localImplementation": {
+        "status": "implemented-not-deployed",
+        "updated": "2026-10-23",
+        "locales": [
+          "zh-CN",
+          "zh-TW",
+          "en"
+        ],
+        "review": "核对 NIOSH、HSE、澳大利亚政府住宅噪音资料及中国大陆现行法典第 599 条，职业与地区条件分开说明；一般选择指引。"
+      },
+      "publishGate": "已核对一手资料；三语正文、来源、目录及关联链接静态输出，主操作进入联系前清单；不提供检测服务或认可保证，不把网页导出作为正式检测结果。",
+      "requiredEvidence": [
+        "2026-10-23 官方资料与适用范围核对",
+        "三语正文与静态产物检查",
+        "桌面和手机视口、目录、清单锚点及关联链接验证",
+        "docs/验证/专业检测选择三语文章验证.md"
+      ]
     }
   ]
 }

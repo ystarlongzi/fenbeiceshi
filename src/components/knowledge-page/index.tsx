@@ -55,7 +55,7 @@ const articleGroups = [
       "Know what the numbers mean before comparing them.",
       "先弄清數字代表什麼，再判斷怎樣比較。",
     ),
-    articles: ["phone-accuracy", "dbfs-spl"],
+    articles: ["phone-accuracy", "dbfs-spl", "when-professional-meter"],
   },
   {
     id: "reference",

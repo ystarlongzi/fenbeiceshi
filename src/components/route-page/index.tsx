@@ -54,6 +54,29 @@ export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) 
       />
     );
   }
+  if (page.id === "when-professional-meter")
+    return (
+      <ContentPage
+        id={page.id}
+        locale={locale}
+        cta={{
+          title: localize(
+            locale,
+            "准备好再联系",
+            "Prepare before you get in touch",
+            "準備好再聯絡",
+          ),
+          description: localize(
+            locale,
+            "整理声音出现的时间、位置和影响，方便物业、维护或检测人员了解情况。",
+            "Note when and where the sound occurs and what it affects, so the people helping you can understand the problem.",
+            "整理聲音出現的時間、位置和影響，方便物業、維護或檢測人員瞭解情況。",
+          ),
+          href: `${href(page.id, locale)}#prepare`,
+          label: localize(locale, "查看联系前清单", "See what to prepare", "檢視聯絡前清單"),
+        }}
+      />
+    );
   if (page.id === "hearing-protection")
     return (
       <ContentPage

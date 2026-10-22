@@ -5,6 +5,7 @@ import { noiseReduction } from "./noise-reduction.ts";
 import { hearingProtection } from "./hearing-protection.ts";
 import { chinaNoiseStandards } from "./china-noise-standards.ts";
 import { workplaceNoiseStandards } from "./workplace-noise-standards.ts";
+import { professionalMeter } from "./professional-meter.ts";
 import { translations as t, type SiteContent } from "./types.ts";
 
 const mdnAudio = {
@@ -130,7 +131,7 @@ export const articles: SiteContent[] = [
         url: "https://www.cdc.gov/niosh/noise/about/app.html",
       },
     ],
-    related: ["calibration", "dbfs-spl", "microphone-help"],
+    related: ["calibration", "dbfs-spl", "microphone-help", "when-professional-meter"],
   },
   {
     id: "dbfs-spl",
@@ -358,4 +359,5 @@ export const articles: SiteContent[] = [
     ],
     related: ["guide", "privacy", "phone-accuracy"],
   },
+  professionalMeter,
 ];

@@ -261,5 +261,11 @@ export const chinaNoiseStandards: SiteContent = {
       url: "https://niohp.chinacdc.cn/sndt/202511/t20251128_313733.htm",
     },
   ],
-  related: ["workplace-noise-standards", "noise-reduction", "phone-accuracy", "decibel-chart"],
+  related: [
+    "workplace-noise-standards",
+    "noise-reduction",
+    "phone-accuracy",
+    "decibel-chart",
+    "when-professional-meter",
+  ],
 };

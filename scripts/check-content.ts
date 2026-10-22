@@ -26,8 +26,8 @@ const paths = sitePages.flatMap((page) => locales.map((locale) => href(page.id, 
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
-  135,
-  "当前可索引页面为 135 个",
+  138,
+  "当前可索引页面为 138 个",
 );
 assert.equal(sitePages.find((page) => page.id === "records")?.index, false);
 for (const content of contents) {
@@ -154,5 +154,5 @@ for (const page of sitePages.filter((page) => page.index)) {
   for (const locale of locales) assert.equal(candidate.locales[locale].path, href(page.id, locale));
 }
 console.log(
-  `内容检查通过：${contents.length} 个三语正文，135 个可索引 URL，3 个 noindex 功能 URL。`,
+  `内容检查通过：${contents.length} 个三语正文，138 个可索引 URL，3 个 noindex 功能 URL。`,
 );

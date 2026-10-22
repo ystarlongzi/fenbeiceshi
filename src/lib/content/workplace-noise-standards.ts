@@ -269,5 +269,11 @@ export const workplaceNoiseStandards: SiteContent = {
       url: "https://www.boe.es/buscar/doc.php?id=DOUE-L-2003-80227",
     },
   ],
-  related: ["china-noise-standards", "hearing-protection", "noise-health", "noise-reduction"],
+  related: [
+    "china-noise-standards",
+    "hearing-protection",
+    "noise-health",
+    "noise-reduction",
+    "when-professional-meter",
+  ],
 };
