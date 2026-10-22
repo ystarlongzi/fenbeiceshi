@@ -3,7 +3,7 @@ import { readFile, stat } from "node:fs/promises";
 import { resolve, sep, extname } from "node:path";
 
 const root = resolve("out");
-const port = Number(process.env.FENBEI_PREVIEW_PORT || 3100);
+const port = Number(process.env.FENBEI_PREVIEW_PORT || 31031);
 if (!Number.isInteger(port) || port < 1024 || port > 65535)
   throw new Error("预览端口必须在 1024–65535 范围内。");
 await stat(resolve(root, "index.html")).catch(() => {
