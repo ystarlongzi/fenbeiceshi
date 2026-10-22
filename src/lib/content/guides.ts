@@ -5,7 +5,7 @@ export const guides: SiteContent[] = [
     id: "guide",
     slug: "guide",
     kind: "guide",
-    updated: "2026-10-21",
+    updated: "2026-10-22",
     title: t("分贝测试怎么用？", "How do I use the decibel meter?", "分貝測試怎麼用？"),
     description: t(
       "开始测量、切换仪表、进入全屏，以及结束后保存报告的方法。",
@@ -38,9 +38,9 @@ export const guides: SiteContent[] = [
         title: t("02 看懂估算读数", "02 Understand the estimate", "02 看懂估算讀數"),
         paragraphs: [
           t(
-            "默认显示通用估算噪音分贝，并标注未校准。仪表、色带、趋势、平均值和最大最小值使用同一套估算；设备差异可能造成明显偏差。具备参考声级计时，可选用参考校准，替换通用偏移。",
-            "The default is a generic noise estimate, labelled uncalibrated. The meter, colour scale, trend, mean, minimum and maximum share the same estimate. Device differences can cause substantial error. Optional reference calibration replaces the generic offset.",
-            "預設顯示通用估算噪音分貝，並標註未校正。儀表、色帶、趨勢、平均值和最大最小值使用同一套估算；裝置差異可能造成明顯偏差。具備參考聲級計時，可選用參考校正，替換通用偏移。",
+            "默认显示未经专业校准的通用估算噪音分贝，标签为“通用估算 · 未修正”。仪表、色带、趋势、平均值和最大最小值使用同一套估算；设备差异可能造成明显偏差。有参考声级计时，可开启读数修正，直接加减当前估算；标签显示实际修正值，仪表、统计和趋势会一起更新。",
+            "The default is a generic noise estimate without professional calibration, labelled Generic estimate · unadjusted. The meter, colour scale, trend, mean, minimum and maximum share the same estimate. Device differences can cause substantial error. Optional manual adjustment adds to or subtracts from this estimate, showing the applied offset in the badge and updating the meter, statistics and trend together.",
+            "預設顯示未經專業校正的通用估算噪音分貝，標籤為「通用估算 · 未修正」。儀表、色帶、趨勢、平均值和最大最小值使用同一套估算；裝置差異可能造成明顯偏差。有參考聲級計時，可開啟讀數修正，直接加減目前估算；標籤顯示實際修正值，儀表、統計和趨勢會一起更新。",
           ),
         ],
       },
@@ -84,9 +84,9 @@ export const guides: SiteContent[] = [
             "結束後，麥克風音軌會停止。點選“儲存報告”或“匯出資料”時，可在“備註”中選填位置、距離和家電狀態等測量條件；兩處共用備註。可匯出 CSV、Excel、PDF 或複製摘要；摘要包括統計、口徑、備註與最近一段趨勢，不包含錄音。",
           ),
           t(
-            "记录最多保留最近 30 条，只在当前浏览器可见；删除或淘汰记录时会同时清理对应录音。比较记录时，输入设置、估算模型和校准口径需要一致；旧版相对记录继续显示原来的 dBFS，不能与通用估算混比；条件仍需由你核对。均值差不是家电独立声级，也不是窗户的隔声性能。",
-            "Up to 30 recent records are kept in this browser. Deleting or replacing an old record also removes its audio. Comparisons require matching input settings, estimate models and calibration. Legacy relative records retain dBFS and cannot be mixed with generic estimates. You must also check the conditions. A mean difference is not an isolated appliance level or window insulation rating.",
-            "記錄最多保留最近 30 條，只在當前瀏覽器可見；刪除或淘汰記錄時會同時清理對應錄音。比較記錄時，輸入設定、估算模型和校正口徑需要一致；舊版相對記錄繼續顯示原來的 dBFS，不能與通用估算混比；條件仍需由你核對。均值差不是家電獨立聲級，也不是窗戶的隔聲效能。",
+            "记录最多保留最近 30 条，只在当前浏览器可见；删除或淘汰记录时会同时清理对应录音。比较记录时，输入设置、估算模型和修正值需要一致；旧版相对记录继续显示原来的 dBFS，不能与通用估算混比；条件仍需由你核对。均值差不是家电独立声级，也不是窗户的隔声性能。",
+            "Up to 30 recent records are kept in this browser. Deleting or replacing an old record also removes its audio. Comparisons require matching input settings, estimate models and adjustment values. Legacy relative records retain dBFS and cannot be mixed with generic estimates. You must also check the conditions. A mean difference is not an isolated appliance level or window insulation rating.",
+            "記錄最多保留最近 30 條，只在當前瀏覽器可見；刪除或淘汰記錄時會同時清理對應錄音。比較記錄時，輸入設定、估算模型和修正值需要一致；舊版相對記錄繼續顯示原來的 dBFS，不能與通用估算混比；條件仍需由你核對。均值差不是家電獨立聲級，也不是窗戶的隔聲效能。",
           ),
           t(
             "在本机记录页点击某条记录的下载按钮，也会打开报告弹框，选择 CSV、Excel、PDF 或复制摘要；有已保存录音时，还可下载 PCM 或在本机生成 MP3。旧记录不会恢复未曾保存的录音。弹框内修改的备注仅用于本次导出，不会更改原记录。浏览器清理网站数据或回收存储时可能删除报告与录音，请下载重要文件留存。",
@@ -108,77 +108,78 @@ export const guides: SiteContent[] = [
     id: "calibration",
     slug: "calibration",
     kind: "guide",
-    updated: "2026-10-21",
+    updated: "2026-10-22",
     title: t(
-      "有参考声级计，怎样校准？",
-      "How do I calibrate with a reference meter?",
-      "有參考聲級計，怎樣校正？",
+      "测量读数怎么调高或调低？",
+      "How do I adjust the reading up or down?",
+      "測量讀數怎麼調高或調低？",
     ),
     description: t(
-      "使用参考声级计建立单点估算关系，了解输入要求、有效条件和参考校准的限制。",
-      "Establish a single-point estimate with a reference sound level meter and understand its input requirements and limits.",
-      "使用參考聲級計建立單點估算關係，瞭解輸入要求、有效條件和參考校正的限制。",
+      "直接加减当前估算读数，了解正负修正、实时生效、重置及对照声级计的方法。",
+      "Add to or subtract from the current estimate, with live adjustments, reset and a reference-meter example.",
+      "直接加減目前估算讀數，瞭解正負修正、即時套用、重設及對照聲級計的方法。",
     ),
     takeaway: t(
-      "参考校准是可选操作。默认通用估算不要求参考设备；有参考声级计时，可以用当前输入与参考读数建立偏移，替换通用估算假设。它不认证设备，也不自动实现 A 计权、频响补偿或法规测量。",
-      "Reference calibration is optional. The default generic estimate does not require another device. A reference meter can establish an offset for the active input, replacing the generic assumption. This does not certify the device or implement A weighting, frequency correction or compliance measurement.",
-      "參考校正是可選操作。預設通用估算不要求參考裝置；有參考聲級計時，可以用當前輸入與參考讀數建立偏移，替換通用估算假設。它不認證裝置，也不自動實現 A 計權、頻響補償或法規測量。",
+      "在“测量设置”中开启“读数修正”，从 0 dB 开始直接加减，不需要再点击应用。正数调高，负数调低；例如当前 60 dB，设置 +5 dB 后显示约 65 dB。手动修正仍是未校准估算。",
+      "Enable Adjust reading in Measurement settings and add or subtract from 0 dB. Changes apply immediately, with no Apply button. Positive raises the reading; negative lowers it. For example, 60 dB becomes about 65 dB with +5 dB. This remains an uncalibrated estimate.",
+      "在「測量設定」中開啟「讀數修正」，從 0 dB 開始直接加減，不需要再點選套用。正數調高，負數調低；例如目前 60 dB，設定 +5 dB 後顯示約 65 dB。手動修正仍是未校正估算。",
     ),
     sections: [
       {
         id: "need",
-        title: t("你需要哪些条件？", "What do you need?", "你需要哪些條件？"),
+        title: t("什么时候需要调整？", "When should I adjust it?", "什麼時候需要調整？"),
         paragraphs: [
           t(
-            "使用适合当前声音范围、具备有效校准记录的参考声级计。两台设备应在接近的位置、相同方向观察稳定声源，避免遮挡、风吹和手持摩擦。不要把另一个未知准确度的网页数字作为可靠参考。",
-            "Use a reference sound level meter suitable for the current range, with a valid calibration record. Observe a stable source in nearby positions and matching orientations, avoiding wind and handling noise. An unverified number from another webpage is not a reliable reference.",
-            "使用適合當前聲音範圍、具備有效校正記錄的參考聲級計。兩臺裝置應在接近的位置、相同方向觀察穩定聲源，避免遮擋、風吹和手持摩擦。不要把另一個未知準確度的網頁數字作為可靠參考。",
+            "只想观察声音变化，可以保持默认的通用估算。有适合当前声音范围、具备有效校准记录的参考声级计时，可在接近的位置、相同朝向观察稳定声源，先输入 0，再用“参考读数 − 网页读数”计算修正值。例如网页 60 dB、参考仪器 65 dB，填写 +5；参考仪器 55 dB，则填写 −5。",
+            "For observing changes, you can keep the default estimate. With a suitable reference sound level meter that has a valid calibration record, observe a stable source in nearby positions and matching orientations. Enter 0 first, then subtract the browser reading from the reference reading. If the browser shows 60 dB and the meter shows 65 dB, enter +5; if the meter shows 55 dB, enter −5.",
+            "只想觀察聲音變化，可以保持預設的通用估算。有適合目前聲音範圍、具備有效校正記錄的參考聲級計時，可在接近的位置、相同朝向觀察穩定聲源，先輸入 0，再用「參考讀數 − 網頁讀數」計算修正值。例如網頁 60 dB、參考儀器 65 dB，填寫 +5；參考儀器 55 dB，則填寫 −5。",
+          ),
+          t(
+            "安静的房间、另一个网页或常见声音对照表都不能提供可靠的校准值。没有参考依据时，不要为了匹配预期数字随意调整；单次对照也不能证明整个频率和声级范围都准确。",
+            "A quiet room, another webpage or an everyday-sound chart is not a reliable calibration reference. Avoid adjusting merely to match an expected number. One comparison does not validate accuracy across all frequencies and levels.",
+            "安靜的房間、另一個網頁或常見聲音對照表都不能提供可靠的校正值。沒有參考依據時，不要為了符合預期數字隨意調整；單次對照也不能證明整個頻率和聲級範圍都準確。",
           ),
         ],
       },
       {
         id: "steps",
-        title: t("怎样输入参考读数？", "How do I enter a reference reading?", "怎樣輸入參考讀數？"),
+        title: t("怎样直接加减读数？", "How do I change the reading?", "怎樣直接加減讀數？"),
         paragraphs: [
           t(
-            "先开始一次真实测量，确认输入稳定且没有过载提示。在“测量设置”中开启“参考校准”，填写参考声级计读数与来源，再建立参考关系。手机或全屏时，先点击“设置”打开抽屉。工具接受 20–120 dB 的参考值，这只是输入范围，不代表已验证的测量量程。",
-            "Begin a real measurement and confirm a stable input without an overload warning. Enable Reference calibration in Measurement settings, enter the reference reading and source, then set the reference. On a phone or in fullscreen, open Settings first. The accepted 20–120 dB range is an input constraint, not a validated measurement range.",
-            "先開始一次真實測量，確認輸入穩定且沒有過載提示。在“測量設定”中開啟“參考校正”，填寫參考聲級計讀數與來源，再建立參考關係。手機或全螢幕時，先點選“設定”開啟抽屜。工具接受 20–120 dB 的參考值，這只是輸入範圍，不代表已驗證的測量量程。",
+            "在测量设置中开启“读数修正”，拖动滑块、输入数值或使用键盘上下键。范围为 −50 至 +50 dB，步长 0.1。手机或全屏时先打开“设置”抽屉。开始前可以预设；测量中修改会立即生效，无需填写来源或点击应用。",
+            "Enable Adjust reading in settings, then move the slider, enter a value or use the up and down arrow keys. The range is −50 to +50 dB in 0.1 steps. On phones or in fullscreen, open the Settings drawer first. You can preset it before starting; changes during measurement apply immediately without a source field or Apply button.",
+            "在測量設定中開啟「讀數修正」，拖動滑桿、輸入數值或使用鍵盤上下鍵。範圍為 −50 至 +50 dB，步長 0.1。手機或全螢幕時先開啟「設定」抽屜。開始前可以預設；測量中修改會立即套用，無需填寫來源或點選套用。",
           ),
           t(
-            "估算值由当前 dBFS 加上参考偏移得到。参考偏移会替换通用模型的 +100，应用于本次输入的仪表、色带、趋势、统计、记录和导出；不会在通用偏移上再次叠加。结果明确标为估算 dB，而不是 dBA。参考值、来源和时间随摘要保留。",
-            "The estimate adds the reference offset to the current dBFS value. The reference offset replaces the generic +100 in the meter, scale, trend, statistics, records and exports; the two offsets are not added together. The result is labelled estimated dB, not dBA, and summaries keep the reference, source and time.",
-            "估算值由當前 dBFS 加上參考偏移得到。參考偏移會替換通用模型的 +100，應用於本次輸入的儀表、色帶、趨勢、統計、記錄和匯出；不會在通用偏移上再次疊加。結果明確標為估算 dB，而不是 dBA。參考值、來源和時間隨摘要保留。",
+            "修正值始终加在通用估算上，而不是每次叠加到上次结果。例如从 +5 改成 +3，读数会比默认高 3 dB。当前仪表、色带、整次最低／最高／平均及已有趋势一起更新。输入为空、超范围或步长不符时会提示，并保留上次有效修正；输入 0 或关闭修正可恢复默认值。",
+            "The adjustment always applies to the generic estimate, without accumulating previous edits. Changing +5 to +3 leaves the reading 3 dB above the default. The meter, scale, session minimum, maximum, mean and existing trend update together. Empty, out-of-range or off-step input shows an error and keeps the last valid adjustment. Enter 0 or switch adjustment off to restore the default.",
+            "修正值始終加在通用估算上，而不是每次疊加到上次結果。例如從 +5 改成 +3，讀數會比預設高 3 dB。目前儀表、色帶、整次最低／最高／平均及已有趨勢一起更新。輸入為空、超出範圍或步長不符時會提示，並保留上次有效修正；輸入 0 或關閉修正可恢復預設值。",
           ),
         ],
       },
       {
         id: "validity",
-        title: t(
-          "什么时候需要重新校准？",
-          "When do I need to calibrate again?",
-          "什麼時候需要重新校正？",
-        ),
+        title: t("修正会保留多久？", "How long is the adjustment kept?", "修正會保留多久？"),
         paragraphs: [
           t(
-            "首版参考关系仅在当前页面停留期间保留；刷新后恢复通用估算。切换麦克风会清除参考，重新开始时也会核对输入与音频处理设置。即使设置看似一致，声源频谱、音量或系统自动处理变化仍可能影响估算。",
-            "The reference lasts only while this page remains open; refreshing restores the generic estimate. Switching microphones clears it, and a new capture checks input and processing settings. Even matching settings cannot remove changes caused by source spectrum, level or system processing.",
-            "首版參考關係僅在當前頁面停留期間保留；重新整理後恢復通用估算。切換麥克風會清除參考，重新開始時也會核對輸入與音訊處理設定。即使設定看似一致，聲源頻譜、音量或系統自動處理變化仍可能影響估算。",
+            "修正仅在当前页面保留；刷新、切换麦克风或重新开始时发现输入设置改变，都会重置。演示和等待授权期间不能调整。测量结束后结果固定，需重新测量才能继续修改；保存和导出保留结束时的修正值、模型与统一换算后的统计和趋势，原始音频不变。历史参考校准记录仍保留原来的参考、来源与计算方式，不会改写为手动修正。",
+            "The adjustment stays on this page only. Reloading, changing microphones or detecting changed input settings on restart resets it. Adjustment is unavailable during a demo or permission request. Finished results are fixed; start another measurement to edit again. Saving and exporting keep the final adjustment, model, statistics and trend; raw audio is unchanged. Legacy reference-calibrated records retain their original reference, source and calculation.",
+            "修正僅在目前頁面保留；重新整理、切換麥克風或重新開始時發現輸入設定改變，都會重設。演示和等待授權期間不能調整。測量結束後結果固定，需重新測量才能繼續修改；儲存和匯出保留結束時的修正值、模型與統一換算後的統計和趨勢，原始音訊不變。歷史參考校正記錄仍保留原來的參考、來源與計算方式，不會改寫為手動修正。",
           ),
         ],
       },
       {
         id: "limits",
         title: t(
-          "一个偏移不能解决所有误差",
-          "One offset cannot correct every error",
-          "一個偏移不能解決所有誤差",
+          "调过读数就准确了吗？",
+          "Does adjustment make it accurate?",
+          "調過讀數就準確了嗎？",
         ),
         paragraphs: [
           t(
-            "单点关系不能验证整个频率和声级范围，也不能恢复削波信号。需要跨设备比较、标准测量、健康或法律判断时，请使用适合该任务的仪器和方法。你可以清除参考，恢复通用估算并继续观察同一输入的变化。",
-            "A single point does not validate every frequency or level, or restore clipped input. For comparisons across devices, standardized measurements or health and legal decisions, use suitable instruments and methods. Clear the reference to restore generic estimates and continue observing changes in one input.",
-            "單點關係不能驗證整個頻率和聲級範圍，也不能恢復削波訊號。需要跨裝置比較、標準測量、健康或法律判斷時，請使用適合該任務的儀器和方法。你可以清除參考，恢復通用估算並繼續觀察同一輸入的變化。",
+            "手动加减只改变显示尺度，不修复削波，也不能消除麦克风频响、增益和系统处理误差。标签显示实际生效值，例如“手动修正 · +5.0 dB”；开启且设为 0 时显示“手动修正 · 0.0 dB”，关闭后恢复“通用估算 · 未修正”。单位仍为估算 dB，不是 dBA，也不代表专业校准。需要跨设备比较或专业测量时，请使用适合该任务的仪器和方法。",
+            "Manual adjustment changes the display scale. It cannot repair clipping or remove microphone-response, gain or processing errors. The badge shows the applied value, such as Manually adjusted · +5.0 dB. Enabled at zero, it shows Manually adjusted · 0.0 dB; switching it off restores Generic estimate · unadjusted. The unit remains estimated dB, not dBA or professional calibration. Use suitable instruments and methods for cross-device comparisons or professional measurements.",
+            "手動加減只改變顯示尺度，不修復削波，也不能消除麥克風頻率響應、增益和系統處理誤差。標籤顯示實際套用值，例如「手動修正 · +5.0 dB」；開啟且設為 0 時顯示「手動修正 · 0.0 dB」，關閉後恢復「通用估算 · 未修正」。單位仍為估算 dB，不是 dBA，也不代表專業校正。需要跨裝置比較或專業測量時，請使用適合該任務的儀器和方法。",
           ),
         ],
       },
@@ -228,9 +229,9 @@ export const guides: SiteContent[] = [
         title: t("方法保持可解释", "Keep the method understandable", "方法保持可解釋"),
         paragraphs: [
           t(
-            "工具在浏览器本机处理麦克风输入，默认将 RMS dBFS 加上 100，提供标注未校准的粗略估算。这个通用偏移是产品假设，没有通过跨设备声学精度验证；可选参考校准会替换它。声音知识区说明公式、来源与使用限制。它不是经认证的声级计，不提供法定检测或个人健康结论。",
-            "Microphone input is processed in your browser. The default adds 100 to RMS dBFS for a labelled, uncalibrated estimate. This generic offset is a product assumption without cross-device acoustic validation. Optional reference calibration replaces it. The guides explain the calculations, sources and limits. This is not a certified meter or a legal or personal health assessment.",
-            "工具在瀏覽器本機處理麥克風輸入，預設將 RMS dBFS 加上 100，提供標註未校正的粗略估算。這個通用偏移是產品假設，沒有通過跨裝置聲學精度驗證；可選參考校正會替換它。聲音知識區說明公式、來源與使用限制。它不是經認證的聲級計，不提供法定檢測或個人健康結論。",
+            "工具在浏览器本机处理麦克风输入，默认将 RMS dBFS 加上 100，提供未经专业校准的粗略估算。这个通用偏移是产品假设，没有通过跨设备声学精度验证；可选的读数修正在它的基础上实时加减。声音知识区说明公式、来源与使用限制。它不是经认证的声级计，不提供法定检测或个人健康结论。",
+            "Microphone input is processed in your browser. The default adds 100 to RMS dBFS for an estimate without professional calibration. This generic offset is a product assumption without cross-device acoustic validation. Optional manual adjustment adds to or subtracts from it live. The guides explain the calculations, sources and limits. This is not a certified meter or a legal or personal health assessment.",
+            "工具在瀏覽器本機處理麥克風輸入，預設將 RMS dBFS 加上 100，提供未經專業校正的粗略估算。這個通用偏移是產品假設，沒有通過跨裝置聲學精度驗證；選用的讀數修正在它的基礎上即時加減。聲音知識區說明公式、來源與使用限制。它不是經認證的聲級計，不提供法定檢測或個人健康結論。",
           ),
         ],
       },
@@ -265,9 +266,9 @@ export const guides: SiteContent[] = [
       "你的聲音，留在你的裝置上",
     ),
     description: t(
-      "了解麦克风权限、音频本机处理、本机记录、参考校准和删除方式。",
-      "Understand microphone access, on-device processing, local records, reference calibration and deletion.",
-      "瞭解麥克風權限、音訊本機處理、本機記錄、參考校正和刪除方式。",
+      "了解麦克风权限、音频本机处理、本机记录、读数修正和删除方式。",
+      "Understand microphone access, on-device processing, local records, reading adjustments and deletion.",
+      "瞭解麥克風權限、音訊本機處理、本機記錄、讀數修正和刪除方式。",
     ),
     takeaway: t(
       "本站不上传音频。同步录音默认关闭；开启后可播放、下载，并在保存报告时将录音留在当前浏览器。删除或淘汰记录时会清理关联录音；导出的数据摘要不包含音频。",
@@ -301,9 +302,9 @@ export const guides: SiteContent[] = [
         title: t("本机报告与删除", "Local reports and deletion", "本機報告與刪除"),
         paragraphs: [
           t(
-            "保存操作在当前浏览器的 localStorage 中保留最多 30 条报告数据，包括时间、时长、输入信息、统计、备注、最近趋势、估算模型及参考信息；选存录音另外保存在 IndexedDB，通过报告 ID 关联。旧记录保留原口径，不会被改写成估算分贝，也无法恢复未曾保存的音频。报告与录音不会自动同步到其他浏览器或设备。",
-            "Saving keeps up to 30 reports in this browser's localStorage, including time, duration, input information, statistics, notes, recent trend, estimate model and reference information. Optional audio is stored separately in IndexedDB, linked by report ID. Legacy records keep their original scale and cannot recover audio that was never saved. Reports and audio do not automatically sync to another device or browser.",
-            "儲存操作在當前瀏覽器的 localStorage 中保留最多 30 條報告資料，包括時間、時長、輸入資訊、統計、備註、最近趨勢、估算模型及參考資訊；選存錄音另外儲存在 IndexedDB，通過報告 ID 關聯。舊記錄保留原口徑，不會被改寫成估算分貝，也無法恢復未曾儲存的音訊。報告與錄音不會自動同步到其他瀏覽器或裝置。",
+            "保存操作在当前浏览器的 localStorage 中保留最多 30 条报告数据，包括时间、时长、输入信息、统计、备注、最近趋势、估算模型、手动修正值及历史参考信息；选存录音另外保存在 IndexedDB，通过报告 ID 关联。旧记录保留原口径，不会被改写成估算分贝，也无法恢复未曾保存的音频。报告与录音不会自动同步到其他浏览器或设备。",
+            "Saving keeps up to 30 reports in this browser's localStorage, including time, duration, input information, statistics, notes, recent trend, estimate model, manual adjustment and legacy reference information. Optional audio is stored separately in IndexedDB, linked by report ID. Legacy records keep their original scale and cannot recover audio that was never saved. Reports and audio do not automatically sync to another device or browser.",
+            "儲存操作在當前瀏覽器的 localStorage 中保留最多 30 條報告資料，包括時間、時長、輸入資訊、統計、備註、最近趨勢、估算模型、手動修正值及歷史參考資訊；選存錄音另外儲存在 IndexedDB，通過報告 ID 關聯。舊記錄保留原口徑，不會被改寫成估算分貝，也無法恢復未曾儲存的音訊。報告與錄音不會自動同步到其他瀏覽器或裝置。",
           ),
           t(
             "本机记录页可以逐条确认删除，并清理对应录音；保存第 31 条时会淘汰最早保存的记录及其录音。清除本站数据也会删除报告与录音，浏览器还可能因空间紧张而回收存储，请先下载重要文件。容量不足或存储异常会提示，已有报告不会被静默覆盖；保存时可取消勾选录音，仅保存数据。",
@@ -324,12 +325,12 @@ export const guides: SiteContent[] = [
       },
       {
         id: "reference",
-        title: t("参考关系与导出", "Reference data and exports", "參考關係與匯出"),
+        title: t("读数修正与导出", "Reading adjustments and exports", "讀數修正與匯出"),
         paragraphs: [
           t(
-            "参考关系仅在当前页面停留期间使用，刷新后不自动沿用。摘要会保留它的来源和数值。本机记录中的输入签名用于检查可比性；导出文件不包含浏览器内部设备标识。导出后的文件由你自行保存和分享。",
-            "A reference lasts only while this page remains open, though a saved summary keeps its source and value. Local input signatures help check comparability; exported files exclude the browser's internal device identifier. You control storage and sharing of exported files.",
-            "參考關係僅在當前頁面停留期間使用，重新整理後不自動沿用。摘要會保留它的來源和數值。本機記錄中的輸入簽名用於檢查可比性；匯出檔案不包含瀏覽器內部裝置標識。匯出後的檔案由你自行儲存和分享。",
+            "读数修正仅在当前页面使用，刷新后恢复默认估算。摘要保留结束时的手动修正值；旧参考校准报告继续保留原有来源和数值。本机记录中的输入签名用于检查可比性；导出文件不包含浏览器内部设备标识。导出后的文件由你自行保存和分享。",
+            "Manual adjustment lasts only while this page remains open. Saved summaries keep the final adjustment; legacy reference-calibrated reports retain their source and value. Local input signatures help check comparability; exported files exclude the browser's internal device identifier. You control storage and sharing of exported files.",
+            "讀數修正僅在目前頁面使用，重新整理後恢復預設估算。摘要保留結束時的手動修正值；舊參考校正報告繼續保留原有來源和數值。本機記錄中的輸入簽名用於檢查可比性；匯出檔案不包含瀏覽器內部裝置標識。匯出後的檔案由你自行儲存和分享。",
           ),
         ],
       },

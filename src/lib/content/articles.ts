@@ -18,12 +18,12 @@ export const articles: SiteContent[] = [
     id: "phone-accuracy",
     slug: "knowledge/phone-decibel-accuracy",
     kind: "article",
-    updated: "2026-10-21",
+    updated: "2026-10-22",
     title: t("手机测分贝准吗？", "How accurate is a phone decibel meter?", "手機測分貝準嗎？"),
     description: t(
-      "了解手机麦克风、自动处理与参考校准的影响，区分通用噪音估算、参考校准和专业检测。",
-      "Understand microphone differences, audio processing and reference calibration before using a phone or browser reading.",
-      "瞭解手機麥克風、自動處理與參考校正的影響，區分通用噪音估算、參考校正和專業檢測。",
+      "了解手机麦克风、自动处理与手动修正的影响，区分通用噪音估算、读数修正和专业检测。",
+      "Understand microphone differences, audio processing and manual adjustments before using a phone or browser reading.",
+      "瞭解手機麥克風、自動處理與手動修正的影響，區分通用噪音估算、讀數修正和專業檢測。",
     ),
     takeaway: t(
       "同一设备、同一设置下的重复观察，可以帮助发现声音变化。没有经过验证的参考关系时，数字输入电平不等于环境声压级。",
@@ -41,9 +41,9 @@ export const articles: SiteContent[] = [
             "比較空調開關前後、記錄某個位置的變化，與判斷是否符合法規，是不同的任務。前者需要固定條件並反覆觀察；後者還需要符合要求的儀器、測量方法和適用標準。",
           ),
           t(
-            "本站默认显示标注未校准的通用估算噪音分贝，方便观察声音变化。这个通用映射尚未通过跨设备声学精度验证；可选参考校准能调整当前设备的偏移，但不会使浏览器成为认证声级计。",
-            "This tool defaults to a labelled, uncalibrated noise estimate for observing change. The generic mapping has not undergone cross-device acoustic accuracy validation. Optional reference calibration adjusts the offset for the active device, without certifying the browser as a sound level meter.",
-            "本站預設顯示標註未校正的通用估算噪音分貝，方便觀察聲音變化。這個通用對映尚未通過跨裝置聲學精度驗證；可選參考校正能調整當前裝置的偏移，但不會使瀏覽器成為認證聲級計。",
+            "本站默认显示未经专业校准的通用估算噪音分贝，方便观察声音变化。这个通用映射尚未通过跨设备声学精度验证；可选的读数修正可实时加减当前估算，但不会使浏览器成为认证声级计。",
+            "This tool defaults to a noise estimate without professional calibration for observing change. The generic mapping has not undergone cross-device acoustic accuracy validation. Optional manual adjustment changes the estimate live, without certifying the browser as a sound level meter.",
+            "本站預設顯示未經專業校正的通用估算噪音分貝，方便觀察聲音變化。這個通用對映尚未通過跨裝置聲學精度驗證；選用的讀數修正可即時加減目前估算，但不會使瀏覽器成為認證聲級計。",
           ),
         ],
       },
@@ -82,15 +82,15 @@ export const articles: SiteContent[] = [
       {
         id: "reference",
         title: t(
-          "参考校准能改变什么？",
-          "What does a reference calibration change?",
-          "參考校正能改變什麼？",
+          "手动修正能改变什么？",
+          "What does manual adjustment change?",
+          "手動修正能改變什麼？",
         ),
         paragraphs: [
           t(
-            "单点校准用一个参考读数建立偏移关系，只调整显示尺度。它不能自动修正不同频率、不同声级下的麦克风响应，也不能消除增益变化或削波。更换输入和处理设置后，需要重新建立参考关系。",
-            "A single reference point establishes an offset in the displayed scale. It cannot correct microphone response across frequencies and levels, eliminate gain changes or repair clipping. Establish a new reference after changing the input or processing settings.",
-            "單點校正用一個參考讀數建立偏移關係，只調整顯示尺度。它不能自動修正不同頻率、不同聲級下的麥克風響應，也不能消除增益變化或削波。更換輸入和處理設定後，需要重新建立參考關係。",
+            "读数修正直接在通用估算上加减，只改变显示尺度。它不能自动修正不同频率、不同声级下的麦克风响应，也不能消除增益变化或削波。更换麦克风或输入设置后会重置，需重新核对修正值。",
+            "Manual adjustment adds to or subtracts from the generic estimate, changing only its display scale. It cannot correct microphone response across frequencies and levels, eliminate gain changes or repair clipping. Changing the microphone or input settings resets the adjustment; check it again.",
+            "讀數修正直接在通用估算上加減，只改變顯示尺度。它不能自動修正不同頻率、不同聲級下的麥克風響應，也不能消除增益變化或削波。更換麥克風或輸入設定後會重設，需重新核對修正值。",
           ),
           t(
             "研究或机构应用的准确度，属于其特定硬件、软件与验证条件。不能把另一个应用的误差范围，直接作为本网页或所有手机的误差承诺。",
@@ -108,9 +108,9 @@ export const articles: SiteContent[] = [
         ),
         paragraphs: [
           t(
-            "只想观察变化，可以先使用通用估算，并固定条件。具备参考声级计时，可按校准方法调整当前设备的偏移。涉及法律、职业安全或健康决定时，应选择适合该用途的专业测量，不用此网页读数下结论。",
-            "For observing change, start with the generic estimate and fixed conditions. With a reference meter, follow the calibration guide to adjust the active device offset. For legal, occupational or health decisions, use an appropriate professional assessment.",
-            "只想觀察變化，可以先使用通用估算，並固定條件。具備參考聲級計時，可按校正方法調整當前裝置的偏移。涉及法律、職業安全或健康決定時，應選擇適合該用途的專業測量，不用此網頁讀數下結論。",
+            "只想观察变化，可以先使用通用估算，并固定条件。具备参考声级计时，可按读数修正说明实时调整估算值。涉及法律、职业安全或健康决定时，应选择适合该用途的专业测量，不用此网页读数下结论。",
+            "For observing change, start with the generic estimate and fixed conditions. With a reference meter, follow the adjustment guide to change the estimate live. For legal, occupational or health decisions, use an appropriate professional assessment.",
+            "只想觀察變化，可以先使用通用估算，並固定條件。具備參考聲級計時，可按讀數修正說明即時調整估算值。涉及法律、職業安全或健康決定時，應選擇適合該用途的專業測量，不用此網頁讀數下結論。",
           ),
         ],
       },
@@ -128,16 +128,16 @@ export const articles: SiteContent[] = [
     id: "dbfs-spl",
     slug: "knowledge/dbfs-vs-db-spl",
     kind: "article",
-    updated: "2026-10-21",
+    updated: "2026-10-22",
     title: t(
       "为什么网页读数和声级计不一样？",
       "Why does a browser reading differ from a sound level meter?",
       "為什麼網頁讀數和聲級計不一樣？",
     ),
     description: t(
-      "解释数字音频电平与环境声压级为什么不能直接换算，以及本站通用估算、参考校准与原始输入的关系。",
+      "解释数字音频电平与环境声压级为什么不能直接换算，以及本站通用估算、手动修正与原始输入的关系。",
       "Learn why digital audio level cannot be universally converted to sound pressure level, and how this tool labels each mode.",
-      "解釋數字音訊電平與環境聲壓級為什麼不能直接換算，以及本站通用估算、參考校正與原始輸入的關係。",
+      "解釋數字音訊電平與環境聲壓級為什麼不能直接換算，以及本站通用估算、手動修正與原始輸入的關係。",
     ),
     takeaway: t(
       "网页先读到麦克风产生的数字输入，而声级计测量的是声压。前者通常用 dBFS 表示，后者常写作 dB SPL。没有当前设备的可靠参考关系，就不能把两个数字直接当成同一回事。",
@@ -188,9 +188,9 @@ export const articles: SiteContent[] = [
       {
         id: "estimate",
         title: t(
-          "默认估算和校准后的读数有什么不同？",
-          "What changes when I calibrate the estimate?",
-          "預設估算和校正後的讀數有什麼不同？",
+          "手动修正如何影响估算读数？",
+          "How does manual adjustment change the estimate?",
+          "手動修正如何影響估算讀數？",
         ),
         paragraphs: [
           t(
@@ -199,9 +199,9 @@ export const articles: SiteContent[] = [
             "本站預設通用模型為 generic-rms-v1：估算 dB = RMS dBFS + 100。例如原始 -40 dBFS 顯示約 60 dB。100 是用於粗略顯示的產品假設，不是裝置靈敏度或通用聲壓換算常數，沒有獲得跨裝置聲學精度驗證。儀表 0–120 的刻度也不代表經過驗證的測量量程。",
           ),
           t(
-            "使用合适的参考声级计，在位置和声源保持稳定时，对照当前输入建立偏移。本站会保留参考值、来源、时间和输入设置。显示的估算值仍是设备专属的单点对应，不是 dBA 或认证测量。",
-            "Use a suitable reference meter while position and source remain stable, then establish an offset for the active input. This tool keeps the reference, source, time and input settings. The estimate remains a device-specific single-point relationship, not dBA or a certified measurement.",
-            "使用合適的參考聲級計，在位置和聲源保持穩定時，對照當前輸入建立偏移。本站會保留參考值、來源、時間和輸入設定。顯示的估算值仍是裝置專屬的單點對應，不是 dBA 或認證測量。",
+            "开启读数修正后，可在通用估算上实时加减 −50 至 +50 dB。例如原始 −40 dBFS 默认显示约 60 dB，修正 +5 后约为 65 dB。仪表、统计和趋势一起更新，报告保留修正值与模型。手动修正不是 dBA 或认证测量，历史参考校准记录仍按原口径显示。",
+            "Enable Adjust reading to add or subtract −50 to +50 dB from the generic estimate live. Raw −40 dBFS normally displays about 60 dB; +5 makes it about 65 dB. The meter, statistics and trend update together, and reports retain the adjustment and model. This is not dBA or a certified measurement. Legacy reference-calibrated records retain their original scale.",
+            "開啟讀數修正後，可在通用估算上即時加減 −50 至 +50 dB。例如原始 −40 dBFS 預設顯示約 60 dB，修正 +5 後約為 65 dB。儀表、統計和趨勢一起更新，報告保留修正值與模型。手動修正不是 dBA 或認證測量，歷史參考校正記錄仍按原口徑顯示。",
           ),
         ],
       },
@@ -241,7 +241,7 @@ export const articles: SiteContent[] = [
     id: "microphone-help",
     slug: "knowledge/microphone-permission",
     kind: "article",
-    updated: "2026-10-21",
+    updated: "2026-10-22",
     title: t("麦克风打不开怎么办？", "Why isn't my microphone working?", "麥克風打不開怎麼辦？"),
     description: t(
       "处理网页麦克风授权等待、被拒绝、设备未找到、占用和系统中断，恢复分贝测试操作。",
@@ -323,9 +323,9 @@ export const articles: SiteContent[] = [
         ),
         paragraphs: [
           t(
-            "手机系统可能暂停后台页面或音频上下文。首版在页面离开前台或输入结束时停止本次测量，保留已取得的有效摘要。它不承诺锁屏或后台整夜监测。返回后重新开始，并核对输入与参考关系。",
-            "Mobile systems can suspend a background page or its audio context. This version stops when the page leaves the foreground or the input ends, keeping the valid summary. It does not promise overnight or lock-screen monitoring. Start again and check the input and reference.",
-            "手機系統可能暫停背景頁面或音訊上下文。首版在頁面離開前臺或輸入結束時停止本次測量，保留已取得的有效摘要。它不承諾鎖定螢幕或背景整夜監測。返回後重新開始，並核對輸入與參考關係。",
+            "手机系统可能暂停后台页面或音频上下文。首版在页面离开前台或输入结束时停止本次测量，保留已取得的有效摘要。它不承诺锁屏或后台整夜监测。返回后重新开始，并核对输入与读数修正。",
+            "Mobile systems can suspend a background page or its audio context. This version stops when the page leaves the foreground or the input ends, keeping the valid summary. It does not promise overnight or lock-screen monitoring. Start again and check the input and adjustment.",
+            "手機系統可能暫停背景頁面或音訊上下文。首版在頁面離開前臺或輸入結束時停止本次測量，保留已取得的有效摘要。它不承諾鎖定螢幕或背景整夜監測。返回後重新開始，並核對輸入與讀數修正。",
           ),
         ],
       },

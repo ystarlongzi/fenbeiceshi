@@ -38,9 +38,9 @@ export function ContentPage({
     title: localize(locale, "开始一次测量", "Try a measurement", "開始一次測量"),
     description: localize(
       locale,
-      "先看估算噪音分贝，有条件时再选用参考校准。",
-      "Start with a noise estimate. Add reference calibration when available.",
-      "先看估算噪音分貝，有條件時再選用參考校正。",
+      "先看估算噪音分贝，需要时可手动加减读数。",
+      "Start with a noise estimate. Adjust the reading manually when needed.",
+      "先看估算噪音分貝，需要時可手動加減讀數。",
     ),
     href: `${href("meter", locale)}#measure`,
     label: localize(locale, "打开测量工具", "Open the meter", "開啟測量工具"),

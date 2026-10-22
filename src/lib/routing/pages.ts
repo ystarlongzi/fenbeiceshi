@@ -29,9 +29,9 @@ export const sitePages: SitePage[] = [
       "線上分貝測試與噪音觀察工具",
     ),
     description: translations(
-      "使用麦克风查看估算噪音分贝，切换指针、数显与条形，进入全屏并保存本机摘要。默认通用估算，参考校准可选，设备差异会影响结果。",
-      "View estimated noise levels, switch between dial, digital and bar displays, use fullscreen and save local summaries. Generic estimates by default, with optional reference calibration and device-dependent results.",
-      "使用麥克風檢視估算噪音分貝，切換指針、數字顯示與條形，進入全螢幕並儲存本機摘要。預設通用估算，參考校正可選，裝置差異會影響結果。",
+      "使用麦克风查看估算噪音分贝，切换指针、数显与条形，进入全屏并保存本机摘要。默认通用估算，可选手动加减读数，设备差异会影响结果。",
+      "View estimated noise levels, switch between dial, digital and bar displays, use fullscreen and save local summaries. Generic estimates by default, with optional manual adjustment and device-dependent results.",
+      "使用麥克風檢視估算噪音分貝，切換指針、數字顯示與條形，進入全螢幕並儲存本機摘要。預設通用估算，可選手動加減讀數，裝置差異會影響結果。",
     ),
     index: true,
   },

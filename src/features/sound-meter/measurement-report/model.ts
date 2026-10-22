@@ -1,5 +1,6 @@
 import { publicSummary } from "../../records/storage.ts";
 import { meterCopy } from "../copy.ts";
+import { modeLabel } from "../mode-label.ts";
 import { displayStats, formatReading, measurementBasis } from "../readings.ts";
 import type { Locale, Measurement } from "../types.ts";
 import { reportCopy } from "./copy.ts";
@@ -17,12 +18,7 @@ export function createReport(record: Measurement, locale: Locale) {
   const meter = meterCopy[locale];
   const basis = measurementBasis(record);
   const stats = displayStats(record.stats, basis);
-  const mode =
-    basis.mode === "relative"
-      ? meter.relative
-      : basis.mode === "generic-estimate"
-        ? meter.generic
-        : meter.estimate;
+  const mode = modeLabel(basis, meter);
   const rounded = (value: number | null) => (value === null ? "" : Number(value.toFixed(1)));
   const rows: ReportRow[] = [
     [copy.started, summary.startedAt],
@@ -42,6 +38,7 @@ export function createReport(record: Measurement, locale: Locale) {
     [copy.conditions, summary.conditions],
     [copy.end, copy[summary.endReason]],
   ];
+  if (summary.adjustment) rows.push([copy.adjustment, summary.adjustment.offsetDb]);
   if (summary.reference) {
     rows.push(
       [copy.reference, summary.reference.value],

@@ -1,5 +1,12 @@
 import { averageLevel, DISPLAY_FLOOR, scalePosition } from "./level.ts";
-import type { Calibration, EstimateModel, LevelStats, Measurement, MeterFrame } from "./types.ts";
+import type {
+  Calibration,
+  EstimateModel,
+  LevelStats,
+  Measurement,
+  MeterFrame,
+  ReadingAdjustment,
+} from "./types.ts";
 
 // 通用偏移是产品估算假设，不能当作设备校准或经过实测的准确度保证。
 export const DEFAULT_ESTIMATE: Readonly<EstimateModel> = Object.freeze({
@@ -11,13 +18,13 @@ export const NOISE_MAX = 120;
 export const NOISE_SCALE_TICKS = [0, 40, 70, 85, 100, 120] as const;
 
 export interface ReadingBasis {
-  mode: "generic-estimate" | "reference-estimate" | "relative";
-  model: "generic-rms-v1" | "reference-offset-v1" | "relative-rms-v1";
+  mode: "generic-estimate" | "manual-estimate" | "reference-estimate" | "relative";
+  model: "generic-rms-v1" | "manual-offset-v1" | "reference-offset-v1" | "relative-rms-v1";
   offset: number;
 }
 
 export function measurementBasis(
-  record: Pick<Measurement, "calibration" | "estimate">,
+  record: Pick<Measurement, "calibration" | "estimate" | "adjustment">,
 ): ReadingBasis {
   if (record.calibration)
     return {
@@ -25,14 +32,23 @@ export function measurementBasis(
       model: "reference-offset-v1",
       offset: record.calibration.offset,
     };
+  if (record.estimate && record.adjustment)
+    return {
+      mode: "manual-estimate",
+      model: record.adjustment.id,
+      offset: record.estimate.offset + record.adjustment.offset,
+    };
   if (record.estimate)
     return { mode: "generic-estimate", model: record.estimate.id, offset: record.estimate.offset };
   // 已保存的旧记录缺少模型信息，必须保留原来的相对口径。
   return { mode: "relative", model: "relative-rms-v1", offset: 0 };
 }
 
-export function currentBasis(calibration: Calibration | null = null): ReadingBasis {
-  return measurementBasis({ calibration, estimate: DEFAULT_ESTIMATE });
+export function currentBasis(
+  calibration: Calibration | null = null,
+  adjustment?: ReadingAdjustment,
+): ReadingBasis {
+  return measurementBasis({ calibration, estimate: DEFAULT_ESTIMATE, adjustment });
 }
 
 export function displayLevel(raw: number, basis: ReadingBasis): number {

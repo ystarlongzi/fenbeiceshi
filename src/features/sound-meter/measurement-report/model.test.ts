@@ -71,7 +71,7 @@ test("繁体报告、CSV 和摘要保留原始读数、设备名与用户备注"
   assert.equal(traditional.input, sample.input.label);
   assert.equal(traditional.note, sample.note);
   assert.ok(reportText(traditional).includes("麥克風: 测试输入"));
-  assert.ok(reportCsv(traditional).includes('"測量口徑","通用估算 · 未校正"'));
+  assert.ok(reportCsv(traditional).includes('"測量口徑","通用估算 · 未修正"'));
   assert.ok(reportCsv(traditional).includes(sample.note));
 });
 
@@ -164,5 +164,46 @@ test("已保存的参考与历史相对记录导出保留原口径，临时备�
     assert.ok(summary.includes(`<v>${value}</v>`));
     assert.ok(trend.includes(`<v>${value}</v>`));
     assert.ok(!strings.includes(sample.input.signature));
+  }
+});
+
+test("三语报告明确手动修正量，摘要、CSV 和 Excel 均保留修正后数值", async () => {
+  const adjusted: Measurement = { ...sample, adjustment: { id: "manual-offset-v1", offset: -5 } };
+  for (const locale of ["zh-CN", "zh-TW", "en"] as const) {
+    const report = createReport(adjusted, locale);
+    assert.ok(report.mode.endsWith(" · −5.0 dB"));
+    assert.deepEqual(
+      report.stats.map((stat) => stat.value),
+      ["55.0", "55.0", "55.0"],
+    );
+    assert.equal(report.trend[0][1], 55);
+    assert.ok(reportText(report).includes("manual-offset-v1"));
+    assert.ok(
+      report.rows.some(
+        ([label, value]) =>
+          /手动修正|手動修正|Manual adjustment/.test(String(label)) && value === -5,
+      ),
+    );
+    assert.ok(reportCsv(report).includes('"1000","55","estimated dB","false"'));
+    const files = unzip(Buffer.from(await (await excelBlob(report)).arrayBuffer()));
+    assert.ok(files.get("xl/worksheets/sheet1.xml")?.includes("<v>55</v>"));
+    assert.ok(files.get("xl/worksheets/sheet2.xml")?.includes("<v>55</v>"));
+  }
+  assert.equal(adjusted.stats.min, -40);
+});
+
+test("正负 50 dB 的报告标签、统计与 CSV 趋势保留实际修正值", () => {
+  for (const offset of [-50, 50]) {
+    const report = createReport(
+      { ...sample, adjustment: { id: "manual-offset-v1", offset } },
+      "en",
+    );
+    assert.equal(report.mode, `Manually adjusted · ${offset > 0 ? "+50.0" : "−50.0"} dB`);
+    assert.deepEqual(
+      report.stats.map((stat) => stat.value),
+      Array(3).fill((60 + offset).toFixed(1)),
+    );
+    assert.ok(reportText(report).includes(report.mode));
+    assert.ok(reportCsv(report).includes(`"1000","${60 + offset}","estimated dB","false"`));
   }
 });

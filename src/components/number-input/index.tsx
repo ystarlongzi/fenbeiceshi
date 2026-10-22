@@ -26,6 +26,7 @@ type NumberInputProps = Pick<
   max: number;
   step?: number;
   suffix?: string;
+  showStepper?: boolean;
   className?: string;
 };
 
@@ -40,6 +41,7 @@ export function NumberInput({
   max,
   step = 1,
   suffix,
+  showStepper = true,
   placeholder,
   required,
   disabled,
@@ -135,33 +137,35 @@ export function NumberInput({
           </span>
         ) : null}
       </div>
-      <div className={styles.steps}>
-        <div className={styles.stepsContent}>
-          {([1, -1] as const).map((direction) => (
-            <button
-              key={direction}
-              type="button"
-              aria-label={localize(
-                locale,
-                `${direction > 0 ? "增加" : "减少"}${label}，步长 ${step}`,
-                `${direction > 0 ? "Increase" : "Decrease"} ${label} by ${step}`,
-                `${direction > 0 ? "增加" : "減少"}${label}，步長 ${step}`,
-              )}
-              disabled={locked || (issue === null && number === (direction > 0 ? max : min))}
-              onPointerDown={(event) => {
-                if (event.button === 0) event.preventDefault();
-              }}
-              onClick={() => move(direction)}
-            >
-              <Icon
-                name="chevron-down"
-                size={16}
-                className={direction > 0 ? styles.increase : undefined}
-              />
-            </button>
-          ))}
+      {showStepper ? (
+        <div className={styles.steps}>
+          <div className={styles.stepsContent}>
+            {([1, -1] as const).map((direction) => (
+              <button
+                key={direction}
+                type="button"
+                aria-label={localize(
+                  locale,
+                  `${direction > 0 ? "增加" : "减少"}${label}，步长 ${step}`,
+                  `${direction > 0 ? "Increase" : "Decrease"} ${label} by ${step}`,
+                  `${direction > 0 ? "增加" : "減少"}${label}，步長 ${step}`,
+                )}
+                disabled={locked || (issue === null && number === (direction > 0 ? max : min))}
+                onPointerDown={(event) => {
+                  if (event.button === 0) event.preventDefault();
+                }}
+                onClick={() => move(direction)}
+              >
+                <Icon
+                  name="chevron-down"
+                  size={16}
+                  className={direction > 0 ? styles.increase : undefined}
+                />
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }

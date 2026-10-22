@@ -9,6 +9,7 @@ import { Icon } from "@/components/icon";
 import { EMPTY_RECORDS, getRecords, watchRecords } from "@/features/records/storage";
 import { saveRecord } from "@/features/records/mutations";
 import { meterCopy } from "./copy";
+import { modeLabel } from "./mode-label";
 import { noiseGradient } from "./palette";
 import { useSoundMeter } from "./use-sound-meter";
 import { useFocusMode } from "./use-focus-mode";
@@ -23,6 +24,7 @@ import { MeasurementReportDialog } from "./measurement-report";
 import { reportCopy } from "./measurement-report/copy";
 import { withMeasurementNote } from "./measurement-report/model";
 import { RecordingResult } from "../audio-recording/recording-result";
+import { appliedAdjustment } from "../calibration/adjustment";
 import { currentBasis, displayFrame, measurementBasis } from "./readings";
 import type { Locale, MeterView } from "./types";
 import styles from "./index.module.css";
@@ -33,7 +35,6 @@ export function SoundMeter({ locale }: { locale: Locale }) {
   const [view, setView] = useState<MeterView>("gauge");
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [resultDialog, setResultDialog] = useState<"save" | "export" | null>(null);
-  const [reference, setReference] = useState({ enabled: false, value: "60", source: "" });
   const root = useRef<HTMLDivElement>(null);
   const exportAction = useRef<HTMLButtonElement>(null);
   const focus = useFocusMode(root);
@@ -45,10 +46,10 @@ export function SoundMeter({ locale }: { locale: Locale }) {
   const busy = running || demo || requesting;
   const basis = meter.result
     ? measurementBasis(meter.result)
-    : currentBasis(demo ? null : meter.calibration);
+    : currentBasis(null, demo ? undefined : appliedAdjustment(meter.adjustment));
   const frame = meter.frame ? displayFrame(meter.frame, basis) : null;
   const value = frame?.value ?? null;
-  const calibrated = basis.mode === "reference-estimate";
+  const adjusted = basis.mode === "manual-estimate";
   const existing = records.records.find((record) => record.id === meter.result?.id);
   const result = meter.result
     ? withMeasurementNote({ ...meter.result, recording: existing?.recording }, meter.note)
@@ -82,8 +83,6 @@ export function SoundMeter({ locale }: { locale: Locale }) {
     meter,
     view,
     onViewChange: setView,
-    reference,
-    onReferenceChange: setReference,
   };
 
   return (
@@ -118,9 +117,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
         </div>
         <div className={styles.surface} data-demo={demo}>
           <div className={styles.screenHeading}>
-            <span className={styles.mode}>
-              {demo ? copy.demoShort : calibrated ? copy.estimate : copy.generic}
-            </span>
+            <span className={styles.mode}>{demo ? copy.demoShort : modeLabel(basis, copy)}</span>
             <span className={styles.state} data-active={running || demo}>
               <i />
               {stateLabel}
@@ -132,8 +129,8 @@ export function SoundMeter({ locale }: { locale: Locale }) {
               ? copy.demoHint
               : frame?.belowFloor
                 ? copy.floor
-                : calibrated
-                  ? copy.estimateHint
+                : adjusted
+                  ? copy.adjustedHint
                   : copy.genericHint}
           </p>
           <div className={styles.controls}>

@@ -184,7 +184,7 @@
         }
       },
       "intent": "立即使用浏览器观察环境声音。",
-      "uniqueValue": "估算噪音分贝、辅助输入信号、可选参考校准、同口径趋势和本机摘要共同完成一次任务。",
+      "uniqueValue": "估算噪音分贝、辅助输入信号、可选即时读数修正、同口径趋势和本机摘要共同完成一次任务。",
       "sections": ["测量工作台与当前口径","使用方法与三项场景操作说明","工作原理与精选知识","八个常见问题与完整帮助入口"],
       "ctaTargetId": "meter",
       "relatedIds": ["guide","how-it-works","faq","calibration","phone-accuracy","microphone-help","room-noise"],
@@ -220,23 +220,23 @@
       "kind": "guide",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/calibration/","wave":"P0","title":"有参考声级计，怎样校准？ - 分贝测试","h1":"有参考声级计，怎样校准？","keywords":["在线分贝测试校准","网页分贝仪参考校准"]},
-        "en": {"path":"/en/calibration/","wave":"P0","title":"How do I calibrate with a reference meter? | fenbeiceshi.com","h1":"How do I calibrate with a reference meter?","keywords":["calibrate online decibel meter","reference calibration sound meter"]},
+        "zh-CN": {"path":"/calibration/","wave":"P0","title":"测量读数怎么调高或调低？ - 分贝测试","h1":"测量读数怎么调高或调低？","keywords":["在线分贝测试校准","网页分贝仪参考校准"]},
+        "en": {"path":"/en/calibration/","wave":"P0","title":"How do I adjust the reading up or down? | fenbeiceshi.com","h1":"How do I adjust the reading up or down?","keywords":["calibrate online decibel meter","reference calibration sound meter"]},
         "zh-TW": {
           "path": "/zh-tw/calibration/",
           "wave": "P0",
-          "title": "有參考聲級計，怎樣校正？ - 分貝測試",
-          "h1": "有參考聲級計，怎樣校正？",
+          "title": "測量讀數怎麼調高或調低？ - 分貝測試",
+          "h1": "測量讀數怎麼調高或調低？",
           "keywords": ["線上分貝測試校正", "網頁分貝儀參考校正"],
           "status": "implemented-not-deployed"
         }
       },
-      "intent": "判断是否具备参考校准条件并进入实际流程。",
-      "uniqueValue": "说明参考设备、输入设置、保存关系与失效条件；不把默认偏移量当作校准。",
-      "sections": ["需要的参考条件","建立并保存对应关系","设备变化与误差边界"],
+      "intent": "直接加减当前估算读数，理解正负修正、重置和参考对照。",
+      "uniqueValue": "用 60 dB 加减 5 dB 的例子说明即时变化；保存修正模型并兼容旧参考报告，不将手动调数当作专业校准。",
+      "sections": ["需要的参考条件","实时加减与重置","设备变化与误差边界"],
       "ctaTargetId": "meter",
       "relatedIds": ["phone-accuracy","dbfs-spl","db-dba","guide"],
-      "publishGate": "参考校准功能实际可用；输入校验和设备/设置变化后失效机制已验证。",
+      "publishGate": "实时读数修正、输入校验、设备变化重置、报告快照及旧记录兼容均有验证。",
       "requiredEvidence": ["参考校准方法资料","校准有效性测试","设备处理设置实测"]
     },
     {

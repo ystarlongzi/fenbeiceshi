@@ -42,6 +42,35 @@ test("参考偏移替换通用偏移，清除校准后统一恢复通用估算",
   assert.equal(displayLevel(-40, currentBasis(null)), 60);
 });
 
+test("手动加减统一改变当前读数、统计和已有趋势，不累加偏移或改写原始数据", () => {
+  const frame = {
+    value: -40,
+    elapsed: 1000,
+    clipped: false,
+    stats: { count: 1, energy: 0.0001, min: -40, max: -40 },
+    points: [{ time: 1000, value: -40 }],
+  };
+  for (const offset of [5, -5, 0, 30, -30, 50, -50]) {
+    const basis = currentBasis(null, { id: "manual-offset-v1", offset });
+    const displayed = displayFrame(frame, basis);
+    assert.equal(basis.mode, "manual-estimate");
+    assert.equal(basis.offset, 100 + offset);
+    assert.deepEqual(
+      [
+        displayed.value,
+        displayed.minimum,
+        displayed.maximum,
+        displayed.average,
+        displayed.points[0].value,
+      ],
+      Array(5).fill(60 + offset),
+    );
+  }
+  assert.equal(frame.value, -40);
+  assert.equal(frame.points[0].value, -40);
+  assert.equal(displayFrame(frame, currentBasis()).value, 60);
+});
+
 test("平均值先按采样能量计算再估算，不平均分贝，也不截断超出色带的数值", () => {
   const stats = addWindow(addWindow(emptyStats(), 0.0001), 0.01);
   const displayed = displayStats(stats, currentBasis());

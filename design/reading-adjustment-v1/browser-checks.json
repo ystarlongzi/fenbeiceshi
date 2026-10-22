@@ -1,0 +1,53 @@
+[
+  {
+    "case": "plus5",
+    "meter": "65.0 dB",
+    "stats": [
+      "65.0",
+      "65.0",
+      "65.0"
+    ],
+    "offset": 5,
+    "pass": true
+  },
+  {
+    "case": "minus5",
+    "pass": true
+  },
+  {
+    "case": "outOfRange",
+    "pass": true
+  },
+  {
+    "case": "emptyKeepsLast",
+    "pass": true
+  },
+  {
+    "case": "switchOff",
+    "pass": true
+  },
+  {
+    "case": "exportSnapshot",
+    "pass": true
+  },
+  {
+    "case": "finishedFrozen",
+    "pass": true
+  },
+  {
+    "case": "savedRecordReload",
+    "pass": true
+  },
+  {
+    "case": "mobileEnglishMinus5",
+    "pass": true
+  },
+  {
+    "case": "traditionalPlus3",
+    "pass": true
+  },
+  {
+    "case": "deviceReset",
+    "pass": true
+  }
+]

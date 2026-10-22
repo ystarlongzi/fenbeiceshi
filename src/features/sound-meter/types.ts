@@ -46,6 +46,7 @@ export interface Measurement {
   input: InputInfo;
   calibration: Calibration | null;
   estimate?: EstimateModel;
+  adjustment?: ReadingAdjustment;
   recording?: RecordingInfo;
   note: string;
   reason: StopReason;
@@ -54,5 +55,10 @@ export interface Measurement {
 export interface EstimateModel {
   id: "generic-rms-v1";
   offset: 100;
+}
+
+export interface ReadingAdjustment {
+  id: "manual-offset-v1";
+  offset: number;
 }
 import type { RecordingInfo } from "../audio-recording/pcm.ts";

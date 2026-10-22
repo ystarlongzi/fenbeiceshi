@@ -128,14 +128,14 @@ export const faqGroups: {
         ),
         answer: [
           t(
-            "不用。默认即可查看标注“未校准”的通用估算。有合适的参考声级计时，可选用参考校准调整当前设备的显示偏移。它不会修正全部设备误差；更换麦克风会清除参考，刷新页面后也会恢复通用估算。",
-            "No. You can start with the default estimate, labelled uncalibrated. With a suitable reference sound level meter, optional calibration adjusts the display offset for your current input. It does not correct every device error. Switching microphones clears the reference, and reloading restores the generic estimate.",
-            "不用。預設即可檢視標註“未校正”的通用估算。有合適的參考聲級計時，可選用參考校正調整當前裝置的顯示偏移。它不會修正全部裝置誤差；更換麥克風會清除參考，重新整理頁面後也會恢復通用估算。",
+            "不用，默认显示“通用估算 · 未修正”，可直接观察声音变化。如需对照参考声级计，可开启“读数修正”，从 0 开始直接加减 −50 至 +50 dB，修改后实时生效，无需点击应用。例如当前约 60 dB，设置 +5 后约为 65 dB，标签显示“手动修正 · +5.0 dB”；输入 0 或关闭修正可恢复原读数。手动修正不代表专业校准，切换麦克风或刷新后会重置。",
+            "No. Start with Generic estimate · unadjusted to observe changes in sound. To adjust against a reference meter, enable Adjust reading and add or subtract −50 to +50 dB from 0. Changes apply live, without an Apply button. For example, about 60 dB becomes 65 dB with +5, and the badge shows Manually adjusted · +5.0 dB. Enter 0 or switch it off to restore the original reading. Manual adjustment is not professional calibration; changing microphones or reloading resets it.",
+            "不用，預設顯示「通用估算 · 未修正」，可直接觀察聲音變化。如需對照參考聲級計，可開啟「讀數修正」，從 0 開始直接加減 −50 至 +50 dB，修改後即時套用，無需點選套用。例如目前約 60 dB，設定 +5 後約為 65 dB，標籤顯示「手動修正 · +5.0 dB」；輸入 0 或關閉修正可恢復原讀數。手動修正不代表專業校正，切換麥克風或重新整理後會重設。",
           ),
         ],
         link: {
           pageId: "calibration",
-          label: t("查看校准方法", "Read the calibration guide", "檢視校正方法"),
+          label: t("如何调整读数", "How to adjust readings", "如何調整讀數"),
         },
       },
       {
@@ -306,9 +306,9 @@ export const faqGroups: {
         ),
         answer: [
           t(
-            "固定设备、麦克风、距离、朝向和设置，分别观察两种状态，并在备注中记下条件；尽量重复几次，留意背景声是否改变。记录只有在输入与估算模型、校准偏移一致时才适合比较。两次读数相减不能直接当作家电独立声级或窗户隔声性能。",
-            "Keep the device, microphone, distance, orientation and settings fixed. Observe each state, note the conditions and repeat while checking for background changes. Records need matching input, estimate model and calibration offset for comparison. Subtracting readings does not establish an appliance's isolated level or a window's sound insulation rating.",
-            "固定裝置、麥克風、距離、朝向和設定，分別觀察兩種狀態，並在備註中記下條件；儘量重複幾次，留意背景聲是否改變。記錄只有在輸入與估算模型、校正偏移一致時才適合比較。兩次讀數相減不能直接當作家電獨立聲級或窗戶隔聲效能。",
+            "固定设备、麦克风、距离、朝向和设置，分别观察两种状态，并在备注中记下条件；尽量重复几次，留意背景声是否改变。记录只有在输入与估算模型、手动修正或历史参考偏移一致时才适合比较。两次读数相减不能直接当作家电独立声级或窗户隔声性能。",
+            "Keep the device, microphone, distance, orientation and settings fixed. Observe each state, note the conditions and repeat while checking for background changes. Records need matching input, estimate model and manual adjustment or legacy reference offset for comparison. Subtracting readings does not establish an appliance's isolated level or a window's sound insulation rating.",
+            "固定裝置、麥克風、距離、朝向和設定，分別觀察兩種狀態，並在備註中記下條件；儘量重複幾次，留意背景聲是否改變。記錄只有在輸入與估算模型、手動修正或歷史參考偏移一致時才適合比較。兩次讀數相減不能直接當作家電獨立聲級或窗戶隔聲效能。",
           ),
         ],
         link: {
@@ -330,9 +330,9 @@ export const faqGroups: {
         ),
         answer: [
           t(
-            "当前版本在页面离开前台时停止采集，并保留已经取得的有效摘要，不支持后台或锁屏整夜监测。回到页面后需重新开始，并检查麦克风与校准状态。",
-            "This version stops capture when the page leaves the foreground and keeps the valid summary collected so far. It does not support overnight background or lock-screen monitoring. Start again after returning and check the microphone and calibration status.",
-            "當前版本在頁面離開前臺時停止採集，並保留已經取得的有效摘要，不支援背景或鎖定螢幕整夜監測。回到頁面後需重新開始，並檢查麥克風與校正狀態。",
+            "当前版本在页面离开前台时停止采集，并保留已经取得的有效摘要，不支持后台或锁屏整夜监测。回到页面后需重新开始，并检查麦克风与读数修正状态。",
+            "This version stops capture when the page leaves the foreground and keeps the valid summary collected so far. It does not support overnight background or lock-screen monitoring. Start again after returning and check the microphone and adjustment status.",
+            "當前版本在頁面離開前臺時停止採集，並保留已經取得的有效摘要，不支援背景或鎖定螢幕整夜監測。回到頁面後需重新開始，並檢查麥克風與讀數修正狀態。",
           ),
         ],
         link: {
@@ -469,7 +469,7 @@ export const faq: SiteContent = {
   id: "faq",
   slug: "faq",
   kind: "guide",
-  updated: "2026-10-21",
+  updated: "2026-10-22",
   title: t("分贝测试常见问题", "Decibel meter FAQ", "分貝測試常見問題"),
   description: t(
     "解答手机与电脑使用、测量准确性、麦克风故障、分贝读数、后台测量、录音和报告保存等常见问题。",

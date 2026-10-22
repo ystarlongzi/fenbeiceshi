@@ -26,7 +26,7 @@ const sample: Measurement = {
 
 test("损坏、错误版本、重复或超量记录不会被当作空历史覆盖", () => {
   assert.equal(parseRecords("not json").error, "corrupt");
-  assert.equal(parseRecords('{"version":3,"records":[]}').error, "corrupt");
+  assert.equal(parseRecords('{"version":4,"records":[]}').error, "corrupt");
   assert.equal(
     parseRecords(JSON.stringify({ version: 1, records: [sample, sample] })).error,
     "corrupt",
@@ -69,7 +69,7 @@ test("新估算模型随记录和导出保留，旧记录继续使用原口径",
   assert.equal(parsed.error, null);
   assert.equal(publicSummary(parsed.records[0]).unit, "dBFS RMS");
   const summary = publicSummary(parsed.records[1]);
-  assert.equal(summary.format, "fenbeiceshi-summary-v2");
+  assert.equal(summary.format, "fenbeiceshi-summary-v3");
   assert.equal(summary.mode, "generic-estimate");
   assert.equal(summary.unit, "estimated dB");
   assert.equal(summary.model.id, DEFAULT_ESTIMATE.id);
@@ -136,7 +136,7 @@ test("旧记录升级与存储恢复可继续保存，配额失败不覆盖已�
     unavailable = false;
     assert.equal(getRecords().error, null);
     assert.equal(await saveRecord(sample), null);
-    assert.equal(JSON.parse(raw ?? "{}").version, 2);
+    assert.equal(JSON.parse(raw ?? "{}").version, 3);
     assert.equal(await saveRecord({ ...sample, id: "generic", estimate: DEFAULT_ESTIMATE }), null);
     assert.equal(getRecords().records[1].estimate, undefined);
     const saved = raw;
@@ -149,5 +149,72 @@ test("旧记录升级与存储恢复可继续保存，配额失败不覆盖已�
     else Reflect.deleteProperty(globalThis, "window");
     if (storageDescriptor) Object.defineProperty(globalThis, "localStorage", storageDescriptor);
     else Reflect.deleteProperty(globalThis, "localStorage");
+  }
+});
+
+test("手动修正随 v3 保存并导出，历史口径与不同修正值不能混比", () => {
+  const generic = { ...sample, estimate: DEFAULT_ESTIMATE };
+  const adjusted: Measurement = {
+    ...generic,
+    adjustment: { id: "manual-offset-v1", offset: 5 },
+  };
+  const loaded = parseRecords(JSON.stringify({ version: 3, records: [adjusted] }));
+  assert.equal(loaded.error, null);
+  const summary = publicSummary(loaded.records[0]);
+  assert.equal(summary.mode, "manual-estimate");
+  assert.equal(summary.model.id, "manual-offset-v1");
+  assert.equal(summary.model.offsetDb, 105);
+  assert.equal(summary.adjustment?.offsetDb, 5);
+  assert.equal(summary.energyMean, 65);
+  assert.equal(summary.minimum, 65);
+  assert.equal(summary.maximum, 65);
+  assert.equal(summary.recentTrend[0].level, 65);
+  assert.equal(summary.reference, null);
+  assert.equal(compareRecords(generic, adjusted), null);
+  assert.equal(
+    compareRecords(adjusted, { ...adjusted, adjustment: { id: "manual-offset-v1", offset: -5 } }),
+    null,
+  );
+  assert.equal(
+    compareRecords(adjusted, {
+      ...adjusted,
+      stats: { count: 2, energy: 0.002, min: -30, max: -30 },
+    }),
+    10,
+  );
+  for (const version of [1, 2])
+    assert.equal(parseRecords(JSON.stringify({ version, records: [adjusted] })).error, "corrupt");
+  for (const adjustment of [
+    { id: "unknown", offset: 5 },
+    { id: "manual-offset-v1", offset: 50.1 },
+    { id: "manual-offset-v1", offset: 0.05 },
+    null,
+  ])
+    assert.equal(validMeasurement({ ...adjusted, adjustment }), false);
+  assert.equal(validMeasurement({ ...adjusted, estimate: undefined }), false);
+  assert.equal(
+    validMeasurement({
+      ...adjusted,
+      calibration: makeCalibration(-40, 75, "Reference", sample.input.signature),
+    }),
+    false,
+  );
+});
+
+test("修正范围扩大后，旧边界和正负 50 dB 均能保存、读取并导出同一口径", () => {
+  for (const offset of [-50, -31, -30, 30, 31, 50]) {
+    const adjusted: Measurement = {
+      ...sample,
+      estimate: DEFAULT_ESTIMATE,
+      adjustment: { id: "manual-offset-v1", offset },
+    };
+    const loaded = parseRecords(JSON.stringify({ version: 3, records: [adjusted] }));
+    assert.equal(loaded.error, null);
+    assert.equal(loaded.records[0].adjustment?.offset, offset);
+    const summary = publicSummary(loaded.records[0]);
+    assert.equal(summary.model.offsetDb, 100 + offset);
+    assert.equal(summary.adjustment?.offsetDb, offset);
+    assert.equal(summary.energyMean, 60 + offset);
+    assert.equal(summary.recentTrend[0].level, 60 + offset);
   }
 });

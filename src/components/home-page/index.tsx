@@ -29,9 +29,9 @@ export function HomePage({ locale }: { locale: Locale }) {
           operatingSystem: "Web browser",
           description: localize(
             locale,
-            "默认提供通用估算噪音分贝，参考校准可选，原始音频不上传。",
-            "Generic noise estimates with optional reference calibration. No raw audio uploads.",
-            "預設提供通用估算噪音分貝，參考校正可選，原始音訊不上傳。",
+            "默认提供通用估算噪音分贝，可选手动加减读数，原始音频不上传。",
+            "Generic noise estimates with optional manual adjustment. No raw audio uploads.",
+            "預設提供通用估算噪音分貝，可選手動加減讀數，原始音訊不上傳。",
           ),
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }}

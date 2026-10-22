@@ -9,6 +9,7 @@ import { Icon } from "@/components/icon";
 import { LinkArrow } from "@/components/link-arrow";
 import { text } from "@/lib/content/types";
 import { meterCopy } from "../sound-meter/copy";
+import { modeLabel } from "../sound-meter/mode-label";
 import { formatDuration } from "../sound-meter/level";
 import { displayStats, formatReading, measurementBasis } from "../sound-meter/readings";
 import { readingColor } from "../sound-meter/palette";
@@ -164,11 +165,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
                     ) : null}
                     {formatDuration(record.duration)}
                     <span>·</span>
-                    {basis.mode === "reference-estimate"
-                      ? copy.calibrated
-                      : basis.mode === "generic-estimate"
-                        ? copy.generic
-                        : copy.relative}
+                    {basis.mode === "reference-estimate" ? copy.calibrated : modeLabel(basis, copy)}
                   </p>
                   {!compact ? (
                     <small>

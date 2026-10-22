@@ -29,7 +29,7 @@ function prepareChange(
   const state = parseRecords(previous);
   if (state.error) throw new RecordMutationError(state.error);
   const records = update(state.records);
-  const next = JSON.stringify({ version: 2, records });
+  const next = JSON.stringify({ version: 3, records });
   if (next.length > 1000000) throw new RecordMutationError("saveError");
   return {
     recordIds: records.map((record) => record.id),

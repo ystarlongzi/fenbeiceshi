@@ -1,0 +1,31 @@
+[
+  {
+    "buttons": 0,
+    "case": "desktop-zh-focused",
+    "feedback": 0,
+    "inputWidth": 43,
+    "textWidth": 43,
+    "value": "-29.8",
+    "width": 90
+  },
+  {
+    "case": "invalidRetainsLast",
+    "invalid": "true",
+    "slider": "-29.8"
+  },
+  {
+    "buttons": 0,
+    "case": "mobile-en-focused",
+    "feedback": 0,
+    "inputWidth": 43,
+    "textWidth": 43,
+    "value": "-30.0",
+    "width": 90
+  },
+  {
+    "buttons": 2,
+    "case": "sharedDefaultStepper",
+    "value": "85.5",
+    "visible": true
+  }
+]

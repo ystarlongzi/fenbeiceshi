@@ -118,7 +118,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
                 {localize(locale, "常见问题", "FAQ", "常見問題")}
               </Link>
               <Link href={href("calibration", locale)}>
-                {localize(locale, "参考校准", "Calibration", "參考校正")}
+                {localize(locale, "读数修正", "Adjust readings", "讀數修正")}
               </Link>
               <Link href={href("about", locale)}>{localize(locale, "关于", "About", "關於")}</Link>
               <Link href={href("privacy", locale)}>

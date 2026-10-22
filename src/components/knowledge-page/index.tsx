@@ -171,9 +171,9 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
           <p>
             {localize(
               locale,
-              "工具默认提供通用噪音估算，校准可选。也可以先体验演示，再决定是否打开麦克风。",
-              "Start with a generic noise estimate. Reference calibration is optional, and you can try a demo first.",
-              "工具預設提供通用噪音估算，校正可選。也可以先體驗演示，再決定是否開啟麥克風。",
+              "工具默认提供通用噪音估算，可按需手动加减读数。也可以先体验演示，再决定是否打开麦克风。",
+              "Start with a generic noise estimate. Manual adjustment is optional, and you can try a demo first.",
+              "工具預設提供通用噪音估算，可依需要手動加減讀數。也可以先體驗演示，再決定是否開啟麥克風。",
             )}
           </p>
         </div>

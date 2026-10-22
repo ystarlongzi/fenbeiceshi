@@ -8,8 +8,9 @@ import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { LinkArrow } from "@/components/link-arrow";
 import { NumberInput } from "@/components/number-input";
-import { numberIssue, readNumber } from "@/components/number-input/model";
+import { numberIssue } from "@/components/number-input/model";
 import { Switch } from "@/components/switch";
+import { adjustmentBounds } from "../../calibration/adjustment";
 import { RecordingOptions } from "../../audio-recording/recording-options";
 import { meterCopy } from "../copy";
 import type { Locale, MeterView } from "../types";
@@ -18,25 +19,17 @@ import { InputSignal } from "../input-signal";
 import { DeviceSelect } from "./device-select";
 import styles from "./index.module.css";
 
-export type ReferenceDraft = { enabled: boolean; value: string; source: string };
-
-const referenceBounds = { min: 20, max: 120, step: 0.1, required: true };
-
 export function MeterSettings({
   locale,
   meter,
   view,
   onViewChange,
-  reference,
-  onReferenceChange,
   inDrawer = false,
 }: {
   locale: Locale;
   meter: ReturnType<typeof useSoundMeter>;
   view: MeterView;
   onViewChange: (view: MeterView) => void;
-  reference: ReferenceDraft;
-  onReferenceChange: (draft: ReferenceDraft) => void;
   inDrawer?: boolean;
 }) {
   const copy = meterCopy[locale];
@@ -45,16 +38,9 @@ export function MeterSettings({
   const running = meter.status === "running";
   const demo = meter.status === "demo";
   const busy = running || demo || meter.status === "requesting";
-  const value = readNumber(reference.value) ?? NaN;
-  const referenceInvalid = numberIssue(reference.value, referenceBounds) !== null;
-  const canCalibrate =
-    running &&
-    meter.frame &&
-    !meter.frame.clipped &&
-    meter.frame.value > -90 &&
-    meter.frame.value <= 0 &&
-    !referenceInvalid &&
-    reference.source.trim().length > 0;
+  const { adjustment } = meter;
+  const adjustmentInvalid = numberIssue(adjustment.draft, adjustmentBounds) !== null;
+  const adjustmentLocked = demo || meter.status === "requesting" || meter.status === "finished";
 
   return (
     <aside className={styles.aside} aria-label={copy.settings}>
@@ -81,7 +67,6 @@ export function MeterSettings({
           onChange={(deviceId) => {
             if (deviceId === meter.deviceId) return;
             meter.changeDevice(deviceId);
-            onReferenceChange({ ...reference, enabled: false });
           }}
         />
         {meter.input ? <p className={styles.inputLabel}>{meter.input.label}</p> : null}
@@ -128,79 +113,57 @@ export function MeterSettings({
       </section>
       <section className={styles.settingGroup}>
         <Switch
-          checked={reference.enabled}
-          onCheckedChange={(enabled) => {
-            if (!enabled) meter.clearCalibration();
-            onReferenceChange({ ...reference, enabled });
-          }}
+          checked={adjustment.enabled}
+          onCheckedChange={meter.enableAdjustment}
+          disabled={adjustmentLocked}
           describedBy={`${id}-calibration-hint`}
-          controls={reference.enabled ? `${id}-calibration-form` : undefined}
+          controls={adjustment.enabled ? `${id}-adjustment-controls` : undefined}
           setting="calibration"
         >
           <Icon name="sliders-horizontal" size={15} />
           {copy.calibration}
         </Switch>
         <p id={`${id}-calibration-hint`}>{copy.calibrationHint}</p>
-        {reference.enabled ? (
-          <form
-            id={`${id}-calibration-form`}
-            className={styles.calibrationForm}
-            onSubmit={(event) => {
-              event.preventDefault();
-              if (canCalibrate) meter.calibrate(value, reference.source);
-            }}
-          >
-            <label htmlFor={`${id}-reference`}>{copy.referenceValue}</label>
+        {adjustment.enabled ? (
+          <div id={`${id}-adjustment-controls`} className={styles.adjustment}>
+            <label htmlFor={`${id}-adjustment`}>{copy.adjustmentValue}</label>
             <div className={styles.referenceControls}>
               <input
                 type="range"
                 className={styles.referenceRange}
-                min="20"
-                max="120"
-                step="0.1"
-                value={Number.isFinite(value) ? Math.max(20, Math.min(120, value)) : 60}
-                aria-label={copy.referenceValue + localize(locale, "滑块", " slider", "滑桿")}
-                onChange={(event) => onReferenceChange({ ...reference, value: event.target.value })}
+                min={adjustmentBounds.min}
+                max={adjustmentBounds.max}
+                step={adjustmentBounds.step}
+                value={adjustment.offset}
+                disabled={adjustmentLocked}
+                aria-label={copy.adjustmentValue + localize(locale, "滑块", " slider", "滑桿")}
+                onChange={(event) => meter.setAdjustmentDraft(event.target.value)}
               />
               <NumberInput
-                id={`${id}-reference`}
-                label={copy.referenceValue}
+                id={`${id}-adjustment`}
+                label={copy.adjustmentValue}
                 locale={locale}
-                {...referenceBounds}
-                value={reference.value}
-                onValueChange={(next) => onReferenceChange({ ...reference, value: next })}
+                {...adjustmentBounds}
+                value={adjustment.draft}
+                onValueChange={meter.setAdjustmentDraft}
+                disabled={adjustmentLocked}
                 suffix="dB"
+                showStepper={false}
                 className={styles.referenceNumber}
-                aria-describedby={`${id}-calibration-hint${referenceInvalid ? ` ${id}-reference-error` : ""}`}
+                aria-describedby={`${id}-calibration-hint${adjustmentInvalid ? ` ${id}-adjustment-error` : ""}`}
               />
             </div>
-            {referenceInvalid ? (
-              <p id={`${id}-reference-error`} className={styles.referenceError} role="status">
-                {localize(
-                  locale,
-                  "请输入 20–120 dB 之间的数值，步长为 0.1。",
-                  "Enter 20–120 dB in steps of 0.1.",
-                  "請輸入 20–120 dB 之間的數值，步長為 0.1。",
-                )}
+            {adjustmentInvalid ? (
+              <p id={`${id}-adjustment-error`} className={styles.referenceError} role="status">
+                {copy.adjustmentError}
               </p>
             ) : null}
-            <label htmlFor={`${id}-source`}>
-              {copy.calibrationSource}
-              <input
-                id={`${id}-source`}
-                className={styles.sourceInput}
-                required
-                maxLength={120}
-                value={reference.source}
-                onChange={(event) =>
-                  onReferenceChange({ ...reference, source: event.target.value })
-                }
-                placeholder={copy.sourcePlaceholder}
-              />
-            </label>
-            {canCalibrate ? <button type="submit">{copy.applyCalibration}</button> : null}
-            <p>{copy.calibrationReady}</p>
-          </form>
+          </div>
+        ) : null}
+        {adjustmentLocked ? (
+          <p>
+            {meter.status === "finished" ? copy.adjustmentFinished : copy.adjustmentUnavailable}
+          </p>
         ) : null}
         <Link href={`${prefix}/calibration/`} className={styles.helpLink}>
           {copy.calibrationHelp}

@@ -1,6 +1,7 @@
 import type { Calibration, Measurement } from "../sound-meter/types.ts";
 import { validRecordingInfo } from "../audio-recording/pcm.ts";
 import { DISPLAY_FLOOR } from "../sound-meter/level.ts";
+import { validAdjustment } from "../calibration/adjustment.ts";
 import {
   DEFAULT_ESTIMATE,
   displayLevel,
@@ -58,6 +59,8 @@ export function validMeasurement(value: unknown): value is Measurement {
       (r.estimate !== null &&
         r.estimate.id === DEFAULT_ESTIMATE.id &&
         r.estimate.offset === DEFAULT_ESTIMATE.offset)) &&
+    (r.adjustment === undefined ||
+      (validAdjustment(r.adjustment) && r.estimate !== undefined && r.calibration === null)) &&
     (r.calibration === null ||
       (validReference(r.calibration) && r.calibration.signature === r.input.signature)) &&
     Boolean(r.stats) &&
@@ -79,10 +82,11 @@ export function parseRecords(raw: string | null): RecordState {
   try {
     const data = JSON.parse(raw);
     if (
-      (data.version !== 1 && data.version !== 2) ||
+      ![1, 2, 3].includes(data.version) ||
       !Array.isArray(data.records) ||
       data.records.length > MAX_RECORDS ||
       !data.records.every(validMeasurement) ||
+      (data.version < 3 && data.records.some((r: Measurement) => r.adjustment !== undefined)) ||
       (data.version === 1 &&
         data.records.some(
           (r: Measurement) => r.estimate !== undefined || r.recording !== undefined,
@@ -146,12 +150,15 @@ export function publicSummary(record: Measurement) {
   const basis = measurementBasis(record);
   const stats = displayStats(record.stats, basis);
   return {
-    format: "fenbeiceshi-summary-v2",
+    format: "fenbeiceshi-summary-v3",
     startedAt: record.startedAt,
     durationMs: Math.round(record.duration),
     mode: basis.mode,
     unit: basis.mode === "relative" ? "dBFS RMS" : "estimated dB",
     model: { id: basis.model, offsetDb: basis.offset },
+    adjustment: record.adjustment
+      ? { id: record.adjustment.id, offsetDb: record.adjustment.offset }
+      : null,
     minimum: stats.minimum,
     maximum: stats.maximum,
     energyMean: stats.average,
@@ -178,8 +185,8 @@ export function publicSummary(record: Measurement) {
       atInputFloor: point.value <= DISPLAY_FLOOR,
     })),
     notice:
-      basis.mode === "generic-estimate"
-        ? "Uncalibrated generic RMS + 100 estimate; heuristic mapping, not validated acoustic accuracy. No A weighting, safety or compliance conclusion. No audio included."
+      basis.mode === "generic-estimate" || basis.mode === "manual-estimate"
+        ? "Uncalibrated generic RMS + 100 estimate with optional manual adjustment; heuristic mapping, not validated acoustic accuracy. No A weighting, safety or compliance conclusion. No audio included."
         : "Sampled browser observation. No A weighting, certification, safety or compliance conclusion. No audio included.",
   };
 }

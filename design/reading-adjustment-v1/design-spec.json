@@ -1,0 +1,80 @@
+{
+  "version": "reading-adjustment-v1",
+  "updated": "2026-10-22",
+  "status": "implemented-not-deployed",
+  "task": "直接加减当前估算，编辑后立即看到仪表及整次统计与趋势的变化。",
+  "hierarchy": {
+    "primary": "仪表是结果，设置是辅助操作；不新增容器。",
+    "controls": [
+      "读数修正开关",
+      "修正标签、滑块及 90px 数字输入，隐藏右侧步进按钮",
+      "就近输入错误",
+      "详细方法链接与会话范围"
+    ],
+    "reason": "移除来源与提交，使用即时投影；按用户要求不显示额外反馈及重置行，控件保持紧凑。"
+  },
+  "value": {
+    "min": -50,
+    "max": 50,
+    "step": 0.1,
+    "initial": 0,
+    "formula": "raw RMS dBFS + 100 + adjustment",
+    "model": "manual-offset-v1",
+    "invalid": "保留最后有效修正；草稿及错误就近展示。",
+    "badge": "默认为通用估算 · 未修正；开启后显示实际修正值，如手动修正 · +5.0 dB，零值为 0.0 dB；记录和报告共用。辅助说明保留估算及非专业校准限制。"
+  },
+  "states": {
+    "idle": "可预设，结果保持未测量。",
+    "running": "整次统计、已有趋势及仪表统一投影，原始数据不变。",
+    "finished": "冻结报告与修正；重新测量后可继续调整。",
+    "demoOrRequesting": "禁用修正，演示仍明确标记。",
+    "reset": "输入 0 恢复零修正；关闭开关恢复通用模式。",
+    "inputChange": "更换麦克风、发现输入签名失配或刷新后重置。"
+  },
+  "layout": {
+    "desktop": "原侧栏内保留标签及滑块、数字框并列；数字框固定 90px，不提供右侧步进按钮、额外反馈或重置行。",
+    "mobile": "共用右侧设置抽屉与同一会话状态。",
+    "theme": "沿用语义颜色、相邻 CSS Modules、固定字号。",
+    "screenshots": {
+      "desktop": "compact-input-desktop.png",
+      "mobileEnglish": "compact-input-mobile-en.png",
+      "rangeModeDesktop": "range-mode-desktop.png",
+      "rangeModeMobileEnglish": "range-mode-mobile-en.png",
+      "rangeModeMobileTraditional": "range-mode-mobile-tw.png"
+    },
+    "checks": "compact-input-checks.json",
+    "rangeModeChecks": "range-mode-checks.json"
+  },
+  "locales": [
+    "zh-CN",
+    "zh-TW",
+    "en"
+  ],
+  "compatibility": {
+    "storageKey": "fenbeiceshi:records:v1",
+    "writes": 3,
+    "reads": [
+      1,
+      2,
+      3
+    ],
+    "summary": "fenbeiceshi-summary-v3",
+    "legacy": "历史参考和相对记录保持原模型，不与不同修正模型或偏移混比。",
+    "range": "范围由 ±30 放宽至 ±50，公式、模型及 v3 封装不变；旧版窄范围读取器会拒绝绝对值超过 30 的记录，回退前须导出。"
+  },
+  "sources": [
+    {
+      "url": "https://onlinedecibelmeter.org/zh-CN/calibration",
+      "observed": "参考读数减当前 dBFS，需明确应用并保存，不能概括为所有竞品都实时加减。"
+    },
+    {
+      "url": "https://www.freqcut.cn/showinfo-1-1-0.html",
+      "observed": "校准系数以 0 dB 为起点，展示当前／修正后读数，有应用校准按钮。"
+    },
+    {
+      "url": "https://www.decibelmeter.org/zh",
+      "observed": "提供校准偏移，初始为 0，提示需要麦克风。"
+    }
+  ],
+  "validation": "../../docs/验证/即时读数修正验证.md"
+}

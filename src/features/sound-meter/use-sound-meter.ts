@@ -1,19 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { activeCalibration, makeCalibration } from "../calibration/calibration.ts";
+import {
+  appliedAdjustment,
+  editAdjustment,
+  EMPTY_ADJUSTMENT,
+  type AdjustmentState,
+} from "../calibration/adjustment.ts";
 import { useAudioRecording } from "../audio-recording/use-audio-recording.ts";
 import { CaptureSession } from "./capture.ts";
 import { addWindow, emptyStats } from "./level.ts";
 import { DEFAULT_ESTIMATE } from "./readings.ts";
-import type {
-  Calibration,
-  InputInfo,
-  Measurement,
-  MeterFrame,
-  MeterStatus,
-  StopReason,
-} from "./types.ts";
+import type { InputInfo, Measurement, MeterFrame, MeterStatus, StopReason } from "./types.ts";
 import type { MeterCopy } from "./copy.ts";
 
 export function useSoundMeter() {
@@ -23,7 +21,7 @@ export function useSoundMeter() {
   const [input, setInput] = useState<InputInfo | null>(null);
   const [devices, setDevices] = useState<MediaDeviceInfo[]>([]);
   const [deviceId, setDeviceId] = useState("");
-  const [calibration, setCalibration] = useState<Calibration | null>(null);
+  const [adjustment, setAdjustment] = useState(EMPTY_ADJUSTMENT);
   const [result, setResult] = useState<Measurement | null>(null);
   const [message, setMessage] = useState<keyof MeterCopy | null>(null);
   const [note, setNoteState] = useState("");
@@ -31,7 +29,7 @@ export function useSoundMeter() {
   const demoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const latest = useRef<MeterFrame | null>(null);
   const inputRef = useRef<InputInfo | null>(null);
-  const reference = useRef<Calibration | null>(null);
+  const adjustmentRef = useRef(EMPTY_ADJUSTMENT);
   const noteRef = useRef("");
   const startedAt = useRef("");
 
@@ -77,13 +75,13 @@ export function useSoundMeter() {
       {
         ready: (info) => {
           if (engine.current !== current) return;
+          if (inputRef.current && inputRef.current.signature !== info.signature) {
+            if (adjustmentRef.current.enabled) setMessage("inputChanged");
+            updateAdjustment(EMPTY_ADJUSTMENT);
+          }
           inputRef.current = info;
           setInput(info);
           startedAt.current = new Date().toISOString();
-          const matching = activeCalibration(reference.current, info.signature);
-          if (reference.current && !matching) setMessage("inputChanged");
-          reference.current = matching;
-          setCalibration(matching);
           setStatus("running");
           void navigator.mediaDevices
             .enumerateDevices()
@@ -116,8 +114,9 @@ export function useSoundMeter() {
             stats: last.stats,
             points: last.points,
             input: inputRef.current,
-            calibration: activeCalibration(reference.current, inputRef.current.signature),
+            calibration: null,
             estimate: DEFAULT_ESTIMATE,
+            adjustment: appliedAdjustment(adjustmentRef.current),
             note: noteRef.current,
             reason,
           });
@@ -155,8 +154,7 @@ export function useSoundMeter() {
     setMessage(null);
     setInput(null);
     setStatus("demo");
-    reference.current = null;
-    setCalibration(null);
+    updateAdjustment(EMPTY_ADJUSTMENT);
     let stats = emptyStats();
     const began = performance.now();
     const update = () => {
@@ -177,33 +175,19 @@ export function useSoundMeter() {
     demoTimer.current = setInterval(update, 125);
   }
 
-  function calibrate(value: number, source: string) {
-    if (!engine.current || !latest.current || latest.current.clipped || !inputRef.current)
-      return false;
-    try {
-      const saved = makeCalibration(
-        latest.current.value,
-        value,
-        source,
-        inputRef.current.signature,
-      );
-      reference.current = saved;
-      setCalibration(saved);
-      setMessage(null);
-      return true;
-    } catch {
-      setMessage("referenceError");
-      return false;
-    }
+  function updateAdjustment(next: AdjustmentState) {
+    adjustmentRef.current = next;
+    setAdjustment(next);
   }
-
-  function clearCalibration() {
-    reference.current = null;
-    setCalibration(null);
+  function enableAdjustment(enabled: boolean) {
+    updateAdjustment({ ...EMPTY_ADJUSTMENT, enabled });
+  }
+  function setAdjustmentDraft(draft: string) {
+    updateAdjustment(editAdjustment(adjustmentRef.current, draft));
   }
   function changeDevice(next: string) {
     setDeviceId(next);
-    clearCalibration();
+    updateAdjustment(EMPTY_ADJUSTMENT);
   }
   function setNote(next: string) {
     const bounded = next.slice(0, 120);
@@ -218,15 +202,15 @@ export function useSoundMeter() {
     input,
     devices,
     deviceId,
-    calibration,
+    adjustment,
     result,
     message,
     note,
     start,
     stop,
     preview,
-    calibrate,
-    clearCalibration,
+    enableAdjustment,
+    setAdjustmentDraft,
     changeDevice,
     setNote,
     setMessage,
