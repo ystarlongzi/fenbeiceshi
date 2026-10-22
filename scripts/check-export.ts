@@ -11,7 +11,7 @@ import {
   exposureNotes,
   exposureReferences,
 } from "../src/features/noise-health/exposure-explorer/copy.ts";
-import { referenceLevel } from "../src/features/decibel-chart/sound-reference-list/filter.ts";
+import { referenceLevel, referenceRange } from "../src/lib/content/sound-reference-format.ts";
 import {
   exposureFactors,
   healthActions,
@@ -19,6 +19,12 @@ import {
   healthSources,
 } from "../src/lib/content/noise-health.ts";
 import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
+import {
+  detailForLevel,
+  detailForSound,
+  soundDetails,
+} from "../src/lib/content/decibel-details/index.ts";
+import { levelComparisons } from "../src/lib/content/decibel-details/comparison.ts";
 import { faqItems, homeFaqItems } from "../src/lib/content/faq.ts";
 import { locales, localeSettings } from "../src/lib/i18n/locales.ts";
 import { localize } from "../src/lib/i18n/text.ts";
@@ -96,11 +102,11 @@ for (const page of sitePages) {
     if (page.id === "knowledge") {
       const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
       assert.ok(main, `知识目录缺少正文：${path}`);
-      for (const article of articles)
+      for (const article of articles.filter((item) => !item.parentId))
         assert.equal(
           main.split(`href="${href(article.id, locale)}"`).length - 1,
           1,
-          `知识分组应完整且不重复地保留已发布文章：${path} → ${article.id}`,
+          `知识分组应完整且不重复地保留顶层文章：${path} → ${article.id}`,
         );
     }
     if (page.id === "meter") {
@@ -152,9 +158,11 @@ for (const page of sitePages) {
       "faq",
     ].includes(page.id)
       ? page.id
-      : page.slug.startsWith("knowledge/")
-        ? "knowledge"
-        : null;
+      : page.parentId === "decibel-chart"
+        ? "decibel-chart"
+        : page.slug.startsWith("knowledge/")
+          ? "knowledge"
+          : null;
     for (const [, navigation] of navigations) {
       for (const id of ["meter", "decibel-chart", "knowledge", "guide", "records", "faq"])
         assert.ok(
@@ -359,7 +367,25 @@ for (const page of sitePages) {
           7,
           `七档应直接包含声音内容：${path}`,
         );
+        const bandDisclosures = [
+          ...comparison.matchAll(/<details\b([^>]*data-band-disclosure="[^"]+"[^>]*)>/g),
+        ];
+        const soundLists = [...comparison.matchAll(/<ul\b([^>]*)>/g)];
+        assert.equal(bandDisclosures.length, soundBands.length, path);
         for (const band of soundBands) {
+          const disclosure = bandDisclosures.find((match) =>
+            match[1].includes(`data-band-disclosure="${band.tone}"`),
+          );
+          const list = soundLists.find((match) =>
+            match[1].includes(`id="sound-list-${band.tone}"`),
+          );
+          assert.ok(disclosure, `分段缺少原生展开：${path} → ${band.tone}`);
+          assert.ok(list, `分段缺少声音列表：${path} → ${band.tone}`);
+          assert.doesNotMatch(
+            disclosure[1],
+            /\bopen(?:=|\s|$)/,
+            `分段默认收起：${path} → ${band.tone}`,
+          );
           assert.ok(
             comparison.includes(`data-band-description="${band.tone}"`),
             `缺少分段体感说明：${path} → ${band.tone}`,
@@ -380,7 +406,11 @@ for (const page of sitePages) {
           soundReferences.length,
           `每项声音只在统一对照区展示一份：${path}`,
         );
-        const entries = [...comparison.matchAll(/<details\b([^>]*)>([\s\S]*?)<\/details>/g)];
+        const entries = [
+          ...comparison.matchAll(
+            /<details\b([^>]*data-sound-id="[^"]+"[^>]*)>([\s\S]*?)<\/details>/g,
+          ),
+        ];
         assert.equal(entries.length, soundReferences.length, path);
         for (const sound of soundReferences) {
           assert.ok(
@@ -399,8 +429,25 @@ for (const page of sitePages) {
           assert.ok(entry[1].includes(`data-sound-band="${band?.tone}"`), path);
           assert.ok(entry[1].includes(`name="sound-details-${band?.tone}"`), path);
           assert.doesNotMatch(entry[1], /\bopen(?:=|\s|$)/, path);
-          assert.ok(entry[2].includes(escapeText(text(sound.context, locale))), path);
-          assert.ok(entry[2].includes(`href="#${soundSources[sound.source].id}"`), path);
+          assert.ok(
+            entry[2].includes(escapeText(text(sound.description ?? sound.context, locale))),
+            path,
+          );
+          const description = entry[2].match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1];
+          assert.ok(
+            description?.includes(`href="${href(detailForSound(sound.id).content.id, locale)}"`),
+            `声音描述缺少对应数值的行内解读入口：${path} → ${sound.id}`,
+          );
+          assert.equal(
+            (description?.match(/<a\b/g) ?? []).length,
+            1,
+            `声音描述只保留分贝详情入口：${path} → ${sound.id}`,
+          );
+          assert.doesNotMatch(
+            description ?? "",
+            /\b(?:WHO|EPA|NIOSH|CDC|NPS|NIDCD|CCOHS)\b/u,
+            `声音展开说明不重复展示来源信息：${path} → ${sound.id}`,
+          );
         }
         for (const source of content.sources)
           assert.ok(visible.includes(`id="${source.id}"`), path);
@@ -525,6 +572,59 @@ for (const page of sitePages) {
           visible.includes(`href="${href("decibel-chart", locale)}"`),
           `健康文章应返回声音对照：${path}`,
         );
+      }
+      const detail = soundDetails.find((item) => item.content.id === page.id);
+      if (detail) {
+        assert.ok(!visible.includes('id="compare"'), `详情不再展示观察要点：${path}`);
+        assert.ok(!visible.includes('href="#compare"'), `详情目录不再包含观察要点：${path}`);
+        assert.equal((visible.match(/data-detail-overview=/g) ?? []).length, 1, path);
+        assert.ok(
+          visible.indexOf("data-detail-overview=") < visible.indexOf(toc),
+          `直观结论应先于目录：${path}`,
+        );
+        assert.equal(
+          (visible.match(/data-detail-sound-id=/g) || []).length,
+          detail.sounds.length,
+          path,
+        );
+        for (const sound of detail.sounds) {
+          assert.ok(visible.includes(`data-detail-sound-id="${sound.id}"`), path);
+          assert.ok(visible.includes(escapeText(text(sound.name, locale))), path);
+          assert.ok(visible.includes(referenceLevel(sound)), path);
+          assert.ok(visible.includes(escapeText(text(sound.context, locale))), path);
+          assert.ok(visible.includes(`href="#${soundSources[sound.source].id}"`), path);
+        }
+        for (const section of detail.content.sections)
+          for (const field of [...section.paragraphs, ...(section.items ?? [])])
+            assert.ok(
+              visible.includes(escapeText(text(field, locale))),
+              `详情正文应静态输出：${path} → ${section.id}`,
+            );
+        assert.equal((visible.match(/data-detail-question=/g) ?? []).length, 3, path);
+        for (const question of detail.questions) {
+          assert.ok(visible.includes(`id="${question.id}"`), path);
+          assert.ok(visible.includes(escapeText(text(question.question, locale))), path);
+          assert.ok(visible.includes(escapeText(text(question.answer, locale))), path);
+        }
+        assert.equal((visible.match(/data-level-change=/g) ?? []).length, 5, path);
+        assert.equal((visible.match(/data-current-reference=/g) ?? []).length, 1, path);
+        for (const row of levelComparisons(detail.sounds[0])) {
+          const body = visible.match(
+            new RegExp(`<tr[^>]*data-level-change="${row.offset}"[^>]*>([\\s\\S]*?)</tr>`),
+          )?.[1];
+          assert.ok(body, `量级对比行应静态输出：${path}`);
+          assert.ok(body.includes(referenceRange(row)), `量级范围应静态输出：${path}`);
+          assert.ok(body.includes(`×${row.loudness}`), path);
+          assert.ok(body.includes(`×${row.energy}`), path);
+          const target = row.offset === 0 ? undefined : detailForLevel(row);
+          assert.equal(body.split("<a ").length - 1, target ? 1 : 0, path);
+          if (target) assert.ok(body.includes(`href="${href(target.content.id, locale)}"`), path);
+        }
+        assert.ok(visible.includes(`href="${href("decibel-chart", locale)}"`), path);
+        for (const source of detail.content.sources) {
+          assert.ok(visible.includes(`id="${source.id}"`), path);
+          assert.ok(visible.includes(source.url.replaceAll("&", "&amp;")), path);
+        }
       }
     }
     for (const script of html.matchAll(

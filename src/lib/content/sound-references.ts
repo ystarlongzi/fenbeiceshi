@@ -32,6 +32,12 @@ export const soundSources = {
     title: "NIDCD · Noise-Induced Hearing Loss",
     url: "https://www.nidcd.nih.gov/health/noise-induced-hearing-loss",
   },
+  nidcdLoudness: {
+    id: "sound-source-nidcd-loudness",
+    label: "NIDCD",
+    title: "NIDCD · How Loud is Too Loud?",
+    url: "https://www.nidcd.nih.gov/health/how-loud-too-loud",
+  },
   cdc: {
     id: "sound-source-cdc",
     label: "CDC",
@@ -75,6 +81,7 @@ export interface SoundReference {
   unit: "dB" | "dBA";
   source: keyof typeof soundSources;
   context: LocalizedText;
+  description?: LocalizedText;
 }
 
 export const soundReferences: SoundReference[] = [
@@ -106,6 +113,11 @@ export const soundReferences: SoundReference[] = [
       "NPS 峡谷地国家公园的示例。",
       "An NPS example from Canyonlands National Park.",
       "NPS 峽谷地國家公園的示例。",
+    ),
+    description: t(
+      "自然环境中的轻微树叶声示例。",
+      "An example of faint rustling leaves in a natural setting.",
+      "自然環境中的輕微樹葉聲示例。",
     ),
   },
   {
@@ -152,6 +164,11 @@ export const soundReferences: SoundReference[] = [
       "An indoor home range in EPA material from 1979; no common measurement distance is given.",
       "EPA 1979 年資料中的室內家庭環境範圍，未給出統一測距。",
     ),
+    description: t(
+      "室内家庭背景声示例，测量距离未统一。",
+      "An indoor household background example without a common measurement distance.",
+      "室內家庭背景聲示例，量測距離未統一。",
+    ),
   },
   {
     id: "conversation",
@@ -181,6 +198,11 @@ export const soundReferences: SoundReference[] = [
       "EPA 1979 年资料中的餐厅示例范围；客流、测点和室内声学条件会影响结果。",
       "A restaurant range in EPA material from 1979; occupancy, measurement position and room acoustics affect the result.",
       "EPA 1979 年資料中的餐廳示例範圍；客流、測點和室內聲學條件會影響結果。",
+    ),
+    description: t(
+      "客流、测点和室内声学条件会影响结果。",
+      "Occupancy, measurement position and room acoustics affect the result.",
+      "來客數、量測位置和室內聲學條件會影響結果。",
     ),
   },
   {
@@ -227,6 +249,11 @@ export const soundReferences: SoundReference[] = [
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; not a range for all current models.",
       "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；不代表當前所有型號。",
     ),
+    description: t(
+      "测距 0.9 米的范围示例，不代表当前所有型号。",
+      "A range at 0.9 metres, not a specification for all current models.",
+      "測距 0.9 公尺的範圍示例，不代表現今所有型號。",
+    ),
   },
   {
     id: "washing-machine",
@@ -242,6 +269,11 @@ export const soundReferences: SoundReference[] = [
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; cycle, load and installation affect sound.",
       "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；程式、負載和安裝條件會影響聲音。",
     ),
+    description: t(
+      "测距 0.9 米；程序、负载和安装条件会影响声音。",
+      "At 0.9 metres; cycle, load and installation affect sound.",
+      "測距 0.9 公尺；行程、負載和安裝條件會影響聲音。",
+    ),
   },
   {
     id: "vacuum",
@@ -256,6 +288,11 @@ export const soundReferences: SoundReference[] = [
       "1986 年工程教学资料 Table 2 的范围，测距 0.9 米；比较时还需固定档位与吸头。",
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; also keep the setting and attachment consistent.",
       "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；比較時還需固定檔位與吸頭。",
+    ),
+    description: t(
+      "测距 0.9 米；比较时还需固定档位与吸头。",
+      "At 0.9 metres; also keep the setting and attachment consistent.",
+      "測距 0.9 公尺；比較時還需固定檔位與吸頭。",
     ),
   },
   {
@@ -287,6 +324,11 @@ export const soundReferences: SoundReference[] = [
       "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; not equivalent to exposure during use near the ear.",
       "1986 年工程教學資料 Table 2 的範圍，測距 0.9 米；不等同於貼近耳部使用時的暴露。",
     ),
+    description: t(
+      "测距 0.9 米，不等同于贴近耳部使用时的暴露。",
+      "At 0.9 metres, not equivalent to exposure during use near the ear.",
+      "測距 0.9 公尺，不等同於貼近耳部使用時的暴露。",
+    ),
   },
   {
     id: "hair-dryer",
@@ -301,6 +343,11 @@ export const soundReferences: SoundReference[] = [
       "WHO 示例；型号、档位与距离会不同。",
       "A WHO example; models, settings and distances differ.",
       "WHO 示例；型號、檔位與距離會不同。",
+    ),
+    description: t(
+      "型号、档位与距离会不同。",
+      "Models, settings and distances differ.",
+      "型號、檔位與距離會不同。",
     ),
   },
   {
@@ -317,6 +364,11 @@ export const soundReferences: SoundReference[] = [
       "A level example on page 13 of the NIOSH App manual, without a specified distance or operating condition; idling and drilling differ.",
       "NIOSH App 使用者指南第 13 頁的量級示例，未給出測距和工況；空轉與鑽孔不能直接比較。",
     ),
+    description: t(
+      "未注明测距与工况，空转与钻孔不能直接比较。",
+      "Distance and operating conditions are unspecified; idling and drilling differ.",
+      "未註明測距與運轉條件，空轉與鑽孔不能直接比較。",
+    ),
   },
   {
     id: "chainsaw",
@@ -331,6 +383,11 @@ export const soundReferences: SoundReference[] = [
       "NIOSH App 用户指南第 13 页的量级示例，未给出测距和工况；运行负载与观察位置需记录。",
       "A level example on page 13 of the NIOSH App manual, without a specified distance or operating condition; note load and listening position.",
       "NIOSH App 使用者指南第 13 頁的量級示例，未給出測距和工況；執行負載與觀察位置需記錄。",
+    ),
+    description: t(
+      "未注明测距与工况；需记录运行负载与观察位置。",
+      "Distance and operating conditions are unspecified; note load and listening position.",
+      "未註明測距與運轉條件；需記錄運轉負載與觀察位置。",
     ),
   },
   {
@@ -361,6 +418,11 @@ export const soundReferences: SoundReference[] = [
       "EPA 1979 年资料中的正常车流示例，距道路 50 英尺（约 15 米），不是车内读数。",
       "Normal freeway traffic in EPA material from 1979, at 50 feet (about 15 metres), rather than an in-car reading.",
       "EPA 1979 年資料中的正常車流示例，距道路 50 英尺（約 15 米），不是車內讀數。",
+    ),
+    description: t(
+      "距道路 50 英尺（约 15 米）的车流示例，不是车内读数。",
+      "A traffic example at 50 feet (about 15 metres) from the road, rather than an in-car reading.",
+      "距道路 50 英尺（約 15 公尺）的車流示例，不是車內讀數。",
     ),
   },
   {
@@ -407,6 +469,11 @@ export const soundReferences: SoundReference[] = [
       "The WHO example specifies a distance of 5 metres.",
       "WHO 給出的條件為距喇叭 5 米。",
     ),
+    description: t(
+      "参考条件为距喇叭 5 米。",
+      "The reference distance is 5 metres from the horn.",
+      "參考條件為距喇叭 5 公尺。",
+    ),
   },
   {
     id: "thunder",
@@ -421,6 +488,11 @@ export const soundReferences: SoundReference[] = [
       "NPS 拱门国家公园的示例，并非所有雷声。",
       "An NPS example from Arches, not a level for all thunder.",
       "NPS 拱門國家公園的示例，並非所有雷聲。",
+    ),
+    description: t(
+      "雷声的量级示例，不代表所有雷声。",
+      "A thunder level example, not a level for all thunder.",
+      "雷聲的量級示例，不代表所有雷聲。",
     ),
   },
   {
@@ -451,6 +523,11 @@ export const soundReferences: SoundReference[] = [
       "NPS 示例条件：离地约 100 米飞越。",
       "The NPS example specifies about 100 metres above ground.",
       "NPS 示例條件：離地約 100 米飛越。",
+    ),
+    description: t(
+      "离地约 100 米飞越的声音示例。",
+      "An example of a flyover about 100 metres above ground.",
+      "離地約 100 公尺飛越的聲音示例。",
     ),
   },
   {

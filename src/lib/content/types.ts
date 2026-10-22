@@ -17,6 +17,7 @@ export interface Source {
 export interface SiteContent {
   id: string;
   slug: string;
+  parentId?: string;
   title: LocalizedText;
   description: LocalizedText;
   takeaway: LocalizedText;

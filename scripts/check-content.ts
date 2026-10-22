@@ -25,11 +25,15 @@ const paths = sitePages.flatMap((page) => locales.map((locale) => href(page.id, 
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
-  39,
-  "当前可索引页面为 39 个",
+  123,
+  "当前可索引页面为 123 个",
 );
 assert.equal(sitePages.find((page) => page.id === "records")?.index, false);
 for (const content of contents) {
+  if (content.parentId) {
+    assert.ok(ids.includes(content.parentId), `父页必须已注册：${content.id}`);
+    assert.notEqual(content.parentId, content.id, `页面不能作为自己的父页：${content.id}`);
+  }
   const sections = [
     ...content.sections,
     ...(content.id === "decibel-chart" ? decibelChartNotes : []),
@@ -91,8 +95,11 @@ for (const sound of soundReferences) {
   );
   assert.ok(soundSources[sound.source], `声音参考缺少来源：${sound.id}`);
   assert.ok(sound.emoji.trim(), `声音参考缺少装饰图示：${sound.id}`);
-  for (const locale of locales)
+  for (const locale of locales) {
     assert.ok(text(sound.name, locale) && text(sound.context, locale), sound.id);
+    if (sound.description)
+      assert.ok(text(sound.description, locale), `声音简短说明缺少语言内容：${sound.id}`);
+  }
 }
 for (const band of soundBands) {
   assert.ok(band.min >= 0 && band.max > band.min && band.max <= 160, band.range);
@@ -140,5 +147,5 @@ for (const page of sitePages.filter((page) => page.index)) {
   for (const locale of locales) assert.equal(candidate.locales[locale].path, href(page.id, locale));
 }
 console.log(
-  `内容检查通过：${contents.length} 个三语正文，39 个可索引 URL，3 个 noindex 功能 URL。`,
+  `内容检查通过：${contents.length} 个三语正文，123 个可索引 URL，3 个 noindex 功能 URL。`,
 );

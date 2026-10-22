@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-22",
+  "checks": [
+    {
+      "afterHearing": "question",
+      "case": "desktop-85-zh",
+      "removedSection": true,
+      "removedToc": true,
+      "toc": [
+        "常见声音",
+        "量级对比",
+        "会伤听力吗",
+        "常见问题"
+      ]
+    },
+    {
+      "afterHearing": "question",
+      "case": "mobile-85-en",
+      "removedSection": true,
+      "removedToc": true,
+      "scrollWidth": 390,
+      "toc": [
+        "Sound examples",
+        "Compare sounds",
+        "Hearing risk",
+        "Common questions"
+      ],
+      "width": 390
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-22",
+  "environment": "Chrome, local static preview 127.0.0.1:3100",
+  "checks": [
+    {
+      "check": "light-idle",
+      "state": {
+        "decoration": "none",
+        "hovered": false,
+        "open": false,
+        "shadow": "none",
+        "summaryHover": false
+      }
+    },
+    {
+      "check": "light-open-hover",
+      "state": {
+        "decoration": "none",
+        "hovered": true,
+        "open": true,
+        "shadow": "rgba(26, 56, 35, 0.082) 0px 4px 14px 0px"
+      }
+    },
+    {
+      "check": "light-closed-hover",
+      "state": {
+        "decoration": "none",
+        "hovered": true,
+        "open": false,
+        "shadow": "rgba(26, 56, 35, 0.082) 0px 4px 14px 0px"
+      }
+    },
+    {
+      "check": "light-pointer-left",
+      "state": {
+        "hovered": false,
+        "shadow": "none"
+      }
+    },
+    {
+      "check": "dark-open-hover",
+      "state": {
+        "decoration": "none",
+        "hovered": true,
+        "open": true,
+        "shadow": "rgba(0, 0, 0, 0.19) 0px 4px 14px 0px"
+      }
+    },
+    {
+      "check": "mobile-expanded-layout",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "state": {
+        "client": 390,
+        "scroll": 390
+      },
+      "open": ""
+    }
+  ],
+  "restoredTheme": "light"
+}

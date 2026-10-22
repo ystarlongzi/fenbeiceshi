@@ -44,6 +44,11 @@ export function breadcrumbData(id: string, locale: Locale) {
       name: localize(locale, "声音知识", "Guides", "聲音知識"),
       item: SITE_URL + href("knowledge", locale),
     });
+  if (page.parentId)
+    items.push({
+      name: text(pageById(page.parentId).title, locale),
+      item: SITE_URL + href(page.parentId, locale),
+    });
   items.push({ name: text(page.title, locale), item: SITE_URL + href(id, locale) });
   return {
     "@context": "https://schema.org",

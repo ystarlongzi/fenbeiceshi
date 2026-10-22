@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-22",
+  "browser": "Chrome desktop, responsive viewport emulation",
+  "checks": [
+    {
+      "case": "zh-desktop-10",
+      "headings": [
+        "菜单",
+        "10 分贝有多大？",
+        "10 分贝可以参考哪些声音？",
+        "和其他声音放在一起看",
+        "对听力有什么影响，应该怎么做？",
+        "想观察这个场景，先关注三件事",
+        "关于 10 分贝的常见问题",
+        "网页显示 10 分贝，就说明房间几乎无声吗？",
+        "解读这组参考，还要注意什么？",
+        "网页读数能直接和这里的数值比较吗？",
+        "来源与参考",
+        "继续了解"
+      ],
+      "overviewBeforeToc": true,
+      "questions": 3,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "case": "comparison-native-link",
+      "current": "参考声级20dBA非常安静直观感受细小的自然背景声，可以用树叶沙沙声建立印象。风况和观察位置变化，听到的声音也会变化。对应场景：树叶沙沙声档位帮助认识量级，不能据此判定舒适度或安全时长。",
+      "title": "20 分贝有多大？"
+    },
+    {
+      "bodySize": "16px",
+      "case": "zh-mobile-10",
+      "h1Size": "32px",
+      "overview": {
+        "bottom": 733.9453125,
+        "height": 414.3671875,
+        "left": 20,
+        "right": 370,
+        "top": 319.578125,
+        "width": 350,
+        "x": 20,
+        "y": 319.578125
+      },
+      "scrollWidth": 390,
+      "toc": {
+        "bottom": 888.328125,
+        "height": 128.3828125,
+        "left": 20,
+        "right": 370,
+        "top": 759.9453125,
+        "width": 350,
+        "x": 20,
+        "y": 759.9453125
+      },
+      "width": 390
+    },
+    {
+      "case": "zh-mobile-comparison",
+      "currentRows": 1,
+      "rows": 3,
+      "scrollWidth": 390,
+      "table": {
+        "bottom": 722.3828125,
+        "height": 304.171875,
+        "left": 21,
+        "right": 369,
+        "top": 418.2109375,
+        "width": 348,
+        "x": 21,
+        "y": 418.2109375
+      },
+      "width": 390
+    },
+    {
+      "case": "en-mobile-320-range",
+      "h1Size": "32px",
+      "overview": "Reference level47–72dBQuiet to Fairly noisyWhat it is likeThis washing-machine range spans several level bands. Compare washing and spinning separately, with programme, load and installation in view.Sound examples: Washing machineBands describe approximate levels; they do not establish comfort or a safe duration.",
+      "rows": [
+        "🫧Washing machineThis pageAt 0.9 metres; cycle, load and installation affect sound.47–72 dBNIOSH",
+        "🧺Clothes dryerA range at 0.9 metres, not a specification for all current models.51–66 dBNIOSH",
+        "🍽️DishwasherLevels vary with the model and programme.45–65 dBCDC"
+      ],
+      "scrollWidth": 320,
+      "title": "How loud is 47–72 dB?",
+      "width": 320
+    },
+    {
+      "case": "en-mobile-320-comparison",
+      "questionCount": 3,
+      "scrollWidth": 320,
+      "tableRight": 299,
+      "tableWidth": 278,
+      "width": 320
+    },
+    {
+      "case": "en-mobile-questions",
+      "items": [
+        {
+          "answerVisible": true,
+          "id": "scenario-question",
+          "title": "Should a suddenly louder spin be judged only by decibels?"
+        },
+        {
+          "answerVisible": true,
+          "id": "reference-question",
+          "title": "What else matters when reading this reference?"
+        },
+        {
+          "answerVisible": true,
+          "id": "browser",
+          "title": "Can I compare a browser reading directly with these values?"
+        }
+      ]
+    },
+    {
+      "case": "zh-tw-mobile-100",
+      "currentRows": [
+        "💨吹風機本頁型號、檔位與距離會不同。100 dBWHO",
+        "⛈️雷聲本頁雷聲的量級示例，不代表所有雷聲。100 dBANPS"
+      ],
+      "exampleUnits": [
+        "💨吹風機約 100 dBWHO 示例；型號、檔位與距離會不同。 WHO",
+        "⛈️雷聲約 100 dBANPS 拱門國家公園的示例，並非所有雷聲。 NPS"
+      ],
+      "overview": "參考聲級100dB / dBA極吵直觀感受吹風機與雷聲都出現在 100 這個數值上，但聲音的持續方式與單位不同。它們適合幫助認識量級，不能直接當作等效聲音。對應情境：吹風機、雷聲檔位幫助認識量級，不能據此判定舒適度或安全時長。",
+      "scrollWidth": 390,
+      "title": "100 分貝有多大？",
+      "width": 390
+    },
+    {
+      "case": "zh-tw-dark-comparison",
+      "currentRows": [
+        "💨吹風機本頁型號、檔位與距離會不同。100 dBWHO",
+        "⛈️雷聲本頁雷聲的量級示例，不代表所有雷聲。100 dBANPS"
+      ],
+      "scrollWidth": 390,
+      "tableBackground": "rgb(24, 38, 29)",
+      "tableText": "rgb(176, 191, 175)",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "case": "comparison-source-anchor",
+      "source": "National Park Service · Understanding Sound",
+      "top": 189.78125
+    },
+    {
+      "case": "shared-content-default-regression",
+      "overviewCount": 0,
+      "scrollWidth": 390,
+      "text": "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"首页\",\"item\":\"https://fenbeiceshi.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"分贝测试怎么用？\",\"item\":\"https://fenbeiceshi.com/guide/\"}]}首页/分贝测试怎么用？使用帮助分贝测试怎么用？更新于 2026-10-21分贝测试项目维护先固定设备和位置，再开始测量。看清模式与趋势，结束后保存条件，下一次比较才更有意义。01 允许麦克风，开始观察",
+      "title": "分贝测试怎么用？",
+      "width": 390
+    },
+    {
+      "case": "zh-mobile-high-range",
+      "overview": "参考声级140–160dBA极强噪音直观感受烟花属于强烈、短促的冲击声参考。瞬间声响与整段平均声级是不同指标，查看时要分开。对应场景：烟花表演档位帮助认识量级，不能据此判定舒适度或安全时长。",
+      "scrollWidth": 390,
+      "title": "140–160 分贝有多大？",
+      "unit": "🎆烟花表演约 140–160 dBA短促冲击声，不能当作持续平均声级。 NIDCD",
+      "width": 390
+    },
+    {
+      "case": "keyboard-faq-anchor",
+      "result": "Enter 后目标章节进入视口",
+      "title": "关于 140–160 分贝的常见问题",
+      "top": 189.9375
+    }
+  ],
+  "limitations": [
+    "未验证真实移动设备、Safari 或实际读屏设备",
+    "未验证生产部署与搜索引擎表现"
+  ]
+}

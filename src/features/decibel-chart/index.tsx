@@ -4,7 +4,9 @@ import Link from "next/link";
 import { LinkArrow } from "@/components/link-arrow";
 import { href } from "@/lib/routing/pages";
 import { soundBands } from "@/lib/content/sound-bands";
-import { soundReferences, soundSources } from "@/lib/content/sound-references";
+import { soundReferences } from "@/lib/content/sound-references";
+import { detailForSound } from "@/lib/content/decibel-details";
+import { referenceRange } from "@/lib/content/sound-reference-format";
 import { text } from "@/lib/content/types";
 import type { Locale } from "@/features/sound-meter/types";
 import { SoundReferenceList } from "./sound-reference-list";
@@ -58,13 +60,20 @@ export function DecibelChart({ locale }: { locale: Locale }) {
                   id: sound.id,
                   emoji: sound.emoji,
                   name: text(sound.name, locale),
-                  context: text(sound.context, locale),
+                  context: text(sound.description ?? sound.context, locale),
                   min: sound.min,
                   max: sound.max,
                   unit: sound.unit,
                   searchText: `${sound.name.zh} ${sound.name.zhTW} ${sound.name.en}`,
-                  sourceId: soundSources[sound.source].id,
-                  sourceLabel: soundSources[sound.source].label,
+                  readingLink: {
+                    href: href(detailForSound(sound.id).content.id, locale),
+                    label: localize(
+                      locale,
+                      `了解 ${referenceRange(sound)} 分贝`,
+                      `About ${referenceRange(sound)} dB`,
+                      `瞭解 ${referenceRange(sound)} 分貝`,
+                    ),
+                  },
                 }))
                 .sort((a, b) => a.min - b.min || a.max - b.max)}
             />

@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-22",
+  "checks": [
+    {
+      "case": "desktop-108-zh",
+      "reminder": {
+        "background": "rgb(234, 240, 228)",
+        "border": "3px",
+        "text": "多 10 分贝，听起来通常大约是原来的两倍响；多 3 分贝，声音能量就约翻倍。",
+        "weight": "600"
+      },
+      "rows": [
+        {
+          "cells": [
+            "98低 10 分贝",
+            "×0.5",
+            "×0.1"
+          ],
+          "change": "-10",
+          "links": [
+            "/knowledge/decibel-chart/98-db/"
+          ]
+        },
+        {
+          "cells": [
+            "105低 3 分贝",
+            "×0.81",
+            "×0.5"
+          ],
+          "change": "-3",
+          "links": [
+            "/knowledge/decibel-chart/105-db/"
+          ]
+        },
+        {
+          "cells": [
+            "108本页参考",
+            "×1",
+            "×1"
+          ],
+          "change": "0",
+          "links": []
+        },
+        {
+          "cells": [
+            "111高 3 分贝",
+            "×1.2",
+            "×2"
+          ],
+          "change": "3",
+          "links": []
+        },
+        {
+          "cells": [
+            "118高 10 分贝",
+            "×2",
+            "×10"
+          ],
+          "change": "10",
+          "links": []
+        }
+      ],
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "case": "native-level-link",
+      "title": "98 分贝有多大？"
+    },
+    {
+      "case": "mobile-en-range-320",
+      "reminderWeight": "600",
+      "rows": [
+        "37–6210 dB lower×0.5×0.1",
+        "44–693 dB lower×0.81×0.5",
+        "47–72This page×1×1",
+        "50–753 dB higher×1.2×2",
+        "57–8210 dB higher×2×10"
+      ],
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "case": "mobile-zh-tw-dark-390",
+      "links": [
+        "/zh-tw/knowledge/decibel-chart/98-db/",
+        "/zh-tw/knowledge/decibel-chart/105-db/"
+      ],
+      "reminder": {
+        "background": "rgb(41, 58, 35)",
+        "color": "rgb(189, 215, 166)",
+        "weight": "600"
+      },
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "case": "desktop-85-zh",
+      "cells": [
+        [
+          "75低 10 分贝",
+          "×0.5",
+          "×0.1"
+        ],
+        [
+          "82低 3 分贝",
+          "×0.81",
+          "×0.5"
+        ],
+        [
+          "85本页参考",
+          "×1",
+          "×1"
+        ],
+        [
+          "88高 3 分贝",
+          "×1.2",
+          "×2"
+        ],
+        [
+          "95高 10 分贝",
+          "×2",
+          "×10"
+        ]
+      ],
+      "levelLinks": 0,
+      "reminder": "600"
+    }
+  ],
+  "limitations": [
+    "手机为响应式视口，未测真实设备",
+    "未部署"
+  ]
+}

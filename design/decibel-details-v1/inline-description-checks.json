@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-22",
+  "environment": "Chrome, local static preview 127.0.0.1:3100",
+  "checks": [
+    {
+      "check": "zh-all-descriptions",
+      "state": {
+        "count": 31,
+        "invalid": []
+      },
+      "groups": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "check": "zh-washer-expanded",
+      "paragraph": {
+        "links": [
+          {
+            "display": "inline",
+            "href": "/knowledge/decibel-chart/47-72-db/",
+            "text": "了解 47–72 分贝"
+          }
+        ],
+        "text": "测距 0.9 米；程序、负载和安装条件会影响声音。 了解 47–72 分贝"
+      }
+    },
+    {
+      "check": "detail-citation-retained",
+      "title": "47–72 分贝有多大？洗衣与脱水阶段的声音",
+      "originalContext": "🫧洗衣机\n约 47–72 dB\n\n1986 年工程教学资料 Table 2 的范围，测距 0.9 米；程序、负载和安装条件会影响声音。 NIOSH",
+      "source": "CDC/NIOSH archive · Occupational Safety and Health Materials for Integration into Engineering Curricula (1986) · Table 2, p. 5-23 (PDF p. 117)"
+    },
+    {
+      "check": "en-all-descriptions",
+      "state": {
+        "count": 31,
+        "invalid": []
+      }
+    },
+    {
+      "check": "en-drill-mobile",
+      "paragraph": "Distance and operating conditions are unspecified; idling and drilling differ. About 98 dB",
+      "links": [
+        {
+          "href": "/en/knowledge/decibel-chart/98-db/",
+          "text": "About 98 dB"
+        }
+      ],
+      "overflow": {
+        "client": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "check": "zhTW-all-descriptions",
+      "state": {
+        "count": 31,
+        "invalid": []
+      }
+    },
+    {
+      "check": "zhTW-leaves-mobile",
+      "paragraph": "自然環境中的輕微樹葉聲示例。 瞭解 20 分貝",
+      "links": [
+        {
+          "href": "/zh-tw/knowledge/decibel-chart/20-db/",
+          "text": "瞭解 20 分貝"
+        }
+      ],
+      "overflow": {
+        "client": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "check": "clear-restores-folding",
+      "groups": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  ]
+}

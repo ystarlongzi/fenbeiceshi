@@ -23,11 +23,22 @@ export function SoundReferenceList({
   locale: Locale;
 }) {
   const [query, setQuery] = useState("");
+  const [openBands, setOpenBands] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const matches = filterSounds(sounds, query);
   const groups = groupSounds(matches, bands);
+  function search(value: string) {
+    setQuery(value);
+    setOpenBands(value.trim() ? bands.map((band) => band.tone) : []);
+  }
+  function toggleBand(tone: string, open: boolean) {
+    setOpenBands((current) => {
+      if (current.includes(tone) === open) return current;
+      return open ? [...current, tone] : current.filter((item) => item !== tone);
+    });
+  }
   function reset() {
-    setQuery("");
+    search("");
     inputRef.current?.focus();
   }
   return (
@@ -47,7 +58,7 @@ export function SoundReferenceList({
           type="search"
           maxLength={100}
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event) => search(event.target.value)}
           placeholder={localize(
             locale,
             "例如：冰箱、交谈、60",
@@ -69,9 +80,9 @@ export function SoundReferenceList({
       <p id="sound-query-help" className={styles.help}>
         {localize(
           locale,
-          "按参考范围起点分组，跨档条目保留完整范围；点开声音查看条件与来源。",
-          "Sounds are grouped by the start of their source range; full ranges may cross bands. Open a sound for its context and source.",
-          "按參考範圍起點分組，跨檔條目保留完整範圍；點開聲音檢視條件與來源。",
+          "按参考范围起点分组，跨档条目保留完整范围；展开分段查看声音，点开声音查看比较条件及分贝详情入口。",
+          "Sounds are grouped by the start of their source range; full ranges may cross bands. Expand a band to browse sounds, then open a sound for its conditions and a link to the full explanation.",
+          "按參考範圍起點分組，跨檔條目保留完整範圍；展開分段檢視聲音，點開聲音檢視比較條件及分貝詳情入口。",
         )}
       </p>
       <div id="sound-results">
@@ -95,56 +106,69 @@ export function SoundReferenceList({
           >
             {groups.map(({ band, sounds: items }) => (
               <li key={band.tone} className={styles.band} data-band-tone={band.tone}>
-                <div className={styles.bandHeader}>
-                  <h3 id={`sound-band-${band.tone}`}>
-                    {band.range} <small>dB</small>
-                  </h3>
-                  <p>{band.title}</p>
-                </div>
-                <p className={styles.feeling} data-band-description={band.tone}>
-                  {band.description}
-                </p>
-                <ul className={styles.sounds} aria-labelledby={`sound-band-${band.tone}`}>
-                  {items.map((sound) => (
-                    <li key={sound.id}>
-                      <details
-                        className={styles.sound}
-                        name={`sound-details-${band.tone}`}
-                        data-sound-id={sound.id}
-                        data-sound-band={band.tone}
-                      >
-                        <summary>
-                          <span className={styles.name}>
-                            <span className={styles.emoji} aria-hidden="true">
-                              {sound.emoji}
+                <details
+                  className={styles.bandDisclosure}
+                  data-band-disclosure={band.tone}
+                  open={openBands.includes(band.tone)}
+                  onToggle={(event) => {
+                    if (event.target === event.currentTarget)
+                      toggleBand(band.tone, event.currentTarget.open);
+                  }}
+                >
+                  <summary className={styles.bandToggle}>
+                    <h3 id={`sound-band-${band.tone}`}>
+                      <span className={styles.bandHeader}>
+                        <span>
+                          {band.range} <small>dB</small>
+                        </span>
+                        <span className={styles.bandTitle}>{band.title}</span>
+                        <Icon name="chevron-down" size={18} />
+                      </span>
+                      <span className={styles.feeling} data-band-description={band.tone}>
+                        {band.description}
+                      </span>
+                    </h3>
+                  </summary>
+                  <ul
+                    id={`sound-list-${band.tone}`}
+                    className={styles.sounds}
+                    aria-labelledby={`sound-band-${band.tone}`}
+                  >
+                    {items.map((sound) => (
+                      <li key={sound.id}>
+                        <details
+                          className={styles.sound}
+                          name={`sound-details-${band.tone}`}
+                          data-sound-id={sound.id}
+                          data-sound-band={band.tone}
+                        >
+                          <summary>
+                            <span className={styles.name}>
+                              <span className={styles.emoji} aria-hidden="true">
+                                {sound.emoji}
+                              </span>
+                              {sound.name}
                             </span>
-                            {sound.name}
-                          </span>
-                          <strong className={styles.level}>
-                            {localize(locale, "约 ", "~ ", "約 ")}
-                            {referenceLevel(sound)}
-                          </strong>
-                          <Icon name="chevron-down" size={14} />
-                        </summary>
-                        <p className={styles.context}>
-                          {sound.context}
-                          <a
-                            href={`#${sound.sourceId}`}
-                            aria-label={localize(
-                              locale,
-                              `${sound.name}的来源：${sound.sourceLabel}`,
-                              `Source: ${sound.sourceLabel} for ${sound.name}`,
-                              `${sound.name}的來源：${sound.sourceLabel}`,
-                            )}
-                          >
-                            {sound.sourceLabel}
-                            <Icon name="arrow-down" size={12} />
-                          </a>
-                        </p>
-                      </details>
-                    </li>
-                  ))}
-                </ul>
+                            <strong className={styles.level}>
+                              {localize(locale, "约 ", "~ ", "約 ")}
+                              {referenceLevel(sound)}
+                            </strong>
+                            <Icon name="chevron-down" size={14} />
+                          </summary>
+                          <p className={styles.context}>
+                            {sound.context}
+                            {sound.readingLink ? (
+                              <>
+                                {" "}
+                                <a href={sound.readingLink.href}>{sound.readingLink.label}</a>
+                              </>
+                            ) : null}
+                          </p>
+                        </details>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </li>
             ))}
           </ol>

@@ -1,29 +1,35 @@
 {
   "version": 6,
-  "updated": "2026-10-21",
+  "updated": "2026-10-22",
   "status": "local-implementation-not-deployed",
-  "routes": ["/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
+  "routes": ["/knowledge/decibel-chart/", "/zh-tw/knowledge/decibel-chart/", "/en/knowledge/decibel-chart/"],
   "reference": {
     "url": "https://onlinedecibelmeter.org/zh-CN/decibel-chart",
     "observed": "Chrome 实际渲染：顶部搜索、七档纵向色块、组内声音标签；搜索冰箱后仅保留 30–50 档，但整档示例与后续类别内容仍显示。",
     "applied": "采用七档直接承载声音的结构；配色按用户要求恢复 V3 七档共享实色与配套文字色。本站声音参考独立维护，搜索精确到条目，省去第二份类别列表与职业正文。"
   },
-  "task": "沿声音量级直接浏览和对照具体声音，必要时搜索并查看其比较条件与来源。",
+  "task": "沿声音量级直接浏览和对照具体声音，必要时搜索、查看比较条件，再进入分贝详情阅读解释与来源。",
   "hierarchy": {
-    "primary": "七档纵向内容组。组头显示范围与简短程度名称，其下补充一句体感描述；声音标签按内容决定宽度，直接显示名称、完整参考范围与来源单位。",
+    "primary": "七档纵向内容组，声音列表默认折叠。原生 details 的 summary 保留范围、简短程度名称、体感描述及展开箭头，点击后显示声音标签；标签按内容决定宽度，显示名称、完整参考范围与来源单位。",
+    "hover": "具有精细指针与悬停能力时，鼠标经过整档容器显示两层主题阴影：0 8px 22px 使用 var(--shadow) 与 10% 黑色混合，0 2px 6px 沿用 var(--shadow)。移入和移出均以 box-shadow 200ms ease-out 过渡；减少动态效果偏好下关闭过渡。不添加标题或说明下划线，展开与折叠状态一致，保留键盘焦点轮廓。",
     "emoji": "31 项声音名称前增加对应的 16px 装饰 Emoji，使用 aria-hidden；中英文共用图示，不参与名称或数值搜索。Emoji 仅占首行宽度，后续文字按原有宽度自然换行。保留原有标签布局、七档颜色、详情箭头与展开交互。",
     "grouping": "按参考范围的起点编组，交界起点归入后一档，160 属于最后一档；跨档条目保留原范围，全部 31 项各出现一次。规则紧邻搜索说明。",
-    "search": "只保留名称／数值搜索，搜索后显示匹配条目与非空分组；继续支持全角、多词、dB 和 dBA 条件，无结果时提供查看全部入口。",
-    "details": "每项声音用原生 details 展开比较条件和来源，默认收起，同档同时展开一项；说明在所选标签下方占满一行，上沿箭头指向标签底部中心并跟随换行定位。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
+    "search": "只保留名称／数值搜索，搜索后显示匹配条目与非空分组并自动展开，允许手动收起，清空后所有分组恢复折叠；继续支持全角、多词、dB 和 dBA 条件，无结果时提供查看全部入口。",
+    "details": "每项声音用原生 details 展开比较条件和分贝详情行内链接，不显示来源机构、资料出处或来源入口；完整出处与原始条件在详情页查看。默认收起，同档同时展开一项；说明在所选标签下方占满一行，上沿箭头指向标签底部中心并跟随换行定位。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
     "support": "40–70 分贝的简短答案合并到页首；参考说明只保留同一声音的范围差异、网页估算与参考值的比较两个问题，进一步的方法通过现有指南和单位文章承接。",
     "health": "紧随声音对照的独立二级章节，进入目录；正文一段，突出暴露时长参考入口，并提供健康影响入口。详细健康内容和计算器继续位于独立文章。",
     "surfaces": "七档直接使用 V3 共享实色背景与配套文字色，不做浅色混合；声音摘要的操作表面用于表达展开能力，不增加独立分类列表。",
-    "mobile": "声音组保持从安静到吵闹的纵向顺序；声音标签在各视口均按内容宽度自动换行，长名称可以换行，数值和单位完整保留。展开说明占满组内宽度。"
+    "readingLinks": "31 项声音的展开描述内均追加对应详情的原生行内链接，随段落自然换行，不单独成行；按来源的准确单值或完整范围共建 28 个主题，同值声音共页但逐项保留原始单位与条件。详情正文与入口均静态输出，完整三语路径及层级见 ../decibel-details-v1/design-spec.json。",
+    "mobile": "声音组保持从安静到吵闹的纵向顺序，默认仅显示分组摘要，点开后显示标签；声音标签在各视口均按内容宽度自动换行，长名称可以换行，数值和单位完整保留。展开说明占满组内宽度。"
   },
-  "appearance": "恢复 V3 翠绿、叶绿、黄绿、金黄、橙、朱红、深红七档实色，亮暗主题沿用共享变量；标题 32px、分段范围 20px、声音摘要 14px、辅助单位与来源 12px，全部沿用固定 rem 变量。",
+  "appearance": "恢复 V3 翠绿、叶绿、黄绿、金黄、橙、朱红、深红七档实色，亮暗主题沿用共享变量；标题 32px、分段范围 20px、声音摘要及展开说明 14px、辅助单位 12px，全部沿用固定 rem 变量。",
   "compatibility": "levels、reference、sound-results、reading、health 和 exposure 保留；旧 numbers 定位到统一声音对照，旧 scale 定位到单位说明的文章入口，distance 与 limits 保留原生展开定位。正文与实际使用的声音来源静态输出，健康内容仍属于独立文章。",
   "verification": "../../docs/验证/分贝对照分组呈现验证.md",
   "sourceVerification": "../../docs/验证/声音参考来源逐项核验.md",
+  "foldingChecks": "folding-checks.json",
+  "bandHoverChecks": "band-hover-checks.json",
+  "bandShadowTransitionChecks": "band-shadow-transition-checks.json",
+  "inlineDescriptionChecks": "../decibel-details-v1/inline-description-checks.json",
   "browserChecks": "browser-checks.json",
   "colorRestorationChecks": "color-restoration-checks.json",
   "tagInteractionChecks": "tag-interaction-checks.json",
@@ -55,6 +61,14 @@
     "reading-health-desktop.jpg",
     "reading-health-desktop-dark.jpg",
     "reading-health-mobile-zh.jpg",
-    "reading-health-mobile-en-dark.jpg"
+    "reading-health-mobile-en-dark.jpg",
+    "folding-desktop-zh.png",
+    "folding-mobile-zh.png",
+    "folding-mobile-en.png",
+    "folding-detail-mobile-en.png",
+    "band-hover-light.png",
+    "band-hover-dark.png",
+    "band-shadow-transition-light.png",
+    "band-shadow-transition-dark.png"
   ]
 }

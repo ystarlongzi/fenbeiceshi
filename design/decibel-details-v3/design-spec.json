@@ -1,0 +1,89 @@
+{
+  "version": 3,
+  "updated": "2026-10-22",
+  "status": "local-implementation-not-deployed",
+  "scope": {
+    "topics": 28,
+    "localizedUrls": 84,
+    "newUrls": 0
+  },
+  "reference": {
+    "url": "https://www.decibelmeter.org/zh/comparison/40-db",
+    "applied": "分贝变化、听感、能量并列；听力先直接回答；问答采用日常问题。"
+  },
+  "comparison": {
+    "baseline": "本页原始单值或完整范围。",
+    "rows": [
+      -10,
+      -3,
+      0,
+      3,
+      10
+    ],
+    "loudness": [
+      0.5,
+      0.81,
+      1,
+      1.2,
+      2
+    ],
+    "energy": [
+      0.1,
+      0.5,
+      1,
+      2,
+      10
+    ],
+    "limits": "同一声音及相同单位、测法的相对变化示意；不等同不同来源的实测响度，不转换 dB/dBA，不取范围中点。",
+    "precision": "数字前显示 ×；听感按每增加 10 dB 约两倍的模型近似，能量按对数关系计算，保留两位有效数字。",
+    "links": "非当前行仅链接与原始单值或完整范围完全匹配的真实详情页，跟随当前语言。",
+    "reminder": "将多 10 分贝的听感、多 3 分贝的能量两条说明拆为独立段落，以主题色表面、左侧强调线与加粗文字突出。"
+  },
+  "hearing": "标题为 ×× dB 对听力有害吗？两段先回答风险、再给行动，低声级、跨范围、强声和烟花突发声区别表述。",
+  "questions": "每个主题两条生活化问答，第三问共用手机读数差异。答案直接回应，术语只在必要处解释，来源继续静态输出。",
+  "appearance": "沿用 V2 概览、章节、固定 rem 字号及亮暗语义变量；量级表改为三列，手机自然换行。",
+  "implementation": {
+    "model": "src/lib/content/decibel-details/comparison.ts",
+    "content": "src/lib/content/decibel-details/",
+    "view": "src/features/decibel-details/"
+  },
+  "verification": "../../docs/验证/分贝详情量级对比与通俗文案验证.md",
+  "browserChecks": "browser-checks.json",
+  "screenshots": [
+    "reference-comparison.png",
+    "before-40-db.png",
+    "desktop-comparison-40.png",
+    "desktop-hearing-40.png",
+    "desktop-faq-40.png",
+    "mobile-comparison-40.png",
+    "mobile-en-range.png",
+    "mobile-en-questions.png",
+    "mobile-dark-zh-tw.png",
+    "mobile-impulse-hearing.png",
+    "removed-observation-desktop-85.png",
+    "removed-observation-mobile-en.png",
+    "numeric-comparison-desktop-108.png",
+    "numeric-comparison-desktop-85.png",
+    "numeric-comparison-mobile-en.png",
+    "numeric-comparison-dark-zh-tw.png"
+  ],
+  "checks": {
+    "command": "rtk npm run check",
+    "result": "passed",
+    "tests": 137,
+    "detailTests": 9,
+    "staticPages": 126,
+    "sitemapUrls": 123,
+    "internalLinksAndAnchors": 4941,
+    "limits": "未部署；未验证真实手机、Safari、实际读屏设备与搜索引擎表现。"
+  },
+  "sections": [
+    "examples",
+    "context",
+    "hearing",
+    "question"
+  ],
+  "followUp": "已移除三项观察要点的正文、三语数据、目录项及专属样式；听力说明后直接进入常见问题。",
+  "followUpChecks": "removed-observation-checks.json",
+  "numericComparisonChecks": "numeric-comparison-checks.json"
+}

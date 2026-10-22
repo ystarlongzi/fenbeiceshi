@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-22",
+  "environment": "Chrome, local static preview, default desktop and 390 × 844 / 320 × 740 CSS-pixel viewports",
+  "checks": [
+    {
+      "check": "zh-initial",
+      "result": [
+        {
+          "open": false,
+          "tone": "faint"
+        },
+        {
+          "open": false,
+          "tone": "quiet"
+        },
+        {
+          "open": false,
+          "tone": "everyday"
+        },
+        {
+          "open": false,
+          "tone": "raised"
+        },
+        {
+          "open": false,
+          "tone": "loud"
+        },
+        {
+          "open": false,
+          "tone": "intense"
+        },
+        {
+          "open": false,
+          "tone": "extreme"
+        }
+      ]
+    },
+    {
+      "check": "zh-open-band-and-sound",
+      "result": [
+        {
+          "open": true,
+          "openedSounds": [
+            "library"
+          ]
+        }
+      ]
+    },
+    {
+      "check": "zh-sound-exclusive",
+      "result": [
+        {
+          "open": true,
+          "openedSounds": [
+            "fridge"
+          ]
+        }
+      ]
+    },
+    {
+      "check": "keyboard-enter",
+      "open": ""
+    },
+    {
+      "check": "keyboard-space",
+      "open": null
+    },
+    {
+      "check": "zh-search-fridge",
+      "result": [
+        {
+          "open": true,
+          "sounds": [
+            "fridge"
+          ],
+          "tone": "quiet"
+        }
+      ]
+    },
+    {
+      "check": "search-can-collapse",
+      "open": null
+    },
+    {
+      "check": "new-query-expands",
+      "result": [
+        {
+          "open": true,
+          "tone": "quiet"
+        },
+        {
+          "open": true,
+          "tone": "everyday"
+        }
+      ]
+    },
+    {
+      "check": "clear-restores-collapsed",
+      "result": [
+        {
+          "open": false,
+          "tone": "faint"
+        },
+        {
+          "open": false,
+          "tone": "quiet"
+        },
+        {
+          "open": false,
+          "tone": "everyday"
+        },
+        {
+          "open": false,
+          "tone": "raised"
+        },
+        {
+          "open": false,
+          "tone": "loud"
+        },
+        {
+          "open": false,
+          "tone": "intense"
+        },
+        {
+          "open": false,
+          "tone": "extreme"
+        }
+      ]
+    },
+    {
+      "check": "no-results",
+      "text": "找到 0 / 31 项声音参考\n\n没有找到匹配声音。试试缩短名称或更换分贝值。\n\n查看全部声音"
+    },
+    {
+      "check": "zh-mobile-width",
+      "result": [
+        {
+          "clientWidth": 390,
+          "scrollWidth": 390
+        },
+        {
+          "clientWidth": 16,
+          "scrollWidth": 16
+        }
+      ]
+    },
+    {
+      "check": "zh-tw-initial",
+      "result": [
+        {
+          "open": false,
+          "tone": "faint"
+        },
+        {
+          "open": false,
+          "tone": "quiet"
+        },
+        {
+          "open": false,
+          "tone": "everyday"
+        },
+        {
+          "open": false,
+          "tone": "raised"
+        },
+        {
+          "open": false,
+          "tone": "loud"
+        },
+        {
+          "open": false,
+          "tone": "intense"
+        },
+        {
+          "open": false,
+          "tone": "extreme"
+        }
+      ]
+    },
+    {
+      "check": "zh-tw-search",
+      "result": [
+        {
+          "open": true,
+          "sounds": [
+            "dishwasher"
+          ],
+          "tone": "quiet"
+        }
+      ]
+    },
+    {
+      "check": "zh-tw-clear",
+      "result": [
+        {
+          "open": false,
+          "tone": "faint"
+        },
+        {
+          "open": false,
+          "tone": "quiet"
+        },
+        {
+          "open": false,
+          "tone": "everyday"
+        },
+        {
+          "open": false,
+          "tone": "raised"
+        },
+        {
+          "open": false,
+          "tone": "loud"
+        },
+        {
+          "open": false,
+          "tone": "intense"
+        },
+        {
+          "open": false,
+          "tone": "extreme"
+        }
+      ]
+    },
+    {
+      "check": "en-initial",
+      "result": [
+        {
+          "open": false,
+          "tone": "faint"
+        },
+        {
+          "open": false,
+          "tone": "quiet"
+        },
+        {
+          "open": false,
+          "tone": "everyday"
+        },
+        {
+          "open": false,
+          "tone": "raised"
+        },
+        {
+          "open": false,
+          "tone": "loud"
+        },
+        {
+          "open": false,
+          "tone": "intense"
+        },
+        {
+          "open": false,
+          "tone": "extreme"
+        }
+      ]
+    },
+    {
+      "check": "en-320-detail",
+      "result": [
+        {
+          "clientWidth": 320,
+          "scrollWidth": 320
+        },
+        {
+          "clientWidth": 16,
+          "scrollWidth": 16
+        }
+      ],
+      "bandOpen": "",
+      "soundOpen": "",
+      "source": "#sound-source-niosh-appliances"
+    },
+    {
+      "check": "en-clear",
+      "result": [
+        {
+          "open": false,
+          "tone": "faint"
+        },
+        {
+          "open": false,
+          "tone": "quiet"
+        },
+        {
+          "open": false,
+          "tone": "everyday"
+        },
+        {
+          "open": false,
+          "tone": "raised"
+        },
+        {
+          "open": false,
+          "tone": "loud"
+        },
+        {
+          "open": false,
+          "tone": "intense"
+        },
+        {
+          "open": false,
+          "tone": "extreme"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-21",
+  "updated": "2026-10-22",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "简体中文优先，同时提供繁体中文与英文；兼顾百度、必应和 Google。",
@@ -316,25 +316,557 @@
       "kind": "article",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/knowledge/decibel-chart/","wave":"P0","title":"分贝对照表：常见声音有多大及比较条件 - 分贝测试","h1":"分贝对照表：常见声音与噪音水平","keywords":["分贝对照表","40 分贝有多大","50 分贝有多大","60 分贝有多大","70 分贝有多大"]},
-        "en": {"path":"/en/knowledge/decibel-chart/","wave":"P0","title":"Decibel Chart: Everyday Sounds and Their Context | fenbeiceshi.com","h1":"Decibel chart: everyday sounds and noise levels","keywords":["decibel chart","how loud is 60 dB","common sound levels"]},
+        "zh-CN": {"path":"/knowledge/decibel-chart/","wave":"P0","title":"分贝对照表：常见声音有多大及比较条件 - 分贝测试","h1":"分贝对照表：常见声音与噪音水平","keywords":["分贝对照表","常见声音分贝","噪音水平对照"]},
+        "en": {"path":"/en/knowledge/decibel-chart/","wave":"P0","title":"Decibel Chart: Everyday Sounds and Their Context | fenbeiceshi.com","h1":"Decibel chart: everyday sounds and noise levels","keywords":["decibel chart","common sound levels","noise level comparison"]},
         "zh-TW": {
           "path": "/zh-tw/knowledge/decibel-chart/",
           "wave": "P0",
           "title": "分貝對照表：常見聲音有多大及比較條件 - 分貝測試",
           "h1": "分貝對照表：常見聲音與噪音水平",
-          "keywords": ["分貝對照表", "40 分貝有多大", "50 分貝有多大", "60 分貝有多大", "70 分貝有多大"],
+          "keywords": ["分貝對照表", "常見聲音分貝", "噪音程度對照"],
           "status": "implemented-not-deployed"
         }
       },
       "intent": "快速查询常见声音与分贝范围，并理解比较条件。",
-      "uniqueValue": "七档纵向内容组直接承载 31 项声音，声音标签按内容宽度自动换行，名称、范围与来源单位直接可见，条件及来源在标签下方整行展开并保留静态 HTML；七档简短名称另附一句体感描述；按范围起点编组，跨档声音保留完整范围且仅展示一次；名称或数值搜索只保留匹配条目与分组，无分段按钮、类别筛选和滑块；页首简述 40–70 分贝量级，健康导读紧随声音对照，参考说明收敛为范围差异与网页估算比较两个问题。",
+      "uniqueValue": "七档纵向内容组直接承载 31 项声音，声音标签按内容宽度自动换行，分组默认折叠，展开后名称、范围与来源单位可见，比较条件及分贝详情行内链接在标签下方整行展开并保留静态 HTML，机构和资料出处在详情页查看；七档简短名称另附一句体感描述；按范围起点编组，跨档声音保留完整范围且仅展示一次；名称或数值搜索只保留匹配条目与分组并自动展开，清空后恢复折叠，无分段筛选按钮、类别筛选和滑块；31 项描述均在段落中链接至相应单值或完整范围详情，共 28 个独立主题，保留原单位；页首简述 40–70 分贝量级，健康导读紧随声音对照，参考说明收敛为范围差异与网页估算比较两个问题。",
       "sections": ["七档声音对照与名称／数值搜索","噪音与健康：暴露时长与影响入口","参考说明：范围差异与网页估算比较"],
-      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-21","locales":["zh-CN", "zh-TW", "en"],"navigation":"简体、繁体与英文一级导航；本地构建可索引，尚未部署生产"},
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN", "zh-TW", "en"],"navigation":"简体、繁体与英文一级导航；本地构建可索引，尚未部署生产"},
       "ctaTargetId": "meter",
       "relatedIds": ["dbfs-spl","phone-accuracy","calibration","guide"],
       "publishGate": "每组参考有来源和条件；不以播放器模拟真实分贝，不把未校准读数套表判定。",
       "requiredEvidence": ["WHO、NIDCD、CDC、NPS、EPA 与 NIOSH 官方资料的声音参考；逐项原文位置见声音参考来源核验记录","NIOSH 职业暴露适用范围","原始单位、范围、测距与历史教学例子的适用条件核对","WHO 环境噪音、睡眠及认知影响原文；每项保留人群与暴露语境"]
+    },
+    {
+      "id": "decibel-10",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/10-db/","wave":"P1","title":"10 分贝有多大？呼吸声与极轻背景声 - 分贝测试","h1":"10 分贝有多大？","keywords":["10 分贝有多大","正常呼吸 10 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/10-db/","wave":"P1","title":"10 分貝有多大？呼吸聲與極輕背景聲 - 分貝測試","h1":"10 分貝有多大？","keywords":["10 分貝有多大","正常呼吸 10 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/10-db/","wave":"P1","title":"How loud is 10 dB? Breathing and very quiet backgrounds - fenbeiceshi.com","h1":"How loud is 10 dB?","keywords":["how loud is 10 dB","Normal breathing 10 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 10 分贝及正常呼吸的参考条件。",
+      "uniqueValue": "非常轻的声音，可以用正常呼吸来理解。需要很安静的背景，才容易注意到这一级别的声音。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","10 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 10 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-20","decibel-30","phone-accuracy","dbfs-spl"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"]
+    },
+    {
+      "id": "decibel-20",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/20-db/","wave":"P1","title":"20 分贝有多大？树叶声与安静户外环境 - 分贝测试","h1":"20 分贝有多大？","keywords":["20 分贝有多大","树叶沙沙声 20 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/20-db/","wave":"P1","title":"20 分貝有多大？樹葉聲與安靜戶外環境 - 分貝測試","h1":"20 分貝有多大？","keywords":["20 分貝有多大","樹葉沙沙聲 20 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/20-db/","wave":"P1","title":"How loud is 20 dB? Rustling leaves and quiet outdoor settings - fenbeiceshi.com","h1":"How loud is 20 dB?","keywords":["how loud is 20 dB","Rustling leaves 20 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 20 分贝及树叶沙沙声的参考条件。",
+      "uniqueValue": "细小的自然背景声，可以用树叶沙沙声建立印象。风况和观察位置变化，听到的声音也会变化。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","20 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 20 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-10","decibel-30","guide","dbfs-spl"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nps.gov/subjects/sound/understandingsound.htm","https://www.ccohs.ca/oshanswers/phys_agents/noise/noise_basic.html"]
+    },
+    {
+      "id": "decibel-30",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/30-db/","wave":"P1","title":"30 分贝有多大？轻声耳语与安静房间 - 分贝测试","h1":"30 分贝有多大？","keywords":["30 分贝有多大","轻声耳语 30 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/30-db/","wave":"P1","title":"30 分貝有多大？輕聲耳語與安靜房間 - 分貝測試","h1":"30 分貝有多大？","keywords":["30 分貝有多大","輕聲耳語 30 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/30-db/","wave":"P1","title":"How loud is 30 dB? Whispers and quiet rooms - fenbeiceshi.com","h1":"How loud is 30 dB?","keywords":["how loud is 30 dB","Soft whispering 30 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 30 分贝及轻声耳语的参考条件。",
+      "uniqueValue": "接近轻声耳语的量级。它是某个声源的参考，不能直接代表整间房间都同样安静。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","30 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 30 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-20","decibel-40","guide","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening","https://www.ccohs.ca/oshanswers/phys_agents/noise/noise_basic.html"]
+    },
+    {
+      "id": "decibel-40",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/40-db/","wave":"P1","title":"40 分贝有多大？图书馆与冰箱运转声 - 分贝测试","h1":"40 分贝有多大？","keywords":["40 分贝有多大","图书馆 40 dB","冰箱运转 40 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/40-db/","wave":"P1","title":"40 分貝有多大？圖書館與冰箱運轉聲 - 分貝測試","h1":"40 分貝有多大？","keywords":["40 分貝有多大","圖書館 40 dB","冰箱運轉 40 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/40-db/","wave":"P1","title":"How loud is 40 dB? Libraries and refrigerator hum - fenbeiceshi.com","h1":"How loud is 40 dB?","keywords":["how loud is 40 dB","Library 40 dB","Refrigerator humming 40 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 40 分贝及图书馆、冰箱运转的参考条件。",
+      "uniqueValue": "图书馆和冰箱运转都可以帮助理解这个量级。一个是环境背景，一个是电器声音，听感仍与距离和周围声音有关。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","40 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 40 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-45-55","decibel-30","guide","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening","https://www.cdc.gov/nceh/hearing_loss/infographic/index.html","https://www.ccohs.ca/oshanswers/phys_agents/noise/noise_basic.html"]
+    },
+    {
+      "id": "decibel-45-55",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/45-55-db/","wave":"P1","title":"45–55 分贝有多大？普通家庭背景声 - 分贝测试","h1":"45–55 分贝有多大？","keywords":["45–55 分贝有多大","普通家庭环境 45–55 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/45-55-db/","wave":"P1","title":"45–55 分貝有多大？一般家庭背景聲 - 分貝測試","h1":"45–55 分貝有多大？","keywords":["45–55 分貝有多大","普通家庭環境 45–55 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/45-55-db/","wave":"P1","title":"How loud is 45–55 dB? Everyday household background sound - fenbeiceshi.com","h1":"How loud is 45–55 dB?","keywords":["how loud is 45–55 dB","Average home 45–55 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 45–55 分贝及普通家庭环境的参考条件。",
+      "uniqueValue": "可以用普通家庭的室内背景声建立印象。门窗、通风和正在运行的电器，会一起改变房间里的声音。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","45–55 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 45–55 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-40","decibel-60-70","guide","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://nepis.epa.gov/Exe/ZyPDF.cgi?Dockey=2000UEHO.PDF#page=13"]
+    },
+    {
+      "id": "decibel-45-65",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/45-65-db/","wave":"P1","title":"45–65 分贝有多大？洗碗机的程序与运行声 - 分贝测试","h1":"45–65 分贝有多大？","keywords":["45–65 分贝有多大","洗碗机 45–65 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/45-65-db/","wave":"P1","title":"45–65 分貝有多大？洗碗機的行程與運轉聲 - 分貝測試","h1":"45–65 分貝有多大？","keywords":["45–65 分貝有多大","洗碗機 45–65 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/45-65-db/","wave":"P1","title":"How loud is 45–65 dB? Dishwasher programmes and operating sound - fenbeiceshi.com","h1":"How loud is 45–65 dB?","keywords":["how loud is 45–65 dB","Dishwasher 45–65 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 45–65 分贝及洗碗机的参考条件。",
+      "uniqueValue": "这是洗碗机运行声的参考范围。进水、清洗和排水是不同阶段，比较时要先对齐程序和观察位置。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","45–65 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 45–65 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-45-55","decibel-47-72","guide","dbfs-spl"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.cdc.gov/nceh/hearing_loss/infographic/index.html","https://www.ccohs.ca/oshanswers/phys_agents/noise/noise_basic.html"]
+    },
+    {
+      "id": "decibel-51-66",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/51-66-db/","wave":"P1","title":"51–66 分贝有多大？干衣机的历史测距参考 - 分贝测试","h1":"51–66 分贝有多大？","keywords":["51–66 分贝有多大","干衣机 51–66 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/51-66-db/","wave":"P1","title":"51–66 分貝有多大？乾衣機的歷史測距參考 - 分貝測試","h1":"51–66 分貝有多大？","keywords":["51–66 分貝有多大","乾衣機 51–66 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/51-66-db/","wave":"P1","title":"How loud is 51–66 dB? A historical dryer reference and its distance - fenbeiceshi.com","h1":"How loud is 51–66 dB?","keywords":["how loud is 51–66 dB","Clothes dryer 51–66 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 51–66 分贝及干衣机的参考条件。",
+      "uniqueValue": "可以用干衣机的滚筒与风路运行声理解这组参考。比较两次运行时，负载和程序需要一起记录。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","51–66 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 51–66 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-47-72","decibel-45-65","guide"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://stacks.cdc.gov/view/cdc/234051/cdc_234051_DS1.pdf#page=117"]
+    },
+    {
+      "id": "decibel-47-72",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/47-72-db/","wave":"P1","title":"47–72 分贝有多大？洗衣与脱水阶段的声音 - 分贝测试","h1":"47–72 分贝有多大？","keywords":["47–72 分贝有多大","洗衣机 47–72 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/47-72-db/","wave":"P1","title":"47–72 分貝有多大？洗衣與脫水階段的聲音 - 分貝測試","h1":"47–72 分貝有多大？","keywords":["47–72 分貝有多大","洗衣機 47–72 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/47-72-db/","wave":"P1","title":"How loud is 47–72 dB? Washing and spin-cycle sound - fenbeiceshi.com","h1":"How loud is 47–72 dB?","keywords":["how loud is 47–72 dB","Washing machine 47–72 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 47–72 分贝及洗衣机的参考条件。",
+      "uniqueValue": "这组洗衣机参考跨越几个量级。洗涤和脱水要分开比较，程序、负载与安装状态都很重要。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","47–72 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 47–72 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-51-66","decibel-45-65","guide"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://stacks.cdc.gov/view/cdc/234051/cdc_234051_DS1.pdf#page=117"]
+    },
+    {
+      "id": "decibel-47-69",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/47-69-db/","wave":"P1","title":"47–69 分贝有多大？电动剃须刀与贴耳使用条件 - 分贝测试","h1":"47–69 分贝有多大？","keywords":["47–69 分贝有多大","电动剃须刀 47–69 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/47-69-db/","wave":"P1","title":"47–69 分貝有多大？電動刮鬍刀與貼耳使用條件 - 分貝測試","h1":"47–69 分貝有多大？","keywords":["47–69 分貝有多大","電動剃鬚刀 47–69 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/47-69-db/","wave":"P1","title":"How loud is 47–69 dB? Electric shavers and near-ear use - fenbeiceshi.com","h1":"How loud is 47–69 dB?","keywords":["how loud is 47–69 dB","Electric shaver 47–69 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 47–69 分贝及电动剃须刀的参考条件。",
+      "uniqueValue": "这是电动剃须刀在一定距离下的运行声参考。它可以描述外部声音，却不能直接代表贴近头部使用时的耳部暴露。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","47–69 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 47–69 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-40","decibel-100","phone-accuracy","noise-health"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://stacks.cdc.gov/view/cdc/234051/cdc_234051_DS1.pdf#page=117"]
+    },
+    {
+      "id": "decibel-62-85",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/62-85-db/","wave":"P1","title":"62–85 分贝有多大？吸尘器的档位与观察位置 - 分贝测试","h1":"62–85 分贝有多大？","keywords":["62–85 分贝有多大","吸尘器 62–85 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/62-85-db/","wave":"P1","title":"62–85 分貝有多大？吸塵器的檔位與觀察位置 - 分貝測試","h1":"62–85 分貝有多大？","keywords":["62–85 分貝有多大","吸塵器 62–85 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/62-85-db/","wave":"P1","title":"How loud is 62–85 dB? Vacuum-cleaner settings and observation position - fenbeiceshi.com","h1":"How loud is 62–85 dB?","keywords":["how loud is 62–85 dB","Vacuum cleaner 62–85 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 62–85 分贝及吸尘器的参考条件。",
+      "uniqueValue": "吸尘器的声音在房间里通常比较突出。这组范围较宽，档位、吸头和观察位置会改变比较结果。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","62–85 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 62–85 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-47-72","decibel-85","guide","noise-health"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://stacks.cdc.gov/view/cdc/234051/cdc_234051_DS1.pdf#page=117","https://www.cdc.gov/niosh/noise/about/noise.html"]
+    },
+    {
+      "id": "decibel-80",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/80-db/","wave":"P1","title":"80 分贝有多大？门铃与短暂提示声 - 分贝测试","h1":"80 分贝有多大？","keywords":["80 分贝有多大","门铃 80 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/80-db/","wave":"P1","title":"80 分貝有多大？門鈴與短暫提示聲 - 分貝測試","h1":"80 分貝有多大？","keywords":["80 分貝有多大","門鈴 80 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/80-db/","wave":"P1","title":"How loud is 80 dB? Doorbells and brief alert sounds - fenbeiceshi.com","h1":"How loud is 80 dB?","keywords":["how loud is 80 dB","Doorbell 80 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 80 分贝及门铃的参考条件。",
+      "uniqueValue": "门铃是短暂而突出的提示声。它的音量设置和你站的位置，会影响听到的声音。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","80 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 80 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-60-70","decibel-105","guide","dbfs-spl"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"]
+    },
+    {
+      "id": "decibel-60-70",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/60-70-db/","wave":"P1","title":"60–70 分贝有多大？正常交谈与说话距离 - 分贝测试","h1":"60–70 分贝有多大？","keywords":["60–70 分贝有多大","正常交谈 60–70 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/60-70-db/","wave":"P1","title":"60–70 分貝有多大？一般交談與說話距離 - 分貝測試","h1":"60–70 分貝有多大？","keywords":["60–70 分貝有多大","正常交談 60–70 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/60-70-db/","wave":"P1","title":"How loud is 60–70 dB? Conversation and speaking distance - fenbeiceshi.com","h1":"How loud is 60–70 dB?","keywords":["how loud is 60–70 dB","Normal conversation 60–70 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 60–70 分贝及正常交谈的参考条件。",
+      "uniqueValue": "日常说话是理解这组量级的直接参照。说话距离、人数和房间背景变化，同一次交谈也会有不同读数。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","60–70 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 60–70 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-30","decibel-65-75","calibration","guide"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"]
+    },
+    {
+      "id": "decibel-65-75",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/65-75-db/","wave":"P1","title":"65–75 分贝有多大？餐厅人声与环境背景 - 分贝测试","h1":"65–75 分贝有多大？","keywords":["65–75 分贝有多大","嘈杂餐厅 65–75 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/65-75-db/","wave":"P1","title":"65–75 分貝有多大？餐廳人聲與環境背景 - 分貝測試","h1":"65–75 分貝有多大？","keywords":["65–75 分貝有多大","嘈雜餐廳 65–75 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/65-75-db/","wave":"P1","title":"How loud is 65–75 dB? Restaurant voices and background sound - fenbeiceshi.com","h1":"How loud is 65–75 dB?","keywords":["how loud is 65–75 dB","Noisy restaurant 65–75 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 65–75 分贝及嘈杂餐厅的参考条件。",
+      "uniqueValue": "可以用较热闹餐厅里的整体环境声理解这组范围。人流、测点与室内声学条件需要放在一起看。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","65–75 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 65–75 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-60-70","decibel-45-55","guide","noise-health"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://nepis.epa.gov/Exe/ZyPDF.cgi?Dockey=2000UEHO.PDF#page=13","https://www.ccohs.ca/oshanswers/phys_agents/noise/noise_basic.html"]
+    },
+    {
+      "id": "decibel-70-75",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/70-75-db/","wave":"P1","title":"70–75 分贝有多大？高速公路车流与道路距离 - 分贝测试","h1":"70–75 分贝有多大？","keywords":["70–75 分贝有多大","高速公路车流 70–75 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/70-75-db/","wave":"P1","title":"70–75 分貝有多大？高速公路車流與道路距離 - 分貝測試","h1":"70–75 分貝有多大？","keywords":["70–75 分貝有多大","高速公路車流 70–75 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/70-75-db/","wave":"P1","title":"How loud is 70–75 dB? Freeway traffic and distance from the road - fenbeiceshi.com","h1":"How loud is 70–75 dB?","keywords":["how loud is 70–75 dB","Freeway traffic 70–75 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 70–75 分贝及高速公路车流的参考条件。",
+      "uniqueValue": "这是道路旁车流声的参考，距离是重要条件。路边观察和坐在车内，听到的声音并不是同一回事。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","70–75 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 70–75 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-85","decibel-80-110","guide"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://nepis.epa.gov/Exe/ZyPDF.cgi?Dockey=2000UEHO.PDF#page=13"]
+    },
+    {
+      "id": "decibel-80-110",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/80-110-db/","wave":"P1","title":"80–110 分贝有多大？摩托车、越野车与经过条件 - 分贝测试","h1":"80–110 分贝有多大？","keywords":["80–110 分贝有多大","摩托车或越野车 80–110 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/80-110-db/","wave":"P1","title":"80–110 分貝有多大？機車、越野車與經過條件 - 分貝測試","h1":"80–110 分貝有多大？","keywords":["80–110 分貝有多大","摩托車或越野車 80–110 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/80-110-db/","wave":"P1","title":"How loud is 80–110 dB? Motorcycles, dirt bikes and passing conditions - fenbeiceshi.com","h1":"How loud is 80–110 dB?","keywords":["how loud is 80–110 dB","Motorcycle or dirt bike 80–110 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 80–110 分贝及摩托车或越野车的参考条件。",
+      "uniqueValue": "摩托车或越野车的声音会随负载和经过距离改变。这个较宽的范围，更适合连同车辆状态一起理解。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","80–110 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 80–110 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-70-75","decibel-105","guide","noise-health"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"]
+    },
+    {
+      "id": "decibel-85",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/85-db/","wave":"P1","title":"85 分贝有多大？繁忙交通中的车内声与职业参考 - 分贝测试","h1":"85 分贝有多大？","keywords":["85 分贝有多大","繁忙交通中的车内 85 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/85-db/","wave":"P1","title":"85 分貝有多大？繁忙交通中的車內聲與職業參考 - 分貝測試","h1":"85 分貝有多大？","keywords":["85 分貝有多大","繁忙交通中的車內 85 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/85-db/","wave":"P1","title":"How loud is 85 dB? In-car traffic sound and occupational references - fenbeiceshi.com","h1":"How loud is 85 dB?","keywords":["how loud is 85 dB","Heavy traffic inside a car 85 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 85 分贝及繁忙交通中的车内的参考条件。",
+      "uniqueValue": "可以用繁忙交通中的车内声音理解这个参考。车内位置、车窗状态和外部车流，都应作为观察条件记录。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","85 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 85 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-70-75","decibel-62-85","noise-health","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening","https://www.cdc.gov/niosh/noise/about/noise.html"]
+    },
+    {
+      "id": "decibel-105",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/105-db/","wave":"P1","title":"105 分贝有多大？汽车喇叭与五米测距条件 - 分贝测试","h1":"105 分贝有多大？","keywords":["105 分贝有多大","汽车喇叭 105 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/105-db/","wave":"P1","title":"105 分貝有多大？汽車喇叭與五公尺測距條件 - 分貝測試","h1":"105 分貝有多大？","keywords":["105 分貝有多大","汽車喇叭 105 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/105-db/","wave":"P1","title":"How loud is 105 dB? Car horns and the five-metre reference - fenbeiceshi.com","h1":"How loud is 105 dB?","keywords":["how loud is 105 dB","Car horn 105 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 105 分贝及汽车喇叭的参考条件。",
+      "uniqueValue": "汽车喇叭是突出的短时声音。这条参考带有五米测距，距离改变后，不能沿用同一个数值。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","105 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 105 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-85","decibel-110-129","noise-health","guide"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"]
+    },
+    {
+      "id": "decibel-110-129",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/110-129-db/","wave":"P1","title":"110–129 分贝有多大？警笛经过与短时强声 - 分贝测试","h1":"110–129 分贝有多大？","keywords":["110–129 分贝有多大","警笛 110–129 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/110-129-db/","wave":"P1","title":"110–129 分貝有多大？警笛經過與短時強聲 - 分貝測試","h1":"110–129 分貝有多大？","keywords":["110–129 分貝有多大","警笛 110–129 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/110-129-db/","wave":"P1","title":"How loud is 110–129 dB? Passing sirens and brief loud events - fenbeiceshi.com","h1":"How loud is 110–129 dB?","keywords":["how loud is 110–129 dB","Siren 110–129 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 110–129 分贝及警笛的参考条件。",
+      "uniqueValue": "警笛接近、经过和远离时，声音会明显变化。一次经过的最高读数，不代表整段时间的环境声。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","110–129 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 110–129 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-105","decibel-80-110","noise-health","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"]
+    },
+    {
+      "id": "decibel-74-104",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/74-104-db/","wave":"P1","title":"74–104 分贝有多大？电影院的片段、音量与座位 - 分贝测试","h1":"74–104 分贝有多大？","keywords":["74–104 分贝有多大","电影院 74–104 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/74-104-db/","wave":"P1","title":"74–104 分貝有多大？電影院的片段、音量與座位 - 分貝測試","h1":"74–104 分貝有多大？","keywords":["74–104 分貝有多大","電影院 74–104 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/74-104-db/","wave":"P1","title":"How loud is 74–104 dB? Cinema scenes, volume and seating - fenbeiceshi.com","h1":"How loud is 74–104 dB?","keywords":["how loud is 74–104 dB","Movie theatre 74–104 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 74–104 分贝及电影院的参考条件。",
+      "uniqueValue": "电影院里的声音会随影片片段和座位变化。这组范围包含不同播放情境，不能把一个强烈片段当成整场电影的平均水平。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","74–104 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 74–104 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-94-110","decibel-95-115","noise-health","guide"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"]
+    },
+    {
+      "id": "decibel-94-110",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/94-110-db/","wave":"P1","title":"94–110 分贝有多大？体育赛事与最大音量耳机 - 分贝测试","h1":"94–110 分贝有多大？","keywords":["94–110 分贝有多大","体育赛事 94–110 dBA","最大音量耳机 94–110 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/94-110-db/","wave":"P1","title":"94–110 分貝有多大？體育賽事與最大音量耳機 - 分貝測試","h1":"94–110 分貝有多大？","keywords":["94–110 分貝有多大","體育賽事 94–110 dBA","最大音量耳機 94–110 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/94-110-db/","wave":"P1","title":"How loud is 94–110 dB? Sporting events and headphones at maximum volume - fenbeiceshi.com","h1":"How loud is 94–110 dB?","keywords":["how loud is 94–110 dB","Sporting event 94–110 dBA","Headphones at maximum volume 94–110 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 94–110 分贝及体育赛事、最大音量耳机的参考条件。",
+      "uniqueValue": "体育赛事与最大音量耳机都出现在这组较强声音参考中。场馆环境和耳部暴露的位置不同，要分别理解。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","94–110 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 94–110 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-74-104","decibel-95-115","noise-health","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nidcd.nih.gov/health/noise-induced-hearing-loss","https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"]
+    },
+    {
+      "id": "decibel-95-115",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/95-115-db/","wave":"P1","title":"95–115 分贝有多大？摇滚音乐会与夜店的扩声 - 分贝测试","h1":"95–115 分贝有多大？","keywords":["95–115 分贝有多大","摇滚音乐会或夜店 95–115 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/95-115-db/","wave":"P1","title":"95–115 分貝有多大？搖滾音樂會與夜店的擴音 - 分貝測試","h1":"95–115 分貝有多大？","keywords":["95–115 分貝有多大","搖滾音樂會或夜店 95–115 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/95-115-db/","wave":"P1","title":"How loud is 95–115 dB? Amplified sound at concerts and nightclubs - fenbeiceshi.com","h1":"How loud is 95–115 dB?","keywords":["how loud is 95–115 dB","Rock concert or nightclub 95–115 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 95–115 分贝及摇滚音乐会或夜店的参考条件。",
+      "uniqueValue": "摇滚音乐会和夜店的扩声可以帮助理解这组量级。扬声器距离、场地和节目都会影响实际听到的声音。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","95–115 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 95–115 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-94-110","decibel-74-104","noise-health"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.cdc.gov/nceh/hearing_loss/infographic/index.html","https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"]
+    },
+    {
+      "id": "decibel-140-160",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/140-160-db/","wave":"P1","title":"140–160 分贝有多大？烟花表演与短促冲击声 - 分贝测试","h1":"140–160 分贝有多大？","keywords":["140–160 分贝有多大","烟花表演 140–160 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/140-160-db/","wave":"P1","title":"140–160 分貝有多大？煙花表演與短促衝擊聲 - 分貝測試","h1":"140–160 分貝有多大？","keywords":["140–160 分貝有多大","煙花表演 140–160 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/140-160-db/","wave":"P1","title":"How loud is 140–160 dB? Fireworks shows and impulse sound - fenbeiceshi.com","h1":"How loud is 140–160 dB?","keywords":["how loud is 140–160 dB","Fireworks show 140–160 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 140–160 分贝及烟花表演的参考条件。",
+      "uniqueValue": "烟花属于强烈、短促的冲击声参考。瞬间声响与整段平均声级是不同指标，查看时要分开。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","140–160 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 140–160 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-100","decibel-105","noise-health","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"]
+    },
+    {
+      "id": "decibel-98",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/98-db/","wave":"P1","title":"98 分贝有多大？手持电钻与钻孔工况 - 分贝测试","h1":"98 分贝有多大？","keywords":["98 分贝有多大","手持电钻 98 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/98-db/","wave":"P1","title":"98 分貝有多大？手持電鑽與鑽孔工況 - 分貝測試","h1":"98 分貝有多大？","keywords":["98 分貝有多大","手持電鑽 98 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/98-db/","wave":"P1","title":"How loud is 98 dB? Hand drills and drilling conditions - fenbeiceshi.com","h1":"How loud is 98 dB?","keywords":["how loud is 98 dB","Hand drill 98 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 98 分贝及手持电钻的参考条件。",
+      "uniqueValue": "手持电钻是较强设备声的参考。空转与实际钻孔是不同工况，材料、负载和位置也会改变声音。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","98 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 98 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-108","decibel-130","noise-health","guide"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.cdc.gov/niosh/media/pdfs/niosh-sound-level-meter-application-app-english.pdf#page=13"]
+    },
+    {
+      "id": "decibel-100",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/100-db/","wave":"P1","title":"100 分贝有多大？吹风机、雷声与不同单位 - 分贝测试","h1":"100 分贝有多大？","keywords":["100 分贝有多大","吹风机 100 dB","雷声 100 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/100-db/","wave":"P1","title":"100 分貝有多大？吹風機、雷聲與不同單位 - 分貝測試","h1":"100 分貝有多大？","keywords":["100 分貝有多大","吹風機 100 dB","雷聲 100 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/100-db/","wave":"P1","title":"How loud is 100 dB? Hair dryers, thunder and differing units - fenbeiceshi.com","h1":"How loud is 100 dB?","keywords":["how loud is 100 dB","Hair dryer 100 dB","Thunder 100 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 100 分贝及吹风机、雷声的参考条件。",
+      "uniqueValue": "吹风机与雷声都出现在 100 这个数值上，但声音的持续方式与单位不同。它们适合帮助认识量级，不能直接当作等效声音。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","100 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 100 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-47-69","decibel-140-160","noise-health","dbfs-spl"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening","https://www.nps.gov/subjects/sound/understandingsound.htm","https://www.ccohs.ca/oshanswers/phys_agents/noise/noise_basic.html"]
+    },
+    {
+      "id": "decibel-108",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/108-db/","wave":"P1","title":"108 分贝有多大？链锯的负载与观察条件 - 分贝测试","h1":"108 分贝有多大？","keywords":["108 分贝有多大","链锯 108 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/108-db/","wave":"P1","title":"108 分貝有多大？鏈鋸的負載與觀察條件 - 分貝測試","h1":"108 分貝有多大？","keywords":["108 分貝有多大","鏈鋸 108 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/108-db/","wave":"P1","title":"How loud is 108 dB? Chainsaw load and observation conditions - fenbeiceshi.com","h1":"How loud is 108 dB?","keywords":["how loud is 108 dB","Chain saw 108 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 108 分贝及链锯的参考条件。",
+      "uniqueValue": "链锯运行可以形成很突出的设备声。启动、空载和切割需要分别看，不能用一个参考值概括所有工况。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","108 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 108 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-98","decibel-130","noise-health","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.cdc.gov/niosh/media/pdfs/niosh-sound-level-meter-application-app-english.pdf#page=13"]
+    },
+    {
+      "id": "decibel-120",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/120-db/","wave":"P1","title":"120 分贝有多大？军用喷气飞机飞越与离地高度 - 分贝测试","h1":"120 分贝有多大？","keywords":["120 分贝有多大","军用喷气飞机飞越 120 dBA"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/120-db/","wave":"P1","title":"120 分貝有多大？軍用噴射機飛越與離地高度 - 分貝測試","h1":"120 分貝有多大？","keywords":["120 分貝有多大","軍用噴氣飛機飛越 120 dBA"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/120-db/","wave":"P1","title":"How loud is 120 dB? Military jet flyovers and height above ground - fenbeiceshi.com","h1":"How loud is 120 dB?","keywords":["how loud is 120 dB","Military jet flyover 120 dBA"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 120 分贝及军用喷气飞机飞越的参考条件。",
+      "uniqueValue": "这条军用喷气飞机参考对应离地约一百米的飞越。高度、航迹和观察位置，是理解这种强声的重要条件。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","120 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 120 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-140","decibel-100","noise-health","dbfs-spl"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.nps.gov/subjects/sound/understandingsound.htm"]
+    },
+    {
+      "id": "decibel-130",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/130-db/","wave":"P1","title":"130 分贝有多大？风镐与施工强声参考 - 分贝测试","h1":"130 分贝有多大？","keywords":["130 分贝有多大","风镐 130 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/130-db/","wave":"P1","title":"130 分貝有多大？風鎬與施工強聲參考 - 分貝測試","h1":"130 分貝有多大？","keywords":["130 分貝有多大","風鎬 130 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/130-db/","wave":"P1","title":"How loud is 130 dB? Jackhammers and loud construction sound - fenbeiceshi.com","h1":"How loud is 130 dB?","keywords":["how loud is 130 dB","Jackhammer 130 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 130 分贝及风镐的参考条件。",
+      "uniqueValue": "风镐属于很强的施工作业声参考。施工点的位置、运行阶段与观察距离，都应连同读数一起记录。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","130 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 130 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-98","decibel-108","noise-health"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening","https://www.cdc.gov/niosh/noise/about/noise.html"]
+    },
+    {
+      "id": "decibel-140",
+      "kind": "article",
+      "priority": "P1",
+      "parentId": "decibel-chart",
+      "locales": {
+        "zh-CN": {"path":"/knowledge/decibel-chart/140-db/","wave":"P1","title":"140 分贝有多大？飞机起飞与机舱内外的区别 - 分贝测试","h1":"140 分贝有多大？","keywords":["140 分贝有多大","飞机起飞 140 dB"],"status":"implemented-not-deployed"},
+        "zh-TW": {"path":"/zh-tw/knowledge/decibel-chart/140-db/","wave":"P1","title":"140 分貝有多大？飛機起飛與機艙內外的區別 - 分貝測試","h1":"140 分貝有多大？","keywords":["140 分貝有多大","飛機起飛 140 dB"],"status":"implemented-not-deployed"},
+        "en": {"path":"/en/knowledge/decibel-chart/140-db/","wave":"P1","title":"How loud is 140 dB? Aircraft takeoff and cabin versus outside sound - fenbeiceshi.com","h1":"How loud is 140 dB?","keywords":["how loud is 140 dB","Airplane taking off 140 dB"],"status":"implemented-not-deployed"}
+      },
+      "intent": "理解 140 分贝及飞机起飞的参考条件。",
+      "uniqueValue": "飞机起飞是极强声音的参考场景。机场附近的外部观察与机舱内部不同，距离和位置尤其重要。 保留原始声音的单位和完整范围，增加同一声音的分贝差、近似听感与能量对比，直接回答听力风险并提供生活化问答。",
+      "sections": ["直观结论","140 分贝可以参考哪些声音？","声级差、听感与声音能量对比","这个声级对听力有害吗？","关于 140 分贝的常见问题","来源与相关阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["decibel-chart","decibel-120","decibel-140-160","noise-health","phone-accuracy"],
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN","zh-TW","en"]},
+      "publishGate": "三语静态答案、原始范围和单位、场景条件、来源、关联链接及自 canonical 与互返 hreflang 均完整；不从范围捏造单点或把未校准估算解释为 dBA。",
+      "requiredEvidence": ["https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"]
     },
     {
       "id": "microphone-help",

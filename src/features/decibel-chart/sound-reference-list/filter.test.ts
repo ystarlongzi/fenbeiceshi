@@ -14,8 +14,6 @@ const sounds: LookupSound[] = [
     name: "冰箱运转",
     context: "固定运行状态",
     searchText: "冰箱运转 Refrigerator humming",
-    sourceId: "sound-source-cdc",
-    sourceLabel: "CDC",
   },
   {
     id: "dishwasher",
@@ -26,8 +24,6 @@ const sounds: LookupSound[] = [
     name: "洗碗机",
     context: "不同程序",
     searchText: "洗碗机 Dishwasher",
-    sourceId: "sound-source-cdc",
-    sourceLabel: "CDC",
   },
   {
     id: "conversation",
@@ -38,8 +34,6 @@ const sounds: LookupSound[] = [
     name: "正常交谈",
     context: "保留距离",
     searchText: "正常交谈 Normal conversation",
-    sourceId: "sound-source-nidcd",
-    sourceLabel: "NIDCD",
   },
 ];
 const ids = (query: string) => filterSounds(sounds, query).map((sound) => sound.id);
@@ -76,10 +70,8 @@ test("繁体声音名称可在不同语言的索引中查找", () => {
   const multilingual = soundReferences.map((sound): LookupSound => ({
     ...sound,
     name: sound.name.zhTW,
-    context: sound.context.zhTW,
+    context: (sound.description ?? sound.context).zhTW,
     searchText: `${sound.name.zh} ${sound.name.zhTW} ${sound.name.en}`,
-    sourceId: "source",
-    sourceLabel: "Source",
   }));
   assert.deepEqual(
     filterSounds(multilingual, "洗碗機").map((sound) => sound.id),
@@ -155,10 +147,8 @@ test("完整来源数据在七档中无遗漏、无重复，保留单位和原�
   const all = soundReferences.map((sound) => ({
     ...sound,
     name: sound.name.zh,
-    context: sound.context.zh,
+    context: (sound.description ?? sound.context).zh,
     searchText: sound.name.zh,
-    sourceId: sound.source,
-    sourceLabel: sound.source,
   }));
   const groups = groupSounds(all, bands);
   const grouped = groups.flatMap((group) => group.sounds);

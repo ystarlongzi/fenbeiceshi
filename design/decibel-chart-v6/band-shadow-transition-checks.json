@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-22",
+  "environment": "Chrome 1440×1000, local static preview 127.0.0.1:3100",
+  "checks": [
+    {
+      "check": "light-idle",
+      "state": {
+        "duration": "0.2s",
+        "easing": "ease-out",
+        "hovered": false,
+        "property": "box-shadow",
+        "shadow": "none"
+      }
+    },
+    {
+      "check": "light-hover",
+      "state": {
+        "decoration": "none",
+        "duration": "0.2s",
+        "easing": "ease-out",
+        "hovered": true,
+        "property": "box-shadow",
+        "shadow": "color(srgb 0.0434022 0.0934817 0.0584261 / 0.174118) 0px 8px 22px 0px, rgba(26, 56, 35, 0.082) 0px 2px 6px 0px"
+      }
+    },
+    {
+      "check": "light-leaving",
+      "state": {
+        "duration": "0.2s",
+        "hovered": false,
+        "property": "box-shadow",
+        "shadow": "none"
+      }
+    },
+    {
+      "check": "light-left",
+      "state": {
+        "hovered": false,
+        "shadow": "none"
+      }
+    },
+    {
+      "check": "dark-hover",
+      "state": {
+        "decoration": "none",
+        "duration": "0.2s",
+        "easing": "ease-out",
+        "hovered": true,
+        "property": "box-shadow",
+        "shadow": "color(srgb 0 0 0 / 0.269412) 0px 8px 22px 0px, rgba(0, 0, 0, 0.19) 0px 2px 6px 0px"
+      }
+    }
+  ],
+  "reducedMotion": "代码静态检查：prefers-reduced-motion: reduce 覆盖 transition: none；未切换系统偏好",
+  "restoredTheme": "light"
+}

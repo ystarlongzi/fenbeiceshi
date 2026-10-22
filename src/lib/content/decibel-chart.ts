@@ -10,16 +10,16 @@ export const decibelChart: SiteContent = {
   id: "decibel-chart",
   slug: "knowledge/decibel-chart",
   kind: "article",
-  updated: "2026-10-21",
+  updated: "2026-10-22",
   title: t(
     "分贝对照表：常见声音与噪音水平",
     "Decibel chart: everyday sounds and noise levels",
     "分貝對照表：常見聲音與噪音水平",
   ),
   description: t(
-    "按七档分组浏览耳语、家电、交通和音乐会的分贝参考，搜索声音名称或数值，了解 40、50、60、70 分贝有多大，并查看各项条件与来源。",
-    "Browse whispers, appliances, traffic and concerts in seven level bands. Search by sound or decibel value, compare what 40–70 dB means, and open each sound for its context and source.",
-    "按七檔分組瀏覽耳語、家電、交通和音樂會的分貝參考，搜尋聲音名稱或數值，瞭解 40、50、60、70 分貝有多大，並檢視各項條件與來源。",
+    "按七档浏览 31 项声音参考，搜索名称或数值，展开查看比较条件，通过对应单值或完整范围的分贝详情了解解释与来源。",
+    "Browse 31 sound references in seven level bands. Search by name or value, open the comparison conditions, then follow the level or full-range explanation for details and sources.",
+    "按七檔瀏覽 31 項聲音參考，搜尋名稱或數值，展開檢視比較條件，透過對應單值或完整範圍的分貝詳情瞭解解釋與來源。",
   ),
   takeaway: t(
     "40 dB 可参考图书馆；50 dB 左右接近普通家庭背景声（45–55 dB）；正常交谈约 60–70 dBA。下方可按声音名称或数值查找更多参考。",

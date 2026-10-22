@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "updated": "2026-10-22",
+  "status": "local-implementation-not-deployed",
+  "task": "从既有声音描述继续阅读其单值或完整范围的含义、场景条件与来源。",
+  "scope": {
+    "soundCount": 31,
+    "topicCount": 28,
+    "newLocalizedUrls": 84,
+    "totalUrls": 126,
+    "indexableUrls": 123
+  },
+  "hierarchy": {
+    "entry": "31 项声音的展开说明只显示比较条件与分贝详情原生行内链接，随段落换行；来源机构、资料出处及引用链接在详情页展示。七档仍默认折叠，搜索行为不变。",
+    "answer": "页首给出单值或范围、对应场景与直接答案。",
+    "body": "复用连续文章及目录：对应声音、理解参考、场景问题、比较条件、网页观察、来源与延伸阅读。声音示例采用带分隔线的列表，不新增卡片网格。",
+    "parent": "分贝对照表为父页，视觉面包屑和 BreadcrumbList 均包含父页。",
+    "mobile": "固定字号，标题与段落自然换行；示例名称与数值可上下排列，保留完整单位。"
+  },
+  "content": "只根据既有 31 项一手来源声音参考建立 28 个明确主题，不按每个整数扩页；范围不取中点或四舍五入，同值例子可以共页但逐项保留 dB／dBA、距离、年份与运行条件。",
+  "implementation": {
+    "data": "src/lib/content/decibel-details/",
+    "view": "src/features/decibel-details/",
+    "format": "src/lib/content/sound-reference-format.ts",
+    "registry": "src/lib/routing/pages.ts"
+  },
+  "seo": "完整正文及入口静态生成；三语自 canonical、互返 hreflang、sitemap 与父子面包屑从已注册页面派生。未部署生产，不声称已收录或有搜索量。",
+  "routes": [
+    {
+      "value": "10",
+      "key": "10",
+      "soundIds": [
+        "breathing"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/10-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/10-db/",
+        "en": "/en/knowledge/decibel-chart/10-db/"
+      }
+    },
+    {
+      "value": "20",
+      "key": "20",
+      "soundIds": [
+        "leaves"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/20-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/20-db/",
+        "en": "/en/knowledge/decibel-chart/20-db/"
+      }
+    },
+    {
+      "value": "30",
+      "key": "30",
+      "soundIds": [
+        "whisper"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/30-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/30-db/",
+        "en": "/en/knowledge/decibel-chart/30-db/"
+      }
+    },
+    {
+      "value": "40",
+      "key": "40",
+      "soundIds": [
+        "library",
+        "fridge"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/40-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/40-db/",
+        "en": "/en/knowledge/decibel-chart/40-db/"
+      }
+    },
+    {
+      "value": "45–55",
+      "key": "45-55",
+      "soundIds": [
+        "home"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/45-55-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/45-55-db/",
+        "en": "/en/knowledge/decibel-chart/45-55-db/"
+      }
+    },
+    {
+      "value": "45–65",
+      "key": "45-65",
+      "soundIds": [
+        "dishwasher"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/45-65-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/45-65-db/",
+        "en": "/en/knowledge/decibel-chart/45-65-db/"
+      }
+    },
+    {
+      "value": "51–66",
+      "key": "51-66",
+      "soundIds": [
+        "dryer"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/51-66-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/51-66-db/",
+        "en": "/en/knowledge/decibel-chart/51-66-db/"
+      }
+    },
+    {
+      "value": "47–72",
+      "key": "47-72",
+      "soundIds": [
+        "washing-machine"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/47-72-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/47-72-db/",
+        "en": "/en/knowledge/decibel-chart/47-72-db/"
+      }
+    },
+    {
+      "value": "47–69",
+      "key": "47-69",
+      "soundIds": [
+        "shaver"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/47-69-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/47-69-db/",
+        "en": "/en/knowledge/decibel-chart/47-69-db/"
+      }
+    },
+    {
+      "value": "62–85",
+      "key": "62-85",
+      "soundIds": [
+        "vacuum"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/62-85-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/62-85-db/",
+        "en": "/en/knowledge/decibel-chart/62-85-db/"
+      }
+    },
+    {
+      "value": "80",
+      "key": "80",
+      "soundIds": [
+        "doorbell"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/80-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/80-db/",
+        "en": "/en/knowledge/decibel-chart/80-db/"
+      }
+    },
+    {
+      "value": "60–70",
+      "key": "60-70",
+      "soundIds": [
+        "conversation"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/60-70-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/60-70-db/",
+        "en": "/en/knowledge/decibel-chart/60-70-db/"
+      }
+    },
+    {
+      "value": "65–75",
+      "key": "65-75",
+      "soundIds": [
+        "restaurant"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/65-75-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/65-75-db/",
+        "en": "/en/knowledge/decibel-chart/65-75-db/"
+      }
+    },
+    {
+      "value": "70–75",
+      "key": "70-75",
+      "soundIds": [
+        "street-traffic"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/70-75-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/70-75-db/",
+        "en": "/en/knowledge/decibel-chart/70-75-db/"
+      }
+    },
+    {
+      "value": "80–110",
+      "key": "80-110",
+      "soundIds": [
+        "motorcycle"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/80-110-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/80-110-db/",
+        "en": "/en/knowledge/decibel-chart/80-110-db/"
+      }
+    },
+    {
+      "value": "85",
+      "key": "85",
+      "soundIds": [
+        "traffic-inside-car"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/85-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/85-db/",
+        "en": "/en/knowledge/decibel-chart/85-db/"
+      }
+    },
+    {
+      "value": "105",
+      "key": "105",
+      "soundIds": [
+        "horn"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/105-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/105-db/",
+        "en": "/en/knowledge/decibel-chart/105-db/"
+      }
+    },
+    {
+      "value": "110–129",
+      "key": "110-129",
+      "soundIds": [
+        "siren"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/110-129-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/110-129-db/",
+        "en": "/en/knowledge/decibel-chart/110-129-db/"
+      }
+    },
+    {
+      "value": "74–104",
+      "key": "74-104",
+      "soundIds": [
+        "cinema"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/74-104-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/74-104-db/",
+        "en": "/en/knowledge/decibel-chart/74-104-db/"
+      }
+    },
+    {
+      "value": "94–110",
+      "key": "94-110",
+      "soundIds": [
+        "sports",
+        "headphones"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/94-110-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/94-110-db/",
+        "en": "/en/knowledge/decibel-chart/94-110-db/"
+      }
+    },
+    {
+      "value": "95–115",
+      "key": "95-115",
+      "soundIds": [
+        "concert"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/95-115-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/95-115-db/",
+        "en": "/en/knowledge/decibel-chart/95-115-db/"
+      }
+    },
+    {
+      "value": "140–160",
+      "key": "140-160",
+      "soundIds": [
+        "fireworks"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/140-160-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/140-160-db/",
+        "en": "/en/knowledge/decibel-chart/140-160-db/"
+      }
+    },
+    {
+      "value": "98",
+      "key": "98",
+      "soundIds": [
+        "drill"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/98-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/98-db/",
+        "en": "/en/knowledge/decibel-chart/98-db/"
+      }
+    },
+    {
+      "value": "100",
+      "key": "100",
+      "soundIds": [
+        "hair-dryer",
+        "thunder"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/100-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/100-db/",
+        "en": "/en/knowledge/decibel-chart/100-db/"
+      }
+    },
+    {
+      "value": "108",
+      "key": "108",
+      "soundIds": [
+        "chainsaw"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/108-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/108-db/",
+        "en": "/en/knowledge/decibel-chart/108-db/"
+      }
+    },
+    {
+      "value": "120",
+      "key": "120",
+      "soundIds": [
+        "jet"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/120-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/120-db/",
+        "en": "/en/knowledge/decibel-chart/120-db/"
+      }
+    },
+    {
+      "value": "130",
+      "key": "130",
+      "soundIds": [
+        "jackhammer"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/130-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/130-db/",
+        "en": "/en/knowledge/decibel-chart/130-db/"
+      }
+    },
+    {
+      "value": "140",
+      "key": "140",
+      "soundIds": [
+        "airplane"
+      ],
+      "paths": {
+        "zh-CN": "/knowledge/decibel-chart/140-db/",
+        "zh-TW": "/zh-tw/knowledge/decibel-chart/140-db/",
+        "en": "/en/knowledge/decibel-chart/140-db/"
+      }
+    }
+  ],
+  "verification": "../../docs/验证/分贝详情与行内链接验证.md",
+  "browserChecks": "browser-checks.json",
+  "screenshots": [
+    "inline-desktop-zh.png",
+    "detail-desktop-zh.png",
+    "detail-mobile-en.png",
+    "example-mobile-en.png",
+    "inline-mobile-en.png",
+    "shared-units-desktop-zh-tw-dark.png",
+    "inline-simplified-desktop-zh.png",
+    "inline-simplified-mobile-en.png",
+    "inline-simplified-mobile-zh-tw.png"
+  ],
+  "verified": {
+    "date": "2026-10-22",
+    "automated": "npm run check 通过，128 项测试；126 页面、123 sitemap URL、4563 站内链接与锚点；三语 93 条说明只含详情入口，详情保留完整引用",
+    "browser": "Chrome 桌面 1440×1000、手机视口 390×844 与 320×740；三语、亮暗、行内跳转、键盘、来源锚点和折叠回归",
+    "limits": "未部署，未验证真实手机、Safari、读屏设备及搜索收录排名"
+  },
+  "inlineDescriptionChecks": "inline-description-checks.json"
+}

@@ -1,11 +1,13 @@
 import type { SoundReference } from "../../../lib/content/sound-references.ts";
+import { referenceLevel } from "../../../lib/content/sound-reference-format.ts";
+
+export { referenceLevel };
 
 export interface LookupSound extends Pick<SoundReference, "id" | "emoji" | "min" | "max" | "unit"> {
   name: string;
   context: string;
   searchText: string;
-  sourceId: string;
-  sourceLabel: string;
+  readingLink?: { href: string; label: string };
 }
 
 export interface LookupBand {
@@ -52,8 +54,4 @@ export function groupSounds(sounds: LookupSound[], bands: LookupBand[]) {
       ),
     }))
     .filter((group) => group.sounds.length > 0);
-}
-
-export function referenceLevel(sound: Pick<SoundReference, "min" | "max" | "unit">): string {
-  return `${sound.min === sound.max ? sound.min : `${sound.min}–${sound.max}`} ${sound.unit}`;
 }

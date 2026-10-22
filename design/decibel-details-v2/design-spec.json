@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "updated": "2026-10-22",
+  "status": "local-implementation-not-deployed",
+  "scope": {
+    "topics": 28,
+    "localizedUrls": 84,
+    "newUrls": 0,
+    "totalSiteUrls": 126,
+    "indexableUrls": 123
+  },
+  "reference": {
+    "url": "https://www.decibelmeter.org/zh/comparison/10-db",
+    "observed": "Chrome 实际首屏、例子、试听、对比表、听力、问答与其他等级。",
+    "applied": "采用先直观结论、再例子和对比、再判断与行动的阅读顺序，内容继续使用本站已核验原始参考。"
+  },
+  "hierarchy": {
+    "overview": "短 H1、准确单值或完整范围、原始单位、浏览档位与独立直观结论；位于正文目录之前。",
+    "examples": "主题表面容纳原始例子、条件和出处，列表不另套卡片。",
+    "comparison": "本页参考和相关场景的两列表格，当前行标记，保留原始 dB/dBA 及完整范围，相关场景和来源均可访问。",
+    "hearing": "声级、持续与重复暴露语境，场景行动提示及健康专题入口，不推算个人安全时长。",
+    "observation": "三项要点以编号排布，独立于一般段落。",
+    "questions": "三级标题区分三问三答：场景问题、参考解释、网页比较。原 browser 锚点保留。",
+    "sources": "完整官方引用与延伸阅读仍为静态 HTML。"
+  },
+  "appearance": "沿用全站 32px 标题、24px 章节、16px 正文、14px 界面与12px 辅助字号，均使用固定 rem。语义表面、文字与边界适配亮暗；档位仅为浏览量级。",
+  "mobile": "结论先于目录，概览纵向排布，表格采用两列自然换行，长范围和单位完整保留。",
+  "implementation": {
+    "view": "src/features/decibel-details/",
+    "content": "src/lib/content/decibel-details/",
+    "shared": "ContentPage 增加可选 heading、overview 和 sectionClasses；其他页面沿用默认。",
+    "rendering": "正文、对比、问答、来源均服务端生成，目录复用现有局部客户端组件。"
+  },
+  "compatibility": "28 个主题、三语 URL、自 canonical、互返 hreflang 与父子面包屑沿用现有注册；examples、context、compare、question、browser 锚点保留。",
+  "verification": "../../docs/验证/分贝详情层级与内容结构验证.md",
+  "browserChecks": "browser-checks.json",
+  "screenshots": [
+    "reference-top.png",
+    "reference-comparison.png",
+    "before-desktop-zh.png",
+    "desktop-zh.png",
+    "desktop-comparison-zh.png",
+    "mobile-zh.png",
+    "mobile-comparison-zh.png",
+    "mobile-en-range.png",
+    "mobile-en-comparison.png",
+    "mobile-en-questions.png",
+    "mobile-zh-tw-mixed-units.png",
+    "mobile-dark-mixed-units.png"
+  ],
+  "checks": {
+    "command": "rtk npm run check",
+    "result": "passed",
+    "tests": 130,
+    "staticPages": 126,
+    "sitemapUrls": 123,
+    "internalLinksAndAnchors": 5244,
+    "browser": "Chrome；1440×1000 桌面，390×844 和 320×812 手机视口；亮暗及三语代表页。",
+    "limits": "未部署；未验证真实移动设备、Safari、实际读屏设备及搜索引擎表现。"
+  }
+}

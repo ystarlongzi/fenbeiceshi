@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-22",
+  "browser": "Chrome；桌面与响应式手机视口",
+  "checks": [
+    {
+      "case": "desktop-zh-40-comparison",
+      "currentRows": 1,
+      "rows": [
+        {
+          "change": "-10",
+          "text": "30低 10 分贝约一半约 1/10 倍"
+        },
+        {
+          "change": "-3",
+          "text": "37低 3 分贝稍轻一些约 1/2 倍"
+        },
+        {
+          "change": "0",
+          "text": "40本页参考不变约 1 倍"
+        },
+        {
+          "change": "3",
+          "text": "43高 3 分贝稍响一些约 2 倍"
+        },
+        {
+          "change": "10",
+          "text": "50高 10 分贝约两倍响约 10 倍"
+        }
+      ],
+      "scrollWidth": 1440,
+      "title": "40 分贝和其他声级差多少？",
+      "width": 1440
+    },
+    {
+      "answers": [
+        "白天可能不太明显，夜深人静时却可能让人在意。尤其是冰箱启停、滴答声或突然的声响；是否影响睡觉，还得看声音本身和你的感受。",
+        "家里的距离、墙面和摆放位置，可能和产品测试时不同；压缩机启动时也会更明显。先看标签说明是在什么条件下测的，再在同一位置比较运行和停机时的声音。",
+        "正常。手机麦克风、摆放位置和周围的声音都会影响读数。本站显示的是估算分贝，更适合比较同一位置开关窗、开关设备前后的变化。需要准确测量时，请使用经过校准的声级计。"
+      ],
+      "case": "desktop-zh-40-faq",
+      "questions": [
+        "卧室 40 分贝会不会吵？",
+        "冰箱标着 40 分贝，为什么家里听着还是响？",
+        "手机测出来不一样，正常吗？"
+      ]
+    },
+    {
+      "case": "mobile-zh-40-comparison",
+      "headings": [
+        "声级（分贝）",
+        "听起来",
+        "声音能量"
+      ],
+      "rows": 5,
+      "scrollWidth": 390,
+      "tableWidth": 348,
+      "width": 390
+    },
+    {
+      "case": "mobile-en-range-320",
+      "original": "Reference level47–72dBQuiet to Fairly noisyWhat it is likeThis washing-machine range spans several level bands. Compare washing and spinning separately, with programme, load and installation in view.Sound examples: Washing machineBands describe approximate levels; they do not establish comfort or a safe duration.",
+      "questions": [
+        "Why is spinning louder than washing?",
+        "What should I check if my washer suddenly gets louder?",
+        "Why does my phone show a different number?"
+      ],
+      "ranges": [
+        "37–62",
+        "44–69",
+        "47–72",
+        "50–75",
+        "57–82"
+      ],
+      "scrollWidth": 320,
+      "tableBounds": {
+        "bottom": 1081.765625,
+        "height": 534.7109375,
+        "left": 21,
+        "right": 299,
+        "top": 547.0546875,
+        "width": 278,
+        "x": 21,
+        "y": 547.0546875
+      },
+      "title": "How does 47–72 dB compare?",
+      "width": 320
+    },
+    {
+      "answersVisible": true,
+      "case": "mobile-en-range-faq",
+      "questions": [
+        "Why is spinning louder than washing?",
+        "What should I check if my washer suddenly gets louder?",
+        "Why does my phone show a different number?"
+      ]
+    },
+    {
+      "case": "mobile-zh-tw-mixed-units",
+      "hearing": "100 dB 對聽力有害嗎？",
+      "original": "參考聲級100dB / dBA極吵直觀感受吹風機與雷聲都出現在 100 這個數值上，但聲音的持續方式與單位不同。它們適合幫助認識量級，不能直接當作等效聲音。對應情境：吹風機、雷聲檔位幫助認識量級，不能據此判定舒適度或安全時長。",
+      "questions": [
+        "吹風機和雷聲都是 100 分貝，聽感一樣嗎？",
+        "吹風機換個檔位，聲音會小一些嗎？",
+        "手機測出來不一樣，正常嗎？"
+      ],
+      "scrollWidth": 390,
+      "units": [
+        "💨吹風機約 100 dBWHO 示例；型號、檔位與距離會不同。 WHO",
+        "⛈️雷聲約 100 dBANPS 拱門國家公園的示例，並非所有雷聲。 NPS"
+      ],
+      "width": 390
+    },
+    {
+      "case": "mobile-dark-zh-tw-comparison",
+      "current": "100本頁參考不變約 1 倍",
+      "rows": [
+        "90低 10 分貝約一半約 1/10 倍",
+        "97低 3 分貝稍輕一些約 1/2 倍",
+        "100本頁參考不變約 1 倍",
+        "103高 3 分貝稍響一些約 2 倍",
+        "110高 10 分貝約兩倍響約 10 倍"
+      ],
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "case": "mobile-zh-impulse-range",
+      "hearing": "140–160 dB 对听力有害吗？有可能。烟花这类强烈的突发声，即使只响很短时间，也可能损伤听力，不必等到听着疼才避开。如果需要提高嗓门才能和身边的人说话，或耳朵觉得不舒服，先去安静一些的地方。无法避开强声时，使用合适的耳塞或耳罩；不要为了核对数字而靠近声源。了解噪音与健康查看职业暴露时长参考",
+      "questions": [
+        "看烟花离远一点，真的有帮助吗？",
+        "为什么手机没录到最响的那一下？",
+        "手机测出来不一样，正常吗？"
+      ],
+      "ranges": [
+        "130–150",
+        "137–157",
+        "140–160",
+        "143–163",
+        "150–170"
+      ],
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "comparison-source-link",
+      "source": "NIDCD · How Loud is Too Loud?",
+      "top": 354.7578125
+    },
+    {
+      "answer": "如果声音确实这么轻，一般不容易伤害听力。但夜里持续的嗡嗡声或突然的声响，仍可能打扰休息。",
+      "case": "desktop-zh-40-hearing",
+      "title": "40 dB 对听力有害吗？"
+    }
+  ],
+  "limitations": [
+    "未验证真实手机、Safari 和实际读屏设备",
+    "未作完整真实键盘验证",
+    "未部署，未验证搜索引擎表现"
+  ]
+}

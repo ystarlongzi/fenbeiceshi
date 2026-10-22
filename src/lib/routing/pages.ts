@@ -11,6 +11,7 @@ export const contents = [...guides, howItWorks, faq, ...articles];
 export interface SitePage {
   id: string;
   slug: string;
+  parentId?: string;
   kind: "home" | "knowledge" | "records" | "content";
   title: LocalizedText;
   description: LocalizedText;
@@ -61,6 +62,7 @@ export const sitePages: SitePage[] = [
   ...contents.map((content): SitePage => ({
     id: content.id,
     slug: content.slug,
+    parentId: content.parentId,
     kind: "content",
     title: content.title,
     description: content.description,

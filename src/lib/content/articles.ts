@@ -1,4 +1,5 @@
 import { decibelChart } from "./decibel-chart.ts";
+import { soundDetails } from "./decibel-details/index.ts";
 import { noiseHealth } from "./noise-health.ts";
 import { translations as t, type SiteContent } from "./types.ts";
 
@@ -235,6 +236,7 @@ export const articles: SiteContent[] = [
     related: ["how-it-works", "phone-accuracy", "calibration", "guide"],
   },
   decibelChart,
+  ...soundDetails.map((detail) => detail.content),
   {
     id: "microphone-help",
     slug: "knowledge/microphone-permission",

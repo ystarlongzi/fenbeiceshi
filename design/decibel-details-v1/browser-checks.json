@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-22",
+  "environment": "Chrome, local static preview on 127.0.0.1:3100",
+  "checks": [
+    {
+      "check": "zh-default-collapsed",
+      "groups": [
+        {
+          "band": "faint",
+          "open": false
+        },
+        {
+          "band": "quiet",
+          "open": false
+        },
+        {
+          "band": "everyday",
+          "open": false
+        },
+        {
+          "band": "raised",
+          "open": false
+        },
+        {
+          "band": "loud",
+          "open": false
+        },
+        {
+          "band": "intense",
+          "open": false
+        },
+        {
+          "band": "extreme",
+          "open": false
+        }
+      ],
+      "sounds": 31
+    },
+    {
+      "check": "washer-inline",
+      "paragraph": {
+        "links": [
+          {
+            "display": "inline",
+            "href": "/knowledge/decibel-chart/47-72-db/",
+            "text": "了解 47–72 分贝"
+          },
+          {
+            "display": "inline-flex",
+            "href": "#sound-source-niosh-appliances",
+            "text": "NIOSH"
+          }
+        ],
+        "text": "1986 年工程教学资料 Table 2 的范围，测距 0.9 米；程序、负载和安装条件会影响声音。 了解 47–72 分贝NIOSH"
+      },
+      "groups": [
+        {
+          "band": "quiet",
+          "open": true
+        }
+      ]
+    },
+    {
+      "check": "washer-detail",
+      "title": "47–72 分贝有多大？洗衣与脱水阶段的声音",
+      "examples": [
+        "🫧洗衣机约 47–72 dB1986 年工程教学资料 Table 2 的范围，测距 0.9 米；程序、负载和安装条件会影响声音。 NIOSH"
+      ],
+      "breadcrumb": "首页\n/\n声音知识\n/\n分贝对照表：常见声音与噪音水平\n/\n47–72 分贝有多大？洗衣与脱水阶段的声音",
+      "overflow": {
+        "client": 1440,
+        "scroll": 1440
+      }
+    },
+    {
+      "check": "en-mobile-detail",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "title": "How loud is 47–72 dB? Washing and spin-cycle sound",
+      "canonical": "https://fenbeiceshi.com/en/knowledge/decibel-chart/47-72-db/",
+      "overflow": {
+        "client": 390,
+        "scroll": 390
+      },
+      "examples": [
+        "🫧Washing machine~ 47–72 dBThe range in Table 2 of 1986 engineering teaching material, at 0.9 metres; cycle, load and installation affect sound. NIOSH"
+      ]
+    },
+    {
+      "check": "en-return-collapsed",
+      "groups": [
+        {
+          "band": "faint",
+          "open": false
+        },
+        {
+          "band": "quiet",
+          "open": false
+        },
+        {
+          "band": "everyday",
+          "open": false
+        },
+        {
+          "band": "raised",
+          "open": false
+        },
+        {
+          "band": "loud",
+          "open": false
+        },
+        {
+          "band": "intense",
+          "open": false
+        },
+        {
+          "band": "extreme",
+          "open": false
+        }
+      ]
+    },
+    {
+      "check": "en-inline-320",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "paragraph": {
+        "links": [
+          {
+            "display": "inline",
+            "href": "/en/knowledge/decibel-chart/47-72-db/",
+            "text": "About 47–72 dB"
+          },
+          {
+            "display": "inline-flex",
+            "href": "#sound-source-niosh-appliances",
+            "text": "NIOSH"
+          }
+        ],
+        "text": "The range in Table 2 of 1986 engineering teaching material, at 0.9 metres; cycle, load and installation affect sound. About 47–72 dBNIOSH"
+      },
+      "overflow": {
+        "client": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "check": "en-clear-collapses",
+      "groups": [
+        {
+          "band": "faint",
+          "open": false
+        },
+        {
+          "band": "quiet",
+          "open": false
+        },
+        {
+          "band": "everyday",
+          "open": false
+        },
+        {
+          "band": "raised",
+          "open": false
+        },
+        {
+          "band": "loud",
+          "open": false
+        },
+        {
+          "band": "intense",
+          "open": false
+        },
+        {
+          "band": "extreme",
+          "open": false
+        }
+      ]
+    },
+    {
+      "check": "hundred-shared-320",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "examples": [
+        {
+          "id": "hair-dryer",
+          "text": "💨Hair dryer~ 100 dBA WHO example; models, settings and distances differ. WHO"
+        },
+        {
+          "id": "thunder",
+          "text": "⛈️Thunder~ 100 dBAAn NPS example from Arches, not a level for all thunder. NPS"
+        }
+      ],
+      "overflow": {
+        "client": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "check": "example-source-anchor",
+      "source": "WHO · Deafness and hearing loss: Safe listening"
+    },
+    {
+      "check": "zhTW-shared-dark",
+      "title": "100 分貝有多大？吹風機、雷聲與不同單位",
+      "canonical": "https://fenbeiceshi.com/zh-tw/knowledge/decibel-chart/100-db/",
+      "theme": "dark",
+      "examples": [
+        {
+          "color": "rgb(176, 191, 175)",
+          "id": "hair-dryer",
+          "text": "💨吹風機約 100 dBWHO 示例；型號、檔位與距離會不同。 WHO"
+        },
+        {
+          "color": "rgb(176, 191, 175)",
+          "id": "thunder",
+          "text": "⛈️雷聲約 100 dBANPS 拱門國家公園的示例，並非所有雷聲。 NPS"
+        }
+      ],
+      "overflow": {
+        "client": 1440,
+        "scroll": 1440
+      }
+    },
+    {
+      "check": "zhTW-high-range-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "title": "140–160 分貝有多大？煙花表演與短促衝擊聲",
+      "examples": [
+        "🎆煙花表演約 140–160 dBA短促衝擊聲，不能當作持續平均聲級。 NIDCD"
+      ],
+      "overflow": {
+        "client": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "check": "single-ten",
+      "title": "10 分贝有多大？呼吸声与极轻背景声",
+      "examples": [
+        "🫁正常呼吸约 10 dB非常轻微的声音，需安静背景。 WHO"
+      ]
+    },
+    {
+      "check": "preferences-restored",
+      "theme": "light",
+      "locale": "zh-CN"
+    }
+  ]
+}

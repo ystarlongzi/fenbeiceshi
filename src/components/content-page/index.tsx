@@ -18,6 +18,9 @@ export function ContentPage({
   children,
   className = "",
   cta,
+  heading,
+  overview,
+  sectionClasses = {},
 }: {
   id: string;
   locale: Locale;
@@ -25,6 +28,9 @@ export function ContentPage({
   children?: ReactNode;
   className?: string;
   cta?: { title: string; description: string; href: string; label: string };
+  heading?: ReactNode;
+  overview?: ReactNode;
+  sectionClasses?: Record<string, string>;
 }) {
   const content = contents.find((item) => item.id === id);
   if (!content) throw new Error(`缺少正文：${id}`);
@@ -74,6 +80,14 @@ export function ContentPage({
             <span>/</span>
           </>
         ) : null}
+        {content.parentId ? (
+          <>
+            <Link href={href(content.parentId, locale)}>
+              {text(pageById(content.parentId).title, locale)}
+            </Link>
+            <span>/</span>
+          </>
+        ) : null}
         <span>{text(content.title, locale)}</span>
       </nav>
       <header className={styles.header}>
@@ -82,7 +96,7 @@ export function ContentPage({
             ? localize(locale, "声音知识", "SOUND, EXPLAINED", "聲音知識")
             : localize(locale, "使用帮助", "HELP & METHODS", "使用幫助")}
         </p>
-        <h1>{text(content.title, locale)}</h1>
+        <h1>{heading ?? text(content.title, locale)}</h1>
         <div className={styles.meta}>
           <span>
             {localize(locale, "更新于", "Updated", "更新於")} {content.updated}
@@ -92,15 +106,18 @@ export function ContentPage({
           </span>
         </div>
       </header>
+      {overview}
       <div className={styles.layout}>
         <div className={styles.body}>
-          <div className={styles.takeaway}>
-            <Icon name="book-open" size={19} />
-            <p>{text(content.takeaway, locale)}</p>
-          </div>
+          {overview ? null : (
+            <div className={styles.takeaway}>
+              <Icon name="book-open" size={19} />
+              <p>{text(content.takeaway, locale)}</p>
+            </div>
+          )}
           {children ??
             content.sections.map((section) => (
-              <section key={section.id} id={section.id}>
+              <section key={section.id} id={section.id} className={sectionClasses[section.id]}>
                 <h2>{text(section.title, locale)}</h2>
                 {section.paragraphs.map((paragraph, i) => (
                   <p key={i}>{text(paragraph, locale)}</p>
