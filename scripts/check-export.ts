@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { runInNewContext } from "node:vm";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
-import { articles } from "../src/lib/content/articles.ts";
+import { checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
 import {
@@ -99,16 +99,7 @@ for (const page of sitePages) {
         `繁体正文不得回退到简体界面：${path}`,
       );
     }
-    if (page.id === "knowledge") {
-      const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
-      assert.ok(main, `知识目录缺少正文：${path}`);
-      for (const article of articles.filter((item) => !item.parentId))
-        assert.equal(
-          main.split(`href="${href(article.id, locale)}"`).length - 1,
-          1,
-          `知识分组应完整且不重复地保留顶层文章：${path} → ${article.id}`,
-        );
-    }
+    if (page.id === "knowledge") checkKnowledgeDirectory(html, locale);
     if (page.id === "meter") {
       assert.ok(
         html.includes(`href="${href("noise-health", locale)}"`),
@@ -149,26 +140,27 @@ for (const page of sitePages) {
       ),
     ];
     assert.equal(navigations.length, 2, `桌面与移动抽屉均需静态输出主导航：${path}`);
-    const expectedSection = [
-      "meter",
-      "decibel-chart",
-      "knowledge",
-      "guide",
-      "records",
-      "faq",
-    ].includes(page.id)
+    const expectedSection = ["meter", "decibel-chart", "knowledge", "records"].includes(page.id)
       ? page.id
       : page.parentId === "decibel-chart"
         ? "decibel-chart"
-        : page.slug.startsWith("knowledge/")
+        : page.slug.startsWith("knowledge/") ||
+            ["guide", "how-it-works", "faq", "calibration"].includes(page.id)
           ? "knowledge"
           : null;
     for (const [, navigation] of navigations) {
-      for (const id of ["meter", "decibel-chart", "knowledge", "guide", "records", "faq"])
-        assert.ok(
-          navigation.includes(`href="${href(id, locale)}"`),
-          `缺少导航入口：${path} → ${id}`,
-        );
+      const links = [...navigation.matchAll(/<a\b([^>]*)>/g)];
+      assert.deepEqual(
+        links.map((match) => match[1].match(/href="([^"]+)"/)?.[1]),
+        ["meter", "decibel-chart", "knowledge", "records"].map((id) => href(id, locale)),
+        `桌面与手机必须按相同顺序展示四项导航：${path}`,
+      );
+      assert.ok(
+        navigation.includes(
+          escapeText(localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助")),
+        ),
+        `知识与帮助导航名称不正确：${path}`,
+      );
       const selected = [...navigation.matchAll(/<a\b([^>]*)>/g)].filter((match) =>
         match[1].includes("aria-current="),
       );

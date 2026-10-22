@@ -1,0 +1,1728 @@
+{
+  "date": "2026-10-22",
+  "browser": "Chrome",
+  "note": "实际浏览器模拟视口；验证结束恢复跟随系统主题及默认视口。",
+  "checks": [
+    {
+      "label": "en-mobile-open-390",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "hidden",
+      "dialogOpen": true,
+      "focus": "Close menu",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-focus-wrap",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "hidden",
+      "dialogOpen": true,
+      "focus": "Language",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-records-navigation",
+      "url": "http://127.0.0.1:31031/en/records/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "focus": "Open menu",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": "page",
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": "page",
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "My measurement records",
+        "No saved records yet"
+      ],
+      "soundLinks": [],
+      "toolLinks": [],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-how-it-works-keyboard",
+      "url": "http://127.0.0.1:31031/en/how-it-works/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "How does a browser measure decibels?"
+      ],
+      "soundLinks": [],
+      "toolLinks": [],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-active-guide",
+      "url": "http://127.0.0.1:31031/en/guide/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "How do I use the decibel meter?"
+      ],
+      "soundLinks": [],
+      "toolLinks": [],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-active-faq",
+      "url": "http://127.0.0.1:31031/en/faq/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "Decibel meter FAQ"
+      ],
+      "soundLinks": [],
+      "toolLinks": [],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-active-calibration",
+      "url": "http://127.0.0.1:31031/en/calibration/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "How do I adjust the reading up or down?"
+      ],
+      "soundLinks": [],
+      "toolLinks": [],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-active-knowledge/decibel-chart/40-db",
+      "url": "http://127.0.0.1:31031/en/knowledge/decibel-chart/40-db/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "How loud is 40 dB?"
+      ],
+      "soundLinks": [],
+      "toolLinks": [],
+      "width": 390
+    },
+    {
+      "label": "en-drawer-closes-on-desktop",
+      "url": "http://127.0.0.1:31031/en/knowledge/decibel-chart/40-db/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "focus": "Decibel chart",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": "location",
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 1280,
+      "sections": [
+        "How loud is 40 dB?"
+      ],
+      "soundLinks": [],
+      "toolLinks": [],
+      "width": 1280
+    },
+    {
+      "label": "en-desktop-901",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 901,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 901
+    },
+    {
+      "label": "en-desktop-900",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 900,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 900
+    },
+    {
+      "label": "en-desktop-761",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 761,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 761
+    },
+    {
+      "label": "zh-desktop-1280",
+      "url": "http://127.0.0.1:31031/knowledge/?language=zh-CN",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 1280,
+      "sections": [
+        "知识与帮助",
+        "工具帮助",
+        "声音知识",
+        "准备好观察一次了？"
+      ],
+      "soundLinks": [
+        "/knowledge/phone-decibel-accuracy/",
+        "/knowledge/dbfs-vs-db-spl/",
+        "/knowledge/decibel-chart/",
+        "/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/guide/",
+        "/how-it-works/",
+        "/faq/",
+        "/knowledge/microphone-permission/"
+      ],
+      "width": 1280
+    },
+    {
+      "label": "tw-desktop-1280",
+      "url": "http://127.0.0.1:31031/zh-tw/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/zh-tw/",
+              "label": "開始測量"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/knowledge/decibel-chart/",
+              "label": "分貝對照表"
+            },
+            {
+              "current": "page",
+              "href": "/zh-tw/knowledge/",
+              "label": "知識與幫助"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/records/",
+              "label": "本機記錄"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/zh-tw/",
+              "label": "開始測量"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/knowledge/decibel-chart/",
+              "label": "分貝對照表"
+            },
+            {
+              "current": "page",
+              "href": "/zh-tw/knowledge/",
+              "label": "知識與幫助"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/records/",
+              "label": "本機記錄"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 1280,
+      "sections": [
+        "知識與幫助",
+        "工具幫助",
+        "聲音知識",
+        "準備好觀察一次了？"
+      ],
+      "soundLinks": [
+        "/zh-tw/knowledge/phone-decibel-accuracy/",
+        "/zh-tw/knowledge/dbfs-vs-db-spl/",
+        "/zh-tw/knowledge/decibel-chart/",
+        "/zh-tw/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/zh-tw/guide/",
+        "/zh-tw/how-it-works/",
+        "/zh-tw/faq/",
+        "/zh-tw/knowledge/microphone-permission/"
+      ],
+      "width": 1280
+    },
+    {
+      "label": "en-desktop-1280",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 1280,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 1280
+    },
+    {
+      "label": "zh-desktop-1280-normal-url",
+      "url": "http://127.0.0.1:31031/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 1280,
+      "sections": [
+        "知识与帮助",
+        "工具帮助",
+        "声音知识",
+        "准备好观察一次了？"
+      ],
+      "soundLinks": [
+        "/knowledge/phone-decibel-accuracy/",
+        "/knowledge/dbfs-vs-db-spl/",
+        "/knowledge/decibel-chart/",
+        "/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/guide/",
+        "/how-it-works/",
+        "/faq/",
+        "/knowledge/microphone-permission/"
+      ],
+      "width": 1280
+    },
+    {
+      "label": "zh-mobile-390",
+      "url": "http://127.0.0.1:31031/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "知识与帮助",
+        "工具帮助",
+        "声音知识",
+        "准备好观察一次了？"
+      ],
+      "soundLinks": [
+        "/knowledge/phone-decibel-accuracy/",
+        "/knowledge/dbfs-vs-db-spl/",
+        "/knowledge/decibel-chart/",
+        "/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/guide/",
+        "/how-it-works/",
+        "/faq/",
+        "/knowledge/microphone-permission/"
+      ],
+      "width": 390
+    },
+    {
+      "label": "zh-mobile-menu-390",
+      "url": "http://127.0.0.1:31031/knowledge/",
+      "bodyOverflow": "hidden",
+      "dialogOpen": true,
+      "focus": "关闭菜单",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "知识与帮助",
+        "工具帮助",
+        "声音知识",
+        "准备好观察一次了？"
+      ],
+      "soundLinks": [
+        "/knowledge/phone-decibel-accuracy/",
+        "/knowledge/dbfs-vs-db-spl/",
+        "/knowledge/decibel-chart/",
+        "/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/guide/",
+        "/how-it-works/",
+        "/faq/",
+        "/knowledge/microphone-permission/"
+      ],
+      "width": 390
+    },
+    {
+      "label": "zh-mobile-escape",
+      "url": "http://127.0.0.1:31031/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "focus": "打开菜单",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/",
+              "label": "开始测量"
+            },
+            {
+              "current": null,
+              "href": "/knowledge/decibel-chart/",
+              "label": "分贝对照表"
+            },
+            {
+              "current": "page",
+              "href": "/knowledge/",
+              "label": "知识与帮助"
+            },
+            {
+              "current": null,
+              "href": "/records/",
+              "label": "本机记录"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "知识与帮助",
+        "工具帮助",
+        "声音知识",
+        "准备好观察一次了？"
+      ],
+      "soundLinks": [
+        "/knowledge/phone-decibel-accuracy/",
+        "/knowledge/dbfs-vs-db-spl/",
+        "/knowledge/decibel-chart/",
+        "/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/guide/",
+        "/how-it-works/",
+        "/faq/",
+        "/knowledge/microphone-permission/"
+      ],
+      "width": 390
+    },
+    {
+      "label": "tw-mobile-390",
+      "url": "http://127.0.0.1:31031/zh-tw/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/zh-tw/",
+              "label": "開始測量"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/knowledge/decibel-chart/",
+              "label": "分貝對照表"
+            },
+            {
+              "current": "page",
+              "href": "/zh-tw/knowledge/",
+              "label": "知識與幫助"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/records/",
+              "label": "本機記錄"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/zh-tw/",
+              "label": "開始測量"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/knowledge/decibel-chart/",
+              "label": "分貝對照表"
+            },
+            {
+              "current": "page",
+              "href": "/zh-tw/knowledge/",
+              "label": "知識與幫助"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/records/",
+              "label": "本機記錄"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "知識與幫助",
+        "工具幫助",
+        "聲音知識",
+        "準備好觀察一次了？"
+      ],
+      "soundLinks": [
+        "/zh-tw/knowledge/phone-decibel-accuracy/",
+        "/zh-tw/knowledge/dbfs-vs-db-spl/",
+        "/zh-tw/knowledge/decibel-chart/",
+        "/zh-tw/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/zh-tw/guide/",
+        "/zh-tw/how-it-works/",
+        "/zh-tw/faq/",
+        "/zh-tw/knowledge/microphone-permission/"
+      ],
+      "width": 390
+    },
+    {
+      "label": "tw-mobile-menu-390",
+      "url": "http://127.0.0.1:31031/zh-tw/knowledge/",
+      "bodyOverflow": "hidden",
+      "dialogOpen": true,
+      "focus": "關閉選單",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/zh-tw/",
+              "label": "開始測量"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/knowledge/decibel-chart/",
+              "label": "分貝對照表"
+            },
+            {
+              "current": "page",
+              "href": "/zh-tw/knowledge/",
+              "label": "知識與幫助"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/records/",
+              "label": "本機記錄"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/zh-tw/",
+              "label": "開始測量"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/knowledge/decibel-chart/",
+              "label": "分貝對照表"
+            },
+            {
+              "current": "page",
+              "href": "/zh-tw/knowledge/",
+              "label": "知識與幫助"
+            },
+            {
+              "current": null,
+              "href": "/zh-tw/records/",
+              "label": "本機記錄"
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "scrollWidth": 390,
+      "sections": [
+        "知識與幫助",
+        "工具幫助",
+        "聲音知識",
+        "準備好觀察一次了？"
+      ],
+      "soundLinks": [
+        "/zh-tw/knowledge/phone-decibel-accuracy/",
+        "/zh-tw/knowledge/dbfs-vs-db-spl/",
+        "/zh-tw/knowledge/decibel-chart/",
+        "/zh-tw/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/zh-tw/guide/",
+        "/zh-tw/how-it-works/",
+        "/zh-tw/faq/",
+        "/zh-tw/knowledge/microphone-permission/"
+      ],
+      "width": 390
+    },
+    {
+      "label": "en-mobile-dark-320",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "",
+      "dialogOpen": false,
+      "focus": "Theme",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        }
+      ],
+      "scrollWidth": 320,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 320
+    },
+    {
+      "label": "en-mobile-dark-fonts",
+      "cardTitleSize": "20px",
+      "introSize": "16px",
+      "sectionSize": "24px",
+      "theme": "dark",
+      "titleSize": "32px"
+    },
+    {
+      "label": "en-mobile-dark-menu-320",
+      "url": "http://127.0.0.1:31031/en/knowledge/",
+      "bodyOverflow": "hidden",
+      "dialogOpen": true,
+      "focus": "Close menu",
+      "menus": [
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": false
+        },
+        {
+          "links": [
+            {
+              "current": null,
+              "href": "/en/",
+              "label": "Measure"
+            },
+            {
+              "current": null,
+              "href": "/en/knowledge/decibel-chart/",
+              "label": "Decibel chart"
+            },
+            {
+              "current": "page",
+              "href": "/en/knowledge/",
+              "label": "Knowledge & help"
+            },
+            {
+              "current": null,
+              "href": "/en/records/",
+              "label": "Records"
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "scrollWidth": 320,
+      "sections": [
+        "Knowledge & help",
+        "Using the meter",
+        "Sound knowledge",
+        "Ready to try?"
+      ],
+      "soundLinks": [
+        "/en/knowledge/phone-decibel-accuracy/",
+        "/en/knowledge/dbfs-vs-db-spl/",
+        "/en/knowledge/decibel-chart/",
+        "/en/knowledge/noise-and-health/"
+      ],
+      "toolLinks": [
+        "/en/guide/",
+        "/en/how-it-works/",
+        "/en/faq/",
+        "/en/knowledge/microphone-permission/"
+      ],
+      "width": 320
+    }
+  ]
+}

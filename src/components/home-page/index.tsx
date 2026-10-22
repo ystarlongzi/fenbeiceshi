@@ -161,7 +161,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             )}
           </p>
           <Link href={href("knowledge", locale)}>
-            {localize(locale, "全部声音知识", "All guides", "全部聲音知識")}
+            {localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助")}
             <LinkArrow size={15} />
           </Link>
           <div className={styles.readingGuide}>

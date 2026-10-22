@@ -7,12 +7,14 @@ import type { ReactNode } from "react";
 export function NavigationLink({
   href,
   exact,
+  include = [],
   exclude = [],
   className,
   children,
 }: {
   href: string;
   exact: boolean;
+  include?: string[];
   exclude?: string[];
   className?: string;
   children: ReactNode;
@@ -22,7 +24,9 @@ export function NavigationLink({
   const current =
     path === href
       ? "page"
-      : !exact && path.startsWith(href) && !exclude.some((prefix) => path.startsWith(prefix))
+      : !exact &&
+          (path.startsWith(href) || include.includes(path)) &&
+          !exclude.some((prefix) => path.startsWith(prefix))
         ? "location"
         : undefined;
   return (

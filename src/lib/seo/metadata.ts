@@ -1,6 +1,6 @@
 import { localize } from "../i18n/text.ts";
 import type { Metadata } from "next";
-import { href, pageById, SITE_URL } from "../routing/pages.ts";
+import { contents, href, pageById, SITE_URL } from "../routing/pages.ts";
 import { text } from "../content/types.ts";
 import type { Locale } from "../../features/sound-meter/types.ts";
 import { locales, localeSettings } from "../i18n/locales.ts";
@@ -39,9 +39,10 @@ export function breadcrumbData(id: string, locale: Locale) {
   const items = [
     { name: localize(locale, "首页", "Home", "首頁"), item: SITE_URL + href("meter", locale) },
   ];
-  if (page.slug.startsWith("knowledge/"))
+  const content = contents.find((item) => item.id === id);
+  if (content && content.kind !== "trust")
     items.push({
-      name: localize(locale, "声音知识", "Guides", "聲音知識"),
+      name: localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助"),
       item: SITE_URL + href("knowledge", locale),
     });
   if (page.parentId)

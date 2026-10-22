@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "updated": "2026-10-22",
+  "status": "implemented-not-deployed",
+  "scope": "主导航与知识帮助目录，覆盖历史五项／六项导航及四个知识分类的分组规则；抽屉、主题和语言交互沿用原实现。",
+  "navigation": [
+    { "id": "meter", "zh-CN": "开始测量", "zh-TW": "開始測量", "en": "Measure" },
+    { "id": "decibel-chart", "zh-CN": "分贝对照表", "zh-TW": "分貝對照表", "en": "Decibel chart" },
+    { "id": "knowledge", "zh-CN": "知识与帮助", "zh-TW": "知識與幫助", "en": "Knowledge & help" },
+    { "id": "records", "zh-CN": "本机记录", "zh-TW": "本機記錄", "en": "Records" }
+  ],
+  "activeNavigation": {
+    "knowledge": "知识帮助目录、除声音对照家族外的知识文章，以及 guide 类型的指南、工作原理、常见问题和读数修正。",
+    "decibel-chart": "声音对照表及其声音详情页。",
+    "other": "测量与记录各自选中；关于与隐私不选中主导航。",
+    "ariaCurrent": "目的页为 page，所属内容页为 location，每个主导航最多一个选中项。"
+  },
+  "directory": {
+    "heading": { "zh-CN": "知识与帮助", "zh-TW": "知識與幫助", "en": "Knowledge & help" },
+    "tool-help": {
+      "heading": { "zh-CN": "工具帮助", "zh-TW": "工具幫助", "en": "Using the meter" },
+      "cards": ["guide", "how-it-works", "faq"],
+      "articles": ["microphone-help"]
+    },
+    "sound-knowledge": {
+      "heading": { "zh-CN": "声音知识", "zh-TW": "聲音知識", "en": "Sound knowledge" },
+      "topics": {
+        "understand": ["phone-accuracy", "dbfs-spl"],
+        "reference": ["decibel-chart"],
+        "health": ["noise-health"]
+      }
+    }
+  },
+  "rendering": "页面与目录继续服务端静态输出，样式留在相邻 CSS Modules。沿用固定字号、亮暗主题及现有图标。",
+  "responsive": "760px 及以下使用四项菜单抽屉；761–900px 保留四项完整文字、收起主导航装饰图标，避免英文标签挤压主题和语言控件。",
+  "routes": "URL、语言前缀、canonical、hreflang 与发布数量不变；聚合入口名称同步到正文面包屑、结构化数据和首页链接。"
+}

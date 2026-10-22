@@ -184,11 +184,6 @@
     box-shadow: inset 0 0 0 1px var(--line-accent);
   }
 }
-@media (min-width: 761px) and (max-width: 1140px) {
-  .desktop .optional {
-    display: none;
-  }
-}
 @media (min-width: 761px) and (max-width: 900px) {
   .desktop {
     gap: 12px;
@@ -199,6 +194,9 @@
   .link {
     padding-inline: 6px;
     gap: 4px;
+  }
+  .desktop .link svg {
+    display: none;
   }
 }
 @media (min-width: 761px) {

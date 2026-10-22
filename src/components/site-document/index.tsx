@@ -7,7 +7,7 @@ import { LanguageScript } from "../language-switch/language-script";
 import { ThemeSwitch } from "../theme-switch";
 import { ThemeScript } from "../theme-switch/theme-script";
 import { SiteNavigation } from "./site-navigation";
-import { href, sitePages } from "@/lib/routing/pages";
+import { contents, href, sitePages } from "@/lib/routing/pages";
 import { locales } from "@/lib/i18n/locales";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
@@ -19,37 +19,21 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
       id: "meter",
       label: localize(locale, "开始测量", "Measure", "開始測量"),
       icon: "mic",
-      optional: false,
     },
     {
       id: "decibel-chart",
       label: localize(locale, "分贝对照表", "Decibel chart", "分貝對照表"),
       icon: "chart-line",
-      optional: false,
     },
     {
       id: "knowledge",
-      label: localize(locale, "声音知识", "Guides", "聲音知識"),
+      label: localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助"),
       icon: "book-open",
-      optional: false,
-    },
-    {
-      id: "guide",
-      label: localize(locale, "使用指南", "How to use", "使用指南"),
-      icon: "circle-check",
-      optional: true,
     },
     {
       id: "records",
       label: localize(locale, "本机记录", "Records", "本機記錄"),
       icon: "save",
-      optional: false,
-    },
-    {
-      id: "faq",
-      label: localize(locale, "常见问题", "FAQ", "常見問題"),
-      icon: "book-open",
-      optional: true,
     },
   ] as const;
   return (
@@ -77,12 +61,17 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
             </Link>
             <SiteNavigation
               locale={locale}
-              items={nav.map(({ id, label, icon, optional }) => ({
+              items={nav.map(({ id, label, icon }) => ({
                 label,
                 icon,
-                optional,
                 href: href(id, locale),
                 exact: id === "meter",
+                include:
+                  id === "knowledge"
+                    ? contents
+                        .filter((content) => content.kind === "guide")
+                        .map((content) => href(content.id, locale))
+                    : undefined,
                 exclude: id === "knowledge" ? [href("decibel-chart", locale)] : undefined,
               }))}
               themeControl={<ThemeSwitch locale={locale} />}

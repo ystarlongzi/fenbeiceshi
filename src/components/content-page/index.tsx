@@ -72,10 +72,10 @@ export function ContentPage({
       >
         <Link href={href("meter", locale)}>{localize(locale, "首页", "Home", "首頁")}</Link>
         <span>/</span>
-        {content.kind === "article" ? (
+        {content.kind !== "trust" ? (
           <>
             <Link href={href("knowledge", locale)}>
-              {localize(locale, "声音知识", "Guides", "聲音知識")}
+              {localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助")}
             </Link>
             <span>/</span>
           </>

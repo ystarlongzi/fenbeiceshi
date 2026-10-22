@@ -12,8 +12,8 @@ interface NavigationItem {
   label: string;
   icon: IconName;
   exact: boolean;
+  include?: string[];
   exclude?: string[];
-  optional: boolean;
 }
 
 export function SiteNavigation({
@@ -73,8 +73,9 @@ export function SiteNavigation({
           key={item.href}
           href={item.href}
           exact={item.exact}
+          include={item.include}
           exclude={item.exclude}
-          className={`${styles.link} ${item.optional ? styles.optional : ""}`}
+          className={styles.link}
         >
           <Icon name={item.icon} size={18} />
           {item.label}

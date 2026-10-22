@@ -77,16 +77,6 @@ const articleGroups = [
     ),
     articles: ["noise-health"],
   },
-  {
-    id: "troubleshoot",
-    title: translations("解决使用问题", "Fix an input problem", "解決使用問題"),
-    description: translations(
-      "从权限和设备入手，恢复声音观察。",
-      "Check permissions and devices to get the meter working.",
-      "從權限和裝置入手，恢復聲音觀察。",
-    ),
-    articles: ["microphone-help"],
-  },
 ];
 
 export function KnowledgePage({ locale }: { locale: Locale }) {
@@ -94,29 +84,32 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
     <div className={styles.page}>
       <StructuredData data={breadcrumbData("knowledge", locale)} />
       <header className={styles.header}>
-        <p className={styles.eyebrow}>
-          {localize(locale, "声音知识", "SOUND, EXPLAINED", "聲音知識")}
-        </p>
-        <h1>
-          {localize(
-            locale,
-            "分贝怎么看，噪音怎么测？",
-            "Decibel readings, explained",
-            "分貝怎麼看，噪音怎麼測？",
-          )}
-        </h1>
+        <p className={styles.eyebrow}>{localize(locale, "分贝测试", "FENBEICESHI", "分貝測試")}</p>
+        <h1>{localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助")}</h1>
         <p className={styles.intro}>
           {localize(
             locale,
-            "从你遇到的问题出发：理解读数、查询声音、了解健康，或排查麦克风。",
-            "Understand readings, compare sounds, explore health effects or fix microphone access.",
-            "從你遇到的問題出發：理解讀數、查詢聲音、瞭解健康，或排查麥克風。",
+            "查找使用方法、解决工具问题，或了解分贝读数、常见声音与噪音健康知识。",
+            "Learn to use the meter, fix a problem, or explore decibel readings, everyday sounds and the effects of noise.",
+            "查詢使用方法、解決工具問題，或瞭解分貝讀數、常見聲音與噪音健康知識。",
           )}
         </p>
-        <nav
-          className={styles.helpLinks}
-          aria-label={localize(locale, "工具使用帮助", "Using the meter", "工具使用幫助")}
-        >
+      </header>
+      <section className={styles.section} id="tool-help" aria-labelledby="tool-help-title">
+        <div className={styles.sectionHeading}>
+          <h2 id="tool-help-title">
+            {localize(locale, "工具帮助", "Using the meter", "工具幫助")}
+          </h2>
+          <p>
+            {localize(
+              locale,
+              "从操作步骤和工作原理入手，遇到问题时查找答案。",
+              "Start with the steps and how it works, or find an answer when something goes wrong.",
+              "從操作步驟和工作原理入手，遇到問題時查詢答案。",
+            )}
+          </p>
+        </div>
+        <nav className={styles.helpLinks} aria-labelledby="tool-help-title">
           {helpLinks.map((item) => (
             <Link
               key={item.id}
@@ -128,7 +121,7 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
             >
               <div className={styles.helpCardHeading}>
                 <Icon name={item.icon} size={24} />
-                <h2 id={`help-${item.id}-title`}>{text(item.title, locale)}</h2>
+                <h3 id={`help-${item.id}-title`}>{text(item.title, locale)}</h3>
               </div>
               <p id={`help-${item.id}-description`}>{text(item.description, locale)}</p>
               <span className={styles.helpCardAction}>
@@ -138,30 +131,62 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
             </Link>
           ))}
         </nav>
-      </header>
-      <div className={styles.directory}>
-        {articleGroups.map((group) => (
-          <section key={group.id} className={styles.group} aria-labelledby={`${group.id}-title`}>
-            <div className={styles.groupIntro}>
-              <h2 id={`${group.id}-title`}>{text(group.title, locale)}</h2>
-              <p>{text(group.description, locale)}</p>
-            </div>
-            <div className={styles.links}>
-              {articles
-                .filter((article) => group.articles.includes(article.id))
-                .map((article) => (
-                  <Link key={article.id} href={href(article.id, locale)}>
-                    <div>
-                      <h3>{text(article.title, locale)}</h3>
-                      <p>{text(article.description, locale)}</p>
-                    </div>
-                    <LinkArrow size={20} className={styles.articleArrow} />
-                  </Link>
-                ))}
-            </div>
-          </section>
-        ))}
-      </div>
+        <div className={`${styles.links} ${styles.helpArticles}`}>
+          {articles
+            .filter((article) => article.id === "microphone-help")
+            .map((article) => (
+              <Link key={article.id} href={href(article.id, locale)}>
+                <div>
+                  <h3>{text(article.title, locale)}</h3>
+                  <p>{text(article.description, locale)}</p>
+                </div>
+                <LinkArrow size={20} className={styles.articleArrow} />
+              </Link>
+            ))}
+        </div>
+      </section>
+      <section
+        className={styles.section}
+        id="sound-knowledge"
+        aria-labelledby="sound-knowledge-title"
+      >
+        <div className={styles.sectionHeading}>
+          <h2 id="sound-knowledge-title">
+            {localize(locale, "声音知识", "Sound knowledge", "聲音知識")}
+          </h2>
+          <p>
+            {localize(
+              locale,
+              "理解读数、查询熟悉的声音，再了解噪音与健康的关系。",
+              "Understand readings, look up familiar sounds, and explore how noise relates to health.",
+              "理解讀數、查詢熟悉的聲音，再瞭解噪音與健康的關係。",
+            )}
+          </p>
+        </div>
+        <div className={styles.directory}>
+          {articleGroups.map((group) => (
+            <section key={group.id} className={styles.group} aria-labelledby={`${group.id}-title`}>
+              <div className={styles.groupIntro}>
+                <h3 id={`${group.id}-title`}>{text(group.title, locale)}</h3>
+                <p>{text(group.description, locale)}</p>
+              </div>
+              <div className={styles.links}>
+                {articles
+                  .filter((article) => group.articles.includes(article.id))
+                  .map((article) => (
+                    <Link key={article.id} href={href(article.id, locale)}>
+                      <div>
+                        <h4>{text(article.title, locale)}</h4>
+                        <p>{text(article.description, locale)}</p>
+                      </div>
+                      <LinkArrow size={20} className={styles.articleArrow} />
+                    </Link>
+                  ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
       <section className={styles.help} aria-labelledby="try-meter-title">
         <Icon name="mic" size={22} />
         <div>

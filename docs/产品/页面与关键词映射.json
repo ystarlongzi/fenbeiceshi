@@ -244,20 +244,20 @@
       "kind": "hub",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/knowledge/","wave":"P0","title":"分贝知识与使用帮助 - 分贝测试","h1":"分贝怎么看，噪音怎么测？","keywords":["分贝知识","噪音测量基础"]},
-        "en": {"path":"/en/knowledge/","wave":"P0","title":"Decibel guides and help | fenbeiceshi.com","h1":"Decibel readings, explained","keywords":["sound measurement guides","decibel meter help"]},
+        "zh-CN": {"path":"/knowledge/","wave":"P0","title":"知识与帮助：分贝读数与工具使用 - 分贝测试","h1":"知识与帮助","keywords":["分贝知识","噪音测量基础"]},
+        "en": {"path":"/en/knowledge/","wave":"P0","title":"Knowledge & help: readings and the meter - fenbeiceshi.com","h1":"Knowledge & help","keywords":["sound measurement guides","decibel meter help"]},
         "zh-TW": {
           "path": "/zh-tw/knowledge/",
           "wave": "P0",
-          "title": "分貝知識與使用幫助 - 分貝測試",
-          "h1": "分貝怎麼看，噪音怎麼測？",
+          "title": "知識與幫助：分貝讀數與工具使用 - 分貝測試",
+          "h1": "知識與幫助",
           "keywords": ["分貝知識", "噪音測量基礎"],
           "status": "implemented-not-deployed"
         }
       },
       "intent": "按问题找到相关解释和方法。",
-      "uniqueValue": "按理解读数、查询声音参考、噪音与健康和解决使用问题组织文章，提供可抓取目录及使用指南、工作原理、常见问题入口。",
-      "sections": ["使用帮助入口","理解读数","查询声音参考","了解噪音与健康","解决使用问题"],
+      "uniqueValue": "按工具帮助与声音知识两组组织入口：工具帮助包含指南、原理、常见问题和麦克风排查，声音知识包含读数解释、声音参考与噪音健康文章，保留静态正文与可抓取链接。",
+      "sections": ["工具帮助：使用指南、工作原理、常见问题、麦克风排查","声音知识：理解读数、查询声音参考、了解噪音与健康"],
       "ctaTargetId": "guide",
       "relatedIds": ["how-it-works","faq","guide","phone-accuracy","dbfs-spl","decibel-chart","noise-health","microphone-help"],
       "publishGate": "至少首批四篇基础内容已发布；只列当前语言可用条目。",

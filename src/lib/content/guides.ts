@@ -229,9 +229,9 @@ export const guides: SiteContent[] = [
         title: t("方法保持可解释", "Keep the method understandable", "方法保持可解釋"),
         paragraphs: [
           t(
-            "工具在浏览器本机处理麦克风输入，默认将 RMS dBFS 加上 100，提供未经专业校准的粗略估算。这个通用偏移是产品假设，没有通过跨设备声学精度验证；可选的读数修正在它的基础上实时加减。声音知识区说明公式、来源与使用限制。它不是经认证的声级计，不提供法定检测或个人健康结论。",
-            "Microphone input is processed in your browser. The default adds 100 to RMS dBFS for an estimate without professional calibration. This generic offset is a product assumption without cross-device acoustic validation. Optional manual adjustment adds to or subtracts from it live. The guides explain the calculations, sources and limits. This is not a certified meter or a legal or personal health assessment.",
-            "工具在瀏覽器本機處理麥克風輸入，預設將 RMS dBFS 加上 100，提供未經專業校正的粗略估算。這個通用偏移是產品假設，沒有通過跨裝置聲學精度驗證；選用的讀數修正在它的基礎上即時加減。聲音知識區說明公式、來源與使用限制。它不是經認證的聲級計，不提供法定檢測或個人健康結論。",
+            "工具在浏览器本机处理麦克风输入，默认将 RMS dBFS 加上 100，提供未经专业校准的粗略估算。这个通用偏移是产品假设，没有通过跨设备声学精度验证；可选的读数修正在它的基础上实时加减。知识与帮助区说明公式、来源与使用限制。它不是经认证的声级计，不提供法定检测或个人健康结论。",
+            "Microphone input is processed in your browser. The default adds 100 to RMS dBFS for an estimate without professional calibration. This generic offset is a product assumption without cross-device acoustic validation. Optional manual adjustment adds to or subtracts from it live. Knowledge & help explains the calculations, sources and limits. This is not a certified meter or a legal or personal health assessment.",
+            "工具在瀏覽器本機處理麥克風輸入，預設將 RMS dBFS 加上 100，提供未經專業校正的粗略估算。這個通用偏移是產品假設，沒有通過跨裝置聲學精度驗證；選用的讀數修正在它的基礎上即時加減。知識與幫助區說明公式、來源與使用限制。它不是經認證的聲級計，不提供法定檢測或個人健康結論。",
           ),
         ],
       },
@@ -240,9 +240,9 @@ export const guides: SiteContent[] = [
         title: t("维护与使用说明", "Maintenance and guidance", "維護與使用說明"),
         paragraphs: [
           t(
-            "分贝测试由 fenbeiceshi.com 项目维护。使用指南说明测量与本机摘要的操作方法，隐私说明介绍音频处理和数据保存方式。遇到设备兼容问题时，可先按声音知识区的麦克风排查说明检查浏览器权限与输入设置。",
+            "分贝测试由 fenbeiceshi.com 项目维护。使用指南说明测量与本机摘要的操作方法，隐私说明介绍音频处理和数据保存方式。遇到设备兼容问题时，可先按知识与帮助区的麦克风排查说明检查浏览器权限与输入设置。",
             "The fenbeiceshi.com project maintains this tool. The user guide explains measurement and local summaries, and the privacy page describes audio processing and data storage. For device compatibility problems, start with the microphone troubleshooting guide to check browser permissions and input settings.",
-            "分貝測試由 fenbeiceshi.com 專案維護。使用指南說明測量與本機摘要的操作方法，隱私說明介紹音訊處理和資料儲存方式。遇到裝置相容問題時，可先按聲音知識區的麥克風排查說明檢查瀏覽器權限與輸入設定。",
+            "分貝測試由 fenbeiceshi.com 專案維護。使用指南說明測量與本機摘要的操作方法，隱私說明介紹音訊處理和資料儲存方式。遇到裝置相容問題時，可先按知識與幫助區的麥克風排查說明檢查瀏覽器權限與輸入設定。",
           ),
         ],
       },
