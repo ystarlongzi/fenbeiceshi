@@ -1,0 +1,53 @@
+.notice {
+  --notice-color: var(--text-accent);
+  --notice-surface: var(--surface-accent);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--notice-color);
+  border-radius: 6px;
+  background: var(--notice-surface);
+  color: var(--notice-color);
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.notice[data-tone="warning"] {
+  --notice-color: var(--warning);
+  --notice-surface: var(--warning-surface);
+}
+.notice[data-tone="error"] {
+  --notice-color: var(--error);
+  --notice-surface: var(--error-surface);
+}
+.icon {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+.content {
+  min-width: 0;
+  flex: 1;
+}
+.notice .content p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.notice .content p + p {
+  margin-top: 10px;
+}
+.notice .content a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 520px) {
+  .notice {
+    gap: 8px;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "checked": "2026-10-24",
+  "browser": "Codex in-app Chromium",
+  "results": [
+    {
+      "name": "desktop-zh-light",
+      "documentWidth": 1440,
+      "fontSize": "14px",
+      "healthLinks": [
+        {
+          "href": "/knowledge/noise-and-health/",
+          "label": "了解噪音与健康"
+        },
+        {
+          "href": "/knowledge/noise-and-health/#exposure",
+          "label": "查看暴露时长参考"
+        }
+      ],
+      "height": 1000,
+      "navigation": [
+        {
+          "current": null,
+          "href": "/",
+          "label": "开始测量"
+        },
+        {
+          "current": "page",
+          "href": "/knowledge/decibel-chart/",
+          "label": "分贝指南"
+        },
+        {
+          "current": null,
+          "href": "/knowledge/",
+          "label": "知识与帮助"
+        },
+        {
+          "current": null,
+          "href": "/records/",
+          "label": "本机记录"
+        }
+      ],
+      "rows": 6,
+      "width": 1440
+    },
+    {
+      "name": "health-article-link-zh",
+      "url": "http://127.0.0.1:31031/knowledge/noise-and-health/",
+      "heading": "噪音对健康的影响"
+    },
+    {
+      "name": "mobile-zh-menu",
+      "labels": [
+        "开始测量",
+        "分贝指南",
+        "知识与帮助",
+        "本机记录"
+      ],
+      "width": 390
+    },
+    {
+      "name": "mobile-zh-light",
+      "articleHref": "/knowledge/noise-and-health/",
+      "dialogOpen": false,
+      "documentWidth": 390,
+      "fontSize": "14px",
+      "height": 844,
+      "rows": 6,
+      "tableWidth": 320,
+      "width": 390
+    },
+    {
+      "name": "mobile-en-dark",
+      "caption": "Daily occupational noise exposure references",
+      "documentWidth": 390,
+      "fontSize": "14px",
+      "healthLinks": [
+        {
+          "href": "/en/knowledge/noise-and-health/",
+          "label": "Explore noise and health"
+        },
+        {
+          "href": "/en/knowledge/noise-and-health/#exposure",
+          "label": "Explore exposure time"
+        }
+      ],
+      "height": 844,
+      "rows": 6,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "name": "mobile-en-menu",
+      "labels": [
+        "Measure",
+        "Decibel guide",
+        "Knowledge & help",
+        "Records"
+      ]
+    },
+    {
+      "name": "health-article-keyboard-en",
+      "url": "http://127.0.0.1:31031/en/knowledge/noise-and-health/",
+      "heading": "Noise and health"
+    },
+    {
+      "name": "narrow-mobile-tw",
+      "caption": "職業噪音每日暴露參考",
+      "documentWidth": 320,
+      "fontSize": "14px",
+      "healthLinks": [
+        {
+          "href": "/zh-tw/knowledge/noise-and-health/",
+          "label": "瞭解噪音與健康"
+        },
+        {
+          "href": "/zh-tw/knowledge/noise-and-health/#exposure",
+          "label": "檢視暴露時長參考"
+        }
+      ],
+      "height": 740,
+      "rows": 6,
+      "width": 320
+    },
+    {
+      "name": "mobile-tw-menu",
+      "labels": [
+        "開始測量",
+        "分貝指南",
+        "知識與幫助",
+        "本機記錄"
+      ]
+    },
+    {
+      "name": "search-clear-tw",
+      "count": 7,
+      "expanded": 0,
+      "rows": 6
+    },
+    {
+      "name": "health-article-link-tw",
+      "url": "http://127.0.0.1:31031/zh-tw/knowledge/noise-and-health/",
+      "heading": "噪音對健康的影響"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ import {
   healthSources,
   noiseHealth,
 } from "../src/lib/content/noise-health.ts";
-import { decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
+import { decibelChartExposure, decibelChartNotes } from "../src/lib/content/decibel-chart.ts";
 import { faqGroups, faqItems, homeFaqIds, homeFaqItems } from "../src/lib/content/faq.ts";
 import { locales } from "../src/lib/i18n/locales.ts";
 import { text } from "../src/lib/i18n/text.ts";
@@ -37,7 +37,7 @@ for (const content of contents) {
   }
   const sections: ContentSection[] = [
     ...content.sections,
-    ...(content.id === "decibel-chart" ? decibelChartNotes : []),
+    ...(content.id === "decibel-chart" ? [...decibelChartNotes, decibelChartExposure] : []),
   ];
   assert.ok(
     content.sources.length && content.sections.length && content.related.length,

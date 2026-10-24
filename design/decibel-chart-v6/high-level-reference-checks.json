@@ -1,0 +1,49 @@
+{
+  "checked": "2026-10-24",
+  "browser": "Codex in-app Chromium",
+  "results": [
+    {
+      "name": "desktop-zh",
+      "documentWidth": 1440,
+      "fontSize": "14px",
+      "headers": [
+        "声级（dBA）",
+        "NIOSH 推荐时长上限",
+        "OSHA 剂量参考时长"
+      ],
+      "highLevel": "120约 9 秒超出 115 dBA 连续噪音上限",
+      "notes": [
+        "NIOSH 一栏表示达到每日推荐剂量上限的时长，按 85 dBA／8 小时、每增加 3 dB 时长减半。OSHA 一栏是美国一般工业的剂量计算参考，按 90 dBA／8 小时、每增加 5 dB 时长减半，不能一律读作“最多可停留”。",
+        "仅用于稳定职业声级参考，不是个人安全时长，也不能套用本站网页估算。OSHA 在 85 dBA 的 8 小时平均值时已要求听力保护计划；120 dBA 又超出其 115 dBA 连续稳态噪音上限，不能把附录计算值当作允许暴露时间。120+ 是一个范围，本表单列 120 dBA 为示例，不统一写成 0 秒。"
+      ],
+      "rows": 7,
+      "width": 1440
+    },
+    {
+      "name": "mobile-en",
+      "documentWidth": 320,
+      "fontSize": "14px",
+      "headers": [
+        "Level (dBA)",
+        "NIOSH recommended time limit",
+        "OSHA dose reference duration"
+      ],
+      "highLevel": "120≈ 9 secondsAbove the 115 dBA continuous-noise ceiling",
+      "rows": 7,
+      "width": 320
+    },
+    {
+      "name": "mobile-zh-tw",
+      "documentWidth": 320,
+      "fontSize": "14px",
+      "headers": [
+        "聲級（dBA）",
+        "NIOSH 建議時長上限",
+        "OSHA 劑量參考時長"
+      ],
+      "highLevel": "120約 9 秒超出 115 dBA 連續噪音上限",
+      "rows": 7,
+      "width": 320
+    }
+  ]
+}

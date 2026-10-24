@@ -6,6 +6,7 @@ import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts
 import { text } from "../src/lib/content/types.ts";
 import { checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
 import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
+import { checkChartHealth } from "./export-checks/chart-health.ts";
 import { escapeText } from "./export-checks/html.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
@@ -472,16 +473,7 @@ for (const page of sitePages) {
             visible.indexOf('id="health"') < visible.indexOf('id="reading"'),
           `健康入口应紧随声音对照并位于参考说明之前：${path}`,
         );
-        for (const target of ["exposure", "effects"])
-          assert.ok(
-            healthEntry.includes(`href="${href("noise-health", locale)}#${target}"`),
-            `对照页缺少健康文章的具体入口：${path} → ${target}`,
-          );
-        assert.equal(
-          (healthEntry.match(/<p\b/g) || []).length,
-          1,
-          `对照页健康导读只保留一段：${path}`,
-        );
+        checkChartHealth(healthEntry, locale);
       }
       if (page.id === "noise-health") {
         for (const section of content.sections)

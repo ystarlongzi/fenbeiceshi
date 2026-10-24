@@ -1,7 +1,5 @@
 import { localize } from "@/lib/i18n/text";
 import { ContentPage } from "@/components/content-page";
-import Link from "next/link";
-import { LinkArrow } from "@/components/link-arrow";
 import { href } from "@/lib/routing/pages";
 import { soundBands } from "@/lib/content/sound-bands";
 import { soundReferences } from "@/lib/content/sound-references";
@@ -11,6 +9,7 @@ import { text } from "@/lib/content/types";
 import type { Locale } from "@/features/sound-meter/types";
 import { SoundReferenceList } from "./sound-reference-list";
 import { ChartNotes } from "./chart-notes";
+import { HealthReference } from "./health-reference";
 import styles from "./index.module.css";
 
 export function DecibelChart({ locale }: { locale: Locale }) {
@@ -20,27 +19,7 @@ export function DecibelChart({ locale }: { locale: Locale }) {
       locale={locale}
       sectionContent={{
         reading: <ChartNotes locale={locale} />,
-        health: (
-          <div className={styles.healthLinks}>
-            <Link
-              id="exposure"
-              className={styles.exposureLink}
-              href={`${href("noise-health", locale)}#exposure`}
-            >
-              {localize(locale, "查看暴露时长参考", "Explore exposure time", "檢視暴露時長參考")}
-              <LinkArrow size={16} />
-            </Link>
-            <Link className={styles.healthLink} href={`${href("noise-health", locale)}#effects`}>
-              {localize(
-                locale,
-                "了解噪音对健康的影响",
-                "Noise and health effects",
-                "瞭解噪音對健康的影響",
-              )}
-              <LinkArrow size={16} />
-            </Link>
-          </div>
-        ),
+        health: <HealthReference locale={locale} />,
         levels: (
           <>
             {/* 兼容已发布的数值说明锚点，定位到统一声音对照。 */}
