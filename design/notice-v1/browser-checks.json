@@ -1,0 +1,190 @@
+{
+  "checked": "2026-10-24",
+  "browser": "Codex in-app Chromium",
+  "results": [
+    {
+      "name": "health-desktop-light",
+      "documentWidth": 1440,
+      "notices": [
+        {
+          "background": "rgb(234, 240, 228)",
+          "color": "rgb(70, 110, 63)",
+          "fontSize": "14px",
+          "id": "exposure-note",
+          "tone": "info"
+        },
+        {
+          "background": "rgb(247, 240, 231)",
+          "color": "rgb(135, 99, 54)",
+          "fontSize": "14px",
+          "id": "exposure-scope",
+          "tone": "warning"
+        }
+      ],
+      "page": "噪音对健康的影响",
+      "width": 1440
+    },
+    {
+      "name": "health-input-error",
+      "associated": true,
+      "documentWidth": 1440,
+      "fontSize": "14px",
+      "id": "exposure-input-error",
+      "tone": "error",
+      "width": 1440
+    },
+    {
+      "name": "sound-detail-desktop",
+      "documentWidth": 1440,
+      "notices": [
+        {
+          "fontSize": "14px",
+          "text": "档位帮助认识量级，不能据此判定舒适度或安全时长。",
+          "tone": "warning"
+        },
+        {
+          "fontSize": "14px",
+          "text": "这是同一声音改变音量的近似对比，测法和单位保持一致。实际听感也与音调、背景和个人有关，不能用来直接比较不同场景的声音。 NIDCD · CCOHS",
+          "tone": "info"
+        }
+      ],
+      "page": "10 分贝有多大？",
+      "width": 1440
+    },
+    {
+      "name": "settings-error-desktop",
+      "background": "rgb(251, 242, 236)",
+      "color": "rgb(139, 73, 53)",
+      "documentWidth": 1440,
+      "fontSize": "14px",
+      "role": "status",
+      "tone": "error",
+      "width": 1440
+    },
+    {
+      "name": "settings-error-mobile",
+      "documentWidth": 390,
+      "drawer": true,
+      "fontSize": "14px",
+      "tone": "error",
+      "width": 390
+    },
+    {
+      "name": "health-mobile-en-dark",
+      "documentWidth": 390,
+      "notices": [
+        {
+          "background": "rgb(41, 58, 35)",
+          "color": "rgb(189, 215, 166)",
+          "fontSize": "14px",
+          "id": "exposure-note",
+          "tone": "info"
+        },
+        {
+          "background": "rgb(51, 44, 32)",
+          "color": "rgb(226, 189, 133)",
+          "fontSize": "14px",
+          "id": "exposure-scope",
+          "tone": "warning"
+        }
+      ],
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "name": "narrow-en-dark-input-error",
+      "documentWidth": 320,
+      "errorTone": "error",
+      "notices": [
+        {
+          "background": "rgb(56, 37, 31)",
+          "color": "rgb(231, 175, 152)",
+          "fontSize": "14px"
+        },
+        {
+          "background": "rgb(56, 37, 31)",
+          "color": "rgb(231, 175, 152)",
+          "fontSize": "14px"
+        }
+      ],
+      "outputTone": "error",
+      "width": 320
+    },
+    {
+      "name": "health-narrow-tw",
+      "documentWidth": 320,
+      "fontSize": "14px",
+      "page": "噪音對健康的影響",
+      "scopeText": "僅用於職業參考，不讀取本站儀表估算。該時長不是個人安全倒計時，也不是臥室噪音目標；混合聲級、衝擊聲與個人差異需要單獨評估。",
+      "tone": "warning",
+      "width": 320
+    },
+    {
+      "name": "retained-template",
+      "path": "/guide/",
+      "documentWidth": 320,
+      "heading": "分贝测试怎么用？",
+      "summaryBackground": "rgb(234, 240, 228)",
+      "width": 320
+    },
+    {
+      "name": "retained-template",
+      "path": "/faq/",
+      "documentWidth": 320,
+      "heading": "分贝测试常见问题",
+      "summaryBackground": "rgb(234, 240, 228)",
+      "width": 320
+    },
+    {
+      "name": "retained-template",
+      "path": "/records/",
+      "documentWidth": 320,
+      "heading": "我的测量记录",
+      "summaryBackground": null,
+      "width": 320
+    },
+    {
+      "name": "retained-template",
+      "path": "/knowledge/",
+      "documentWidth": 320,
+      "heading": "知识与帮助",
+      "summaryBackground": null,
+      "width": 320
+    }
+  ],
+  "contrast": [
+    {
+      "name": "health-desktop-light",
+      "tone": "info",
+      "ratio": 5.08
+    },
+    {
+      "name": "health-desktop-light",
+      "tone": "warning",
+      "ratio": 4.8
+    },
+    {
+      "name": "settings-error-desktop",
+      "tone": "error",
+      "ratio": 6.13
+    },
+    {
+      "name": "health-mobile-en-dark",
+      "tone": "info",
+      "ratio": 7.79
+    },
+    {
+      "name": "health-mobile-en-dark",
+      "tone": "warning",
+      "ratio": 7.79
+    },
+    {
+      "name": "narrow-en-dark-input-error",
+      "ratio": 7.56
+    },
+    {
+      "name": "narrow-en-dark-input-error",
+      "ratio": 7.56
+    }
+  ]
+}

@@ -97,6 +97,9 @@
 }
 .notice {
   width: min(230px, calc(100vw - 112px));
+  border-left: 3px solid var(--warning);
+  background: var(--warning-surface);
+  color: var(--warning);
   padding: 12px 14px;
   font-size: var(--font-size-ui);
   line-height: 1.8;

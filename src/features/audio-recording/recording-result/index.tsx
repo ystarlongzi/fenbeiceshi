@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Notice } from "@/components/notice";
 import type { Locale } from "../../sound-meter/types";
 import type { useAudioRecording } from "../use-audio-recording";
 import type { PlaybackClip } from "../use-audio-clip";
@@ -18,7 +19,7 @@ export function RecordingResult({
   const copy = recordingCopy[locale];
   return (
     <div className={styles.result}>
-      {recording.phase === "finishing" ? <p role="status">{copy.finishing}</p> : null}
+      {recording.phase === "finishing" ? <Notice role="status">{copy.finishing}</Notice> : null}
       {recording.clip ? (
         <ClipResult
           key={recording.clip.measurementId}
@@ -87,18 +88,18 @@ function ClipResult({
         </button>
       </div>
       <div aria-live="polite">
-        {encoding ? <p>{copy.encoding}</p> : null}
-        {clip.limited ? <p className={styles.notice}>{copy.limited}</p> : null}
-        {clip.interrupted ? <p className={styles.notice}>{copy.interrupted}</p> : null}
+        {encoding ? <Notice>{copy.encoding}</Notice> : null}
+        {clip.limited ? <Notice tone="warning">{copy.limited}</Notice> : null}
+        {clip.interrupted ? <Notice tone="warning">{copy.interrupted}</Notice> : null}
         {mp3.phase === "error" ? (
-          <p className={styles.notice} role="alert">
+          <Notice tone="error" role="alert">
             {copy.encodeError}
-          </p>
+          </Notice>
         ) : null}
         {playbackError ? (
-          <p className={styles.notice} role="alert">
+          <Notice tone="error" role="alert">
             {copy.playbackError}
-          </p>
+          </Notice>
         ) : null}
       </div>
     </section>

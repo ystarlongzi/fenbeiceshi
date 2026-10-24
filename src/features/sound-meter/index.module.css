@@ -151,12 +151,23 @@
 }
 .signalWarning {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  border-left: 3px solid #efcf97;
+  border-radius: 6px;
+  background: #efcf9714;
   font-size: var(--font-size-ui);
   color: #efcf97;
+  line-height: 1.7;
   margin: 12px 0 0;
+}
+.signalWarning svg {
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+.signalWarning span {
+  min-width: 0;
 }
 .announcements:empty {
   display: none;

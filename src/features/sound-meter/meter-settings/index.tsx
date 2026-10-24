@@ -10,6 +10,7 @@ import { LinkArrow } from "@/components/link-arrow";
 import { NumberInput } from "@/components/number-input";
 import { numberIssue } from "@/components/number-input/model";
 import { Switch } from "@/components/switch";
+import { Notice } from "@/components/notice";
 import { adjustmentBounds } from "../../calibration/adjustment";
 import { RecordingOptions } from "../../audio-recording/recording-options";
 import { meterCopy } from "../copy";
@@ -72,7 +73,9 @@ export function MeterSettings({
         {meter.input ? <p className={styles.inputLabel}>{meter.input.label}</p> : null}
         <p>{copy.deviceHint}</p>
         {meter.input?.processing ? (
-          <p className={styles.inputWarning}>{copy.inputProcessed}</p>
+          <Notice className={styles.inputWarning} tone="warning">
+            {copy.inputProcessed}
+          </Notice>
         ) : null}
       </section>
       <section className={styles.settingGroup}>
@@ -154,16 +157,21 @@ export function MeterSettings({
               />
             </div>
             {adjustmentInvalid ? (
-              <p id={`${id}-adjustment-error`} className={styles.referenceError} role="status">
+              <Notice
+                id={`${id}-adjustment-error`}
+                className={styles.referenceError}
+                tone="error"
+                role="status"
+              >
                 {copy.adjustmentError}
-              </p>
+              </Notice>
             ) : null}
           </div>
         ) : null}
         {adjustmentLocked ? (
-          <p>
+          <Notice>
             {meter.status === "finished" ? copy.adjustmentFinished : copy.adjustmentUnavailable}
-          </p>
+          </Notice>
         ) : null}
         <Link href={`${prefix}/calibration/`} className={styles.helpLink}>
           {copy.calibrationHelp}

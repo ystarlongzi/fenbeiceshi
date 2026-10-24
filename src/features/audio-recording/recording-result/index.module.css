@@ -13,10 +13,6 @@
   line-height: 1.7;
   margin: 10px 0 0;
 }
-.result [role="alert"],
-.clip .notice {
-  color: var(--warning);
-}
 .heading {
   display: flex;
   flex-wrap: wrap;

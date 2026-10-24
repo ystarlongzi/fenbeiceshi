@@ -58,16 +58,13 @@
   overflow-wrap: anywhere;
 }
 .settingGroup .inputWarning {
-  font-size: var(--font-size-ui);
-  color: var(--warning);
+  margin-top: 9px;
 }
 .adjustment {
   padding-top: 12px;
 }
 .settingGroup .referenceError {
   margin: 0 0 10px;
-  color: var(--error);
-  font-size: var(--font-size-ui);
 }
 .adjustment > label {
   display: block;

@@ -85,6 +85,7 @@
   gap: 10px;
   margin: 12px 0;
   padding: 10px 12px;
+  border-left: 3px solid var(--warning);
   border-radius: 8px;
   color: var(--warning);
   background: var(--warning-surface);
@@ -147,9 +148,20 @@
 }
 .audioStatus p {
   margin: 8px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--warning);
+  border-radius: 6px;
+  background: var(--warning-surface);
 }
 .audioStatus [data-error="true"] {
   color: var(--error);
+  border-color: var(--error);
+  background: var(--error-surface);
+}
+.audioStatus [data-tone="info"] {
+  color: var(--text-accent);
+  border-color: var(--brand);
+  background: var(--surface-accent);
 }
 .save p {
   color: var(--muted);
@@ -193,7 +205,11 @@
 .feedback {
   font-size: var(--font-size-ui);
   line-height: 1.8;
-  color: var(--brand);
+  color: var(--text-accent);
+  padding: 10px 12px;
+  border-left: 3px solid var(--brand);
+  border-radius: 6px;
+  background: var(--surface-accent);
   margin: 12px 0 0;
 }
 .feedback:empty {
@@ -201,6 +217,8 @@
 }
 .feedback[data-error="true"] {
   color: var(--error);
+  border-color: var(--error);
+  background: var(--error-surface);
 }
 @media (min-width: 681px) {
   .actions[data-audio="true"] {

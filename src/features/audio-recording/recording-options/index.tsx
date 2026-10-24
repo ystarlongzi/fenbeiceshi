@@ -1,5 +1,6 @@
 import { useId } from "react";
 import { Switch } from "@/components/switch";
+import { Notice } from "@/components/notice";
 import type { Locale } from "../../sound-meter/types";
 import type { useAudioRecording } from "../use-audio-recording";
 import { recordingCopy } from "../copy";
@@ -43,9 +44,9 @@ export function RecordingOptions({
       <small aria-live="polite">{hint}</small>
       <p id={hintId}>{copy.hint}</p>
       {recording.enabled && recording.phase === "error" ? (
-        <p className={styles.error} role="alert">
+        <Notice className={styles.error} tone="error" role="alert">
           {copy.error}
-        </p>
+        </Notice>
       ) : null}
     </div>
   );

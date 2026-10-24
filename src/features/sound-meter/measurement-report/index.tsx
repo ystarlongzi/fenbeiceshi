@@ -249,7 +249,7 @@ export function MeasurementReportDialog({
           {clip ? <p className={styles.audioHint}>{copy.audioHint}</p> : null}
           <div className={styles.audioStatus} role="status">
             {!liveClip && record.recording && stored.status === "loading" ? (
-              <p>{copy.loadingAudio}</p>
+              <p data-tone="info">{copy.loadingAudio}</p>
             ) : null}
             {!liveClip && record.recording && stored.status === "missing" ? (
               <p>{copy.audioMissing}</p>
@@ -263,7 +263,7 @@ export function MeasurementReportDialog({
               <p data-error="true">{audio.encodeError}</p>
             ) : null}
             {liveRecording?.measurementId === record.id && liveRecording.phase === "finishing" ? (
-              <p>{audio.finishing}</p>
+              <p data-tone="info">{audio.finishing}</p>
             ) : null}
           </div>
         </>

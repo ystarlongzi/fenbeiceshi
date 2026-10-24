@@ -15,6 +15,4 @@
 }
 .options .error {
   margin-top: 8px;
-  color: var(--warning);
-  font-size: var(--font-size-ui);
 }

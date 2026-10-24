@@ -210,7 +210,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
           {meter.frame?.clipped ? (
             <p className={styles.signalWarning}>
               <Icon name="circle-alert" size={14} />
-              {copy.clipping}
+              <span>{copy.clipping}</span>
             </p>
           ) : null}
           <LevelScale value={frame?.belowFloor ? null : value} copy={copy} />

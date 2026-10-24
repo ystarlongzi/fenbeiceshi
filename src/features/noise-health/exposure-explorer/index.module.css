@@ -51,15 +51,8 @@
   line-height: 1.6;
 }
 .explorer .help,
-.explorer .error,
-.explorer .scope {
-  margin: 8px 0 0;
-  color: var(--text-body);
-  font-size: var(--font-size-ui);
-  line-height: 1.8;
-}
 .explorer .error {
-  color: var(--error);
+  margin: 10px 0 0;
 }
 .result {
   min-width: 0;
@@ -155,8 +148,6 @@
 }
 .explorer .scope {
   margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
 }
 @media (max-width: 600px) {
   .explorer {

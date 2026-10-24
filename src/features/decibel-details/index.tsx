@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import { ContentPage } from "@/components/content-page";
 import { Icon } from "@/components/icon";
 import { LinkArrow } from "@/components/link-arrow";
+import { Notice } from "@/components/notice";
 import { detailForLevel, type SoundDetail } from "@/lib/content/decibel-details";
 import { levelComparisons } from "@/lib/content/decibel-details/comparison";
 import { readingBand, soundBands } from "@/lib/content/sound-bands";
@@ -157,14 +158,14 @@ function SoundOverview({ detail, locale }: { detail: SoundDetail; locale: Locale
             .map((item) => text(item.name, locale))
             .join(localize(locale, "、", " · ", "、"))}
         </p>
-        <p className={styles.scope}>
+        <Notice tone="warning">
           {localize(
             locale,
             "档位帮助认识量级，不能据此判定舒适度或安全时长。",
             "Bands describe approximate levels; they do not establish comfort or a safe duration.",
             "檔位幫助認識量級，不能據此判定舒適度或安全時長。",
           )}
-        </p>
+        </Notice>
       </div>
     </section>
   );
@@ -238,7 +239,7 @@ function SoundComparison({ detail, locale }: { detail: SoundDetail; locale: Loca
           </tbody>
         </table>
       </div>
-      <p className={styles.comparisonNote}>
+      <Notice className={styles.comparisonNote}>
         {localize(
           locale,
           "这是同一声音改变音量的近似对比，测法和单位保持一致。实际听感也与音调、背景和个人有关，不能用来直接比较不同场景的声音。",
@@ -248,7 +249,7 @@ function SoundComparison({ detail, locale }: { detail: SoundDetail; locale: Loca
         <a href={`#${soundSources.nidcdLoudness.id}`}>NIDCD</a>
         {" · "}
         <a href={`#${soundSources.ccohs.id}`}>CCOHS</a>
-      </p>
+      </Notice>
     </>
   );
 }

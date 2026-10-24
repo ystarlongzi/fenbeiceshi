@@ -93,9 +93,10 @@
   padding: 12px 14px;
   border: 1px solid var(--line-strong);
   border-radius: 7px;
-  background: var(--surface);
+  border-left: 3px solid var(--warning);
+  background: var(--warning-surface);
   box-shadow: 0 8px 24px var(--shadow);
-  color: var(--ink);
+  color: var(--warning);
   font-size: var(--font-size-ui);
   line-height: 1.8;
 }

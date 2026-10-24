@@ -3,6 +3,7 @@ import { localize, text } from "@/lib/i18n/text";
 
 import { Fragment, useState } from "react";
 import { NumberInput } from "@/components/number-input";
+import { Notice } from "@/components/notice";
 import { readingColor } from "@/features/sound-meter/palette";
 import type { Locale } from "@/features/sound-meter/types";
 import { readingBand } from "@/lib/content/sound-bands";
@@ -75,14 +76,14 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
             <span>130 dBA</span>
           </div>
           {level === null ? (
-            <p id="exposure-input-error" className={styles.error}>
+            <Notice id="exposure-input-error" className={styles.error} tone="error">
               {localize(
                 locale,
                 "请输入 40–130 dBA 之间的数值，步长为 0.5。",
                 "Enter 40–130 dBA in steps of 0.5.",
                 "請輸入 40–130 dBA 之間的數值，步長為 0.5。",
               )}
-            </p>
+            </Notice>
           ) : null}
         </div>
         <div className={styles.result}>
@@ -111,9 +112,15 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
               </span>
             ) : null}
           </div>
-          <p id="exposure-note" className={styles.help} aria-live="polite" aria-atomic="true">
+          <Notice
+            id="exposure-note"
+            className={styles.help}
+            tone={level === null ? "error" : "info"}
+            aria-live="polite"
+            aria-atomic="true"
+          >
             {text(note, locale)}
-          </p>
+          </Notice>
         </div>
       </div>
       <fieldset className={styles.presets}>
@@ -139,14 +146,14 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
           ))}
         </div>
       </fieldset>
-      <p id="exposure-scope" className={styles.scope}>
+      <Notice id="exposure-scope" className={styles.scope} tone="warning">
         {localize(
           locale,
           "仅用于职业参考，不读取本站仪表估算。该时长不是个人安全倒计时，也不是卧室噪音目标；混合声级、冲击声与个人差异需要单独评估。",
           "Occupational reference only; it does not use this site's meter estimate. This is not a personal safety countdown or a bedroom target. Mixed levels, impulses and individual susceptibility need separate assessment.",
           "僅用於職業參考，不讀取本站儀表估算。該時長不是個人安全倒計時，也不是臥室噪音目標；混合聲級、衝擊聲與個人差異需要單獨評估。",
         )}
-      </p>
+      </Notice>
     </div>
   );
 }

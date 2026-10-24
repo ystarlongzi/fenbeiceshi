@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "updated": "2026-10-24",
+  "status": "implemented-not-deployed",
+  "task": "让正文、补充提示、重要限制和错误反馈可直接辨认，并保持各自操作上下文。",
+  "component": "src/components/notice/",
+  "appearance": {
+    "info": "text-accent / surface-accent，问号圆圈图标，用于补充提示和准备状态。",
+    "warning": "warning / warning-surface，提示圆圈图标，用于范围限制、录音不完整等需要注意的情况。",
+    "error": "error / error-surface，提示圆圈图标，用于输入错误、录音或播放失败。",
+    "structure": "统一采用 3px 左侧强调线、6px 圆角、18px Lucide 图标与 14px 正文；同主题的两段说明共享一个提示区，不为每句文字套框。",
+    "spacing": "桌面内边距 14px 16px、图文间距 10px；520px 及以下内边距 12px、图文间距 8px。",
+    "theme": "使用现有 globals.css 语义变量，亮暗自动适配；深绿仪表内输入过强警告保留固定暖色。"
+  },
+  "semantics": "静态说明默认 role=note；调用方可保留原 status、alert、aria-live 和 aria-describedby，不把静态提醒设为实时告警。不修改状态机、数据处理、存储或录音行为。",
+  "scope": [
+    "分贝指南的职业暴露口径与适用限制",
+    "健康文章的动态建议、输入错误和职业参考限制",
+    "28 个声音详情主题的概览限制与量级比较说明，覆盖三语 84 页",
+    "测量设置中的输入处理警告、读数修正错误和不可编辑说明",
+    "录音设置、整理状态、录制上限、中断、编码及播放错误",
+    "报告音频消息与保存／导出反馈",
+    "主题与语言偏好无法保存的浮层提示"
+  ],
+  "retained": "知识与帮助、使用指南、工作原理、FAQ、法规、降噪等连续正文及来源维持原结构；ContentPage 摘要、本机记录错误、报告静态警告和测量主消息已有独立表面，继续保留。普通字段标签、设备辅助说明和图表界限不是警告容器。",
+  "verification": "../../docs/验证/提示警告与正文区分验证.md",
+  "browserChecks": "browser-checks.json",
+  "screenshots": [
+    "chart-note-desktop.png",
+    "health-error-desktop.png",
+    "settings-error-mobile.png",
+    "health-scope-mobile-en-dark.png"
+  ]
+}

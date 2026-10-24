@@ -207,14 +207,6 @@ a.comparisonLevel {
 }
 .article .comparisonNote {
   margin-top: 12px;
-  color: var(--muted);
-  font-size: var(--font-size-ui);
-  line-height: 1.8;
-}
-.comparisonNote a {
-  color: var(--brand);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 .article .hearing {
   padding: 26px 0;
