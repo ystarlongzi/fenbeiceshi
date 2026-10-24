@@ -44,6 +44,23 @@
 .table td {
   color: var(--text-body);
 }
+.table tbody tr {
+  background: var(--surface);
+}
+.table tbody tr:nth-child(even) {
+  background: var(--surface-muted);
+}
+@media (hover: hover) and (pointer: fine) {
+  .table tbody tr:hover {
+    background: var(--surface-hover);
+  }
+  .table tbody tr:hover > th {
+    box-shadow: inset 3px 0 var(--brand);
+  }
+  .table tbody tr:hover > td {
+    color: var(--ink);
+  }
+}
 .reference .notice {
   margin-top: 18px;
 }

@@ -1,0 +1,76 @@
+{
+  "checked": "2026-10-24",
+  "browser": "Codex in-app Chromium",
+  "results": [
+    {
+      "name": "desktop-default-stripes",
+      "documentWidth": 1440,
+      "rows": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "level": "85"
+        },
+        {
+          "background": "rgb(238, 242, 236)",
+          "level": "88"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "level": "91"
+        },
+        {
+          "background": "rgb(238, 242, 236)",
+          "level": "94"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "level": "100"
+        },
+        {
+          "background": "rgb(238, 242, 236)",
+          "level": "110"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "level": "120"
+        }
+      ],
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "name": "desktop-default-hover",
+      "background": "rgb(233, 241, 229)",
+      "hovered": true,
+      "shadow": "rgb(53, 117, 85) 3px 0px 0px 0px inset",
+      "textColor": "rgb(32, 53, 43)",
+      "theme": "light"
+    },
+    {
+      "name": "desktop-dark-stripes",
+      "backgrounds": [
+        "rgb(24, 38, 29)",
+        "rgb(20, 32, 25)",
+        "rgb(24, 38, 29)",
+        "rgb(20, 32, 25)",
+        "rgb(24, 38, 29)",
+        "rgb(20, 32, 25)",
+        "rgb(24, 38, 29)"
+      ],
+      "theme": "dark"
+    },
+    {
+      "name": "desktop-dark-hover",
+      "background": "rgb(48, 70, 42)",
+      "hovered": true,
+      "shadow": "rgb(182, 216, 144) 3px 0px 0px 0px inset"
+    },
+    {
+      "name": "mobile-dark",
+      "documentWidth": 390,
+      "fontSize": "14px",
+      "rowCount": 7,
+      "width": 390
+    }
+  ]
+}
