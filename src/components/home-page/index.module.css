@@ -220,7 +220,6 @@
   font-weight: 600;
   line-height: 1.55;
   letter-spacing: -0.04em;
-  white-space: pre-line;
   text-wrap: balance;
   margin: 0;
 }
@@ -233,28 +232,6 @@
 }
 .articles {
   border-top: 1px solid var(--line-strong);
-}
-.readingGuide {
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-}
-.readingGuide strong {
-  font-size: var(--font-size-body);
-  font-weight: 600;
-}
-.readingGuide p {
-  margin: 8px 0 12px;
-  color: var(--muted);
-  font-size: var(--font-size-body);
-  line-height: 1.8;
-}
-.readingGuide a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: var(--font-size-ui);
-  color: var(--brand);
 }
 .articles > a {
   display: flex;

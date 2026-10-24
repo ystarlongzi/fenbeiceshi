@@ -1,5 +1,70 @@
 import type { IconName } from "../icon";
 import type { Locale } from "@/lib/i18n/locales";
+import { localize } from "@/lib/i18n/text";
+
+export function homeKnowledge(locale: Locale) {
+  return {
+    title: localize(
+      locale,
+      "测完之后，怎么看？",
+      "What do your readings mean?",
+      "測完之後，怎麼看？",
+    ),
+    intro: localize(
+      locale,
+      "先对照常见声音，再了解读数的局限，以及噪音对健康的影响。",
+      "Compare familiar sounds, understand the limits of your readings, and learn how noise can affect health.",
+      "先對照常見聲音，再瞭解讀數的限制，以及噪音對健康的影響。",
+    ),
+    articles: [
+      {
+        id: "decibel-chart",
+        title: localize(
+          locale,
+          "这个读数，大概有多响？",
+          "How loud is that level?",
+          "這個讀數，大概有多響？",
+        ),
+        description: localize(
+          locale,
+          "用常见生活声音，了解不同分贝的大致量级和比较条件。",
+          "Compare everyday sounds to understand decibel levels and their conditions.",
+          "用常見生活聲音，瞭解不同分貝的大致量級和比較條件。",
+        ),
+      },
+      {
+        id: "phone-accuracy",
+        title: localize(
+          locale,
+          "手机测分贝，准吗？",
+          "How accurate is a phone reading?",
+          "手機測分貝，準嗎？",
+        ),
+        description: localize(
+          locale,
+          "了解设备和测量条件的影响，分清网页估算与专业检测。",
+          "See how devices and conditions affect the estimate, and how it differs from professional measurements.",
+          "瞭解裝置和測量條件的影響，分清網頁估算與專業檢測。",
+        ),
+      },
+      {
+        id: "noise-health",
+        title: localize(
+          locale,
+          "噪音会怎样影响健康？",
+          "How can noise affect your health?",
+          "噪音會怎樣影響健康？",
+        ),
+        description: localize(
+          locale,
+          "了解听力、睡眠等方面的影响，以及减少噪音暴露的方法。",
+          "Explore effects on hearing and sleep, and ways to reduce noise exposure.",
+          "瞭解聽力、睡眠等方面的影響，以及減少噪音暴露的方法。",
+        ),
+      },
+    ],
+  };
+}
 
 export function homeInstructions(locale: Locale) {
   const en = locale === "en";

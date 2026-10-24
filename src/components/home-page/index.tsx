@@ -3,12 +3,10 @@ import Link from "next/link";
 import { SoundMeter } from "@/features/sound-meter";
 import { RecordsPanel } from "@/features/records";
 import type { Locale } from "@/features/sound-meter/types";
-import { articles } from "@/lib/content/articles";
 import { homeFaqItems } from "@/lib/content/faq";
-import { text } from "@/lib/content/types";
 import { href, SITE_URL } from "@/lib/routing/pages";
 import { Icon } from "../icon";
-import { homeInstructions } from "./copy";
+import { homeInstructions, homeKnowledge } from "./copy";
 import { LinkArrow } from "../link-arrow";
 import { StructuredData } from "../structured-data";
 import { FaqList } from "../faq-list";
@@ -16,6 +14,7 @@ import styles from "./index.module.css";
 
 export function HomePage({ locale }: { locale: Locale }) {
   const { scenes, steps } = homeInstructions(locale);
+  const knowledge = homeKnowledge(locale);
   return (
     <>
       <StructuredData
@@ -139,87 +138,38 @@ export function HomePage({ locale }: { locale: Locale }) {
           ))}
         </ul>
       </section>
-      <section className={styles.knowledge}>
-        <div className={styles.knowledgeLead}>
+      <section
+        className={styles.knowledge}
+        id="home-knowledge"
+        aria-labelledby="home-knowledge-title"
+      >
+        <header className={styles.knowledgeLead}>
           <p className={styles.eyebrow}>
             {localize(locale, "声音知识", "SOUND KNOWLEDGE", "聲音知識")}
           </p>
-          <h2>
-            {localize(
-              locale,
-              "读数准不准，\n分贝怎么看？",
-              "How accurate is it?\nWhat do the numbers mean?",
-              "讀數準不準，\n分貝怎麼看？",
-            )}
-          </h2>
-          <p className={styles.sectionIntro}>
-            {localize(
-              locale,
-              "读数有多准？不同单位意味着什么？从这些基础问题开始。",
-              "How accurate is the reading? What do the units mean? Start with the questions that help you use the tool.",
-              "讀數有多準？不同單位意味著什麼？從這些基礎問題開始。",
-            )}
-          </p>
+          <h2 id="home-knowledge-title">{knowledge.title}</h2>
+          <p className={styles.sectionIntro}>{knowledge.intro}</p>
           <Link href={href("knowledge", locale)}>
-            {localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助")}
+            {localize(
+              locale,
+              "查看全部知识与帮助",
+              "View all knowledge & help",
+              "檢視全部知識與幫助",
+            )}
             <LinkArrow size={15} />
           </Link>
-          <div className={styles.readingGuide}>
-            <strong>
-              {localize(
-                locale,
-                "网页是怎么测分贝的？",
-                "How the meter works",
-                "網頁是怎麼測分貝的？",
-              )}
-            </strong>
-            <p>
-              {localize(
-                locale,
-                "麦克风接收声音，网页计算声音能量，再显示估算分贝和变化趋势。",
-                "Your microphone picks up sound. The page calculates its energy, then displays an estimate and a trend.",
-                "麥克風接收聲音，網頁計算聲音能量，再顯示估算分貝和變化趨勢。",
-              )}
-            </p>
-            <Link href={href("how-it-works", locale)}>
-              {localize(locale, "四步看懂工作原理", "Follow the four steps", "四步看懂工作原理")}
-              <LinkArrow size={15} />
-            </Link>
-          </div>
-          <div className={styles.readingGuide}>
-            <strong>{localize(locale, "噪音与健康", "Noise & health", "噪音與健康")}</strong>
-            <p>
-              {localize(
-                locale,
-                "了解听力、睡眠与长期影响，结合来源和行动建议改善环境。",
-                "Understand hearing, sleep and longer-term effects, with sources and practical actions.",
-                "瞭解聽力、睡眠與長期影響，結合來源和行動建議改善環境。",
-              )}
-            </p>
-            <Link href={href("noise-health", locale)}>
-              {localize(
-                locale,
-                "了解噪音对健康的影响",
-                "Read about health effects",
-                "瞭解噪音對健康的影響",
-              )}
-              <LinkArrow size={15} />
-            </Link>
-          </div>
-        </div>
+        </header>
         <div className={styles.articles}>
-          {articles
-            .filter((article) => article.id !== "noise-health")
-            .map((article, i) => (
-              <Link key={article.id} href={href(article.id, locale)}>
-                <span className={styles.articleIndex}>0{i + 1}</span>
-                <div>
-                  <h3>{text(article.title, locale)}</h3>
-                  <p>{text(article.description, locale)}</p>
-                </div>
-                <LinkArrow size={18} className={styles.articleArrow} />
-              </Link>
-            ))}
+          {knowledge.articles.map((article, i) => (
+            <Link key={article.id} href={href(article.id, locale)}>
+              <span className={styles.articleIndex}>{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+              </div>
+              <LinkArrow size={18} className={styles.articleArrow} />
+            </Link>
+          ))}
         </div>
       </section>
       <section className={styles.faq} id="faq" aria-labelledby="faq-title">

@@ -4,6 +4,34 @@ import { href } from "../../src/lib/routing/pages.ts";
 import { localize } from "../../src/lib/i18n/text.ts";
 import type { Locale } from "../../src/features/sound-meter/types.ts";
 
+export function checkHomeKnowledge(html: string, locale: Locale) {
+  const path = href("meter", locale);
+  const knowledge = html.match(
+    /<section\b[^>]*id="home-knowledge"[^>]*>([\s\S]*?)<\/section>/,
+  )?.[1];
+  assert.ok(knowledge, `首页缺少声音知识阅读区：${path}`);
+  const lead = knowledge.match(/<header\b[^>]*>([\s\S]*?)<\/header>/)?.[1];
+  assert.ok(lead, `首页知识区缺少总导读：${path}`);
+  assert.deepEqual(
+    [...lead.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]),
+    [href("knowledge", locale)],
+    `总导读只保留完整目录入口，具体文章统一放在阅读列表：${path}`,
+  );
+  const articles = [...knowledge.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].filter((match) =>
+    /<h3\b/.test(match[2]),
+  );
+  assert.deepEqual(
+    articles.map((match) => match[1].match(/\bhref="([^"]+)"/)?.[1]),
+    ["decibel-chart", "phone-accuracy", "noise-health"].map((id) => href(id, locale)),
+    `首页应按声音量级、读数准确性、健康影响展示三篇文章：${path}`,
+  );
+  assert.equal(
+    [...knowledge.matchAll(/<a\b/g)].length,
+    4,
+    `知识区只保留一个目录入口和三篇精选文章：${path}`,
+  );
+}
+
 export function checkKnowledgeDirectory(html: string, locale: Locale) {
   const path = href("knowledge", locale);
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];

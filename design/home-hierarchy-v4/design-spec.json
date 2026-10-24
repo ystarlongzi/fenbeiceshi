@@ -2,7 +2,7 @@
   "measurementSupersededBy": "../noise-estimate-v1/design-spec.json",
   "version": 4,
   "scope": "homepage-module-hierarchy",
-  "updated": "2026-10-17",
+  "updated": "2026-10-24",
   "status": "local-implementation",
   "baseline": "../noise-meter-v3/design-spec.json",
   "source": "../../src/components/home-page/",
@@ -60,6 +60,12 @@
     "保留首屏开始操作与中英实际路由；不增加空链接或候选页面。"
   ],
   "refinements": {
+    "knowledgeSelection": {
+      "articleIds": ["decibel-chart", "phone-accuracy", "noise-health"],
+      "scope": "知识区以「测完之后，怎么看？」为总导读。左侧只保留总体说明和完整目录入口；右侧固定按声音量级、读数准确性、健康影响呈现三个同级问题，每项配简短说明，分别进入分贝对照、手机准确性与噪音健康文章。三语首页专属文案维护在 src/components/home-page/copy.ts，不直接套用文章长标题和描述，也不随全站文章注册表增长。原理和单位详解通过知识目录和原有帮助入口进入；正文与链接保持服务端静态输出。",
+      "verification": "../../docs/验证/首页精选文章调整验证.md",
+      "browserChecks": "knowledge-selection-checks.json"
+    },
     "navigation": "四个主菜单使用一致的 Lucide 图标与文字；手机保留现有菜单项，窄屏采用图标在上、文字在下的排布。悬停显示浅绿底与内侧细边界，图标随文字变色；键盘焦点保留外部轮廓，减少动画偏好下关闭过渡。",
     "sectionHeading": "区块说明不设最大宽度，跟随父布局可用空间自然换行。",
     "levelScale": "数字下直接显示每个点位的含义；默认 dBFS 说明显示下限、极低、较低、较高、满幅，参考校准后使用独立的估算 dB 说明。文字自然增高，五个点与色带的线性位置保持一致。",
@@ -80,6 +86,9 @@
     "navigationAndTrendMobile": "nav-trend-mobile.jpg",
     "navigationHoverAndSectionHeading": "menu-hover-section-heading.jpg",
     "levelScaleAndReferenceDesktop": "level-scale-reference-desktop.jpg",
-    "levelScaleAndReferenceMobile": "level-scale-reference-mobile.jpg"
+    "levelScaleAndReferenceMobile": "level-scale-reference-mobile.jpg",
+    "knowledgeSelectionDesktop": "knowledge-selection-desktop.png",
+    "knowledgeSelectionMobile": "knowledge-selection-mobile.png",
+    "knowledgeSelectionMobileEnglishDark": "knowledge-selection-mobile-en-dark.png"
   }
 }

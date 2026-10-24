@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { runInNewContext } from "node:vm";
 import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
-import { checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
+import { checkHomeKnowledge, checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
 import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
 import { checkChartHealth } from "./export-checks/chart-health.ts";
 import { escapeText } from "./export-checks/html.ts";
@@ -311,6 +311,7 @@ for (const page of sitePages) {
       }
       for (const id of ["faq", "how-it-works"])
         assert.ok(visible.includes(`href="${href(id, locale)}"`), `缺少帮助入口：${path} → ${id}`);
+      if (page.id === "meter") checkHomeKnowledge(visible, locale);
     }
     if (content) {
       const visible = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
