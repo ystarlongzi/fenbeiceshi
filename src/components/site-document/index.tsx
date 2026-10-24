@@ -22,7 +22,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
     },
     {
       id: "decibel-chart",
-      label: localize(locale, "分贝对照表", "Decibel chart", "分貝對照表"),
+      label: localize(locale, "分贝指南", "Decibel guide", "分貝指南"),
       icon: "chart-line",
     },
     {

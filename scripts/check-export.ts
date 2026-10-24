@@ -155,6 +155,10 @@ for (const page of sitePages) {
         ),
         `知识与帮助导航名称不正确：${path}`,
       );
+      assert.ok(
+        navigation.includes(escapeText(localize(locale, "分贝指南", "Decibel guide", "分貝指南"))),
+        `分贝指南导航名称不正确：${path}`,
+      );
       const selected = [...navigation.matchAll(/<a\b([^>]*)>/g)].filter((match) =>
         match[1].includes("aria-current="),
       );

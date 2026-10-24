@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "updated": "2026-10-22",
+  "updated": "2026-10-24",
   "status": "implemented-not-deployed",
   "scope": "主导航与知识帮助目录，覆盖历史五项／六项导航及四个知识分类的分组规则；抽屉、主题和语言交互沿用原实现。",
   "navigation": [
     { "id": "meter", "zh-CN": "开始测量", "zh-TW": "開始測量", "en": "Measure" },
-    { "id": "decibel-chart", "zh-CN": "分贝对照表", "zh-TW": "分貝對照表", "en": "Decibel chart" },
+    { "id": "decibel-chart", "zh-CN": "分贝指南", "zh-TW": "分貝指南", "en": "Decibel guide" },
     { "id": "knowledge", "zh-CN": "知识与帮助", "zh-TW": "知識與幫助", "en": "Knowledge & help" },
     { "id": "records", "zh-CN": "本机记录", "zh-TW": "本機記錄", "en": "Records" }
   ],

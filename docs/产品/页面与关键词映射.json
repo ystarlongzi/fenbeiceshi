@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "简体中文优先，同时提供繁体中文与英文；兼顾百度、必应和 Google。",
@@ -330,7 +330,7 @@
       "intent": "快速查询常见声音与分贝范围，并理解比较条件。",
       "uniqueValue": "七档纵向内容组直接承载 31 项声音，声音标签按内容宽度自动换行，分组默认折叠，展开后名称、范围与来源单位可见，比较条件及分贝详情行内链接在标签下方整行展开并保留静态 HTML，机构和资料出处在详情页查看；七档简短名称另附一句体感描述；按范围起点编组，跨档声音保留完整范围且仅展示一次；名称或数值搜索只保留匹配条目与分组并自动展开，清空后恢复折叠，无分段筛选按钮、类别筛选和滑块；31 项描述均在段落中链接至相应单值或完整范围详情，共 28 个独立主题，保留原单位；页首简述 40–70 分贝量级，健康导读紧随声音对照，参考说明收敛为范围差异与网页估算比较两个问题。",
       "sections": ["七档声音对照与名称／数值搜索","噪音与健康：暴露时长与影响入口","参考说明：范围差异与网页估算比较"],
-      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-22","locales":["zh-CN", "zh-TW", "en"],"navigation":"简体、繁体与英文一级导航；本地构建可索引，尚未部署生产"},
+      "localImplementation": {"status":"implemented-not-deployed","updated":"2026-10-24","locales":["zh-CN", "zh-TW", "en"],"navigation":"三语一级导航名称为分贝指南／分貝指南／Decibel guide，沿用 decibel-chart 路径；本地构建可索引，尚未部署生产"},
       "ctaTargetId": "meter",
       "relatedIds": ["dbfs-spl","phone-accuracy","calibration","guide"],
       "publishGate": "每组参考有来源和条件；不以播放器模拟真实分贝，不把未校准读数套表判定。",
