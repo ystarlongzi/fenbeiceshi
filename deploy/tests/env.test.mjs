@@ -86,8 +86,8 @@ test("配置模板可直接解析，初始化、发布和回滚 CLI 复用文件
     await cp(path.join(projectRoot, "deploy/.env.example"), file);
     const config = await loadDeployEnv({ "env-file": file }, {});
     assert.equal(connection({}, config).user, "root");
-    assert.equal(connection({}, config).host, "server.example.com");
-    assert.equal(connection({}, config).port, "22");
+    assert.equal(connection({}, config).host, "185.186.146.217");
+    assert.equal(connection({}, config).port, "27892");
     assert.equal(connection({}, config).knownHosts, resolveLocalPath("~/.ssh/known_hosts"));
     assert.equal(config.NGINX_CONF_PATH, "/etc/nginx/conf.d");
     const env = { ...process.env, GITHUB_ACTIONS: "false" };
