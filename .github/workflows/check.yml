@@ -1,18 +1,56 @@
 name: 项目检查
+
 on:
-  push:
   pull_request:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: fenbeiceshi-check-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
-    runs-on: ubuntu-latest
+    name: 检查、测试与构建
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7，固定官方提交
         with:
-          node-version: 24
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7，固定官方提交
+        with:
+          node-version: "24"
           cache: npm
-      - run: npm ci
-      # out/ 只在当前 runner 校验；后续发布在同一 job 直接通过 SSH 传输，不上传 GitHub Artifacts。
+      - run: npm ci --no-fund
       - run: npm run check
+      - name: 判断是否需要 Linux 集成测试
+        id: deploy_changes
+        env:
+          DEPLOY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          DEPLOY_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: bash scripts/check-deploy-changes.sh
+      - name: 准备 Linux 集成测试环境
+        if: steps.deploy_changes.outputs.required == 'true'
+        timeout-minutes: 3
+        # 临时 runner 直接运行测试；本地域名映射隔离生产站点，停止默认服务以释放端口。
+        run: |
+          packages=()
+          for item in nginx:nginx curl:curl openssl:openssl flock:util-linux stat:coreutils find:findutils tar:tar gzip:gzip; do
+            if ! command -v "${item%%:*}" >/dev/null; then packages+=("${item#*:}"); fi
+          done
+          if (( ${#packages[@]} > 0 )); then
+            sudo apt-get update
+            sudo apt-get install -y "${packages[@]}"
+          else echo "测试工具已齐全，跳过安装"; fi
+          sudo systemctl stop nginx
+          printf '127.0.0.1 fenbeiceshi.com www.fenbeiceshi.com\n' | sudo tee -a /etc/hosts > /dev/null
+      - name: 验证 Linux 发布与回滚
+        if: steps.deploy_changes.outputs.required == 'true'
+        timeout-minutes: 4
+        run: sudo env "PATH=$PATH" timeout --kill-after=5s 180s npm run test:deploy:integration

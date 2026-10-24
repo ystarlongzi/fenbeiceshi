@@ -92,7 +92,7 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 ## 工程营销、内容与实现入口
 
-- 处理站点结构、内容、SEO 或页面实现前，读取 [整站结构与 SEO 规划](./docs/产品/整站结构与SEO规划.md)、[页面与关键词映射](./docs/产品/页面与关键词映射.json) 和 [工程与部署参考](./docs/开发/工程与部署参考.md)；完整入口见 [文档索引](./docs/文档索引.md)。这些文件当前描述规划，不能将候选路由或拟定命令声称为已实现。
+- 处理站点结构、内容、SEO 或页面实现前，读取 [整站结构与 SEO 规划](./docs/产品/整站结构与SEO规划.md)、[页面与关键词映射](./docs/产品/页面与关键词映射.json) 和 [工程与部署说明](./docs/开发/工程与部署说明.md)；完整入口见 [文档索引](./docs/文档索引.md)。产品规划与关键词文件保留候选状态，工程文档描述实际入口；不能将候选路由或未执行的生产操作声称为已完成。
 - 简体中文使用根目录，繁体中文使用 `/zh-tw/`（`zh-TW`），英文使用 `/en/`；各语言独立完成内容与验证。只为实际发布、内容对应的页面生成互相返回的 hreflang，各页自 canonical，不生成缺失语言占位页。
 - 无语言前缀的已发布页面在首屏脚本中按手动偏好、浏览器语言、简体默认的顺序选择语言，明确的 `/en/`、`/zh-tw/` 链接优先保留其指定语言。`src/lib/i18n/preference.ts` 管匹配与独立版本化偏好键，`language-switch/language-script.tsx` 仅在文档加载时引导，不在测量途中随系统或跨标签页变化强制导航；手动选择当前语言也须保存。存储异常明确提示，并以 `language` 查询参数保留本次选择、避免自动跳转循环；切换继续保留主题、其他查询和锚点。正文及 SEO 保持按 URL 静态生成，验证见 [语言自动选择与偏好验证](./docs/验证/语言自动选择与偏好验证.md)。
 - 一个主要搜索意图对应一个页面；新增 URL 前确认现有归属与独有任务，不为近义词、城市、设备型号或逐个分贝数值批量生成同款页面。现有声音参考对应的 28 个详情主题按准确单值或完整范围组织，31 项声音各有行内入口，同值例子保留各自单位与条件；内容和路径见 [分贝详情页说明](./docs/产品/分贝详情页说明.md)。候选词不代表已验证搜索量或排名难度。
@@ -100,10 +100,10 @@ Include context from: @/Users/liucai/.codex/RTK.md
 - 首版已采用 Next.js App Router、TypeScript strict、npm、静态导出和 CSS Modules。`src/app` 管路由，`src/features` 按测量、校准与记录等职责组织，`src/components` 仅放确实共享的展示组件；`src/lib/content`、`routing`、`seo` 分别管理内容、发布语言与 SEO 派生数据，专属样式和测试靠近所属功能。
 - 全站数字输入复用 `src/components/number-input/` 的受控字符串组件；参考牛蛙工具 NumberInput 的单位、步进按钮与键盘交互，右侧按钮仅在控件内聚焦时展开，失焦后收起，使用本站语义变量和 Lucide 图标。读数修正按用户要求使用 90px 数字框，通过 `showStepper={false}` 隐藏右侧步进按钮，并移除独立反馈／重置行；键盘步进与输入校验继续保留。范围、步长、空值及小数校验由相邻 `model.ts` 负责；暴露时长与读数修正分别保留各自范围，布局与字号通过组件 className 和 CSS 变量定制。
 - 当前应用的实际页面注册为 `src/lib/routing/pages.ts`，与候选关键词映射分开维护；已实现 141 个三语 URL，其中 138 个可索引，三个本机记录页 noindex。声音详情正文位于 `src/lib/content/decibel-details/`，服务端展示位于 `src/features/decibel-details/`，父页为分贝对照表；按直观结论、声音场景、相对声级对比、听力风险、生活化问答及来源组织，目录在手机上排在结论之后；完整答案、表格、问答、来源及行内链接静态输出，见 [分贝详情 V3](./design/decibel-details-v3/design-spec.json) 和 [验证记录](./docs/验证/分贝详情量级对比与通俗文案验证.md)。语言清单、路径前缀和区域格式在 `src/lib/i18n/locales.ts` 统一维护；静态正文使用 `translations` 和 `text`，简短界面使用 `localize`，三者均须显式提供繁体文案。繁体使用台湾常用界面词与字体，不在运行时转换 DOM、用户备注、设备名、来源原名或测量数据。新增语言或路由必须有真实正文和可用操作。
-- `npm run check` 依次运行 format:check、lint、typecheck、test、test:content、build 和 test:export，本地与 CI 一致；lint 警告阻断，检查不自动改写。`npm run preview` 预览静态产物。新增依赖和检查配置遵循前述技能及聚焦变更要求。
-- Actions 的 `out/` 仅作为当前 runner 的临时检查产物，不上传 GitHub Artifacts，也不通过跨 job 下载产物中转；`cache: npm` 只缓存依赖。后续生产发布在同一 runner/job 完成检查、构建、校验、打包与 SSH 传输，回滚版本保留在本站服务器的独立目录。当前尚未接入生产发布，不能将此约定描述为已部署能力。
-- 部署参考屏幕测的静态产物、Nginx、原子切换与回滚方式；域名、根目录、证书、日志、CI 标识和 Cloudflare 凭据必须按本站隔离。参考脚本含屏幕测专属白名单，不得原样运行或删除路径防护来绕过校验。
-- 本站主文档必须允许同源麦克风请求，不能照搬屏幕测的 `microphone=()`；拟用 `microphone=(self)`，并验证 HTTPS、实际响应头及浏览器授权。音频本机处理与本机摘要存储的隐私承诺必须与实际实现一致。
+- `npm run check` 依次运行 format:check、lint、typecheck、test、test:deploy、test:content、build 和 test:export，本地与 CI 一致；lint 警告阻断，检查不自动改写。`npm run preview` 预览静态产物。新增依赖和检查配置遵循前述技能及聚焦变更要求。
+- Actions 的 `out/` 仅作为当前 runner 的临时检查产物，不上传 GitHub Artifacts，也不通过跨 job 下载产物中转；`cache: npm` 只缓存依赖。生产发布工作流在同一 runner/job 完成检查、构建、校验、打包与 SSH 传输，回滚版本保留在本站服务器的独立目录。发布与手动回滚共用 production 环境和并发锁；服务器开通、Secrets 配置与生产验收仍按实际执行记录，不将仓库配置落地等同于已上线。
+- 本站部署工具位于 `deploy/`，完整操作见 [服务器部署](./docs/部署/服务器部署.md)。域名固定 `fenbeiceshi.com`，目录必须是至少三级且以 `/fenbeiceshi` 结尾的绝对路径；本机与服务器均校验，不能删除路径防护绕过限制。本站 Nginx、证书、日志、ACME 与 Cloudflare 凭据使用独立配置；只清理本站带成功标记的旧版本。
+- 本站主文档必须允许同源麦克风请求，Nginx 使用 `microphone=(self)`；发布健康检查校验权限头，并另行验证 HTTPS、Cloudflare 响应头及实际浏览器授权。音频本机处理与本机摘要存储的隐私承诺必须与实际实现一致。
 - 路由或内容调整后同步关键词归属、发布状态、语言关系、关联链接及文档；涉及健康、法规或标准时核验当前有效一手资料与适用范围，未完成复核的选题保持草稿。
 
 ## 首版实施补充

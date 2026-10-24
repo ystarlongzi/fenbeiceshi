@@ -10,6 +10,7 @@ export default defineConfig([
     "out/**",
     "node_modules/**",
     "coverage/**",
+    "artifacts/**",
     "next-env.d.ts",
     "design/**",
     "public/vendor/lamejs/**",

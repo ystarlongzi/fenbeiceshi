@@ -1,0 +1,71 @@
+name: 回滚分贝测试
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 服务器保留的成功发布版本号
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fenbeiceshi-production
+  cancel-in-progress: false
+
+jobs:
+  rollback:
+    name: SSH 回滚与健康检查
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: https://fenbeiceshi.com
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
+      DEPLOY_PATH: ${{ vars.DEPLOY_PATH || '/www/wwwroot/fenbeiceshi' }}
+      DOMAIN: fenbeiceshi.com
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7，固定官方提交
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7，固定官方提交
+        with:
+          node-version: "24"
+      - name: 准备 SSH 凭据与主机公钥
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::缺少部署 Secret：$name"
+              exit 1
+            fi
+          done
+          umask 077
+          ssh_dir=$(mktemp -d "$RUNNER_TEMP/fenbeiceshi-ssh-XXXXXX")
+          printf '%s\n' "$SSH_PRIVATE_KEY" > "$ssh_dir/key"
+          printf 'SSH_PRIVATE_KEY_FILE=%s\n' "$ssh_dir/key" >> "$GITHUB_ENV"
+          if [[ -n "$SSH_KNOWN_HOSTS" ]]; then
+            printf '%s\n' "$SSH_KNOWN_HOSTS" > "$ssh_dir/known_hosts"
+            printf 'SSH_KNOWN_HOSTS_FILE=%s\n' "$ssh_dir/known_hosts" >> "$GITHUB_ENV"
+          fi
+      - name: 回滚与健康检查
+        env:
+          ROLLBACK_RELEASE: ${{ inputs.release }}
+        # 输入经环境变量传入，并由部署 CLI 和服务器分别校验。
+        run: npm run deploy:rollback -- "$ROLLBACK_RELEASE"
+      - name: 移除临时 SSH 文件
+        if: always()
+        shell: bash
+        run: |
+          if [[ -n "${SSH_PRIVATE_KEY_FILE:-}" ]]; then rm -f -- "$SSH_PRIVATE_KEY_FILE"; fi
+          if [[ -n "${SSH_KNOWN_HOSTS_FILE:-}" ]]; then rm -f -- "$SSH_KNOWN_HOSTS_FILE"; fi

@@ -18,7 +18,13 @@
     "test": "node scripts/run-tests.mjs",
     "test:content": "node --experimental-strip-types scripts/check-content.ts",
     "test:export": "node --experimental-strip-types scripts/check-export.ts",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run test:content && npm run build && npm run test:export"
+    "test:deploy": "node --test deploy/tests/*.test.mjs",
+    "test:deploy:integration": "node deploy/tests/run-integration.mjs",
+    "deploy:pack": "node deploy/pack-static.mjs",
+    "deploy:setup": "node deploy/setup-server.mjs",
+    "deploy:static": "node deploy/deploy-static.mjs",
+    "deploy:rollback": "node deploy/deploy-static.mjs --rollback",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run test:deploy && npm run test:content && npm run build && npm run test:export"
   },
   "dependencies": {
     "@breezystack/lamejs": "1.2.7",
