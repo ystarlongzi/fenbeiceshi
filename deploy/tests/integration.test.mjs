@@ -399,9 +399,13 @@ exec /usr/sbin/nginx -c '${rootConfig}' "$@"
       { mode: 0o700 },
     );
     // 避免操作测试机的全局服务和真实 DNS API；配置验证仍使用真实 Nginx。
+    const cronFile = path.join(directory, "crontab");
+    const existingCron =
+      '0 0 23 * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null\n';
+    await writeFile(cronFile, existingCron);
     await writeFile(
       path.join(bin, "crontab"),
-      `#!/bin/sh\nprintf '0 2 * * * "${acmeHome}"/acme.sh --cron --home "${acmeHome}"\\n'\n`,
+      `#!/bin/sh\nif [ "$1" = -l ]; then cat '${cronFile}'; else cp "$1" '${cronFile}'; fi\n`,
       { mode: 0o700 },
     );
     await writeFile(
@@ -470,6 +474,10 @@ done
       assert.equal(second.code, 0, second.stderr);
       assert.match(second.stdout, /复用已有证书/);
       assert.match(second.stdout, /跳过替换/);
+      const cron = await readFile(cronFile, "utf8");
+      assert.ok(cron.startsWith(existingCron));
+      assert.ok(cron.includes(`"${acmeHome}/acme.sh" --cron --home "${acmeHome}"`));
+      assert.equal(cron.split("--cron").length, 3);
       assert.equal(
         (await readFile(path.join(directory, "reload.log"), "utf8")).trim(),
         "-s reload",

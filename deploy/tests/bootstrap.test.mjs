@@ -226,7 +226,12 @@ esac`,
   );
   await shellMock(
     "crontab",
-    `if [ ! -f "$fixture_dir/cron" ]; then echo 'no crontab for root' >&2; exit 1; fi
+    `if [ "$1" != -l ]; then
+  if [ -f "$fixture_dir/fail-cron-install" ]; then echo 'permission denied' >&2; exit 1; fi
+  cp "$1" "$fixture_dir/cron"
+  exit 0
+fi
+if [ ! -f "$fixture_dir/cron" ]; then echo 'no crontab for root' >&2; exit 1; fi
 if [ -f "$fixture_dir/fail-cron" ]; then echo 'permission denied' >&2; exit 1; fi
 cat "$fixture_dir/cron"`,
   );
@@ -292,7 +297,8 @@ if (args.includes("--install-cert")) {
 }
 if (args.includes("--installcronjob")) {
  const file=path.join(directory,"cron"), old=fs.existsSync(file)?fs.readFileSync(file,"utf8"):"";
- fs.writeFileSync(file,old+'0 2 * * * "'+home+'"/acme.sh --cron --home "'+home+'"\\n');
+ // 上游安装器按命令名检测已有任务，不区分多个独立 ACME_HOME。
+ if (!old.includes("acme.sh --cron")) fs.writeFileSync(file,old+'0 2 * * * "'+home+'"/acme.sh --cron --home "'+home+'"\\n');
 }
 `,
   );
@@ -407,6 +413,42 @@ test("全新服务器自动准备，重复执行保留版本、证书、其他�
     const repaired = await run(updated + server.template);
     assert.equal(repaired.code, 0, repaired.stderr);
     assert.match(await readFile(domainConf, "utf8"), /^Le_ReloadCmd=/m);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("已有其他 ACME 续期任务时补充本站任务，重复执行及写入失败保留原任务", async () => {
+  const server = await serverFixture();
+  const { directory, acmeHome, dnsEnv, log, run } = server;
+  const cronFile = path.join(directory, "cron");
+  const existing =
+    '# 已有站点的续期任务\n0 0 23 * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null\n0 1 * * * /usr/local/bin/other-job\n';
+  try {
+    await writeFile(cronFile, existing);
+    const first = await run();
+    assert.equal(first.code, 0, first.stderr);
+    const installed = await readFile(cronFile, "utf8");
+    assert.ok(installed.startsWith(existing));
+    assert.ok(installed.includes(`"${acmeHome}/acme.sh" --cron --home "${acmeHome}"`));
+    assert.equal(installed.split("--cron").length, 3);
+    assert.doesNotMatch(await readFile(log, "utf8"), /--installcronjob/);
+    assert.equal((await run()).code, 0);
+    assert.equal(await readFile(cronFile, "utf8"), installed);
+
+    const configFile = path.join(directory, "conf/fenbeiceshi.conf");
+    const certFile = path.join(directory, "ssl/fenbeiceshi.com/fullchain.cer");
+    const configBefore = await readFile(configFile);
+    const certBefore = await readFile(certFile);
+    await writeFile(cronFile, existing);
+    await writeFile(path.join(directory, "fail-cron-install"), "");
+    const failed = await run();
+    assert.equal(failed.code, 1);
+    assert.match(failed.stderr, /写入本站自动续期任务失败/);
+    assert.equal(await readFile(cronFile, "utf8"), existing);
+    assert.deepEqual(await readFile(configFile), configBefore);
+    assert.deepEqual(await readFile(certFile), certBefore);
+    assert.equal(await readFile(dnsEnv, "utf8"), credentials);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }

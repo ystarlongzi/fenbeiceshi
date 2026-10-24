@@ -245,7 +245,12 @@ has_renewal_job() {
 if has_renewal_job "$cron_jobs"; then
     echo "自动续期任务已存在，跳过添加"
 else
-    "${acme[@]}" --installcronjob
+    # acme.sh 安装器按命令名去重，会被其他 ACME_HOME 的任务挡住；保留原表并只补本站任务。
+    {
+        if [[ -n "$cron_jobs" ]]; then printf '%s\n' "$cron_jobs"; fi
+        printf '17 3 * * * "%s/acme.sh" --cron --home "%s" > /dev/null\n' "$acme_home" "$acme_home"
+    } > "$cert_backup/crontab"
+    crontab "$cert_backup/crontab" || fail "写入本站自动续期任务失败"
     cron_jobs=$(crontab -l) || fail "无法确认自动续期任务"
     has_renewal_job "$cron_jobs" || fail "自动续期任务没有使用指定的 ACME_HOME"
 fi
