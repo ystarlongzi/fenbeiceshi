@@ -29,7 +29,7 @@ test("手动回滚复用生产锁、凭据验证与服务器健康检查，输�
   assert.match(workflow, /ROLLBACK_RELEASE: \$\{\{ inputs\.release \}\}/);
   assert.match(workflow, /run: npm run deploy:rollback -- "\$ROLLBACK_RELEASE"/);
   assert.doesNotMatch(workflow, /--rollback [^\n]*\$\{\{/);
-  assert.match(workflow, /for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS;/);
+  assert.match(workflow, /for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY;/);
   assert.match(workflow, /name: 移除临时 SSH 文件\s+if: always\(\)/);
   assert.doesNotMatch(workflow, /upload-artifact|download-artifact|continue-on-error/);
 });

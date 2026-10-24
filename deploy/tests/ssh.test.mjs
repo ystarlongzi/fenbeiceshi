@@ -69,53 +69,62 @@ process.stdin.resume();
   }
 });
 
-test("Actions 保留私钥换行，生产连接要求已核验的主机公钥", async () => {
+test("发布与回滚保留私钥换行，主机公钥可选，登录凭据仍必填", async () => {
   const directory = await mkdtemp(path.join(tmpdir(), "fenbeiceshi-actions-ssh-"));
   try {
-    const workflow = await readFile(path.join(projectRoot, ".github/workflows/deploy.yml"), "utf8");
-    const block = workflow.match(
-      / {6}- name: 准备 SSH 凭据与主机公钥[\s\S]*? {8}run: \|\n([\s\S]*?)(?= {6}- name:)/,
-    );
-    assert.ok(block, "未找到凭据准备步骤");
-    const script = block[1].replace(/^ {10}/gm, "");
     const githubEnv = path.join(directory, "github-env");
     const privateKey =
       "-----BEGIN OPENSSH PRIVATE KEY-----\ntest-only\n-----END OPENSSH PRIVATE KEY-----";
-    for (const hostKey of ["", "[server.example.com]:22 ssh-ed25519 test-only"]) {
-      await writeFile(githubEnv, "");
-      const result = spawnSync("bash", ["-c", script], {
-        env: {
-          ...process.env,
-          SSH_HOST: "server.example.com",
-          SSH_USER: "root",
-          SSH_PRIVATE_KEY: privateKey,
-          SSH_KNOWN_HOSTS: hostKey,
-          RUNNER_TEMP: directory,
-          GITHUB_ENV: githubEnv,
-        },
-        encoding: "utf8",
-        timeout: 5000,
-      });
-      if (!hostKey) {
-        assert.equal(result.status, 1);
-        assert.match(result.stdout, /缺少部署 Secret：SSH_KNOWN_HOSTS/);
-        continue;
-      }
-      assert.equal(result.status, 0, result.stderr);
-      const values = Object.fromEntries(
-        (await readFile(githubEnv, "utf8"))
-          .trim()
-          .split("\n")
-          .map((line) => {
-            const separator = line.indexOf("=");
-            return [line.slice(0, separator), line.slice(separator + 1)];
-          }),
+    const env = {
+      ...process.env,
+      SSH_HOST: "server.example.com",
+      SSH_USER: "root",
+      SSH_PRIVATE_KEY: privateKey,
+      SSH_KNOWN_HOSTS: "",
+      RUNNER_TEMP: directory,
+      GITHUB_ENV: githubEnv,
+    };
+    for (const file of ["deploy.yml", "rollback.yml"]) {
+      const workflow = await readFile(path.join(projectRoot, ".github/workflows", file), "utf8");
+      const block = workflow.match(
+        / {6}- name: 准备 SSH 凭据与主机公钥[\s\S]*? {8}run: \|\n([\s\S]*?)(?= {6}- name:)/,
       );
-      assert.equal(await readFile(values.SSH_PRIVATE_KEY_FILE, "utf8"), `${privateKey}\n`);
-      if (hostKey) {
-        assert.equal(await readFile(values.SSH_KNOWN_HOSTS_FILE, "utf8"), `${hostKey}\n`);
-      } else {
-        assert.equal(values.SSH_KNOWN_HOSTS_FILE, undefined);
+      assert.ok(block, `${file} 未找到凭据准备步骤`);
+      const script = block[1].replace(/^ {10}/gm, "");
+      for (const hostKey of ["", "[server.example.com]:22 ssh-ed25519 test-only"]) {
+        await writeFile(githubEnv, "");
+        const result = spawnSync("bash", ["-c", script], {
+          env: { ...env, SSH_KNOWN_HOSTS: hostKey },
+          encoding: "utf8",
+          timeout: 5000,
+        });
+        assert.equal(result.status, 0, `${file}: ${result.stderr}`);
+        const values = Object.fromEntries(
+          (await readFile(githubEnv, "utf8"))
+            .trim()
+            .split("\n")
+            .map((line) => {
+              const separator = line.indexOf("=");
+              return [line.slice(0, separator), line.slice(separator + 1)];
+            }),
+        );
+        assert.equal(await readFile(values.SSH_PRIVATE_KEY_FILE, "utf8"), `${privateKey}\n`);
+        if (hostKey) {
+          assert.equal(await readFile(values.SSH_KNOWN_HOSTS_FILE, "utf8"), `${hostKey}\n`);
+        } else {
+          assert.equal(values.SSH_KNOWN_HOSTS_FILE, undefined);
+        }
+      }
+      for (const required of ["SSH_HOST", "SSH_USER", "SSH_PRIVATE_KEY"]) {
+        await writeFile(githubEnv, "");
+        const result = spawnSync("bash", ["-c", script], {
+          env: { ...env, [required]: "" },
+          encoding: "utf8",
+          timeout: 5000,
+        });
+        assert.equal(result.status, 1, file);
+        assert.ok(result.stdout.includes(`缺少部署 Secret：${required}`), file);
+        assert.equal(await readFile(githubEnv, "utf8"), "");
       }
     }
   } finally {

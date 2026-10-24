@@ -97,7 +97,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS; do
+          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY; do
             if [[ -z "${!name:-}" ]]; then
               echo "::error::缺少部署 Secret：$name"
               exit 1

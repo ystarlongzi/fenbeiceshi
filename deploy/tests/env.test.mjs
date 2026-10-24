@@ -88,7 +88,7 @@ test("配置模板可直接解析，初始化、发布和回滚 CLI 复用文件
     assert.equal(connection({}, config).user, "root");
     assert.equal(connection({}, config).host, "185.186.146.217");
     assert.equal(connection({}, config).port, "27892");
-    assert.equal(connection({}, config).knownHosts, resolveLocalPath("~/.ssh/known_hosts"));
+    assert.equal(connection({}, config).knownHosts, undefined);
     assert.equal(config.NGINX_CONF_PATH, "/etc/nginx/conf.d");
     const env = { ...process.env, GITHUB_ACTIONS: "false" };
     for (const key of Object.keys(config)) delete env[key];
