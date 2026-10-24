@@ -5,8 +5,25 @@
   background: var(--surface);
   scroll-margin-top: 100px;
 }
+.tableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+.tableScroll:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+.scrollHint {
+  display: none;
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
+}
 .table {
   width: 100%;
+  min-width: 560px;
   border-collapse: collapse;
   table-layout: fixed;
   text-align: left;
@@ -34,15 +51,67 @@
   font-weight: 600;
 }
 .table th:first-child {
-  width: 23%;
+  width: 14%;
+}
+.table th:last-child {
+  width: 26%;
 }
 .table tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: inherit;
   color: var(--ink);
   font-size: var(--font-size-body);
   font-weight: 600;
 }
 .table td {
   color: var(--text-body);
+}
+.table thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+.risk {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--band-raised-surface);
+  color: var(--band-raised-ink);
+  font-weight: 600;
+  line-height: 1.6;
+}
+.risk[data-risk="moderate"] {
+  background: var(--band-loud-surface);
+  color: var(--band-loud-ink);
+}
+.risk[data-risk="high"] {
+  background: var(--band-intense-surface);
+  color: var(--band-intense-ink);
+}
+.risk[data-risk="severe"] {
+  background: var(--band-extreme-surface);
+  color: var(--band-extreme-ink);
+}
+.risk[data-risk="extreme"] {
+  background: color-mix(in srgb, var(--band-extreme-surface), #000 30%);
+  color: var(--band-extreme-ink);
+}
+.warningCell strong {
+  display: block;
+  color: var(--error);
+  font-weight: 600;
+}
+.warningCell sup {
+  margin-left: 2px;
+  font-size: inherit;
+}
+.warningNote {
+  margin: 12px 0 0;
+  color: var(--warning);
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
 }
 .table tbody tr {
   background: var(--surface);
@@ -105,6 +174,11 @@
 .links svg {
   flex-shrink: 0;
 }
+@media (max-width: 680px) {
+  .scrollHint {
+    display: block;
+  }
+}
 @media (max-width: 520px) {
   .reference {
     padding: 18px 14px;
@@ -112,9 +186,6 @@
   .table th,
   .table td {
     padding: 12px 8px;
-  }
-  .table th:first-child {
-    width: 22%;
   }
   .links {
     align-items: flex-start;

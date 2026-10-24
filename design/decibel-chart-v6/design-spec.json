@@ -17,7 +17,7 @@
     "search": "只保留名称／数值搜索，搜索后显示匹配条目与非空分组并自动展开，允许手动收起，清空后所有分组恢复折叠；继续支持全角、多词、dB 和 dBA 条件，无结果时提供查看全部入口。",
     "details": "每项声音用原生 details 展开比较条件和分贝详情行内链接，不显示来源机构、资料出处或来源入口；完整出处与原始条件在详情页查看。默认收起，同档同时展开一项；说明在所选标签下方占满一行，上沿箭头指向标签底部中心并跟随换行定位。名称、数值、条件与链接均静态输出，支持键盘与无脚本阅读。",
     "support": "40–70 分贝的简短答案合并到页首；参考说明只保留同一声音的范围差异、网页估算与参考值的比较两个问题，进一步的方法通过现有指南和单位文章承接。",
-    "health": "紧随声音对照的独立二级章节，进入目录；一段导读后以单个主题表面展示 NIOSH 推荐与 OSHA 剂量参考的七行静态时长表，表格带 caption、列标题、行标题及适用条件说明。NIOSH 为 85 dBA／8 小时、3 dB 交换率，OSHA 引用 Appendix A 表 G-16a 的剂量参考时长，明确 85 dBA 的 8 小时平均值已是听力保护行动值；NIOSH 列标明推荐时长上限，新增 120 dBA 约 9 秒，OSHA 对应项说明超出 115 dBA 连续噪音上限，120+ 不合并为统一时长。表格不承诺个人安全时长，不读取网页估算；底部提供完整健康文章及暴露参考入口。详细健康内容和计算器继续位于独立文章。",
+    "health": "紧随声音对照的独立二级章节，进入目录；一段导读后展示四列七行静态表，列为声级、NIOSH 推荐时长、OSHA 剂量参考时长和风险等级（本站提示）。前六行保留 85、88、91、94、100、110 dBA 参考；120+ 行分别在两项时长单元格显示「0 秒（立即危害）*」，各自关联底部星号解释。脚注复用琥珀色 Notice，含图标、背景和左侧强调线，说明为本站建议立即远离的预防性提示。风险标签按警示、中度、高、严重、极高使用黄、橙、朱红、深红、暗红五档主题配色，文字始终保留。说明保留 NIOSH 120 dBA 约 9 秒的换算关系、OSHA 85 dBA 行动值及 115 dBA 连续噪音上限，并说明风险标签不是官方分级或个体损伤概率。四列表格使用最小 560px 宽度，窄屏通过可聚焦的横向滚动区域查看并显示滑动提示，14px 字号不缩小；表格不读取网页估算，不承诺个人安全时长。底部保留完整健康文章与暴露参考入口。",
     "healthTableRows": "职业参考表的奇数行使用 surface、偶数行使用 surface-muted。仅在 hover:hover 且 pointer:fine 时启用整行 surface-hover 高亮，首列增加 3px brand 内侧强调线，数据文字使用 ink；不改变行高、内容或指针语义，无额外动画。触屏保留交替底色。",
     "surfaces": "七档直接使用 V3 共享实色背景与配套文字色，不做浅色混合；声音摘要的操作表面用于表达展开能力，不增加独立分类列表。",
     "readingLinks": "31 项声音的展开描述内均追加对应详情的原生行内链接，随段落自然换行，不单独成行；按来源的准确单值或完整范围共建 28 个主题，同值声音共页但逐项保留原始单位与条件。详情正文与入口均静态输出，完整三语路径及层级见 ../decibel-details-v1/design-spec.json。",
@@ -42,6 +42,7 @@
   "healthReferenceChecks": "health-reference-checks.json",
   "highLevelReferenceChecks": "high-level-reference-checks.json",
   "tableRowStyleChecks": "table-row-style-checks.json",
+  "riskReferenceChecks": "risk-reference-checks.json",
   "screenshots": [
     "desktop-zh.png",
     "desktop-zh-high.png",
@@ -81,6 +82,8 @@
     "high-level-reference-desktop.png",
     "high-level-reference-mobile-en.png",
     "table-stripes-hover-light.png",
-    "table-stripes-hover-dark.png"
+    "table-stripes-hover-dark.png",
+    "risk-reference-desktop.png",
+    "risk-reference-mobile-en-dark.png"
   ]
 }

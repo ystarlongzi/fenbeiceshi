@@ -102,11 +102,7 @@ export const decibelChart: SiteContent = {
 
 export const decibelChartExposure = {
   id: "exposure",
-  title: t(
-    "职业噪音每日暴露参考",
-    "Daily occupational noise exposure references",
-    "職業噪音每日暴露參考",
-  ),
+  title: t("职业暴露与风险参考", "Exposure and risk guide", "職業暴露與風險參考"),
   paragraphs: [
     t(
       "NIOSH 一栏表示达到每日推荐剂量上限的时长，按 85 dBA／8 小时、每增加 3 dB 时长减半。OSHA 一栏是美国一般工业的剂量计算参考，按 90 dBA／8 小时、每增加 5 dB 时长减半，不能一律读作“最多可停留”。",
@@ -114,9 +110,14 @@ export const decibelChartExposure = {
       "NIOSH 一欄表示達到每日建議劑量上限的時長，按 85 dBA／8 小時、每增加 3 dB 時長減半。OSHA 一欄是美國一般工業的劑量計算參考，按 90 dBA／8 小時、每增加 5 dB 時長減半，不能一律讀作「最多可停留」。",
     ),
     t(
-      "仅用于稳定职业声级参考，不是个人安全时长，也不能套用本站网页估算。OSHA 在 85 dBA 的 8 小时平均值时已要求听力保护计划；120 dBA 又超出其 115 dBA 连续稳态噪音上限，不能把附录计算值当作允许暴露时间。120+ 是一个范围，本表单列 120 dBA 为示例，不统一写成 0 秒。",
-      "These constant-level occupational references are not personal safe times or values for this browser meter. OSHA requires hearing conservation at an 85 dBA 8-hour average; 120 dBA also exceeds its 115 dBA continuous steady-state ceiling. Appendix A calculations do not authorize that exposure. The chart gives 120 dBA as a specific example; 120+ is a range without one duration or a blanket zero-second value.",
-      "僅用於穩定職業聲級參考，不是個人安全時長，也不能套用本站網頁估算。OSHA 在 85 dBA 的 8 小時平均值時已要求聽力保護計畫；120 dBA 又超出其 115 dBA 連續穩態噪音上限，不能把附錄計算值當作允許暴露時間。120+ 是一個範圍，本表單列 120 dBA 為示例，不統一寫成 0 秒。",
+      "仅用于稳定职业声级参考，不是个人安全时长，也不能套用本站网页估算。OSHA 在 85 dBA 的 8 小时平均值时已要求听力保护计划，连续稳态噪音上限为 115 dBA。按 NIOSH 关系换算，120 dBA 约为 9 秒；本表 120+ 行的“0 秒（立即危害）”是本站建议立即远离的预防性警示，不是两机构给出的统一时限。",
+      "These constant-level occupational references are not personal safe times or values for this browser meter. OSHA requires hearing conservation at an 85 dBA 8-hour average and has a 115 dBA continuous steady-state ceiling. The NIOSH relationship gives about 9 seconds at 120 dBA. The 120+ row's zero-second warning is this site's precaution to move away immediately, not a single duration set by either agency.",
+      "僅用於穩定職業聲級參考，不是個人安全時長，也不能套用本站網頁估算。OSHA 在 85 dBA 的 8 小時平均值時已要求聽力保護計畫，連續穩態噪音上限為 115 dBA。按 NIOSH 關係換算，120 dBA 約為 9 秒；本表 120+ 列的「0 秒（立即危害）」是本站建議立即遠離的預防性警示，不是兩機構給出的統一時限。",
+    ),
+    t(
+      "风险等级为本站按声级整理的定性提示，并非 NIOSH／OSHA 官方分级。实际风险还与暴露时长、重复频率、防护和个体差异有关。",
+      "Risk levels are this site's qualitative guide by sound level, not official NIOSH or OSHA categories. Actual risk also depends on duration, repetition, protection and individual susceptibility.",
+      "風險等級為本站按聲級整理的定性提示，並非 NIOSH／OSHA 官方分級。實際風險還與暴露時長、重複頻率、防護和個體差異有關。",
     ),
   ],
   table: {
@@ -124,46 +125,59 @@ export const decibelChartExposure = {
       t("声级（dBA）", "Level (dBA)", "聲級（dBA）"),
       t("NIOSH 推荐时长上限", "NIOSH recommended time limit", "NIOSH 建議時長上限"),
       t("OSHA 剂量参考时长", "OSHA dose reference duration", "OSHA 劑量參考時長"),
+      t("风险等级（本站提示）", "Risk level (site guide)", "風險等級（本站提示）"),
     ],
     rows: [
-      [t("85", "85", "85"), t("8 小时", "8 hours", "8 小時"), t("16 小时", "16 hours", "16 小時")],
+      [
+        t("85", "85", "85"),
+        t("8 小时", "8 hours", "8 小時"),
+        t("16 小时", "16 hours", "16 小時"),
+        t("警示", "Caution", "警示"),
+      ],
       [
         t("88", "88", "88"),
         t("4 小时", "4 hours", "4 小時"),
         t("约 10.6 小时", "≈ 10.6 hours", "約 10.6 小時"),
+        t("中度风险", "Moderate risk", "中度風險"),
       ],
       [
         t("91", "91", "91"),
         t("2 小时", "2 hours", "2 小時"),
         t("约 7 小时", "≈ 7 hours", "約 7 小時"),
+        t("高风险", "High risk", "高風險"),
       ],
       [
         t("94", "94", "94"),
         t("1 小时", "1 hour", "1 小時"),
         t("约 4.6 小时", "≈ 4.6 hours", "約 4.6 小時"),
+        t("高风险", "High risk", "高風險"),
       ],
       [
         t("100", "100", "100"),
         t("15 分钟", "15 minutes", "15 分鐘"),
         t("2 小时", "2 hours", "2 小時"),
+        t("严重风险", "Severe risk", "嚴重風險"),
       ],
       [
         t("110", "110", "110"),
         t("约 1 分 29 秒", "≈ 1 min 29 sec", "約 1 分 29 秒"),
         t("30 分钟", "30 minutes", "30 分鐘"),
-      ],
-      [
-        t("120", "120", "120"),
-        t("约 9 秒", "≈ 9 seconds", "約 9 秒"),
-        t(
-          "超出 115 dBA 连续噪音上限",
-          "Above the 115 dBA continuous-noise ceiling",
-          "超出 115 dBA 連續噪音上限",
-        ),
+        t("极高风险", "Extreme risk", "極高風險"),
       ],
     ],
   },
 } satisfies ContentSection;
+
+export const decibelChartWarning = {
+  level: t("120+", "120+", "120+"),
+  duration: t("0 秒（立即危害）", "0 seconds (immediate harm)", "0 秒（立即危害）"),
+  note: t(
+    "本站预防性警示：“0 秒”表示建议立即远离，不是 NIOSH／OSHA 给出的统一暴露时限。",
+    "Site precaution: zero seconds means move away immediately, not a single exposure limit set by NIOSH or OSHA.",
+    "本站預防性警示：「0 秒」表示建議立即遠離，不是 NIOSH／OSHA 給出的統一暴露時限。",
+  ),
+  risk: t("极高风险", "Extreme risk", "極高風險"),
+};
 
 type ChartNote = Pick<ContentSection, "id" | "title" | "paragraphs"> & {
   link: { id?: string; pageId: string; label: LocalizedText };

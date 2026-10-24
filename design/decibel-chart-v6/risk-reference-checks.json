@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-24",
+  "browser": "Codex in-app Chromium",
+  "checks": [
+    {
+      "case": "desktop-zh-final",
+      "caption": "职业暴露与风险参考",
+      "clip": {
+        "height": 581,
+        "width": 750,
+        "x": 58,
+        "y": 1695
+      },
+      "documentWidth": 1280,
+      "fontSize": "14px",
+      "headers": [
+        "声级（dBA）",
+        "NIOSH 推荐时长上限",
+        "OSHA 剂量参考时长",
+        "风险等级（本站提示）"
+      ],
+      "logicalColumns": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "notes": [
+        "NIOSH 一栏表示达到每日推荐剂量上限的时长，按 85 dBA／8 小时、每增加 3 dB 时长减半。OSHA 一栏是美国一般工业的剂量计算参考，按 90 dBA／8 小时、每增加 5 dB 时长减半，不能一律读作“最多可停留”。",
+        "仅用于稳定职业声级参考，不是个人安全时长，也不能套用本站网页估算。OSHA 在 85 dBA 的 8 小时平均值时已要求听力保护计划，连续稳态噪音上限为 115 dBA。按 NIOSH 关系换算，120 dBA 约为 9 秒；本表 120+ 行的“0 秒（立即危害）”是本站建议立即远离的预防性警示，不是两机构给出的统一时限。",
+        "风险等级为本站按声级整理的定性提示，并非 NIOSH／OSHA 官方分级。实际风险还与暴露时长、重复频率、防护和个体差异有关。"
+      ],
+      "path": "/knowledge/decibel-chart/",
+      "risks": [
+        "警示",
+        "中度风险",
+        "高风险",
+        "高风险",
+        "严重风险",
+        "极高风险",
+        "极高风险"
+      ],
+      "rowCount": 7,
+      "scroll": {
+        "clientWidth": 700,
+        "left": 0,
+        "scrollWidth": 700,
+        "tabIndex": 0
+      },
+      "stripes": [
+        "rgb(255, 255, 255)",
+        "rgb(238, 242, 236)"
+      ],
+      "theme": "light",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "warning": "120+0 秒（立即危害）*0 秒（立即危害）*极高风险",
+      "warningScope": "exposure-critical-level",
+      "cells": [
+        "120+",
+        "0 秒（立即危害）*",
+        "0 秒（立即危害）*",
+        "极高风险"
+      ],
+      "colors": [
+        {
+          "color": "rgb(246, 213, 120)",
+          "grade": "警示"
+        },
+        {
+          "color": "rgb(245, 164, 93)",
+          "grade": "中度风险"
+        },
+        {
+          "color": "rgb(193, 61, 42)",
+          "grade": "高风险"
+        },
+        {
+          "color": "rgb(193, 61, 42)",
+          "grade": "高风险"
+        },
+        {
+          "color": "rgb(143, 36, 31)",
+          "grade": "严重风险"
+        },
+        {
+          "color": "color(srgb 0.392549 0.0988235 0.085098)",
+          "grade": "极高风险"
+        },
+        {
+          "color": "color(srgb 0.392549 0.0988235 0.085098)",
+          "grade": "极高风险"
+        }
+      ],
+      "footnote": "* 本站预防性警示：“0 秒”表示建议立即远离，不是 NIOSH／OSHA 给出的统一暴露时限。",
+      "footnoteBackground": "rgb(247, 240, 231)",
+      "footnoteBorder": "3px",
+      "stars": 2
+    },
+    {
+      "case": "mobile-en-dark-final",
+      "cells": [
+        "120+",
+        "0 seconds (immediate harm)*",
+        "0 seconds (immediate harm)*",
+        "Extreme risk"
+      ],
+      "clip": {
+        "height": 646,
+        "width": 280,
+        "x": 20,
+        "y": 2755
+      },
+      "documentWidth": 320,
+      "fontSize": "14px",
+      "footnoteBackground": "rgb(51, 44, 32)",
+      "regionWidth": 250,
+      "stars": 2,
+      "tableWidth": 560,
+      "theme": "dark",
+      "viewport": 320
+    }
+  ],
+  "cleanup": {
+    "theme": "system",
+    "viewportOverride": "reset",
+    "temporaryTabClosed": true
+  }
+}
