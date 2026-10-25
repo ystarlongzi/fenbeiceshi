@@ -9,7 +9,7 @@ const scaleTitles = NOISE_SCALE_TICKS.map(
 
 const zh = {
   workspace: "噪音测量台",
-  live: "实时观察",
+  live: "测量中",
   ready: "准备就绪",
   requesting: "等待麦克风授权",
   finished: "本次观察已结束",
@@ -152,7 +152,7 @@ export type MeterCopy = typeof zh;
 
 const en: MeterCopy = {
   workspace: "Noise meter",
-  live: "Observing live",
+  live: "Measuring",
   ready: "Ready when you are",
   requesting: "Waiting for microphone access",
   finished: "Observation finished",
@@ -304,7 +304,7 @@ const en: MeterCopy = {
 
 const zhTW: MeterCopy = {
   workspace: "噪音測量臺",
-  live: "即時觀察",
+  live: "測量中",
   ready: "準備就緒",
   requesting: "等待麥克風授權",
   finished: "本次觀察已結束",

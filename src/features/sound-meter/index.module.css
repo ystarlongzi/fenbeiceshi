@@ -75,22 +75,49 @@
 .state {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   color: #a4bcaa;
 }
 .state i {
-  width: 5px;
-  height: 5px;
+  position: relative;
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
   display: inline-block;
   border-radius: 50%;
-  background: #879d8f;
+  color: #879d8f;
+  background: currentColor;
 }
 .state[data-active="true"] i {
-  background: #c8eaa3;
-  box-shadow: 0 0 0 3px #b9e99b12;
+  color: #c8eaa3;
+  box-shadow: 0 0 0 3px #b9e99b24;
+}
+.state[data-active="true"] i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  animation: state-pulse 1.4s ease-out infinite;
 }
 .surface[data-demo="true"] .state i {
-  background: #98bcc7;
+  color: #98bcc7;
+}
+@keyframes state-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .state[data-active="true"] i::after {
+    animation: none;
+    display: none;
+  }
 }
 .modeHint {
   text-align: center;
