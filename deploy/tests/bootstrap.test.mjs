@@ -1,3 +1,4 @@
+import { renderNginxTemplate } from "../nginx-template.mjs";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import {
@@ -327,9 +328,9 @@ fs.copyFileSync(${JSON.stringify(archive)},args[args.indexOf("-o")+1]);`,
  if (args.includes("gzip")) fs.symlinkSync(${JSON.stringify(await realpath(path.join(bin, "gzip")))},path.join(directory,"bin/gzip"));
 }`,
   );
-  const template = await readFile(
-    path.join(projectRoot, "deploy/nginx/fenbeiceshi.conf.template"),
-    "utf8",
+  const template = renderNginxTemplate(
+    await readFile(path.join(projectRoot, "deploy/nginx/fenbeiceshi.conf.template"), "utf8"),
+    "fenbeiceshi.com",
   );
   const setupScript = await readFile(path.join(projectRoot, "deploy/setup-server.sh"), "utf8");
   const bootstrapScript = await readFile(

@@ -5,28 +5,10 @@ import { lstat, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolveLocalPath } from "./env.mjs";
+import { deploySite, requiredSiteFiles } from "./sites.mjs";
 
 export const projectRoot = fileURLToPath(new URL("../", import.meta.url));
-export const requiredFiles = [
-  "index.html",
-  "en/index.html",
-  "zh-tw/index.html",
-  "404.html",
-  "guide/index.html",
-  "en/guide/index.html",
-  "zh-tw/guide/index.html",
-  "knowledge/decibel-chart/index.html",
-  "en/knowledge/decibel-chart/index.html",
-  "zh-tw/knowledge/decibel-chart/index.html",
-  "records/index.html",
-  "en/records/index.html",
-  "zh-tw/records/index.html",
-  "audio/pcm-recorder.js",
-  "vendor/lamejs/lamejs.js",
-  "vendor/lamejs/COPYING.LESSER.txt",
-  "robots.txt",
-  "sitemap.xml",
-];
+export const requiredFiles = requiredSiteFiles("fenbeiceshi.com");
 
 export function parseArgs(args, spec) {
   const values = {};
@@ -52,13 +34,14 @@ export function validateRelease(value) {
 }
 
 export function validateDomain(value) {
-  if (value !== "fenbeiceshi.com") throw new Error("此部署配置仅用于 fenbeiceshi.com");
+  deploySite(value);
   return value;
 }
 
-export function validateDeployPath(value) {
-  if (!/^\/(?:[A-Za-z0-9_-]+\/){2,}fenbeiceshi$/.test(value ?? ""))
-    throw new Error("部署目录必须是至少三级的绝对路径，且以 /fenbeiceshi 结尾");
+export function validateDeployPath(value, domain = "fenbeiceshi.com") {
+  const suffix = deploySite(domain).id;
+  if (!new RegExp(`^/(?:[A-Za-z0-9_-]+/){2,}${suffix}$`).test(value ?? ""))
+    throw new Error(`部署目录必须是至少三级的绝对路径，且以 /${suffix} 结尾`);
   return value;
 }
 
@@ -85,8 +68,8 @@ export function connection(args, env = process.env) {
   if (!config.key) throw new Error("必须设置 SSH_PRIVATE_KEY_FILE");
   config.key = resolveLocalPath(config.key);
   config.knownHosts = config.knownHosts ? resolveLocalPath(config.knownHosts) : undefined;
-  validateDeployPath(config.deployPath);
   validateDomain(config.domain);
+  validateDeployPath(config.deployPath, config.domain);
   return config;
 }
 
@@ -164,12 +147,14 @@ export async function listFiles(directory, prefix = "") {
   return files.sort();
 }
 
-export async function verifyExport(directory) {
+export async function verifyExport(directory, domain = "fenbeiceshi.com") {
   const files = await listFiles(directory);
-  for (const name of requiredFiles) {
+  for (const name of requiredSiteFiles(domain)) {
     if (!files.includes(name) || (await lstat(path.join(directory, name))).size === 0)
       throw new Error(`静态导出缺少有效文件：${name}`);
   }
+  if ((await readFile(path.join(directory, "_site.txt"), "utf8")).trim() !== domain)
+    throw new Error("静态产物的域名与发布目标不一致");
   const html = await readFile(path.join(directory, "index.html"), "utf8");
   const assets = [
     ...new Set(

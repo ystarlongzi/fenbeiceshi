@@ -77,11 +77,17 @@ test("配置模板可直接解析，初始化、发布和回滚 CLI 复用文件
     for (const name of [
       "env.mjs",
       "lib.mjs",
+      "sites.mjs",
       "setup-server.mjs",
       "deploy-static.mjs",
       "remote-release.sh",
     ])
       await cp(path.join(projectRoot, "deploy", name), path.join(directory, name));
+    // CLI 副本仍使用真实的模板生成器，避免临时目录需要复制整套页面内容。
+    await writeFile(
+      path.join(directory, "nginx-template.mjs"),
+      `export { renderNginxTemplate } from ${JSON.stringify(pathToFileURL(path.join(projectRoot, "deploy/nginx-template.mjs")).href)};\n`,
+    );
     const file = path.join(directory, ".env.local");
     await cp(path.join(projectRoot, "deploy/.env.example"), file);
     const config = await loadDeployEnv({ "env-file": file }, {});

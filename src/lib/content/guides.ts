@@ -1,4 +1,5 @@
 import { translations as t, type SiteContent } from "./types.ts";
+import { activeSite } from "../routing/sites.ts";
 
 export const guides: SiteContent[] = [
   {
@@ -212,7 +213,7 @@ export const guides: SiteContent[] = [
     ),
     description: t(
       "了解分贝测试这款免费在线分贝仪：为什么做这个工具，网页怎样估算声音大小，以及测量、录音和本机记录适合怎样使用。这里也介绍维护方式和工具能力，帮助你了解本站。",
-      "Meet the free online decibel meter at fenbeiceshi.com. Learn why it was built, how it estimates sound levels, what its recording and local reports offer, and how the project is maintained.",
+      "Meet SoundMeterGo, the free online decibel meter. Learn why it was built, how it estimates sound levels, what its recording and local reports offer, and how the project is maintained.",
       "瞭解分貝測試這款免費線上分貝計：為什麼製作這個工具，網頁怎樣估算聲音大小，以及測量、錄音和本機記錄適合怎樣使用。這裡也介紹維護方式和工具能力，幫助你瞭解本站。",
     ),
     takeaway: t(
@@ -249,7 +250,7 @@ export const guides: SiteContent[] = [
         paragraphs: [
           t(
             "分贝测试由 fenbeiceshi.com 项目维护。使用指南说明测量与本机摘要的操作方法，隐私说明介绍音频处理和数据保存方式。遇到设备兼容问题时，可先按知识与帮助区的麦克风排查说明检查浏览器权限与输入设置。",
-            "The fenbeiceshi.com project maintains this tool. The user guide explains measurement and local summaries, and the privacy page describes audio processing and data storage. For device compatibility problems, start with the microphone troubleshooting guide to check browser permissions and input settings.",
+            "The SoundMeterGo project maintains this tool. The user guide explains measurement and local summaries, and the privacy page describes audio processing and data storage. For device compatibility problems, start with the microphone troubleshooting guide to check browser permissions and input settings.",
             "分貝測試由 fenbeiceshi.com 專案維護。使用指南說明測量與本機摘要的操作方法，隱私說明介紹音訊處理和資料儲存方式。遇到裝置相容問題時，可先按知識與幫助區的麥克風排查說明檢查瀏覽器權限與輸入設定。",
           ),
         ],
@@ -257,8 +258,8 @@ export const guides: SiteContent[] = [
     ],
     sources: [
       {
-        title: t("分贝测试 · 使用指南", "FenbeiCeshi · User guide", "分貝測試 · 使用指南"),
-        url: "https://fenbeiceshi.com/guide/",
+        title: t("分贝测试 · 使用指南", "SoundMeterGo · User guide", "分貝測試 · 使用指南"),
+        url: `${activeSite.origin}/guide/`,
       },
     ],
     related: ["guide", "privacy", "phone-accuracy"],
@@ -325,9 +326,9 @@ export const guides: SiteContent[] = [
             "主題提供「跟隨系統、深色、淺色」。選擇會作為獨立偏好儲存在當前瀏覽器，僅用於恢復外觀，不包含音訊或觀察摘要，也不上傳至伺服器。預設或選擇「跟隨系統」時，頁面隨系統外觀變化；選擇深色或淺色後按該模式顯示。清除本站資料後恢復跟隨系統。",
           ),
           t(
-            "首次进入无语言前缀的页面时，本站在浏览器内读取语言列表，选择简体中文、繁体中文或英文。手动选择的语言会独立保存在当前浏览器的 localStorage，之后优先使用该偏好；明确带有 /en/ 或 /zh-tw/ 的链接仍按链接显示。清除本站数据后恢复自动识别。语言列表不上传，偏好不包含测量记录；浏览器禁止保存时会提示，本次选择仍可使用。",
-            "When you first open a page without a language prefix, the site reads your browser's language list locally to choose Simplified Chinese, Traditional Chinese or English. A manual choice is stored separately in this browser's localStorage and takes priority on later visits. Explicit /en/ and /zh-tw/ links keep their language. Clearing site data restores automatic selection. The language list is not uploaded, and the preference contains no measurement records. If storage is blocked, a notice is shown and your choice still works for this visit.",
-            "首次進入無語言前綴的頁面時，本站在瀏覽器內讀取語言清單，選擇簡體中文、繁體中文或英文。手動選擇的語言會獨立儲存在當前瀏覽器的 localStorage，之後優先使用該偏好；明確帶有 /en/ 或 /zh-tw/ 的連結仍按連結顯示。清除本站資料後恢復自動識別。語言清單不上傳，偏好不包含測量記錄；瀏覽器禁止儲存時會提示，本次選擇仍可使用。",
+            "本站在 fenbeiceshi.com 提供简体与繁体中文，在 soundmetergo.com 提供英文。语言菜单会打开对应域名的同一页面。中文无前缀页面只在简体和繁体之间按手动偏好或浏览器语言选择，英文域名保持英文，不按语言强制跨域跳转。偏好分别保存在各域名的当前浏览器；语言列表和偏好不上传。浏览器禁止保存时会提示，并用链接参数保留本次选择。各域名的报告、录音和主题偏好不会自动共享，旧记录仍可回原域名下载。",
+            "fenbeiceshi.com serves Simplified and Traditional Chinese; soundmetergo.com serves English. The language menu opens the matching page on the appropriate domain. Automatic selection only switches between Chinese variants on unprefixed Chinese pages; the English site stays in English. Language preferences, reports, recordings and theme settings are stored separately for each domain. The browser language list and preferences are not uploaded. If storage is blocked, a notice is shown and a URL parameter preserves your choice. Earlier records remain available to download on their original domain.",
+            "本站在 fenbeiceshi.com 提供簡體與繁體中文，在 soundmetergo.com 提供英文。語言選單會開啟對應網域的同一頁面。中文無前綴頁面只在簡體和繁體之間依手動偏好或瀏覽器語言選擇，英文網域保持英文，不依語言強制跨網域跳轉。偏好分別儲存在各網域的目前瀏覽器；語言清單和偏好不上傳。瀏覽器禁止儲存時會提示，並用連結參數保留本次選擇。各網域的報告、錄音和主題偏好不會自動共用，舊記錄仍可回原網域下載。",
           ),
         ],
       },

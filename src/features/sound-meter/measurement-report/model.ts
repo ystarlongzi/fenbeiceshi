@@ -1,3 +1,4 @@
+import { siteForLocale } from "../../../lib/routing/sites.ts";
 import { publicSummary } from "../../records/storage.ts";
 import { meterCopy } from "../copy.ts";
 import { modeLabel } from "../mode-label.ts";
@@ -51,7 +52,8 @@ export function createReport(record: Measurement, locale: Locale) {
   return {
     title: copy.title,
     locale,
-    fileName: `fenbeiceshi-${record.startedAt.replace(/[:.]/g, "-")}`,
+    domain: siteForLocale(locale).domain,
+    fileName: `${locale === "en" ? "soundmetergo" : "fenbeiceshi"}-${record.startedAt.replace(/[:.]/g, "-")}`,
     rows,
     trendHeaders: [copy.time, copy.level, copy.unit, copy.floor],
     trend: summary.recentTrend.map((point): ReportRow => [
@@ -90,7 +92,7 @@ export function formatReportDuration(milliseconds: number) {
 export function reportText(report: MeasurementReport) {
   return [
     report.title,
-    "fenbeiceshi.com",
+    report.domain,
     ...report.rows.map(([key, value]) => `${key}: ${value}`),
   ].join("\n");
 }

@@ -49,7 +49,7 @@ jobs:
             sudo apt-get install -y "${packages[@]}"
           else echo "测试工具已齐全，跳过安装"; fi
           sudo systemctl stop nginx
-          printf '127.0.0.1 fenbeiceshi.com www.fenbeiceshi.com\n' | sudo tee -a /etc/hosts > /dev/null
+          printf '127.0.0.1 fenbeiceshi.com www.fenbeiceshi.com soundmetergo.com www.soundmetergo.com\n' | sudo tee -a /etc/hosts > /dev/null
       - name: 验证 Linux 发布与回滚
         if: steps.deploy_changes.outputs.required == 'true'
         timeout-minutes: 4

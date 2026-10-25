@@ -109,5 +109,6 @@ export function restoreClip(value: Omit<AudioClip, "wav">): AudioClip {
 export function recordingFilename(clip: AudioClip, format: "mp3" | "pcm") {
   const date = clip.startedAt.replace(/[:.]/g, "-");
   const parameters = format === "pcm" ? `-${clip.sampleRate}hz-mono-s16le` : "";
-  return `fenbeiceshi-${date}${parameters}.${format}`;
+  return `${activeSite.domain.replace(".com", "")}-${date}${parameters}.${format}`;
 }
+import { activeSite } from "../../lib/routing/sites.ts";

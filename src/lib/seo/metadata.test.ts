@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { breadcrumbData } from "./metadata.ts";
-import { href, SITE_URL } from "../routing/pages.ts";
+import { canonicalHref } from "../routing/pages.ts";
 import { locales } from "../i18n/locales.ts";
 import { localize } from "../i18n/text.ts";
 
@@ -22,7 +22,7 @@ test("三语帮助页与知识文章的面包屑归属知识与帮助", () => {
       const items = breadcrumbData(id, locale).itemListElement;
       assert.deepEqual(
         items.map((item) => item.item),
-        ["meter", "knowledge", id].map((page) => SITE_URL + href(page, locale)),
+        ["meter", "knowledge", id].map((page) => canonicalHref(page, locale)),
       );
       assert.equal(items[1].name, localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助"));
     }
@@ -34,14 +34,12 @@ test("声音详情保留对照表父级，关于与隐私保持独立", () => {
     const detail = breadcrumbData("decibel-40", locale).itemListElement;
     assert.deepEqual(
       detail.map((item) => item.item),
-      ["meter", "knowledge", "decibel-chart", "decibel-40"].map(
-        (id) => SITE_URL + href(id, locale),
-      ),
+      ["meter", "knowledge", "decibel-chart", "decibel-40"].map((id) => canonicalHref(id, locale)),
     );
     for (const id of ["about", "privacy"]) {
       assert.deepEqual(
         breadcrumbData(id, locale).itemListElement.map((item) => item.item),
-        ["meter", id].map((page) => SITE_URL + href(page, locale)),
+        ["meter", id].map((page) => canonicalHref(page, locale)),
       );
     }
   }

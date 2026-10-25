@@ -60,7 +60,7 @@ export function drawReport(report: MeasurementReport) {
     }
     return top;
   };
-  text("fenbeiceshi.com", 48, 38, 14, "#61745d");
+  text(report.domain, 48, 38, 14, "#61745d");
   text(report.title, 48, 70, 28);
   text(report.mode, 48, 116, 16);
   text(report.startedAt, 48, 148, 13, "#56645b");
@@ -130,15 +130,15 @@ export function drawReport(report: MeasurementReport) {
   paragraph(report.notice, y + 24, 14);
   return pages.map((page, index) => {
     ctx = page.getContext("2d")!;
-    text(`fenbeiceshi.com · ${index + 1} / ${pages.length}`, 48, height - 42, 12, "#56645b");
+    text(`${report.domain} · ${index + 1} / ${pages.length}`, 48, height - 42, 12, "#56645b");
     return page.toDataURL("image/jpeg", 0.94);
   });
 }
 
-export async function pdfFromImages(images: string[]) {
+export async function pdfFromImages(images: string[], domain: MeasurementReport["domain"]) {
   const { jsPDF } = await import("jspdf");
   const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-  pdf.setProperties({ title: "Noise observation · fenbeiceshi.com", creator: "fenbeiceshi.com" });
+  pdf.setProperties({ title: `Noise observation · ${domain}`, creator: domain });
   images.forEach((image, index) => {
     if (index > 0) pdf.addPage();
     pdf.addImage(image, "JPEG", 0, 0, 210, 297);
@@ -149,5 +149,5 @@ export async function pdfFromImages(images: string[]) {
 export async function pdfBlob(report: MeasurementReport) {
   await document.fonts.ready;
   // 本机字体先绘制再嵌入，避免上传备注或额外下载完整中文字库。
-  return pdfFromImages(drawReport(report));
+  return pdfFromImages(drawReport(report), report.domain);
 }

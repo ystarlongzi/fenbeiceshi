@@ -37,6 +37,9 @@ jobs:
       SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
       DEPLOY_PATH: ${{ vars.DEPLOY_PATH || '/www/wwwroot/fenbeiceshi' }}
       DOMAIN: fenbeiceshi.com
+      SOUNDMETERGO_DEPLOY_PATH: ${{ vars.SOUNDMETERGO_DEPLOY_PATH || '/www/wwwroot/soundmetergo' }}
+      NGINX_CONF_PATH: ${{ vars.NGINX_CONF_PATH || '/etc/nginx/conf.d' }}
+      CERT_ROOT: ${{ vars.CERT_ROOT || '/etc/nginx/ssl' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7，固定官方提交
         with:
@@ -86,10 +89,12 @@ jobs:
             sudo apt-get install -y "${packages[@]}"
           else echo "测试工具已齐全，跳过安装"; fi
           sudo systemctl stop nginx
-          printf '127.0.0.1 fenbeiceshi.com www.fenbeiceshi.com\n' | sudo tee -a /etc/hosts > /dev/null
+          printf '127.0.0.1 fenbeiceshi.com www.fenbeiceshi.com soundmetergo.com www.soundmetergo.com\n' | sudo tee -a /etc/hosts > /dev/null
           sudo env "PATH=$PATH" timeout --kill-after=5s 180s npm run test:deploy:integration
       - name: 打包完整静态导出
         run: npm run deploy:pack -- --release "$RELEASE_ID" --revision "$GITHUB_SHA"
+      - name: 打包英文静态导出
+        run: npm run deploy:pack -- --domain soundmetergo.com --release "$RELEASE_ID" --revision "$GITHUB_SHA"
       - name: 准备 SSH 凭据与主机公钥
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -123,6 +128,16 @@ jobs:
           DNS_ENV_FILE: ${{ vars.DNS_ENV_FILE || '/etc/fenbeiceshi/cloudflare.env' }}
           ACME_HOME: ${{ vars.ACME_HOME || '/root/.acme.sh-fenbeiceshi' }}
         run: npm run deploy:setup -- --bootstrap
+      - name: 检查英文站点环境
+        run: npm run deploy:setup -- --domain soundmetergo.com --path "$SOUNDMETERGO_DEPLOY_PATH" --dns-env /etc/soundmetergo/cloudflare.env --acme-home /root/.acme.sh-soundmetergo
+      - name: 发布英文与健康检查
+        timeout-minutes: 15
+        run: npm run deploy:static -- --domain soundmetergo.com --path "$SOUNDMETERGO_DEPLOY_PATH" --artifact "artifacts/soundmetergo-$RELEASE_ID.tar.gz" --release "$RELEASE_ID"
+      - name: 同步中文站点与旧英文跳转
+        env:
+          DNS_ENV_FILE: ${{ vars.DNS_ENV_FILE || '/etc/fenbeiceshi/cloudflare.env' }}
+          ACME_HOME: ${{ vars.ACME_HOME || '/root/.acme.sh-fenbeiceshi' }}
+        run: npm run deploy:setup
       - name: 发布与健康检查
         timeout-minutes: 15
         run: npm run deploy:static -- --artifact "artifacts/fenbeiceshi-$RELEASE_ID.tar.gz" --release "$RELEASE_ID"

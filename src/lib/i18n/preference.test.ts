@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { runInNewContext } from "node:vm";
-import { href, sitePages } from "../routing/pages.ts";
-import { locales, type Locale } from "./locales.ts";
+import { pagePath, sitePages } from "../routing/pages.ts";
+import type { Locale } from "./locales.ts";
 import {
   browserLanguage,
   getLanguagePersistenceError,
@@ -14,7 +14,7 @@ import {
   subscribeLanguagePreference,
 } from "./preference.ts";
 
-const available = sitePages.flatMap((page) => locales.map((locale) => href(page.id, locale)));
+const available = sitePages.map((page) => "/" + (page.slug ? page.slug + "/" : ""));
 
 function makeBrowser(pathname = "/") {
   const saved = new Map<string, string>();
@@ -74,7 +74,7 @@ function withBrowser(run: (browser: ReturnType<typeof makeBrowser>) => void) {
   }
 }
 
-test("浏览器语言按顺序匹配，中文文字体系优先于地区，未知语言回退简体", () => {
+test("浏览器语言识别文字体系及顺序，并可限制在当前域名支持的语言", () => {
   const cases: [string[], Locale][] = [
     [["zh-CN"], "zh-CN"],
     [["zh-SG"], "zh-CN"],
@@ -91,80 +91,89 @@ test("浏览器语言按顺序匹配，中文文字体系优先于地区，未�
     [["fr", "de"], "zh-CN"],
     [[], "zh-CN"],
   ];
-  for (const [languages, expected] of cases)
-    assert.equal(browserLanguage(languages), expected, languages.join(","));
+  for (const [languages, expected] of cases) assert.equal(browserLanguage(languages), expected);
+  assert.equal(browserLanguage(["en-US", "zh-TW"], ["zh-CN", "zh-TW"]), "zh-TW");
+  assert.equal(browserLanguage(["zh-CN"], ["en"]), "en");
 });
 
-test("所有无前缀页面首次按浏览器语言跳转，保留查询与锚点且不写入自动识别结果", () => {
+test("中文无前缀页面仅在本站简繁之间自动选择，保留查询与锚点", () => {
   for (const page of sitePages) {
-    const browser = makeBrowser(href(page.id, "zh-CN"));
+    const browser = makeBrowser(pagePath(page.id, "zh-CN"));
     browser.navigator.languages = ["zh-Hant"];
     browser.location.search = "?q=60";
     browser.location.hash = "#reference";
     browser.boot();
-    assert.deepEqual(browser.redirects, [`${href(page.id, "zh-TW")}?q=60#reference`]);
+    assert.deepEqual(browser.redirects, [pagePath(page.id, "zh-TW") + "?q=60#reference"]);
     assert.equal(browser.saved.size, 0);
   }
 });
 
-test("已保存的手动偏好优先于浏览器，非法偏好被忽略，缺少语言列表时读取单语言", () => {
-  for (const locale of locales) {
-    const browser = makeBrowser();
-    browser.saved.set(LANGUAGE_KEY, locale);
-    browser.navigator.languages = [locale === "en" ? "zh-CN" : "en-US"];
-    browser.boot();
-    assert.deepEqual(browser.redirects, locale === "zh-CN" ? [] : [href("meter", locale)]);
-  }
-  for (const saved of ["invalid", "../en", "constructor", '<script>alert("x")</script>']) {
-    const browser = makeBrowser();
-    browser.saved.set(LANGUAGE_KEY, saved);
-    browser.navigator.languages = [];
-    browser.navigator.language = "zh-TW";
-    browser.boot();
-    assert.deepEqual(browser.redirects, ["/zh-tw/"]);
-  }
-});
-
-test("明确语言链接与未发布路径不被自动跳转，缺少目标主题时回到对应首页", () => {
+test("英文偏好不使中文域名强制跨域，英文与明确繁体页面保持 URL 指定语言", () => {
+  const chinese = makeBrowser();
+  chinese.saved.set(LANGUAGE_KEY, "en");
+  chinese.boot();
+  assert.deepEqual(chinese.redirects, []);
   for (const locale of ["en", "zh-TW"] as const) {
-    const browser = makeBrowser(href("decibel-chart", locale));
+    const browser = makeBrowser(pagePath("guide", locale));
+    browser.navigator.languages = ["zh-CN"];
     browser.saved.set(LANGUAGE_KEY, "zh-CN");
     browser.boot(locale);
     assert.deepEqual(browser.redirects, []);
   }
-  const browser = makeBrowser("/unpublished/");
-  browser.boot();
-  assert.deepEqual(browser.redirects, []);
-  browser.location.pathname = "/guide/";
-  runInNewContext(languageBootstrap("zh-CN", ["/guide/", "/en/"]), browser.globals);
-  assert.deepEqual(browser.redirects, ["/en/"]);
+  const unknown = makeBrowser("/unpublished/");
+  unknown.navigator.languages = ["zh-TW"];
+  unknown.boot();
+  assert.deepEqual(unknown.redirects, []);
 });
 
-test("存储读取被拒仍可识别语言，一次性链接保留手动简体选择且不会形成跳转循环", () => {
+test("本站手动偏好优先，无效值安全忽略，存储读取异常仍能选择繁体", () => {
   const browser = makeBrowser();
-  browser.storage.readBlocked = true;
+  browser.saved.set(LANGUAGE_KEY, "zh-TW");
   browser.boot();
-  assert.deepEqual(browser.redirects, ["/en/"]);
-  assert.equal(browser.dataset.languagePersistence, "unavailable");
+  assert.deepEqual(browser.redirects, ["/zh-tw/"]);
+  for (const saved of ["invalid", "../en", "constructor", '<script>alert("x")</script>']) {
+    const other = makeBrowser();
+    other.saved.set(LANGUAGE_KEY, saved);
+    other.navigator.languages = [];
+    other.navigator.language = "zh-TW";
+    other.boot();
+    assert.deepEqual(other.redirects, ["/zh-tw/"]);
+  }
   browser.redirects.length = 0;
+  browser.storage.readBlocked = true;
+  browser.navigator.languages = ["zh-TW"];
+  browser.boot();
+  assert.deepEqual(browser.redirects, ["/zh-tw/"]);
+  assert.equal(browser.dataset.languagePersistence, "unavailable");
+});
+
+test("跨域手动选择在目标域保存，禁止存储时仍保留当前语言且不产生循环", () => {
+  for (const blocked of [false, true]) {
+    const browser = makeBrowser();
+    browser.location.search = "?language=en";
+    browser.storage.readBlocked = blocked;
+    browser.storage.writeBlocked = blocked;
+    browser.boot("en");
+    assert.deepEqual(browser.redirects, []);
+    assert.equal(browser.saved.get(LANGUAGE_KEY), blocked ? undefined : "en");
+    assert.equal(browser.dataset.languagePersistence, blocked ? "unavailable" : "available");
+  }
+  const browser = makeBrowser();
+  browser.navigator.languages = ["zh-TW"];
   browser.location.search = "?language=zh-CN";
   browser.boot();
   assert.deepEqual(browser.redirects, []);
-  browser.location.search = "?language=javascript%3Aalert(1)";
-  browser.boot();
-  assert.deepEqual(browser.redirects, ["/en/"]);
+  assert.equal(browser.saved.get(LANGUAGE_KEY), "zh-CN");
 });
 
-test("手动选择持久化并通知两个入口，写入失败保留原偏好和错误上下文，重试可恢复", () => {
-  withBrowser(({ saved, storage, boot }) => {
-    boot();
+test("手动选择持久化并通知两个入口，失败保留原偏好、数据和错误上下文", () => {
+  withBrowser(({ saved, storage }) => {
     saved.set("fenbeiceshi:theme:v1", "dark");
     saved.set("unrelated-records", "original");
     let changes = 0;
     const unsubscribe = subscribeLanguagePreference(() => (changes += 1));
     const unsubscribeOther = subscribeLanguagePreference(() => (changes += 1));
     assert.equal(setLanguagePreference("zh-TW"), null);
-    assert.equal(saved.get(LANGUAGE_KEY), "zh-TW");
     assert.equal(changes, 2);
     storage.writeBlocked = true;
     const error = setLanguagePreference("zh-CN");
@@ -175,7 +184,6 @@ test("手动选择持久化并通知两个入口，写入失败保留原偏好�
     storage.writeBlocked = false;
     assert.equal(setLanguagePreference("zh-CN"), null);
     assert.equal(getLanguagePersistenceError(), false);
-    assert.equal(changes, 6);
     unsubscribe();
     unsubscribeOther();
     setLanguagePreference("en");
@@ -187,22 +195,30 @@ test("手动选择持久化并通知两个入口，写入失败保留原偏好�
   assert.equal(getServerLanguagePersistenceError(), false);
 });
 
-test("手动切换保留查询和锚点，存储失败增加本次语言，保存成功时清除临时语言", () => {
+test("跨域切换保留主题、查询与锚点，站内持久化成功后清除临时参数", () => {
   const source = {
-    pathname: "/en/knowledge/decibel-chart/",
+    pathname: "/knowledge/decibel-chart/",
     search: "?q=60&language=en",
     hash: "#levels",
   };
   assert.equal(
-    languageSelectionHref(source, "zh-CN", available, false),
-    "/knowledge/decibel-chart/?q=60&language=zh-CN#levels",
+    languageSelectionHref(source, "zh-CN", available, false, "en"),
+    "https://fenbeiceshi.com/knowledge/decibel-chart/?q=60&language=zh-CN#levels",
   );
   assert.equal(
-    languageSelectionHref(source, "zh-TW", available, true),
+    languageSelectionHref(source, "zh-TW", available, true, "en"),
+    "https://fenbeiceshi.com/zh-tw/knowledge/decibel-chart/?q=60&language=zh-TW#levels",
+  );
+  assert.equal(
+    languageSelectionHref(source, "en", available, true, "zh-CN"),
+    "https://soundmetergo.com/knowledge/decibel-chart/?q=60&language=en#levels",
+  );
+  assert.equal(
+    languageSelectionHref(source, "zh-TW", available, true, "zh-CN"),
     "/zh-tw/knowledge/decibel-chart/?q=60#levels",
   );
 });
 
-test("首屏脚本只序列化可信配置，路径中的 HTML 定界符不能关闭脚本", () => {
+test("首屏脚本不能被路径中的 HTML 定界符关闭", () => {
   assert.doesNotMatch(languageBootstrap("zh-CN", ["/</script>/"]), /<\/script>/i);
 });

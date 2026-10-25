@@ -3,6 +3,8 @@ import { lstat, readFile } from "node:fs/promises";
 import { parseEnv } from "node:util";
 import { connection, parseArgs, ssh } from "./lib.mjs";
 import { loadDeployEnv, resolveLocalPath } from "./env.mjs";
+import { deploySite } from "./sites.mjs";
+import { renderNginxTemplate } from "./nginx-template.mjs";
 
 // 凭据仅通过 SSH 标准输入发送，不拼入命令参数或日志。
 async function main() {
@@ -33,11 +35,12 @@ async function main() {
   const env = await loadDeployEnv(args);
   const config = connection(args, env);
   if (config.user !== "root") throw new Error("初始化需要 SSH_USER=root");
+  const site = deploySite(config.domain);
   const options = {
     nginxConfPath: args["nginx-path"] ?? env.NGINX_CONF_PATH ?? "/etc/nginx/conf.d",
     certRoot: args["cert-root"] ?? env.CERT_ROOT ?? "/etc/nginx/ssl",
-    dnsEnv: args["dns-env"] ?? env.DNS_ENV_FILE ?? "/etc/fenbeiceshi/cloudflare.env",
-    acmeHome: args["acme-home"] ?? env.ACME_HOME ?? "/root/.acme.sh-fenbeiceshi",
+    dnsEnv: args["dns-env"] ?? env.DNS_ENV_FILE ?? `/etc/${site.id}/cloudflare.env`,
+    acmeHome: args["acme-home"] ?? env.ACME_HOME ?? `/root/.acme.sh-${site.id}`,
     email: args.email ?? env.SSL_EMAIL ?? "",
   };
   for (const key of ["nginxConfPath", "certRoot", "dnsEnv", "acmeHome"]) {
@@ -97,9 +100,9 @@ async function main() {
   let script = await readFile(new URL("./setup-server.sh", import.meta.url), "utf8");
   if (args.bootstrap)
     script = `${await readFile(new URL("./bootstrap-server.sh", import.meta.url), "utf8")}\n${script}`;
-  const template = await readFile(
-    new URL("./nginx/fenbeiceshi.conf.template", import.meta.url),
-    "utf8",
+  const template = renderNginxTemplate(
+    await readFile(new URL("./nginx/fenbeiceshi.conf.template", import.meta.url), "utf8"),
+    config.domain,
   );
   await ssh(
     config,

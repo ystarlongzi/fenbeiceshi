@@ -61,9 +61,12 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
       target,
       available,
       !error,
+      locale,
     );
-    if (target !== locale) router.push(destination);
-    else if (destination !== `${pathname}${window.location.search}${window.location.hash}`)
+    if (target !== locale) {
+      if (destination.startsWith("https://")) window.location.assign(destination);
+      else router.push(destination);
+    } else if (destination !== `${pathname}${window.location.search}${window.location.hash}`)
       window.history.replaceState(window.history.state, "", destination);
   }
 

@@ -60,6 +60,7 @@ test("静态导出检查覆盖缺失资源、隐藏文件和软链接", async ()
       await mkdir(path.dirname(path.join(directory, name)), { recursive: true });
       await writeFile(path.join(directory, name), "content");
     }
+    await writeFile(path.join(directory, "_site.txt"), "fenbeiceshi.com\n");
     await mkdir(path.join(directory, "_next/static"), { recursive: true });
     await writeFile(
       path.join(directory, "index.html"),
@@ -69,7 +70,7 @@ test("静态导出检查覆盖缺失资源、隐藏文件和软链接", async ()
     await assert.rejects(verifyExport(directory), /资源不存在/);
     await writeFile(path.join(directory, "_next/static/app.css"), "css");
     assert.equal((await verifyExport(directory)).length, 2);
-    for (const file of ["en/index.html", "zh-tw/index.html", "audio/pcm-recorder.js"]) {
+    for (const file of ["guide/index.html", "zh-tw/index.html", "audio/pcm-recorder.js"]) {
       await rm(path.join(directory, file));
       await assert.rejects(verifyExport(directory), /静态导出缺少有效文件/);
       await writeFile(path.join(directory, file), "content");

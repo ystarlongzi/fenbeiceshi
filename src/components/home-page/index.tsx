@@ -22,7 +22,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          name: localize(locale, "分贝测试", "FenbeiCeshi Online Decibel Meter", "分貝測試"),
+          name: localize(locale, "分贝测试", "SoundMeterGo Online Decibel Meter", "分貝測試"),
           url: SITE_URL + href("meter", locale),
           inLanguage: locale,
           applicationCategory: "UtilitiesApplication",

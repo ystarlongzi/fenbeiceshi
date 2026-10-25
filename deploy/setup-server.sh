@@ -14,7 +14,9 @@ mode=${8:-server}
 
 fail() { echo "初始化失败：$*" >&2; exit 1; }
 [[ $(id -u) == 0 ]] || fail "初始化需要服务器 root 权限"
-[[ "$domain" == fenbeiceshi.com && "$base" =~ ^/([A-Za-z0-9_-]+/){2,}fenbeiceshi$ ]] || fail "项目路径或域名无效"
+[[ "$domain" == fenbeiceshi.com || "$domain" == soundmetergo.com ]] || fail "域名不属于此项目"
+site_key=${domain%.com}
+[[ "$base" =~ ^/([A-Za-z0-9_-]+/){2,}${site_key}$ ]] || fail "项目路径或域名无效"
 [[ "$mode" == server || "$mode" == bootstrap ]] || fail "初始化模式无效"
 for directory in "$nginx_conf_path" "$cert_root" "$acme_home" "$dns_env"; do
     [[ "$directory" =~ ^/([A-Za-z0-9_.-]+/)+[A-Za-z0-9_.-]+$ && "/$directory/" != *'/../'* && "/$directory/" != *'/./'* ]] || fail "服务器目录格式无效"
@@ -75,7 +77,7 @@ cert_dir="$cert_root/$domain"
 [[ ! -L "$cert_root" && ! -L "$cert_dir" ]] || fail "证书目录不能是软链接"
 mkdir -p "$cert_dir"
 chmod 700 "$cert_dir"
-config="$nginx_conf_path/fenbeiceshi.conf"
+config="$nginx_conf_path/$site_key.conf"
 [[ ! -L "$config" ]] || fail "站点配置不能是软链接"
 stage=""
 backup=""
@@ -201,8 +203,9 @@ chmod 600 "$cert_dir/$domain.key"
 openssl x509 -in "$cert_dir/fullchain.cer" -noout -checkend 0
 names=$(openssl x509 -in "$cert_dir/fullchain.cer" -noout -ext subjectAltName)
 # 按 SAN 完整条目校验，避免把带额外后缀的域名当作本站通配符。
-[[ "$names" =~ (^|[[:space:],])DNS:fenbeiceshi\.com([[:space:],]|$) ]] || fail "证书没有包含主域名"
-[[ "$names" =~ (^|[[:space:],])DNS:\*\.fenbeiceshi\.com([[:space:],]|$) ]] || fail "证书没有包含通配符域名"
+escaped_domain=${domain//./\\.}
+[[ "$names" =~ (^|[[:space:],])DNS:${escaped_domain}([[:space:],]|$) ]] || fail "证书没有包含主域名"
+[[ "$names" =~ (^|[[:space:],])DNS:\*\.${escaped_domain}([[:space:],]|$) ]] || fail "证书没有包含通配符域名"
 openssl x509 -in "$cert_dir/fullchain.cer" -noout -checkhost "$domain"
 # 同时校验证书与私钥，避免配置检查通过却不能完成 TLS 握手。
 cert_public=$(openssl x509 -in "$cert_dir/fullchain.cer" -pubkey -noout)
@@ -255,4 +258,4 @@ else
     has_renewal_job "$cron_jobs" || fail "自动续期任务没有使用指定的 ACME_HOME"
 fi
 confirmed=1
-echo "已安装 fenbeiceshi.com 与 *.fenbeiceshi.com 证书及自动续期；站点配置：$config"
+echo "已安装 $domain 与 *.$domain 证书及自动续期；站点配置：$config"

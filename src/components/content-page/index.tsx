@@ -60,7 +60,7 @@ export function ContentPage({
             mainEntityOfPage: SITE_URL + href(id, locale),
             author: {
               "@type": "Organization",
-              name: "fenbeiceshi.com project",
+              name: "SoundMeterGo project",
               url: SITE_URL,
             },
           }}
@@ -102,7 +102,7 @@ export function ContentPage({
             {localize(locale, "更新于", "Updated", "更新於")} {content.updated}
           </span>
           <span>
-            {localize(locale, "分贝测试项目维护", "fenbeiceshi.com project", "分貝測試專案維護")}
+            {localize(locale, "分贝测试项目维护", "SoundMeterGo project", "分貝測試專案維護")}
           </span>
         </div>
       </header>

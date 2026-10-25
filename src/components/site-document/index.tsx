@@ -1,3 +1,4 @@
+import { siteForLocale } from "@/lib/routing/sites";
 import { localize } from "@/lib/i18n/text";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -8,12 +9,12 @@ import { ThemeSwitch } from "../theme-switch";
 import { ThemeScript } from "../theme-switch/theme-script";
 import { SiteNavigation } from "./site-navigation";
 import { contents, href, sitePages } from "@/lib/routing/pages";
-import { locales } from "@/lib/i18n/locales";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
 
 export function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
-  const available = sitePages.flatMap((page) => locales.map((language) => href(page.id, language)));
+  const site = siteForLocale(locale);
+  const available = sitePages.map((page) => `/${page.slug ? `${page.slug}/` : ""}`);
   const nav = [
     {
       id: "meter",
@@ -49,14 +50,14 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
             <Link
               className={styles.brand}
               href={href("meter", locale)}
-              aria-label={localize(locale, "分贝测试首页", "fenbeiceshi.com home", "分貝測試首頁")}
+              aria-label={localize(locale, "分贝测试首页", "SoundMeterGo home", "分貝測試首頁")}
             >
               <span className={styles.brandMark}>
                 <Icon name="audio-lines" size={22} />
               </span>
               <span>
-                <strong>{localize(locale, "分贝测试", "FenbeiCeshi", "分貝測試")}</strong>
-                <small>fenbeiceshi.com</small>
+                <strong>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</strong>
+                <small>{site.domain}</small>
               </span>
             </Link>
             <SiteNavigation
@@ -85,7 +86,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
             <div>
-              <strong>{localize(locale, "分贝测试", "FenbeiCeshi", "分貝測試")}</strong>
+              <strong>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</strong>
               <p>
                 {localize(
                   locale,
@@ -94,7 +95,7 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
                   "看見聲音變化，記下每次觀察。",
                 )}
               </p>
-              <small>© 2026 fenbeiceshi.com</small>
+              <small>© 2026 {site.domain}</small>
             </div>
             <nav aria-label={localize(locale, "页脚导航", "Footer", "頁尾導航")}>
               <Link href={href("guide", locale)}>

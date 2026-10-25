@@ -6,6 +6,9 @@
 .recordsHeader {
   margin-bottom: 32px;
 }
+.migration {
+  margin-bottom: 24px;
+}
 .eyebrow {
   font-size: var(--font-size-caption);
   letter-spacing: 0.08em;

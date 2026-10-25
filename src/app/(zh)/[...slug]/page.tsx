@@ -1,3 +1,4 @@
+import { activeSite } from "@/lib/routing/sites";
 import { notFound } from "next/navigation";
 import { RoutePage } from "@/components/route-page";
 import { findPage, sitePages } from "@/lib/routing/pages";
@@ -11,10 +12,10 @@ type Props = { params: Promise<{ slug: string[] }> };
 export async function generateMetadata({ params }: Props) {
   const page = findPage((await params).slug.join("/"));
   if (!page) notFound();
-  return pageMetadata(page.id, "zh-CN");
+  return pageMetadata(page.id, activeSite.primaryLocale);
 }
 export default async function Page({ params }: Props) {
   const page = findPage((await params).slug.join("/"));
   if (!page) notFound();
-  return <RoutePage page={page} locale="zh-CN" />;
+  return <RoutePage page={page} locale={activeSite.primaryLocale} />;
 }

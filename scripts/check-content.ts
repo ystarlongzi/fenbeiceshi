@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { contents, href, sitePages } from "../src/lib/routing/pages.ts";
+import { contents, canonicalHref, pagePath, sitePages } from "../src/lib/routing/pages.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
 import {
   soundCategories,
@@ -22,7 +22,7 @@ import type { ContentSection } from "../src/lib/content/types.ts";
 
 const ids = sitePages.map((page) => page.id);
 assert.equal(new Set(ids).size, ids.length, "页面 ID 不得重复");
-const paths = sitePages.flatMap((page) => locales.map((locale) => href(page.id, locale)));
+const paths = sitePages.flatMap((page) => locales.map((locale) => canonicalHref(page.id, locale)));
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
@@ -151,7 +151,8 @@ assert.equal(new Set(sourceIds).size, sourceIds.length, "来源锚点不得重�
 for (const page of sitePages.filter((page) => page.index)) {
   const candidate = plan.pages.find((item: { id: string }) => item.id === page.id);
   assert.ok(candidate, page.id);
-  for (const locale of locales) assert.equal(candidate.locales[locale].path, href(page.id, locale));
+  for (const locale of locales)
+    assert.equal(candidate.locales[locale].path, pagePath(page.id, locale));
 }
 console.log(
   `内容检查通过：${contents.length} 个三语正文，138 个可索引 URL，3 个 noindex 功能 URL。`,

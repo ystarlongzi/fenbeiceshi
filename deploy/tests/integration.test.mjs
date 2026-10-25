@@ -1,3 +1,7 @@
+import "./sites-integration.mjs";
+import { artifact, certificate } from "./site-fixtures.mjs";
+import { sitePages, canonicalHref } from "../../src/lib/routing/pages.ts";
+import { renderNginxTemplate } from "../nginx-template.mjs";
 import assert from "node:assert/strict";
 import { createServer } from "node:https";
 import {
@@ -16,57 +20,11 @@ import {
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
-import { projectRoot, requiredFiles, sha256 } from "../lib.mjs";
+import { projectRoot, sha256 } from "../lib.mjs";
 import { execute, mustRun } from "./process.mjs";
 
 const enabled = process.env.FENBEI_INTEGRATION === "1";
 const script = path.join(projectRoot, "deploy/remote-release.sh");
-
-async function certificate(directory) {
-  const cert = path.join(directory, "fullchain.cer"),
-    key = path.join(directory, "fenbeiceshi.com.key");
-  await mustRun("openssl", [
-    "req",
-    "-x509",
-    "-newkey",
-    "rsa:2048",
-    "-nodes",
-    "-keyout",
-    key,
-    "-out",
-    cert,
-    "-days",
-    "1",
-    "-subj",
-    "/CN=fenbeiceshi.com",
-    "-addext",
-    "subjectAltName=DNS:fenbeiceshi.com,DNS:*.fenbeiceshi.com",
-  ]);
-  return { cert, key };
-}
-
-async function artifact(directory, release) {
-  const source = path.join(directory, `source-${release}`);
-  await mkdir(source);
-  const assets = [
-    `/_next/static/chunks/app/%5B...slug%5D/${release}.js`,
-    `/_next/static/css/${release}.css`,
-  ];
-  for (const file of requiredFiles) {
-    await mkdir(path.dirname(path.join(source, file)), { recursive: true });
-    await writeFile(path.join(source, file), `<!doctype html><p>${release}</p>`);
-  }
-  for (const asset of assets) {
-    const file = path.join(source, decodeURIComponent(asset));
-    await mkdir(path.dirname(file), { recursive: true });
-    await writeFile(file, `/* ${release} */`);
-  }
-  await writeFile(path.join(source, "_release.txt"), `${release}\n`);
-  await writeFile(path.join(source, "_release-assets.txt"), `${assets.join("\n")}\n`);
-  const file = path.join(directory, `${release}.tar.gz`);
-  await mustRun("tar", ["-czf", file, "-C", source, "."]);
-  return { source, input: await readFile(file), digest: await sha256(file) };
-}
 
 test(
   "Linux 真实 TLS 下验证三版保留、资源缓冲、失败恢复与手动回滚",
@@ -82,6 +40,13 @@ test(
         try {
           response.setHeader("Permissions-Policy", "camera=(), microphone=(self), geolocation=()");
           const url = new URL(request.url, "https://fenbeiceshi.com");
+          if (url.pathname.startsWith("/en/")) {
+            response.writeHead(301, {
+              Location: "https://soundmetergo.com" + url.pathname.slice(3) + url.search,
+            });
+            response.end();
+            return;
+          }
           const current = await readlink(path.join(base, "current"));
           const release = path.basename(current);
           if (release === "bad-policy") response.setHeader("Permissions-Policy", "microphone=()");
@@ -229,7 +194,7 @@ test(
 
 test(
   "真实 Nginx 验证 TLS、主域名跳转、缓存策略与 404",
-  { skip: !enabled, timeout: 30000 },
+  { skip: !enabled, timeout: 60000 },
   async (t) => {
     const directory = await mkdtemp(path.join(tmpdir(), "fenbeiceshi-nginx-"));
     const config = path.join(directory, "nginx.conf");
@@ -273,8 +238,9 @@ test(
     await writeFile(path.join(base, "shared/_next/static/app.js"), "js");
     await writeFile(path.join(base, "current/.env"), "test-only");
     await mustRun("chmod", ["-R", "a+rX", directory]);
-    const site = (
-      await readFile(path.join(projectRoot, "deploy/nginx/fenbeiceshi.conf.template"), "utf8")
+    const site = renderNginxTemplate(
+      await readFile(path.join(projectRoot, "deploy/nginx/fenbeiceshi.conf.template"), "utf8"),
+      "fenbeiceshi.com",
     )
       .replaceAll("__DOMAIN__", "fenbeiceshi.com")
       .replaceAll("__DEPLOY_PATH__", base)
@@ -335,6 +301,21 @@ test(
       assert.match(redirect.stdout, /301/);
       assert.match(redirect.stdout, /Location: https:\/\/fenbeiceshi.com\/path\/\?a=1/i);
     }
+    for (const page of sitePages) {
+      const old = "/en/" + (page.slug ? page.slug + "/" : "");
+      const redirect = await curl(["-i", "https://fenbeiceshi.com" + old + "?q=60"]);
+      assert.match(redirect.stdout, /HTTP\/(?:1\.1|2) 301/);
+      const location = redirect.stdout
+        .split(/\r?\n/)
+        .find((line) => /^location:/i.test(line))
+        ?.slice(9)
+        .trim();
+      assert.equal(location, canonicalHref(page.id, "en") + "?q=60", old);
+    }
+    for (const origin of ["http://fenbeiceshi.com", "https://www.fenbeiceshi.com"]) {
+      const redirect = await curl(["-i", origin + "/en/guide?theme=dark"]);
+      assert.match(redirect.stdout, /Location: https:\/\/soundmetergo\.com\/guide\/\?theme=dark/i);
+    }
     for (const [route, label] of [
       ["/missing/", "not found"],
       ["/en/missing/", "not found"],
@@ -350,7 +331,7 @@ test(
       assert.match(missing.stdout, /HTTP\/(?:1\.1|2) 404/);
       assert.ok(missing.stdout.endsWith(label), `${route} 应返回 ${label}`);
     }
-    for (const locale of ["en", "zh-tw"]) {
+    for (const locale of ["zh-tw"]) {
       const localizedHome = await curl(["-i", `https://fenbeiceshi.com/${locale}/`]);
       assert.match(localizedHome.stdout, /HTTP\/(?:1\.1|2) 200/);
       assert.ok(localizedHome.stdout.endsWith(`${locale} homepage`));
@@ -380,8 +361,9 @@ test(
     const rootConfig = path.join(directory, "nginx.conf");
     const config = path.join(nginxPath, "fenbeiceshi.conf");
     const token = "test-token-with-no-real-permissions";
-    const template = await readFile(
-      path.join(projectRoot, "deploy/nginx/fenbeiceshi.conf.template"),
+    const template = renderNginxTemplate(
+      await readFile(path.join(projectRoot, "deploy/nginx/fenbeiceshi.conf.template"), "utf8"),
+      "fenbeiceshi.com",
     );
     for (const folder of [nginxPath, acmeHome, bin]) await mkdir(folder);
     const mainConfig = `events {}\nhttp { include /etc/nginx/mime.types; include ${nginxPath}/*.conf; }\n`;

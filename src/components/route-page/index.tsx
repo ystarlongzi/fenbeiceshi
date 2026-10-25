@@ -10,6 +10,7 @@ import { SoundDetailPage } from "@/features/decibel-details";
 import { soundDetails } from "@/lib/content/decibel-details";
 import { NoiseHealthArticle } from "@/features/noise-health";
 import styles from "./index.module.css";
+import { Notice } from "../notice";
 
 export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) {
   if (page.kind === "knowledge") return <KnowledgePage locale={locale} />;
@@ -128,6 +129,15 @@ export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) 
             )}
           </p>
         </header>
+        {locale === "en" ? (
+          <Notice className={styles.migration}>
+            Earlier reports and recordings remain in this browser’s storage for fenbeiceshi.com.{" "}
+            <a href="https://fenbeiceshi.com/records/?language=zh-CN">
+              Open earlier records to download them.
+            </a>{" "}
+            Data is not transferred between domains automatically.
+          </Notice>
+        ) : null}
         <RecordsPanel locale={locale} />
       </div>
     );

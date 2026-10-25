@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 31031",
     "preview": "node scripts/preview.mjs",
-    "build": "next build --webpack",
+    "build": "node scripts/build-sites.mjs",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -17,7 +17,7 @@
     "lint:fix": "eslint . --fix --max-warnings 0",
     "test": "node scripts/run-tests.mjs",
     "test:content": "node --experimental-strip-types scripts/check-content.ts",
-    "test:export": "node --experimental-strip-types scripts/check-export.ts",
+    "test:export": "node scripts/check-sites.mjs",
     "test:deploy": "node --test deploy/tests/*.test.mjs",
     "test:deploy:integration": "node deploy/tests/run-integration.mjs",
     "deploy:pack": "node deploy/pack-static.mjs",

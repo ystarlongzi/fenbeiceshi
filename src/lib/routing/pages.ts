@@ -5,8 +5,9 @@ import { howItWorks } from "../content/how-it-works.ts";
 import { translations, text, type LocalizedText } from "../content/types.ts";
 import type { Locale } from "../../features/sound-meter/types.ts";
 import { localePrefix } from "../i18n/locales.ts";
+import { activeSite, siteForLocale } from "./sites.ts";
 
-export const SITE_URL = "https://fenbeiceshi.com";
+export const SITE_URL = activeSite.origin;
 export const contents = [...guides, howItWorks, faq, ...articles];
 export interface SitePage {
   id: string;
@@ -85,8 +86,17 @@ export function pageById(id: string): SitePage {
 }
 
 export function href(id: string, locale: Locale): string {
+  const path = pagePath(id, locale);
+  return siteForLocale(locale).origin === SITE_URL ? path : siteForLocale(locale).origin + path;
+}
+
+export function pagePath(id: string, locale: Locale): string {
   const slug = pageById(id).slug;
   return `${localePrefix(locale)}/${slug ? `${slug}/` : ""}`;
+}
+
+export function canonicalHref(id: string, locale: Locale): string {
+  return siteForLocale(locale).origin + pagePath(id, locale);
 }
 
 export function pageTitle(id: string, locale: Locale) {

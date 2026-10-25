@@ -10,9 +10,10 @@ domain=${4:?缺少域名}
 action=${5:?缺少操作类型}
 
 fail() { echo "发布失败：$*" >&2; exit 1; }
-[[ "$base" =~ ^/([A-Za-z0-9_-]+/){2,}fenbeiceshi$ ]] || fail "部署目录格式无效"
+[[ "$domain" == fenbeiceshi.com || "$domain" == soundmetergo.com ]] || fail "域名不属于此项目"
+site_key=${domain%.com}
+[[ "$base" =~ ^/([A-Za-z0-9_-]+/){2,}${site_key}$ ]] || fail "部署目录格式无效"
 [[ "$release_id" =~ ^[A-Za-z0-9][A-Za-z0-9_-]{0,119}$ ]] || fail "版本号格式无效"
-[[ "$domain" == fenbeiceshi.com ]] || fail "域名不属于此项目"
 [[ "$action" == deploy || "$action" == rollback ]] || fail "操作类型无效"
 [[ "$action" == rollback || "$digest" =~ ^[a-f0-9]{64}$ ]] || fail "SHA-256 格式无效"
 [[ $(uname -s) == Linux ]] || fail "远端需要 Linux"
@@ -75,7 +76,9 @@ probe() {
         [[ "$mode" == public ]] || address=(--resolve "$domain:443:127.0.0.1")
         result=$(curl "${options[@]}" "${address[@]}" --fail "https://$domain/_release.txt?v=$expected") || return 1
         [[ "$result" == "$expected" ]] || { echo "$mode 返回的版本号不匹配" >&2; return 1; }
-        for route in / /en/ /zh-tw/ /guide/ /en/guide/ /zh-tw/guide/ /knowledge/decibel-chart/ /en/knowledge/decibel-chart/ /zh-tw/knowledge/decibel-chart/ /records/ /en/records/ /zh-tw/records/ /audio/pcm-recorder.js /vendor/lamejs/lamejs.js /robots.txt /sitemap.xml; do
+        local routes=(/ /guide/ /knowledge/decibel-chart/ /records/ /audio/pcm-recorder.js /vendor/lamejs/lamejs.js /robots.txt /sitemap.xml)
+        if [[ "$domain" == fenbeiceshi.com ]]; then routes+=(/zh-tw/ /zh-tw/guide/ /zh-tw/knowledge/decibel-chart/ /zh-tw/records/); fi
+        for route in "${routes[@]}"; do
             result=$(curl "${options[@]}" "${address[@]}" --dump-header - --output /dev/null --write-out '%{http_code}' "https://$domain$route") || return 1
             code=${result##*$'\n'}
             [[ "$code" == 200 ]] || { echo "$mode 页面检查失败：$route HTTP $code" >&2; return 1; }
@@ -87,6 +90,14 @@ probe() {
                 fi
             fi
         done
+        if [[ "$domain" == fenbeiceshi.com ]]; then
+            for route in /en/ /en/guide/ /en/records/; do
+                result=$(curl "${options[@]}" "${address[@]}" --dump-header - --output /dev/null --write-out '%{http_code}' "https://$domain$route?migration=1") || return 1
+                code=${result##*$'\n'}
+                [[ "$code" == 301 ]] || { echo "$mode 旧英文地址未返回 301：$route" >&2; return 1; }
+                tr -d '\r' <<< "$result" | grep -Fiqx "Location: https://soundmetergo.com${route#/en}?migration=1" || { echo "$mode 旧英文目标错误：$route" >&2; return 1; }
+            done
+        fi
         while IFS= read -r asset; do
             valid_asset "$asset" || { echo "$mode 资源路径无效" >&2; return 1; }
             result=$(curl "${options[@]}" "${address[@]}" --output /dev/null --write-out '%{http_code} %{content_type}' "https://$domain$asset") || return 1
@@ -157,7 +168,10 @@ if [[ "$action" == deploy ]]; then
     created=1
     tar -xzf "$archive" --no-same-owner --no-same-permissions -C "$target"
     valid_target "$target" || fail "构建版本标记无效"
-    for file in index.html en/index.html zh-tw/index.html 404.html guide/index.html en/guide/index.html zh-tw/guide/index.html knowledge/decibel-chart/index.html en/knowledge/decibel-chart/index.html zh-tw/knowledge/decibel-chart/index.html records/index.html en/records/index.html zh-tw/records/index.html audio/pcm-recorder.js vendor/lamejs/lamejs.js vendor/lamejs/COPYING.LESSER.txt robots.txt sitemap.xml _release-assets.txt; do
+    [[ -s "$target/_site.txt" && $(cat "$target/_site.txt") == "$domain" ]] || fail "构建域名与发布目标不一致"
+    files=(index.html 404.html guide/index.html knowledge/decibel-chart/index.html records/index.html audio/pcm-recorder.js vendor/lamejs/lamejs.js vendor/lamejs/COPYING.LESSER.txt robots.txt sitemap.xml _release-assets.txt)
+    if [[ "$domain" == fenbeiceshi.com ]]; then files+=(zh-tw/index.html zh-tw/guide/index.html zh-tw/knowledge/decibel-chart/index.html zh-tw/records/index.html); fi
+    for file in "${files[@]}"; do
         [[ -s "$target/$file" ]] || fail "构建缺少有效文件：$file"
     done
     find "$target" -type d -exec chmod 755 {} +

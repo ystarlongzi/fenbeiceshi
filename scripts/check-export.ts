@@ -1,8 +1,9 @@
+import { activeSite, siteLocales } from "../src/lib/routing/sites.ts";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { runInNewContext } from "node:vm";
-import { contents, href, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
+import { contents, href, canonicalHref, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
 import { checkHomeKnowledge, checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
 import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
@@ -35,9 +36,9 @@ import { localize } from "../src/lib/i18n/text.ts";
 const htmlByPath = new Map<string, string>();
 const titles = new Set<string>();
 for (const page of sitePages) {
-  for (const locale of locales) {
+  for (const locale of siteLocales) {
     const path = href(page.id, locale);
-    const html = await readFile(resolve("out", path.slice(1), "index.html"), "utf8");
+    const html = await readFile(resolve(activeSite.output, path.slice(1), "index.html"), "utf8");
     htmlByPath.set(path, html);
     assert.doesNotMatch(html, /github\.com|\bgithub\b/i, `产品页面不得暴露 GitHub 信息：${path}`);
     assert.match(html, new RegExp(`<html[^>]*lang="${locale}"`), path);
@@ -65,7 +66,7 @@ for (const page of sitePages) {
           },
         },
       });
-      const target = saved ?? "zh-TW";
+      const target = saved === "zh-CN" || saved === "zh-TW" ? saved : "zh-TW";
       assert.deepEqual(
         redirects,
         locale === "zh-CN" && target !== locale
@@ -275,10 +276,20 @@ for (const page of sitePages) {
       html.includes(`property="og:locale" content="${localeSettings[locale].openGraph}"`),
       path,
     );
-    for (const alternate of locales)
+    const alternates = [
+      ...html.matchAll(/<link\b[^>]*rel="alternate"[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/gi),
+    ];
+    for (const alternate of [...locales, "x-default"])
       assert.ok(
-        html.includes(`hrefLang="${alternate}" href="${SITE_URL + href(page.id, alternate)}"`) ||
-          html.includes(`hreflang="${alternate}" href="${SITE_URL + href(page.id, alternate)}"`),
+        alternates.some(
+          (match) =>
+            match[1] === alternate &&
+            new URL(match[2]).href ===
+              canonicalHref(
+                page.id,
+                alternate === "x-default" ? "en" : (alternate as (typeof locales)[number]),
+              ),
+        ),
         `缺少语言对应：${path}`,
       );
     const content = contents.find((item) => item.id === page.id);
@@ -642,14 +653,18 @@ for (const [path, html] of htmlByPath) {
     links += 1;
   }
 }
-const sitemap = await readFile("out/sitemap.xml", "utf8");
+const sitemap = await readFile(activeSite.output + "/sitemap.xml", "utf8");
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]).sort();
 const expected = sitePages
   .filter((page) => page.index)
-  .flatMap((page) => locales.map((locale) => SITE_URL + href(page.id, locale)))
+  .flatMap((page) => siteLocales.map((locale) => canonicalHref(page.id, locale)))
   .sort();
 assert.deepEqual(urls, expected);
-assert.match(await readFile("out/404.html", "utf8"), /noindex/);
+assert.match(await readFile(activeSite.output + "/404.html", "utf8"), /noindex/);
+assert.equal((await readFile(activeSite.output + "/_site.txt", "utf8")).trim(), activeSite.domain);
+await assert.rejects(readFile(activeSite.output + "/en/index.html"), { code: "ENOENT" });
+if (activeSite.primaryLocale === "en")
+  await assert.rejects(readFile(activeSite.output + "/zh-tw/index.html"), { code: "ENOENT" });
 console.log(
   `静态产物检查通过：${htmlByPath.size} 个页面，${urls.length} 个 sitemap URL，${links} 条内部链接与锚点。`,
 );

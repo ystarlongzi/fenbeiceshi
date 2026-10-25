@@ -1,3 +1,5 @@
+import { siteForLocale } from "../routing/sites.ts";
+
 export const locales = ["zh-CN", "zh-TW", "en"] as const;
 export type Locale = (typeof locales)[number];
 
@@ -15,7 +17,7 @@ export const localeSettings = {
     date: "zh-TW",
   },
   en: {
-    prefix: "/en",
+    prefix: "",
     label: "English",
     openGraph: "en_US",
     date: "en-GB",
@@ -26,12 +28,18 @@ export function localePrefix(locale: Locale) {
   return localeSettings[locale].prefix;
 }
 
-export function languageHref(pathname: string, target: Locale, available: readonly string[]) {
-  const prefix = locales
-    .map(localePrefix)
-    .find((value) => value && (pathname === value || pathname.startsWith(`${value}/`)));
-  const base = (prefix ? pathname.slice(prefix.length) : pathname) || "/";
+export function languageHref(
+  pathname: string,
+  target: Locale,
+  available: readonly string[],
+  current: Locale,
+) {
+  const prefix = localePrefix(current);
+  const hasPrefix = prefix && (pathname === prefix || pathname.startsWith(`${prefix}/`));
+  const base = (hasPrefix ? pathname.slice(prefix.length) : pathname) || "/";
   const normalized = base.endsWith("/") ? base : `${base}/`;
+  const origin = siteForLocale(target).origin;
   const path = `${localePrefix(target)}${normalized}`;
-  return available.includes(path) ? path : `${localePrefix(target)}/`;
+  const destination = available.includes(normalized) ? path : `${localePrefix(target)}/`;
+  return siteForLocale(current).origin === origin ? destination : origin + destination;
 }

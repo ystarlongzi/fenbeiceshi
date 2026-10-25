@@ -3,6 +3,11 @@ name: 回滚分贝测试
 on:
   workflow_dispatch:
     inputs:
+      site:
+        description: 需要回滚的站点
+        type: choice
+        options: [fenbeiceshi, soundmetergo]
+        default: fenbeiceshi
       release:
         description: 服务器保留的成功发布版本号
         type: string
@@ -28,8 +33,8 @@ jobs:
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USER: ${{ secrets.SSH_USER }}
       SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
-      DEPLOY_PATH: ${{ vars.DEPLOY_PATH || '/www/wwwroot/fenbeiceshi' }}
-      DOMAIN: fenbeiceshi.com
+      DEPLOY_PATH: ${{ inputs.site == 'soundmetergo' && (vars.SOUNDMETERGO_DEPLOY_PATH || '/www/wwwroot/soundmetergo') || (vars.DEPLOY_PATH || '/www/wwwroot/fenbeiceshi') }}
+      DOMAIN: ${{ inputs.site == 'soundmetergo' && 'soundmetergo.com' || 'fenbeiceshi.com' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7，固定官方提交
         with:

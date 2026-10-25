@@ -1,20 +1,26 @@
 import { languageHref, locales, localeSettings, type Locale } from "./locales.ts";
+import { siteForLocale } from "../routing/sites.ts";
 
 export const LANGUAGE_KEY = "fenbeiceshi:language:v1";
 export const LANGUAGE_ONCE_PARAM = "language";
 const LANGUAGE_EVENT = "fenbeiceshi:language-preference";
 
-export function browserLanguage(languages: readonly string[]): Locale {
+export function browserLanguage(
+  languages: readonly string[],
+  supported: readonly Locale[] = locales,
+): Locale {
   for (const language of languages) {
     const parts = language.trim().toLowerCase().replaceAll("_", "-").split("-");
-    if (parts[0] === "en") return "en";
+    if (parts[0] === "en" && supported.includes("en")) return "en";
     if (parts[0] !== "zh") continue;
-    if (parts.includes("hans")) return "zh-CN";
-    if (parts.includes("hant") || parts.some((part) => ["tw", "hk", "mo"].includes(part)))
-      return "zh-TW";
-    return "zh-CN";
+    const target = parts.includes("hans")
+      ? "zh-CN"
+      : parts.includes("hant") || parts.some((part) => ["tw", "hk", "mo"].includes(part))
+        ? "zh-TW"
+        : "zh-CN";
+    if (supported.includes(target)) return target;
   }
-  return "zh-CN";
+  return supported[0] ?? "zh-CN";
 }
 
 export function setLanguagePreference(locale: Locale): Error | null {
@@ -49,13 +55,15 @@ export function languageSelectionHref(
   target: Locale,
   available: readonly string[],
   persistent: boolean,
+  current: Locale,
 ) {
   const params = new URLSearchParams(location.search);
   params.delete(LANGUAGE_ONCE_PARAM);
-  // 存储被禁用时，将本次选择留在链接中，避免简体页面再次被自动识别覆盖。
-  if (!persistent) params.set(LANGUAGE_ONCE_PARAM, target);
+  // 跨域时把手动选择交给目标域保存；存储被禁用时也用此参数避免自动选择覆盖。
+  if (!persistent || siteForLocale(current).origin !== siteForLocale(target).origin)
+    params.set(LANGUAGE_ONCE_PARAM, target);
   const query = params.toString();
-  return `${languageHref(location.pathname, target, available)}${query ? `?${query}` : ""}${location.hash}`;
+  return `${languageHref(location.pathname, target, available, current)}${query ? `?${query}` : ""}${location.hash}`;
 }
 
 export function languageBootstrap(locale: Locale, available: readonly string[]) {
@@ -63,7 +71,7 @@ export function languageBootstrap(locale: Locale, available: readonly string[]) 
   return `(() => {
     const root = document.documentElement;
     const current = ${encode(locale)};
-    const languages = ${encode(locales)};
+    const languages = ${encode(siteForLocale(locale).locales)};
     const paths = ${encode(available)};
     const prefixes = ${encode(Object.fromEntries(locales.map((language) => [language, localeSettings[language].prefix])))};
     const detect = ${browserLanguage.toString()};
@@ -76,19 +84,22 @@ export function languageBootstrap(locale: Locale, available: readonly string[]) 
     }
     const params = new URLSearchParams(window.location.search);
     if (params.get(${encode(LANGUAGE_ONCE_PARAM)}) === current) {
-      root.dataset.languagePersistence = "unavailable";
+      try {
+        window.localStorage.setItem(${encode(LANGUAGE_KEY)}, current);
+      } catch {
+        root.dataset.languagePersistence = "unavailable";
+      }
       return;
     }
-    if (current !== "zh-CN") return;
+    if (languages.length === 1 || current !== "zh-CN") return;
     const pathname = window.location.pathname;
     const path = pathname.endsWith("/") ? pathname : pathname + "/";
     if (!paths.includes(path)) return;
     const requested = navigator.languages && navigator.languages.length
       ? navigator.languages : [navigator.language || ""];
-    const target = languages.includes(saved) ? saved : detect(requested);
+    const target = languages.includes(saved) ? saved : detect(requested, languages);
     if (target === current) return;
-    const translated = prefixes[target] + path;
-    const destination = paths.includes(translated) ? translated : prefixes[target] + "/";
+    const destination = prefixes[target] + path;
     params.delete(${encode(LANGUAGE_ONCE_PARAM)});
     const query = params.toString();
     window.location.replace(destination + (query ? "?" + query : "") + window.location.hash);

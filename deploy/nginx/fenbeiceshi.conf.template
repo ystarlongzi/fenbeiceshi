@@ -1,9 +1,11 @@
 # 生产站点模板：初始化脚本替换 __DOMAIN__、__DEPLOY_PATH__、__CERT_ROOT__。
 # 放入主配置 http 块已加载的目录，不单独作为完整 nginx.conf 使用。
+__REDIRECT_MAP__
 server {
     listen 80;
     listen [::]:80;
     server_name __DOMAIN__ www.__DOMAIN__;
+    __REDIRECT_RULE__
     return 301 https://__DOMAIN__$request_uri;
 }
 
@@ -11,6 +13,7 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
     server_name www.__DOMAIN__;
+    __REDIRECT_RULE__
     ssl_certificate __CERT_ROOT__/__DOMAIN__/fullchain.cer;
     ssl_certificate_key __CERT_ROOT__/__DOMAIN__/__DOMAIN__.key;
     ssl_protocols TLSv1.2 TLSv1.3;
@@ -21,6 +24,7 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
     server_name __DOMAIN__;
+    __REDIRECT_RULE__
     # 发布只切换 current 指向的版本，无需每次 reload Nginx。
     root __DEPLOY_PATH__/current;
     index index.html;
@@ -29,11 +33,11 @@ server {
     ssl_certificate __CERT_ROOT__/__DOMAIN__/fullchain.cer;
     ssl_certificate_key __CERT_ROOT__/__DOMAIN__/__DOMAIN__.key;
     ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_session_cache shared:fenbeiceshi_ssl:10m;
+    ssl_session_cache shared:__SITE_KEY___ssl:10m;
     ssl_session_timeout 1d;
 
-    access_log /var/log/nginx/fenbeiceshi.access.log;
-    error_log /var/log/nginx/fenbeiceshi.error.log warn;
+    access_log /var/log/nginx/__SITE_KEY__.access.log;
+    error_log /var/log/nginx/__SITE_KEY__.error.log warn;
     add_header X-Content-Type-Options "nosniff" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
     add_header Permissions-Policy "camera=(), microphone=(self), geolocation=()" always;

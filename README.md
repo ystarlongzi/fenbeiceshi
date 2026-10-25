@@ -1,8 +1,8 @@
-# 分贝测试 · fenbeiceshi.com
+# 分贝测试 / SoundMeterGo
 
-面向桌面和手机浏览器的环境声音观察工具，提供简体中文、繁体中文与英文。使用 Next.js 构建静态页面，由 Nginx 提供文件；麦克风采集、音频处理、录音与记录存储均在用户浏览器中完成。
+面向桌面和手机浏览器的分贝与环境噪音测试工具，提供简体中文、繁体中文与英文。使用 Next.js 构建静态页面，由 Nginx 提供文件；麦克风采集、音频处理、录音与记录存储均在用户浏览器中完成。
 
-线上地址：[fenbeiceshi.com](https://fenbeiceshi.com/)。
+线上地址：简体／繁体 [fenbeiceshi.com](https://fenbeiceshi.com/)，英文 [SoundMeterGo](https://soundmetergo.com/)。沿用同一套产品与代码，其他语言后续增加。
 
 ## 功能与读数
 
@@ -23,7 +23,7 @@ npm ci
 npm run dev
 ```
 
-打开 `http://127.0.0.1:31031`，点击开始才请求麦克风。`/` 为简体中文，`/zh-tw/` 为繁体中文，`/en/` 为英文。首次访问无语言前缀的页面会按手动偏好、浏览器语言、简体默认的顺序选择语言；明确语言链接优先保留指定语言。主题支持跟随系统、深色和浅色。
+打开 `http://127.0.0.1:31031`，点击开始才请求麦克风。默认中文目标的 `/` 为简体、`/zh-tw/` 为繁体；英文目标使用 `NEXT_PUBLIC_SITE_TARGET=soundmetergo npm run dev -- --port 31032`，英文在根路径。中文域只在简繁之间自动选择，英文域保持英文，不自动跨域；手动语言切换进入另一域的同主题。主题支持跟随系统、深色和浅色。
 
 ## 检查与静态预览
 
@@ -32,21 +32,21 @@ npm run check
 npm run preview
 ```
 
-`check` 顺序执行格式、ESLint、strict 类型、应用测试、部署测试、内容检查、构建及静态产物检查，生成 `out/`。格式及静态检查不自动改写文件，lint 警告阻断。
+`check` 顺序执行格式、ESLint、strict 类型、应用测试、部署测试、内容检查、构建及静态产物检查，生成中文 `out/` 与英文 `out-soundmetergo/`，两者分别校验 `_site.txt` 域名标记。格式及静态检查不自动改写文件，lint 警告阻断。
 
-预览默认监听 `127.0.0.1:31031`；不要与 dev 同时占用端口，可通过 `FENBEI_PREVIEW_PORT` 指定其他端口。更换端口会改变浏览器存储来源，记录与偏好不会自动迁移。
+预览默认监听 `127.0.0.1:31031`；不要与 dev 同时占用端口，可通过 `FENBEI_PREVIEW_PORT` 指定其他端口。英文预览为 `NEXT_PUBLIC_SITE_TARGET=soundmetergo npm run preview`，默认 31032。更换端口或域名会改变浏览器存储来源，记录与偏好不会自动迁移；英文记录页保留旧中文域取回入口。
 
-部署测试另有真实 Linux/Nginx/TLS 演练，容器执行方法见 [服务器部署](./docs/部署/服务器部署.md#6-linux-集成测试)。普通 `check` 中的三个 Linux 用例默认跳过，由独立集成入口验证。
+部署测试另有真实 Linux/Nginx/TLS 演练，容器执行方法见 [服务器部署](./docs/部署/服务器部署.md#6-linux-集成测试)。普通 `check` 中的四个 Linux 用例默认跳过，由独立集成入口验证。
 
 ## 生产部署与回滚
 
-首次上线先按 [服务器部署](./docs/部署/服务器部署.md) 配置 GitHub 的 `production` 环境、SSH Secrets、本站 Cloudflare Token、域名及证书。本站默认根目录为 `/www/wwwroot/fenbeiceshi`。
+首次上线先按 [服务器部署](./docs/部署/服务器部署.md) 配置 GitHub 的 `production` 环境、SSH Secrets、本站 Cloudflare Token、域名及证书。两站默认根目录分别为 `/www/wwwroot/fenbeiceshi` 和 `/www/wwwroot/soundmetergo`；英文首次初始化使用独立证书、DNS 凭据和 Nginx 配置。
 
-| 工作流                                               | 触发与行为                                                                      |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [项目检查](./.github/workflows/check.yml)            | Pull Request、非 main 推送或手动运行，执行完整检查及必要的 Linux 演练           |
-| [构建并部署分贝测试](./.github/workflows/deploy.yml) | main 推送或手动运行，同一 job 检查、构建、打包并经 SSH 发布；首次手动勾选初始化 |
-| [回滚分贝测试](./.github/workflows/rollback.yml)     | 在 main 手动填写服务器保留的成功版本号，执行回滚与健康检查                      |
+| 工作流                                               | 触发与行为                                                                                 |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [项目检查](./.github/workflows/check.yml)            | Pull Request、非 main 推送或手动运行，执行完整检查及必要的 Linux 演练                      |
+| [构建并部署分贝测试](./.github/workflows/deploy.yml) | main 推送或手动运行，同一 job 检查、构建并打包两站，先英文、后中文与 301；首次需分别初始化 |
+| [回滚分贝测试](./.github/workflows/rollback.yml)     | 在 main 选择站点并填写该站保留的成功版本号，执行回滚与健康检查                             |
 
 服务器无需常驻 Node 服务。发布使用 SHA-256 校验、文件锁、版本目录与 current 原子切换；健康检查失败自动恢复旧版。保留当前加最多两个回滚版本，旧哈希资源有七天缓冲。构建包在同一个 runner 直接通过 SSH 传输，不上传 GitHub Artifacts。
 

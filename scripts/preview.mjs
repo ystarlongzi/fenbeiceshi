@@ -1,9 +1,11 @@
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { resolve, sep, extname } from "node:path";
+import { activeSite, siteId } from "../src/lib/routing/sites.ts";
+import { legacyEnglishRedirect } from "../src/lib/routing/redirects.ts";
 
-const root = resolve("out");
-const port = Number(process.env.FENBEI_PREVIEW_PORT || 31031);
+const root = resolve(activeSite.output);
+const port = Number(process.env.FENBEI_PREVIEW_PORT || (siteId === "soundmetergo" ? 31032 : 31031));
 if (!Number.isInteger(port) || port < 1024 || port > 65535)
   throw new Error("预览端口必须在 1024–65535 范围内。");
 await stat(resolve(root, "index.html")).catch(() => {
@@ -40,6 +42,13 @@ const server = createServer(async (request, response) => {
     return;
   }
   let path = resolve(root, `.${pathname}`);
+  const redirect = siteId === "fenbeiceshi" ? legacyEnglishRedirect(pathname) : null;
+  if (redirect) {
+    const query = new URL(request.url || "/", "http://localhost").search;
+    response.writeHead(301, { Location: redirect + query });
+    response.end();
+    return;
+  }
   if (path !== root && !path.startsWith(root + sep)) {
     response.writeHead(403);
     response.end();

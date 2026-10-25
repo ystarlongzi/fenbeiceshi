@@ -5,7 +5,12 @@ import { projectRoot, run } from "../lib.mjs";
 async function main() {
   if (process.platform !== "linux" || process.getuid?.() !== 0)
     throw new Error("集成测试需要临时 Linux 环境中的 root 权限；请使用 GitHub Actions 检查");
-  for (const domain of ["fenbeiceshi.com", "www.fenbeiceshi.com"]) {
+  for (const domain of [
+    "fenbeiceshi.com",
+    "www.fenbeiceshi.com",
+    "soundmetergo.com",
+    "www.soundmetergo.com",
+  ]) {
     const addresses = await lookup(domain, { all: true });
     if (!addresses.length || addresses.some(({ address }) => address !== "127.0.0.1"))
       throw new Error(`测试域名 ${domain} 必须仅解析到 127.0.0.1，不能访问生产站点`);

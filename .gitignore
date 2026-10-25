@@ -1,6 +1,7 @@
 node_modules/
 .next/
 out/
+out-soundmetergo/
 coverage/
 artifacts/
 deploy/*.local

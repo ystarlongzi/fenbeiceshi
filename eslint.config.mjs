@@ -8,6 +8,7 @@ export default defineConfig([
   globalIgnores([
     ".next/**",
     "out/**",
+    "out-soundmetergo/**",
     "node_modules/**",
     "coverage/**",
     "artifacts/**",

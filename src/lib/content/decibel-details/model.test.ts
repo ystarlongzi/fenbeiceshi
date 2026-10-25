@@ -4,7 +4,7 @@ import { soundReferences, soundSources } from "../sound-references.ts";
 import { referenceRange } from "../sound-reference-format.ts";
 import { text } from "../types.ts";
 import { locales } from "../../i18n/locales.ts";
-import { href, findPage } from "../../routing/pages.ts";
+import { href, canonicalHref, findPage } from "../../routing/pages.ts";
 import { breadcrumbData, pageMetadata } from "../../seo/metadata.ts";
 import { detailForLevel, detailForSound, soundDetails } from "./index.ts";
 import { levelComparisons } from "./comparison.ts";
@@ -146,11 +146,11 @@ test("详情三语路径、自 canonical 和面包屑对应真实父页", () => 
       assert.ok(path.endsWith(`/decibel-chart/${content.slug.split("/").at(-1)}/`));
       assert.equal(
         pageMetadata(content.id, locale).alternates?.canonical,
-        `https://fenbeiceshi.com${path}`,
+        canonicalHref(content.id, locale),
       );
       const crumbs = breadcrumbData(content.id, locale).itemListElement;
-      assert.equal(crumbs.at(-2)?.item, `https://fenbeiceshi.com${href("decibel-chart", locale)}`);
-      assert.equal(crumbs.at(-1)?.item, `https://fenbeiceshi.com${path}`);
+      assert.equal(crumbs.at(-2)?.item, canonicalHref("decibel-chart", locale));
+      assert.equal(crumbs.at(-1)?.item, canonicalHref(content.id, locale));
     }
 });
 
