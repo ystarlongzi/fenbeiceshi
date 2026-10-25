@@ -9,7 +9,7 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
       "Everyday speech is a familiar reference for this range. Distance, number of speakers and room background can change readings within one conversation.",
       "日常說話是理解這組量級的直接參照。說話距離、人數和房間背景變化，同一次交談也會有不同讀數。",
     ),
-    topic: t("正常交谈与说话距离", "Conversation and speaking distance", "一般交談與說話距離"),
+    topic: t("正常交谈声", "Normal conversation", "一般交談聲"),
     answer: t(
       "NIDCD 把正常交谈列为 60–70 dBA。这里保留完整范围与 A 计权单位，不能把所有人的正常说话都固定为 60 或 70。",
       "NIDCD lists normal conversation at 60–70 dBA. The full range and A-weighted unit matter; normal speech is not a fixed 60 or 70 for every person.",
@@ -51,7 +51,7 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
       "Think of the overall sound in a busy restaurant. Occupancy, measurement position and room acoustics all belong in the comparison.",
       "可以用較熱鬧餐廳裡的整體環境聲理解這組範圍。來客數、量測位置與室內聲學條件需要放在一起看。",
     ),
-    topic: t("餐厅人声与环境背景", "Restaurant voices and background sound", "餐廳人聲與環境背景"),
+    topic: t("餐厅里的声音", "Restaurant noise", "餐廳裡的聲音"),
     answer: t(
       "65–75 dB 来自 EPA 1979 年资料的餐厅示例。它描述特定资料中的环境范围，不是所有餐厅的现行评级，也不保证在这个范围内一定适合交谈。",
       "The 65–75 dB restaurant example comes from a 1979 EPA publication. It is an environmental reference, not a current rating for every restaurant or a guarantee of easy conversation within that range.",
@@ -94,11 +94,7 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
       "This is a roadside traffic reference, where distance is important. Hearing traffic by the road differs from hearing it inside a car.",
       "這是道路旁車流聲的參考，距離是重要條件。路邊觀察和坐在車內，聽到的聲音並不是同一回事。",
     ),
-    topic: t(
-      "高速公路车流与道路距离",
-      "Freeway traffic and distance from the road",
-      "高速公路車流與道路距離",
-    ),
+    topic: t("高速公路车流声", "Highway traffic noise", "高速公路車流聲"),
     answer: t(
       "70–75 dB 是 EPA 1979 年资料中距高速公路正常车流 50 英尺、约 15 米的参考。它不是路边任何距离的通用值，也不是车内或关窗后的室内读数。",
       "The 70–75 dB reference is from a 1979 EPA example of normal freeway traffic at 50 feet, about 15 metres. It does not apply at every roadside distance or describe inside a car or a room with closed windows.",
@@ -140,11 +136,7 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
       "Motorcycle or dirt-bike sound changes with engine load and passing distance. Read this broad range alongside the vehicle’s operating state.",
       "摩托車或越野車的聲音會隨負載和經過距離改變。這個較寬的範圍，更適合連同車輛狀態一起理解。",
     ),
-    topic: t(
-      "摩托车、越野车与经过条件",
-      "Motorcycles, dirt bikes and passing conditions",
-      "機車、越野車與經過條件",
-    ),
+    topic: t("摩托车与越野车噪音", "Motorcycles and dirt bikes", "機車與越野車噪音"),
     answer: t(
       "NIDCD 给出的摩托车和越野车示例为 80–110 dBA。范围较宽，不能把其中任一端点当成所有车型、转速或距离下的固定声音。",
       "NIDCD gives 80–110 dBA for motorcycles and dirt bikes. This broad range does not make either endpoint a fixed level for every model, engine speed or distance.",
@@ -186,11 +178,7 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
       "This reference concerns sound inside a car in heavy traffic. Record position, window state and surrounding traffic as part of the observation.",
       "可以用繁忙交通中的車內聲音理解這個參考。車內位置、車窗狀態和外部車流，都應作為觀察條件記錄。",
     ),
-    topic: t(
-      "繁忙交通中的车内声与职业参考",
-      "In-car traffic sound and occupational references",
-      "繁忙交通中的車內聲與職業參考",
-    ),
+    topic: t("繁忙路段的车内声音", "Inside a car in heavy traffic", "繁忙路段的車內聲音"),
     answer: t(
       "WHO 把繁忙交通中的车内声音列为约 85 dB。这是车内场景示例，既不是道路边的统一读数，也不能直接当成 NIOSH 的 85 dBA 职业暴露指标。",
       "WHO lists heavy traffic inside a car at about 85 dB. This is an in-car example, not a universal roadside reading or an automatic equivalent of NIOSH's 85 dBA occupational exposure metric.",
@@ -233,11 +221,7 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
       "A car horn is a prominent short sound. This reference specifies five metres; changing distance means the same number cannot simply be carried over.",
       "汽車喇叭是突出的短時聲音。這條參考帶有五公尺測距，距離改變後，不能沿用同一個數值。",
     ),
-    topic: t(
-      "汽车喇叭与五米测距条件",
-      "Car horns and the five-metre reference",
-      "汽車喇叭與五公尺測距條件",
-    ),
+    topic: t("汽车喇叭声", "Car horns", "汽車喇叭聲"),
     answer: t(
       "WHO 的汽车喇叭示例为 105 dB，并明确写出距喇叭 5 米。距离是这条参考的一部分，不能省去后当成贴近喇叭或车内的读数。",
       "WHO's car-horn example is 105 dB at five metres. Distance is part of the reference; omitting it would incorrectly turn the example into a close-up or in-car reading.",
@@ -279,7 +263,7 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
       "A siren changes as it approaches, passes and moves away. The maximum from one pass does not describe the whole observation period.",
       "警笛接近、經過和遠離時，聲音會明顯變化。一次經過的最高讀數，不代表整段時間的環境聲。",
     ),
-    topic: t("警笛经过与短时强声", "Passing sirens and brief loud events", "警笛經過與短時強聲"),
+    topic: t("警笛声", "Sirens", "警笛聲"),
     answer: t(
       "NIDCD 的警笛示例为 110–129 dBA。声源接近、经过和远离时，观察条件持续改变，这个范围不是所有警笛或所有距离下的固定读数。",
       "NIDCD gives a siren example of 110–129 dBA. Conditions change as the source approaches, passes and recedes; the range is not a fixed reading for every siren or distance.",

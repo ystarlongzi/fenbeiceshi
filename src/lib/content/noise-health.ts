@@ -164,12 +164,16 @@ export const noiseHealth: SiteContent = {
   id: "noise-health",
   slug: "knowledge/noise-and-health",
   kind: "article",
-  updated: "2026-10-21",
-  title: t("噪音对健康的影响", "Noise and health", "噪音對健康的影響"),
+  updated: "2026-10-25",
+  title: t(
+    "噪音会影响健康吗？听力、睡眠与专注",
+    "Noise and Health: Hearing, Sleep and Focus",
+    "噪音會影響健康嗎？聽力、睡眠與專注",
+  ),
   description: t(
-    "分清强声对听力的影响与日常噪音干扰，理解暴露时长、研究语境和 NIOSH 职业参考，了解减少噪音与寻求专业帮助的下一步。",
-    "Understand hearing effects, everyday disturbance and exposure context. Learn what the NIOSH occupational reference means and how to reduce noise or seek further help.",
-    "分清強聲對聽力的影響與日常噪音干擾，理解暴露時長、研究語境和 NIOSH 職業參考，瞭解減少噪音與尋求專業幫助的下一步。",
+    "噪音会怎样影响听力、睡眠和专注？了解声音大小与持续时间为什么都重要，查看六项健康影响、日常减少噪音的方法，以及 NIOSH 职业暴露时长参考，找到适合自己的下一步。",
+    "How does noise affect hearing, sleep and focus? Explore six health effects, practical ways to reduce noise and the NIOSH workplace exposure reference, with its conditions clearly explained.",
+    "噪音會怎樣影響聽力、睡眠和專注？瞭解聲音大小與持續時間為什麼都重要，查看六項健康影響、日常減少噪音的方法，以及 NIOSH 職業暴露時長參考，找到適合自己的下一步。",
   ),
   takeaway: t(
     "声音越响，越需要缩短暴露；健康影响还与时段、活动和个人情况有关。单次网页读数不能判断个人健康风险。",

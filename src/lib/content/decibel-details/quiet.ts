@@ -9,7 +9,7 @@ export const quietDetails: SoundDetailDefinition[] = [
       "A very faint sound, illustrated by normal breathing. You need a very quiet background to notice sounds at this level.",
       "非常輕的聲音，可以用正常呼吸來理解。需要很安靜的背景，才容易注意到這個等級的聲音。",
     ),
-    topic: t("呼吸声与极轻背景声", "Breathing and very quiet backgrounds", "呼吸聲與極輕背景聲"),
+    topic: t("呼吸声与安静环境", "Breathing sounds", "呼吸聲與安靜環境"),
     answer: t(
       "WHO 把正常呼吸列为约 10 dB 的声音示例。它帮助理解很轻的声音，不代表所有呼吸、所有房间或手机都能测到这个值。",
       "WHO lists normal breathing as an example at about 10 dB. This illustrates a very faint sound; it is not a fixed level for every breath or room, or a promise that a phone can measure it.",
@@ -47,11 +47,7 @@ export const quietDetails: SoundDetailDefinition[] = [
       "Think of a faint natural background, such as rustling leaves. Wind and observation position change what you hear.",
       "細小的自然背景聲，可以用樹葉沙沙聲建立印象。風況和觀察位置變化，聽到的聲音也會變化。",
     ),
-    topic: t(
-      "树叶声与安静户外环境",
-      "Rustling leaves and quiet outdoor settings",
-      "樹葉聲與安靜戶外環境",
-    ),
+    topic: t("树叶沙沙声", "Rustling leaves", "樹葉沙沙聲"),
     answer: t(
       "NPS 把峡谷地国家公园的树叶沙沙声列为 20 dBA 的示例。这是带地点条件的自然声音参考，原文单位是 dBA，并非所有树叶声的固定值。",
       "NPS gives rustling leaves in Canyonlands National Park as a 20 dBA example. This is a location-specific reference in dBA, not a fixed rating for all rustling leaves.",
@@ -94,7 +90,7 @@ export const quietDetails: SoundDetailDefinition[] = [
       "A level illustrated by soft whispering. It describes a particular sound, rather than how quiet an entire room is.",
       "接近輕聲耳語的量級。它是某個聲源的參考，不能直接代表整間房間都同樣安靜。",
     ),
-    topic: t("轻声耳语与安静房间", "Whispers and quiet rooms", "輕聲耳語與安靜房間"),
+    topic: t("轻声说话与安静房间", "Whispers and quiet rooms", "輕聲說話與安靜房間"),
     answer: t(
       "WHO 把轻声耳语列为约 30 dB。耳语靠近耳边、隔着一段距离或处在不同背景中，并不会始终对应同一个读数。",
       "WHO lists soft whispering at about 30 dB. A whisper beside an ear, across a room or against a different background will not always produce the same reading.",
@@ -137,7 +133,7 @@ export const quietDetails: SoundDetailDefinition[] = [
       "A library and a humming refrigerator both help illustrate this level. One is a setting and the other an appliance; distance and background still matter.",
       "圖書館和冰箱運轉都可以幫助理解這個量級。一個是環境背景，一個是電器聲音，聽感仍與距離和周圍聲音有關。",
     ),
-    topic: t("图书馆与冰箱运转声", "Libraries and refrigerator hum", "圖書館與冰箱運轉聲"),
+    topic: t("图书馆与冰箱噪音", "Libraries and fridge noise", "圖書館與冰箱噪音"),
     answer: t(
       "WHO 的图书馆示例和 CDC 的冰箱运转示例都约为 40 dB。它们说明一种较轻的声音量级，不表示两种声音的音色、持续方式或干扰感相同。",
       "WHO's library example and CDC's refrigerator example are both around 40 dB. They illustrate a relatively quiet level, without implying the same tone, timing or degree of disturbance.",

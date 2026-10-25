@@ -110,16 +110,16 @@ function buildContent(
     slug: `knowledge/decibel-chart/${key}-db`,
     parentId: "decibel-chart",
     kind: "article",
-    updated: "2026-10-22",
+    updated: "2026-10-25",
     title: t(
       `${range} 分贝有多大？${definition.topic.zh}`,
       `How loud is ${range} dB? ${definition.topic.en}`,
       `${range} 分貝有多大？${definition.topic.zhTW}`,
     ),
     description: t(
-      `用${definition.topic.zh}理解 ${range} 分贝，查看直观感受、常见声音、量级对比、听力建议、常见问题和资料来源。`,
-      `Understand ${range} dB through ${definition.topic.en.toLowerCase()}, with a clear overview, sound examples, comparisons, hearing guidance, questions and sources.`,
-      `用${definition.topic.zhTW}理解 ${range} 分貝，檢視直觀感受、常見聲音、量級對比、聽力建議、常見問題和資料來源。`,
+      `${range} 分贝听起来有多响？${definition.perception.zh}`,
+      `How loud is ${range} dB? ${definition.perception.en}`,
+      `${range} 分貝聽起來有多響？${definition.perception.zhTW}`,
     ),
     takeaway: definition.perception,
     sections: [

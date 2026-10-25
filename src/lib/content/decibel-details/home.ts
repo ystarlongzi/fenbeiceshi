@@ -9,7 +9,7 @@ export const homeDetails: SoundDetailDefinition[] = [
       "Think of everyday household background sound. Windows, ventilation and running appliances all contribute to what you hear in a room.",
       "可以用一般家庭的室內背景聲建立印象。門窗、通風和正在運轉的電器，會一起改變房間裡的聲音。",
     ),
-    topic: t("普通家庭背景声", "Everyday household background sound", "一般家庭背景聲"),
+    topic: t("普通家庭环境声", "Background noise at home", "一般家庭環境聲"),
     answer: t(
       "45–55 dB 来自 EPA 1979 年资料中的室内家庭环境示例。它可以帮助理解常见背景声，但不是当前住宅的标准限值，也不是每个家庭都应达到的范围。",
       "The 45–55 dB range comes from an indoor household example in a 1979 EPA publication. It helps describe background sound, but is neither a current residential limit nor a target every home should meet.",
@@ -51,11 +51,7 @@ export const homeDetails: SoundDetailDefinition[] = [
       "This range illustrates dishwasher operation. Filling, washing and draining are different stages, so match the programme and position before comparing.",
       "這是洗碗機運轉聲的參考範圍。進水、清洗和排水是不同階段，比較時要先對齊行程和觀察位置。",
     ),
-    topic: t(
-      "洗碗机的程序与运行声",
-      "Dishwasher programmes and operating sound",
-      "洗碗機的行程與運轉聲",
-    ),
+    topic: t("洗碗机噪音", "Dishwasher noise", "洗碗機噪音"),
     answer: t(
       "CDC 给出的洗碗机示例为 45–65 dB。范围覆盖不同设备及运行情形，不能把 45 当成所有型号的待机值，或把 65 当成统一的产品上限。",
       "CDC gives 45–65 dB as a dishwasher example. The range covers differing equipment and operation; it does not make 45 a universal idle level or 65 a product limit.",
@@ -98,11 +94,7 @@ export const homeDetails: SoundDetailDefinition[] = [
       "A dryer’s drum and airflow help put this reference in context. Record the load and programme when comparing two runs.",
       "可以用乾衣機的滾筒與風路運轉聲理解這組參考。比較兩次運轉時，負載和行程需要一起記錄。",
     ),
-    topic: t(
-      "干衣机的历史测距参考",
-      "A historical dryer reference and its distance",
-      "乾衣機的歷史測距參考",
-    ),
+    topic: t("干衣机噪音", "Clothes dryer noise", "乾衣機噪音"),
     answer: t(
       "51–66 dB 是 CDC/NIOSH 馆藏 1986 年工程教学资料 Table 2 的干衣机范围，测距为 0.9 米。它是历史教学参考，不是当前所有干衣机的性能范围。",
       "The 51–66 dB dryer range comes from Table 2 of a 1986 engineering teaching document in the CDC/NIOSH archive, at 0.9 metres. It is a historical reference, not a performance range for all current dryers.",
@@ -144,7 +136,7 @@ export const homeDetails: SoundDetailDefinition[] = [
       "This washing-machine range spans several level bands. Compare washing and spinning separately, with programme, load and installation in view.",
       "這組洗衣機參考跨越幾個量級。洗滌和脫水要分開比較，行程、負載與安裝狀態都很重要。",
     ),
-    topic: t("洗衣与脱水阶段的声音", "Washing and spin-cycle sound", "洗衣與脫水階段的聲音"),
+    topic: t("洗衣机与脱水噪音", "Washing machine and spin noise", "洗衣機與脫水噪音"),
     answer: t(
       "47–72 dB 是 1986 年工程教学资料中、在 0.9 米处给出的洗衣机范围。洗涤和脱水不是同一工况，这组历史值不能用来直接诊断今天某台机器是否故障。",
       "The 47–72 dB washing-machine range is from a 1986 teaching document at 0.9 metres. Washing and spinning are different operating conditions, and the historical values cannot diagnose a current machine.",
@@ -186,11 +178,7 @@ export const homeDetails: SoundDetailDefinition[] = [
       "This reference describes an electric shaver from a stated distance. It is an external sound example, rather than an ear-exposure reading during use.",
       "這是電動刮鬍刀在一定距離下的運轉聲參考。它可以描述外部聲音，卻不能直接代表貼近頭部使用時的耳部暴露。",
     ),
-    topic: t(
-      "电动剃须刀与贴耳使用条件",
-      "Electric shavers and near-ear use",
-      "電動刮鬍刀與貼耳使用條件",
-    ),
+    topic: t("电动剃须刀噪音", "Electric shaver noise", "電動刮鬍刀噪音"),
     answer: t(
       "47–69 dB 是 1986 年工程教学资料在 0.9 米处的电动剃须刀示例范围。这个距离下的环境参考，不能直接解释成贴近头部使用时的耳部暴露。",
       "The 47–69 dB electric-shaver example was reported at 0.9 metres in a 1986 teaching document. A reference at that distance cannot be treated as near-ear exposure during use.",
@@ -232,11 +220,7 @@ export const homeDetails: SoundDetailDefinition[] = [
       "A vacuum cleaner can stand out against a room’s background. The broad reference range needs to be read with setting, attachment and observation position.",
       "吸塵器的聲音在房間裡通常比較突出。這組範圍較寬，檔位、吸頭和觀察位置會改變比較結果。",
     ),
-    topic: t(
-      "吸尘器的档位与观察位置",
-      "Vacuum-cleaner settings and observation position",
-      "吸塵器的檔位與觀察位置",
-    ),
+    topic: t("吸尘器噪音", "Vacuum cleaner noise", "吸塵器噪音"),
     answer: t(
       "62–85 dB 来自 1986 年工程教学资料的吸尘器范围，测距为 0.9 米。这个跨度不表示每台机器都会从 62 升到 85，也不是所有现代型号的共同规格。",
       "The 62–85 dB vacuum-cleaner range comes from a 1986 teaching document at 0.9 metres. It does not mean each cleaner rises from 62 to 85 or that all modern models share this specification.",
@@ -279,7 +263,7 @@ export const homeDetails: SoundDetailDefinition[] = [
       "A doorbell is a brief, prominent signal. Its volume setting and your position affect what you hear.",
       "門鈴是短暫而突出的提示聲。它的音量設定和你站的位置，會影響聽到的聲音。",
     ),
-    topic: t("门铃与短暂提示声", "Doorbells and brief alert sounds", "門鈴與短暫提示聲"),
+    topic: t("门铃声", "Doorbells", "門鈴聲"),
     answer: t(
       "WHO 把门铃列为约 80 dB 的示例，未指定统一型号、音量或测距。它提示门铃可能是明显的短声，不表示每个门铃在任何位置都会达到 80。",
       "WHO lists a doorbell at about 80 dB without a common model, volume setting or distance. It illustrates a noticeable brief sound, not a level every doorbell reaches everywhere.",

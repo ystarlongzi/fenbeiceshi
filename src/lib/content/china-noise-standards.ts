@@ -4,16 +4,16 @@ export const chinaNoiseStandards: SiteContent = {
   id: "china-noise-standards",
   slug: "knowledge/china-noise-standards",
   kind: "article",
-  updated: "2026-10-22",
+  updated: "2026-10-25",
   title: t(
-    "噪音法规：中国大陆标准与处理方式",
-    "Noise regulations: mainland China standards and next steps",
-    "噪音法規：中國大陸標準與處理方式",
+    "噪音扰民怎么办？中国大陆法规与处理方法",
+    "Mainland China Noise Rules and Complaints",
+    "噪音擾民怎麼辦？中國大陸法規與處理方法",
   ),
   description: t(
-    "区分环境质量、噪声排放与职业接触标准，了解中国大陆现行噪音法规、施工与装修规则，以及遇到噪音困扰时的处理步骤。",
-    "Understand mainland China's noise rules, distinguish environmental and workplace standards, and find practical steps for construction noise, renovation and neighbourhood disturbances.",
-    "區分環境品質、噪音排放與職業暴露標準，瞭解中國大陸現行噪音法規、施工與裝修規則，以及遇到噪音困擾時的處理步驟。",
+    "在中国大陆遇到施工、装修或邻里噪音，应该查什么规定、先做什么？按场景了解噪音法规和标准的区别，整理噪音发生的时间与影响，再查看可以采取的处理步骤和咨询方向。",
+    "Dealing with construction, renovation or neighbour noise in mainland China? Find the relevant types of rules, learn what to record and explore practical next steps for raising the problem.",
+    "在中國大陸遇到施工、裝修或鄰里噪音，應該查什麼規定、先做什麼？依情境瞭解噪音法規和標準的區別，整理噪音發生的時間與影響，再查看可以採取的處理步驟和諮詢方向。",
   ),
   takeaway: t(
     "判断噪音问题，要先确认地区、声源、标准适用对象和测量条件，再看数字。本文介绍中国大陆规则；简体、繁体与英文版本均为同一范围，不代表台湾或其他地区法规。",

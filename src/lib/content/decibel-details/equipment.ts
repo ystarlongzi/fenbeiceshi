@@ -9,7 +9,7 @@ export const equipmentDetails: SoundDetailDefinition[] = [
       "A hand drill is an example of strong equipment noise. Free running and drilling are different conditions, with material, load and position also affecting the sound.",
       "手持電鑽是較強裝置聲的參考。空轉與實際鑽孔是不同運轉條件，材料、負載和位置也會改變聲音。",
     ),
-    topic: t("手持电钻与钻孔工况", "Hand drills and drilling conditions", "手持電鑽與鑽孔工況"),
+    topic: t("手持电钻声", "Hand drill noise", "手持電鑽聲"),
     answer: t(
       "98 dB 来自 NIOSH 声级计 App 用户指南第 13 页的手持电钻示例。它是一个声音量级参考，原列表没有给出测距、材料或负载，不代表所有电钻的固定输出。",
       "The 98 dB hand-drill example appears on page 13 of the NIOSH Sound Level Meter App manual. Its list gives no distance, material or load, so it is a level reference rather than a fixed output for all drills.",
@@ -51,11 +51,7 @@ export const equipmentDetails: SoundDetailDefinition[] = [
       "Hair dryers and thunder both appear at 100, but their timing and unit labels differ. They help illustrate a level without becoming equivalent measurements.",
       "吹風機與雷聲都出現在 100 這個數值上，但聲音的持續方式與單位不同。它們適合幫助認識量級，不能直接當作等效聲音。",
     ),
-    topic: t(
-      "吹风机、雷声与不同单位",
-      "Hair dryers, thunder and differing units",
-      "吹風機、雷聲與不同單位",
-    ),
+    topic: t("吹风机与雷声", "Hair dryers and thunder", "吹風機與雷聲"),
     answer: t(
       "WHO 的吹风机示例为 100 dB；NPS 在拱门国家公园的雷声示例为 100 dBA。两个数字相同，但来源单位、持续方式与环境不同，不能当成同一次测量条件下的等效声音。",
       "WHO lists a hair dryer at 100 dB; NPS lists thunder in Arches National Park at 100 dBA. Matching numbers do not make them equivalent measurements: units, timing and surroundings differ.",
@@ -98,11 +94,7 @@ export const equipmentDetails: SoundDetailDefinition[] = [
       "A running chainsaw can be a prominent equipment sound. Starting, idling and cutting need separate treatment rather than one number for every condition.",
       "鏈鋸運轉可以形成很突出的裝置聲。啟動、空載和切割需要分別看，不能用一個參考值概括所有運轉條件。",
     ),
-    topic: t(
-      "链锯的负载与观察条件",
-      "Chainsaw load and observation conditions",
-      "鏈鋸的負載與觀察條件",
-    ),
+    topic: t("链锯声", "Chainsaw noise", "鏈鋸聲"),
     answer: t(
       "108 dB 是 NIOSH 声级计 App 用户指南第 13 页的链锯示例，原列表未说明统一距离或负载。它不是所有链锯的产品参数，也不是操作人员耳边的固定声级。",
       "The NIOSH Sound Level Meter App manual gives a chainsaw example of 108 dB on page 13, without a common distance or load. It is neither a specification for every chainsaw nor a fixed level at an operator's ear.",
@@ -144,11 +136,7 @@ export const equipmentDetails: SoundDetailDefinition[] = [
       "This military-jet reference concerns a flyover about one hundred metres above ground. Height, flight path and observation position are important to its interpretation.",
       "這條軍用噴氣飛機參考對應離地約一百公尺的飛越。高度、航跡和觀察位置，是理解這種強聲的重要條件。",
     ),
-    topic: t(
-      "军用喷气飞机飞越与离地高度",
-      "Military jet flyovers and height above ground",
-      "軍用噴射機飛越與離地高度",
-    ),
+    topic: t("军用喷气飞机飞越声", "Military jet flyovers", "軍用噴射機飛越聲"),
     answer: t(
       "NPS 的 120 dBA 示例是离地约 100 米的军用喷气飞机飞越，来自 Yukon-Charley Rivers 的公园声景资料。高度和飞越情形是参考的一部分，不能省略。",
       "NPS's 120 dBA example is a military jet flying about 100 metres above ground in its Yukon-Charley Rivers soundscape reference. Height and flyover conditions are part of the example and must be retained.",
@@ -190,7 +178,7 @@ export const equipmentDetails: SoundDetailDefinition[] = [
       "A jackhammer illustrates very strong construction sound. Record work location, operating stage and observation distance alongside a reading.",
       "風鎬屬於很強的施工作業聲參考。施工點的位置、運轉階段與觀察距離，都應連同讀數一起記錄。",
     ),
-    topic: t("风镐与施工强声参考", "Jackhammers and loud construction sound", "風鎬與施工強聲參考"),
+    topic: t("风镐与施工噪音", "Jackhammers and construction noise", "風鎬與施工噪音"),
     answer: t(
       "WHO 把风镐列为约 130 dB 的高声级示例，未给出统一测距或工况。它说明这类设备可能产生很强的声音，不是所有施工位置都应出现的固定数值。",
       "WHO lists a jackhammer at about 130 dB without a common distance or operating condition. It illustrates potentially intense equipment sound, not a fixed reading at every construction location.",
@@ -233,11 +221,7 @@ export const equipmentDetails: SoundDetailDefinition[] = [
       "Aircraft takeoff is a reference for exceptionally intense sound. An external observation near an airport differs from the cabin, making distance and position important.",
       "飛機起飛是極強聲音的參考場景。機場附近的外部觀察與機艙內部不同，距離和位置尤其重要。",
     ),
-    topic: t(
-      "飞机起飞与机舱内外的区别",
-      "Aircraft takeoff and cabin versus outside sound",
-      "飛機起飛與機艙內外的區別",
-    ),
+    topic: t("飞机起飞的声音", "Aircraft takeoff noise", "飛機起飛的聲音"),
     answer: t(
       "WHO 把飞机起飞列为约 140 dB 的示例，但未统一测距。这个数值不能解释成乘客在机舱内听到的声级，也不是所有机场观察点的固定读数。",
       "WHO lists aircraft takeoff at about 140 dB without a common measurement distance. This is not a passenger-cabin level or a fixed reading at every airport observation point.",

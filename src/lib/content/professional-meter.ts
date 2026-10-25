@@ -4,16 +4,16 @@ export const professionalMeter: SiteContent = {
   id: "when-professional-meter",
   slug: "knowledge/when-to-use-a-sound-level-meter",
   kind: "article",
-  updated: "2026-10-23",
+  updated: "2026-10-25",
   title: t(
-    "什么时候需要专业声级计或噪声检测？",
-    "When do you need a sound level meter or a noise assessment?",
-    "什麼時候需要專業噪音計或噪音檢測？",
+    "测噪音需要专业检测吗？仪器与服务怎么选",
+    "When Do You Need Professional Noise Testing?",
+    "測噪音需要專業檢測嗎？儀器與服務怎麼選",
   ),
   description: t(
-    "从邻里噪音、隔音装修和工作场所出发，判断何时可以先观察、何时值得找专业人员，以及联系前要问什么、准备什么。",
-    "Decide when to observe noise yourself and when to seek help with neighbour noise, soundproofing or noisy work. Learn what to ask and what to prepare before arranging a visit.",
-    "從鄰里噪音、隔音裝修和工作場所出發，判斷何時可以先觀察、何時值得找專業人員，以及聯絡前要問什麼、準備什麼。",
+    "邻里噪音、隔音装修或工作环境太吵，自己测一测就够了吗？根据用途了解什么时候值得找专业检测，买仪器和请人测量有什么区别，以及联系前要问什么、准备什么。",
+    "Is checking noise yourself enough? Learn when neighbour noise, soundproofing or a noisy workplace calls for professional help, and what to ask and prepare before buying a meter or hiring a service.",
+    "鄰里噪音、隔音裝修或工作環境太吵，自己測一測就夠了嗎？依用途瞭解什麼時候值得找專業檢測，買儀器和請人測量有什麼區別，以及聯絡前要問什麼、準備什麼。",
   ),
   takeaway: t(
     "想知道声音有没有变化，可以先做同条件观察；需要判断是否达标、准备较大的隔音改造，或评估工作中的噪音，就应找能处理这类问题的专业人员。先说清用途，再决定是否买仪器或安排检测。",

@@ -4,12 +4,16 @@ export const howItWorks: SiteContent = {
   id: "how-it-works",
   slug: "how-it-works",
   kind: "guide",
-  updated: "2026-10-22",
-  title: t("网页是怎么测分贝的？", "How does a browser measure decibels?", "網頁是怎麼測分貝的？"),
+  updated: "2026-10-25",
+  title: t(
+    "在线分贝仪的原理：网页怎么测出分贝？",
+    "How Does an Online Decibel Meter Work?",
+    "線上分貝計的原理：網頁怎麼測出分貝？",
+  ),
   description: t(
-    "用四步看懂麦克风怎样把声音变成估算分贝、趋势和平均值，以及设备差异、读数修正与本机音频处理的作用。",
-    "Follow four steps from microphone input to estimated decibels, trends and averages, with plain explanations of reading adjustments, device differences and local audio processing.",
-    "用四步看懂麥克風怎樣把聲音變成估算分貝、趨勢和平均值，以及裝置差異、讀數修正與本機音訊處理的作用。",
+    "网页为什么能显示分贝？从麦克风采集声音开始，用四个步骤看懂分贝估算、实时趋势和平均值是怎么来的，也了解为什么换一台手机读数会不同，以及手动修正有什么作用。",
+    "How can a webpage measure decibels? Follow four simple steps from microphone input to estimated readings, live trends and averages, and learn why devices give different results.",
+    "網頁為什麼能顯示分貝？從麥克風擷取聲音開始，用四個步驟看懂分貝估算、即時趨勢和平均值是怎麼來的，也瞭解為什麼換一台手機讀數會不同，以及手動修正有什麼作用。",
   ),
   takeaway: t(
     "麦克风把声音变成数字，网页计算一小段声音的能量，再换算成估算分贝。它能帮助观察变化；设备和设置会影响结果，不能把网页当作专业声级计。",

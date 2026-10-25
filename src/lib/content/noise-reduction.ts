@@ -4,16 +4,16 @@ export const noiseReduction: SiteContent = {
   id: "noise-reduction",
   slug: "knowledge/noise-reduction",
   kind: "article",
-  updated: "2026-10-22",
+  updated: "2026-10-25",
   title: t(
-    "降噪方法：让居家与办公环境更安静",
-    "Noise reduction: practical steps for a quieter space",
-    "降噪方法：讓居家與辦公環境更安靜",
+    "房间太吵怎么办？居家与办公降噪方法",
+    "How to Reduce Noise at Home and Work",
+    "房間太吵怎麼辦？居家與辦公降噪方法",
   ),
   description: t(
-    "先判断声源和传播路径，再选择吸音、隔音或减振。按卧室、家电、邻里与办公场景采取措施，用同条件观察比较调整前后的变化。",
-    "Identify the source and sound path, choose absorption, sound insulation or vibration isolation, and compare changes in bedrooms, shared homes and workspaces under consistent conditions.",
-    "先判斷聲源和傳播路徑，再選擇吸音、隔音或減振。按臥室、家電、鄰里與辦公情境採取措施，用同條件觀察比較調整前後的變化。",
+    "卧室、家电或办公室太吵，先从哪里改善？按声音来源了解吸音、隔音和减振的区别，找到适合日常场景的降噪办法，并用同条件测量比较调整前后的变化。",
+    "Bedroom, appliance or office too noisy? Learn when absorption, sound insulation or vibration control can help, find practical noise reduction steps and compare changes under the same conditions.",
+    "臥室、家電或辦公室太吵，先從哪裡改善？依聲音來源瞭解吸音、隔音和減振的區別，找到適合日常情境的降噪方法，並用相同條件測量比較調整前後的變化。",
   ),
   takeaway: t(
     "先让声源安静一点，再处理声音传来的路径。吸音减少室内反射，隔音减少声音穿过结构，减振处理机械振动；先找对问题，再买材料。",

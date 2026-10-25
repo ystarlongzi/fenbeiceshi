@@ -4,16 +4,16 @@ export const workplaceNoiseStandards: SiteContent = {
   id: "workplace-noise-standards",
   slug: "knowledge/workplace-noise-standards",
   kind: "article",
-  updated: "2026-10-22",
+  updated: "2026-10-25",
   title: t(
-    "工作场所噪声标准：中国、美国与欧盟对比",
-    "Workplace noise limits: China, the US and the EU",
+    "工作场所噪音标准：中国、美国与欧盟对比",
+    "Workplace Noise Limits: China, US and EU",
     "工作場所噪音標準：中國、美國與歐盟對比",
   ),
   description: t(
-    "对比中国 GBZ 2.2、美国 OSHA 与 NIOSH、欧盟 2003/10/EC 的职业噪声限值、行动值、时间基准与峰值口径，避免把不同标准直接混用。",
-    "Compare China's GBZ 2.2, US OSHA and NIOSH, and EU Directive 2003/10/EC. Understand exposure limits, action values, averaging periods and peak measurements before comparing numbers.",
-    "對比中國 GBZ 2.2、美國 OSHA 與 NIOSH、歐盟 2003/10/EC 的職業噪音限值、行動值、時間基準與峰值定義，避免把不同標準直接混用。",
+    "工作场所的噪音标准为什么有不同数值？对比中国、美国和欧盟的要求，了解 OSHA 法定值、NIOSH 建议、工作时长与听力防护条件，分清这些数字各自适合怎样使用。",
+    "Why do workplace noise limits differ? Compare China, US and EU rules, understand OSHA limits and NIOSH recommendations, and check how working time and hearing protection affect the comparison.",
+    "工作場所的噪音標準為什麼有不同數值？對比中國、美國和歐盟的要求，瞭解 OSHA 法定值、NIOSH 建議、工作時長與聽力防護條件，分清這些數字各自適合怎樣使用。",
   ),
   takeaway: t(
     "中国的 85、美国 OSHA 的 90 和欧盟的 87 dB(A)，分别带有不同的时间基准、法定角色与防护条件，不能只排数字判断宽严。NIOSH 的 85 dBA 是推荐限值，应与美国联邦法规分开阅读。",

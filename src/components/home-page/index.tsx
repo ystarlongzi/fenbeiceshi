@@ -4,7 +4,8 @@ import { SoundMeter } from "@/features/sound-meter";
 import { RecordsPanel } from "@/features/records";
 import type { Locale } from "@/features/sound-meter/types";
 import { homeFaqItems } from "@/lib/content/faq";
-import { href, SITE_URL } from "@/lib/routing/pages";
+import { href, pageById, SITE_URL } from "@/lib/routing/pages";
+import { text } from "@/lib/content/types";
 import { Icon } from "../icon";
 import { homeInstructions, homeKnowledge } from "./copy";
 import { LinkArrow } from "../link-arrow";
@@ -21,17 +22,12 @@ export function HomePage({ locale }: { locale: Locale }) {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          name: localize(locale, "分贝测试", "FenbeiCeshi Sound Observation Tool", "分貝測試"),
+          name: localize(locale, "分贝测试", "FenbeiCeshi Online Decibel Meter", "分貝測試"),
           url: SITE_URL + href("meter", locale),
           inLanguage: locale,
           applicationCategory: "UtilitiesApplication",
           operatingSystem: "Web browser",
-          description: localize(
-            locale,
-            "默认提供通用估算噪音分贝，可选手动加减读数，原始音频不上传。",
-            "Generic noise estimates with optional manual adjustment. No raw audio uploads.",
-            "預設提供通用估算噪音分貝，可選手動加減讀數，原始音訊不上傳。",
-          ),
+          description: text(pageById("meter").description, locale),
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }}
       />

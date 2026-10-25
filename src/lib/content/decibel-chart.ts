@@ -10,16 +10,16 @@ export const decibelChart: SiteContent = {
   id: "decibel-chart",
   slug: "knowledge/decibel-chart",
   kind: "article",
-  updated: "2026-10-24",
+  updated: "2026-10-25",
   title: t(
-    "分贝对照表：常见声音与噪音水平",
-    "Decibel chart: everyday sounds and noise levels",
-    "分貝對照表：常見聲音與噪音水平",
+    "分贝对照表：常见声音有多大？",
+    "Decibel Chart: How Loud Are Everyday Sounds?",
+    "分貝對照表：常見聲音有多大？",
   ),
   description: t(
-    "按七档查询 31 项常见声音的分贝范围与比较条件，对照 NIOSH 与 OSHA 的职业暴露时长参考，并进一步了解噪音与健康。",
-    "Explore 31 everyday sounds in seven level bands, check their comparison conditions, compare NIOSH and OSHA occupational exposure references, and learn about noise and health.",
-    "按七檔查詢 31 項常見聲音的分貝範圍與比較條件，對照 NIOSH 與 OSHA 的職業暴露時長參考，並進一步瞭解噪音與健康。",
+    "40、60、80 分贝分别有多响？用分贝对照表查询 31 项日常声音，从轻声说话到家电、车流和演出，按声音名称或数值查找参考。也能了解噪音大小与持续时间的关系，进一步查看听力保护知识。",
+    "How loud are 40, 60 or 80 decibels? Search 31 everyday sounds, from whispers to appliances, traffic and concerts, then explore how sound level and duration relate to hearing protection.",
+    "40、60、80 分貝分別有多響？用分貝對照表查詢 31 項日常聲音，從輕聲說話到家電、車流和演出，依聲音名稱或數值查找參考。也能瞭解噪音大小與持續時間的關係，進一步查看聽力保護知識。",
   ),
   takeaway: t(
     "40 dB 可参考图书馆；50 dB 左右接近普通家庭背景声（45–55 dB）；正常交谈约 60–70 dBA。下方可按声音名称或数值查找更多参考。",

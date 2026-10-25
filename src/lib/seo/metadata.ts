@@ -7,7 +7,8 @@ import { locales, localeSettings } from "../i18n/locales.ts";
 
 export function pageMetadata(id: string, locale: Locale): Metadata {
   const page = pageById(id);
-  const title = `${text(page.title, locale)} - ${localize(locale, "分贝测试", "fenbeiceshi.com", "分貝測試")}`;
+  const separator = page.kind === "home" ? " | " : " - ";
+  const title = `${text(page.title, locale)}${separator}${localize(locale, "分贝测试", "fenbeiceshi.com", "分貝測試")}`;
   const description = text(page.description, locale);
   const url = SITE_URL + href(id, locale);
   return {

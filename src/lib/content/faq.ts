@@ -469,12 +469,16 @@ export const faq: SiteContent = {
   id: "faq",
   slug: "faq",
   kind: "guide",
-  updated: "2026-10-22",
-  title: t("分贝测试常见问题", "Decibel meter FAQ", "分貝測試常見問題"),
+  updated: "2026-10-25",
+  title: t(
+    "在线分贝测试常见问题：准确性、麦克风与保存",
+    "Online Decibel Meter FAQ",
+    "線上分貝測試常見問題：準確性、麥克風與儲存",
+  ),
   description: t(
-    "解答手机与电脑使用、测量准确性、麦克风故障、分贝读数、后台测量、录音和报告保存等常见问题。",
-    "Answers about devices, accuracy, microphone access, readings, background capture, audio recording and saved reports.",
-    "解答手機與電腦使用、測量準確性、麥克風故障、分貝讀數、背景測量、錄音和報告儲存等常見問題。",
+    "分贝测试免费吗，手机测量准不准，麦克风打不开怎么办？按六类查找 17 个常见问题，了解手机和电脑使用、后台测量限制、录音、记录保存与报告下载，也能从答案进入详细操作说明。",
+    "Is the decibel meter free, is it accurate on a phone, and why is the microphone not working? Browse 17 answers about devices, readings, background limits, recording and saved reports.",
+    "分貝測試免費嗎，手機測量準不準，麥克風打不開怎麼辦？依六類查詢 17 個常見問題，瞭解手機和電腦使用、背景測量限制、錄音、記錄儲存與報告下載，也能從答案進入詳細操作說明。",
   ),
   takeaway: t(
     "从你遇到的问题开始。每个回答先说明怎么做，再提供详细方法；测量结果是估算，音频在本机处理。",

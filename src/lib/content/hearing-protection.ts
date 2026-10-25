@@ -4,16 +4,16 @@ export const hearingProtection: SiteContent = {
   id: "hearing-protection",
   slug: "knowledge/hearing-protection",
   kind: "article",
-  updated: "2026-10-22",
+  updated: "2026-10-25",
   title: t(
-    "听力保护：耳塞、耳罩与日常听音方法",
-    "Hearing protection: earplugs, earmuffs and everyday listening",
-    "聽力保護：耳塞、耳罩與日常聆聽方法",
+    "听力保护：耳塞、耳罩怎么选和使用？",
+    "Hearing Protection: Choosing Earplugs and Earmuffs",
+    "聽力保護：耳塞、耳罩怎麼選和使用？",
   ),
   description: t(
-    "了解如何降低强声暴露、选择耳塞或耳罩、正确佩戴泡棉耳塞，以及主动降噪耳机和听力防护用品的区别。认识需要专业检查的听力变化。",
-    "Reduce loud-sound exposure, choose earplugs or earmuffs, fit foam earplugs correctly and understand the limits of noise-cancelling headphones. Recognize hearing changes that need professional attention.",
-    "瞭解如何降低強聲暴露、選擇耳塞或耳罩、正確佩戴泡棉耳塞，以及主動抗噪耳機和聽力防護用品的區別。認識需要專業檢查的聽力變化。",
+    "面对嘈杂环境，怎样保护听力？了解耳塞和耳罩怎么选、泡棉耳塞怎么戴，以及降噪耳机与听力防护用品的区别。结合日常听音和出行场景，学会减少强声暴露，认识需要专业检查的听力变化。",
+    "How can you protect your hearing in noisy places? Learn to choose earplugs or earmuffs, fit foam earplugs and understand noise-cancelling headphones, with tips for everyday listening.",
+    "面對吵雜環境，怎樣保護聽力？瞭解耳塞和耳罩怎麼選、泡棉耳塞怎麼戴，以及抗噪耳機與聽力防護用品的區別。結合日常聆聽和外出情境，學會減少強聲暴露，認識需要專業檢查的聽力變化。",
   ),
   takeaway: t(
     "先降低音量、远离强声并缩短停留，再按场景选择舒适、贴合且能持续正确佩戴的耳塞或耳罩。防护效果取决于实际佩戴，不能只看包装上的数字。",

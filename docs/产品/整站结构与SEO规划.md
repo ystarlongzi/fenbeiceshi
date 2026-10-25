@@ -1,6 +1,6 @@
 # fenbeiceshi.com 整站结构与内容 SEO 规划
 
-版本：0.2；更新：2026-10-24。定位为竞品分析前的执行基线，后续依据竞品、真实查询和使用数据修订。
+版本：0.2；更新：2026-10-25。定位为竞品分析前的执行基线，后续依据竞品、真实查询和使用数据修订。
 
 本文为整站规划，不代表所有候选功能均已完成或上线。2026-10-17 已完成本地首版：实际页面注册见 `src/lib/routing/pages.ts`，范围见 [首版实现说明](./首版实现说明.md)，证据见 [首版验证记录](../验证/首版验证记录.md)。候选关键词、P1/P2 页面与分析事件继续按规划逐批验证。
 
@@ -86,7 +86,7 @@
 
 | 页面归属 | 中文主要词簇 | 英文主要词簇 | 页面应完成的任务 |
 | --- | --- | --- | --- |
-| `/`、`/en/` | 在线分贝测试、在线噪音测试、在线分贝仪 | online decibel meter、online sound level meter、noise meter online | 开始观察，正确理解当前模式 |
+| `/`、`/en/` | 免费在线分贝仪、分贝测试、在线分贝测试、在线噪音测试 | online decibel meter、decibel meter online、db meter online、sound meter online、decibel meter online free | 免费开始测量，查看估算分贝与趋势，保存或导出结果 |
 | `phone-decibel-accuracy` | 手机测分贝准吗、手机噪音测试准确吗 | are phone decibel meters accurate | 判断设备和方法是否适合当前目的 |
 | `dbfs-vs-db-spl` | dBFS 是什么、dBFS 和 dB SPL 区别 | dBFS vs dB SPL、convert dBFS to SPL | 解释为何不能无条件换算 |
 | `decibel-chart` | 分贝对照表、常见声音分贝、噪音水平对照 | decibel chart、common sound levels | 查询带条件的声音总览与对应详情 |
@@ -127,7 +127,7 @@
 - 桌面沿用 V2 的测量区与设置区关系；手机优先显示操作、状态和核心读数，帮助按需展开。
 - 工具下方依次安排简明使用步骤、准确性说明、三项场景操作说明、精选知识与真实常见问题。场景区直接展示房间、家电开关及开关窗的简短方法，不设置跳转或额外操作入口；独立场景页按下述发布条件单独评估。采用流程、文字分栏、对照表和条目导航表达各自关系。
 - 未授权时不显示伪实时读数；示例必须显著注明。拒绝授权后仍能阅读全部静态内容。
-- 候选 Title：`在线分贝测试与噪音观察工具 - 分贝测试`；候选 H1：`在线分贝测试`。英文用自然工具名称，避免堆砌同义词。
+- 当前首页 Title：`免费在线分贝仪 - 手机噪音测试与实时 dB 测量 | 分贝测试`；英文 Title 为 `Free Online Decibel Meter - Phone Noise Test & Live dB Readings | fenbeiceshi.com`。描述使用用户确认的日常表达，说明免费、免安装、估算分贝、生活场景和记录导出；首屏 H1 继续使用“在线分贝测试”及对应语言。三语文案与实际验证见 [首页搜索标题与描述调整验证](../验证/首页搜索标题与描述调整验证.md)。
 
 ### 场景页：方法与工具一起完成任务
 
@@ -221,6 +221,12 @@ Google 要求语言版本之间的对应关系可相互验证；上线时从同�
 canonical、内部链接、跳转与 sitemap 应指向一致的规范地址。[来源](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
 
 各搜索引擎的收录与排名仍须分别观察。Google 的技术建议不等于百度或必应的效果承诺；上线时按各自站长平台当前能力完成验证与提交，避免先接入不必要的推送依赖。
+
+2026-10-25 首页搜索文案调整：简体、繁体和英文同步用户确认的标题与描述；核心词为“免费在线分贝仪／分贝测试”，其余检测、测量、手机和 dB 相关词在关键词映射中保留为候选，按实际语义使用。用户提供的首张截图为德语，部分词指向声音模拟或输出；第二张为英文工具查询，Traffic 与 CPC 均不直接代表搜索量。本轮不新增语言或 URL，不将德语输出声音的需求包装为本站已有功能。
+
+同日继续调整其余 46 个已实现主题的三语标题与描述（138 个非首页 URL）：使用帮助、声音知识、健康、法规、关于与隐私按各自问题说明用途；28 个声音详情主题以“有多大＋具体声音”为标题，用正文已有的直观结论生成描述，保留完整范围与原始单位。关键词映射同步 45 个可索引非首页主题，未实现候选保持原状；本机记录页只更新功能文案，继续 noindex 并排除 sitemap。关键词用于分配搜索意图与自然表达，不添加 meta keywords。首页确认稿保持不变，具体范围与验证见 [其他页面搜索文案调整验证](../验证/其他页面搜索文案调整验证.md)。
+
+描述可以更完整，优先把用途、问题与实际功能放在前面。Google 官方未设置 meta description 长度上限，结果摘要按设备宽度截断且可能从正文重写；Bing 官方提醒缺失、重复或过短的标题与描述可能影响理解与展示，具体站长报告需按实际规则复核，不把其他产品的告警当作本站已发生的问题。参见 [Google 描述说明](https://developers.google.com/search/docs/appearance/snippet)、[Google 标题说明](https://developers.google.com/search/docs/appearance/title-link) 与 [Bing 站长指南](https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a)。
 
 ## 9. 发布批次与完成标准
 

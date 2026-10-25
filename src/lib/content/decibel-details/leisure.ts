@@ -9,11 +9,7 @@ export const leisureDetails: SoundDetailDefinition[] = [
       "Cinema sound varies by scene and seat. This broad range covers different situations; one loud passage is not the average of an entire film.",
       "電影院裡的聲音會隨影片片段和座位變化。這組範圍包含不同播放情境，不能把一個強烈片段當成整場電影的平均水準。",
     ),
-    topic: t(
-      "电影院的片段、音量与座位",
-      "Cinema scenes, volume and seating",
-      "電影院的片段、音量與座位",
-    ),
+    topic: t("电影院噪音", "Movie theater noise", "電影院噪音"),
     answer: t(
       "NIDCD 的电影院示例为 74–104 dBA。它保留了很宽的范围，不是所有电影全程保持的声级，也不是某个座位或影院的固定评级。",
       "NIDCD gives 74–104 dBA for a movie theatre. This broad reference is not a constant level throughout every film or a fixed rating for a seat or venue.",
@@ -57,7 +53,7 @@ export const leisureDetails: SoundDetailDefinition[] = [
     ),
     topic: t(
       "体育赛事与最大音量耳机",
-      "Sporting events and headphones at maximum volume",
+      "Sports events and headphones at full volume",
       "體育賽事與最大音量耳機",
     ),
     answer: t(
@@ -102,11 +98,7 @@ export const leisureDetails: SoundDetailDefinition[] = [
       "Amplified sound at rock concerts and nightclubs helps illustrate this range. Speaker distance, venue and programme affect what you hear.",
       "搖滾音樂會和夜店的擴聲可以幫助理解這組量級。揚聲器距離、場地和節目都會影響實際聽到的聲音。",
     ),
-    topic: t(
-      "摇滚音乐会与夜店的扩声",
-      "Amplified sound at concerts and nightclubs",
-      "搖滾音樂會與夜店的擴音",
-    ),
+    topic: t("摇滚演唱会与夜店", "Rock concerts and nightclubs", "搖滾演唱會與夜店"),
     answer: t(
       "CDC 把摇滚音乐会或夜店列为 95–115 dB 的参考。场地、节目、扩声与站立位置不同，不能把这段范围当成所有活动的固定值。",
       "CDC lists rock concerts or nightclubs at 95–115 dB. Venue, programme, amplification and position vary; the range is not a fixed level for every event.",
@@ -149,7 +141,7 @@ export const leisureDetails: SoundDetailDefinition[] = [
       "Fireworks illustrate intense, brief impulse sounds. A momentary event and a whole-period average are different measures and need separate interpretation.",
       "煙花屬於強烈、短促的衝擊聲參考。瞬間聲響與整段平均聲級是不同指標，檢視時要分開。",
     ),
-    topic: t("烟花表演与短促冲击声", "Fireworks shows and impulse sound", "煙花表演與短促衝擊聲"),
+    topic: t("烟花表演声", "Fireworks shows", "煙火表演聲"),
     answer: t(
       "NIDCD 的烟花表演示例为 140–160 dBA。这是短促强声的参考，不能当成整场表演的持续平均值，也不能外推到所有烟花、爆竹或任意观众距离。",
       "NIDCD gives 140–160 dBA for a fireworks show. This brief, intense sound reference is not a continuous average for the whole show, nor a level for all fireworks, firecrackers or spectator distances.",
