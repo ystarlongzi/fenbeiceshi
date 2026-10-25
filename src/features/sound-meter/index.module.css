@@ -181,7 +181,7 @@
   align-items: flex-start;
   gap: 8px;
   padding: 8px 10px;
-  border-left: 3px solid #efcf97;
+  border-inline-start: 3px solid #efcf97;
   border-radius: 6px;
   background: #efcf9714;
   font-size: var(--font-size-ui);
@@ -302,7 +302,7 @@
   }
   .toolbarActions {
     gap: 8px;
-    margin-left: auto;
+    margin-inline-start: auto;
   }
   .fullscreen {
     padding: 8px 1px;

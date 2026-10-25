@@ -1,5 +1,7 @@
 "use client";
 import { localize, text } from "@/lib/i18n/text";
+import { isAdditionalLocale } from "@/lib/i18n/additional-locales";
+import { localeSettings } from "@/lib/i18n/locales";
 
 import { Fragment, useState } from "react";
 import { NumberInput } from "@/components/number-input";
@@ -160,10 +162,32 @@ export function ExposureExplorer({ locale }: { locale: Locale }) {
 
 function renderDuration(minutes: number, locale: Locale) {
   const parts = durationParts(minutes);
+  const unitLabel = (value: number, unit: "hour" | "minute" | "second", fallback: string) =>
+    isAdditionalLocale(locale)
+      ? new Intl.NumberFormat(localeSettings[locale].date, {
+          style: "unit",
+          unit,
+          unitDisplay: "short",
+        })
+          .formatToParts(value)
+          .filter((part) => part.type === "unit")
+          .map((part) => part.value)
+          .join("")
+      : fallback;
   const units = [
-    [parts.hours, localize(locale, "小时", parts.hours === 1 ? "hr" : "hrs", "小時")],
-    [parts.minutes, localize(locale, "分钟", "min", "分鐘")],
-    [parts.hours ? 0 : parts.seconds, localize(locale, "秒", "sec", "秒")],
+    [
+      parts.hours,
+      unitLabel(
+        parts.hours,
+        "hour",
+        localize(locale, "小时", parts.hours === 1 ? "hr" : "hrs", "小時"),
+      ),
+    ],
+    [parts.minutes, unitLabel(parts.minutes, "minute", localize(locale, "分钟", "min", "分鐘"))],
+    [
+      parts.hours ? 0 : parts.seconds,
+      unitLabel(parts.seconds, "second", localize(locale, "秒", "sec", "秒")),
+    ],
   ] as const;
   return units
     .filter(([value]) => value > 0)

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { EMPTY_RECORDS, getRecords, watchRecords } from "@/features/records/storage";
 import { saveRecord } from "@/features/records/mutations";
-import { meterCopy } from "./copy";
+import { getMeterCopy } from "./copy";
 import { modeLabel } from "./mode-label";
 import { noiseGradient } from "./palette";
 import { useSoundMeter } from "./use-sound-meter";
@@ -21,7 +21,7 @@ import { SoundTrend } from "./sound-trend";
 import { MeterSettings } from "./meter-settings";
 import { WorkbenchDialog } from "./workbench-dialog";
 import { MeasurementReportDialog } from "./measurement-report";
-import { reportCopy } from "./measurement-report/copy";
+import { getReportCopy } from "./measurement-report/copy";
 import { withMeasurementNote } from "./measurement-report/model";
 import { RecordingResult } from "../audio-recording/recording-result";
 import { appliedAdjustment } from "../calibration/adjustment";
@@ -30,7 +30,7 @@ import type { Locale, MeterView } from "./types";
 import styles from "./index.module.css";
 
 export function SoundMeter({ locale }: { locale: Locale }) {
-  const copy = meterCopy[locale];
+  const copy = getMeterCopy(locale);
   const meter = useSoundMeter();
   const [view, setView] = useState<MeterView>("gauge");
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -189,7 +189,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
                   onClick={() => setResultDialog("export")}
                 >
                   <Icon name="download" size={16} />
-                  {reportCopy[locale].export}
+                  {getReportCopy(locale).export}
                 </button>
               </>
             ) : busy ? (
@@ -248,7 +248,7 @@ export function SoundMeter({ locale }: { locale: Locale }) {
       <WorkbenchDialog
         open={settingsOpen}
         title={copy.settings}
-        closeLabel={reportCopy[locale].close}
+        closeLabel={getReportCopy(locale).close}
         drawer
         onClose={() => setSettingsOpen(false)}
       >

@@ -11,8 +11,12 @@ import { SiteNavigation } from "./site-navigation";
 import { contents, href, sitePages } from "@/lib/routing/pages";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
+import { localeSettings } from "@/lib/i18n/locales";
+import { prepareLocale } from "@/lib/i18n/load-messages";
+import { LocalizationBoundary } from "../localization-boundary";
 
-export function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
+export async function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
+  const messages = await prepareLocale(locale);
   const site = siteForLocale(locale);
   const available = sitePages.map((page) => `/${page.slug ? `${page.slug}/` : ""}`);
   const nav = [
@@ -38,93 +42,103 @@ export function SiteDocument({ children, locale }: { children: ReactNode; locale
     },
   ] as const;
   return (
-    <html lang={locale} data-scroll-behavior="smooth" data-theme="light" suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={localeSettings[locale].direction}
+      data-scroll-behavior="smooth"
+      data-theme="light"
+      suppressHydrationWarning
+    >
       <body>
         <LanguageScript locale={locale} available={available} />
         <ThemeScript />
-        <a className={styles.skip} href="#main-content">
-          {localize(locale, "跳到主要内容", "Skip to content", "跳到主要內容")}
-        </a>
-        <header className={styles.header}>
-          <div className={styles.headerInner}>
-            <Link
-              className={styles.brand}
-              href={href("meter", locale)}
-              aria-label={localize(locale, "分贝测试首页", "SoundMeterGo home", "分貝測試首頁")}
-            >
-              <span className={styles.brandMark}>
-                <Icon name="audio-lines" size={22} />
-              </span>
-              <span>
-                <strong>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</strong>
-                <small>{site.domain}</small>
-              </span>
-            </Link>
-            <SiteNavigation
-              locale={locale}
-              items={nav.map(({ id, label, icon }) => ({
-                label,
-                icon,
-                href: href(id, locale),
-                exact: id === "meter",
-                include:
-                  id === "knowledge"
-                    ? contents
-                        .filter((content) => content.kind === "guide")
-                        .map((content) => href(content.id, locale))
-                    : undefined,
-                exclude: id === "knowledge" ? [href("decibel-chart", locale)] : undefined,
-              }))}
-              themeControl={<ThemeSwitch locale={locale} />}
-              utilities={<LanguageSwitch locale={locale} available={available} />}
-            />
-          </div>
-        </header>
-        <main id="main-content" className={styles.content}>
-          {children}
-        </main>
-        <footer className={styles.footer}>
-          <div className={styles.footerInner}>
-            <div>
-              <strong>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</strong>
-              <p>
-                {localize(
-                  locale,
-                  "看见声音变化，记下每次观察。",
-                  "Observe sound. Keep the context.",
-                  "看見聲音變化，記下每次觀察。",
-                )}
-              </p>
-              <small>© 2026 {site.domain}</small>
+        <LocalizationBoundary locale={locale} messages={messages}>
+          <a className={styles.skip} href="#main-content">
+            {localize(locale, "跳到主要内容", "Skip to content", "跳到主要內容")}
+          </a>
+          <header className={styles.header}>
+            <div className={styles.headerInner}>
+              <Link
+                className={styles.brand}
+                href={href("meter", locale)}
+                aria-label={localize(locale, "分贝测试首页", "SoundMeterGo home", "分貝測試首頁")}
+              >
+                <span className={styles.brandMark}>
+                  <Icon name="audio-lines" size={22} />
+                </span>
+                <span>
+                  <strong>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</strong>
+                  <small>{site.domain}</small>
+                </span>
+              </Link>
+              <SiteNavigation
+                locale={locale}
+                items={nav.map(({ id, label, icon }) => ({
+                  label,
+                  icon,
+                  href: href(id, locale),
+                  exact: id === "meter",
+                  include:
+                    id === "knowledge"
+                      ? contents
+                          .filter((content) => content.kind === "guide")
+                          .map((content) => href(content.id, locale))
+                      : undefined,
+                  exclude: id === "knowledge" ? [href("decibel-chart", locale)] : undefined,
+                }))}
+                themeControl={<ThemeSwitch locale={locale} />}
+                utilities={<LanguageSwitch locale={locale} available={available} />}
+              />
             </div>
-            <nav aria-label={localize(locale, "页脚导航", "Footer", "頁尾導航")}>
-              <Link href={href("guide", locale)}>
-                {localize(locale, "使用指南", "How to use", "使用指南")}
-              </Link>
-              <Link href={href("how-it-works", locale)}>
-                {localize(locale, "工作原理", "How it works", "工作原理")}
-              </Link>
-              <Link href={href("faq", locale)}>
-                {localize(locale, "常见问题", "FAQ", "常見問題")}
-              </Link>
-              <Link href={href("calibration", locale)}>
-                {localize(locale, "读数修正", "Adjust readings", "讀數修正")}
-              </Link>
-              <Link href={href("about", locale)}>{localize(locale, "关于", "About", "關於")}</Link>
-              <Link href={href("privacy", locale)}>
-                {localize(locale, "隐私说明", "Privacy", "隱私說明")}
-              </Link>
-            </nav>
-          </div>
-          <p className={styles.footerNote}>
-            {localize(
-              locale,
-              "浏览器声音观察工具，结果不替代认证声级测量。音频在你的设备上处理。",
-              "Browser observations, not certified sound level measurements. Audio is processed on your device.",
-              "瀏覽器聲音觀察工具，結果不替代認證聲級測量。音訊在你的裝置上處理。",
-            )}
-          </p>
-        </footer>
+          </header>
+          <main id="main-content" className={styles.content}>
+            {children}
+          </main>
+          <footer className={styles.footer}>
+            <div className={styles.footerInner}>
+              <div>
+                <strong>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</strong>
+                <p>
+                  {localize(
+                    locale,
+                    "看见声音变化，记下每次观察。",
+                    "Observe sound. Keep the context.",
+                    "看見聲音變化，記下每次觀察。",
+                  )}
+                </p>
+                <small>© 2026 {site.domain}</small>
+              </div>
+              <nav aria-label={localize(locale, "页脚导航", "Footer", "頁尾導航")}>
+                <Link href={href("guide", locale)}>
+                  {localize(locale, "使用指南", "How to use", "使用指南")}
+                </Link>
+                <Link href={href("how-it-works", locale)}>
+                  {localize(locale, "工作原理", "How it works", "工作原理")}
+                </Link>
+                <Link href={href("faq", locale)}>
+                  {localize(locale, "常见问题", "FAQ", "常見問題")}
+                </Link>
+                <Link href={href("calibration", locale)}>
+                  {localize(locale, "读数修正", "Adjust readings", "讀數修正")}
+                </Link>
+                <Link href={href("about", locale)}>
+                  {localize(locale, "关于", "About", "關於")}
+                </Link>
+                <Link href={href("privacy", locale)}>
+                  {localize(locale, "隐私说明", "Privacy", "隱私說明")}
+                </Link>
+              </nav>
+            </div>
+            <p className={styles.footerNote}>
+              {localize(
+                locale,
+                "浏览器声音观察工具，结果不替代认证声级测量。音频在你的设备上处理。",
+                "Browser observations, not certified sound level measurements. Audio is processed on your device.",
+                "瀏覽器聲音觀察工具，結果不替代認證聲級測量。音訊在你的裝置上處理。",
+              )}
+            </p>
+          </footer>
+        </LocalizationBoundary>
       </body>
     </html>
   );

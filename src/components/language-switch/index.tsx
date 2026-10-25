@@ -26,6 +26,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
   const id = useId();
   const root = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
+  const list = useRef<HTMLUListElement>(null);
   const [active, setActive] = useState<number | null>(null);
   const router = useRouter();
   const pathname = usePathname() || `${localePrefix(locale)}/`;
@@ -40,6 +41,16 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
   const open = active !== null;
   const highlighted = active ?? selected;
   const label = localize(locale, "语言", "Language", "語言");
+
+  useEffect(() => {
+    if (!open || !list.current) return;
+    const option = list.current.children[highlighted];
+    if (!(option instanceof HTMLElement)) return;
+    const { scrollTop, clientHeight } = list.current;
+    if (option.offsetTop < scrollTop) list.current.scrollTop = option.offsetTop;
+    else if (option.offsetTop + option.offsetHeight > scrollTop + clientHeight)
+      list.current.scrollTop = option.offsetTop + option.offsetHeight - clientHeight;
+  }, [open, highlighted]);
 
   useEffect(() => {
     if (!open) return;
@@ -132,10 +143,13 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
         onClick={() => setActive(open ? null : selected)}
         onKeyDown={onKeyDown}
       >
-        <span lang={locale}>{localeSettings[locale].label}</span>
+        <span lang={locale} dir="auto">
+          {localeSettings[locale].label}
+        </span>
         <Icon name="chevron-down" size={14} />
       </button>
       <ul
+        ref={list}
         id={`${id}-list`}
         role="listbox"
         aria-label={label}
@@ -154,7 +168,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
             onPointerMove={() => setActive(index)}
             onClick={() => choose(index)}
           >
-            <span>{localeSettings[language].label}</span>
+            <span dir="auto">{localeSettings[language].label}</span>
             {language === locale ? <Icon name="circle-check" size={15} /> : null}
           </li>
         ))}

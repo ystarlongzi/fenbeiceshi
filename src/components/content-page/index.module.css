@@ -53,7 +53,7 @@
   align-items: flex-start;
   gap: 13px;
   padding: 21px 23px;
-  border-left: 3px solid var(--brand);
+  border-inline-start: 3px solid var(--brand);
   background: var(--surface-accent);
 }
 .takeaway svg {
@@ -86,7 +86,7 @@
   margin: 0 0 17px;
 }
 .body ul {
-  padding-left: 22px;
+  padding-inline-start: 22px;
 }
 .body li {
   margin-bottom: 8px;
@@ -101,7 +101,7 @@
   border-collapse: collapse;
   width: 100%;
   min-width: 470px;
-  text-align: left;
+  text-align: start;
   font-size: var(--font-size-ui);
   line-height: 1.9;
 }
@@ -185,8 +185,8 @@
   align-self: start;
   position: sticky;
   top: 110px;
-  border-left: 1px solid var(--line);
-  padding-left: 23px;
+  border-inline-start: 1px solid var(--line);
+  padding-inline-start: 23px;
 }
 .toc > p {
   font-size: var(--font-size-caption);

@@ -4,7 +4,7 @@ import { SoundMeter } from "@/features/sound-meter";
 import { RecordsPanel } from "@/features/records";
 import type { Locale } from "@/features/sound-meter/types";
 import { homeFaqItems } from "@/lib/content/faq";
-import { href, pageById, SITE_URL } from "@/lib/routing/pages";
+import { href, pageById, canonicalHref } from "@/lib/routing/pages";
 import { text } from "@/lib/content/types";
 import { Icon } from "../icon";
 import { homeInstructions, homeKnowledge } from "./copy";
@@ -23,7 +23,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: localize(locale, "分贝测试", "SoundMeterGo Online Decibel Meter", "分貝測試"),
-          url: SITE_URL + href("meter", locale),
+          url: canonicalHref("meter", locale),
           inLanguage: locale,
           applicationCategory: "UtilitiesApplication",
           operatingSystem: "Web browser",

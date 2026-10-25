@@ -11,7 +11,7 @@ import { soundSources, type SoundReference } from "@/lib/content/sound-reference
 import { referenceLevel, referenceRange } from "@/lib/content/sound-reference-format";
 import { text } from "@/lib/content/types";
 import { href } from "@/lib/routing/pages";
-import { localize } from "@/lib/i18n/text";
+import { formatLocalized, localize } from "@/lib/i18n/text";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
 
@@ -22,11 +22,12 @@ export function SoundDetailPage({ detail, locale }: { detail: SoundDetail; local
       id={detail.content.id}
       locale={locale}
       className={styles.article}
-      heading={localize(
+      heading={formatLocalized(
         locale,
         `${range} 分贝有多大？`,
-        `How loud is ${range} dB?`,
+        "How loud is {range} dB?",
         `${range} 分貝有多大？`,
+        { range },
       )}
       overview={<SoundOverview detail={detail} locale={locale} />}
       sectionClasses={{
@@ -111,11 +112,12 @@ function SoundOverview({ detail, locale }: { detail: SoundDetail; locale: Locale
   const bandLabel =
     start === end
       ? text(start.title, locale)
-      : localize(
+      : formatLocalized(
           locale,
           `${text(start.title, locale)}至${text(end.title, locale)}`,
-          `${text(start.title, locale)} to ${text(end.title, locale)}`,
+          "{start} to {end}",
           `${text(start.title, locale)}至${text(end.title, locale)}`,
+          { start: text(start.title, locale), end: text(end.title, locale) },
         );
   const accent = start === end ? `var(--noise-${start.tone}-ink)` : "var(--brand)";
   return (
@@ -217,17 +219,19 @@ function SoundComparison({ detail, locale }: { detail: SoundDetail; locale: Loca
                       {row.offset === 0
                         ? localize(locale, "本页参考", "This page", "本頁參考")
                         : row.offset < 0
-                          ? localize(
+                          ? formatLocalized(
                               locale,
                               `低 ${-row.offset} 分贝`,
-                              `${-row.offset} dB lower`,
+                              "{difference} dB lower",
                               `低 ${-row.offset} 分貝`,
+                              { difference: -row.offset },
                             )
-                          : localize(
+                          : formatLocalized(
                               locale,
                               `高 ${row.offset} 分贝`,
-                              `${row.offset} dB higher`,
+                              "{difference} dB higher",
                               `高 ${row.offset} 分貝`,
+                              { difference: row.offset },
                             )}
                     </span>
                   </th>

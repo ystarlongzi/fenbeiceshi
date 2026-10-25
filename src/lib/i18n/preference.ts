@@ -11,8 +11,15 @@ export function browserLanguage(
 ): Locale {
   for (const language of languages) {
     const parts = language.trim().toLowerCase().replaceAll("_", "-").split("-");
-    if (parts[0] === "en" && supported.includes("en")) return "en";
-    if (parts[0] !== "zh") continue;
+    if (parts[0] !== "zh") {
+      const normalized = parts.join("-");
+      const exact = supported.find((locale) => locale.toLowerCase() === normalized);
+      if (exact) return exact;
+      const language = parts[0] === "nb" ? "no" : parts[0];
+      const general = supported.find((locale) => locale.toLowerCase().split("-")[0] === language);
+      if (general) return general;
+      continue;
+    }
     const target = parts.includes("hans")
       ? "zh-CN"
       : parts.includes("hant") || parts.some((part) => ["tw", "hk", "mo"].includes(part))

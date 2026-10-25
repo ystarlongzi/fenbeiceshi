@@ -5,6 +5,12 @@
   justify-content: center;
   transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
 }
+:global([dir="rtl"]) .arrow {
+  --link-arrow-shift: -3px;
+}
+:global([dir="rtl"]) .arrow > svg {
+  transform: scaleX(-1);
+}
 :where(a:focus-visible) .arrow {
   transform: translateX(var(--link-arrow-shift, 3px));
 }

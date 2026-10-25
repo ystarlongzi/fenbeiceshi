@@ -1,6 +1,8 @@
 import type { IconName } from "../icon";
 import type { Locale } from "@/lib/i18n/locales";
 import { localize } from "@/lib/i18n/text";
+import { isAdditionalLocale } from "@/lib/i18n/additional-locales";
+import { translateEnglish } from "@/lib/i18n/messages";
 
 export function homeKnowledge(locale: Locale) {
   return {
@@ -66,7 +68,24 @@ export function homeKnowledge(locale: Locale) {
   };
 }
 
-export function homeInstructions(locale: Locale) {
+export function homeInstructions(locale: Locale): {
+  scenes: { title: string; steps: [string, string]; icon: IconName }[];
+  steps: { title: string; body: string }[];
+} {
+  if (isAdditionalLocale(locale)) {
+    const source = homeInstructions("en");
+    return {
+      scenes: source.scenes.map((scene) => ({
+        ...scene,
+        title: translateEnglish(locale, scene.title),
+        steps: scene.steps.map((step) => translateEnglish(locale, step)) as [string, string],
+      })),
+      steps: source.steps.map((step) => ({
+        title: translateEnglish(locale, step.title),
+        body: translateEnglish(locale, step.body),
+      })),
+    };
+  }
   const en = locale === "en";
   const scenes: {
     title: string;

@@ -63,7 +63,7 @@
 }
 .grouped .answer {
   margin-bottom: 24px;
-  border-left: 2px solid var(--line-accent);
+  border-inline-start: 2px solid var(--line-accent);
   padding: 0 24px 0 18px;
 }
 @media (hover: hover) {
@@ -76,7 +76,7 @@
     gap: 14px;
   }
   .answer {
-    padding-right: 0;
+    padding-inline-end: 0;
   }
   .grouped .answer {
     padding-inline: 14px 0;

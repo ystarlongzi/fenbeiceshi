@@ -56,8 +56,8 @@
 }
 .result {
   min-width: 0;
-  padding-left: 28px;
-  border-left: 1px solid var(--line);
+  padding-inline-start: 28px;
+  border-inline-start: 1px solid var(--line);
 }
 .duration {
   display: flex;
@@ -114,7 +114,7 @@
   color: var(--text-body);
   font-size: var(--font-size-ui);
   line-height: 1.7;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 }
 .presets button:hover {
@@ -159,7 +159,7 @@
   }
   .result {
     padding: 18px 0 0;
-    border-left: 0;
+    border-inline-start: 0;
     border-top: 1px solid var(--line);
   }
   .duration {

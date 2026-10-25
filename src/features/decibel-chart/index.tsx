@@ -1,4 +1,4 @@
-import { localize } from "@/lib/i18n/text";
+import { formatLocalized } from "@/lib/i18n/text";
 import { ContentPage } from "@/components/content-page";
 import { href } from "@/lib/routing/pages";
 import { soundBands } from "@/lib/content/sound-bands";
@@ -46,11 +46,12 @@ export function DecibelChart({ locale }: { locale: Locale }) {
                   searchText: `${sound.name.zh} ${sound.name.zhTW} ${sound.name.en}`,
                   readingLink: {
                     href: href(detailForSound(sound.id).content.id, locale),
-                    label: localize(
+                    label: formatLocalized(
                       locale,
                       `了解 ${referenceRange(sound)} 分贝`,
-                      `About ${referenceRange(sound)} dB`,
+                      "About {range} dB",
                       `瞭解 ${referenceRange(sound)} 分貝`,
+                      { range: referenceRange(sound) },
                     ),
                   },
                 }))

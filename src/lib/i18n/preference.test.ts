@@ -3,6 +3,7 @@ import test from "node:test";
 import { runInNewContext } from "node:vm";
 import { pagePath, sitePages } from "../routing/pages.ts";
 import type { Locale } from "./locales.ts";
+import { additionalLocales } from "./additional-locales.ts";
 import {
   browserLanguage,
   getLanguagePersistenceError,
@@ -86,9 +87,13 @@ test("浏览器语言识别文字体系及顺序，并可限制在当前域名�
     [["zh-Hans-HK"], "zh-CN"],
     [[" ZH_hant_TW "], "zh-TW"],
     [["en-GB"], "en"],
-    [["fr", "en-US", "zh-TW"], "en"],
+    [["fr", "en-US", "zh-TW"], "fr"],
     [["zh-TW", "en-US"], "zh-TW"],
-    [["fr", "de"], "zh-CN"],
+    [["fr", "de"], "fr"],
+    [["ja-JP"], "ja"],
+    [["pt-BR"], "pt-BR"],
+    [["nb-NO"], "no"],
+    [["unsupported"], "zh-CN"],
     [[], "zh-CN"],
   ];
   for (const [languages, expected] of cases) assert.equal(browserLanguage(languages), expected);
@@ -113,7 +118,7 @@ test("英文偏好不使中文域名强制跨域，英文与明确繁体页面�
   chinese.saved.set(LANGUAGE_KEY, "en");
   chinese.boot();
   assert.deepEqual(chinese.redirects, []);
-  for (const locale of ["en", "zh-TW"] as const) {
+  for (const locale of ["en", "zh-TW", ...additionalLocales] as const) {
     const browser = makeBrowser(pagePath("guide", locale));
     browser.navigator.languages = ["zh-CN"];
     browser.saved.set(LANGUAGE_KEY, "zh-CN");

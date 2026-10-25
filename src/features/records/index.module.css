@@ -100,7 +100,7 @@
   line-height: 1.9;
 }
 .empty a {
-  margin-left: auto;
+  margin-inline-start: auto;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -205,7 +205,7 @@
 }
 .mean {
   min-width: 100px;
-  text-align: right;
+  text-align: end;
 }
 .mean strong {
   font: var(--font-size-heading) var(--font-number);
@@ -215,7 +215,7 @@
 .mean > span {
   font-size: var(--font-size-caption);
   color: var(--text-body);
-  margin-left: 4px;
+  margin-inline-start: 4px;
 }
 .readingMeta {
   display: flex;
@@ -309,7 +309,7 @@
 }
 .comparison {
   margin-top: 25px;
-  border-left: 3px solid var(--brand);
+  border-inline-start: 3px solid var(--brand);
   background: var(--surface-accent);
   padding: 23px;
 }
@@ -326,7 +326,7 @@
 }
 .comparison strong small {
   font-size: var(--font-size-ui);
-  margin-left: 7px;
+  margin-inline-start: 7px;
 }
 .comparison p {
   font-size: var(--font-size-body);
@@ -382,7 +382,7 @@
     min-width: 75px;
   }
   .rowActions {
-    margin-left: 28px;
+    margin-inline-start: 28px;
   }
   .workspace .row {
     grid-template-columns: 18px minmax(0, 1fr) auto;
@@ -392,7 +392,7 @@
   .workspace .rowActions {
     grid-column: 3;
     grid-row: 2;
-    margin-left: 0;
+    margin-inline-start: 0;
     justify-content: flex-end;
   }
   .workspace .rowActions[data-confirming="true"] {
@@ -407,11 +407,11 @@
     grid-column: 2;
     grid-row: 2;
     min-width: 0;
-    text-align: left;
+    text-align: start;
   }
   .workspace .mean > span {
     display: inline;
-    margin-left: 4px;
+    margin-inline-start: 4px;
   }
   .workspace .readingMeta {
     justify-content: flex-start;

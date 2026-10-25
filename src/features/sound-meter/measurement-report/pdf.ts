@@ -1,5 +1,6 @@
 import type { MeasurementReport } from "./model.ts";
-import { reportCopy } from "./copy.ts";
+import { getReportCopy } from "./copy.ts";
+import { localeSettings } from "../../../lib/i18n/locales.ts";
 
 export function wrapReportText(value: string, measure: (text: string) => number, maxWidth: number) {
   const lines: string[] = [];
@@ -39,12 +40,22 @@ export function drawReport(report: MeasurementReport) {
     return context;
   }
   let ctx = newPage();
-  const copy = reportCopy[report.locale];
+  const copy = getReportCopy(report.locale);
+  const rtl = localeSettings[report.locale].direction === "rtl";
   const font = 'system-ui, -apple-system, "Microsoft YaHei", sans-serif';
-  const text = (value: string, x: number, y: number, size = 14, color = "#253c2e") => {
+  const text = (
+    value: string,
+    x: number,
+    y: number,
+    size = 14,
+    color = "#253c2e",
+    numeric = false,
+  ) => {
     ctx.font = `${size}px ${font}`;
     ctx.fillStyle = color;
-    ctx.fillText(value, x, y);
+    ctx.direction = rtl && !numeric ? "rtl" : "ltr";
+    ctx.textAlign = rtl && !numeric ? "right" : "left";
+    ctx.fillText(value, rtl && !numeric ? width - x : x, y);
   };
   const paragraph = (value: string, y: number, size = 14, color = "#56645b") => {
     ctx.font = `${size}px ${font}`;
@@ -110,7 +121,14 @@ export function drawReport(report: MeasurementReport) {
     ctx.moveTo(60, lineY);
     ctx.lineTo(60 + chartWidth, lineY);
     ctx.stroke();
-    text((maximum - (step / 3) * (maximum - minimum)).toFixed(0), 48, lineY + 2, 12);
+    text(
+      (maximum - (step / 3) * (maximum - minimum)).toFixed(0),
+      48,
+      lineY + 2,
+      12,
+      "#253c2e",
+      true,
+    );
   }
   const firstTime = points[0]?.time ?? 0;
   const span = Math.max(1, (points.at(-1)?.time ?? firstTime) - firstTime);
@@ -124,8 +142,15 @@ export function drawReport(report: MeasurementReport) {
     else ctx.lineTo(x, pointY);
   });
   ctx.stroke();
-  text(`${(firstTime / 1000).toFixed(1)} s`, 60, chartTop + chartHeight + 9, 12);
-  text(`${((firstTime + span) / 1000).toFixed(1)} s`, width - 110, chartTop + chartHeight + 9, 12);
+  text(`${(firstTime / 1000).toFixed(1)} s`, 60, chartTop + chartHeight + 9, 12, "#253c2e", true);
+  text(
+    `${((firstTime + span) / 1000).toFixed(1)} s`,
+    width - 110,
+    chartTop + chartHeight + 9,
+    12,
+    "#253c2e",
+    true,
+  );
   y = paragraph(report.trendHint, chartTop + chartHeight + 38, 13);
   paragraph(report.notice, y + 24, 14);
   return pages.map((page, index) => {

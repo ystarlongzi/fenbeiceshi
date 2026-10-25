@@ -1,5 +1,7 @@
 import { soundBands } from "../../lib/content/sound-bands.ts";
 import { NOISE_SCALE_TICKS } from "./readings.ts";
+import type { Locale } from "../../lib/i18n/locales.ts";
+import { localizeCopy } from "../../lib/i18n/messages.ts";
 
 type ReferenceLabels = [string, string, string, string, string];
 
@@ -444,3 +446,7 @@ const zhTW: MeterCopy = {
 };
 
 export const meterCopy = { "zh-CN": zh, "zh-TW": zhTW, en };
+
+export function getMeterCopy(locale: Locale): MeterCopy {
+  return locale === "zh-CN" || locale === "zh-TW" ? meterCopy[locale] : localizeCopy(locale, en);
+}

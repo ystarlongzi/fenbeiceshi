@@ -117,8 +117,8 @@
   background: var(--surface);
 }
 .groupIntro {
-  padding-right: 24px;
-  border-right: 1px solid var(--line);
+  padding-inline-end: 24px;
+  border-inline-end: 1px solid var(--line);
 }
 .groupIntro h3 {
   font-size: var(--font-size-heading);
@@ -165,7 +165,7 @@
   margin: 0;
 }
 .articleArrow {
-  margin-left: auto;
+  margin-inline-start: auto;
   color: var(--brand);
 }
 .links > a:focus-visible :is(h3, h4) {
@@ -220,7 +220,7 @@
   gap: 7px;
   color: var(--brand);
   font-size: var(--font-size-ui);
-  margin-left: auto;
+  margin-inline-start: auto;
   white-space: nowrap;
   min-height: 44px;
 }
@@ -240,7 +240,7 @@
   }
   .groupIntro {
     padding: 0 0 20px;
-    border-right: 0;
+    border-inline-end: 0;
     border-bottom: 1px solid var(--line);
   }
 }
@@ -258,7 +258,7 @@
     position: relative;
   }
   .helpCardHeading {
-    padding-right: 24px;
+    padding-inline-end: 24px;
   }
   .helpCard > p {
     margin: 10px 0 0;

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import test, { before } from "node:test";
 import { soundReferences, soundSources } from "../sound-references.ts";
 import { referenceRange } from "../sound-reference-format.ts";
 import { text } from "../types.ts";
@@ -8,6 +8,11 @@ import { href, canonicalHref, findPage } from "../../routing/pages.ts";
 import { breadcrumbData, pageMetadata } from "../../seo/metadata.ts";
 import { detailForLevel, detailForSound, soundDetails } from "./index.ts";
 import { levelComparisons } from "./comparison.ts";
+import { prepareLocale } from "../../i18n/load-messages.ts";
+
+before(async () => {
+  await Promise.all(locales.map(prepareLocale));
+});
 
 test("全部声音按真实单值或完整范围关联详情，没有缺漏和重复", () => {
   assert.equal(soundDetails.length, 28);
@@ -105,7 +110,9 @@ test("每个主题有两条生活化问答，听力标题直接提问并区分�
     assert.equal(new Set(topicQuestions.map((item) => text(item.question, locale))).size, 56);
     for (const { content, sounds, questions } of soundDetails) {
       const hearing = content.sections.find((section) => section.id === "hearing");
-      assert.ok(hearing && text(hearing.title, locale).includes(`${referenceRange(sounds[0])} dB`));
+      assert.ok(hearing);
+      assert.ok(text(hearing.title, locale).includes(referenceRange(sounds[0])));
+      assert.ok(text(hearing.title, locale).includes("dB"));
       assert.equal(hearing.paragraphs.length, 2);
       assert.ok(
         questions.every(

@@ -2,7 +2,7 @@
 
 import { useState, type RefObject } from "react";
 import { MeasurementReportDialog } from "../../sound-meter/measurement-report";
-import { reportCopy } from "../../sound-meter/measurement-report/copy";
+import { getReportCopy } from "../../sound-meter/measurement-report/copy";
 import { withMeasurementNote } from "../../sound-meter/measurement-report/model";
 import type { Locale, Measurement } from "../../sound-meter/types";
 
@@ -24,7 +24,7 @@ export function RecordExportDialog({
       record={withMeasurementNote(record, note)}
       locale={locale}
       note={note}
-      noteHint={reportCopy[locale].exportNoteHint}
+      noteHint={getReportCopy(locale).exportNoteHint}
       onNoteChange={setNote}
       onClose={onClose}
       returnFocus={returnFocus}

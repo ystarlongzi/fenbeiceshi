@@ -23,7 +23,7 @@ export function Switch({
   return (
     <label className={styles.switch}>
       <span className={styles.label}>{children}</span>
-      <span className={styles.control}>
+      <span className={styles.control} dir="ltr">
         <input
           type="checkbox"
           role="switch"

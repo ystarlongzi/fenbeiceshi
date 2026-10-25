@@ -1,11 +1,16 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import test, { before } from "node:test";
 import { breadcrumbData } from "./metadata.ts";
 import { canonicalHref } from "../routing/pages.ts";
 import { locales } from "../i18n/locales.ts";
 import { localize } from "../i18n/text.ts";
+import { prepareLocale } from "../i18n/load-messages.ts";
 
-test("三语帮助页与知识文章的面包屑归属知识与帮助", () => {
+before(async () => {
+  await Promise.all(locales.map(prepareLocale));
+});
+
+test("27 种语言帮助页与知识文章的面包屑归属知识与帮助", () => {
   for (const locale of locales) {
     for (const id of [
       "guide",

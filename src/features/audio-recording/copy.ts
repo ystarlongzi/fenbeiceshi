@@ -1,3 +1,6 @@
+import type { Locale } from "../../lib/i18n/locales.ts";
+import { localizeCopy } from "../../lib/i18n/messages.ts";
+
 const zh = {
   enable: "同步录音",
   off: "默认关闭",
@@ -73,3 +76,9 @@ const zhTW: typeof zh = {
 };
 
 export const recordingCopy = { "zh-CN": zh, "zh-TW": zhTW, en };
+
+export function getRecordingCopy(locale: Locale) {
+  return locale === "zh-CN" || locale === "zh-TW"
+    ? recordingCopy[locale]
+    : localizeCopy(locale, en);
+}

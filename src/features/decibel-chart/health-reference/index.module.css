@@ -26,7 +26,7 @@
   min-width: 560px;
   border-collapse: collapse;
   table-layout: fixed;
-  text-align: left;
+  text-align: start;
   font-size: var(--font-size-ui);
   font-variant-numeric: tabular-nums;
   line-height: 1.8;
@@ -36,7 +36,7 @@
   color: var(--ink);
   font-size: var(--font-size-heading-sm);
   font-weight: 600;
-  text-align: left;
+  text-align: start;
 }
 .table th,
 .table td {
@@ -58,7 +58,7 @@
 }
 .table tbody th {
   position: sticky;
-  left: 0;
+  inset-inline-start: 0;
   z-index: 1;
   background: inherit;
   color: var(--ink);
@@ -70,7 +70,7 @@
 }
 .table thead th:first-child {
   position: sticky;
-  left: 0;
+  inset-inline-start: 0;
   z-index: 2;
 }
 .risk {
@@ -104,7 +104,7 @@
   font-weight: 600;
 }
 .warningCell sup {
-  margin-left: 2px;
+  margin-inline-start: 2px;
   font-size: inherit;
 }
 .warningNote {

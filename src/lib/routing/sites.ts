@@ -1,4 +1,5 @@
 import type { Locale } from "../i18n/locales.ts";
+import { additionalLocales } from "../i18n/additional-locales.ts";
 
 export const sites = {
   fenbeiceshi: {
@@ -13,7 +14,7 @@ export const sites = {
     origin: "https://soundmetergo.com",
     domain: "soundmetergo.com",
     brand: "SoundMeterGo",
-    locales: ["en"],
+    locales: ["en", ...additionalLocales],
     primaryLocale: "en",
     output: "out-soundmetergo",
   },
@@ -27,5 +28,5 @@ export const activeSite = sites[siteId];
 export const siteLocales: readonly Locale[] = activeSite.locales;
 
 export function siteForLocale(locale: Locale) {
-  return locale === "en" ? sites.soundmetergo : sites.fenbeiceshi;
+  return locale === "zh-CN" || locale === "zh-TW" ? sites.fenbeiceshi : sites.soundmetergo;
 }

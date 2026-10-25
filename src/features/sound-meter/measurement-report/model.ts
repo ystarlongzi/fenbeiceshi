@@ -1,10 +1,10 @@
 import { siteForLocale } from "../../../lib/routing/sites.ts";
 import { publicSummary } from "../../records/storage.ts";
-import { meterCopy } from "../copy.ts";
+import { getMeterCopy } from "../copy.ts";
 import { modeLabel } from "../mode-label.ts";
 import { displayStats, formatReading, measurementBasis } from "../readings.ts";
 import type { Locale, Measurement } from "../types.ts";
-import { reportCopy } from "./copy.ts";
+import { getReportCopy } from "./copy.ts";
 
 export type ReportCell = string | number | boolean;
 export type ReportRow = ReportCell[];
@@ -15,8 +15,8 @@ export function withMeasurementNote(record: Measurement, note: string): Measurem
 
 export function createReport(record: Measurement, locale: Locale) {
   const summary = publicSummary(record);
-  const copy = reportCopy[locale];
-  const meter = meterCopy[locale];
+  const copy = getReportCopy(locale);
+  const meter = getMeterCopy(locale);
   const basis = measurementBasis(record);
   const stats = displayStats(record.stats, basis);
   const mode = modeLabel(basis, meter);
@@ -53,7 +53,7 @@ export function createReport(record: Measurement, locale: Locale) {
     title: copy.title,
     locale,
     domain: siteForLocale(locale).domain,
-    fileName: `${locale === "en" ? "soundmetergo" : "fenbeiceshi"}-${record.startedAt.replace(/[:.]/g, "-")}`,
+    fileName: `${locale === "zh-CN" || locale === "zh-TW" ? "fenbeiceshi" : "soundmetergo"}-${record.startedAt.replace(/[:.]/g, "-")}`,
     rows,
     trendHeaders: [copy.time, copy.level, copy.unit, copy.floor],
     trend: summary.recentTrend.map((point): ReportRow => [
@@ -98,7 +98,7 @@ export function reportText(report: MeasurementReport) {
 }
 
 export function reportCsv(report: MeasurementReport) {
-  const copy = reportCopy[report.locale];
+  const copy = getReportCopy(report.locale);
   const escape = (value: ReportCell) => {
     let text = String(value);
     // CSV 的引号不能阻止表格软件执行公式，外部文本必须单独消除公式前缀。

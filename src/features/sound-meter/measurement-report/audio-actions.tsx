@@ -2,11 +2,11 @@
 
 import { useRef } from "react";
 import { Icon } from "@/components/icon";
-import { recordingCopy } from "../../audio-recording/copy";
+import { getRecordingCopy } from "../../audio-recording/copy";
 import { recordingFilename } from "../../audio-recording/pcm";
 import type { PlaybackClip, useAudioClip } from "../../audio-recording/use-audio-clip";
 import type { Locale } from "../types";
-import { reportCopy } from "./copy";
+import { getReportCopy } from "./copy";
 import styles from "./index.module.css";
 
 export function AudioReportActions({
@@ -18,8 +18,8 @@ export function AudioReportActions({
   recording: Pick<ReturnType<typeof useAudioClip>, "mp3" | "createMp3">;
   locale: Locale;
 }) {
-  const audio = recordingCopy[locale];
-  const copy = reportCopy[locale];
+  const audio = getRecordingCopy(locale);
+  const copy = getReportCopy(locale);
   const pcmAction = useRef<HTMLAnchorElement>(null);
   return (
     <>

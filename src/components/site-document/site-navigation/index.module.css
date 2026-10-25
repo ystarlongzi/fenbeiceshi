@@ -1,5 +1,8 @@
 .desktop {
   display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: center;
   gap: 30px;
 }
@@ -8,6 +11,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.desktop .links {
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .link {
   display: inline-flex;

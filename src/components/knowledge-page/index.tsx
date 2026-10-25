@@ -94,7 +94,7 @@ export function KnowledgePage({ locale }: { locale: Locale }) {
     <div className={styles.page}>
       <StructuredData data={breadcrumbData("knowledge", locale)} />
       <header className={styles.header}>
-        <p className={styles.eyebrow}>{localize(locale, "分贝测试", "FENBEICESHI", "分貝測試")}</p>
+        <p className={styles.eyebrow}>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</p>
         <h1>{localize(locale, "知识与帮助", "Knowledge & help", "知識與幫助")}</h1>
         <p className={styles.intro}>
           {localize(

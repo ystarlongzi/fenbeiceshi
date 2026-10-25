@@ -53,7 +53,7 @@
 .notice {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
+  inset-inline-end: 0;
   z-index: 25;
   margin: 0;
   border: 1px solid var(--line-strong);
@@ -97,7 +97,7 @@
 }
 .notice {
   width: min(230px, calc(100vw - 112px));
-  border-left: 3px solid var(--warning);
+  border-inline-start: 3px solid var(--warning);
   background: var(--warning-surface);
   color: var(--warning);
   padding: 12px 14px;

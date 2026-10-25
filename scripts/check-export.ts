@@ -30,13 +30,16 @@ import {
 } from "../src/lib/content/decibel-details/index.ts";
 import { levelComparisons } from "../src/lib/content/decibel-details/comparison.ts";
 import { faqItems, homeFaqItems } from "../src/lib/content/faq.ts";
-import { locales, localeSettings } from "../src/lib/i18n/locales.ts";
+import { baseLocales, locales, localeSettings } from "../src/lib/i18n/locales.ts";
+import { additionalLocaleSettings } from "../src/lib/i18n/additional-locales.ts";
 import { localize } from "../src/lib/i18n/text.ts";
 
 const htmlByPath = new Map<string, string>();
 const titles = new Set<string>();
 for (const page of sitePages) {
-  for (const locale of siteLocales) {
+  for (const locale of siteLocales.filter((language) =>
+    baseLocales.some((base) => base === language),
+  )) {
     const path = href(page.id, locale);
     const html = await readFile(resolve(activeSite.output, path.slice(1), "index.html"), "utf8");
     htmlByPath.set(path, html);
@@ -243,7 +246,7 @@ for (const page of sitePages) {
           path,
         );
         assert.ok(
-          body.includes(`<span lang="${locale}">${localeSettings[locale].label}</span>`),
+          body.includes(`<span lang="${locale}" dir="auto">${localeSettings[locale].label}</span>`),
           path,
         );
         const listId = attributes.match(/aria-controls="([^"]+)"/)?.[1];
@@ -257,8 +260,8 @@ for (const page of sitePages) {
         assert.match(list[1], /\bhidden=/, `未展开的语言列表应隐藏：${path}`);
         const options = [...list[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
         assert.deepEqual(
-          options.map((option) => option[2].match(/<span>([^<]*)<\/span>/)?.[1]),
-          ["简体中文", "繁體中文", "English"],
+          options.map((option) => option[2].match(/<span dir="auto">([^<]*)<\/span>/)?.[1]),
+          locales.map((language) => localeSettings[language].label),
           path,
         );
         for (const [index, language] of locales.entries()) {
@@ -665,6 +668,9 @@ assert.equal((await readFile(activeSite.output + "/_site.txt", "utf8")).trim(), 
 await assert.rejects(readFile(activeSite.output + "/en/index.html"), { code: "ENOENT" });
 if (activeSite.primaryLocale === "en")
   await assert.rejects(readFile(activeSite.output + "/zh-tw/index.html"), { code: "ENOENT" });
+else
+  for (const { prefix } of Object.values(additionalLocaleSettings))
+    await assert.rejects(readFile(activeSite.output + prefix + "/index.html"), { code: "ENOENT" });
 console.log(
   `静态产物检查通过：${htmlByPath.size} 个页面，${urls.length} 个 sitemap URL，${links} 条内部链接与锚点。`,
 );

@@ -11,7 +11,7 @@ export function LevelScale({ value, copy }: { value: number | null; copy: MeterC
   const labels = copy.estimateScaleLabels;
   const unit = copy.estimateScaleUnit;
   return (
-    <div className={styles.scale} role="group" aria-label={`${copy.scale} · ${unit}`}>
+    <div className={styles.scale} role="group" aria-label={`${copy.scale} · ${unit}`} dir="ltr">
       <div className={styles.ticks}>
         {NOISE_SCALE_TICKS.map((tick, i) => (
           <span
@@ -30,6 +30,14 @@ export function LevelScale({ value, copy }: { value: number | null; copy: MeterC
           <span className={styles.marker} style={{ left: `${position * 100}%` }} />
         ) : null}
       </div>
+      <ul className={styles.labels}>
+        {NOISE_SCALE_TICKS.map((tick, index) => (
+          <li key={tick} dir="auto">
+            <span dir="ltr">{tick}</span>
+            <span>{labels[index]}</span>
+          </li>
+        ))}
+      </ul>
       <p>
         <span className={styles.unit}>{unit}</span> {copy.estimateScaleHint}
       </p>

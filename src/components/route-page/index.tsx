@@ -129,13 +129,28 @@ export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) 
             )}
           </p>
         </header>
-        {locale === "en" ? (
+        {locale !== "zh-CN" && locale !== "zh-TW" ? (
           <Notice className={styles.migration}>
-            Earlier reports and recordings remain in this browser’s storage for fenbeiceshi.com.{" "}
+            {localize(
+              locale,
+              "旧报告与录音仍保存在此浏览器的 fenbeiceshi.com 存储中。",
+              "Earlier reports and recordings remain in this browser’s storage for fenbeiceshi.com.",
+              "舊報告與錄音仍儲存在此瀏覽器的 fenbeiceshi.com 儲存空間中。",
+            )}{" "}
             <a href="https://fenbeiceshi.com/records/?language=zh-CN">
-              Open earlier records to download them.
+              {localize(
+                locale,
+                "打开旧记录并下载。",
+                "Open earlier records to download them.",
+                "開啟舊記錄並下載。",
+              )}
             </a>{" "}
-            Data is not transferred between domains automatically.
+            {localize(
+              locale,
+              "数据不会在域名之间自动转移。",
+              "Data is not transferred between domains automatically.",
+              "資料不會在網域之間自動轉移。",
+            )}
           </Notice>
         ) : null}
         <RecordsPanel locale={locale} />

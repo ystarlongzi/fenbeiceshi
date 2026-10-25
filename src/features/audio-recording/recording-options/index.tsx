@@ -3,7 +3,7 @@ import { Switch } from "@/components/switch";
 import { Notice } from "@/components/notice";
 import type { Locale } from "../../sound-meter/types";
 import type { useAudioRecording } from "../use-audio-recording";
-import { recordingCopy } from "../copy";
+import { getRecordingCopy } from "../copy";
 import styles from "./index.module.css";
 
 export function RecordingOptions({
@@ -17,7 +17,7 @@ export function RecordingOptions({
   busy: boolean;
   demo: boolean;
 }) {
-  const copy = recordingCopy[locale];
+  const copy = getRecordingCopy(locale);
   const hintId = useId();
   const hint = demo
     ? copy.demo

@@ -1,5 +1,6 @@
 "use client";
-import { localize } from "@/lib/i18n/text";
+import { formatLocalized, localize } from "@/lib/i18n/text";
+import { normalizeNumberInput } from "@/lib/i18n/numbers";
 
 import { useEffect, useRef, type ComponentPropsWithoutRef } from "react";
 import { Icon } from "@/components/icon";
@@ -59,23 +60,26 @@ export function NumberInput({
   const messages = {
     required: localize(locale, "请输入数值。", "Enter a value.", "請輸入數值。"),
     number: localize(locale, "请输入有效数字。", "Enter a valid number.", "請輸入有效數字。"),
-    min: localize(
+    min: formatLocalized(
       locale,
       `请输入不小于 ${min} 的数值。`,
-      `Enter ${min} or more.`,
+      "Enter {min} or more.",
       `請輸入不小於 ${min} 的數值。`,
+      { min },
     ),
-    max: localize(
+    max: formatLocalized(
       locale,
       `请输入不大于 ${max} 的数值。`,
-      `Enter ${max} or less.`,
+      "Enter {max} or less.",
       `請輸入不大於 ${max} 的數值。`,
+      { max },
     ),
-    step: localize(
+    step: formatLocalized(
       locale,
       `请从 ${min} 起按 ${step} 的步长输入。`,
-      `Use steps of ${step}, starting at ${min}.`,
+      "Use steps of {step}, starting at {min}.",
       `請從 ${min} 起按 ${step} 的步長輸入。`,
+      { step, min },
     ),
   };
   const message = issue ? messages[issue] : isInvalid ? messages.number : "";
@@ -103,6 +107,7 @@ export function NumberInput({
           id={id}
           name={name}
           type="text"
+          dir="ltr"
           role="spinbutton"
           inputMode="decimal"
           value={value}
@@ -121,7 +126,7 @@ export function NumberInput({
           aria-invalid={isInvalid || undefined}
           aria-describedby={describedBy}
           className={styles.input}
-          onChange={(event) => onValueChange(event.target.value)}
+          onChange={(event) => onValueChange(normalizeNumberInput(event.target.value, locale))}
           onKeyDown={(event) => {
             if (event.nativeEvent.isComposing || event.altKey || event.ctrlKey || event.metaKey)
               return;
@@ -144,11 +149,12 @@ export function NumberInput({
               <button
                 key={direction}
                 type="button"
-                aria-label={localize(
+                aria-label={formatLocalized(
                   locale,
                   `${direction > 0 ? "增加" : "减少"}${label}，步长 ${step}`,
-                  `${direction > 0 ? "Increase" : "Decrease"} ${label} by ${step}`,
+                  direction > 0 ? "Increase {label} by {step}" : "Decrease {label} by {step}",
                   `${direction > 0 ? "增加" : "減少"}${label}，步長 ${step}`,
+                  { label, step },
                 )}
                 disabled={locked || (issue === null && number === (direction > 0 ? max : min))}
                 onPointerDown={(event) => {

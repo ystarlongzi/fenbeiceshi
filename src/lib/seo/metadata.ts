@@ -30,7 +30,7 @@ export function pageMetadata(id: string, locale: Locale): Metadata {
       description,
       url,
       type: "website",
-      siteName: locale === "en" ? "SoundMeterGo" : site.brand,
+      siteName: site.brand,
       locale: localeSettings[locale].openGraph,
     },
     icons: { icon: "/favicon.svg" },

@@ -13,7 +13,7 @@ import { Switch } from "@/components/switch";
 import { Notice } from "@/components/notice";
 import { adjustmentBounds } from "../../calibration/adjustment";
 import { RecordingOptions } from "../../audio-recording/recording-options";
-import { meterCopy } from "../copy";
+import { getMeterCopy } from "../copy";
 import type { Locale, MeterView } from "../types";
 import type { useSoundMeter } from "../use-sound-meter";
 import { InputSignal } from "../input-signal";
@@ -33,7 +33,7 @@ export function MeterSettings({
   onViewChange: (view: MeterView) => void;
   inDrawer?: boolean;
 }) {
-  const copy = meterCopy[locale];
+  const copy = getMeterCopy(locale);
   const id = useId();
   const prefix = localePrefix(locale);
   const running = meter.status === "running";

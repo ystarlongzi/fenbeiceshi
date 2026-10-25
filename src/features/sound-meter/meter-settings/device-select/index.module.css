@@ -15,7 +15,7 @@
   color: var(--ink);
   background: var(--surface);
   font-size: var(--font-size-caption);
-  text-align: left;
+  text-align: start;
 }
 .trigger > span {
   overflow: hidden;
@@ -41,7 +41,7 @@
 .options {
   position: absolute;
   top: calc(100% + 5px);
-  left: 0;
+  inset-inline-start: 0;
   z-index: 5;
   width: 100%;
   max-height: 240px;

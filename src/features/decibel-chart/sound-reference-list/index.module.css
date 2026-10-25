@@ -32,7 +32,7 @@
   display: grid;
   place-items: center;
   position: absolute;
-  right: 3px;
+  inset-inline-end: 3px;
   top: 3px;
   min-width: 42px;
   min-height: 42px;
@@ -66,7 +66,7 @@
   --band-ink: var(--band-faint-ink);
   margin: 0;
   padding: 18px;
-  border-left: 4px solid var(--band-surface);
+  border-inline-start: 4px solid var(--band-surface);
   border-radius: 8px;
   background: var(--band-surface);
 }
@@ -122,7 +122,7 @@
   background: transparent;
   color: inherit;
   font: inherit;
-  text-align: left;
+  text-align: start;
   list-style: none;
   cursor: pointer;
 }
@@ -133,7 +133,7 @@
   white-space: nowrap;
 }
 .bandTitle {
-  margin-left: auto;
+  margin-inline-start: auto;
   font-size: var(--font-size-ui);
   font-weight: 600;
 }
@@ -207,7 +207,7 @@
   width: 10px;
   height: 10px;
   border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  border-inline-start: 1px solid var(--line);
   background: var(--surface);
   transform: translateX(-50%) rotate(45deg);
   pointer-events: none;
@@ -222,7 +222,7 @@
 }
 .emoji {
   display: inline-block;
-  margin-right: 6px;
+  margin-inline-end: 6px;
   font-size: var(--font-size-body);
   line-height: 1.4;
 }

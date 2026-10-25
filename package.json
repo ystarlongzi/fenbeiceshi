@@ -16,7 +16,7 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix --max-warnings 0",
     "test": "node scripts/run-tests.mjs",
-    "test:content": "node --experimental-strip-types scripts/check-content.ts",
+    "test:content": "node --experimental-strip-types scripts/i18n/check-messages.mjs && node --experimental-strip-types scripts/check-content.ts",
     "test:export": "node scripts/check-sites.mjs",
     "test:deploy": "node --test deploy/tests/*.test.mjs",
     "test:deploy:integration": "node deploy/tests/run-integration.mjs",

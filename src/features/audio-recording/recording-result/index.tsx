@@ -6,7 +6,7 @@ import type { Locale } from "../../sound-meter/types";
 import type { useAudioRecording } from "../use-audio-recording";
 import type { PlaybackClip } from "../use-audio-clip";
 import { recordingFilename } from "../pcm";
-import { recordingCopy } from "../copy";
+import { getRecordingCopy } from "../copy";
 import styles from "./index.module.css";
 
 export function RecordingResult({
@@ -16,7 +16,7 @@ export function RecordingResult({
   locale: Locale;
   recording: ReturnType<typeof useAudioRecording>;
 }) {
-  const copy = recordingCopy[locale];
+  const copy = getRecordingCopy(locale);
   return (
     <div className={styles.result}>
       {recording.phase === "finishing" ? <Notice role="status">{copy.finishing}</Notice> : null}
@@ -41,7 +41,7 @@ function ClipResult({
   locale: Locale;
   recording: ReturnType<typeof useAudioRecording>;
 }) {
-  const copy = recordingCopy[locale];
+  const copy = getRecordingCopy(locale);
   const { mp3, createMp3, clear } = recording;
   const encoding = mp3.phase === "encoding";
   const [playbackError, setPlaybackError] = useState(false);

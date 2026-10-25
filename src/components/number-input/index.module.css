@@ -80,7 +80,7 @@
   flex-direction: column;
   flex-shrink: 0;
   width: var(--step-width);
-  border-left: 1px solid var(--line);
+  border-inline-start: 1px solid var(--line);
 }
 .steps button {
   display: flex;

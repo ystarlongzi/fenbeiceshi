@@ -1,14 +1,14 @@
 "use client";
 
 import { localePrefix } from "@/lib/i18n/locales";
-import { localize } from "@/lib/i18n/text";
+import { formatLocalized, localize } from "@/lib/i18n/text";
 
 import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { LinkArrow } from "@/components/link-arrow";
 import { text } from "@/lib/content/types";
-import { meterCopy } from "../sound-meter/copy";
+import { getMeterCopy } from "../sound-meter/copy";
 import { modeLabel } from "../sound-meter/mode-label";
 import { formatDuration } from "../sound-meter/level";
 import { displayStats, formatReading, measurementBasis } from "../sound-meter/readings";
@@ -21,7 +21,7 @@ import { recordBand } from "./level";
 import { RecordExportDialog } from "./record-export-dialog";
 
 export function RecordsPanel({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
-  const copy = meterCopy[locale];
+  const copy = getMeterCopy(locale);
   const state = useSyncExternalStore(watchRecords, getRecords, () => EMPTY_RECORDS);
   const [picked, setPicked] = useState<string[]>([]);
   const [confirm, setConfirm] = useState<string | null>(null);
@@ -90,11 +90,12 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
         <div className={styles.selection}>
           <p>{copy.compareHint}</p>
           <span role="status">
-            {localize(
+            {formatLocalized(
               locale,
               `已选 ${selected.length} / 2`,
-              `${selected.length} of 2 selected`,
+              "{selected} of 2 selected",
               `已選 ${selected.length} / 2`,
+              { selected: selected.length },
             )}
           </span>
         </div>
@@ -259,7 +260,7 @@ export function RecordsPanel({ locale, compact = false }: { locale: Locale; comp
 }
 
 function RecordReading({ record, locale }: { record: Measurement; locale: Locale }) {
-  const copy = meterCopy[locale];
+  const copy = getMeterCopy(locale);
   const basis = measurementBasis(record);
   const stats = displayStats(record.stats, basis);
   const band = recordBand(stats.average, basis.mode, stats.averageAtFloor);

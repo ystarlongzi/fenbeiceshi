@@ -1,5 +1,5 @@
 "use client";
-import { localize } from "@/lib/i18n/text";
+import { formatLocalized, localize } from "@/lib/i18n/text";
 
 import { useRef, useState } from "react";
 import { Icon } from "@/components/icon";
@@ -87,11 +87,12 @@ export function SoundReferenceList({
       </p>
       <div id="sound-results">
         <p className={styles.count} role="status" aria-live="polite" aria-atomic="true">
-          {localize(
+          {formatLocalized(
             locale,
             `找到 ${matches.length} / ${sounds.length} 项声音参考`,
-            `${matches.length} of ${sounds.length} sound references`,
+            "{matches} of {total} sound references",
             `找到 ${matches.length} / ${sounds.length} 項聲音參考`,
+            { matches: matches.length, total: sounds.length },
           )}
         </p>
         {matches.length ? (

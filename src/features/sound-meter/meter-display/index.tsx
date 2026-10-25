@@ -51,7 +51,7 @@ export function MeterDisplay({
   const numeric = formatReading(value, belowFloor);
   const unit = copy.estimatedUnit;
   return (
-    <div className={styles.display} data-view={view}>
+    <div className={styles.display} data-view={view} dir="ltr">
       {view === "gauge" ? (
         <div className={styles.dial} aria-hidden="true">
           <svg viewBox="0 0 480 250">

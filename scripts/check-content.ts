@@ -19,6 +19,10 @@ import { faqGroups, faqItems, homeFaqIds, homeFaqItems } from "../src/lib/conten
 import { locales } from "../src/lib/i18n/locales.ts";
 import { text } from "../src/lib/i18n/text.ts";
 import type { ContentSection } from "../src/lib/content/types.ts";
+import { prepareLocale } from "../src/lib/i18n/load-messages.ts";
+import { additionalLocales, isAdditionalLocale } from "../src/lib/i18n/additional-locales.ts";
+
+await Promise.all(locales.map(prepareLocale));
 
 const ids = sitePages.map((page) => page.id);
 assert.equal(new Set(ids).size, ids.length, "页面 ID 不得重复");
@@ -26,8 +30,8 @@ const paths = sitePages.flatMap((page) => locales.map((locale) => canonicalHref(
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
-  138,
-  "当前可索引页面为 138 个",
+  1242,
+  "47 个主题的 27 种语言中，记录页不开放索引",
 );
 assert.equal(sitePages.find((page) => page.id === "records")?.index, false);
 for (const content of contents) {
@@ -71,6 +75,8 @@ for (const content of contents) {
   }
 }
 const plan = JSON.parse(await readFile("docs/产品/页面与关键词映射.json", "utf8"));
+assert.deepEqual(plan.internationalRelease.locales, additionalLocales);
+assert.deepEqual(plan.internationalRelease.topicIds, ids);
 assert.equal(faqGroups.length, 6, "完整常见问题按六类组织");
 assert.equal(faqItems.length, 17, "完整常见问题应保留 17 个独立问题");
 assert.equal(new Set(faqItems.map((item) => item.id)).size, faqItems.length, "问题 ID 不得重复");
@@ -151,9 +157,13 @@ assert.equal(new Set(sourceIds).size, sourceIds.length, "来源锚点不得重�
 for (const page of sitePages.filter((page) => page.index)) {
   const candidate = plan.pages.find((item: { id: string }) => item.id === page.id);
   assert.ok(candidate, page.id);
-  for (const locale of locales)
-    assert.equal(candidate.locales[locale].path, pagePath(page.id, locale));
+  for (const locale of locales) {
+    const path = isAdditionalLocale(locale)
+      ? plan.internationalRelease.prefixes[locale] + candidate.locales.en.path
+      : candidate.locales[locale].path;
+    assert.equal(path, pagePath(page.id, locale));
+  }
 }
 console.log(
-  `内容检查通过：${contents.length} 个三语正文，138 个可索引 URL，3 个 noindex 功能 URL。`,
+  `内容检查通过：${contents.length} 个正文主题，${locales.length} 种语言，1242 个可索引 URL，27 个 noindex 功能 URL。`,
 );

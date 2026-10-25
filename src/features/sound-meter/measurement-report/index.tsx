@@ -2,15 +2,15 @@
 
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { Icon } from "@/components/icon";
-import { recordingCopy } from "../../audio-recording/copy";
+import { getRecordingCopy } from "../../audio-recording/copy";
 import type { useAudioRecording } from "../../audio-recording/use-audio-recording";
 import type { saveRecord } from "../../records/mutations";
 import { useStoredRecording } from "../../records/use-stored-recording";
 import { WorkbenchDialog } from "../workbench-dialog";
-import { meterCopy } from "../copy";
+import { getMeterCopy } from "../copy";
 import type { Locale, Measurement } from "../types";
 import { localeSettings } from "@/lib/i18n/locales";
-import { reportCopy } from "./copy";
+import { getReportCopy } from "./copy";
 import { createReport, reportText } from "./model";
 import { exportReport, type FileFormat } from "./export";
 import { AudioReportActions } from "./audio-actions";
@@ -39,15 +39,15 @@ export function MeasurementReportDialog({
   onClose: () => void;
   returnFocus: RefObject<HTMLButtonElement | null>;
 }) {
-  const copy = reportCopy[locale];
-  const meter = meterCopy[locale];
+  const copy = getReportCopy(locale);
+  const meter = getMeterCopy(locale);
   const report = createReport(record, locale);
   // 上次录音会保留到新录音开始，报告只允许下载同一次测量的音频。
   const liveClip = liveRecording?.clip?.measurementId === record.id ? liveRecording.clip : null;
   const stored = useStoredRecording(record.id, !onSave && !liveClip ? record.recording : undefined);
   const recording = liveClip ? liveRecording : stored;
   const clip = recording?.clip?.measurementId === record.id ? recording.clip : null;
-  const audio = recordingCopy[locale];
+  const audio = getRecordingCopy(locale);
   const [includeAudio, setIncludeAudio] = useState(true);
   const [pending, setPending] = useState(false);
   const [feedback, setFeedback] = useState("");

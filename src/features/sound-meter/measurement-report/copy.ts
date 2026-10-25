@@ -1,3 +1,6 @@
+import type { Locale } from "../../../lib/i18n/locales.ts";
+import { localizeCopy } from "../../../lib/i18n/messages.ts";
+
 const zh = {
   title: "本次测量报告",
   saveTitle: "保存报告",
@@ -218,3 +221,9 @@ export const reportCopy = {
     manualCopy: "Summary for manual copying",
   } satisfies typeof zh,
 };
+
+export function getReportCopy(locale: Locale) {
+  return locale === "zh-CN" || locale === "zh-TW"
+    ? reportCopy[locale]
+    : localizeCopy(locale, reportCopy.en);
+}

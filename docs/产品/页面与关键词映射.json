@@ -3,9 +3,195 @@
   "updated": "2026-10-25",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
-  "market": "简体中文优先，同时提供繁体中文与英文；兼顾百度、必应和 Google。",
+  "market": "简体与繁体使用 fenbeiceshi.com，英文及其他 24 种语言使用 soundmetergo.com；各语言词形与搜索需求需分别验证。",
   "keywordEvidence": "首页候选词已结合用户确认与 2026 年 9 月桌面端关键词截图调整；截图含德语与英文，Traffic 与 CPC 不等于搜索量，未取得经验证的搜索量、难度或排名数据。",
   "implementationNote": "本文件不是可发布路由注册表。每种语言通过发布门槛后，才能进入应用的已发布内容数据；只渲染当前语言实际发布的关联目标。",
+  "internationalRelease": {
+    "status": "implemented-not-deployed",
+    "origin": "https://soundmetergo.com",
+    "locales": [
+      "es",
+      "de",
+      "fr",
+      "pt-BR",
+      "ru",
+      "it",
+      "ko",
+      "ja",
+      "no",
+      "sv",
+      "da",
+      "nl",
+      "fi",
+      "el",
+      "pl",
+      "tr",
+      "id",
+      "vi",
+      "cs",
+      "hu",
+      "sk",
+      "th",
+      "ro",
+      "ar"
+    ],
+    "prefixes": {
+      "es": "/es",
+      "de": "/de",
+      "fr": "/fr",
+      "pt-BR": "/pt-br",
+      "ru": "/ru",
+      "it": "/it",
+      "ko": "/ko",
+      "ja": "/ja",
+      "no": "/no",
+      "sv": "/sv",
+      "da": "/da",
+      "nl": "/nl",
+      "fi": "/fi",
+      "el": "/el",
+      "pl": "/pl",
+      "tr": "/tr",
+      "id": "/id",
+      "vi": "/vi",
+      "cs": "/cs",
+      "hu": "/hu",
+      "sk": "/sk",
+      "th": "/th",
+      "ro": "/ro",
+      "ar": "/ar"
+    },
+    "topicIds": [
+      "meter",
+      "knowledge",
+      "records",
+      "guide",
+      "calibration",
+      "about",
+      "privacy",
+      "how-it-works",
+      "faq",
+      "noise-health",
+      "noise-reduction",
+      "hearing-protection",
+      "china-noise-standards",
+      "workplace-noise-standards",
+      "phone-accuracy",
+      "dbfs-spl",
+      "decibel-chart",
+      "decibel-10",
+      "decibel-20",
+      "decibel-30",
+      "decibel-40",
+      "decibel-45-55",
+      "decibel-45-65",
+      "decibel-51-66",
+      "decibel-47-72",
+      "decibel-47-69",
+      "decibel-62-85",
+      "decibel-80",
+      "decibel-60-70",
+      "decibel-65-75",
+      "decibel-70-75",
+      "decibel-80-110",
+      "decibel-85",
+      "decibel-105",
+      "decibel-110-129",
+      "decibel-74-104",
+      "decibel-94-110",
+      "decibel-95-115",
+      "decibel-140-160",
+      "decibel-98",
+      "decibel-100",
+      "decibel-108",
+      "decibel-120",
+      "decibel-130",
+      "decibel-140",
+      "microphone-help",
+      "when-professional-meter"
+    ],
+    "paths": "仅对 topicIds 中实际主题复用英文 path 并添加对应语言 prefix；记录页继续 noindex。标题、描述与正文以仓库词典及静态产物为准，不重复维护生成文案。",
+    "pagesPerLocale": 47,
+    "indexablePagesPerLocale": 46,
+    "keywordEvidence": "新增语种词形为候选表达，未验证搜索量、难度或排名；其他主题延续既有页面搜索意图，不创建近义词副本。",
+    "keywordCandidates": {
+      "meter": {
+        "es": [
+          "Medidor de decibelios online"
+        ],
+        "de": [
+          "Online-Dezibelmesser"
+        ],
+        "fr": [
+          "Sonomètre en ligne"
+        ],
+        "pt-BR": [
+          "Decibelímetro online"
+        ],
+        "ru": [
+          "Шумомер онлайн"
+        ],
+        "it": [
+          "Fonometro online"
+        ],
+        "ko": [
+          "온라인 소음 측정기"
+        ],
+        "ja": [
+          "オンライン騒音計"
+        ],
+        "no": [
+          "Desibelmåler på nett"
+        ],
+        "sv": [
+          "Decibelmätare online"
+        ],
+        "da": [
+          "Decibelmåler online"
+        ],
+        "nl": [
+          "Online decibelmeter"
+        ],
+        "fi": [
+          "Desibelimittari verkossa"
+        ],
+        "el": [
+          "Μετρητής ντεσιμπέλ online"
+        ],
+        "pl": [
+          "Miernik decybeli online"
+        ],
+        "tr": [
+          "Online desibel ölçer"
+        ],
+        "id": [
+          "Pengukur desibel online"
+        ],
+        "vi": [
+          "Máy đo độ ồn online"
+        ],
+        "cs": [
+          "Hlukoměr online"
+        ],
+        "hu": [
+          "Online decibelmérő"
+        ],
+        "sk": [
+          "Hlukomer online"
+        ],
+        "th": [
+          "เครื่องวัดเสียงออนไลน์"
+        ],
+        "ro": [
+          "Sonometru online"
+        ],
+        "ar": [
+          "مقياس صوت عبر الإنترنت"
+        ]
+      }
+    },
+    "validation": "npm run test:content 与 npm run test:export；完整范围及母语审校边界见 docs/产品/国际站多语言扩展.md"
+  },
   "localePolicy": {
     "defaultLocale": "zh-CN",
     "englishPrefix": "",

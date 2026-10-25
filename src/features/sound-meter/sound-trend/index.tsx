@@ -63,7 +63,7 @@ export function SoundTrend({
             </div>
           </div>
         ) : (
-          <div className={styles.plot} data-demo={demo}>
+          <div className={styles.plot} data-demo={demo} dir="ltr">
             <svg
               viewBox="0 0 632 118"
               preserveAspectRatio="none"

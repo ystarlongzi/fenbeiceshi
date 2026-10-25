@@ -45,9 +45,12 @@
 .options {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
+  inset-inline-end: 0;
   z-index: 20;
-  min-width: 152px;
+  min-width: 196px;
+  max-height: min(360px, 50dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   margin: 0;
   padding: 4px;
   list-style: none;
@@ -87,13 +90,13 @@
 .notice {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
+  inset-inline-end: 0;
   z-index: 20;
   width: min(240px, calc(100vw - 112px));
   padding: 12px 14px;
   border: 1px solid var(--line-strong);
   border-radius: 7px;
-  border-left: 3px solid var(--warning);
+  border-inline-start: 3px solid var(--warning);
   background: var(--warning-surface);
   box-shadow: 0 8px 24px var(--shadow);
   color: var(--warning);

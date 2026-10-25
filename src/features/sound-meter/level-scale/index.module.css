@@ -83,10 +83,49 @@
   white-space: nowrap;
   margin-right: 8px;
 }
+.labels {
+  display: none;
+  padding: 0;
+  list-style: none;
+  font-size: var(--font-size-caption);
+  line-height: 1.5;
+  color: #bbcec1;
+}
+.labels:lang(ar) {
+  direction: rtl;
+}
+.labels li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.labels li > span:first-child {
+  flex-shrink: 0;
+  min-width: 3ch;
+  font-family: var(--font-number);
+  color: #caddc6;
+}
+.ticks:not(:lang(zh)):not(:lang(en)) > span:nth-child(even) .meaning {
+  padding-top: calc(var(--font-size-caption) * 2.7 + 4px);
+}
+.ticks:not(:lang(zh)):not(:lang(en)) > span[data-edge="end"] .meaning {
+  max-width: 7ch;
+}
 /* 窄工作区错开说明，保留数字位置；英文最长标签需要两行空间。 */
 @container (max-width: 27.5rem) {
   .ticks > span[data-edge="end"] .meaning {
     padding-top: calc(var(--font-size-caption) * 1.35 + 4px);
+  }
+  .ticks:not(:lang(zh)):not(:lang(en)) .meaning {
+    display: none;
+  }
+  .labels:not(:lang(zh)):not(:lang(en)) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 16px;
+    margin: 12px 0 0;
   }
 }
 @container (max-width: 48rem) {
