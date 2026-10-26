@@ -83,8 +83,6 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
   function choose(index: number, event: MouseEvent<HTMLAnchorElement>) {
     const target = languageOptions[index];
     if (!target) return;
-    setActive(null);
-    button.current?.focus();
     const error = setLanguagePreference(target);
     const destination = languageSelectionHref(
       { pathname, search: window.location.search, hash: window.location.hash },
@@ -94,11 +92,13 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
       locale,
     );
     if (destination.startsWith("https://")) {
-      // 保留原生链接事件，让 Google 在跳转前附加跨域参数。
+      // 跨域链接须保持可见，等文档上的 Google 点击监听完成关联再原生跳转。
       event.currentTarget.href = linkedLanguageHref(destination, event.currentTarget.href);
       return;
     }
     event.preventDefault();
+    setActive(null);
+    button.current?.focus();
     if (target !== locale) {
       router.push(destination);
     } else if (destination !== `${pathname}${window.location.search}${window.location.hash}`)
