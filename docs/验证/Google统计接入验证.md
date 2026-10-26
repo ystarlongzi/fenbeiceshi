@@ -7,7 +7,7 @@
 - 媒体资源 `560740587`，数据流 `16203787160`，衡量 ID `G-MPXCSZLCVY`。
 - 后台跨网域精确匹配两个正式域名，增强型衡量关闭。
 - 后台配置已保存，并重新打开确认两个域名的精确匹配规则仍存在。
-- GitHub production 环境已保存公开 Variable `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-MPXCSZLCVY`。实际生产发布和后台收数仍待完成。
+- GitHub production 环境已保存公开 Variable `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-MPXCSZLCVY`。两域已发布，后台已收到真实验收访问。
 
 ## 本地检查
 
@@ -28,9 +28,19 @@
 - 390 × 844 手机英文提示、阿拉伯语 RTL 暗色提示可读，后者无横向溢出，拒绝后收起。
 - 中文隐私页通过键盘 End、Enter 切到繁体，保留 `?sample=keep#network`，原拒绝偏好保留；跨域选项在 HTML 中有实际的对应页面链接。
 - 本轮未重新请求真实麦克风或生成报告；音频处理与报告实现没有修改，已有算法、存储、编码及导出回归测试通过。
-- 预览不会发送正式事件，因此尚不能用这些结果声称生产请求、Cookie 清理和跨域用户关联已完成验收。
+- 预览不会发送正式事件，生产加载、收数和关联参数另按下一节验收。
 
-后台、GitHub 变量及浏览器截图保存在本机 `/private/tmp/fenbei-ga4-proof/`，临时目录不作为长期证据存档。
+后台、GitHub 变量及浏览器截图已另存到本任务的本机可视化附件目录 `ga4/`；`/private/tmp/fenbei-ga4-proof/` 为临时副本。截图包含后台配置与验收流量，不作为公开产品内容。
+
+## 生产验收
+
+- 统计接入提交 `bfe9c5e`，原生事件修复提交 `8f8bb8d`；两域均已通过 SSH 发布和健康检查。最终功能工作流为 [40290463344](https://github.com/ystarlongzi/fenbeiceshi/actions/runs/40290463344)，完整 `npm run check` 通过；首轮工作流 [40288256873](https://github.com/ystarlongzi/fenbeiceshi/actions/runs/40288256873) 另通过真实 Linux 发布与回滚演练。
+- 首次未选择时没有 Google 统计脚本；允许后两域均只加载一个 `site-google-analytics`，使用 `G-MPXCSZLCVY`，异步加载成功。
+- GA4 实时报告收到中文、英文首页与两域记录页，最初四次页面访问各计一次，总计四条 `page_view`，并出现 Google 管理的基础事件。后续指南与设置验收也会计入正式属性，这些数据不作为真实业务流量基线。
+- 正式中文隐私页撤回后刷新没有统计脚本，之后通过站内链接进入首页仍没有脚本。真实 Cookie 存储未通过浏览器管理界面逐项检查；删除语句与不触碰报告存储由回归测试覆盖。
+- 普通跨域链接正常附加 `_gl`。语言菜单原先拦截 `pointerdown`，会取消 Google 的兼容 `mousedown` 处理；已恢复原生鼠标事件，并为虚拟焦点的键盘激活转发 `keyup`。没有调用 Google 私有接口或手动改写客户端标识。
+- 在不带旧 `_gl` 的源页面分别验证桌面鼠标点击、End／方向键／Enter 键盘选择、390 × 844 手机抽屉选择：目标网址均带新 `_gl`，路径保持 `/guide/`，`ga_check` 测试查询、`#main-content` 和目标语言均保留。没有在记录或截图中输出参数值。
+- `_gl` 参数关联按 Google 官方检查方法验证，未读取、导出或展示统计 Cookie 的标识内容；未进行跨设备或长期留存归因验证。
 
 ## 实现边界
 
