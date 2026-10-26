@@ -326,9 +326,9 @@ export const guides: SiteContent[] = [
             "主題提供「跟隨系統、深色、淺色」。選擇會作為獨立偏好儲存在當前瀏覽器，僅用於恢復外觀，不包含音訊或觀察摘要，也不上傳至伺服器。預設或選擇「跟隨系統」時，頁面隨系統外觀變化；選擇深色或淺色後按該模式顯示。清除本站資料後恢復跟隨系統。",
           ),
           t(
-            "本站在 fenbeiceshi.com 提供简体与繁体中文，在 soundmetergo.com 提供英文。语言菜单会打开对应域名的同一页面。中文无前缀页面只在简体和繁体之间按手动偏好或浏览器语言选择，英文域名保持英文，不按语言强制跨域跳转。偏好分别保存在各域名的当前浏览器；语言列表和偏好不上传。浏览器禁止保存时会提示，并用链接参数保留本次选择。各域名的报告、录音和主题偏好不会自动共享，旧记录仍可回原域名下载。",
-            "fenbeiceshi.com serves Simplified and Traditional Chinese; soundmetergo.com serves English. The language menu opens the matching page on the appropriate domain. Automatic selection only switches between Chinese variants on unprefixed Chinese pages; the English site stays in English. Language preferences, reports, recordings and theme settings are stored separately for each domain. The browser language list and preferences are not uploaded. If storage is blocked, a notice is shown and a URL parameter preserves your choice. Earlier records remain available to download on their original domain.",
-            "本站在 fenbeiceshi.com 提供簡體與繁體中文，在 soundmetergo.com 提供英文。語言選單會開啟對應網域的同一頁面。中文無前綴頁面只在簡體和繁體之間依手動偏好或瀏覽器語言選擇，英文網域保持英文，不依語言強制跨網域跳轉。偏好分別儲存在各網域的目前瀏覽器；語言清單和偏好不上傳。瀏覽器禁止儲存時會提示，並用連結參數保留本次選擇。各網域的報告、錄音和主題偏好不會自動共用，舊記錄仍可回原網域下載。",
+            "本站在 fenbeiceshi.com 提供简体与繁体中文，在 soundmetergo.com 提供英文及其他国际语言。语言菜单会打开对应域名的同一页面。中文无前缀页面只在简体和繁体之间按手动偏好或浏览器语言选择，国际站按网址保持当前语言，不按语言强制跨域跳转。偏好分别保存在各域名的当前浏览器；语言列表和偏好不上传。浏览器禁止保存时会提示，并用链接参数保留本次选择。各域名的报告、录音和主题偏好不会自动共享，旧记录仍可回原域名下载。",
+            "fenbeiceshi.com serves Simplified and Traditional Chinese; soundmetergo.com serves English and other international languages. The language menu opens the matching page on the appropriate domain. Automatic selection only switches between Chinese variants on unprefixed Chinese pages; the international site's language is determined by the URL. Language preferences, reports, recordings and theme settings are stored separately for each domain. The browser language list and preferences are not uploaded. If storage is blocked, a notice is shown and a URL parameter preserves your choice. Earlier records remain available to download on their original domain.",
+            "本站在 fenbeiceshi.com 提供簡體與繁體中文，在 soundmetergo.com 提供英文及其他國際語言。語言選單會開啟對應網域的同一頁面。中文無前綴頁面只在簡體和繁體之間依手動偏好或瀏覽器語言選擇，國際站依網址保持目前語言，不依語言強制跨網域跳轉。偏好分別儲存在各網域的目前瀏覽器；語言清單和偏好不上傳。瀏覽器禁止儲存時會提示，並用連結參數保留本次選擇。各網域的報告、錄音和主題偏好不會自動共用，舊記錄仍可回原網域下載。",
           ),
         ],
       },

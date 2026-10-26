@@ -16,9 +16,9 @@ export const chinaNoiseStandards: SiteContent = {
     "在中國大陸遇到施工、裝修或鄰里噪音，應該查什麼規定、先做什麼？依情境瞭解噪音法規和標準的區別，整理噪音發生的時間與影響，再查看可以採取的處理步驟和諮詢方向。",
   ),
   takeaway: t(
-    "判断噪音问题，要先确认地区、声源、标准适用对象和测量条件，再看数字。本文介绍中国大陆规则；简体、繁体与英文版本均为同一范围，不代表台湾或其他地区法规。",
-    "Start with the jurisdiction, source, regulated activity and measurement conditions before comparing numbers. All three language versions cover mainland China; they do not describe Taiwan's or other jurisdictions' laws.",
-    "判斷噪音問題，要先確認地區、聲源、標準適用對象和量測條件，再看數字。本文介紹中國大陸規則；簡體、繁體與英文版本均為同一範圍，不代表臺灣或其他地區法規。",
+    "判断噪音问题，要先确认地区、声源、标准适用对象和测量条件，再看数字。本文介绍中国大陆规则；所有语言版本均为同一范围，不代表台湾或其他地区法规。",
+    "Start with the jurisdiction, source, regulated activity and measurement conditions before comparing numbers. All language versions cover mainland China; they do not describe Taiwan's or other jurisdictions' laws.",
+    "判斷噪音問題，要先確認地區、聲源、標準適用對象和量測條件，再看數字。本文介紹中國大陸規則；所有語言版本均為同一範圍，不代表臺灣或其他地區法規。",
   ),
   sections: [
     {
