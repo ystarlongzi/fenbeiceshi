@@ -2,6 +2,7 @@ import "./sites-integration.mjs";
 import { artifact, certificate } from "./site-fixtures.mjs";
 import { sitePages, canonicalHref } from "../../src/lib/routing/pages.ts";
 import { renderNginxTemplate } from "../nginx-template.mjs";
+import { languageFlagPath } from "../../src/components/language-switch/flags.ts";
 import assert from "node:assert/strict";
 import { createServer } from "node:https";
 import {
@@ -235,6 +236,11 @@ test(
       await writeFile(path.join(base, "current", locale, "index.html"), `${locale} homepage`);
     }
     await writeFile(path.join(base, "current/_release.txt"), "test-release");
+    const flags = path.join(base, "current/vendor/flag-icons");
+    await mkdir(path.join(flags, "4x3"), { recursive: true });
+    const flagSvg = await readFile(path.join(projectRoot, "public/vendor/flag-icons/4x3/hu.svg"));
+    await writeFile(path.join(flags, "4x3/hu.svg"), flagSvg);
+    await writeFile(path.join(flags, "source.json"), "{}");
     await writeFile(path.join(base, "shared/_next/static/app.js"), "js");
     await writeFile(path.join(base, "current/.env"), "test-only");
     await mustRun("chmod", ["-R", "a+rX", directory]);
@@ -291,6 +297,36 @@ test(
     assert.match(asset.stdout, /X-Content-Type-Options: nosniff/i);
     assert.match(asset.stdout, /Permissions-Policy:.*microphone=\(self\)/i);
     assert.match(asset.stdout, /Content-Type: (?:application|text)\/javascript/i);
+    const flagUrl = `https://fenbeiceshi.com${languageFlagPath("hu")}`;
+    const flag = await curl(["-i", flagUrl]);
+    assert.match(flag.stdout, /HTTP\/(?:1\.1|2) 200/);
+    assert.match(flag.stdout, /Cache-Control: public, max-age=31536000, immutable\r?\n/i);
+    assert.doesNotMatch(flag.stdout, /Cache-Control: no-cache|^Expires:/im);
+    assert.match(flag.stdout, /Content-Type: image\/svg\+xml/i);
+    assert.match(flag.stdout, /X-Content-Type-Options: nosniff/i);
+    assert.match(flag.stdout, /Referrer-Policy: strict-origin-when-cross-origin/i);
+    assert.match(flag.stdout, /Permissions-Policy:.*microphone=\(self\)/i);
+    assert.ok(flag.stdout.endsWith(flagSvg.toString()));
+    const etag = flag.stdout.match(/^ETag: (.+)\r?$/im)?.[1].trim();
+    assert.ok(etag);
+    const flagNotModified = await curl(["-i", "-H", `If-None-Match: ${etag}`, flagUrl]);
+    assert.match(flagNotModified.stdout, /HTTP\/(?:1\.1|2) 304/);
+    assert.match(flagNotModified.stdout, /max-age=31536000, immutable/);
+    for (const query of ["", "?v=previous"]) {
+      const fixedFlag = await curl([
+        "-i",
+        `https://fenbeiceshi.com/vendor/flag-icons/4x3/hu.svg${query}`,
+      ]);
+      assert.match(fixedFlag.stdout, /HTTP\/(?:1\.1|2) 200/);
+      assert.match(fixedFlag.stdout, /Cache-Control: public, max-age=86400\r?\n/i);
+      assert.doesNotMatch(fixedFlag.stdout, /immutable|no-cache/);
+    }
+    const flagSource = await curl(["-i", "https://fenbeiceshi.com/vendor/flag-icons/source.json"]);
+    assert.match(flagSource.stdout, /Cache-Control: no-cache/i);
+    const missingFlag = await curl(["-i", flagUrl.replace("/hu.svg", "/zz.svg")]);
+    assert.match(missingFlag.stdout, /HTTP\/(?:1\.1|2) 404/);
+    assert.match(missingFlag.stdout, /Cache-Control: no-cache/i);
+    assert.doesNotMatch(missingFlag.stdout, /immutable|max-age=31536000/);
     const marker = await curl(["-i", "https://fenbeiceshi.com/_release.txt"]);
     assert.match(marker.stdout, /Cache-Control: no-store/i);
     for (const url of [

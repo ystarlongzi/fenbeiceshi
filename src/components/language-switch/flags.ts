@@ -1,5 +1,7 @@
 import type { Locale } from "../../lib/i18n/locales.ts";
 
+export const languageFlagVersion = "7.6.0";
+
 export const languageFlags = {
   "zh-CN": "cn",
   "zh-TW": "tw",
@@ -31,5 +33,5 @@ export const languageFlags = {
 } as const satisfies Record<Locale, string>;
 
 export function languageFlagPath(locale: Locale) {
-  return `/vendor/flag-icons/4x3/${languageFlags[locale]}.svg`;
+  return `/vendor/flag-icons/4x3/${languageFlags[locale]}.svg?v=${languageFlagVersion}`;
 }

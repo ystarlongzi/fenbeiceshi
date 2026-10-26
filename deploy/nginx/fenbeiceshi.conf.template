@@ -1,6 +1,12 @@
 # 生产站点模板：初始化脚本替换 __DOMAIN__、__DEPLOY_PATH__、__CERT_ROOT__。
 # 放入主配置 http 块已加载的目录，不单独作为完整 nginx.conf 使用。
 __REDIRECT_MAP__
+# 固定地址只缓存一天；更新图标时更换版本参数，让新页面读取新资源。
+map $arg_v $__SITE_KEY___flag_cache_control {
+    default "public, max-age=86400";
+    "__FLAG_ICONS_VERSION__" "public, max-age=31536000, immutable";
+}
+
 server {
     listen 80;
     listen [::]:80;
@@ -52,6 +58,14 @@ server {
         try_files $uri $uri/ =404;
     }
 
+    location ~ "^/vendor/flag-icons/4x3/[a-z]{2}\.svg$" {
+        add_header Cache-Control $__SITE_KEY___flag_cache_control;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Permissions-Policy "camera=(), microphone=(self), geolocation=()" always;
+        try_files $uri =404;
+    }
+
     # 保留旧哈希资源，避免切版后已打开的页面加载失败。
     location ^~ /_next/static/ {
         alias __DEPLOY_PATH__/shared/_next/static/;
@@ -77,6 +91,10 @@ server {
     error_page 404 /404.html;
     location = /404.html {
         internal;
-        expires -1;
+        # expires 不处理 404，显式要求错误响应在复用前重新校验。
+        add_header Cache-Control "no-cache" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Permissions-Policy "camera=(), microphone=(self), geolocation=()" always;
     }
 }

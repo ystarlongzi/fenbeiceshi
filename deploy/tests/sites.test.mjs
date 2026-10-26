@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { connection, validateDeployPath } from "../lib.mjs";
 import { requiredSiteFiles } from "../sites.mjs";
 import { renderNginxTemplate } from "../nginx-template.mjs";
+import { languageFlagVersion } from "../../src/components/language-switch/flags.ts";
 
 test("双域名分别限制部署目录，拒绝任意域名与错配目录", () => {
   const env = {
@@ -50,4 +51,19 @@ test("中文 Nginx 为全部旧英文路径生成 94 条精确映射，英文站
   assert.ok(!english.includes("fenbeiceshi_english_target"));
   assert.ok(english.includes("soundmetergo.access.log"));
   assert.ok(english.includes("shared:soundmetergo_ssl"));
+});
+
+test("双站国旗缓存使用当前资源版本，并使用独立的 Nginx 变量", async () => {
+  const source = await readFile(
+    new URL("../nginx/fenbeiceshi.conf.template", import.meta.url),
+    "utf8",
+  );
+  for (const site of ["fenbeiceshi", "soundmetergo"]) {
+    const config = renderNginxTemplate(source, `${site}.com`);
+    assert.ok(config.includes(`map $arg_v $${site}_flag_cache_control {`));
+    assert.ok(config.includes(`add_header Cache-Control $${site}_flag_cache_control;`));
+    assert.ok(config.includes(`"${languageFlagVersion}" "public, max-age=31536000, immutable";`));
+    assert.ok(config.includes('default "public, max-age=86400";'));
+    assert.doesNotMatch(config, /__FLAG_ICONS_VERSION__|__SITE_KEY__/);
+  }
 });

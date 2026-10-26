@@ -1,4 +1,5 @@
 import { canonicalHref, sitePages } from "../src/lib/routing/pages.ts";
+import { languageFlagVersion } from "../src/components/language-switch/flags.ts";
 import { deploySite } from "./sites.mjs";
 
 export function renderNginxTemplate(template, domain) {
@@ -19,6 +20,7 @@ export function renderNginxTemplate(template, domain) {
   }
   return template
     .replaceAll("__SITE_KEY__", site.id)
+    .replaceAll("__FLAG_ICONS_VERSION__", languageFlagVersion)
     .replaceAll("__REDIRECT_MAP__", map)
     .replaceAll("__REDIRECT_RULE__", rule);
 }
