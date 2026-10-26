@@ -120,8 +120,12 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
     }
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      if (open) list.current?.children[highlighted]?.querySelector("a")?.click();
-      else setActive(selected);
+      if (open) {
+        const option = list.current?.children[highlighted]?.querySelector("a");
+        // 虚拟焦点仍在语言按钮，先把键盘准备事件交给真实链接再激活。
+        option?.dispatchEvent(new window.KeyboardEvent("keyup", { key: event.key, bubbles: true }));
+        option?.click();
+      } else setActive(selected);
       return;
     }
     const columns = list.current
@@ -196,7 +200,6 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
               href={languageHref(pathname, language, available, locale)}
               aria-selected={language === locale}
               data-active={index === highlighted}
-              onPointerDown={(event) => event.preventDefault()}
               onPointerMove={() => setActive(index)}
               onClick={(event) => choose(index, event)}
             >
