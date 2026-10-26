@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Din webbläsare kommer inte ihåg språkinställningen. Ditt val fungerar fortfarande för detta besök.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Din enhet bearbetar fortfarande ljudet. Behåll inställningarna oförändrade när du jämför.",
   "YOUR OBSERVATIONS": "DINA IAKTTAGELSER",
-  "Measure sound around you": "Mät ljudet omkring dig"
+  "Measure sound around you": "Mät ljudet omkring dig",
+  "Website analytics": "Besöksstatistik",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Tillåta Google Analytics-kakor för att mäta sidbesök och förbättra webbplatsen? Ljud, inspelningar, mätvärden och anteckningar skickas aldrig. Du kan ändra ditt val när som helst under Integritet.",
+  "Allow analytics": "Tillåt statistik",
+  "Reject analytics": "Avvisa statistik",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Webbläsaren kan inte spara statistikvalet. Valet gäller bara den här sidan.",
+  "Analytics settings": "Statistikinställningar"
 }

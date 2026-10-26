@@ -8,11 +8,12 @@ import {
   useState,
   useSyncExternalStore,
   type KeyboardEvent,
+  type MouseEvent,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Icon } from "@/components/icon";
 import type { Locale } from "@/features/sound-meter/types";
-import { localePrefix, localeSettings } from "@/lib/i18n/locales";
+import { languageHref, localePrefix, localeSettings } from "@/lib/i18n/locales";
 import { localize } from "@/lib/i18n/text";
 import {
   getLanguagePersistenceError,
@@ -22,7 +23,7 @@ import {
   subscribeLanguagePreference,
 } from "@/lib/i18n/preference";
 import { languageFlagPath } from "./flags";
-import { languageOptions, nextLanguageIndex } from "./navigation";
+import { languageOptions, linkedLanguageHref, nextLanguageIndex } from "./navigation";
 import styles from "./index.module.css";
 
 export function LanguageSwitch({ locale, available }: { locale: Locale; available: string[] }) {
@@ -79,7 +80,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
     return () => document.removeEventListener("pointerdown", dismiss);
   }, [open]);
 
-  function choose(index: number) {
+  function choose(index: number, event: MouseEvent<HTMLAnchorElement>) {
     const target = languageOptions[index];
     if (!target) return;
     setActive(null);
@@ -92,9 +93,14 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
       !error,
       locale,
     );
+    if (destination.startsWith("https://")) {
+      // 保留原生链接事件，让 Google 在跳转前附加跨域参数。
+      event.currentTarget.href = linkedLanguageHref(destination, event.currentTarget.href);
+      return;
+    }
+    event.preventDefault();
     if (target !== locale) {
-      if (destination.startsWith("https://")) window.location.assign(destination);
-      else router.push(destination);
+      router.push(destination);
     } else if (destination !== `${pathname}${window.location.search}${window.location.hash}`)
       window.history.replaceState(window.history.state, "", destination);
   }
@@ -114,7 +120,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
     }
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      if (open) choose(highlighted);
+      if (open) list.current?.children[highlighted]?.querySelector("a")?.click();
       else setActive(selected);
       return;
     }
@@ -181,20 +187,23 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
         hidden={!open}
       >
         {languageOptions.map((language, index) => (
-          <li
-            id={`${id}-option-${index}`}
-            key={language}
-            role="option"
-            lang={language}
-            aria-selected={language === locale}
-            data-active={index === highlighted}
-            onPointerDown={(event) => event.preventDefault()}
-            onPointerMove={() => setActive(index)}
-            onClick={() => choose(index)}
-          >
-            <LanguageFlag locale={language} />
-            <span dir="auto">{localeSettings[language].label}</span>
-            {language === locale ? <Icon name="circle-check" size={15} /> : null}
+          <li key={language} role="presentation">
+            <a
+              id={`${id}-option-${index}`}
+              role="option"
+              lang={language}
+              tabIndex={-1}
+              href={languageHref(pathname, language, available, locale)}
+              aria-selected={language === locale}
+              data-active={index === highlighted}
+              onPointerDown={(event) => event.preventDefault()}
+              onPointerMove={() => setActive(index)}
+              onClick={(event) => choose(index, event)}
+            >
+              <LanguageFlag locale={language} />
+              <span dir="auto">{localeSettings[language].label}</span>
+              {language === locale ? <Icon name="circle-check" size={15} /> : null}
+            </a>
           </li>
         ))}
       </ul>

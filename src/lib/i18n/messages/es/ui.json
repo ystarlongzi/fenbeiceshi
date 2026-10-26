@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Su navegador no puede recordar la preferencia de idioma. Tu elección todavía sirve para esta visita.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Su dispositivo aún procesa el audio. Mantenga la configuración sin cambios al comparar.",
   "YOUR OBSERVATIONS": "SUS OBSERVACIONES",
-  "Measure sound around you": "Mide el sonido a tu alrededor"
+  "Measure sound around you": "Mide el sonido a tu alrededor",
+  "Website analytics": "Estadísticas del sitio",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "¿Permites cookies de Google Analytics para medir las visitas y mejorar este sitio? Nunca se envían audio, grabaciones, lecturas ni notas. Puedes cambiar tu decisión en Privacidad en cualquier momento.",
+  "Allow analytics": "Permitir estadísticas",
+  "Reject analytics": "Rechazar estadísticas",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Tu navegador no puede guardar la preferencia de estadísticas. Esta decisión solo se aplica a esta página.",
+  "Analytics settings": "Ajustes de estadísticas"
 }

@@ -85,7 +85,7 @@
 .options[hidden] {
   display: none;
 }
-.options li {
+.options [role="option"] {
   display: grid;
   grid-template-columns: 20px minmax(0, 1fr) 15px;
   align-items: center;
@@ -98,18 +98,18 @@
   line-height: 1.6;
   cursor: pointer;
 }
-.options li > span {
+.options [role="option"] > span {
   min-width: 0;
   overflow-wrap: anywhere;
 }
-.options li[data-active="true"] {
+.options [role="option"][data-active="true"] {
   color: var(--brand);
   background: var(--surface-accent);
 }
-.options li[aria-selected="true"] {
+.options [role="option"][aria-selected="true"] {
   font-weight: 650;
 }
-.options li > svg {
+.options [role="option"] > svg {
   flex-shrink: 0;
   color: var(--brand);
 }

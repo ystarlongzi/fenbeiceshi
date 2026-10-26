@@ -8,16 +8,19 @@ import { LanguageScript } from "../language-switch/language-script";
 import { ThemeSwitch } from "../theme-switch";
 import { ThemeScript } from "../theme-switch/theme-script";
 import { SiteNavigation } from "./site-navigation";
-import { contents, href, sitePages } from "@/lib/routing/pages";
+import { contents, href, pagePath, sitePages } from "@/lib/routing/pages";
 import type { Locale } from "@/features/sound-meter/types";
 import styles from "./index.module.css";
 import { localeSettings } from "@/lib/i18n/locales";
 import { prepareLocale } from "@/lib/i18n/load-messages";
 import { LocalizationBoundary } from "../localization-boundary";
+import { SiteAnalytics } from "@/features/site-analytics";
+import { measurementId } from "@/features/site-analytics/model";
 
 export async function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
   const messages = await prepareLocale(locale);
   const site = siteForLocale(locale);
+  const analytics = measurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
   const available = sitePages.map((page) => `/${page.slug ? `${page.slug}/` : ""}`);
   const nav = [
     {
@@ -98,6 +101,15 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
               />
             </div>
           </header>
+          {analytics ? (
+            <div id="analytics" className={styles.analyticsAnchor}>
+              <SiteAnalytics
+                locale={locale}
+                id={analytics}
+                privacyPath={pagePath("privacy", locale)}
+              />
+            </div>
+          ) : null}
           <main id="main-content" className={styles.content}>
             {children}
           </main>
@@ -134,6 +146,11 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
                 <Link href={href("privacy", locale)}>
                   {localize(locale, "隐私说明", "Privacy", "隱私說明")}
                 </Link>
+                {analytics ? (
+                  <Link href={`${href("privacy", locale)}#analytics`}>
+                    {localize(locale, "统计设置", "Analytics settings", "統計設定")}
+                  </Link>
+                ) : null}
               </nav>
             </div>
             <p className={styles.footerNote}>

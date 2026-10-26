@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Selaimesi ei muista kieliasetusta. Valintasi toimii edelleen tällä vierailulla.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Laitteesi käsittelee edelleen ääntä. Pidä asetukset ennallaan, kun vertaat.",
   "YOUR OBSERVATIONS": "HUOMAUTUKSENI",
-  "Measure sound around you": "Mittaa ääniä ympäriltäsi"
+  "Measure sound around you": "Mittaa ääniä ympäriltäsi",
+  "Website analytics": "Kävijätilastot",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Sallitko Google Analytics -evästeet sivukäyntien mittaamiseen ja sivuston parantamiseen? Ääntä, tallenteita, lukemia tai muistiinpanoja ei koskaan lähetetä. Voit muuttaa valintaa milloin tahansa Tietosuoja-sivulla.",
+  "Allow analytics": "Salli tilastointi",
+  "Reject analytics": "Hylkää tilastointi",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Selain ei voi tallentaa tilastointivalintaa. Valinta koskee vain tätä sivua.",
+  "Analytics settings": "Tilastointiasetukset"
 }

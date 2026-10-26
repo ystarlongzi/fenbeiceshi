@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Trình duyệt của bạn không thể nhớ tùy chọn ngôn ngữ. Lựa chọn của bạn vẫn có tác dụng cho chuyến thăm này.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Thiết bị của bạn vẫn xử lý âm thanh. Giữ cài đặt không thay đổi khi so sánh.",
   "YOUR OBSERVATIONS": "QUAN SÁT CỦA BẠN",
-  "Measure sound around you": "Đo âm thanh xung quanh bạn"
+  "Measure sound around you": "Đo âm thanh xung quanh bạn",
+  "Website analytics": "Thống kê truy cập",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Cho phép cookie Google Analytics để đo lượt truy cập và cải thiện trang web? Âm thanh, bản ghi, số đo và ghi chú không bao giờ được gửi đi. Bạn có thể đổi lựa chọn trong mục Quyền riêng tư bất cứ lúc nào.",
+  "Allow analytics": "Cho phép thống kê",
+  "Reject analytics": "Từ chối thống kê",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Trình duyệt không thể lưu tùy chọn thống kê. Lựa chọn này chỉ áp dụng cho trang hiện tại.",
+  "Analytics settings": "Cài đặt thống kê"
 }

@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Browser Anda tidak dapat mengingat preferensi bahasa. Pilihan Anda masih berlaku untuk kunjungan ini.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Perangkat Anda masih memproses audio. Jaga agar pengaturan tidak berubah saat membandingkan.",
   "YOUR OBSERVATIONS": "PENGAMATAN ANDA",
-  "Measure sound around you": "Ukur suara di sekitar Anda"
+  "Measure sound around you": "Ukur suara di sekitar Anda",
+  "Website analytics": "Statistik situs",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Izinkan cookie Google Analytics untuk menghitung kunjungan halaman dan membantu meningkatkan situs ini? Audio, rekaman, hasil ukur, dan catatan tidak pernah dikirim. Anda dapat mengubah pilihan di Privasi kapan saja.",
+  "Allow analytics": "Izinkan statistik",
+  "Reject analytics": "Tolak statistik",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Browser tidak dapat menyimpan preferensi statistik. Pilihan ini hanya berlaku untuk halaman ini.",
+  "Analytics settings": "Pengaturan statistik"
 }

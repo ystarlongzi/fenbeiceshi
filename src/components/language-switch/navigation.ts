@@ -6,6 +6,15 @@ export const languageOptions = [
   "zh-TW",
 ] as const;
 
+export function linkedLanguageHref(destination: string, decoratedHref: string) {
+  const url = new URL(destination);
+  const decorated = new URL(decoratedHref);
+  const linker = decorated.searchParams.get("_gl");
+  if (url.origin === decorated.origin && url.pathname === decorated.pathname && linker)
+    url.searchParams.set("_gl", linker);
+  return url.href;
+}
+
 export function nextLanguageIndex(
   key: string,
   current: number,

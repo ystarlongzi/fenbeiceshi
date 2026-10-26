@@ -1,0 +1,84 @@
+.panel {
+  max-width: 1176px;
+  margin: 20px auto 0;
+  padding: 18px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.copy {
+  flex: 1 1 460px;
+}
+.copy h2 {
+  margin: 0 0 6px;
+  font-size: var(--font-size-ui);
+  font-weight: 650;
+}
+.copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--font-size-ui);
+  line-height: 1.8;
+}
+.copy a {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--brand);
+  font-size: var(--font-size-ui);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.actions button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--font-size-ui);
+  cursor: pointer;
+}
+.actions button[aria-pressed="true"] {
+  border-color: var(--brand);
+  background: var(--surface-accent);
+  color: var(--brand);
+}
+.actions button:focus-visible,
+.copy a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+.notice {
+  flex-basis: 100%;
+}
+@media (max-width: 1240px) {
+  .panel {
+    margin-inline: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .panel {
+    margin-inline: 20px;
+    padding: 16px;
+  }
+  .actions {
+    width: 100%;
+  }
+  .actions button {
+    flex: 1;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .actions button:hover {
+    background: var(--surface-hover);
+  }
+}

@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Browserul dvs. nu își amintește preferința de limbă. Alegerea ta încă funcționează pentru această vizită.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Dispozitivul dvs. încă procesează sunetul. Păstrați setările neschimbate atunci când comparați.",
   "YOUR OBSERVATIONS": "OBSERVAȚIILE DVS",
-  "Measure sound around you": "Măsoară sunetele din jurul tău"
+  "Measure sound around you": "Măsoară sunetele din jurul tău",
+  "Website analytics": "Statistici ale site-ului",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Permiți cookie-urile Google Analytics pentru a măsura vizitele și a îmbunătăți site-ul? Sunetul, înregistrările, valorile măsurate și notițele nu sunt trimise niciodată. Poți schimba alegerea oricând în secțiunea Confidențialitate.",
+  "Allow analytics": "Permite statisticile",
+  "Reject analytics": "Refuză statisticile",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Browserul nu poate salva preferința pentru statistici. Alegerea se aplică doar acestei pagini.",
+  "Analytics settings": "Setări pentru statistici"
 }

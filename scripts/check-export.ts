@@ -3,7 +3,14 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { runInNewContext } from "node:vm";
-import { contents, href, canonicalHref, sitePages, SITE_URL } from "../src/lib/routing/pages.ts";
+import {
+  contents,
+  href,
+  canonicalHref,
+  pagePath,
+  sitePages,
+  SITE_URL,
+} from "../src/lib/routing/pages.ts";
 import { text } from "../src/lib/content/types.ts";
 import { checkHomeKnowledge, checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
 import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
@@ -30,7 +37,7 @@ import {
 } from "../src/lib/content/decibel-details/index.ts";
 import { levelComparisons } from "../src/lib/content/decibel-details/comparison.ts";
 import { faqItems, homeFaqItems } from "../src/lib/content/faq.ts";
-import { baseLocales, locales, localeSettings } from "../src/lib/i18n/locales.ts";
+import { baseLocales, languageHref, locales, localeSettings } from "../src/lib/i18n/locales.ts";
 import { additionalLocaleSettings } from "../src/lib/i18n/additional-locales.ts";
 import { localize } from "../src/lib/i18n/text.ts";
 import { languageFlagPath } from "../src/components/language-switch/flags.ts";
@@ -38,6 +45,7 @@ import { languageOptions } from "../src/components/language-switch/navigation.ts
 
 const htmlByPath = new Map<string, string>();
 const titles = new Set<string>();
+const available = sitePages.map((page) => `/${page.slug ? `${page.slug}/` : ""}`);
 for (const page of sitePages) {
   for (const locale of siteLocales.filter((language) =>
     baseLocales.some((base) => base === language),
@@ -262,7 +270,7 @@ for (const page of sitePages) {
         assert.ok(list, `缺少语言选项列表：${path}`);
         assert.match(list[1], /role="listbox"/, path);
         assert.match(list[1], /\bhidden=/, `未展开的语言列表应隐藏：${path}`);
-        const options = [...list[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
+        const options = [...list[2].matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)];
         assert.deepEqual(
           options.map((option) => option[2].match(/<span dir="auto">([^<]*)<\/span>/)?.[1]),
           languageOptions.map((language) => localeSettings[language].label),
@@ -271,6 +279,10 @@ for (const page of sitePages) {
         for (const [index, language] of languageOptions.entries()) {
           assert.match(options[index][1], /role="option"/, path);
           assert.ok(options[index][1].includes(`lang="${language}"`), path);
+          assert.ok(
+            options[index][1].includes(`href="${languageHref(path, language, available, locale)}"`),
+            `语言选项需保留真实跳转地址：${path} → ${language}`,
+          );
           assert.ok(
             options[index][2].includes(`background-image:url(${languageFlagPath(language)})`),
             `语言选项缺少本机国旗：${path} → ${language}`,
@@ -651,15 +663,29 @@ for (const page of sitePages) {
   }
 }
 let links = 0;
+const linkTargets = new Map(htmlByPath);
+const publishedPaths = new Set(
+  sitePages.flatMap((page) => siteLocales.map((locale) => pagePath(page.id, locale))),
+);
 for (const [path, html] of htmlByPath) {
   for (const match of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
     const target = match[1].replace(/&amp;/g, "&");
     if (!target.startsWith("/") && !target.startsWith("#")) continue;
     const url = new URL(target, SITE_URL + path);
-    assert.ok(htmlByPath.has(url.pathname), `内部链接缺失：${path} → ${target}`);
+    assert.ok(publishedPaths.has(url.pathname), `内部链接未注册：${path} → ${target}`);
+    if (!linkTargets.has(url.pathname)) {
+      // 原生语言链接会进入新增语种，目标文件也须真实存在。
+      const targetHtml = await readFile(
+        resolve(activeSite.output, url.pathname.slice(1), "index.html"),
+        "utf8",
+      ).catch((cause) => {
+        throw new Error(`内部链接缺失：${path} → ${target}`, { cause });
+      });
+      linkTargets.set(url.pathname, targetHtml);
+    }
     if (url.hash)
       assert.ok(
-        htmlByPath.get(url.pathname)?.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`),
+        linkTargets.get(url.pathname)?.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`),
         `锚点缺失：${path} → ${target}`,
       );
     links += 1;

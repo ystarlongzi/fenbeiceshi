@@ -268,7 +268,7 @@ export const guides: SiteContent[] = [
     id: "privacy",
     slug: "privacy",
     kind: "trust",
-    updated: "2026-10-25",
+    updated: "2026-10-26",
     title: t(
       "隐私说明：麦克风和录音会上传吗？",
       "Privacy: Does the Meter Upload My Audio?",
@@ -348,9 +348,19 @@ export const guides: SiteContent[] = [
         title: t("页面请求与统计", "Page requests and analytics", "頁面請求與統計"),
         paragraphs: [
           t(
-            "打开网站仍需要常规页面和资源请求；音频不上传不代表完全没有网络通信。当前工具没有接入广告、第三方访问分析、用户账户或云端记录服务。托管服务可能处理提供网页所需的连接信息与访问日志；若后续改变统计或数据处理方式，会更新本说明。",
-            "Opening a website still involves normal page and asset requests; no audio uploads does not mean no network traffic. This version includes no ads, third-party analytics, accounts or cloud records. Hosting services may process connection data and access logs needed to serve pages. This notice will be updated if data processing changes.",
-            "開啟網站仍需要常規頁面和資源請求；音訊不上傳不代表完全沒有網路通訊。當前工具沒有接入廣告、第三方存取分析、使用者賬戶或雲端記錄服務。託管服務可能處理提供網頁所需的連線資訊與存取日誌；若後續改變統計或資料處理方式，會更新本說明。",
+            "打开网站需要页面和资源请求。托管服务会处理提供网页所需的连接信息与访问日志。本站没有广告、用户账户或云端记录服务。",
+            "Opening this site involves page and asset requests. Hosting services process connection data and access logs needed to serve pages. This tool has no ads, accounts or cloud records.",
+            "開啟網站需要頁面和資源請求。託管服務會處理提供網頁所需的連線資訊與瀏覽日誌。本站沒有廣告、使用者帳號或雲端記錄服務。",
+          ),
+          t(
+            "你允许统计后，Google Analytics 4 会接收不含查询参数和锚点的页面地址、页面标题、语言、来源及浏览器和设备技术信息。Google 使用第一方 Cookie 统计访问，数据可能在你所在国家或地区以外处理。音频、录音、测量读数、报告备注及测量设备标识不会发送给统计服务。",
+            "If you allow analytics, Google Analytics 4 receives page addresses without queries or fragments, page titles, language, referral sources and technical browser/device data. Google uses first-party cookies to count visits and may process data outside your country. Audio, recordings, readings, report notes and device identifiers from measurement are never sent to Analytics.",
+            "你允許統計後，Google Analytics 4 會接收不含查詢參數和錨點的頁面網址、頁面標題、語言、來源及瀏覽器和裝置技術資訊。Google 使用第一方 Cookie 統計瀏覽，資料可能在你所在國家或地區以外處理。音訊、錄音、測量讀數、報告備註及測量裝置識別碼不會傳送給統計服務。",
+          ),
+          t(
+            "统计在你允许前保持关闭。可通过页脚“统计设置”或本页顶部更改或撤回选择，两个域名分别保存偏好。两边都允许时，短期有效的 _gl 链接参数可关联 fenbeiceshi.com 与 soundmetergo.com 之间的访问。撤回后停止本域后续采集并清除统计 Cookie，已发送给 Google 的数据不会因此删除。",
+            "Analytics is off until you allow it. Change or withdraw your choice using Analytics settings in the footer or at the top of this page. Choices are saved separately on each domain. If you allow both, a short-lived _gl link parameter can connect visits between fenbeiceshi.com and soundmetergo.com. Withdrawing stops future collection on this domain and clears its analytics cookies; it does not delete data already sent to Google.",
+            "統計在你允許前保持關閉。可透過頁尾「統計設定」或本頁頂部變更或撤回選擇，兩個網域分別儲存偏好。兩邊都允許時，短期有效的 _gl 連結參數可關聯 fenbeiceshi.com 與 soundmetergo.com 之間的瀏覽。撤回後停止本網域後續採集並清除統計 Cookie，已傳送給 Google 的資料不會因此刪除。",
           ),
         ],
       },
@@ -363,6 +373,14 @@ export const guides: SiteContent[] = [
       {
         title: "MDN · localStorage",
         url: "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage",
+      },
+      {
+        title: "Google Analytics · Data safeguards",
+        url: "https://support.google.com/analytics/answer/6004245",
+      },
+      {
+        title: "Google · Privacy Policy",
+        url: "https://policies.google.com/privacy",
       },
     ],
     related: ["guide", "about", "microphone-help"],

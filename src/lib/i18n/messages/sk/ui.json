@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Váš prehliadač si nepamätá predvoľbu jazyka. Vaša voľba pre túto návštevu stále platí.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Vaše zariadenie stále spracováva zvuk. Pri porovnávaní ponechajte nastavenia nezmenené.",
   "YOUR OBSERVATIONS": "VAŠE POZNÁMKY",
-  "Measure sound around you": "Zmerajte zvuky okolo seba"
+  "Measure sound around you": "Zmerajte zvuky okolo seba",
+  "Website analytics": "Štatistiky webu",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Povoliť súbory cookie Google Analytics na meranie návštev a zlepšovanie webu? Zvuk, nahrávky, namerané hodnoty a poznámky sa nikdy neodosielajú. Voľbu môžete kedykoľvek zmeniť v časti Súkromie.",
+  "Allow analytics": "Povoliť štatistiky",
+  "Reject analytics": "Odmietnuť štatistiky",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Prehliadač nedokáže uložiť predvoľbu štatistík. Voľba platí iba pre túto stránku.",
+  "Analytics settings": "Nastavenia štatistík"
 }

@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "귀하의 브라우저는 언어 기본 설정을 기억할 수 없습니다. 귀하의 선택은 이번 방문에도 유효합니다.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "장치에서 여전히 오디오를 처리합니다. 비교할 때 설정을 변경하지 않고 유지하십시오.",
   "YOUR OBSERVATIONS": "귀하의 관찰",
-  "Measure sound around you": "주변의 소리를 측정하세요"
+  "Measure sound around you": "주변의 소리를 측정하세요",
+  "Website analytics": "사이트 방문 통계",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "페이지 방문을 집계하고 사이트를 개선하기 위해 Google Analytics 쿠키를 허용할까요? 오디오, 녹음, 측정값, 메모는 전송되지 않습니다. 언제든 개인정보 안내에서 선택을 변경할 수 있습니다.",
+  "Allow analytics": "통계 허용",
+  "Reject analytics": "통계 거부",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "브라우저가 통계 설정을 저장할 수 없습니다. 이 선택은 현재 페이지에서만 적용됩니다.",
+  "Analytics settings": "통계 설정"
 }

@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "お使いのブラウザは言語設定を記憶できません。あなたの選択は今回の訪問でも有効です。",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "デバイスは引き続き音声を処理しています。比較するときは設定を変更しないでください。",
   "YOUR OBSERVATIONS": "あなたの所見",
-  "Measure sound around you": "身のまわりの音を測る"
+  "Measure sound around you": "身のまわりの音を測る",
+  "Website analytics": "サイトのアクセス解析",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "ページの訪問数を集計し、サイトを改善するために Google Analytics の Cookie を許可しますか？音声、録音、測定値、メモは送信されません。プライバシーのページでいつでも変更できます。",
+  "Allow analytics": "解析を許可",
+  "Reject analytics": "解析を拒否",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "ブラウザがアクセス解析の設定を保存できません。この選択は現在のページでのみ有効です。",
+  "Analytics settings": "アクセス解析の設定"
 }

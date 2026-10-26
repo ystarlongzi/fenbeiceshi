@@ -505,5 +505,11 @@
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Tarayıcınız dil tercihini hatırlayamıyor. Seçiminiz bu ziyaret için hâlâ geçerli.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Cihazınız hâlâ sesi işliyor. Karşılaştırma sırasında ayarları değiştirmeden tutun.",
   "YOUR OBSERVATIONS": "GÖZLEMLERİNİZ",
-  "Measure sound around you": "Çevrendeki sesleri ölç"
+  "Measure sound around you": "Çevrendeki sesleri ölç",
+  "Website analytics": "Site istatistikleri",
+  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Sayfa ziyaretlerini ölçmek ve siteyi geliştirmek için Google Analytics çerezlerine izin verilsin mi? Ses, kayıtlar, ölçüm değerleri ve notlar asla gönderilmez. Seçiminizi Gizlilik bölümünden istediğiniz zaman değiştirebilirsiniz.",
+  "Allow analytics": "İstatistiklere izin ver",
+  "Reject analytics": "İstatistikleri reddet",
+  "Your browser cannot save the analytics preference. This choice applies only to this page.": "Tarayıcınız istatistik tercihini kaydedemiyor. Bu seçim yalnızca bu sayfa için geçerlidir.",
+  "Analytics settings": "İstatistik ayarları"
 }

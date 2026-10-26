@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { additionalLocales } from "../../src/lib/i18n/additional-locales.ts";
-import { locales, localeSettings } from "../../src/lib/i18n/locales.ts";
+import { languageHref, locales, localeSettings } from "../../src/lib/i18n/locales.ts";
 import { prepareLocale } from "../../src/lib/i18n/load-messages.ts";
 import { localize, text } from "../../src/lib/i18n/text.ts";
 import { canonicalHref, contents, pagePath, sitePages } from "../../src/lib/routing/pages.ts";
@@ -17,6 +17,7 @@ import { languageFlagPath } from "../../src/components/language-switch/flags.ts"
 import { languageOptions } from "../../src/components/language-switch/navigation.ts";
 
 const documents = new Map<string, { html: string; visible: string }>();
+const available = sitePages.map((page) => `/${page.slug ? `${page.slug}/` : ""}`);
 for (const locale of ["en", ...additionalLocales] as const)
   for (const page of sitePages) {
     const path = pagePath(page.id, locale);
@@ -80,7 +81,7 @@ for (const locale of additionalLocales) {
     );
     assert.equal(menus.length, 2, path);
     for (const menu of menus) {
-      const options = [...menu[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
+      const options = [...menu[2].matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)];
       assert.equal(options.length, locales.length, path);
       assert.equal(
         options.filter((option) => option[1].includes('aria-selected="true"')).length,
@@ -89,6 +90,11 @@ for (const locale of additionalLocales) {
       );
       for (const [index, language] of languageOptions.entries()) {
         assert.ok(options[index][1].includes(`lang="${language}"`), path);
+        assert.match(options[index][1], /role="option"/, path);
+        assert.ok(
+          options[index][1].includes(`href="${languageHref(path, language, available, locale)}"`),
+          `${path} 语言链接 → ${language}`,
+        );
         assert.ok(options[index][2].includes(escapeText(localeSettings[language].label)), path);
         assert.ok(
           options[index][2].includes(`background-image:url(${languageFlagPath(language)})`),

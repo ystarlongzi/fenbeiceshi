@@ -1,6 +1,24 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { nextLanguageIndex } from "./navigation.ts";
+import { linkedLanguageHref, nextLanguageIndex } from "./navigation.ts";
+
+test("跨域语言链接保留提前附加的 Google linker 及语言、查询和锚点", () => {
+  assert.equal(
+    linkedLanguageHref(
+      "https://soundmetergo.com/guide/?theme=dark&language=en#start",
+      "https://soundmetergo.com/guide/?_gl=1~abc",
+    ),
+    "https://soundmetergo.com/guide/?theme=dark&language=en&_gl=1%7Eabc#start",
+  );
+  for (const decorated of [
+    "https://unrelated.test/guide/?_gl=secret",
+    "https://soundmetergo.com/privacy/?_gl=secret",
+  ])
+    assert.equal(
+      linkedLanguageHref("https://soundmetergo.com/guide/", decorated),
+      "https://soundmetergo.com/guide/",
+    );
+});
 
 test("三列面板上下移动同一列，左右移动相邻项并保留首尾定位", () => {
   assert.equal(nextLanguageIndex("ArrowDown", 1, 27, 3, false), 4);
