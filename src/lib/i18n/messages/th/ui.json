@@ -504,5 +504,6 @@
   "Your browser cannot play this audio. Download it to open in a local player.": "เบราว์เซอร์ของคุณไม่สามารถเล่นเสียงนี้ได้ ดาวน์โหลดเพื่อเปิดในเครื่องเล่นท้องถิ่น",
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "เบราว์เซอร์ของคุณไม่สามารถจำการตั้งค่าภาษาได้ ทางเลือกของคุณยังคงใช้ได้สำหรับการเยี่ยมชมครั้งนี้",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "อุปกรณ์ของคุณยังคงประมวลผลเสียง คงการตั้งค่าไว้ไม่เปลี่ยนแปลงเมื่อทำการเปรียบเทียบ",
-  "YOUR OBSERVATIONS": "ข้อสังเกตของคุณ"
+  "YOUR OBSERVATIONS": "ข้อสังเกตของคุณ",
+  "Measure sound around you": "วัดเสียงรอบตัวคุณ"
 }

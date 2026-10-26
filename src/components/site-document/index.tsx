@@ -66,9 +66,16 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
                 <span className={styles.brandMark}>
                   <Icon name="audio-lines" size={22} />
                 </span>
-                <span>
+                <span className={styles.brandText}>
                   <strong>{localize(locale, "分贝测试", "SoundMeterGo", "分貝測試")}</strong>
-                  <small>{site.domain}</small>
+                  <small>
+                    {localize(
+                      locale,
+                      "免费在线分贝测量",
+                      "Measure sound around you",
+                      "免費線上分貝測量",
+                    )}
+                  </small>
                 </span>
               </Link>
               <SiteNavigation

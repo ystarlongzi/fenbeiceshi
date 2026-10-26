@@ -504,5 +504,6 @@
   "Your browser cannot play this audio. Download it to open in a local player.": "Tarayıcınız bu sesi çalamıyor. Yerel bir oynatıcıda açmak için indirin.",
   "Your browser cannot remember the language preference. Your choice still works for this visit.": "Tarayıcınız dil tercihini hatırlayamıyor. Seçiminiz bu ziyaret için hâlâ geçerli.",
   "Your device still processes the audio. Keep settings unchanged when comparing.": "Cihazınız hâlâ sesi işliyor. Karşılaştırma sırasında ayarları değiştirmeden tutun.",
-  "YOUR OBSERVATIONS": "GÖZLEMLERİNİZ"
+  "YOUR OBSERVATIONS": "GÖZLEMLERİNİZ",
+  "Measure sound around you": "Çevrendeki sesleri ölç"
 }
