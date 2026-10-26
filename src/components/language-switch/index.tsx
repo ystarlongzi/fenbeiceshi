@@ -3,6 +3,7 @@
 import {
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
   useSyncExternalStore,
@@ -11,7 +12,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { Icon } from "@/components/icon";
 import type { Locale } from "@/features/sound-meter/types";
-import { locales, localePrefix, localeSettings } from "@/lib/i18n/locales";
+import { localePrefix, localeSettings } from "@/lib/i18n/locales";
 import { localize } from "@/lib/i18n/text";
 import {
   getLanguagePersistenceError,
@@ -20,6 +21,8 @@ import {
   setLanguagePreference,
   subscribeLanguagePreference,
 } from "@/lib/i18n/preference";
+import { languageFlagPath } from "./flags";
+import { languageOptions, nextLanguageIndex } from "./navigation";
 import styles from "./index.module.css";
 
 export function LanguageSwitch({ locale, available }: { locale: Locale; available: string[] }) {
@@ -37,10 +40,25 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
     getLanguagePersistenceError,
     getServerLanguagePersistenceError,
   );
-  const selected = locales.indexOf(locale);
+  const selected = languageOptions.indexOf(locale);
   const open = active !== null;
   const highlighted = active ?? selected;
   const label = localize(locale, "语言", "Language", "語言");
+
+  useLayoutEffect(() => {
+    if (!open || !list.current) return;
+    const options = list.current;
+    function position() {
+      options.style.setProperty("--popup-offset", "0px");
+      const { left, right } = options.getBoundingClientRect();
+      const edge = document.documentElement.clientWidth - 16;
+      const offset = left < 16 ? 16 - left : right > edge ? edge - right : 0;
+      options.style.setProperty("--popup-offset", `${offset}px`);
+    }
+    position();
+    window.addEventListener("resize", position);
+    return () => window.removeEventListener("resize", position);
+  }, [open]);
 
   useEffect(() => {
     if (!open || !list.current) return;
@@ -62,7 +80,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
   }, [open]);
 
   function choose(index: number) {
-    const target = locales[index];
+    const target = languageOptions[index];
     if (!target) return;
     setActive(null);
     button.current?.focus();
@@ -100,18 +118,23 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
       else setActive(selected);
       return;
     }
-    let next: number | undefined;
-    if (event.key === "ArrowDown") next = (highlighted + 1) % locales.length;
-    else if (event.key === "ArrowUp") next = (highlighted + locales.length - 1) % locales.length;
-    else if (event.key === "Home") next = 0;
-    else if (event.key === "End") next = locales.length - 1;
+    const columns = list.current
+      ? getComputedStyle(list.current).gridTemplateColumns.split(" ").length
+      : 1;
+    const next = nextLanguageIndex(
+      event.key,
+      highlighted,
+      languageOptions.length,
+      columns,
+      localeSettings[locale].direction === "rtl",
+    );
     if (next !== undefined) {
       event.preventDefault();
       setActive(open || event.key === "Home" || event.key === "End" ? next : selected);
       return;
     }
     if (event.key.length !== 1 || event.ctrlKey || event.metaKey || event.altKey) return;
-    const found = locales.findIndex((language) =>
+    const found = languageOptions.findIndex((language) =>
       localeSettings[language].label.toLowerCase().startsWith(event.key.toLowerCase()),
     );
     if (found >= 0) {
@@ -143,6 +166,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
         onClick={() => setActive(open ? null : selected)}
         onKeyDown={onKeyDown}
       >
+        <LanguageFlag locale={locale} />
         <span lang={locale} dir="auto">
           {localeSettings[locale].label}
         </span>
@@ -156,7 +180,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
         className={styles.options}
         hidden={!open}
       >
-        {locales.map((language, index) => (
+        {languageOptions.map((language, index) => (
           <li
             id={`${id}-option-${index}`}
             key={language}
@@ -168,6 +192,7 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
             onPointerMove={() => setActive(index)}
             onClick={() => choose(index)}
           >
+            <LanguageFlag locale={language} />
             <span dir="auto">{localeSettings[language].label}</span>
             {language === locale ? <Icon name="circle-check" size={15} /> : null}
           </li>
@@ -184,6 +209,16 @@ export function LanguageSwitch({ locale, available }: { locale: Locale; availabl
         </span>
       ) : null}
     </div>
+  );
+}
+
+function LanguageFlag({ locale }: { locale: Locale }) {
+  return (
+    <i
+      className={styles.flag}
+      aria-hidden="true"
+      style={{ backgroundImage: `url(${languageFlagPath(locale)})` }}
+    />
   );
 }
 

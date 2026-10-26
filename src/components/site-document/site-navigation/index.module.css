@@ -103,6 +103,7 @@
 .drawer[open] {
   display: flex;
   flex-direction: column;
+  overflow: visible;
   transform: none;
   transition-duration: var(--drawer-open-duration);
 }
@@ -157,7 +158,7 @@
 }
 .drawerUtilities {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
   flex-shrink: 0;
   align-items: center;
   gap: 12px;
@@ -167,6 +168,7 @@
 }
 .drawerUtilities .utilities {
   position: relative;
+  min-width: 0;
   justify-content: flex-end;
 }
 .drawerUtilities > span {

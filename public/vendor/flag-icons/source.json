@@ -1,0 +1,121 @@
+{
+  "name": "flag-icons",
+  "version": "7.6.0",
+  "repository": "https://github.com/lipis/flag-icons",
+  "source": "https://github.com/lipis/flag-icons/tree/v7.6.0/flags/4x3",
+  "package": "https://registry.npmjs.org/flag-icons/-/flag-icons-7.6.0.tgz",
+  "license": "MIT",
+  "packageIntegrity": "sha512-hir/PsXwr0EESyizKrXJzmkzpLIMf+1vlNKLqAfvdh+bsU94a7LYWTiubkHKqptGoCPzOUGcm6c4PfC9/BaGSQ==",
+  "retrieval": "从 npm 官方发布包提取未改写的 4x3 SVG；包完整性与官方元数据一致，未执行包脚本。",
+  "checked": "2026-10-26",
+  "files": {
+    "4x3/cn.svg": {
+      "bytes": 813,
+      "sha256": "981da9bdf82d48e31691f20578cefcb26cf7d0bd95e4ebd5c0df00bdfe988c1a"
+    },
+    "4x3/tw.svg": {
+      "bytes": 2499,
+      "sha256": "931757f06b9ee751fd1a0cc8dd7cf862e21fdcaf894d10ed7bcc68dabcca59ad"
+    },
+    "4x3/gb.svg": {
+      "bytes": 504,
+      "sha256": "c8be1e7208798a4ae692ee1e937065d498bb29e741943f6172b29118b8ed8066"
+    },
+    "4x3/es.svg": {
+      "bytes": 80958,
+      "sha256": "f9cfaff858e95f830733ade9591037b5322dfb5827a53b70956a3d190bb49b9a"
+    },
+    "4x3/de.svg": {
+      "bytes": 221,
+      "sha256": "efd480af5a154a7651f29da23ee0d09dbc892410fb4041898ddf8face336c575"
+    },
+    "4x3/fr.svg": {
+      "bytes": 241,
+      "sha256": "a526851c372e3372b1596be71af355ea72b1650bbc4c06e6e2c226900d3de6cc"
+    },
+    "4x3/br.svg": {
+      "bytes": 7140,
+      "sha256": "b0a912826c3ffd7287435ebed66e18fe058e992309c00dc10b430dd41a29ba91"
+    },
+    "4x3/ru.svg": {
+      "bytes": 225,
+      "sha256": "7100aaae51ff3b6a2bf0ca932b3bc518bdc760814725e7cca31d821a26c3dd7c"
+    },
+    "4x3/it.svg": {
+      "bytes": 289,
+      "sha256": "9fa88118818d9b64838f578e2babcca3d0630aed21b5c33b34aff7ac5ce506bc"
+    },
+    "4x3/kr.svg": {
+      "bytes": 1061,
+      "sha256": "7a6cd5b51d0e2841ed8b79b1147ad8a66cf3c09f6344d4a63b5e4413ffa5d15b"
+    },
+    "4x3/jp.svg": {
+      "bytes": 470,
+      "sha256": "bfea80baf9989383dc4bf7ca594ed95be0df0ff125bfc88d0bfa878eb0198022"
+    },
+    "4x3/no.svg": {
+      "bytes": 318,
+      "sha256": "ceea17af051dceefd5759a824213eb40ac8a8095aa88a6874a7bbc8de637357a"
+    },
+    "4x3/se.svg": {
+      "bytes": 209,
+      "sha256": "b3b5071e6c1d4a0e3db828bab5c7dfd68d0e90fcf3b25b15e9a2c4f96c1f79c9"
+    },
+    "4x3/dk.svg": {
+      "bytes": 236,
+      "sha256": "d2847c0bd7a1fb97977ee51f2f618c5ebc5898dd66ef9804f187613c27bdca1a"
+    },
+    "4x3/nl.svg": {
+      "bytes": 225,
+      "sha256": "8f691f17fe70894537af8e92f2ca47761d353639b0defc15cbe561eb503ab010"
+    },
+    "4x3/fi.svg": {
+      "bytes": 234,
+      "sha256": "012edd984cf1879463c2855b7df02dea2f7de7f7a66b244fb1e22b4227f7aa65"
+    },
+    "4x3/gr.svg": {
+      "bytes": 868,
+      "sha256": "a184070f7678b06777be8ac38cb05ba41829591a6dac9b64b2b72db66aec82f5"
+    },
+    "4x3/pl.svg": {
+      "bytes": 215,
+      "sha256": "06687a4b90fc00195d0795aea1c26a9f73f1b6ea6a76e358724b2f1f32b7c8f4"
+    },
+    "4x3/tr.svg": {
+      "bytes": 549,
+      "sha256": "256a1d6afbedb9f731566982331a1cd1ad14aba211b8a61d338855879505e74f"
+    },
+    "4x3/id.svg": {
+      "bytes": 178,
+      "sha256": "5cd3acc4939dd7eae6318c8d75df8c0d1733f650e2504a2635b0dbf3dfabb040"
+    },
+    "4x3/vn.svg": {
+      "bytes": 490,
+      "sha256": "2355037201315d74581ab0ad60b5587a29a087d26b0525bdeb8676e64fae5b86"
+    },
+    "4x3/cz.svg": {
+      "bytes": 225,
+      "sha256": "d601fcc2e5b1fd48b79d53c55108af4c0e90793f146db51f3ee449d8d69512bc"
+    },
+    "4x3/hu.svg": {
+      "bytes": 264,
+      "sha256": "4891ce591bf29b5b68609c29d973a30f1ef109032d8dab369208d0d5f615bc74"
+    },
+    "4x3/sk.svg": {
+      "bytes": 1182,
+      "sha256": "578d0693bc95214334248b47c5719dd01cfc9839bd909a726df045d499fabbb6"
+    },
+    "4x3/th.svg": {
+      "bytes": 284,
+      "sha256": "329cc0d520536d6eb4b9304105f23650c2d02bbdba8f8696e996dbf166de6f2e"
+    },
+    "4x3/ro.svg": {
+      "bytes": 302,
+      "sha256": "17a3a747fc5e63302aaa670a667e5812f3676f46768e5a3e87b254bd41762840"
+    },
+    "4x3/sa.svg": {
+      "bytes": 9968,
+      "sha256": "5738c8cfca5fea63587cbcf69237996c8ce6283f8016853150686f37311b620e"
+    }
+  }
+}

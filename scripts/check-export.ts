@@ -33,6 +33,8 @@ import { faqItems, homeFaqItems } from "../src/lib/content/faq.ts";
 import { baseLocales, locales, localeSettings } from "../src/lib/i18n/locales.ts";
 import { additionalLocaleSettings } from "../src/lib/i18n/additional-locales.ts";
 import { localize } from "../src/lib/i18n/text.ts";
+import { languageFlagPath } from "../src/components/language-switch/flags.ts";
+import { languageOptions } from "../src/components/language-switch/navigation.ts";
 
 const htmlByPath = new Map<string, string>();
 const titles = new Set<string>();
@@ -249,6 +251,8 @@ for (const page of sitePages) {
           body.includes(`<span lang="${locale}" dir="auto">${localeSettings[locale].label}</span>`),
           path,
         );
+        assert.ok(body.includes(`background-image:url(${languageFlagPath(locale)})`), path);
+        assert.match(body, /<i\b[^>]*aria-hidden="true"/, path);
         const listId = attributes.match(/aria-controls="([^"]+)"/)?.[1];
         assert.ok(listId, `语言入口缺少选项列表关联：${path}`);
         listIds.push(listId);
@@ -261,12 +265,17 @@ for (const page of sitePages) {
         const options = [...list[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
         assert.deepEqual(
           options.map((option) => option[2].match(/<span dir="auto">([^<]*)<\/span>/)?.[1]),
-          locales.map((language) => localeSettings[language].label),
+          languageOptions.map((language) => localeSettings[language].label),
           path,
         );
-        for (const [index, language] of locales.entries()) {
+        for (const [index, language] of languageOptions.entries()) {
           assert.match(options[index][1], /role="option"/, path);
           assert.ok(options[index][1].includes(`lang="${language}"`), path);
+          assert.ok(
+            options[index][2].includes(`background-image:url(${languageFlagPath(language)})`),
+            `语言选项缺少本机国旗：${path} → ${language}`,
+          );
+          assert.match(options[index][2], /<i\b[^>]*aria-hidden="true"/, path);
           assert.ok(
             options[index][1].includes(`aria-selected="${language === locale}"`),
             `下拉框应选中当前语言：${path}`,

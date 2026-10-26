@@ -3,6 +3,7 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  max-width: 100%;
   color: var(--text-accent);
 }
 .trigger {
@@ -11,6 +12,7 @@
   justify-content: space-between;
   gap: 10px;
   min-width: 104px;
+  max-width: 100%;
   min-height: 34px;
   padding: 6px 10px;
   border: 1px solid var(--line-strong);
@@ -24,6 +26,23 @@
   transition:
     background-color 160ms ease,
     box-shadow 160ms ease;
+}
+.trigger > span {
+  flex: 1;
+  min-width: 0;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+.flag {
+  display: block;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 1px var(--line);
 }
 .trigger:focus-visible {
   outline: 2px solid var(--brand);
@@ -43,38 +62,45 @@
   transform: rotate(180deg);
 }
 .options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
   position: absolute;
   top: calc(100% + 6px);
   inset-inline-end: 0;
   z-index: 20;
-  min-width: 196px;
-  max-height: min(360px, 50dvh);
+  width: min(600px, calc(100vw - 32px));
+  max-height: min(480px, calc(100dvh - 104px));
   overflow-y: auto;
   overscroll-behavior: contain;
   margin: 0;
-  padding: 4px;
+  padding: 8px;
   list-style: none;
   border: 1px solid var(--line-strong);
   border-radius: 7px;
   background: var(--surface);
   box-shadow: 0 8px 24px var(--shadow);
+  transform: translateX(var(--popup-offset, 0px));
 }
 .options[hidden] {
   display: none;
 }
 .options li {
-  display: flex;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) 15px;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 40px;
+  gap: 8px;
+  min-height: 44px;
   padding: 9px 8px;
   border-radius: 4px;
   color: var(--ink);
   font-size: var(--font-size-caption);
   line-height: 1.6;
-  white-space: nowrap;
   cursor: pointer;
+}
+.options li > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .options li[data-active="true"] {
   color: var(--brand);
@@ -117,6 +143,11 @@
   .notice {
     top: auto;
     bottom: calc(100% + 6px);
+  }
+  .options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(440px, calc(100vw - 32px));
+    max-height: min(480px, calc(100dvh - 160px));
   }
 }
 @media (prefers-reduced-motion: reduce) {

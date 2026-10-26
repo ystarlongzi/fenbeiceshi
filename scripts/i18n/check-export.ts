@@ -13,6 +13,8 @@ import { soundBands } from "../../src/lib/content/sound-bands.ts";
 import { soundReferences } from "../../src/lib/content/sound-references.ts";
 import { healthActions, healthImpacts } from "../../src/lib/content/noise-health.ts";
 import { escapeText } from "../export-checks/html.ts";
+import { languageFlagPath } from "../../src/components/language-switch/flags.ts";
+import { languageOptions } from "../../src/components/language-switch/navigation.ts";
 
 const documents = new Map<string, { html: string; visible: string }>();
 for (const locale of ["en", ...additionalLocales] as const)
@@ -85,9 +87,14 @@ for (const locale of additionalLocales) {
         1,
         path,
       );
-      for (const [index, language] of locales.entries()) {
+      for (const [index, language] of languageOptions.entries()) {
         assert.ok(options[index][1].includes(`lang="${language}"`), path);
         assert.ok(options[index][2].includes(escapeText(localeSettings[language].label)), path);
+        assert.ok(
+          options[index][2].includes(`background-image:url(${languageFlagPath(language)})`),
+          `${path} 国旗 → ${language}`,
+        );
+        assert.match(options[index][2], /<i\b[^>]*aria-hidden="true"/, path);
       }
     }
     for (const nav of [...visible.matchAll(/<nav\b[^>]*>([\s\S]*?)<\/nav>/g)].filter((match) =>
