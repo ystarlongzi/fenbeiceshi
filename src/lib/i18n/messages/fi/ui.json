@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "HUOMAUTUKSENI",
   "Measure sound around you": "Mittaa ääniä ympäriltäsi",
   "Website analytics": "Kävijätilastot",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Sallitko Google Analytics -evästeet sivukäyntien mittaamiseen ja sivuston parantamiseen? Ääntä, tallenteita, lukemia tai muistiinpanoja ei koskaan lähetetä. Voit muuttaa valintaa milloin tahansa Tietosuoja-sivulla.",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "Sivuston tilastointi on oletusarvoisesti käytössä. Google Analytics käyttää evästeitä sivukäyntien mittaamiseen ja sivuston parantamiseen. Ääntä, tallenteita, lukemia tai muistiinpanoja ei koskaan lähetetä. Voit poistaa tilastoinnin käytöstä milloin tahansa.",
   "Allow analytics": "Salli tilastointi",
   "Reject analytics": "Hylkää tilastointi",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "Selain ei voi tallentaa tilastointivalintaa. Valinta koskee vain tätä sivua.",

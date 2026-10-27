@@ -1,11 +1,11 @@
-import { ANALYTICS_CONSENT_KEY, parseConsent, type AnalyticsConsent } from "./model.ts";
+import {
+  ANALYTICS_CONSENT_KEY,
+  parseConsent,
+  type AnalyticsConsent,
+  type ConsentSnapshot,
+} from "./model.ts";
 
 const CHANGE_EVENT = "fenbeiceshi:analytics-consent";
-interface ConsentSnapshot {
-  choice: AnalyticsConsent;
-  error: boolean;
-  ready: boolean;
-}
 const serverSnapshot: Readonly<ConsentSnapshot> = Object.freeze({
   choice: null as AnalyticsConsent,
   error: false,

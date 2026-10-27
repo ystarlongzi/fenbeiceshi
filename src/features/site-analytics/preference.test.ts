@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { ANALYTICS_CONSENT_KEY } from "./model.ts";
+import { ANALYTICS_CONSENT_KEY, analyticsEnabled } from "./model.ts";
 
 let sequence = 0;
 async function fixture(
@@ -41,7 +41,7 @@ async function fixture(
   }
 }
 
-test("服务端快照不读取浏览器，初次访问和非法偏好均不授权", async () => {
+test("服务端快照不读取浏览器，非法偏好保留未选择状态", async () => {
   await fixture(({ store, preference }) => {
     store.set(ANALYTICS_CONSENT_KEY, "true");
     assert.deepEqual(preference.getServerConsentSnapshot(), {
@@ -54,14 +54,30 @@ test("服务端快照不读取浏览器，初次访问和非法偏好均不授�
   });
 });
 
-test("读写受限不默认同意，手动选择仍在本页生效并保留错误上下文", async () => {
+test("首次访问默认启用但不伪造同意记录，已保存拒绝仍保持关闭", async () => {
+  await fixture(({ store, preference }) => {
+    assert.equal(analyticsEnabled(preference.getServerConsentSnapshot()), false);
+    assert.equal(analyticsEnabled(preference.getConsentSnapshot()), true);
+    assert.equal(store.has(ANALYTICS_CONSENT_KEY), false);
+  });
+  await fixture(({ store, preference }) => {
+    store.set(ANALYTICS_CONSENT_KEY, "denied");
+    assert.equal(analyticsEnabled(preference.getServerConsentSnapshot()), false);
+    assert.equal(analyticsEnabled(preference.getConsentSnapshot()), false);
+    assert.equal(store.get(ANALYTICS_CONSENT_KEY), "denied");
+  });
+});
+
+test("读取受限时保持关闭，手动选择仍在本页生效并保留错误上下文", async () => {
   await fixture(({ blocked, preference }) => {
     blocked.read = true;
     blocked.write = true;
     assert.deepEqual(preference.getConsentSnapshot(), { choice: null, error: true, ready: true });
+    assert.equal(analyticsEnabled(preference.getConsentSnapshot()), false);
     const failure = preference.setAnalyticsConsent("granted");
     assert.ok(failure instanceof Error);
     assert.ok(failure.cause instanceof Error);
+    assert.equal(analyticsEnabled(preference.getConsentSnapshot()), true);
     assert.deepEqual(preference.getConsentSnapshot(), {
       choice: "granted",
       error: true,
@@ -69,6 +85,7 @@ test("读写受限不默认同意，手动选择仍在本页生效并保留错�
     });
     preference.setAnalyticsConsent("denied");
     assert.equal(preference.getConsentSnapshot().choice, "denied");
+    assert.equal(analyticsEnabled(preference.getConsentSnapshot()), false);
   });
 });
 

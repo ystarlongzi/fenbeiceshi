@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "GÖZLEMLERİNİZ",
   "Measure sound around you": "Çevrendeki sesleri ölç",
   "Website analytics": "Site istatistikleri",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Sayfa ziyaretlerini ölçmek ve siteyi geliştirmek için Google Analytics çerezlerine izin verilsin mi? Ses, kayıtlar, ölçüm değerleri ve notlar asla gönderilmez. Seçiminizi Gizlilik bölümünden istediğiniz zaman değiştirebilirsiniz.",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "Site istatistikleri varsayılan olarak açıktır. Google Analytics, sayfa ziyaretlerini ölçmek ve siteyi geliştirmeye yardımcı olmak için çerezler kullanır. Ses, kayıtlar, ölçüm değerleri ve notlar asla gönderilmez. İstatistikleri istediğiniz zaman kapatabilirsiniz.",
   "Allow analytics": "İstatistiklere izin ver",
   "Reject analytics": "İstatistikleri reddet",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "Tarayıcınız istatistik tercihini kaydedemiyor. Bu seçim yalnızca bu sayfa için geçerlidir.",

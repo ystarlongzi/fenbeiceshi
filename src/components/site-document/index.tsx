@@ -15,12 +15,13 @@ import { localeSettings } from "@/lib/i18n/locales";
 import { prepareLocale } from "@/lib/i18n/load-messages";
 import { LocalizationBoundary } from "../localization-boundary";
 import { SiteAnalytics } from "@/features/site-analytics";
-import { measurementId } from "@/features/site-analytics/model";
+import { analyticsNoticeEnabled, measurementId } from "@/features/site-analytics/model";
 
 export async function SiteDocument({ children, locale }: { children: ReactNode; locale: Locale }) {
   const messages = await prepareLocale(locale);
   const site = siteForLocale(locale);
   const analytics = measurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+  const showAnalyticsNotice = analyticsNoticeEnabled(process.env.NEXT_PUBLIC_GA_SHOW_NOTICE);
   const available = sitePages.map((page) => `/${page.slug ? `${page.slug}/` : ""}`);
   const nav = [
     {
@@ -107,6 +108,7 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
                 locale={locale}
                 id={analytics}
                 privacyPath={pagePath("privacy", locale)}
+                showNotice={showAnalyticsNotice}
               />
             </div>
           ) : null}

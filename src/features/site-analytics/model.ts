@@ -1,6 +1,22 @@
 export const ANALYTICS_HOSTS = ["fenbeiceshi.com", "soundmetergo.com"] as const;
 export const ANALYTICS_CONSENT_KEY = "fenbeiceshi:analytics-consent:v1";
 export type AnalyticsConsent = "granted" | "denied" | null;
+export interface ConsentSnapshot {
+  choice: AnalyticsConsent;
+  error: boolean;
+  ready: boolean;
+}
+
+export function analyticsEnabled(consent: ConsentSnapshot): boolean {
+  if (!consent.ready) return false;
+  return consent.choice === "granted" || (consent.choice === null && !consent.error);
+}
+
+export function analyticsNoticeEnabled(value: string | undefined): boolean {
+  if (!value || value === "false") return false;
+  if (value === "true") return true;
+  throw new Error("NEXT_PUBLIC_GA_SHOW_NOTICE 只能为 true 或 false。");
+}
 
 export function measurementId(value: string | undefined): string | null {
   if (!value) return null;

@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "SUS OBSERVACIONES",
   "Measure sound around you": "Mide el sonido a tu alrededor",
   "Website analytics": "Estadísticas del sitio",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "¿Permites cookies de Google Analytics para medir las visitas y mejorar este sitio? Nunca se envían audio, grabaciones, lecturas ni notas. Puedes cambiar tu decisión en Privacidad en cualquier momento.",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "Las estadísticas del sitio están activadas de forma predeterminada. Google Analytics usa cookies para medir las visitas a las páginas y ayudar a mejorar el sitio. Nunca se envían audio, grabaciones, lecturas ni notas. Puedes desactivar las estadísticas en cualquier momento.",
   "Allow analytics": "Permitir estadísticas",
   "Reject analytics": "Rechazar estadísticas",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "Tu navegador no puede guardar la preferencia de estadísticas. Esta decisión solo se aplica a esta página.",

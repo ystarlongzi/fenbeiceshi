@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "ВАШИ НАБЛЮДЕНИЯ",
   "Measure sound around you": "Измеряйте звуки вокруг вас",
   "Website analytics": "Статистика сайта",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Разрешить файлы cookie Google Analytics для подсчёта посещений и улучшения сайта? Аудио, записи, показания и заметки никогда не отправляются. Вы можете изменить выбор в разделе конфиденциальности.",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "Статистика сайта включена по умолчанию. Google Analytics использует файлы cookie для подсчёта посещений страниц и улучшения сайта. Аудио, записи, показания и заметки никогда не отправляются. Статистику можно отключить в любое время.",
   "Allow analytics": "Разрешить статистику",
   "Reject analytics": "Отклонить статистику",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "Браузер не может сохранить настройку статистики. Этот выбор действует только на текущей странице.",

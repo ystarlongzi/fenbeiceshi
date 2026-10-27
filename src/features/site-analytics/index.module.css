@@ -1,6 +1,4 @@
 .panel {
-  max-width: 1176px;
-  margin: 20px auto 0;
   padding: 18px 20px;
   display: flex;
   flex-wrap: wrap;
@@ -10,8 +8,27 @@
   border-radius: 8px;
   background: var(--surface);
 }
+.floating {
+  position: fixed;
+  z-index: 30;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: max(20px, env(safe-area-inset-left));
+  max-width: 960px;
+  max-height: calc(100dvh - 100px);
+  margin-inline: auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+.settings {
+  max-width: 1176px;
+  margin: 20px auto 0;
+}
 .copy {
+  min-width: 0;
   flex: 1 1 460px;
+  overflow-wrap: anywhere;
 }
 .copy h2 {
   margin: 0 0 6px;
@@ -26,7 +43,6 @@
 }
 .copy a {
   display: inline-block;
-  margin-top: 4px;
   color: var(--brand);
   font-size: var(--font-size-ui);
   text-decoration: underline;
@@ -45,6 +61,7 @@
   background: var(--surface);
   color: var(--ink);
   font-size: var(--font-size-ui);
+  overflow-wrap: anywhere;
   cursor: pointer;
 }
 .actions button[aria-pressed="true"] {
@@ -61,14 +78,21 @@
   flex-basis: 100%;
 }
 @media (max-width: 1240px) {
-  .panel {
+  .settings {
     margin-inline: 32px;
   }
 }
 @media (max-width: 760px) {
   .panel {
-    margin-inline: 20px;
     padding: 16px;
+  }
+  .floating {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    left: max(16px, env(safe-area-inset-left));
+  }
+  .settings {
+    margin-inline: 20px;
   }
   .actions {
     width: 100%;

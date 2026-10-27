@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "AZ ÖN ÉSZREVÉTELEI",
   "Measure sound around you": "Mérd a körülötted lévő hangokat",
   "Website analytics": "Látogatottsági statisztika",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Engedélyezed a Google Analytics sütijeit az oldallátogatások méréséhez és a webhely fejlesztéséhez? Hangot, felvételt, mérési értéket és jegyzetet soha nem küldünk. Választásodat bármikor módosíthatod az Adatvédelem oldalon.",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "A webhely statisztikája alapértelmezés szerint be van kapcsolva. A Google Analytics sütikkel méri az oldallátogatásokat, és segít a webhely fejlesztésében. Hangot, felvételeket, mérési értékeket és jegyzeteket soha nem küldünk el. A statisztikát bármikor kikapcsolhatod.",
   "Allow analytics": "Statisztika engedélyezése",
   "Reject analytics": "Statisztika elutasítása",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "A böngésző nem tudja menteni a statisztikai beállítást. A választás csak erre az oldalra érvényes.",

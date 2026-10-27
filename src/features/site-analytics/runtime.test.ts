@@ -26,7 +26,7 @@ function fixture(href = "https://fenbeiceshi.com/?note=private#record") {
   return { scope, doc, scripts, cookies, commands, views, ...runtime };
 }
 
-test("初始与拒绝状态不加载 Google，不发送命令或删除本机报告", () => {
+test("显式停用时不加载 Google，不发送命令或删除本机报告", () => {
   const app = fixture();
   app.disable();
   assert.equal(app.scripts.length, 0);
@@ -34,7 +34,7 @@ test("初始与拒绝状态不加载 Google，不发送命令或删除本机报�
   assert.deepEqual(app.cookies, []);
 });
 
-test("同意后仅加载一次，默认拒绝广告，关闭自动页面事件并去重首屏", () => {
+test("启用后仅加载一次，默认拒绝广告，关闭自动页面事件并去重首屏", () => {
   const app = fixture();
   app.pageView("zh-CN");
   app.pageView("zh-CN");

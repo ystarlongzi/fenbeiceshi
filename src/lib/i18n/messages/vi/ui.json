@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "QUAN SÁT CỦA BẠN",
   "Measure sound around you": "Đo âm thanh xung quanh bạn",
   "Website analytics": "Thống kê truy cập",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "Cho phép cookie Google Analytics để đo lượt truy cập và cải thiện trang web? Âm thanh, bản ghi, số đo và ghi chú không bao giờ được gửi đi. Bạn có thể đổi lựa chọn trong mục Quyền riêng tư bất cứ lúc nào.",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "Thống kê trang web được bật theo mặc định. Google Analytics dùng cookie để đo lượt truy cập trang và giúp cải thiện trang web. Âm thanh, bản ghi, số đo và ghi chú không bao giờ được gửi đi. Bạn có thể tắt thống kê bất cứ lúc nào.",
   "Allow analytics": "Cho phép thống kê",
   "Reject analytics": "Từ chối thống kê",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "Trình duyệt không thể lưu tùy chọn thống kê. Lựa chọn này chỉ áp dụng cho trang hiện tại.",

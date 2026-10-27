@@ -33,6 +33,7 @@ jobs:
       url: https://fenbeiceshi.com
     env:
       NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+      NEXT_PUBLIC_GA_SHOW_NOTICE: ${{ vars.NEXT_PUBLIC_GA_SHOW_NOTICE || 'false' }}
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USER: ${{ secrets.SSH_USER }}
       SSH_PORT: ${{ secrets.SSH_PORT || '22' }}

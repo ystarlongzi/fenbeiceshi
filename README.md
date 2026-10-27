@@ -52,7 +52,7 @@ npm run preview
 
 本机也可初始化、打包、发布和回滚；先填写 `deploy/.env.local`，示例、参数优先级及实际命令均见部署手册。服务器必须支持 HTTPS，主文档允许同源麦克风请求。生产执行记录、验收范围与待办见 [部署工程验证](./docs/验证/部署工程验证.md)。
 
-两域的 GA4 接入使用公开构建变量 `NEXT_PUBLIC_GA_MEASUREMENT_ID`，缺失时关闭统计；访客允许后才加载 Google，音频与报告不进入统计。后台、变量、查看数据和停用方法见 [Google 统计](./docs/部署/Google统计.md)。
+两域的 GA4 接入使用公开构建变量 `NEXT_PUBLIC_GA_MEASUREMENT_ID`，缺失时关闭整个统计模块；配置后默认开启，尊重访客已保存的拒绝选择。浮动提示由 `NEXT_PUBLIC_GA_SHOW_NOTICE` 控制，默认 `false` 隐藏，隐私页始终保留统计设置。音频与报告不进入统计。后台、变量、查看数据和停用方法见 [Google 统计](./docs/部署/Google统计.md)。
 
 ## 项目入口
 

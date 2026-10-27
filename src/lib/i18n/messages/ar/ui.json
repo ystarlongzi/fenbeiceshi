@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "ملاحظاتك",
   "Measure sound around you": "قِس الأصوات من حولك",
   "Website analytics": "إحصاءات الموقع",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "هل تسمح بملفات تعريف ارتباط Google Analytics لقياس زيارات الصفحات وتحسين الموقع؟ لا تُرسل الأصوات أو التسجيلات أو القراءات أو الملاحظات مطلقًا. يمكنك تغيير اختيارك في صفحة الخصوصية في أي وقت.",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "إحصاءات الموقع مفعلة افتراضيًا. يستخدم Google Analytics ملفات تعريف الارتباط لقياس زيارات الصفحات والمساعدة في تحسين الموقع. لا تُرسل الأصوات أو التسجيلات أو القراءات أو الملاحظات مطلقًا. يمكنك تعطيل الإحصاءات في أي وقت.",
   "Allow analytics": "السماح بالإحصاءات",
   "Reject analytics": "رفض الإحصاءات",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "لا يستطيع متصفحك حفظ تفضيل الإحصاءات. ينطبق هذا الاختيار على الصفحة الحالية فقط.",

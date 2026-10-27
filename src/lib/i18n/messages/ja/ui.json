@@ -507,7 +507,7 @@
   "YOUR OBSERVATIONS": "あなたの所見",
   "Measure sound around you": "身のまわりの音を測る",
   "Website analytics": "サイトのアクセス解析",
-  "Allow Google Analytics cookies to measure page visits and help improve this site? Audio, recordings, readings and notes are never sent. You can change your choice in Privacy at any time.": "ページの訪問数を集計し、サイトを改善するために Google Analytics の Cookie を許可しますか？音声、録音、測定値、メモは送信されません。プライバシーのページでいつでも変更できます。",
+  "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.": "サイトのアクセス解析は初期設定で有効です。Google Analytics は Cookie を使用してページへのアクセスを集計し、サイトの改善に役立てます。音声、録音、測定値、メモは送信されません。解析はいつでも無効にできます。",
   "Allow analytics": "解析を許可",
   "Reject analytics": "解析を拒否",
   "Your browser cannot save the analytics preference. This choice applies only to this page.": "ブラウザがアクセス解析の設定を保存できません。この選択は現在のページでのみ有効です。",
