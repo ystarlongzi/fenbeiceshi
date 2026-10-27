@@ -353,14 +353,14 @@ export const guides: SiteContent[] = [
             "開啟網站需要頁面和資源請求。託管服務會處理提供網頁所需的連線資訊與瀏覽日誌。本站沒有廣告、使用者帳號或雲端記錄服務。",
           ),
           t(
-            "统计开启时，Google Analytics 4 会接收不含查询参数和锚点的页面地址、页面标题、语言、来源及浏览器和设备技术信息。Google 使用第一方 Cookie 统计访问，数据可能在你所在国家或地区以外处理。音频、录音、测量读数、报告备注及测量设备标识不会发送给统计服务。",
+            "统计开启时，Google Analytics 4 会接收不含查询参数和锚点的页面地址、页面标题、语言、来源及浏览器和设备技术信息。Google 使用第一方 Cookie 统计访问，数据可能在你所在国家或地区以外处理。fenbeiceshi.com 同时使用百度统计，通过 Cookie 统计页面访问、来源及浏览器和设备技术信息，不启用点击和表单内容的自动采集。音频、录音、测量读数、报告备注及测量设备标识不会发送给统计服务。",
             "When analytics is enabled, Google Analytics 4 receives page addresses without queries or fragments, page titles, language, referral sources and technical browser/device data. Google uses first-party cookies to count visits and may process data outside your country. Audio, recordings, readings, report notes and device identifiers from measurement are never sent to Analytics.",
-            "統計開啟時，Google Analytics 4 會接收不含查詢參數和錨點的頁面網址、頁面標題、語言、來源及瀏覽器和裝置技術資訊。Google 使用第一方 Cookie 統計瀏覽，資料可能在你所在國家或地區以外處理。音訊、錄音、測量讀數、報告備註及測量裝置識別碼不會傳送給統計服務。",
+            "統計開啟時，Google Analytics 4 會接收不含查詢參數和錨點的頁面網址、頁面標題、語言、來源及瀏覽器和裝置技術資訊。Google 使用第一方 Cookie 統計瀏覽，資料可能在你所在國家或地區以外處理。fenbeiceshi.com 同時使用百度統計，透過 Cookie 統計頁面瀏覽、來源及瀏覽器和裝置技術資訊，不啟用點擊和表單內容的自動採集。音訊、錄音、測量讀數、報告備註及測量裝置識別碼不會傳送給統計服務。",
           ),
           t(
-            "网站访问统计默认开启，已保存的拒绝选择始终优先。通过页脚“统计设置”或本页顶部可随时关闭或重新开启，两个域名分别保存偏好。两边统计都开启时，短期有效的 _gl 链接参数可关联 fenbeiceshi.com 与 soundmetergo.com 之间的访问。关闭后停止本域后续采集并清除统计 Cookie，已发送给 Google 的数据不会因此删除。",
+            "网站访问统计默认开启，已保存的拒绝选择始终优先。通过页脚“统计设置”或本页顶部可随时关闭或重新开启，中文站的同一开关控制 Google 和百度统计，两个域名分别保存偏好。两边 Google 统计都开启时，短期有效的 _gl 链接参数可关联 fenbeiceshi.com 与 soundmetergo.com 之间的访问。关闭后停止本域后续采集并清除本站可访问的统计 Cookie，已发送给统计服务的数据不会因此删除。",
             "Website analytics is on by default, but a saved rejection always takes priority. Use Analytics settings in the footer or at the top of this page to turn it off or back on. Preferences are saved separately on each domain. When analytics is on for both sites, a short-lived _gl link parameter can connect visits between fenbeiceshi.com and soundmetergo.com. Turning it off stops future collection on this domain and clears its analytics cookies; data already sent to Google is not deleted.",
-            "網站瀏覽統計預設開啟，已儲存的拒絕選擇一律優先。透過頁尾「統計設定」或本頁頂部可隨時關閉或重新開啟，兩個網域分別儲存偏好。兩邊統計都開啟時，短期有效的 _gl 連結參數可關聯 fenbeiceshi.com 與 soundmetergo.com 之間的瀏覽。關閉後停止本網域後續採集並清除統計 Cookie，已傳送給 Google 的資料不會因此刪除。",
+            "網站瀏覽統計預設開啟，已儲存的拒絕選擇一律優先。透過頁尾「統計設定」或本頁頂部可隨時關閉或重新開啟，中文站的同一開關控制 Google 和百度統計，兩個網域分別儲存偏好。兩邊 Google 統計都開啟時，短期有效的 _gl 連結參數可關聯 fenbeiceshi.com 與 soundmetergo.com 之間的瀏覽。關閉後停止本網域後續採集並清除本站可存取的統計 Cookie，已傳送給統計服務的資料不會因此刪除。",
           ),
         ],
       },

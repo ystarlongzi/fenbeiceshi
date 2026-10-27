@@ -13,16 +13,19 @@ import {
   subscribeAnalyticsConsent,
 } from "./preference";
 import { createAnalyticsRuntime } from "./runtime";
+import { createBaiduAnalyticsRuntime } from "./baidu";
 import styles from "./index.module.css";
 
 export function SiteAnalytics({
   locale,
   id,
+  baidu,
   privacyPath,
   showNotice,
 }: {
   locale: Locale;
-  id: string;
+  id: string | null;
+  baidu: boolean;
   privacyPath: string;
   showNotice: boolean;
 }) {
@@ -32,16 +35,21 @@ export function SiteAnalytics({
     getConsentSnapshot,
     getServerConsentSnapshot,
   );
-  const runtime = useRef<ReturnType<typeof createAnalyticsRuntime> | null>(null);
+  const runtime = useRef<ReturnType<typeof createAnalyticsRuntime>[] | null>(null);
   const settings = pathname === privacyPath;
   const enabled = analyticsEnabled(consent);
 
   useEffect(() => {
     if (!consent.ready) return;
-    const tracking = (runtime.current ??= createAnalyticsRuntime(window, document, id));
-    if (enabled) tracking.pageView(locale);
-    else tracking.disable();
-  }, [consent.ready, enabled, id, locale, pathname]);
+    const tracking = (runtime.current ??= [
+      ...(id ? [createAnalyticsRuntime(window, document, id)] : []),
+      ...(baidu ? [createBaiduAnalyticsRuntime(window, document)] : []),
+    ]);
+    for (const tracker of tracking) {
+      if (enabled) tracker.pageView(locale);
+      else tracker.disable();
+    }
+  }, [baidu, consent.ready, enabled, id, locale, pathname]);
 
   if (!consent.ready || (!settings && (!showNotice || (consent.choice !== null && !consent.error))))
     return null;
@@ -57,9 +65,9 @@ export function SiteAnalytics({
         <p>
           {localize(
             locale,
-            "网站访问统计默认开启。Google Analytics 使用 Cookie 统计页面访问，帮助改进网站。音频、录音、读数和备注不会发送，你可随时关闭统计。",
+            `网站访问统计默认开启。${id ? "Google Analytics 和百度统计" : "百度统计"}使用 Cookie 统计页面访问，帮助改进网站。音频、录音、读数和备注不会发送，你可随时关闭统计。`,
             "Website analytics is on by default. Google Analytics uses cookies to measure page visits and help improve this site. Audio, recordings, readings and notes are never sent. You can turn analytics off at any time.",
-            "網站瀏覽統計預設開啟。Google Analytics 使用 Cookie 統計頁面瀏覽，協助改善網站。音訊、錄音、讀數和備註不會傳送，你可隨時關閉統計。",
+            `網站瀏覽統計預設開啟。${id ? "Google Analytics 與百度統計" : "百度統計"}使用 Cookie 統計頁面瀏覽，協助改善網站。音訊、錄音、讀數和備註不會傳送，你可隨時關閉統計。`,
           )}{" "}
           {!settings ? (
             <a href={`${privacyPath}#network`}>

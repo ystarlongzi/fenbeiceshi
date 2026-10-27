@@ -21,6 +21,8 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
   const messages = await prepareLocale(locale);
   const site = siteForLocale(locale);
   const analytics = measurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+  const baidu = site.domain === "fenbeiceshi.com";
+  const hasAnalytics = analytics !== null || baidu;
   const showAnalyticsNotice = analyticsNoticeEnabled(process.env.NEXT_PUBLIC_GA_SHOW_NOTICE);
   const available = sitePages.map((page) => `/${page.slug ? `${page.slug}/` : ""}`);
   const nav = [
@@ -102,11 +104,12 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
               />
             </div>
           </header>
-          {analytics ? (
+          {hasAnalytics ? (
             <div id="analytics" className={styles.analyticsAnchor}>
               <SiteAnalytics
                 locale={locale}
                 id={analytics}
+                baidu={baidu}
                 privacyPath={pagePath("privacy", locale)}
                 showNotice={showAnalyticsNotice}
               />
@@ -148,7 +151,7 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
                 <Link href={href("privacy", locale)}>
                   {localize(locale, "隐私说明", "Privacy", "隱私說明")}
                 </Link>
-                {analytics ? (
+                {hasAnalytics ? (
                   <Link href={`${href("privacy", locale)}#analytics`}>
                     {localize(locale, "统计设置", "Analytics settings", "統計設定")}
                   </Link>
