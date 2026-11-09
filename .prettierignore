@@ -9,6 +9,7 @@ deploy/.env.local
 package-lock.json
 next-env.d.ts
 public/icons.svg
+public/google024d40e8849b7703.html
 public/vendor/lamejs/
 design/
 DESIGN_HIERARCHY.md

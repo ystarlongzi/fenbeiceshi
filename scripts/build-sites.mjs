@@ -15,7 +15,10 @@ for (const target of ["soundmetergo", "fenbeiceshi"]) {
   if (result.error) throw new Error(`站点构建无法启动：${target}`, { cause: result.error });
   if (result.status !== 0) throw new Error(`站点构建失败：${target}，退出码 ${result.status}`);
   // 此目录仅为 Next.js 生成的非本站语言产物，不进入英文站发布包。
-  if (target === "soundmetergo") await rm("out/zh-tw", { recursive: true, force: true });
+  if (target === "soundmetergo") {
+    await rm("out/zh-tw", { recursive: true, force: true });
+    await rm("out/google024d40e8849b7703.html");
+  }
   if (target === "fenbeiceshi")
     for (const { prefix } of Object.values(additionalLocaleSettings))
       await rm(`out${prefix}`, { recursive: true, force: true });

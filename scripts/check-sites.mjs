@@ -1,4 +1,13 @@
+import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
+import { readFile } from "node:fs/promises";
+
+const verificationFile = "google024d40e8849b7703.html";
+assert.deepEqual(
+  await readFile(`out/${verificationFile}`),
+  await readFile(`public/${verificationFile}`),
+);
+await assert.rejects(readFile(`out-soundmetergo/${verificationFile}`), { code: "ENOENT" });
 
 for (const target of ["fenbeiceshi", "soundmetergo"]) {
   const result = spawnSync(
