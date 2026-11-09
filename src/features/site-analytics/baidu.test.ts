@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { BAIDU_SITE_ID, createBaiduAnalyticsRuntime } from "./baidu.ts";
 
-function fixture(href = "https://fenbeiceshi.com/?note=private#record") {
+function fixture(href = "https://fenbeiceshi.com/?note=private#record", referrer = "") {
   const scripts: {
     id?: string;
     async?: boolean;
@@ -13,6 +13,7 @@ function fixture(href = "https://fenbeiceshi.com/?note=private#record") {
   const cookies: string[] = [];
   const scope = { location: new URL(href), _hmt: [] as unknown[][] };
   const doc = {
+    referrer,
     documentElement: { dataset: {} as Record<string, string> },
     createElement: () => ({}),
     head: { appendChild: (script: (typeof scripts)[number]) => scripts.push(script) },
@@ -48,20 +49,24 @@ test("百度首屏只加载一个异步脚本，关闭自动页面和点击采�
     ["_setAutoPageview", false],
     ["_setAutoEventTracking", false],
     ["_setAutoTracking", true],
+    ["_setReferrerOverride", ""],
     ["_trackPageview", "/"],
   ]);
 });
 
-test("百度站内切页与前进后退各记一次，查询与锚点不进入页面参数", () => {
-  const app = fixture();
+test("百度首屏保留搜索来源，站内切页只保留上一页的干净路径", () => {
+  const app = fixture(undefined, "https://m.baidu.com/s?wd=private#record");
   app.pageView();
   for (const path of ["/guide/?note=private#next", "/guide/?other=secret", "/"]) {
     app.scope.location = new URL(path, app.scope.location);
     app.pageView();
   }
-  assert.deepEqual(app.views(), [
+  assert.deepEqual(app.scope._hmt.slice(3), [
+    ["_setReferrerOverride", "https://m.baidu.com"],
     ["_trackPageview", "/"],
+    ["_setReferrerOverride", "https://fenbeiceshi.com/"],
     ["_trackPageview", "/guide/"],
+    ["_setReferrerOverride", "https://fenbeiceshi.com/guide/"],
     ["_trackPageview", "/"],
   ]);
   assert.doesNotMatch(JSON.stringify(app.scope._hmt), /private|secret/);
@@ -89,15 +94,19 @@ test("百度只统计中文正式域名，含繁体；国际站和本地预览�
 });
 
 test("百度脚本下载期间撤回会丢弃待发事件，重选后仍只加载一次", () => {
-  const app = fixture();
+  const app = fixture(undefined, "https://www.google.com/");
   app.pageView();
   app.disable();
   assert.deepEqual(app.views(), []);
   assert.deepEqual(app.scope._hmt.at(-1), ["_setAutoTracking", false]);
   app.pageView();
   assert.equal(app.scripts.length, 1);
-  assert.deepEqual(app.scope._hmt.slice(-2), [
+  assert.deepEqual(app.scope._hmt, [
+    ["_setAutoPageview", false],
+    ["_setAutoEventTracking", false],
+    ["_setAutoTracking", false],
     ["_setAutoTracking", true],
+    ["_setReferrerOverride", ""],
     ["_trackPageview", "/"],
   ]);
 });

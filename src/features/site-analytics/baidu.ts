@@ -1,4 +1,4 @@
-import { analyticsLocation } from "./model.ts";
+import { analyticsLocation, analyticsReferrer } from "./model.ts";
 
 export const BAIDU_SITE_ID = "dd4dc5db781946002c436e7f06507c56";
 type BaiduCommand = [string, ...unknown[]];
@@ -34,7 +34,9 @@ export function createBaiduAnalyticsRuntime(scope: Window, doc: Document) {
 
   function pageView() {
     const location = analyticsLocation(scope.location.href);
-    if (!location || scope.location.hostname !== "fenbeiceshi.com") return;
+    if (!location || scope.location.hostname !== "fenbeiceshi.com" || location === lastLocation)
+      return;
+    const referrer = configured ? lastLocation : analyticsReferrer(doc.referrer);
     if (!configured) {
       const queue = (browser._hmt ??= [] as BaiduCommand[]);
       for (const command of settings(true)) queue.push(command);
@@ -58,8 +60,10 @@ export function createBaiduAnalyticsRuntime(scope: Window, doc: Document) {
       browser._hmt!.push(["_setAutoTracking", true]);
       active = true;
     }
-    if (location === lastLocation) return;
-    browser._hmt!.push(["_trackPageview", new URL(location).pathname]);
+    // 手动浏览默认改写来源，覆盖值也会沿用到下一次浏览。
+    const queue = browser._hmt!;
+    queue.push(["_setReferrerOverride", referrer]);
+    queue.push(["_trackPageview", new URL(location).pathname]);
     lastLocation = location;
   }
 
