@@ -9,6 +9,7 @@ import { DecibelChart } from "@/features/decibel-chart";
 import { SoundDetailPage } from "@/features/decibel-details";
 import { soundDetails } from "@/lib/content/decibel-details";
 import { NoiseHealthArticle } from "@/features/noise-health";
+import { PhoneAccuracyPage } from "@/features/phone-accuracy";
 import styles from "./index.module.css";
 import { Notice } from "../notice";
 
@@ -18,6 +19,7 @@ export function RoutePage({ page, locale }: { page: SitePage; locale: Locale }) 
   const soundDetail = soundDetails.find((detail) => detail.content.id === page.id);
   if (soundDetail) return <SoundDetailPage detail={soundDetail} locale={locale} />;
   if (page.id === "noise-health") return <NoiseHealthArticle locale={locale} />;
+  if (page.id === "phone-accuracy") return <PhoneAccuracyPage locale={locale} />;
   if (page.id === "china-noise-standards" || page.id === "workplace-noise-standards") {
     const isRegulations = page.id === "china-noise-standards";
     return (

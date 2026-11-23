@@ -521,7 +521,7 @@
       "priority": "P0",
       "locales": {
         "zh-CN": {"path":"/knowledge/phone-decibel-accuracy/","wave":"P0","title":"手机测分贝准吗？常见误差与测量方法 - 分贝测试","h1":"手机测分贝准吗？常见误差与测量方法",
-        "description": "为什么不同手机测出的分贝不一样？了解麦克风、音频处理和测量距离怎样影响读数，学会在相同设备与位置下比较声音变化，也看看什么时候需要参考声级计或专业检测。","keywords":["手机测分贝准吗", "手机分贝仪误差", "在线分贝测试准确吗", "手机噪音测试方法"],
+        "description": "手机测分贝准不准，要看设备、软件和测量条件。了解读数不一致的原因，按同一设备、位置和距离比较声音变化，分清读数修正的作用，以及何时需要专业声级计或检测。","keywords":["手机测分贝准吗", "手机分贝仪误差", "在线分贝测试准确吗", "手机噪音测试方法"],
         "origin": "https://fenbeiceshi.com"},
         "en": {"path":"/knowledge/phone-decibel-accuracy/","wave":"P0","title":"Are Phone Decibel Meters Accurate? - SoundMeterGo","h1":"Are Phone Decibel Meters Accurate?",
         "description": "Why do phones show different decibel readings? Learn how microphones, audio processing and distance affect results, how to compare noise consistently and when you need a professional meter.","keywords":["are phone decibel meters accurate", "online decibel meter accuracy", "phone sound meter error"],
@@ -531,17 +531,18 @@
           "wave": "P0",
           "title": "手機測分貝準嗎？常見誤差與測量方法 - 分貝測試",
           "h1": "手機測分貝準嗎？常見誤差與測量方法",
-          "description": "為什麼不同手機測出的分貝不一樣？瞭解麥克風、音訊處理和測量距離怎樣影響讀數，學會在相同裝置與位置下比較聲音變化，也看看什麼時候需要參考噪音計或專業檢測。",
+          "description": "手機測分貝準不準，要看裝置、軟體和量測條件。瞭解讀數不一致的原因，按同一裝置、位置和距離比較聲音變化，分清讀數修正的作用，以及何時需要專業噪音計或檢測。",
           "keywords": ["手機測分貝準嗎", "手機分貝計誤差", "線上分貝測試準確嗎", "手機噪音測試方法"],
           "status": "implemented-not-deployed",
           "origin": "https://fenbeiceshi.com"
         }
       },
       "intent": "判断手机或网页读数是否能用于当前目的。",
-      "uniqueValue": "区分默认通用估算、可选参考校准和需要专业验证的任务。",
-      "sections": ["直接回答与可用范围","设备和音频处理差异","选择通用估算、校准或专业方法"],
-      "ctaTargetId": "calibration",
-      "relatedIds": ["meter","dbfs-spl","when-professional-meter"],
+      "uniqueValue": "先用通俗文字说明本站估算的适用范围，按固定设备、位置和背景声比较变化；在适用范围、读数修正与专业检测章节就近提供中文操作入口，保留验证条件，不移植其他应用的误差承诺。",
+      "sections": ["直接答案与适用范围","误差原因及同条件测量方法","读数修正的作用与限制","声级计或专业检测的选择","来源与继续阅读"],
+      "ctaTargetId": "meter",
+      "relatedIds": ["calibration","dbfs-spl","microphone-help","when-professional-meter"],
+      "chineseSeoUpdate": {"status":"implemented-not-deployed","updated":"2026-11-23","locales":["zh-CN","zh-TW"],"contextTargets":["guide#start","calibration#steps","when-professional-meter#choose"],"ctaTargetId":"meter","verification":"docs/验证/手机分贝准确性中文SEO调整验证.md"},
       "publishGate": "引用的准确性结论保留具体产品和实验条件，不移植到本站；示例注明来源。",
       "requiredEvidence": ["设备测量研究原文","CDC/NIOSH 特定应用的验证条件","本站能力核对"]
     },

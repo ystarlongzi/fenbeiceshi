@@ -17,6 +17,7 @@ import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
 import { checkChartHealth } from "./export-checks/chart-health.ts";
 import { checkChartOverview } from "./export-checks/chart-overview.ts";
 import { checkDetailContext } from "./export-checks/detail-context.ts";
+import { checkPhoneAccuracy } from "./export-checks/phone-accuracy.ts";
 import { escapeText } from "./export-checks/html.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
@@ -111,6 +112,7 @@ for (const page of sitePages) {
       );
     }
     if (page.id === "knowledge") checkKnowledgeDirectory(html, locale);
+    if (page.id === "phone-accuracy") checkPhoneAccuracy(html, locale);
     if (page.id === "meter") {
       assert.ok(
         html.includes(`href="${href("noise-health", locale)}"`),

@@ -1,0 +1,15 @@
+.contextLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand);
+  font-size: var(--font-size-ui);
+  font-weight: 500;
+  line-height: 1.8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.contextLink svg {
+  flex: none;
+}
