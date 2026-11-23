@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-11-23",
-  "status": "implemented-not-deployed",
+  "status": "deployed",
   "scope": "简体与繁体分贝对照页摘要的视觉层级；覆盖 SEO V1 中普通段落的外观，沿用原位置、正文、单位和四个详情入口。",
   "task": "先用摘要建立声音量级印象，再进入七档声音查询；摘要是页头的辅助内容，搜索与声音列表继续承担主要查询任务。",
   "hierarchy": {
@@ -18,5 +18,11 @@
     "links": "行内链接默认跟随正文颜色，以细下划线标识；悬停与键盘聚焦使用 --brand，沿用全局焦点环。"
   },
   "rendering": "摘要分组、标识、原生链接与全部正文继续服务端静态输出；片段统一生成富文本和普通文字摘要，不增加客户端状态或第三方依赖。",
-  "verification": "静态检查摘要标识、分组、四个详情入口及原位置；浏览器验证桌面、375px 与 320px、简繁、亮暗主题、链接与键盘焦点，并回归英文页面。"
+  "verification": "静态检查摘要标识、分组、四个详情入口及原位置；浏览器验证桌面、375px 与 320px、简繁、亮暗主题、链接与键盘焦点，并回归英文页面。",
+  "production": {
+    "release": "9d685b6e8b094aa469c921f013afcf9414b7304a-26-1",
+    "revision": "9d685b6e8b094aa469c921f013afcf9414b7304a",
+    "workflowRun": "https://github.com/ystarlongzi/fenbeiceshi/actions/runs/45132269626",
+    "verification": "docs/验证/中文SEO与摘要样式上线验证.md"
+  }
 }
