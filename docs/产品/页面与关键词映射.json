@@ -543,7 +543,7 @@
       "sections": ["直接答案与适用范围","误差原因及同条件测量方法","读数修正的作用与限制","声级计或专业检测的选择","来源与继续阅读"],
       "ctaTargetId": "meter",
       "relatedIds": ["db-dba","calibration","dbfs-spl","microphone-help","when-professional-meter"],
-      "chineseSeoUpdate": {"status":"implemented-not-deployed","updated":"2026-11-23","locales":["zh-CN","zh-TW"],"contextTargets":["guide#start","calibration#steps","when-professional-meter#choose"],"ctaTargetId":"meter","verification":"docs/验证/手机分贝准确性中文SEO调整验证.md"},
+      "chineseSeoUpdate": {"status":"deployed","updated":"2026-11-23","locales":["zh-CN","zh-TW"],"contextTargets":["guide#start","calibration#steps","when-professional-meter#choose"],"ctaTargetId":"meter","release":"f50371a3a7c33c1d2ad8acf5b82fdcc5e3c7d90c-27-1","productionVerification":"docs/验证/分贝单位与准确性页上线验证.md","verification":"docs/验证/手机分贝准确性中文SEO调整验证.md"},
       "publishGate": "引用的准确性结论保留具体产品和实验条件，不移植到本站；示例注明来源。",
       "requiredEvidence": ["设备测量研究原文","CDC/NIOSH 特定应用的验证条件","本站能力核对"]
     },
@@ -1541,7 +1541,7 @@
         "when-professional-meter"
       ],
       "localImplementation": {
-        "status": "implemented-not-deployed",
+        "status": "deployed",
         "updated": "2026-11-23",
         "locales": [
           "zh-CN",
@@ -1572,6 +1572,8 @@
           "ro",
           "ar"
         ],
+        "release": "f50371a3a7c33c1d2ad8acf5b82fdcc5e3c7d90c-27-1",
+        "productionVerification": "docs/验证/分贝单位与准确性页上线验证.md",
         "verification": "docs/验证/分贝单位与计权文章验证.md"
       },
       "keywordEvidence": "宽泛词“分贝”的既有 Bing 三个月印象约 5.7K；不能当作本主题、dBA/dBC/dBZ 词组的已验证搜索量或流量预测。",
