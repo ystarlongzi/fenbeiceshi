@@ -2,3 +2,26 @@
   display: block;
   scroll-margin-top: 100px;
 }
+
+.overview {
+  max-width: 750px;
+  margin: 24px 0 0;
+  color: var(--text-body);
+  font-size: var(--font-size-body);
+  line-height: 1.9;
+}
+
+.standardsNote {
+  padding-top: 24px;
+}
+
+.overview a,
+.standardsNote a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.overview a {
+  white-space: nowrap;
+}

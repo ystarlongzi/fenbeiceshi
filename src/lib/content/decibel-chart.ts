@@ -6,11 +6,38 @@ import {
   type SiteContent,
 } from "./types.ts";
 
+export const chineseChartIntro = [
+  {
+    pageId: "decibel-30",
+    label: "30 dB",
+    after: { zh: " 可参考轻声耳语，", zhTW: " 可參考輕聲耳語，" },
+  },
+  {
+    pageId: "decibel-40",
+    label: "40 dB",
+    after: { zh: " 可参考图书馆；普通家庭背景声约 ", zhTW: " 可參考圖書館；普通家庭背景聲約 " },
+  },
+  {
+    pageId: "decibel-45-55",
+    label: "45–55 dB",
+    after: { zh: "，正常交谈约 ", zhTW: "，正常交談約 " },
+  },
+  { pageId: "decibel-60-70", label: "60–70 dBA", after: { zh: "。", zhTW: "。" } },
+] as const;
+
+export const chineseChartStandards = {
+  before: {
+    zh: "判断噪音是否扰民，还需结合声源、时段与测量条件。查询具体规定，可查看",
+    zhTW: "判斷噪音是否擾民，還需結合聲源、時段與測量條件。查詢具體規定，可查看",
+  },
+  label: { zh: "中国大陆噪音法规与处理方法", zhTW: "中國大陸噪音法規與處理方法" },
+} as const;
+
 export const decibelChart: SiteContent = {
   id: "decibel-chart",
   slug: "knowledge/decibel-chart",
   kind: "article",
-  updated: "2026-10-25",
+  updated: "2026-11-23",
   title: t(
     "分贝对照表：常见声音有多大？",
     "Decibel Chart: How Loud Are Everyday Sounds?",
@@ -22,9 +49,9 @@ export const decibelChart: SiteContent = {
     "40、60、80 分貝分別有多響？用分貝對照表查詢 31 項日常聲音，從輕聲說話到家電、車流和演出，依聲音名稱或數值查找參考。也能瞭解噪音大小與持續時間的關係，進一步查看聽力保護知識。",
   ),
   takeaway: t(
-    "40 dB 可参考图书馆；50 dB 左右接近普通家庭背景声（45–55 dB）；正常交谈约 60–70 dBA。下方可按声音名称或数值查找更多参考。",
+    chineseChartIntro.map((part) => part.label + part.after.zh).join(""),
     "Think of a library at 40 dB, home background around 50 dB (45–55 dB), and conversation at 60–70 dBA. Browse or search the sounds below for more references.",
-    "40 dB 可參考圖書館；50 dB 左右接近普通家庭背景聲（45–55 dB）；正常交談約 60–70 dBA。下方可按聲音名稱或數值查詢更多參考。",
+    chineseChartIntro.map((part) => part.label + part.after.zhTW).join(""),
   ),
   sections: [
     {

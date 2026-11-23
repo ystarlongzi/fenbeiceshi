@@ -1,5 +1,8 @@
+import Link from "next/link";
+import { Fragment } from "react";
 import { formatLocalized } from "@/lib/i18n/text";
 import { ContentPage } from "@/components/content-page";
+import { chineseChartIntro, chineseChartStandards } from "@/lib/content/decibel-chart";
 import { href } from "@/lib/routing/pages";
 import { soundBands } from "@/lib/content/sound-bands";
 import { soundReferences } from "@/lib/content/sound-references";
@@ -13,10 +16,23 @@ import { HealthReference } from "./health-reference";
 import styles from "./index.module.css";
 
 export function DecibelChart({ locale }: { locale: Locale }) {
+  const chinese = locale === "zh-CN" ? "zh" : locale === "zh-TW" ? "zhTW" : null;
   return (
     <ContentPage
       id="decibel-chart"
       locale={locale}
+      overview={
+        chinese ? (
+          <p className={styles.overview} data-chart-overview="">
+            {chineseChartIntro.map((part) => (
+              <Fragment key={part.pageId}>
+                <Link href={href(part.pageId, locale)}>{part.label}</Link>
+                {part.after[chinese]}
+              </Fragment>
+            ))}
+          </p>
+        ) : undefined
+      }
       sectionContent={{
         reading: <ChartNotes locale={locale} />,
         health: <HealthReference locale={locale} />,
@@ -57,6 +73,15 @@ export function DecibelChart({ locale }: { locale: Locale }) {
                 }))
                 .sort((a, b) => a.min - b.min || a.max - b.max)}
             />
+            {chinese ? (
+              <p className={styles.standardsNote} data-chart-standards="">
+                {chineseChartStandards.before[chinese]}
+                <Link href={href("china-noise-standards", locale)}>
+                  {chineseChartStandards.label[chinese]}
+                </Link>
+                。
+              </p>
+            ) : null}
           </>
         ),
       }}

@@ -33,7 +33,7 @@ export async function SiteDocument({ children, locale }: { children: ReactNode; 
     },
     {
       id: "decibel-chart",
-      label: localize(locale, "分贝指南", "Decibel guide", "分貝指南"),
+      label: localize(locale, "分贝对照", "Decibel guide", "分貝對照"),
       icon: "chart-line",
     },
     {

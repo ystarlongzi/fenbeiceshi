@@ -15,6 +15,7 @@ import { text } from "../src/lib/content/types.ts";
 import { checkHomeKnowledge, checkKnowledgeDirectory } from "./export-checks/knowledge.ts";
 import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
 import { checkChartHealth } from "./export-checks/chart-health.ts";
+import { checkChartOverview } from "./export-checks/chart-overview.ts";
 import { escapeText } from "./export-checks/html.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
@@ -171,8 +172,8 @@ for (const page of sitePages) {
         `知识与帮助导航名称不正确：${path}`,
       );
       assert.ok(
-        navigation.includes(escapeText(localize(locale, "分贝指南", "Decibel guide", "分貝指南"))),
-        `分贝指南导航名称不正确：${path}`,
+        navigation.includes(escapeText(localize(locale, "分贝对照", "Decibel guide", "分貝對照"))),
+        `分贝对照导航名称不正确：${path}`,
       );
       const selected = [...navigation.matchAll(/<a\b([^>]*)>/g)].filter((match) =>
         match[1].includes("aria-current="),
@@ -351,7 +352,7 @@ for (const page of sitePages) {
     if (content) {
       const visible = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
       const excerpt = escapeText(text(content.takeaway, locale).slice(0, 18));
-      assert.ok(visible.includes(excerpt), `核心答案不在静态正文：${path}`);
+      assert.ok(visible.replace(/<[^>]*>/g, "").includes(excerpt), `核心答案不在静态正文：${path}`);
       for (const source of content.sources) assert.ok(visible.includes(source.url), path);
       if (
         [
@@ -380,6 +381,7 @@ for (const page of sitePages) {
               `工作原理必须静态输出：${path}`,
             );
       if (page.id === "decibel-chart") {
+        checkChartOverview(visible, locale);
         const disclosures = [...visible.matchAll(/<details\b([^>]*)>([\s\S]*?)<\/details>/g)];
         for (const note of decibelChartNotes) {
           const disclosure = disclosures.find((match) => match[2].includes(`id="${note.id}"`));
