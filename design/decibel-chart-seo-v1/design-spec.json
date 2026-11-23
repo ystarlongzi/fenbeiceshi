@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-11-23",
-  "status": "implemented-not-deployed",
+  "status": "deployed",
   "scope": "简体和繁体分贝对照页的导读、内部链接及全站中文导航命名；补充 V6，不改变七档查询、声音来源或职业暴露表。",
   "navigation": {
     "zh-CN": "分贝对照",

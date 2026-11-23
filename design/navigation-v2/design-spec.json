@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-11-23",
-  "status": "implemented-not-deployed",
+  "status": "deployed",
   "scope": "主导航与知识帮助目录，覆盖历史五项／六项导航及四个知识分类的分组规则；抽屉、主题和语言交互沿用原实现。",
   "navigation": [
     { "id": "meter", "zh-CN": "开始测量", "zh-TW": "開始測量", "en": "Measure" },
