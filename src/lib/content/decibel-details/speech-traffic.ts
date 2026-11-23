@@ -4,10 +4,11 @@ import type { SoundDetailDefinition } from "./types.ts";
 export const speechTrafficDetails: SoundDetailDefinition[] = [
   {
     soundIds: ["conversation"],
+    updated: "2026-11-23",
     perception: t(
-      "日常说话是理解这组量级的直接参照。说话距离、人数和房间背景变化，同一次交谈也会有不同读数。",
+      "60 分贝可以先用日常交谈声来建立印象；正常交谈的资料参考为 60–70 dBA。说话距离、人数和房间背景都会影响读数，不能把每次交谈都固定为 60 或 70 分贝。",
       "Everyday speech is a familiar reference for this range. Distance, number of speakers and room background can change readings within one conversation.",
-      "日常說話是理解這組量級的直接參照。說話距離、人數和房間背景變化，同一次交談也會有不同讀數。",
+      "60 分貝可以先用日常交談聲來建立印象；一般交談的資料參考為 60–70 dBA。說話距離、人數和房間背景都會影響讀數，不能把每次交談都固定為 60 或 70 分貝。",
     ),
     topic: t("正常交谈声", "Normal conversation", "一般交談聲"),
     answer: t(
@@ -39,6 +40,11 @@ export const speechTrafficDetails: SoundDetailDefinition[] = [
           "Not necessarily. Gaps around the door, background noise and the speech itself matter too. To compare, stay in one place and observe the change when the door closes.",
           "不一定。能不能聽清，也和門縫、房間背景聲、說話內容有關。想比較隔音效果，可以固定位置，觀察關門前後的變化。",
         ),
+        chineseLink: {
+          pageId: "noise-reduction",
+          hash: "paths",
+          label: { zh: "了解门窗等传声路径的处理方法", zhTW: "瞭解門窗等傳聲路徑的處理方法" },
+        },
       },
     ],
     relatedSoundIds: ["whisper", "restaurant"],

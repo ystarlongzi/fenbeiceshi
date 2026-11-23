@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {
   chineseChartIntro,
   chineseChartStandards,
+  chineseChartSummaryLabel,
   decibelChart,
 } from "../../src/lib/content/decibel-chart.ts";
 import { text } from "../../src/lib/content/types.ts";
@@ -12,12 +13,19 @@ import { escapeText } from "./html.ts";
 export function checkChartOverview(html: string, locale: Locale) {
   const chinese = locale === "zh-CN" ? "zh" : locale === "zh-TW" ? "zhTW" : null;
   if (!chinese) {
-    assert.doesNotMatch(html, /data-chart-(?:overview|standards)=/, locale);
+    assert.doesNotMatch(html, /data-chart-(?:summary|overview|standards)=/, locale);
     return;
   }
 
   const overview = html.match(/<p\b[^>]*data-chart-overview=""[^>]*>([\s\S]*?)<\/p>/);
   assert.ok(overview, `中文页首缺少静态简短答案：${locale}`);
+  const summary = html.match(/<div\b[^>]*data-chart-summary=""[^>]*>([\s\S]*?)<\/div>/);
+  assert.ok(summary, `中文导读缺少摘要分组：${locale}`);
+  assert.ok(summary[1].includes(overview[0]), `摘要与正文应放在同一组：${locale}`);
+  assert.ok(
+    summary[1].includes(`>${escapeText(chineseChartSummaryLabel[chinese])}</span>`),
+    `摘要标识必须静态输出：${locale}`,
+  );
   assert.equal((html.match(/data-chart-overview=""/g) || []).length, 1, locale);
   assert.equal(
     overview[1].replace(/<[^>]*>/g, ""),

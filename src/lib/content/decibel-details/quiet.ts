@@ -85,12 +85,13 @@ export const quietDetails: SoundDetailDefinition[] = [
   },
   {
     soundIds: ["whisper"],
+    updated: "2026-11-23",
     perception: t(
-      "接近轻声耳语的量级。它是某个声源的参考，不能直接代表整间房间都同样安静。",
+      "接近轻声耳语，属于比较轻的声音。耳语的距离和周围背景会改变读数，不能用这个例子直接代表整间卧室的安静程度。",
       "A level illustrated by soft whispering. It describes a particular sound, rather than how quiet an entire room is.",
-      "接近輕聲耳語的量級。它是某個聲源的參考，不能直接代表整間房間都同樣安靜。",
+      "接近輕聲耳語，屬於比較輕的聲音。耳語的距離和周圍背景會改變讀數，不能用這個例子直接代表整間臥室的安靜程度。",
     ),
-    topic: t("轻声说话与安静房间", "Whispers and quiet rooms", "輕聲說話與安靜房間"),
+    topic: t("轻声耳语与安静房间", "Whispers and quiet rooms", "輕聲耳語與安靜房間"),
     answer: t(
       "WHO 把轻声耳语列为约 30 dB。耳语靠近耳边、隔着一段距离或处在不同背景中，并不会始终对应同一个读数。",
       "WHO lists soft whispering at about 30 dB. A whisper beside an ear, across a room or against a different background will not always produce the same reading.",
@@ -108,6 +109,11 @@ export const quietDetails: SoundDetailDefinition[] = [
           "It is a fairly quiet level, but sleep is about more than a number. Sudden sounds, a persistent hum and your own sensitivity can all make a difference.",
           "這是比較輕的聲音，但能不能睡好不只看數字。聲音是否突然出現、有沒有嗡嗡聲，以及你對聲音有多敏感，都會影響感受。",
         ),
+        chineseLink: {
+          pageId: "noise-reduction",
+          hash: "scenarios",
+          label: { zh: "查看卧室噪音的处理方法", zhTW: "查看臥室噪音的處理方法" },
+        },
       },
       {
         question: t(
@@ -128,10 +134,11 @@ export const quietDetails: SoundDetailDefinition[] = [
   },
   {
     soundIds: ["library", "fridge"],
+    updated: "2026-11-23",
     perception: t(
-      "图书馆和冰箱运转都可以帮助理解这个量级。一个是环境背景，一个是电器声音，听感仍与距离和周围声音有关。",
+      "可以用图书馆背景声或冰箱运转声来理解，属于较轻的声音。夜间是否觉得吵，还要看声音是否持续、突然启停，以及距离和周围背景。",
       "A library and a humming refrigerator both help illustrate this level. One is a setting and the other an appliance; distance and background still matter.",
-      "圖書館和冰箱運轉都可以幫助理解這個量級。一個是環境背景，一個是電器聲音，聽感仍與距離和周圍聲音有關。",
+      "可以用圖書館背景聲或冰箱運轉聲來理解，屬於較輕的聲音。夜間是否覺得吵，還要看聲音是否持續、突然啟停，以及距離和周圍背景。",
     ),
     topic: t("图书馆与冰箱噪音", "Libraries and fridge noise", "圖書館與冰箱噪音"),
     answer: t(
@@ -147,10 +154,18 @@ export const quietDetails: SoundDetailDefinition[] = [
           "臥室 40 分貝會不會吵？",
         ),
         answer: t(
-          "白天可能不太明显，夜深人静时却可能让人在意。尤其是冰箱启停、滴答声或突然的声响；是否影响睡觉，还得看声音本身和你的感受。",
+          "白天可能不太明显，夜深人静时却可能让人在意。尤其是冰箱启停、滴答声或突然的声响；是否影响睡觉，还得看声音本身和你的感受。是否构成噪音扰民，也不能只凭一个读数判断，还须核对当地规则和测量条件。",
           "It may blend into the daytime background but stand out at night. Fridge cycles, ticking or sudden sounds can be especially noticeable. Whether it disturbs sleep depends on the sound and on you.",
-          "白天可能不太明顯，夜深人靜時卻可能讓人在意。尤其是冰箱啟停、滴答聲或突然的聲響；是否影響睡覺，還得看聲音本身和你的感受。",
+          "白天可能不太明顯，夜深人靜時卻可能讓人在意。尤其是冰箱啟停、滴答聲或突然的聲響；是否影響睡覺，還得看聲音本身和你的感受。是否構成噪音擾民，也不能只憑一個讀數判斷，還須核對當地規則和量測條件。",
         ),
+        chineseLink: {
+          pageId: "china-noise-standards",
+          hash: "conditions",
+          label: {
+            zh: "查看中国大陆噪音扰民标准的适用条件",
+            zhTW: "查看中國大陸噪音擾民標準的適用條件",
+          },
+        },
       },
       {
         question: t(
@@ -163,6 +178,11 @@ export const quietDetails: SoundDetailDefinition[] = [
           "Your distance, the walls and where the fridge stands may differ from the product test. Compressor starts can also stand out. Check the label’s test conditions and compare running and idle periods from the same spot.",
           "家裡的距離、牆面和擺放位置，可能和產品測試時不同；壓縮機啟動時也會更明顯。先看標籤說明是在什麼條件下測的，再在同一位置比較運轉和停機時的聲音。",
         ),
+        chineseLink: {
+          pageId: "noise-reduction",
+          hash: "source",
+          label: { zh: "先从电器声源做调整", zhTW: "先從電器聲源做調整" },
+        },
       },
     ],
     relatedSoundIds: ["home", "whisper"],

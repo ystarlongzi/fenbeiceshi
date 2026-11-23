@@ -4,21 +4,21 @@ export const chinaNoiseStandards: SiteContent = {
   id: "china-noise-standards",
   slug: "knowledge/china-noise-standards",
   kind: "article",
-  updated: "2026-10-25",
+  updated: "2026-11-23",
   title: t(
     "噪音扰民怎么办？中国大陆法规与处理方法",
     "Mainland China Noise Rules and Complaints",
     "噪音擾民怎麼辦？中國大陸法規與處理方法",
   ),
   description: t(
-    "在中国大陆遇到施工、装修或邻里噪音，应该查什么规定、先做什么？按场景了解噪音法规和标准的区别，整理噪音发生的时间与影响，再查看可以采取的处理步骤和咨询方向。",
+    "噪音扰民多少分贝算超标、晚上几点要安静？按中国大陆现行法规区分住宅、工地施工和室内装修，了解标准适用条件、夜间时段及投诉前要记录的信息。",
     "Dealing with construction, renovation or neighbour noise in mainland China? Find the relevant types of rules, learn what to record and explore practical next steps for raising the problem.",
-    "在中國大陸遇到施工、裝修或鄰里噪音，應該查什麼規定、先做什麼？依情境瞭解噪音法規和標準的區別，整理噪音發生的時間與影響，再查看可以採取的處理步驟和諮詢方向。",
+    "噪音擾民多少分貝算超標、晚上幾點要安靜？依中國大陸現行法規區分住宅、工地施工和室內裝修，瞭解標準適用條件、夜間時段及申訴前要記錄的資訊。",
   ),
   takeaway: t(
-    "判断噪音问题，要先确认地区、声源、标准适用对象和测量条件，再看数字。本文介绍中国大陆规则；所有语言版本均为同一范围，不代表台湾或其他地区法规。",
+    "噪音扰民没有适用于所有场景的统一分贝标准，施工与室内装修的作业时间也要分别查看。先确认地区、声源、适用标准和测量条件，再判断如何处理。本文所有语言版本仅介绍中国大陆规则，不代表台湾或其他地区法规。",
     "Start with the jurisdiction, source, regulated activity and measurement conditions before comparing numbers. All language versions cover mainland China; they do not describe Taiwan's or other jurisdictions' laws.",
-    "判斷噪音問題，要先確認地區、聲源、標準適用對象和量測條件，再看數字。本文介紹中國大陸規則；所有語言版本均為同一範圍，不代表臺灣或其他地區法規。",
+    "噪音擾民沒有適用於所有情境的統一分貝標準，施工與室內裝修的作業時間也要分別檢視。先確認地區、聲源、適用標準和量測條件，再判斷如何處理。本文所有語言版本僅介紹中國大陸規則，不代表臺灣或其他地區法規。",
   ),
   sections: [
     {
@@ -31,9 +31,9 @@ export const chinaNoiseStandards: SiteContent = {
       ),
       paragraphs: [
         t(
-          "截至 2026 年 10 月 22 日，《中华人民共和国生态环境法典》已于 2026 年 8 月 15 日施行，原《中华人民共和国噪声污染防治法》同时废止。网上仍有大量旧法解读，查阅时应回到现行法典及当地配套规定。",
+          "截至 2026 年 11 月 23 日核对，《中华人民共和国生态环境法典》已于 2026 年 8 月 15 日施行，原《中华人民共和国噪声污染防治法》同时废止。网上仍有大量旧法解读，查阅时应回到现行法典及当地配套规定。",
           "As checked on 22 October 2026, the Ecological and Environmental Code took effect on 15 August 2026, repealing the standalone Noise Pollution Prevention and Control Law. Check older explanations against the current Code and local rules.",
-          "截至 2026 年 10 月 22 日，《中华人民共和国生态环境法典》已於 2026 年 8 月 15 日施行，原《中华人民共和国噪声污染防治法》同時廢止。網路上仍有大量舊法解讀，查閱時應回到現行法典及當地配套規定。",
+          "截至 2026 年 11 月 23 日核對，《中华人民共和国生态环境法典》已於 2026 年 8 月 15 日施行，原《中华人民共和国噪声污染防治法》同時廢止。網路上仍有大量舊法解讀，查閱時應回到現行法典及當地配套規定。",
         ),
         t(
           "法典第 547 条的噪声污染定义，涉及超过噪声排放标准，或者未依法采取防控措施，并干扰他人正常生活、工作和学习。不能把所有问题都简化成“手机测到多少分贝才受理”。",
@@ -44,17 +44,17 @@ export const chinaNoiseStandards: SiteContent = {
     },
     {
       id: "choose-standard",
-      tocTitle: t("先选对标准", "Choose the right standard", "先選對標準"),
+      tocTitle: t("噪音扰民标准", "Choose the right standard", "噪音擾民標準"),
       title: t(
-        "环境质量、声源排放和职业接触回答不同问题",
+        "噪音扰民标准是多少？先按声源选标准",
         "Different standards answer different questions",
-        "環境品質、聲源排放和職業暴露回答不同問題",
+        "噪音擾民標準是多少？先按聲源選標準",
       ),
       paragraphs: [
         t(
-          "同样写着分贝，不代表测量位置、时间口径或监管对象相同。先按下面的对象查找，再阅读标准范围和测量方法。",
+          "没有一个分贝数能判断所有噪音扰民问题。声环境质量、声源排放和职业接触回答不同问题，测量位置和时间口径也不同。先按下面的对象查找，再阅读标准范围和测量方法。",
           "Values expressed in decibels can refer to different locations, time periods and regulated activities. Identify the relevant category, then read its scope and measurement method.",
-          "同樣寫著分貝，不代表量測位置、時間基準或管理對象相同。先按下面的對象查詢，再閱讀標準範圍和量測方法。",
+          "沒有一個分貝數能判斷所有噪音擾民問題。聲環境品質、聲源排放和職業暴露回答不同問題，量測位置和時間基準也不同。先按下面的對象查詢，再閱讀標準範圍和量測方法。",
         ),
       ],
       table: {
@@ -136,9 +136,9 @@ export const chinaNoiseStandards: SiteContent = {
       id: "conditions",
       tocTitle: t("数字的适用条件", "Conditions behind a value", "數字的適用條件"),
       title: t(
-        "没有适用于所有房间的一个分贝数",
+        "卧室测到的分贝，能直接判断超标吗？",
         "There is no single limit for every room",
-        "沒有適用於所有房間的一個分貝數",
+        "臥室測到的分貝，能直接判斷超標嗎？",
       ),
       paragraphs: [
         t(
@@ -155,11 +155,11 @@ export const chinaNoiseStandards: SiteContent = {
     },
     {
       id: "construction",
-      tocTitle: t("施工与装修", "Construction and renovation", "施工與裝修"),
+      tocTitle: t("扰民时间规定", "Construction and renovation", "擾民時間規定"),
       title: t(
-        "工地夜间施工与邻居装修要分别查看",
+        "噪音扰民时间怎么查？施工与装修分别看",
         "Check construction and household renovation separately",
-        "工地夜間施工與鄰居裝修要分別檢視",
+        "噪音擾民時間怎麼查？施工與裝修分別看",
       ),
       paragraphs: [
         t(

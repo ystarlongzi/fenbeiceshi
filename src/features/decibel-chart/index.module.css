@@ -4,18 +4,47 @@
 }
 
 .overview {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 14px;
   max-width: 750px;
-  margin: 24px 0 0;
+  margin-top: 18px;
+  padding: 16px 20px;
+  border-inline-start: 2px solid var(--decoration);
+  border-radius: 0 8px 8px 0;
+  background: var(--surface-muted);
+}
+
+.overviewLabel {
+  color: var(--muted);
+  font-size: var(--font-size-caption);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.overview p {
+  margin: 0;
   color: var(--text-body);
   font-size: var(--font-size-body);
-  line-height: 1.9;
+  line-height: 1.85;
+  text-wrap: pretty;
+}
+
+.overviewItem {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.article .levels {
+  padding-top: 0;
 }
 
 .standardsNote {
   padding-top: 24px;
 }
 
-.overview a,
 .standardsNote a {
   color: var(--brand);
   text-decoration: underline;
@@ -23,5 +52,27 @@
 }
 
 .overview a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+  text-underline-offset: 0.2em;
   white-space: nowrap;
+}
+
+.overview a:hover,
+.overview a:focus-visible {
+  color: var(--brand);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 760px) {
+  .overview {
+    display: block;
+    padding: 14px 16px;
+  }
+
+  .overviewLabel {
+    display: block;
+    margin-bottom: 6px;
+  }
 }

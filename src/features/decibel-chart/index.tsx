@@ -1,8 +1,11 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import { formatLocalized } from "@/lib/i18n/text";
 import { ContentPage } from "@/components/content-page";
-import { chineseChartIntro, chineseChartStandards } from "@/lib/content/decibel-chart";
+import {
+  chineseChartIntro,
+  chineseChartStandards,
+  chineseChartSummaryLabel,
+} from "@/lib/content/decibel-chart";
 import { href } from "@/lib/routing/pages";
 import { soundBands } from "@/lib/content/sound-bands";
 import { soundReferences } from "@/lib/content/sound-references";
@@ -21,16 +24,22 @@ export function DecibelChart({ locale }: { locale: Locale }) {
     <ContentPage
       id="decibel-chart"
       locale={locale}
+      className={chinese ? styles.article : ""}
+      sectionClasses={chinese ? { levels: styles.levels } : undefined}
       overview={
         chinese ? (
-          <p className={styles.overview} data-chart-overview="">
-            {chineseChartIntro.map((part) => (
-              <Fragment key={part.pageId}>
-                <Link href={href(part.pageId, locale)}>{part.label}</Link>
-                {part.after[chinese]}
-              </Fragment>
-            ))}
-          </p>
+          <div className={styles.overview} data-chart-summary="">
+            <span className={styles.overviewLabel}>{chineseChartSummaryLabel[chinese]}</span>
+            <p data-chart-overview="">
+              {chineseChartIntro.map((part) => (
+                <span key={part.pageId} className={styles.overviewItem}>
+                  {part.before[chinese]}
+                  <Link href={href(part.pageId, locale)}>{part.label}</Link>
+                  {part.after[chinese]}
+                </span>
+              ))}
+            </p>
+          </div>
         ) : undefined
       }
       sectionContent={{

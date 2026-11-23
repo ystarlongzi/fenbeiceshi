@@ -1,18 +1,16 @@
 import { soundReferences, soundSources, type SoundReference } from "../sound-references.ts";
 import { referenceRange } from "../sound-reference-format.ts";
-import { translations as t, type LocalizedText, type SiteContent } from "../types.ts";
+import { translations as t, type SiteContent } from "../types.ts";
 import { quietDetails } from "./quiet.ts";
 import { homeDetails } from "./home.ts";
 import { speechTrafficDetails } from "./speech-traffic.ts";
 import { leisureDetails } from "./leisure.ts";
 import { equipmentDetails } from "./equipment.ts";
-import type { SoundDetailDefinition } from "./types.ts";
+import type { SoundDetailDefinition, SoundQuestionDefinition } from "./types.ts";
 import { browserLimit, hearingGuidance } from "./guidance.ts";
 
-export interface SoundQuestion {
+export interface SoundQuestion extends SoundQuestionDefinition {
   id: string;
-  question: LocalizedText;
-  answer: LocalizedText;
 }
 
 export interface SoundDetail {
@@ -110,7 +108,7 @@ function buildContent(
     slug: `knowledge/decibel-chart/${key}-db`,
     parentId: "decibel-chart",
     kind: "article",
-    updated: "2026-10-25",
+    updated: definition.updated ?? "2026-10-25",
     title: t(
       `${range} 分贝有多大？${definition.topic.zh}`,
       `How loud is ${range} dB? ${definition.topic.en}`,

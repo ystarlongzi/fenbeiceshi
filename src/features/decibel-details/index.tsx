@@ -17,6 +17,7 @@ import styles from "./index.module.css";
 
 export function SoundDetailPage({ detail, locale }: { detail: SoundDetail; locale: Locale }) {
   const range = referenceRange(detail.sounds[0]);
+  const chinese = locale === "zh-CN" ? "zh" : locale === "zh-TW" ? "zhTW" : null;
   return (
     <ContentPage
       id={detail.content.id}
@@ -84,6 +85,16 @@ export function SoundDetailPage({ detail, locale }: { detail: SoundDetail; local
               <div key={item.id} id={item.id} className={styles.question} data-detail-question="">
                 <h3>{text(item.question, locale)}</h3>
                 <p>{text(item.answer, locale)}</p>
+                {chinese && item.chineseLink ? (
+                  <Link
+                    className={styles.guideLink}
+                    data-detail-context-link=""
+                    href={`${href(item.chineseLink.pageId, locale)}#${item.chineseLink.hash}`}
+                  >
+                    {item.chineseLink.label[chinese]}
+                    <LinkArrow size={15} />
+                  </Link>
+                ) : null}
                 {item.id === "browser" ? (
                   <Link className={styles.guideLink} href={href("guide", locale)}>
                     {localize(

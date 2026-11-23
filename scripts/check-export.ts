@@ -16,6 +16,7 @@ import { checkHomeKnowledge, checkKnowledgeDirectory } from "./export-checks/kno
 import { checkPracticalGuide } from "./export-checks/practical-guides.ts";
 import { checkChartHealth } from "./export-checks/chart-health.ts";
 import { checkChartOverview } from "./export-checks/chart-overview.ts";
+import { checkDetailContext } from "./export-checks/detail-context.ts";
 import { escapeText } from "./export-checks/html.ts";
 import { soundReferences, soundSources } from "../src/lib/content/sound-references.ts";
 import { soundBands } from "../src/lib/content/sound-bands.ts";
@@ -636,6 +637,7 @@ for (const page of sitePages) {
           assert.ok(visible.includes(escapeText(text(question.question, locale))), path);
           assert.ok(visible.includes(escapeText(text(question.answer, locale))), path);
         }
+        checkDetailContext(visible, detail, locale);
         assert.equal((visible.match(/data-level-change=/g) ?? []).length, 5, path);
         assert.equal((visible.match(/data-current-reference=/g) ?? []).length, 1, path);
         for (const row of levelComparisons(detail.sounds[0])) {

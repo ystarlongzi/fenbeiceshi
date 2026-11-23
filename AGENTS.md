@@ -67,6 +67,8 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 - 中文分贝对照页导读和导航命名以 [分贝对照 SEO V1](./design/decibel-chart-seo-v1/design-spec.json) 为准：简繁导航使用「分贝对照／分貝對照」，英文保留 Decibel guide。中文导读在目录前静态链接 30、40、45–55、60–70 分贝现有详情，保留原单位；声音列表后提供中国大陆法规入口。该规格补充 V6，验证见 [分贝对照页 SEO 与导航命名验证](./docs/验证/分贝对照页SEO与导航命名验证.md)。
 
+- 中文分贝对照页的摘要外观以 [分贝摘要 V1](./design/decibel-chart-summary-v1/design-spec.json) 为准：单层浅底与细侧线识别摘要，桌面标识与正文并列、手机上下排列，正文固定 16px、标识 12px；数字链接跟随正文颜色，按完整意思优先换行。该规格覆盖 SEO V1 的普通段落外观，位置及静态链接保留；通过现有页面 Props 去掉中文首章重复顶部留白，实际验证见 [摘要样式验证](./docs/验证/分贝对照页摘要样式验证.md)。
+
 - 本产品面向普通用户提供分贝与环境噪音测试，Web 优先并适配手机；沿用同一套产品和代码，简体／繁体使用 `fenbeiceshi.com`，界面名称“分贝测试”；英文使用 `soundmetergo.com`，名称“SoundMeterGo”。国际站新增 24 种语言，具体清单与验证边界见 [国际站多语言扩展](./docs/产品/国际站多语言扩展.md)。
 - 当前设计依据为 [V3 实现规格](./design/noise-meter-v3/design-spec.json) 与实际界面截图；[V2 规格](./design/noise-meter-v2/design-spec.json) 及 Figma 画框保留为品牌、状态与早期设计依据，V1 作为历史方案保留。
 - 首页模块之间的关系以 [首页层级 V4](./design/home-hierarchy-v4/design-spec.json) 为准：测量与记录合组，方法为辅助引导，场景为同级的两步静态操作说明，不提供跳转或额外测量入口，当前内容见 [首页场景说明 V1](./design/home-scenes-v1/design-spec.json)，知识区以「测完之后，怎么看？」为总导读，左侧只保留总体说明与完整知识目录入口，右侧按声音量级、读数准确性、健康影响三个同级问题组织静态阅读链接，使用简短独立文案，不随全站文章注册表增长；原理与单位详解继续通过知识目录和原有帮助链接进入；实际验证见 [首页精选文章调整验证](./docs/验证/首页精选文章调整验证.md)。FAQ 为按需收尾；测量状态沿用 V3；当前测量口径以 [噪音估算规格](./design/noise-estimate-v1/design-spec.json) 和 [噪音估算口径](./docs/产品/噪音估算口径.md) 为准，替代早期默认 dBFS 的决定。
