@@ -76,6 +76,7 @@
       "hearing-protection",
       "china-noise-standards",
       "workplace-noise-standards",
+      "db-dba",
       "phone-accuracy",
       "dbfs-spl",
       "decibel-chart",
@@ -511,7 +512,7 @@
       "uniqueValue": "按工具帮助与声音知识两组组织入口：工具帮助包含指南、原理、常见问题和麦克风排查，声音知识包含读数解释、专业检测选择、声音参考、噪音健康、降噪方法、听力保护及法规与职业标准文章，保留静态正文与可抓取链接。",
       "sections": ["工具帮助：使用指南、工作原理、常见问题、麦克风排查","声音知识：理解读数、查询声音参考、了解噪音与健康、法规与职业标准"],
       "ctaTargetId": "guide",
-      "relatedIds": ["how-it-works","faq","guide","phone-accuracy","dbfs-spl","decibel-chart","noise-health","noise-reduction","hearing-protection","china-noise-standards","workplace-noise-standards","microphone-help","when-professional-meter"],
+      "relatedIds": ["how-it-works","faq","guide","db-dba","phone-accuracy","dbfs-spl","decibel-chart","noise-health","noise-reduction","hearing-protection","china-noise-standards","workplace-noise-standards","microphone-help","when-professional-meter"],
       "publishGate": "至少首批四篇基础内容已发布；只列当前语言可用条目。",
       "requiredEvidence": ["已发布内容注册表"]
     },
@@ -541,7 +542,7 @@
       "uniqueValue": "先用通俗文字说明本站估算的适用范围，按固定设备、位置和背景声比较变化；在适用范围、读数修正与专业检测章节就近提供中文操作入口，保留验证条件，不移植其他应用的误差承诺。",
       "sections": ["直接答案与适用范围","误差原因及同条件测量方法","读数修正的作用与限制","声级计或专业检测的选择","来源与继续阅读"],
       "ctaTargetId": "meter",
-      "relatedIds": ["calibration","dbfs-spl","microphone-help","when-professional-meter"],
+      "relatedIds": ["db-dba","calibration","dbfs-spl","microphone-help","when-professional-meter"],
       "chineseSeoUpdate": {"status":"implemented-not-deployed","updated":"2026-11-23","locales":["zh-CN","zh-TW"],"contextTargets":["guide#start","calibration#steps","when-professional-meter#choose"],"ctaTargetId":"meter","verification":"docs/验证/手机分贝准确性中文SEO调整验证.md"},
       "publishGate": "引用的准确性结论保留具体产品和实验条件，不移植到本站；示例注明来源。",
       "requiredEvidence": ["设备测量研究原文","CDC/NIOSH 特定应用的验证条件","本站能力核对"]
@@ -572,7 +573,7 @@
       "uniqueValue": "用输入链路解释参考量、增益、通用估算假设与参考校准，不把产品默认偏移当作万能换算常数。",
       "sections": ["两个参考量","为何读数不同","建立参考关系及其限制"],
       "ctaTargetId": "meter",
-      "relatedIds": ["calibration","phone-accuracy","db-dba"],
+      "relatedIds": ["db-dba","how-it-works","phone-accuracy","calibration","guide"],
       "publishGate": "术语、参考值和公式核验；示意图明确标注，不用虚拟数字冒充实测。",
       "requiredEvidence": ["Web Audio 规范或文档","声学计量定义的一手资料"]
     },
@@ -603,7 +604,7 @@
       "sections": ["七档声音对照与名称／数值搜索","噪音与健康：NIOSH／OSHA 职业暴露参考与完整健康文章入口","参考说明：范围差异与网页估算比较"],
       "localImplementation": {"status":"deployed","updated":"2026-11-23","locales":["zh-CN", "zh-TW"],"release":"9d685b6e8b094aa469c921f013afcf9414b7304a-26-1","verification":"docs/验证/中文SEO与摘要样式上线验证.md","navigation":"中文导航使用分贝对照／分貝對照；英文保留 Decibel guide，沿用 decibel-chart 路径。本轮导读及法规内链已完成生产发布，实际验收见分贝对照页优化与导航改名上线验证"},
       "ctaTargetId": "meter",
-      "relatedIds": ["dbfs-spl","phone-accuracy","calibration","guide"],
+      "relatedIds": ["db-dba","dbfs-spl","phone-accuracy","calibration","guide"],
       "publishGate": "每组参考有来源和条件；不以播放器模拟真实分贝，不把未校准读数套表判定。",
       "requiredEvidence": ["WHO、NIDCD、CDC、NPS、EPA 与 NIOSH 官方资料的声音参考；逐项原文位置见声音参考来源核验记录","NIOSH 职业暴露适用范围","原始单位、范围、测距与历史教学例子的适用条件核对","WHO 环境噪音、睡眠及认知影响原文；每项保留人群与暴露语境"]
     },
@@ -1477,18 +1478,114 @@
       "kind": "article",
       "priority": "P1",
       "locales": {
-        "zh-CN": {"path":"/knowledge/db-vs-dba/","wave":"P1","title":"dB 和 dBA 有什么区别？理解 A 计权 - 分贝测试","h1":"dB 与 dBA 的区别","keywords":["dB 和 dBA 区别","A 计权是什么"],
-        "origin": "https://fenbeiceshi.com"},
-        "en": {"path":"/knowledge/db-vs-dba/","wave":"P1","title":"dB vs dBA: What A Weighting Means | SoundMeterGo","h1":"dB vs dBA and A weighting","keywords":["dB vs dBA","what is A weighting"],
-        "origin": "https://soundmetergo.com"}
+        "zh-CN": {
+          "path": "/knowledge/db-vs-dba/",
+          "wave": "P1",
+          "title": "分贝是什么？dB、dBA、dBC、dBZ 的区别 - 分贝测试",
+          "h1": "分贝是什么？dB、dBA、dBC、dBZ 的区别",
+          "description": "dB、dBA、dBC 和 dBZ 分别是什么意思？用表格理解 A、C、Z 频率计权，了解 B、D、G 的用途，分清 dB SPL 与 dBFS，并说明为什么不同口径的分贝不能直接换算或比较。",
+          "keywords": [
+            "分贝是什么",
+            "dB和dBA区别",
+            "dBA dBC dBZ区别",
+            "A C Z计权"
+          ],
+          "status": "implemented-not-deployed",
+          "origin": "https://fenbeiceshi.com"
+        },
+        "en": {
+          "path": "/knowledge/db-vs-dba/",
+          "wave": "P1",
+          "title": "Decibels Explained: dB, dBA, dBC and dBZ - SoundMeterGo",
+          "h1": "Decibels Explained: dB, dBA, dBC and dBZ",
+          "description": "What do dB, dBA, dBC and dBZ mean? Compare A, C and Z frequency weightings, learn where B, D and G fit, and distinguish sound pressure from digital input levels before comparing readings.",
+          "keywords": [
+            "what is a decibel",
+            "dBA vs dBC vs dBZ",
+            "A C Z weighting"
+          ],
+          "status": "implemented-not-deployed",
+          "origin": "https://soundmetergo.com"
+        },
+        "zh-TW": {
+          "path": "/zh-tw/knowledge/db-vs-dba/",
+          "wave": "P1",
+          "title": "分貝是什麼？dB、dBA、dBC、dBZ 的區別 - 分貝測試",
+          "h1": "分貝是什麼？dB、dBA、dBC、dBZ 的區別",
+          "description": "dB、dBA、dBC 和 dBZ 分別是什麼意思？用表格理解 A、C、Z 頻率加權，瞭解 B、D、G 的用途，分清 dB SPL 與 dBFS，並說明為什麼不同定義的分貝不能直接換算或比較。",
+          "keywords": [
+            "分貝是什麼",
+            "dB和dBA區別",
+            "dBA dBC dBZ區別",
+            "A C Z加權"
+          ],
+          "status": "implemented-not-deployed",
+          "origin": "https://fenbeiceshi.com"
+        }
       },
-      "intent": "理解频率计权与本站显示口径。",
-      "uniqueValue": "区分数字电平、声压级和计权；明确本站并未因校准自动具备 A 计权。",
-      "sections": ["术语区别","为什么需要计权","如何核对工具口径"],
-      "ctaTargetId": "calibration",
-      "relatedIds": ["dbfs-spl","decibel-chart","metrics"],
-      "publishGate": "引用定义与图示已核验；不宣称本站支持尚未实现的计权。",
-      "requiredEvidence": ["频率计权一手资料","本站功能与显示口径"]
+      "intent": "理解分贝标记，分清频率计权与参考基准，知道哪些读数可以比较。",
+      "uniqueValue": "面向普通读者比较 A/C/Z，补充 B/D/G 的适用范围；用两个单频修正量解释不能固定换算，区分 SPL/FS，明确网页估算不等于经过验证的 Z 计权测量。dBFS 与声压的具体算法和对应关系继续由既有技术文章承接。",
+      "sections": [
+        "分贝含义",
+        "A/C/Z 对照",
+        "不能固定换算的原因",
+        "B/D/G 补充",
+        "SPL 与 FS 参考基准",
+        "本站估算与专业测量"
+      ],
+      "ctaTargetId": "decibel-chart",
+      "relatedIds": [
+        "decibel-chart",
+        "dbfs-spl",
+        "phone-accuracy",
+        "when-professional-meter"
+      ],
+      "localImplementation": {
+        "status": "implemented-not-deployed",
+        "updated": "2026-11-23",
+        "locales": [
+          "zh-CN",
+          "zh-TW",
+          "en",
+          "es",
+          "de",
+          "fr",
+          "pt-BR",
+          "ru",
+          "it",
+          "ko",
+          "ja",
+          "no",
+          "sv",
+          "da",
+          "nl",
+          "fi",
+          "el",
+          "pl",
+          "tr",
+          "id",
+          "vi",
+          "cs",
+          "hu",
+          "sk",
+          "th",
+          "ro",
+          "ar"
+        ],
+        "verification": "docs/验证/分贝单位与计权文章验证.md"
+      },
+      "keywordEvidence": "宽泛词“分贝”的既有 Bing 三个月印象约 5.7K；不能当作本主题、dBA/dBC/dBZ 词组的已验证搜索量或流量预测。",
+      "publishGate": "定义、适用范围和来源核验；27 语真实静态正文、术语数值、入口、自 canonical 与互返 hreflang 通过检查，发布状态另记。",
+      "requiredEvidence": [
+        "https://www.animations.physics.unsw.edu.au/jw/dB.htm",
+        "https://resource.npl.co.uk/acoustics/techguides/concepts/spl.html",
+        "https://cirrusresearch.com/what-are-a-c-z-frequency-weightings/",
+        "https://www.nti-audio.com/en/support/know-how/frequency-weightings-for-sound-level-measurements",
+        "https://www.massport.com/sites/default/files/2023-10/ea_deir_cd-version_volume-ii.pdf",
+        "https://webstore.iec.ch/en/publication/16531",
+        "https://www.iso.org/standard/13813.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API"
+      ]
     },
     {
       "id": "metrics",

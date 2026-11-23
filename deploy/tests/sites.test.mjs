@@ -29,7 +29,7 @@ test("双域名分别限制部署目录，拒绝任意域名与错配目录", ()
   assert.ok(requiredSiteFiles("fenbeiceshi.com").includes("zh-tw/index.html"));
 });
 
-test("中文 Nginx 为全部旧英文路径生成 94 条精确映射，英文站不建立反向循环", async () => {
+test("中文 Nginx 为全部英文主题生成 96 条精确映射，英文站不建立反向循环", async () => {
   const source = await readFile(
     new URL("../nginx/fenbeiceshi.conf.template", import.meta.url),
     "utf8",
@@ -37,7 +37,7 @@ test("中文 Nginx 为全部旧英文路径生成 94 条精确映射，英文站
   const chinese = renderNginxTemplate(source, "fenbeiceshi.com");
   assert.equal(
     [...chinese.matchAll(/^    \/en(?:\/[^ ]*)? https:\/\/soundmetergo\.com\//gm)].length,
-    94,
+    96,
   );
   assert.ok(
     chinese.includes(
@@ -45,6 +45,9 @@ test("中文 Nginx 为全部旧英文路径生成 94 条精确映射，英文站
     ),
   );
   assert.ok(chinese.includes("/en/records/ https://soundmetergo.com/records/;"));
+  assert.ok(
+    chinese.includes("/en/knowledge/db-vs-dba/ https://soundmetergo.com/knowledge/db-vs-dba/;"),
+  );
   assert.ok(!chinese.includes("/en/missing/"));
   assert.equal(chinese.split("return 301 $fenbeiceshi_english_target$is_args$args;").length - 1, 3);
   const english = renderNginxTemplate(source, "soundmetergo.com");

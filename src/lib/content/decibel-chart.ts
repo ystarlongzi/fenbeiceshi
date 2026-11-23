@@ -134,7 +134,7 @@ export const decibelChart: SiteContent = {
       url: "https://www.osha.gov/otm/section-3-health-hazards/chapter-5",
     },
   ],
-  related: ["dbfs-spl", "phone-accuracy", "calibration", "guide"],
+  related: ["db-dba", "dbfs-spl", "phone-accuracy", "calibration", "guide"],
 };
 
 export const decibelChartExposure = {

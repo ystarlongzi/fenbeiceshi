@@ -1,0 +1,22 @@
+.comparison {
+  --content-table-min-width: 0px;
+}
+
+.comparison table {
+  table-layout: fixed;
+}
+
+.comparison th:first-child,
+.comparison td:first-child {
+  width: 7.5rem;
+}
+
+.comparison td {
+  overflow-wrap: anywhere;
+}
+
+.comparison td:first-child {
+  white-space: nowrap;
+  direction: ltr;
+  unicode-bidi: isolate;
+}

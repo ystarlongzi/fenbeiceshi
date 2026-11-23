@@ -100,7 +100,7 @@
 .tableWrap table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 470px;
+  min-width: var(--content-table-min-width, 470px);
   text-align: start;
   font-size: var(--font-size-ui);
   line-height: 1.9;

@@ -3,7 +3,7 @@ import test from "node:test";
 import { canonicalHref, sitePages } from "./pages.ts";
 import { legacyEnglishRedirect } from "./redirects.ts";
 
-test("47 个旧英文主题逐页迁移，带尾斜杠和不带尾斜杠均指向最终地址", () => {
+test("全部英文主题逐页兼容旧路径，带尾斜杠和不带尾斜杠均指向最终地址", () => {
   for (const page of sitePages) {
     const old = `/en${page.slug ? `/${page.slug}` : ""}`;
     assert.equal(legacyEnglishRedirect(old), canonicalHref(page.id, "en"));

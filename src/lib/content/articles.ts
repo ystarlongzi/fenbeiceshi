@@ -6,6 +6,7 @@ import { hearingProtection } from "./hearing-protection.ts";
 import { chinaNoiseStandards } from "./china-noise-standards.ts";
 import { workplaceNoiseStandards } from "./workplace-noise-standards.ts";
 import { professionalMeter } from "./professional-meter.ts";
+import { decibelUnits } from "./decibel-units.ts";
 import { translations as t, type SiteContent } from "./types.ts";
 
 const mdnAudio = {
@@ -23,6 +24,7 @@ export const articles: SiteContent[] = [
   hearingProtection,
   chinaNoiseStandards,
   workplaceNoiseStandards,
+  decibelUnits,
   {
     id: "phone-accuracy",
     slug: "knowledge/phone-decibel-accuracy",
@@ -143,7 +145,7 @@ export const articles: SiteContent[] = [
         url: "https://www.cdc.gov/niosh/noise/about/app.html",
       },
     ],
-    related: ["calibration", "dbfs-spl", "microphone-help", "when-professional-meter"],
+    related: ["db-dba", "calibration", "dbfs-spl", "microphone-help", "when-professional-meter"],
   },
   {
     id: "dbfs-spl",
@@ -254,7 +256,7 @@ export const articles: SiteContent[] = [
         url: "https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/getFloatTimeDomainData",
       },
     ],
-    related: ["how-it-works", "phone-accuracy", "calibration", "guide"],
+    related: ["db-dba", "how-it-works", "phone-accuracy", "calibration", "guide"],
   },
   decibelChart,
   ...soundDetails.map((detail) => detail.content),

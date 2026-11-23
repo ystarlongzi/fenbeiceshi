@@ -30,8 +30,8 @@ const paths = sitePages.flatMap((page) => locales.map((locale) => canonicalHref(
 assert.equal(new Set(paths).size, paths.length, "规范路径不得重复");
 assert.equal(
   sitePages.filter((page) => page.index).length * locales.length,
-  1242,
-  "47 个主题的 27 种语言中，记录页不开放索引",
+  1269,
+  "48 个主题的 27 种语言中，记录页不开放索引",
 );
 assert.equal(sitePages.find((page) => page.id === "records")?.index, false);
 for (const content of contents) {
@@ -165,5 +165,5 @@ for (const page of sitePages.filter((page) => page.index)) {
   }
 }
 console.log(
-  `内容检查通过：${contents.length} 个正文主题，${locales.length} 种语言，1242 个可索引 URL，27 个 noindex 功能 URL。`,
+  `内容检查通过：${contents.length} 个正文主题，${locales.length} 种语言，1269 个可索引 URL，27 个 noindex 功能 URL。`,
 );

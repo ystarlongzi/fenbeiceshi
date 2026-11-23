@@ -17,7 +17,7 @@
 3. 搜索“房间噪音怎么测” → 按场景方法操作 → 比较同条件记录 → 后续复测。
 4. 搜索“两个噪声源如何叠加” → 使用独立计算器 → 理解假设 → 收藏或引用方法。
 
-市场选择：中文优先，兼顾百度、必应与 Google；同时规划英文工具和基础内容。采用一套产品和代码，简体中文位于 `fenbeiceshi.com/`，繁体中文位于 `fenbeiceshi.com/zh-tw/`，英文位于 `soundmetergo.com/`，英文品牌 SoundMeterGo。国际站新增 24 种语言，现有 47 个主题提供 27 种语言，共 1269 个 URL；具体清单、翻译与审校边界见 [国际站多语言扩展](./国际站多语言扩展.md)，不发布占位页。后续选题分别确认标题、查询意图、例子与语言可用性，不自动发布规划中的页面。
+市场选择：中文优先，兼顾百度、必应与 Google；同时规划英文工具和基础内容。采用一套产品和代码，简体中文位于 `fenbeiceshi.com/`，繁体中文位于 `fenbeiceshi.com/zh-tw/`，英文位于 `soundmetergo.com/`，英文品牌 SoundMeterGo。国际站新增 24 种语言，本地 48 个主题提供 27 种语言，共 1296 个 URL，新增单位与计权文章尚未部署；具体清单、翻译与审校边界见 [国际站多语言扩展](./国际站多语言扩展.md)，不发布占位页。后续选题分别确认标题、查询意图、例子与语言可用性，不自动发布规划中的页面。
 
 ## 2. 能力边界必须进入页面结构
 
@@ -63,7 +63,7 @@
 │  │  ├─ 47-72-db/                     洗衣机的完整范围参考
 │  │  └─ …                            共 28 个既有声音主题，27 语本地已实现
 │  ├─ microphone-permission/           麦克风授权与故障排查
-│  ├─ db-vs-dba/                       分贝与 A 计权，P1
+│  ├─ db-vs-dba/                       分贝与 A/C/Z 计权，27 语本地已实现
 │  ├─ sound-level-metrics/              最低、最高、平均的含义，P1
 │  ├─ microphone-vs-system-audio/       环境声音与电脑内部声音，P1
 │  ├─ china-noise-standards/            中国大陆噪音法规与处理，本地 27 语已实现
@@ -91,6 +91,8 @@
 
 手机分贝准确性页随后进行本地简繁改稿：先用通俗文字回答估算的适用范围，再说明固定条件比较、读数修正和专业测量选择；章节旁直接链接对应语言的既有方法文章，主操作回到测量。保留原标题、URL 和章节锚点，国际正文沿用原版本。本批尚未部署，范围与来源见 [准确性页验证](../验证/手机分贝准确性中文SEO调整验证.md)。
 
+单位入门主题在规划中的 `/knowledge/db-vs-dba/` 本地实现，提供 27 语真实正文；以 dB 与 A／C／Z 为主，B／D／G 为补充，再分清 SPL／FS 参考基准。固定换算与本站估算的条件直接说明，具体数字输入算法继续归既有 dBFS／SPL 文章；从知识目录及相关正文的继续阅读区进入，主操作查看分贝对照。未按字母或同义词拆页，尚未部署，见 [本批验证](../验证/分贝单位与计权文章验证.md)。
+
 | 页面归属 | 中文主要词簇 | 英文主要词簇 | 页面应完成的任务 |
 | --- | --- | --- | --- |
 | `fenbeiceshi.com/`、`soundmetergo.com/` | 分贝测试、分贝仪网页版、分贝测试仪网页版、在线分贝测试、免费在线分贝仪、在线噪音测试 | online decibel meter、decibel meter online、db meter online、sound meter online、decibel meter online free | 免费开始测量，查看估算分贝与趋势，保存或导出结果 |
@@ -108,7 +110,7 @@
 | `appliance-noise` | 空调噪音怎么测、风扇噪音测试 | measure air conditioner noise、fan noise measurement | 用开关状态和重复观察比较 |
 | `window-noise-comparison` | 关窗降噪怎么测、窗户隔音怎么比较 | compare noise with windows open and closed | 完成同位置前后观察，不生成隔声评级 |
 | `decibel-addition` | 分贝叠加计算器、两个声音分贝相加 | decibel addition calculator、add noise levels | 在明确假设下输入多项并计算 |
-| `db-vs-dba` | dB 和 dBA 区别、A 计权是什么 | dB vs dBA、A weighting | 区分单位、计权和设备能力 |
+| `db-vs-dba` | 分贝是什么、dBA／dBC／dBZ 区别、A/C/Z 计权 | what is a decibel、dBA vs dBC vs dBZ | 理解单位标记、频率计权与参考基准，核对读数能否比较 |
 | `sound-level-metrics` | 分贝平均值怎么算、最大分贝含义 | average decibel level、Leq vs maximum | 区分显示指标、算法与时间范围 |
 | `microphone-vs-system-audio` | 网页能测电脑声音吗、麦克风测的是什么 | microphone vs system audio measurement | 确认输入来源，避免误测 |
 
@@ -214,7 +216,7 @@ Google 要求语言版本之间的对应关系可相互验证；上线时从同�
 | 项目 | 执行要求 |
 | --- | --- |
 | 正文 | 核心答案、标题、步骤、来源与链接存在于构建出的 HTML；不依赖授权麦克风或浏览器取数后才出现 |
-| URL | 使用小写 kebab-case 和统一尾斜杠；规范域名按语言分别为 `https://fenbeiceshi.com` 和 `https://soundmetergo.com`；HTTP 与 www 跳到各自同路径规范地址；旧中文域 /en 的 47 个已发布主题精确 301 到英文域对应路径，查询保留，未知页保持 404 |
+| URL | 使用小写 kebab-case 和统一尾斜杠；规范域名按语言分别为 `https://fenbeiceshi.com` 和 `https://soundmetergo.com`；HTTP 与 www 跳到各自同路径规范地址；旧中文域 /en 的已发布英文主题精确 301 到英文域对应路径，查询保留，未知页保持 404 |
 | 元数据 | 每页自然且独立的 Title、H1、description；不用关键词密度、固定字数或 meta keywords 作为验收指标 |
 | canonical | 干净路径自引用；仅改变预设/来源追踪的参数版本归回同一正文页面；保留用户必要状态 |
 | sitemap | 仅列实际发布、可索引、规范且返回 200 的 URL；更新日期对应实质修改；排除草稿与个人记录 |

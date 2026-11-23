@@ -11,7 +11,7 @@ const expected = entries.map((entry) => entry.source).sort();
 const parameters = (value) =>
   [...value.matchAll(/\{[a-zA-Z][a-zA-Z0-9]*\}/g)].map(([match]) => match).sort();
 const protectedTerms =
-  /(?<![A-Za-z])(?:generic-rms-v1|manual-offset-v1|LEX,8h|A\/C|dB\([AC]\)|dBFS|dBA|dBC|dB|RMS|PCM|MP3|CSV|MiB|LAeq|TWA|SPL|NRR|[µμ]Pa)(?![A-Za-z])|[−-]?\d+(?:[.,]\d+)?/g;
+  /(?<![A-Za-z])(?:generic-rms-v1|manual-offset-v1|LEX,8h|A\/C|dB\([ACZ]\)|dBFS|dBA|dBC|dBZ|dB|RMS|PCM|MP3|CSV|MiB|LAeq|TWA|SPL|NRR|[µμ]Pa)(?![A-Za-z])|[−-]?\d+(?:[.,]\d+)?/g;
 const normalizeTerm = (value) => {
   value = value.replaceAll("−", "-");
   // 英文千位分组可写成无分隔整数；物理值不变，避免逗号在其他语言中被读成小数点。
@@ -66,7 +66,7 @@ for (const locale of additionalLocales) {
     assert.deepEqual(symbols(value), symbols(source), `数学符号改变：${locale} → ${source}`);
     assert.doesNotMatch(value, /SMG\s*PH\s*\d/i, `翻译占位符未还原：${locale}`);
     assert.doesNotMatch(value, /\b31st\b/, `正文残留英文序数：${locale} → ${source}`);
-    for (const [, letter] of source.matchAll(/\b([AC])[- ]weight(?:ing|ed)\b/g)) {
+    for (const [, letter] of source.matchAll(/\b([ABCDGZ])[- ]weight(?:ing|ed)\b/g)) {
       assert.match(
         value,
         new RegExp(`(?<![A-Za-z])${letter}(?![A-Za-z])`),

@@ -54,6 +54,7 @@ export function checkKnowledgeDirectory(html: string, locale: Locale) {
     );
   }
   for (const id of [
+    "db-dba",
     "phone-accuracy",
     "dbfs-spl",
     "decibel-chart",
