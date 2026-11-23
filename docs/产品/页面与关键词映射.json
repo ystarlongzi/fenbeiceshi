@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-25",
+  "updated": "2026-11-23",
   "domain": "https://fenbeiceshi.com",
   "status": "planning-only",
   "market": "简体与繁体使用 fenbeiceshi.com，英文及其他 24 种语言使用 soundmetergo.com；各语言词形与搜索需求需分别验证。",
-  "keywordEvidence": "首页候选词已结合用户确认与 2026 年 9 月桌面端关键词截图调整；截图含德语与英文，Traffic 与 CPC 不等于搜索量，未取得经验证的搜索量、难度或排名数据。",
+  "keywordEvidence": "首页候选词早期结合用户确认与 2026 年 9 月桌面端关键词截图调整；截图中的 Traffic 与 CPC 不等于搜索量。2026-11-22 已读取 Bing 关键词研究的中国大陆／简体中文／全设备数据（2026-08-22 至 2026-11-19），并对照本站近 30 天 Web 查询表现（2026-10-23 至 2026-11-21，全地区）。2026-11-23 先调整简体首页文案，数据与验证见 docs/验证/Bing中文首页SEO调整验证.md。两份报告的周期与筛选不同，不能相除计算市场份额，也不代表百度或 Google 的搜索量、难度与排名。",
   "implementationNote": "本文件不是可发布路由注册表。每种语言通过发布门槛后，才能进入应用的已发布内容数据；只渲染当前语言实际发布的关联目标。",
   "internationalRelease": {
     "status": "implemented-not-deployed",
@@ -400,8 +400,8 @@
       "kind": "tool",
       "priority": "P0",
       "locales": {
-        "zh-CN": {"path":"/","wave":"P0","title":"免费在线分贝仪 - 手机噪音测试与实时 dB 测量 | 分贝测试","h1":"在线分贝测试",
-        "description": "免费在线分贝仪，手机或电脑打开网页就能测噪音，无需下载安装。实时显示估算分贝（dB）和噪音变化，看看房间、家电或周围环境有多吵，测完还能保存记录、导出报告。","keywords":["免费在线分贝仪", "分贝测试", "分贝检测", "在线分贝测试", "噪音分贝测试", "手机分贝仪", "分贝测量", "环境分贝检测", "dB 测试", "在线噪音测试"],
+        "zh-CN": {"path":"/","wave":"P0","title":"在线分贝测试 - 免费分贝仪网页版，支持手机和电脑 | 分贝测试","h1":"在线分贝测试",
+        "description": "免费分贝仪网页版，手机或电脑打开网页就能在线测分贝，无需下载安装。用麦克风查看估算噪音分贝（dB）与实时趋势，比较房间、家电或周围环境的声音变化，测完可保存记录、导出报告。","keywords":["分贝测试", "分贝仪网页版", "分贝测试仪网页版", "在线分贝测试", "分贝检测", "在线分贝计", "噪音检测", "免费在线分贝仪", "噪音分贝测试", "手机分贝仪", "分贝测量", "环境分贝检测", "dB 测试", "在线噪音测试"],
         "origin": "https://fenbeiceshi.com"},
         "en": {"path":"/","wave":"P0","title":"Free Online Decibel Meter - Phone Noise Test & Live dB Readings | SoundMeterGo","h1":"Online decibel meter",
         "description": "Free online decibel meter for your phone or computer. No download or installation. View estimated sound levels in dB and live noise changes, check rooms or appliances, and save readings or export a report.","keywords":["online decibel meter", "decibel meter online", "db meter online", "sound meter online", "decibel meter online free"],

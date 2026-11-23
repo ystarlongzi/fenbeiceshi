@@ -25,12 +25,12 @@ export const sitePages: SitePage[] = [
     slug: "",
     kind: "home",
     title: translations(
-      "免费在线分贝仪 - 手机噪音测试与实时 dB 测量",
+      "在线分贝测试 - 免费分贝仪网页版，支持手机和电脑",
       "Free Online Decibel Meter - Phone Noise Test & Live dB Readings",
       "免費線上分貝計 - 手機噪音測試與即時 dB 測量",
     ),
     description: translations(
-      "免费在线分贝仪，手机或电脑打开网页就能测噪音，无需下载安装。实时显示估算分贝（dB）和噪音变化，看看房间、家电或周围环境有多吵，测完还能保存记录、导出报告。",
+      "免费分贝仪网页版，手机或电脑打开网页就能在线测分贝，无需下载安装。用麦克风查看估算噪音分贝（dB）与实时趋势，比较房间、家电或周围环境的声音变化，测完可保存记录、导出报告。",
       "Free online decibel meter for your phone or computer. No download or installation. View estimated sound levels in dB and live noise changes, check rooms or appliances, and save readings or export a report.",
       "免費線上分貝計，手機或電腦開啟網頁就能測噪音，免下載安裝。即時顯示估算分貝（dB）和噪音變化，看看房間、家電或周圍環境有多吵，測完還能儲存記錄、匯出報告。",
     ),

@@ -52,7 +52,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p className={styles.intro}>
               {localize(
                 locale,
-                "用麦克风查看估算噪音分贝与变化趋势，把本次条件和摘要一起留下。",
+                "免费分贝仪网页版，手机或电脑打开即用。用麦克风查看估算分贝与趋势，保存记录或导出报告。",
                 "See estimated noise levels and trends, then keep a summary with its conditions.",
                 "用麥克風檢視估算噪音分貝與變化趨勢，把本次條件和摘要一起留下。",
               )}

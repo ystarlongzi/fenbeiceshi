@@ -1,6 +1,6 @@
 # fenbeiceshi.com 整站结构与内容 SEO 规划
 
-版本：0.3；更新：2026-10-25。定位为竞品分析前的执行基线，后续依据竞品、真实查询和使用数据修订。
+版本：0.3；更新：2026-11-23。定位为竞品分析前的执行基线，后续依据竞品、真实查询和使用数据修订。
 
 本文为整站规划，不代表所有候选功能均已完成或上线。2026-10-17 已完成本地首版：实际页面注册见 `src/lib/routing/pages.ts`，范围见 [首版实现说明](./首版实现说明.md)，证据见 [首版验证记录](../验证/首版验证记录.md)。候选关键词、P1/P2 页面与分析事件继续按规划逐批验证。
 
@@ -83,11 +83,13 @@
 
 ## 4. 关键词归属：一个主要意图对应一个页面
 
-以下均为候选词簇，尚无经验证的搜索量、排名、难度或流量预测。优先级依据任务相关性、工具价值、实现成本和内容可信度，不是搜索量排序。
+以下为页面归属与候选词簇，默认优先级依据任务相关性、工具价值、实现成本和内容可信度。2026-11-22 已读取 Bing 的部分中文关键词需求与本站实际查询表现；仅这批词具备对应报告的证据，不代表其他词簇、百度或 Google 已完成验证，也不据此预测流量或判断排名难度。
+
+2026-11-23 先调整简体首页：搜索标题前置“在线分贝测试”，补充“分贝仪网页版”及手机、电脑适用说明；描述与首屏简介自然说明估算、记录和导出。网页版近义词仍统一归首页，保留既有 H1、测量入口和页面关系。繁体及国际站文案沿用原版本，基础单位解释与法规文章补强列为后续内容，未新增 URL。需求口径、实际表现基线和验证范围见 [Bing 中文首页 SEO 调整验证](../验证/Bing中文首页SEO调整验证.md)。
 
 | 页面归属 | 中文主要词簇 | 英文主要词簇 | 页面应完成的任务 |
 | --- | --- | --- | --- |
-| `fenbeiceshi.com/`、`soundmetergo.com/` | 免费在线分贝仪、分贝测试、在线分贝测试、在线噪音测试 | online decibel meter、decibel meter online、db meter online、sound meter online、decibel meter online free | 免费开始测量，查看估算分贝与趋势，保存或导出结果 |
+| `fenbeiceshi.com/`、`soundmetergo.com/` | 分贝测试、分贝仪网页版、分贝测试仪网页版、在线分贝测试、免费在线分贝仪、在线噪音测试 | online decibel meter、decibel meter online、db meter online、sound meter online、decibel meter online free | 免费开始测量，查看估算分贝与趋势，保存或导出结果 |
 | `phone-decibel-accuracy` | 手机测分贝准吗、手机噪音测试准确吗 | are phone decibel meters accurate | 判断设备和方法是否适合当前目的 |
 | `dbfs-vs-db-spl` | dBFS 是什么、dBFS 和 dB SPL 区别 | dBFS vs dB SPL、convert dBFS to SPL | 解释为何不能无条件换算 |
 | `decibel-chart` | 分贝对照表、常见声音分贝、噪音水平对照 | decibel chart、common sound levels | 查询带条件的声音总览与对应详情 |
