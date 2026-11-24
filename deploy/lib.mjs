@@ -73,7 +73,7 @@ export function connection(args, env = process.env) {
   return config;
 }
 
-export async function ssh(config, script, args, input) {
+export async function ssh(config, script, args, input, { capture = false } = {}) {
   for (const file of [config.key, config.knownHosts].filter(Boolean)) {
     if (!(await lstat(file)).isFile()) throw new Error(`SSH 配置不是普通文件：${file}`);
   }
@@ -100,11 +100,25 @@ export async function ssh(config, script, args, input) {
     `${config.user}@${config.host}`,
     remote,
   ];
-  await new Promise((resolve, reject) => {
-    const child = spawn("ssh", command, { stdio: ["pipe", "inherit", "inherit"] });
+  return new Promise((resolve, reject) => {
+    const child = spawn("ssh", command, {
+      stdio: ["pipe", capture ? "pipe" : "inherit", "inherit"],
+    });
+    const chunks = [];
+    let size = 0;
+    if (capture)
+      child.stdout.on("data", (chunk) => {
+        size += chunk.length;
+        if (size > 2 * 1024 * 1024) {
+          child.kill();
+          reject(new Error("远程状态超过允许大小"));
+        } else chunks.push(chunk);
+      });
     child.on("error", reject);
     child.on("close", (code) =>
-      code === 0 ? resolve() : reject(new Error(`远程操作失败，SSH 退出码 ${code}`)),
+      code === 0
+        ? resolve(capture ? Buffer.concat(chunks).toString("utf8") : undefined)
+        : reject(new Error(`远程操作失败，SSH 退出码 ${code}`)),
     );
     child.stdin.on("error", (error) => {
       if (error.code !== "EPIPE") reject(error);

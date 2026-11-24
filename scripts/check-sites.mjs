@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
+import { createManifest, manifestName } from "../deploy/indexnow/manifest.mjs";
 
 const verificationFile = "google024d40e8849b7703.html";
 assert.deepEqual(
@@ -10,6 +11,12 @@ assert.deepEqual(
 await assert.rejects(readFile(`out-soundmetergo/${verificationFile}`), { code: "ENOENT" });
 
 for (const target of ["fenbeiceshi", "soundmetergo"]) {
+  const directory = target === "fenbeiceshi" ? "out" : "out-soundmetergo";
+  assert.deepEqual(
+    JSON.parse(await readFile(`${directory}/${manifestName}`, "utf8")),
+    await createManifest(directory, `${target}.com`),
+    "IndexNow 清单必须与已检查的导出正文一致",
+  );
   const result = spawnSync(
     process.execPath,
     ["--experimental-strip-types", "scripts/check-export.ts"],

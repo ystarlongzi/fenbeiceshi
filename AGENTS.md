@@ -115,6 +115,8 @@ Include context from: @/Users/liucai/.codex/RTK.md
 
 ## 首版实施补充
 
+- IndexNow 实现位于 `deploy/indexnow.mjs` 与 `deploy/indexnow/`，部署接线尚待生产验证。构建从各域 sitemap 生成正文／SEO 指纹；双站健康检查成功后分别通知，首次只建基线，后续比较最近已接收状态。所有权密钥在服务器各自保存，按协议公开的验证文件随包发布，不把 SSH／DNS 等私密凭据带入网页；通知结果不得解释为已收录。操作与当前验证范围见 [IndexNow](./docs/部署/IndexNow.md) 和 [复查验证](./docs/验证/Bing收录复查与IndexNow接入验证.md)。
+
 - 分贝单位与计权入门位于 `/knowledge/db-vs-dba/`，正文和主操作文案维护在 `src/lib/content/decibel-units.ts`，复用静态 `ContentPage`。以 A／C／Z 对照为主，B／D／G 为补充，SPL／FS 另表说明参考基准；不提供固定计权换算或把本站估算标作 dBA／dBC／经过验证的 dBZ。新主题沿用 27 语真实正文与互返 hreflang，进入知识目录“理解读数”，从对照、准确性、dBFS／SPL 文章的继续阅读区链接，主操作查看分贝对照。新主题已完成双站生产发布，来源与本地验收见 [分贝单位与计权文章验证](./docs/验证/分贝单位与计权文章验证.md)。
 
 - 首次实现以 [竞品分析与设计决策](./docs/产品/竞品分析与设计决策.md) 和 [首版实现说明](./docs/产品/首版实现说明.md) 为本轮依据；V2 保留为状态与品牌基线，实际界面以已验证实现为准。

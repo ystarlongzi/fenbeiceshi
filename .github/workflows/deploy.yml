@@ -93,10 +93,6 @@ jobs:
           sudo systemctl stop nginx
           printf '127.0.0.1 fenbeiceshi.com www.fenbeiceshi.com soundmetergo.com www.soundmetergo.com\n' | sudo tee -a /etc/hosts > /dev/null
           sudo env "PATH=$PATH" timeout --kill-after=5s 180s npm run test:deploy:integration
-      - name: 打包完整静态导出
-        run: npm run deploy:pack -- --release "$RELEASE_ID" --revision "$GITHUB_SHA"
-      - name: 打包英文静态导出
-        run: npm run deploy:pack -- --domain soundmetergo.com --release "$RELEASE_ID" --revision "$GITHUB_SHA"
       - name: 准备 SSH 凭据与主机公钥
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -132,6 +128,13 @@ jobs:
         run: npm run deploy:setup -- --bootstrap
       - name: 检查英文站点环境
         run: npm run deploy:setup -- --domain soundmetergo.com --path "$SOUNDMETERGO_DEPLOY_PATH" --dns-env /etc/soundmetergo/cloudflare.env --acme-home /root/.acme.sh-soundmetergo
+      - name: 准备双站 IndexNow 所有权文件和通知基线
+        timeout-minutes: 4
+        run: node deploy/indexnow.mjs prepare --release "$RELEASE_ID"
+      - name: 打包完整静态导出
+        run: npm run deploy:pack -- --release "$RELEASE_ID" --revision "$GITHUB_SHA"
+      - name: 打包英文静态导出
+        run: npm run deploy:pack -- --domain soundmetergo.com --release "$RELEASE_ID" --revision "$GITHUB_SHA"
       - name: 发布英文与健康检查
         timeout-minutes: 15
         run: npm run deploy:static -- --domain soundmetergo.com --path "$SOUNDMETERGO_DEPLOY_PATH" --artifact "artifacts/soundmetergo-$RELEASE_ID.tar.gz" --release "$RELEASE_ID"
@@ -143,6 +146,9 @@ jobs:
       - name: 发布与健康检查
         timeout-minutes: 15
         run: npm run deploy:static -- --artifact "artifacts/fenbeiceshi-$RELEASE_ID.tar.gz" --release "$RELEASE_ID"
+      - name: 通知双站 IndexNow 并记录结果
+        timeout-minutes: 6
+        run: node deploy/indexnow.mjs notify --release "$RELEASE_ID"
       - name: 移除临时 SSH 文件
         if: always()
         shell: bash

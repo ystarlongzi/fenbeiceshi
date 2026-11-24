@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { rename, rm, writeFile } from "node:fs/promises";
 import { additionalLocaleSettings } from "../src/lib/i18n/additional-locales.ts";
+import { writeManifest } from "../deploy/indexnow/manifest.mjs";
 
 // 英文先构建到独立目录，最后保留中文构建的 .next，沿用默认开发与预览入口。
 for (const target of ["soundmetergo", "fenbeiceshi"]) {
@@ -23,6 +24,7 @@ for (const target of ["soundmetergo", "fenbeiceshi"]) {
     for (const { prefix } of Object.values(additionalLocaleSettings))
       await rm(`out${prefix}`, { recursive: true, force: true });
   await writeFile("out/_site.txt", `${target}.com\n`);
+  await writeManifest("out", `${target}.com`);
   if (target === "soundmetergo") {
     await rm("out-soundmetergo", { recursive: true, force: true });
     await rename("out", "out-soundmetergo");

@@ -1,4 +1,5 @@
 import "./sites-integration.mjs";
+import "./indexnow-integration.mjs";
 import { artifact, certificate } from "./site-fixtures.mjs";
 import { sitePages, canonicalHref } from "../../src/lib/routing/pages.ts";
 import { renderNginxTemplate } from "../nginx-template.mjs";

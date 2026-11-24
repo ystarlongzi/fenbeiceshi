@@ -6,6 +6,53 @@ import path from "node:path";
 import test from "node:test";
 import { projectRoot } from "../lib.mjs";
 
+test("SSH 捕获状态不打印通知密钥，并拒绝超量输出和远端失败", async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), "fenbeiceshi-ssh-capture-"));
+  try {
+    const key = path.join(directory, "key");
+    await writeFile(key, "test-only private key");
+    await writeFile(
+      path.join(directory, "ssh"),
+      "#!" +
+        process.execPath +
+        "\n" +
+        "process.stdin.resume();\n" +
+        "process.stdout.write('x'.repeat(Number(process.env.FAKE_SIZE)));\n" +
+        "process.exitCode=Number(process.env.FAKE_CODE);\n",
+      { mode: 0o700 },
+    );
+    const config = { host: "test.example", user: "deploy", port: "22", key };
+    const code =
+      "import {ssh} from './deploy/lib.mjs';" +
+      "try { const out=await ssh(" +
+      JSON.stringify(config) +
+      ",'ignored',[],undefined,{capture:true}); console.log('captured '+out.length); }" +
+      "catch(error){console.error(error.message);process.exitCode=1;}";
+    for (const [size, exit, expected] of [
+      [32, 0, /captured 32/],
+      [32, 7, /SSH 退出码 7/],
+      [2097153, 0, /超过允许大小/],
+    ]) {
+      const result = spawnSync(process.execPath, ["--input-type=module", "-e", code], {
+        cwd: projectRoot,
+        encoding: "utf8",
+        timeout: 5000,
+        env: {
+          ...process.env,
+          PATH: directory + path.delimiter + process.env.PATH,
+          FAKE_SIZE: String(size),
+          FAKE_CODE: String(exit),
+        },
+      });
+      assert.equal(result.status, size === 32 && exit === 0 ? 0 : 1, result.stderr);
+      assert.match(result.stdout + result.stderr, expected);
+      assert.ok(!(result.stdout + result.stderr).includes("x".repeat(32)));
+    }
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("SSH 省略主机公钥时接受新主机，提供文件时严格核验", async () => {
   const directory = await mkdtemp(path.join(tmpdir(), "fenbeiceshi-ssh-"));
   const key = path.join(directory, "key");
