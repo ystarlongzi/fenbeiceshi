@@ -14,6 +14,13 @@ export function checkDetailContext(html: string, detail: SoundDetail, locale: Lo
   );
   if (!chinese) return;
 
+  if (detail.chineseHeading) {
+    assert.ok(
+      html.includes(`<h1>${escapeText(detail.chineseHeading[chinese])}</h1>`),
+      `中文查询标题必须静态输出：${locale} → ${detail.key}`,
+    );
+  }
+
   for (const question of linkedQuestions) {
     const link = question.chineseLink!;
     const body = html.match(

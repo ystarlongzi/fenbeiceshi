@@ -4,41 +4,53 @@ import type { SoundDetailDefinition } from "./types.ts";
 export const homeDetails: SoundDetailDefinition[] = [
   {
     soundIds: ["home"],
+    updated: "2026-11-24",
+    chineseHeading: { zh: "50 分贝有多大？", zhTW: "50 分貝有多大？" },
     perception: t(
-      "可以用普通家庭的室内背景声建立印象。门窗、通风和正在运行的电器，会一起改变房间里的声音。",
+      "50 分贝左右，可用普通家庭的室内背景声建立印象。本页保留 45–55 dB 参考范围；是否影响睡觉，还要看声音是否持续、突然启停和周围背景。",
       "Think of everyday household background sound. Windows, ventilation and running appliances all contribute to what you hear in a room.",
-      "可以用一般家庭的室內背景聲建立印象。門窗、通風和正在運轉的電器，會一起改變房間裡的聲音。",
+      "50 分貝左右，可用一般家庭的室內背景聲建立印象。本頁保留 45–55 dB 參考範圍；是否影響睡覺，還要看聲音是否持續、突然啟停和周圍背景。",
     ),
-    topic: t("普通家庭环境声", "Background noise at home", "一般家庭環境聲"),
+    topic: t("45–55 分贝家庭环境声参考", "Background noise at home", "45–55 分貝家庭環境聲參考"),
     answer: t(
-      "45–55 dB 来自 EPA 1979 年资料中的室内家庭环境示例。它可以帮助理解常见背景声，但不是当前住宅的标准限值，也不是每个家庭都应达到的范围。",
+      "50 分贝落在 EPA 1979 年资料给出的 45–55 dB 室内家庭环境范围内，可以借此认识家庭背景声的量级。原图未给出统一测距，也未把 50 dB 单列为测量值；这段历史示例不能当作当前住宅的标准限值或每个家庭都应达到的目标。",
       "The 45–55 dB range comes from an indoor household example in a 1979 EPA publication. It helps describe background sound, but is neither a current residential limit nor a target every home should meet.",
-      "45–55 dB 來自 EPA 1979 年資料中的室內家庭環境示例。它可以幫助理解常見背景聲，但不是現行住宅的標準限值，也不是每個家庭都應達到的範圍。",
+      "50 分貝落在 EPA 1979 年資料給出的 45–55 dB 室內家庭環境範圍內，可以藉此認識家庭背景聲的量級。原圖未給出統一測距，也未把 50 dB 單列為量測值；這段歷史示例不能當作現行住宅的標準限值或每個家庭都應達到的目標。",
     ),
     questions: [
       {
         question: t(
-          "家里 45–55 分贝算吵吗？",
+          "50 分贝算吵吗，会影响睡觉吗？",
           "Is 45–55 dB noisy for a home?",
-          "家裡 45–55 分貝算吵嗎？",
+          "50 分貝算吵嗎，會影響睡覺嗎？",
         ),
         answer: t(
-          "做饭、走动或开着电器时，这种背景声未必让人在意；读书和睡觉时，感受可能不同。先看是哪种声音、持续多久，不必只盯着一个数字。",
+          "白天做饭、走动时，50 分贝左右的背景声未必让人在意；夜里安静下来，持续的嗡嗡声、突然启停或反复出现的声响可能更明显。能不能睡好，还要结合声音本身和个人感受。先记下干扰出现的时段与声源，再尝试调整电器或门窗。",
           "During cooking, movement or appliance use, this background may not bother you. Reading or sleeping can feel different. Notice the source and how long it lasts, rather than watching only the number.",
-          "煮飯、走動或開著電器時，這種背景聲未必讓人在意；讀書和睡覺時，感受可能不同。先看是哪種聲音、持續多久，不必只盯著一個數字。",
+          "白天煮飯、走動時，50 分貝左右的背景聲未必讓人在意；夜裡安靜下來，持續的嗡嗡聲、突然啟停或反覆出現的聲響可能更明顯。能不能睡好，還要結合聲音本身和個人感受。先記下干擾出現的時段與聲源，再嘗試調整電器或門窗。",
         ),
+        chineseLink: {
+          pageId: "noise-reduction",
+          hash: "scenarios",
+          label: { zh: "查看卧室噪音的处理方法", zhTW: "查看臥室噪音的處理方法" },
+        },
       },
       {
         question: t(
-          "为什么开窗和关窗，声音能差这么多？",
+          "房间测到 50 分贝，怎样比较开窗和关窗的影响？",
           "Why can opening a window make such a difference?",
-          "為什麼開窗和關窗，聲音能差這麼多？",
+          "房間測到 50 分貝，怎樣比較開窗和關窗的影響？",
         ),
         answer: t(
-          "窗外的车流、人声和施工声会进入房间。想比较窗户的影响，就把手机放在同一个地方，分别观察开窗和关窗时的一段声音。",
+          "窗外的车流、人声和施工声会进入房间。把手机放在同一位置，保持方向、设置和观察时长一致，分别观察开窗与关窗时的读数和实际听感；电器运行状态也尽量相同。网页给出未经专业校准的估算，两次读数的差值不能直接当作窗户的隔声性能。",
           "Traffic, voices and construction noise can enter through the window. To compare, leave the phone in one place and observe for a while with the window open and then closed.",
-          "窗外的車流、人聲和施工聲會進入房間。想比較窗戶的影響，就把手機放在同一個地方，分別觀察開窗和關窗時的一段聲音。",
+          "窗外的車流、人聲和施工聲會進入房間。把手機放在同一位置，保持方向、設定和觀察時長一致，分別觀察開窗與關窗時的讀數和實際聽感；電器運轉狀態也盡量相同。網頁給出未經專業校正的估算，兩次讀數的差值不能直接當作窗戶的隔音性能。",
         ),
+        chineseLink: {
+          pageId: "noise-reduction",
+          hash: "compare",
+          label: { zh: "按相同条件比较调整前后", zhTW: "按相同條件比較調整前後" },
+        },
       },
     ],
     relatedSoundIds: ["library", "conversation"],

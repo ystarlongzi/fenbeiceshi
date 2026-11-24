@@ -16,6 +16,7 @@ export interface SoundQuestion extends SoundQuestionDefinition {
 export interface SoundDetail {
   key: string;
   sounds: SoundReference[];
+  chineseHeading?: SoundDetailDefinition["chineseHeading"];
   questions: SoundQuestion[];
   content: SiteContent;
 }
@@ -44,6 +45,7 @@ const idsBySound = new Map(
 export const soundDetails: SoundDetail[] = groups.map(({ definition, sounds, key }) => ({
   key,
   sounds,
+  chineseHeading: definition.chineseHeading,
   questions: [
     ...definition.questions.map((question, index) => ({
       id: index === 0 ? "scenario-question" : "reference-question",
@@ -110,14 +112,14 @@ function buildContent(
     kind: "article",
     updated: definition.updated ?? "2026-10-25",
     title: t(
-      `${range} 分贝有多大？${definition.topic.zh}`,
+      `${definition.chineseHeading?.zh ?? `${range} 分贝有多大？`}${definition.topic.zh}`,
       `How loud is ${range} dB? ${definition.topic.en}`,
-      `${range} 分貝有多大？${definition.topic.zhTW}`,
+      `${definition.chineseHeading?.zhTW ?? `${range} 分貝有多大？`}${definition.topic.zhTW}`,
     ),
     description: t(
-      `${range} 分贝听起来有多响？${definition.perception.zh}`,
+      `${definition.chineseHeading?.zh ?? `${range} 分贝听起来有多响？`}${definition.perception.zh}`,
       `How loud is ${range} dB? ${definition.perception.en}`,
-      `${range} 分貝聽起來有多響？${definition.perception.zhTW}`,
+      `${definition.chineseHeading?.zhTW ?? `${range} 分貝聽起來有多響？`}${definition.perception.zhTW}`,
     ),
     takeaway: definition.perception,
     sections: [

@@ -23,13 +23,17 @@ export function SoundDetailPage({ detail, locale }: { detail: SoundDetail; local
       id={detail.content.id}
       locale={locale}
       className={styles.article}
-      heading={formatLocalized(
-        locale,
-        `${range} 分贝有多大？`,
-        "How loud is {range} dB?",
-        `${range} 分貝有多大？`,
-        { range },
-      )}
+      heading={
+        chinese && detail.chineseHeading
+          ? detail.chineseHeading[chinese]
+          : formatLocalized(
+              locale,
+              `${range} 分贝有多大？`,
+              "How loud is {range} dB?",
+              `${range} 分貝有多大？`,
+              { range },
+            )
+      }
       overview={<SoundOverview detail={detail} locale={locale} />}
       sectionClasses={{
         examples: `${styles.chapter} ${styles.examplesSection}`,

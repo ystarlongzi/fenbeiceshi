@@ -104,6 +104,32 @@ test("声级入口只匹配已存在的准确单值或完整范围，不把落�
   assert.equal(detailForLevel({ min: 47, max: 70 }), undefined);
 });
 
+test("50 分贝中文查询由完整家庭范围承接，标题覆盖不改写原始声级或国际词条", () => {
+  const home = detailForSound("home");
+  assert.equal(home.key, "45-55");
+  assert.equal(home.content.slug, "knowledge/decibel-chart/45-55-db");
+  assert.equal(referenceRange(home.sounds[0]), "45–55");
+  assert.equal(home.sounds[0].unit, "dB");
+  assert.ok(home.chineseHeading);
+  assert.deepEqual(home.chineseHeading, {
+    zh: "50 分贝有多大？",
+    zhTW: "50 分貝有多大？",
+  });
+  for (const locale of ["zh-CN", "zh-TW"] as const) {
+    const heading = home.chineseHeading[locale === "zh-CN" ? "zh" : "zhTW"];
+    assert.ok(text(home.content.title, locale).startsWith(heading));
+    assert.match(text(home.content.title, locale), /45–55/);
+    assert.ok(String(pageMetadata(home.content.id, locale).title).startsWith(heading));
+    assert.match(text(home.content.takeaway, locale), /50.*45–55 dB/);
+  }
+  assert.equal(home.content.title.en, "How loud is 45–55 dB? Background noise at home");
+  assert.equal(home.questions[0].question.en, "Is 45–55 dB noisy for a home?");
+  assert.deepEqual(
+    home.questions.slice(0, 2).map((item) => item.chineseLink?.hash),
+    ["scenarios", "compare"],
+  );
+});
+
 test("每个主题有两条生活化问答，听力标题直接提问并区分低声级与强声", () => {
   for (const locale of locales) {
     const topicQuestions = soundDetails.flatMap((detail) => detail.questions.slice(0, 2));

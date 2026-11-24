@@ -24,8 +24,11 @@ export const chineseChartIntro = [
   {
     pageId: "decibel-45-55",
     label: "45–55 dB",
-    before: { zh: "普通家庭背景声约 ", zhTW: "普通家庭背景聲約 " },
-    after: { zh: "，", zhTW: "，" },
+    before: {
+      zh: "50 分贝左右可参考普通家庭背景声（",
+      zhTW: "50 分貝左右可參考一般家庭背景聲（",
+    },
+    after: { zh: "），", zhTW: "），" },
   },
   {
     pageId: "decibel-60-70",
@@ -47,7 +50,7 @@ export const decibelChart: SiteContent = {
   id: "decibel-chart",
   slug: "knowledge/decibel-chart",
   kind: "article",
-  updated: "2026-11-23",
+  updated: "2026-11-24",
   title: t(
     "分贝对照表：常见声音有多大？",
     "Decibel Chart: How Loud Are Everyday Sounds?",

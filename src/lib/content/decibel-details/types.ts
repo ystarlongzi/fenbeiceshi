@@ -14,6 +14,7 @@ export interface SoundQuestionDefinition {
 export interface SoundDetailDefinition {
   soundIds: string[];
   updated?: string;
+  chineseHeading?: Pick<LocalizedText, "zh" | "zhTW">;
   topic: LocalizedText;
   perception: LocalizedText;
   answer: LocalizedText;
