@@ -57,3 +57,21 @@
 直接前版为 `f50371a3a7c33c1d2ad8acf5b82fdcc5e3c7d90c-27-1`，另一保留版为 `9d685b6e8b094aa469c921f013afcf9414b7304a-26-1`；双站均已核对。API 通知异常本身不回滚已通过健康检查的网页；网站异常按 [服务器部署](../部署/服务器部署.md) 分站回滚并重新检查。本轮没有执行生产回滚。
 
 本轮没有请求麦克风、录音、报告或实际手机测试，也没有修改应用 UI。Bing 状态为复查时点的数据；异步密钥验证及后续抓取、收录和搜索效果尚未确认。后续按原筛选口径在发布后 2–4 周复盘，避免把提交通知次数当成 SEO 成果。
+
+## 同日追加：网站地图缺页提示复查
+
+本节为后续独立操作，不改写前文的复查时点。用户反馈 Recommendations 的 `ruleId=106`「网站地图中缺少重要页面」，界面严重性为高，列出以下 3 个 URL：
+
+| URL                                                      | 当前线上 sitemap 中的结果 |
+| -------------------------------------------------------- | ------------------------- |
+| `https://fenbeiceshi.com/`                               | 存在                      |
+| `https://fenbeiceshi.com/knowledge/decibel-chart/`       | 存在                      |
+| `https://fenbeiceshi.com/zh-tw/knowledge/decibel-chart/` | 存在                      |
+
+独立读取 `https://fenbeiceshi.com/sitemap.xml`，返回 HTTP 200、`text/xml; charset=utf-8` 与 `no-cache`，共 94 个 URL，上述三条均按相同协议、域名与尾斜杠包含在内。当前文件未复现这三页缺失；未因提醒而伪造更新时间、增加重复 URL 或修改站点地图生成逻辑。
+
+Bing 网站地图页当时只有这一份已登记文件，显示上次提交 2026/11/13、上次爬网 2026/11/21、状态成功、发现 92 个 URL。随后仅对这份现有地图执行一次「重新提交」，界面先改为 2026/11/24 已提交、正在处理；刷新后已显示上次爬网 2026/11/24、状态成功、发现 94 个 URL。新地图已被处理，不把请求接收当作处理成功。
+
+返回原始 `ruleId=106` 报告后，提醒仍列出上述 3 条，尚未同步清除。可以确认当前文件包含目标页，且 Bing 的地图数据已从 92 更新至 94；不能据此确认原提醒的历史形成原因、后续何时消失或这些 URL 的最新索引状态。后续应分别复查地图处理、Recommendations 与 URL 索引结果。[Bing 网站地图帮助](https://www2.bing.com/webmasters/help/sitemaps-3b5cf6ed)将重新提交、最后处理状态和发现 URL 数作为独立记录，本轮没有另行发起全站扫描或逐条索引请求。
+
+本次未修改应用代码或触发新部署。界面文本、截图、线上 XML 及对照数据保存于忽略目录 `artifacts/bing-sitemap-20261124/`，包括 `rule106.txt`、`submitted-before.txt`、`resubmit-result.txt`、`after-refresh.txt`、`warning-after-refresh.txt` 和 `sitemap-audit.json`。文档归档仅运行格式及差异检查，不重复运行此前已通过的应用构建。
