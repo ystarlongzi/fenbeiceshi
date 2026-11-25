@@ -281,6 +281,15 @@
   .settingsSlot {
     display: none;
   }
+  .modeHint {
+    font-size: var(--font-size-caption);
+  }
+  .captureNote {
+    order: 1;
+    flex-basis: 100%;
+    justify-content: center;
+    max-width: none;
+  }
 }
 @media (max-width: 680px) {
   .workbench {
@@ -328,9 +337,6 @@
   .controls button {
     min-height: 42px;
     padding-inline: 16px;
-  }
-  .captureNote {
-    max-width: 140px;
   }
   .focused {
     --meter-height: 230px;
